@@ -16,11 +16,24 @@ export default function NotificationBanner({
   const dismissRef = useRef(onDismiss)
   dismissRef.current = onDismiss
 
+  const touchStartY = useRef(null)
+
   useEffect(() => {
     if (!visible) return
     const t = setTimeout(() => dismissRef.current(), AUTO_DISMISS_MS)
     return () => clearTimeout(t)
   }, [visible])
+
+  function handleTouchStart(e) {
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  function handleTouchEnd(e) {
+    if (touchStartY.current === null) return
+    const deltaY = touchStartY.current - e.changedTouches[0].clientY
+    touchStartY.current = null
+    if (deltaY > 50) onDismiss()
+  }
 
   if (!post || !action) return null
 
@@ -42,6 +55,8 @@ export default function NotificationBanner({
           style={{ top: NAVBAR_HEIGHT }}
           className="fixed left-0 right-0 z-50 px-4"
           onClick={onDismiss}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <div
             className={`relative max-w-sm mx-auto bg-white/90 backdrop-blur-md border border-gray-200 shadow-lg overflow-hidden ${

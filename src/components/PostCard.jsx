@@ -76,6 +76,7 @@ export default function PostCard({
       {isActive && (
         <div className="border-t border-gray-200 flex">
           <button
+            onClick={() => onAction('share')}
             disabled={disabled}
             className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 active:bg-gray-100 transition disabled:opacity-40 disabled:pointer-events-none"
           >

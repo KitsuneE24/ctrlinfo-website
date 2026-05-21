@@ -24,6 +24,9 @@ const posts = [
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Bien joué ! Tu as stoppé un contenu alarmiste conçu pour semer la peur.",
     warning: "Attention — les majuscules et l'urgence artificielle sont des signaux d'alerte classiques.",
+    domain: 'alerte-verite.net',
+    reactionCount: 45832,
+    commentCount: 2156,
   },
   {
     id: 2,
@@ -49,6 +52,9 @@ const posts = [
     learnMoreTips: 'https://www.lemonde.fr/les-decodeurs/',
     encouragement: "Bon réflexe ! Tu as identifié le faux expert médical.",
     warning: "Attention — vérifie toujours l'existence réelle d'un expert avant de lui faire confiance.",
+    domain: 'reseau-citoyen-libre.fr',
+    reactionCount: 23419,
+    commentCount: 876,
   },
   {
     id: 3,
@@ -74,6 +80,9 @@ const posts = [
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Parfait ! Tu as relayé une alerte officielle utile pour ta communauté.",
     warning: "Dommage — les alertes officielles de Météo France méritent d'être partagées pour protéger les gens.",
+    domain: 'meteofrance.com',
+    reactionCount: 8743,
+    commentCount: 312,
   },
   {
     id: 4,
@@ -99,6 +108,9 @@ const posts = [
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Excellent ! Tu as détecté une affirmation sans aucune preuve concrète.",
     warning: "Attention — des preuves « en route » et des sources anonymes ne sont jamais fiables.",
+    domain: 'lavoixdupeuple.nc',
+    reactionCount: 19284,
+    commentCount: 1043,
   },
   {
     id: 5,
@@ -124,6 +136,9 @@ const posts = [
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Bravo ! Tu as diffusé une info économique locale vérifiée et utile.",
     warning: "Dommage — c'est une info de RFO, média public de référence en Nouvelle-Calédonie.",
+    domain: 'la1ere.francetvinfo.fr',
+    reactionCount: 5621,
+    commentCount: 189,
   },
 
   // ==================== NIVEAU 2 ====================
@@ -151,6 +166,9 @@ const posts = [
     learnMoreTips: 'https://www.lemonde.fr/les-decodeurs/',
     encouragement: "Bien joué ! Tu as détecté une corrélation présentée à tort comme une preuve scientifique.",
     warning: "Attention — un site inconnu avec des chiffres précis ne suffit pas à faire une vraie étude scientifique.",
+    domain: 'scienceactualite.fr',
+    reactionCount: 31457,
+    commentCount: 1872,
   },
   {
     id: 7,
@@ -176,6 +194,9 @@ const posts = [
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Parfait ! Tu as partagé une analyse nuancée basée sur des sources officielles.",
     warning: "Dommage — cet article cite des données officielles et apporte de la nuance dans un débat complexe.",
+    domain: 'lefigaro.fr',
+    reactionCount: 12890,
+    commentCount: 945,
   },
   {
     id: 8,
@@ -201,6 +222,9 @@ const posts = [
     learnMoreTips: 'https://www.lemonde.fr/les-decodeurs/',
     encouragement: "Bien détecté ! NaturalNews est un site de désinformation documenté.",
     warning: "Attention — NaturalNews sélectionne les données pour confirmer une thèse préétablie.",
+    domain: 'naturalnews-france.com',
+    reactionCount: 28643,
+    commentCount: 1329,
   },
   {
     id: 9,
@@ -226,6 +250,9 @@ const posts = [
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Bon réflexe ! Un sondage non publié sur 150 personnes ne prouve rien.",
     warning: "Attention — méfie-toi des contenus qui te donnent toujours raison.",
+    domain: 'infolibre-nc.com',
+    reactionCount: 7234,
+    commentCount: 428,
   },
   {
     id: 10,
@@ -251,6 +278,9 @@ const posts = [
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Bravo ! Tu as informé ta communauté d'une décision politique importante.",
     warning: "Dommage — c'est une info d'un média local de référence sur la reconstruction du territoire.",
+    domain: 'lnc.nc',
+    reactionCount: 3142,
+    commentCount: 167,
   },
 
   // ==================== NIVEAU 3 ====================
@@ -278,6 +308,9 @@ const posts = [
     learnMoreTips: 'https://www.hoaxbuster.com',
     encouragement: "Bon réflexe ! Attendre avant de partager des images non vérifiées, c'est sage.",
     warning: "Attention — de vraies images peuvent être décontextualisées. Vérifie toujours la date et l'origine.",
+    domain: 'actumonde24.info',
+    reactionCount: 52341,
+    commentCount: 3287,
   },
   {
     id: 12,
@@ -303,6 +336,9 @@ const posts = [
     learnMoreTips: 'https://www.lemonde.fr/les-decodeurs/',
     encouragement: "Excellent ! Tu as détecté un faux expert économique non vérifiable.",
     warning: "Attention — un expert légitime est toujours trouvable dans les annuaires institutionnels.",
+    domain: 'lemonde.fr',
+    reactionCount: 18734,
+    commentCount: 2341,
   },
   {
     id: 13,
@@ -328,6 +364,9 @@ const posts = [
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Parfait ! Tu as partagé des données vérifiables sur la transition énergétique française.",
     warning: "Dommage — l'AFP et RTE sont des sources fiables et leurs données sont publiquement vérifiables.",
+    domain: 'afp.com',
+    reactionCount: 9876,
+    commentCount: 543,
   },
   {
     id: 14,
@@ -353,6 +392,9 @@ const posts = [
     learnMoreTips: 'https://www.lemonde.fr/les-decodeurs/',
     encouragement: "Bravo ! Tu as détecté une manipulation statistique sophistiquée.",
     warning: "Attention — des vrais chiffres peuvent construire une image trompeuse selon ce qui est omis.",
+    domain: 'bfmbusiness.bfmtv.com',
+    reactionCount: 34521,
+    commentCount: 2876,
   },
   {
     id: 15,
@@ -378,6 +420,9 @@ const posts = [
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Parfait ! Une découverte publiée dans Nature par l'Institut Pasteur mérite d'être partagée.",
     warning: "Dommage — Science & Vie et l'Institut Pasteur sont des sources scientifiques de référence.",
+    domain: 'science-et-vie.com',
+    reactionCount: 7654,
+    commentCount: 398,
   },
 ]
 
@@ -407,6 +452,9 @@ export const remediationPosts = {
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Tu reconnais maintenant l'urgence artificielle !",
     warning: "Plus un contenu te crie dessus, plus il faut ralentir et vérifier.",
+    domain: 'verif-express.net',
+    reactionCount: 8432,
+    commentCount: 312,
   },
   'Autorité inventée': {
     id: 'rem-autorite',
@@ -433,6 +481,9 @@ export const remediationPosts = {
     learnMoreTips: 'https://www.lemonde.fr/les-decodeurs/',
     encouragement: "Tu sais maintenant identifier les faux experts !",
     warning: "Un vrai expert a des publications académiques vérifiables et une affiliation réelle.",
+    domain: 'dr-expert.blog',
+    reactionCount: 5621,
+    commentCount: 234,
   },
   'Appel à la peur': {
     id: 'rem-peur',
@@ -459,6 +510,9 @@ export const remediationPosts = {
     learnMoreTips: 'https://www.hoaxbuster.com',
     encouragement: "Tu reconnais maintenant l'appel à la peur !",
     warning: "Plus un contenu te fait peur, plus il faut vérifier avant de partager.",
+    domain: 'danger-info.net',
+    reactionCount: 11234,
+    commentCount: 567,
   },
   'Fausse corrélation': {
     id: 'rem-correlation',
@@ -485,6 +539,9 @@ export const remediationPosts = {
     learnMoreTips: 'https://www.afis.org',
     encouragement: "Tu détectes maintenant les fausses corrélations !",
     warning: "Corrélation ≠ causalité. Cherche toujours le mécanisme qui expliquerait le lien.",
+    domain: 'santeplusmag.fr',
+    reactionCount: 9876,
+    commentCount: 432,
   },
   'Biais de confirmation': {
     id: 'rem-confirmation',
@@ -511,6 +568,9 @@ export const remediationPosts = {
     learnMoreTips: 'https://www.educnum.fr',
     encouragement: "Tu identifies maintenant le biais de confirmation !",
     warning: "Méfie-toi des contenus qui confirment toujours ce que tu penses déjà.",
+    domain: 'monopinion-express.fr',
+    reactionCount: 7654,
+    commentCount: 298,
   },
   'Cherry picking': {
     id: 'rem-cherry',
@@ -537,6 +597,9 @@ export const remediationPosts = {
     learnMoreTips: 'https://www.lemonde.fr/les-decodeurs/',
     encouragement: "Tu détectes maintenant le cherry picking !",
     warning: "Cherche des méta-analyses pour avoir une image complète des données.",
+    domain: 'leschiffresvais.com',
+    reactionCount: 6543,
+    commentCount: 187,
   },
   'Décontextualisation': {
     id: 'rem-decontex',
@@ -563,6 +626,9 @@ export const remediationPosts = {
     learnMoreTips: 'https://www.hoaxbuster.com',
     encouragement: "Tu identifies la décontextualisation !",
     warning: "La recherche d'image inversée est ton outil principal contre la décontextualisation.",
+    domain: 'actualitesmonde24.info',
+    reactionCount: 23456,
+    commentCount: 1234,
   },
   'Faux expert': {
     id: 'rem-expert',
@@ -589,6 +655,9 @@ export const remediationPosts = {
     learnMoreTips: 'https://www.lemonde.fr/les-decodeurs/',
     encouragement: "Tu sais maintenant reconnaître les faux experts !",
     warning: "Vérifie toujours un expert sur Google Scholar ou le site de son institution.",
+    domain: 'expertsmondiauxTV.com',
+    reactionCount: 4321,
+    commentCount: 156,
   },
   'Manipulation statistique': {
     id: 'rem-stats',
@@ -615,6 +684,9 @@ export const remediationPosts = {
     learnMoreTips: 'https://www.lemonde.fr/les-decodeurs/',
     encouragement: "Tu détectes maintenant la manipulation statistique !",
     warning: "Des vrais chiffres peuvent construire une image fausse selon comment ils sont présentés.",
+    domain: 'chiffresclairs.fr',
+    reactionCount: 8765,
+    commentCount: 432,
   },
 }
 

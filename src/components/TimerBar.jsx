@@ -35,7 +35,7 @@ export default function TimerBar({ active, onComplete }) {
   }, [active, controls])
 
   return (
-    <div className="w-full h-1 bg-zinc-100">
+    <div className="w-full h-[3px] bg-zinc-100">
       <motion.div
         animate={controls}
         style={{

@@ -1,9 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useRef } from 'react'
+import { CheckCircle, AlertTriangle, X } from 'lucide-react'
 
-// Must match the Navbar's rendered height
 const NAVBAR_HEIGHT = 80
-
 const AUTO_DISMISS_MS = 5000
 
 export default function NotificationBanner({
@@ -26,6 +25,7 @@ export default function NotificationBanner({
   if (!post || !action) return null
 
   const scoreDelta = post.scores[action]
+  const followersDelta = scoreDelta * 2
   const learnMoreUrl = isCorrect
     ? post.learnMoreUrl || post.sourceUrl
     : post.learnMoreTips
@@ -38,77 +38,70 @@ export default function NotificationBanner({
           initial={{ y: -120, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -120, opacity: 0 }}
-          transition={{ type: 'spring', damping: 22, stiffness: 260 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           style={{ top: NAVBAR_HEIGHT }}
           className="fixed left-0 right-0 z-50 px-4"
+          onClick={onDismiss}
         >
           <div
-            className={`max-w-sm mx-auto rounded-2xl shadow-xl overflow-hidden border-2 ${
-              isCorrect
-                ? 'bg-green-50 border-green-400'
-                : 'bg-orange-50 border-orange-400'
+            className={`relative max-w-sm mx-auto bg-white/90 backdrop-blur-md border border-gray-200 shadow-lg overflow-hidden ${
+              isCorrect ? 'border-l-4 border-l-green-500' : 'border-l-4 border-l-orange-500'
             }`}
           >
-            <div className="p-4 flex flex-col gap-2.5">
-              {/* Header row: icon + message + score */}
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-start gap-2 flex-1 min-w-0">
-                  <span className="text-xl shrink-0 mt-0.5">
-                    {isCorrect ? '✅' : '⚠️'}
-                  </span>
-                  <p
-                    className={`text-sm font-bold leading-snug ${
-                      isCorrect ? 'text-green-800' : 'text-orange-800'
-                    }`}
-                  >
-                    {isCorrect ? post.encouragement : post.warning}
-                  </p>
-                </div>
-                <span
-                  className={`text-xs font-bold px-2.5 py-1 rounded-full shrink-0 ${
-                    scoreDelta >= 0
-                      ? 'bg-green-200 text-green-800'
-                      : 'bg-red-200 text-red-800'
-                  }`}
-                >
-                  {scoreDelta >= 0 ? '+' : ''}
-                  {scoreDelta} pts
-                </span>
+            {/* Close button */}
+            <button
+              onClick={(e) => { e.stopPropagation(); onDismiss() }}
+              className="absolute top-2 right-2 text-gray-300 hover:text-gray-500 transition z-10"
+            >
+              <X size={14} />
+            </button>
+
+            <div className="p-3 flex items-start gap-2.5">
+              {/* LEFT: status icon 36×36 */}
+              <div className="shrink-0 w-9 h-9 flex items-center justify-center">
+                {isCorrect
+                  ? <CheckCircle size={26} className="text-green-500" strokeWidth={2} />
+                  : <AlertTriangle size={26} className="text-orange-500" strokeWidth={2} />
+                }
               </div>
 
-              {/* Bias badge (incorrect only) */}
-              {!isCorrect && post.biais && !post.biais.startsWith('Aucun') && (
-                <span className="self-start text-[11px] font-semibold px-2.5 py-1 rounded-full bg-orange-200 text-orange-900">
-                  {post.biais}
-                </span>
-              )}
+              {/* CENTER: text content */}
+              <div className="flex-1 min-w-0 pr-5">
+                <div className="flex items-center justify-between mb-0.5">
+                  <span className="text-xs font-bold text-gray-900">Alert NC</span>
+                  <span className="text-[10px] text-gray-400">il y a 1s</span>
+                </div>
 
-              {/* Explanation */}
-              <p className="text-xs text-zinc-600 leading-relaxed">
-                {isCorrect ? post.consequences[action] : post.explication}
-              </p>
+                <p className="text-xs text-gray-700 leading-snug line-clamp-2">
+                  {isCorrect ? post.encouragement : post.warning}
+                  {isCorrect && (
+                    <span className="font-bold text-green-600">
+                      {' '}+{followersDelta} abonnés
+                    </span>
+                  )}
+                </p>
 
-              {/* Learn more */}
-              {learnMoreUrl && (
-                <button
-                  onClick={() => onLearnMore(learnMoreUrl)}
-                  className={`self-start text-xs font-semibold underline underline-offset-2 active:opacity-60 transition-opacity ${
-                    isCorrect ? 'text-green-700' : 'text-orange-700'
-                  }`}
-                >
-                  En savoir plus →
-                </button>
-              )}
-            </div>
+                {!isCorrect && post.biais && !post.biais.startsWith('Aucun') && (
+                  <span className="inline-block mt-1 text-[10px] font-semibold px-1.5 py-0.5 bg-orange-100 text-orange-800">
+                    {post.biais}
+                  </span>
+                )}
 
-            {/* Auto-dismiss progress bar */}
-            <div className="w-full h-0.5 bg-zinc-200">
-              <motion.div
-                key={visible ? 'running' : 'idle'}
-                initial={{ width: '100%' }}
-                animate={{ width: '0%' }}
-                transition={{ duration: AUTO_DISMISS_MS / 1000, ease: 'linear' }}
-                className={isCorrect ? 'bg-green-400 h-full' : 'bg-orange-400 h-full'}
+                {learnMoreUrl && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); onLearnMore(learnMoreUrl) }}
+                    className="block mt-1 text-xs text-blue-500 font-medium"
+                  >
+                    En savoir plus →
+                  </button>
+                )}
+              </div>
+
+              {/* RIGHT: post thumbnail 48×48 */}
+              <img
+                src={post.image}
+                alt=""
+                className="shrink-0 w-12 h-12 object-cover"
               />
             </div>
           </div>

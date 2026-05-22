@@ -13,7 +13,7 @@ export default function PostCard({
 
   return (
     <div className="w-full bg-white border border-gray-200 overflow-hidden shadow-sm">
-      {/* Timer bar — very top, full width */}
+      {/* Timer bar — pinned at very top */}
       {isActive && (
         <TimerBar active={timerActive} onComplete={onTimerComplete} />
       )}
@@ -43,7 +43,7 @@ export default function PostCard({
       </div>
 
       {/* Caption text */}
-      <div className="px-3 pb-2.5">
+      <div className="px-3 pb-2">
         <p className="text-sm text-gray-800 leading-relaxed">{post.texte}</p>
       </div>
 
@@ -51,7 +51,7 @@ export default function PostCard({
       <img src={post.image} alt="" className="w-full aspect-video object-cover" />
 
       {/* Article preview below image */}
-      <div className="bg-gray-50 border-t border-gray-200 px-3 py-2">
+      <div className="bg-gray-50 border-t border-gray-200 px-3 py-1.5">
         <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide mb-0.5">
           {post.domain || post.source}
         </p>
@@ -61,7 +61,7 @@ export default function PostCard({
       </div>
 
       {/* Reaction count row */}
-      <div className="px-3 py-2 border-t border-gray-200 flex items-center justify-between">
+      <div className="px-3 py-1.5 border-t border-gray-200 flex items-center justify-between">
         <div className="flex items-center gap-1 text-xs text-gray-500">
           <span>👍</span>
           <span>😮</span>
@@ -78,7 +78,7 @@ export default function PostCard({
           <button
             onClick={() => onAction('share')}
             disabled={disabled}
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 active:bg-gray-100 transition disabled:opacity-40 disabled:pointer-events-none"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 active:bg-gray-100 transition disabled:opacity-40 disabled:pointer-events-none"
           >
             <ThumbsUp size={17} strokeWidth={2} />
             J'aime
@@ -86,7 +86,7 @@ export default function PostCard({
           <button
             onClick={() => onAction('share')}
             disabled={disabled}
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 active:bg-gray-100 transition border-l border-r border-gray-200 disabled:opacity-40 disabled:pointer-events-none"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 active:bg-gray-100 transition border-l border-r border-gray-200 disabled:opacity-40 disabled:pointer-events-none"
           >
             <Share2 size={17} strokeWidth={2} />
             Partager
@@ -94,7 +94,7 @@ export default function PostCard({
           <button
             onClick={() => onAction('report')}
             disabled={disabled}
-            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 active:bg-gray-100 transition disabled:opacity-40 disabled:pointer-events-none"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 active:bg-gray-100 transition disabled:opacity-40 disabled:pointer-events-none"
           >
             <Flag size={17} strokeWidth={2} />
             Signaler

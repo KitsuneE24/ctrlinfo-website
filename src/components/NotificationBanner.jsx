@@ -53,13 +53,13 @@ export default function NotificationBanner({
           exit={{ y: -120, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           style={{ top: NAVBAR_HEIGHT }}
-          className="fixed left-0 right-0 z-50 px-4"
+          className="absolute left-0 right-0 z-50"
           onClick={onDismiss}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
           <div
-            className={`relative max-w-sm mx-auto bg-white/90 backdrop-blur-md border border-gray-200 shadow-lg overflow-hidden ${
+            className={`relative bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-lg overflow-hidden ${
               isCorrect ? 'border-l-4 border-l-green-500' : 'border-l-4 border-l-orange-500'
             }`}
           >
@@ -72,7 +72,6 @@ export default function NotificationBanner({
             </button>
 
             <div className="p-3 flex items-start gap-2.5">
-              {/* LEFT: status icon 36×36 */}
               <div className="shrink-0 w-9 h-9 flex items-center justify-center">
                 {isCorrect
                   ? <CheckCircle size={26} className="text-green-500" strokeWidth={2} />
@@ -80,7 +79,6 @@ export default function NotificationBanner({
                 }
               </div>
 
-              {/* CENTER: text content */}
               <div className="flex-1 min-w-0 pr-5">
                 <div className="flex items-center justify-between mb-0.5">
                   <span className="text-xs font-bold text-gray-900">Alert NC</span>
@@ -112,7 +110,6 @@ export default function NotificationBanner({
                 )}
               </div>
 
-              {/* RIGHT: post thumbnail 48×48 */}
               <img
                 src={post.image}
                 alt=""

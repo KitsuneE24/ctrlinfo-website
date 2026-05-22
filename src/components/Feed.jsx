@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import posts, { remediationPosts } from '../data/posts'
 import Navbar from './Navbar'
@@ -17,6 +17,8 @@ const LEVEL_MESSAGES = {
 }
 
 export default function Feed() {
+  const contentRef = useRef(null)
+
   const [currentLevel, setCurrentLevel] = useState(1)
   const [levelTransition, setLevelTransition] = useState(false)
   const [postQueue, setPostQueue] = useState(() => posts.filter((p) => p.level === 1))
@@ -78,7 +80,7 @@ export default function Feed() {
   }
 
   function handleNext() {
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    if (contentRef.current) contentRef.current.scrollTop = 0
 
     if (currentPost) {
       setHistory((prev) => [currentPost, ...prev])
@@ -131,7 +133,7 @@ export default function Feed() {
   const actionsDisabled = action !== null || notificationVisible
 
   return (
-    <div className="flex flex-col w-full min-h-screen">
+    <div className="relative flex flex-col w-full h-full">
       <Navbar
         score={score}
         followers={followers}
@@ -151,7 +153,7 @@ export default function Feed() {
         onLearnMore={handleLearnMore}
       />
 
-      <div className="flex-1 px-0 pt-0 pb-12">
+      <div ref={contentRef} className="flex-1 overflow-y-auto no-scrollbar">
         {isAllDone ? (
           <div className="text-center py-12 px-6">
             <p className="text-5xl mb-4">🎉</p>
@@ -195,7 +197,7 @@ export default function Feed() {
           </motion.div>
         ) : (
           <div className="flex flex-col gap-1">
-            {/* Active post — slides in from below on each new post */}
+            {/* Active post — slides in from below */}
             <AnimatePresence mode="popLayout">
               {currentPost && (
                 <motion.div
@@ -221,7 +223,7 @@ export default function Feed() {
               )}
             </AnimatePresence>
 
-            {/* Past posts — faded, non-interactive */}
+            {/* Past posts — faded, non-interactive, visible below active card */}
             {history.slice(0, 5).map((post, i) => (
               <div
                 key={`past-${post.id}-${i}`}

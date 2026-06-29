@@ -123,7 +123,6 @@ export default function Feed() {
     setHistory([])
     setAction(null)
     setTimerActive(true)
-    window.scrollTo({ top: 0, behavior: 'instant' })
   }
 
   function handleLearnMore(url) {

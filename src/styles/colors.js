@@ -1,7 +1,8 @@
 export const brand = {
-  blue:    '#1800ad',
-  magenta: '#791561',
-  cream:   '#fffaf9',
+  blue:         '#1800ad',
+  magenta:      '#791561',
+  magentaLight: '#e0309a',
+  cream:        '#fffaf9',
 }
 
 export const headerGradient =

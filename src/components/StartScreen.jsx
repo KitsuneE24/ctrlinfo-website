@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { brand } from '../styles/colors'
 
 const EMOJIS = [
   '❤️','🔥','👏','😮','😂','💬','🎯','👀','💡','⚡','😱','🤔','💀','🙌','😍',
@@ -7,11 +8,11 @@ const EMOJIS = [
 ]
 
 const GRADIENTS = [
-  'linear-gradient(135deg, #1800ad, #791561)',
-  'linear-gradient(135deg, #791561, #1800ad)',
+  `linear-gradient(135deg, ${brand.blue}, ${brand.magenta})`,
+  `linear-gradient(135deg, ${brand.magenta}, ${brand.blue})`,
   'linear-gradient(135deg, #2a10c4, #9a1a7a)',
-  'linear-gradient(135deg, #0d0080, #791561)',
-  'linear-gradient(135deg, #1800ad, #4a0e8f)',
+  `linear-gradient(135deg, #0d0080, ${brand.magenta})`,
+  `linear-gradient(135deg, ${brand.blue}, #4a0e8f)`,
 ]
 
 export default function StartScreen({ onStart }) {
@@ -135,7 +136,7 @@ export default function StartScreen({ onStart }) {
       minHeight: '100vh',
       overflow: 'hidden',
       position: 'relative',
-      background: '#1800ad',
+      background: brand.blue,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -198,8 +199,8 @@ export default function StartScreen({ onStart }) {
           margin: '0 0 0.5rem',
           lineHeight: 1.05,
         }}>
-          <span style={{ color: '#fffaf9' }}>Alert</span>
-          <span style={{ color: '#ff6ab5' }}> NC</span>
+          <span style={{ color: brand.cream }}>Alert</span>
+          <span style={{ color: brand.magentaLight }}> NC</span>
         </h1>
 
         {/* Tagline */}
@@ -227,7 +228,7 @@ export default function StartScreen({ onStart }) {
         }}>
           <span style={{ fontSize: 20, flexShrink: 0 }}>⚡</span>
           <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,250,249,0.75)', lineHeight: 1.4 }}>
-            <strong style={{ color: '#fffaf9' }}>60 %</strong>
+            <strong style={{ color: brand.cream }}>60 %</strong>
             {' '}des jeunes ont déjà partagé une fake news sans le savoir
           </p>
         </div>
@@ -244,7 +245,7 @@ export default function StartScreen({ onStart }) {
         }}>
           {[
             <>Lis chaque post comme sur ton réseau préféré</>,
-            <>Choisis : <strong style={{ color: '#fffaf9' }}>J'aime</strong>, <strong style={{ color: '#fffaf9' }}>Partager</strong> ou <strong style={{ color: '#fffaf9' }}>Signaler</strong></>,
+            <>Choisis : <strong style={{ color: brand.cream }}>J'aime</strong>, <strong style={{ color: brand.cream }}>Partager</strong> ou <strong style={{ color: brand.cream }}>Signaler</strong></>,
             <>Gagne des abonnés en faisant les bons choix</>,
           ].map((text, i) => (
             <li key={i} style={{
@@ -263,7 +264,7 @@ export default function StartScreen({ onStart }) {
                 justifyContent: 'center',
                 fontSize: 11,
                 fontWeight: 700,
-                color: '#fffaf9',
+                color: brand.cream,
                 flexShrink: 0,
                 marginTop: 1,
               }}>
@@ -294,8 +295,8 @@ export default function StartScreen({ onStart }) {
               width: '100%',
               padding: '16px',
               borderRadius: 10,
-              background: '#fffaf9',
-              color: '#1800ad',
+              background: brand.cream,
+              color: brand.blue,
               fontWeight: 700,
               fontSize: 16,
               border: 'none',

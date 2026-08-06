@@ -1,7 +1,10 @@
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 
-export const POST_DURATION_MS = 15000
+// 30 s : de quoi lire la publication en entier, repérer les signaux et
+// décider. En dessous, le chrono pousse à répondre au réflexe — exactement le
+// comportement que le jeu cherche à désapprendre.
+export const POST_DURATION_MS = 30000
 
 export default function TimerBar({ active, onComplete }) {
   const controls = useAnimation()
@@ -35,15 +38,8 @@ export default function TimerBar({ active, onComplete }) {
   }, [active, controls])
 
   return (
-    <div className="w-full h-[3px] bg-zinc-100">
-      <motion.div
-        animate={controls}
-        style={{
-          width: '0%',
-          height: '100%',
-          background: 'linear-gradient(to right, #3b82f6, #f97316, #ef4444)',
-        }}
-      />
+    <div className="timer">
+      <motion.div className="timer__bar" animate={controls} style={{ width: '0%' }} />
     </div>
   )
 }

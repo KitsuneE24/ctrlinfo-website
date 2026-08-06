@@ -1,9 +1,11 @@
-import { useState, useRef } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import posts, { remediationPosts } from '../data/posts'
-import Navbar from './Navbar'
+import { useState, useRef, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { Sparkles, Trophy, GraduationCap } from 'lucide-react'
+import posts, { remediationPosts } from '../data/posts.index'
+import Page from './ui/Page'
+import FeedStats from './FeedStats'
 import PostCard from './PostCard'
-import NotificationBanner from './NotificationBanner'
+import FeedbackModal from './FeedbackModal'
 
 const LEVEL_MESSAGES = {
   2: {
@@ -16,8 +18,15 @@ const LEVEL_MESSAGES = {
   },
 }
 
+/** Opacité d'une publication selon sa distance à celle en cours. */
+function opacityFor(distance) {
+  if (distance === 0) return 1
+  return Math.max(0.18, 0.42 - (Math.abs(distance) - 1) * 0.06)
+}
+
 export default function Feed() {
-  const contentRef = useRef(null)
+  const activeRef = useRef(null)
+  const firstRenderRef = useRef(true)
 
   const [currentLevel, setCurrentLevel] = useState(1)
   const [levelTransition, setLevelTransition] = useState(false)
@@ -25,13 +34,10 @@ export default function Feed() {
   const [queueIdx, setQueueIdx] = useState(0)
   const [levelDoneCount, setLevelDoneCount] = useState(0)
   const [action, setAction] = useState(null)
-  const [score, setScore] = useState(0)
-  const [followers, setFollowers] = useState(1200)
   const [errorsPerBias, setErrorsPerBias] = useState({})
   const [biasRemediationAdded, setBiasRemediationAdded] = useState(new Set())
-  const [history, setHistory] = useState([])
   const [timerActive, setTimerActive] = useState(true)
-  const [notificationVisible, setNotificationVisible] = useState(false)
+  const [feedbackVisible, setFeedbackVisible] = useState(false)
 
   const levelPosts = posts.filter((p) => p.level === currentLevel)
   const isAllDone = currentLevel > 3
@@ -45,17 +51,25 @@ export default function Feed() {
       ? action === currentPost.correctAction
       : false
 
+  // Le fil est continu : on amène la publication en cours en haut de l'écran
+  // plutôt que de remonter tout en haut du fil. On ne le fait pas au premier
+  // rendu, sinon le bandeau de progression et les règles passeraient d'emblée
+  // hors de l'écran.
+  useEffect(() => {
+    if (firstRenderRef.current) {
+      firstRenderRef.current = false
+      return
+    }
+    activeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [queueIdx, currentLevel])
+
   function handleAction(type) {
     if (action !== null) return
-    const delta = currentPost.scores[type]
-    setScore((prev) => prev + delta)
-    setFollowers((prev) => Math.max(0, prev + delta * 2))
 
     if (type !== currentPost.correctAction && !currentPost.isRemediation) {
       const biais = currentPost.biais
       const newCount = (errorsPerBias[biais] || 0) + 1
-      const newErrors = { ...errorsPerBias, [biais]: newCount }
-      setErrorsPerBias(newErrors)
+      setErrorsPerBias({ ...errorsPerBias, [biais]: newCount })
 
       if (newCount === 2 && !biasRemediationAdded.has(biais) && remediationPosts[biais]) {
         const newQueue = [...postQueue]
@@ -67,7 +81,7 @@ export default function Feed() {
 
     setAction(type)
     setTimerActive(false)
-    setNotificationVisible(true)
+    setFeedbackVisible(true)
   }
 
   function handleTimerExpire() {
@@ -75,17 +89,11 @@ export default function Feed() {
   }
 
   function handleDismiss() {
-    setNotificationVisible(false)
+    setFeedbackVisible(false)
     handleNext()
   }
 
   function handleNext() {
-    if (contentRef.current) contentRef.current.scrollTop = 0
-
-    if (currentPost) {
-      setHistory((prev) => [currentPost, ...prev])
-    }
-
     setAction(null)
     const nextIdx = queueIdx + 1
 
@@ -97,13 +105,8 @@ export default function Feed() {
 
     if (nextIdx >= postQueue.length) {
       if (newLevelDoneCount >= levelPosts.length) {
-        if (currentLevel < 3) {
-          setLevelTransition(true)
-          setHistory([])
-        } else {
-          setCurrentLevel(4)
-          setHistory([])
-        }
+        if (currentLevel < 3) setLevelTransition(true)
+        else setCurrentLevel(4)
       }
       return
     }
@@ -120,7 +123,6 @@ export default function Feed() {
     setQueueIdx(0)
     setLevelDoneCount(0)
     setBiasRemediationAdded(new Set())
-    setHistory([])
     setAction(null)
     setTimerActive(true)
   }
@@ -129,22 +131,12 @@ export default function Feed() {
     window.open(url, '_blank', 'noopener,noreferrer')
   }
 
-  const actionsDisabled = action !== null || notificationVisible
+  const actionsDisabled = action !== null || feedbackVisible
 
   return (
-    <div className="relative flex flex-col w-full h-full">
-      <Navbar
-        score={score}
-        followers={followers}
-        progress={levelProgress}
-        alias="TuVérifies"
-        currentLevel={Math.min(currentLevel, 3)}
-        levelDoneCount={levelDoneCount}
-        levelTotal={levelPosts.length}
-      />
-
-      <NotificationBanner
-        visible={notificationVisible}
+    <div className="app__screen feed">
+      <FeedbackModal
+        visible={feedbackVisible}
         isCorrect={isCorrect}
         post={currentPost}
         action={action}
@@ -152,89 +144,86 @@ export default function Feed() {
         onLearnMore={handleLearnMore}
       />
 
-      <div ref={contentRef} className="flex-1 overflow-y-auto no-scrollbar">
+      <Page feed>
         {isAllDone ? (
-          <div className="text-center py-12 px-6">
-            <p className="text-5xl mb-4">🎉</p>
-            <h2 className="text-xl font-bold text-zinc-900 mb-2">Mission terminée !</h2>
-            <p className="text-zinc-600 mb-1">
-              Score final :{' '}
-              <span className="font-bold text-brand-blue">{score} pts</span>
+          <section className="card outcome">
+            <span className="outcome__badge">
+              <Trophy size={34} strokeWidth={1.8} />
+            </span>
+            <h2 className="outcome__title">Mission terminée&nbsp;!</h2>
+            <p className="outcome__note">
+              Tu as traité les trois niveaux. Ce que tu retiens des explications
+              compte davantage qu'un score — retourne dans le fil quand tu veux
+              refaire l'exercice.
             </p>
-            <p className="text-zinc-600">
-              Abonnés :{' '}
-              <span className="font-bold">{followers.toLocaleString('fr-FR')}</span>
-            </p>
-          </div>
+          </section>
         ) : levelTransition ? (
-          <motion.div
+          <motion.section
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="mx-4 mt-8 p-6 border border-zinc-200 bg-white shadow-sm text-center flex flex-col gap-4"
+            className="card outcome"
           >
-            <p className="text-4xl">🔓</p>
-            <h2 className="text-xl font-bold text-zinc-900">
+            <span className="outcome__badge outcome__badge--small">
+              <Sparkles size={24} strokeWidth={2} />
+            </span>
+            <h2 className="outcome__title">
               {LEVEL_MESSAGES[currentLevel + 1]?.title}
             </h2>
-            <p className="text-sm text-zinc-500 leading-relaxed">
+            <p className="outcome__note">
               {LEVEL_MESSAGES[currentLevel + 1]?.subtitle}
             </p>
-            <div className="text-xs text-zinc-400">
-              Score actuel :{' '}
-              <span className="font-semibold text-zinc-600">
-                {score >= 0 ? '+' : ''}
-                {score} pts
-              </span>
+            <div className="outcome__action">
+              <button type="button" onClick={handleLevelUnlock} className="button">
+                Continuer
+              </button>
             </div>
-            <button
-              onClick={handleLevelUnlock}
-              className="w-full py-3 bg-zinc-900 text-white font-semibold text-sm active:scale-95 transition"
-            >
-              Continuer →
-            </button>
-          </motion.div>
+          </motion.section>
         ) : (
-          <div className="flex flex-col gap-1">
-            {/* Active post — slides in from below */}
-            <AnimatePresence mode="popLayout">
-              {currentPost && (
-                <motion.div
-                  key={`post-${currentPost.id}-${queueIdx}`}
-                  initial={{ y: 64, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.35, ease: 'easeOut' }}
+          <>
+            <FeedStats
+              progress={levelProgress}
+              currentLevel={Math.min(currentLevel, 3)}
+              levelDoneCount={levelDoneCount}
+              levelTotal={levelPosts.length}
+            />
+
+
+            {/*
+              Fil continu : toutes les publications du niveau sont là dès le
+              départ. Seule celle en cours est à pleine opacité et reste
+              interactive ; les autres s'estompent avec la distance.
+            */}
+            {postQueue.map((post, i) => {
+              const isActive = i === queueIdx
+              return (
+                <div
+                  key={`${post.id}-${i}`}
+                  ref={isActive ? activeRef : null}
+                  style={{ opacity: opacityFor(i - queueIdx) }}
+                  aria-hidden={isActive ? undefined : 'true'}
                 >
-                  {currentPost.isRemediation && (
-                    <div className="px-3 py-1.5 bg-amber-50 border-b border-amber-200 text-xs text-amber-700 font-medium">
+                  {post.isRemediation && (
+                    <p className="remediation">
+                      <GraduationCap size={15} strokeWidth={2} />
                       Entraînement ciblé — reconnaître ce biais
-                    </div>
+                    </p>
                   )}
                   <PostCard
-                    post={currentPost}
-                    isActive
+                    post={post}
+                    isActive={isActive}
                     timerActive={timerActive}
                     onTimerComplete={handleTimerExpire}
                     onAction={handleAction}
                     disabled={actionsDisabled}
+                    selectedAction={isActive ? action : null}
                   />
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* Past posts — faded, non-interactive, visible below active card */}
-            {history.slice(0, 5).map((post, i) => (
-              <div
-                key={`past-${post.id}-${i}`}
-                className="pointer-events-none select-none"
-                style={{ opacity: Math.max(0.08, 0.38 - i * 0.08) }}
-              >
-                <PostCard post={post} isActive={false} />
-              </div>
-            ))}
-          </div>
+                </div>
+              )
+            })}
+          </>
         )}
-      </div>
+      </Page>
     </div>
   )
 }

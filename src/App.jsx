@@ -1,5 +1,5 @@
-import HomePage from './components/HomePage'
+import AppShell from './components/AppShell'
 
 export default function App() {
-  return <HomePage />
+  return <AppShell />
 }

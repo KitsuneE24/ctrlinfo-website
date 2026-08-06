@@ -7,7 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "agent": "node agent/run.js --phase=1",
+    "agent:phase2": "node agent/run.js --phase=2",
+    "agent:collect": "node agent/steps/1-collect.js",
+    "agent:real": "node agent/steps/2-real.js",
+    "agent:fake": "node agent/steps/3-fake.js",
+    "agent:triage": "node agent/steps/4-triage.js",
+    "agent:build": "node agent/steps/5-build.js"
   },
   "dependencies": {
     "framer-motion": "^12.39.0",

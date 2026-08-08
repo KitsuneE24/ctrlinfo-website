@@ -1710,7 +1710,7 @@ button {
 
   .hero__title {
     margin: 0;
-    font-family: 'Archivo Black', system-ui, sans-serif;
+    font-family: var(--font-brand);
     font-size: 38px;
     line-height: 1.05;
     letter-spacing: -0.02em;
@@ -1850,6 +1850,40 @@ button {
     background: var(--brand-magenta);
     color: #fff;
   }
+  /* Corps de l'accueil : une colonne bornée en largeur et détachée des bords.
+     Deux raisons, une seule règle :
+       - les lignes de texte cessent de traverser tout l'écran ;
+       - la vidéo, moitié de cette colonne, ne dépasse plus en hauteur le texte
+         posé à côté d'elle — c'est ce déséquilibre qui creusait un grand vide
+         sous le résumé sur les écrans larges. */
+  .home__body {
+    display: flex;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: var(--gap-card);
+    padding: 16px 14px 24px;
+  }
+
+  .card-split {
+    padding-left: 2vw;
+  }
+
+  @media (min-width: 768px) {
+    .home__body {
+      padding: 24px 24px 32px;
+    }
+  }
+
+  /* La colonne a maintenant des bords : les blocs redeviennent des cartes
+     posées sur le fond. Arrondies, mais sans filet — c'est le fond lilas qui
+     les détache, un trait autour ferait formulaire. Trois classes pour
+     repasser devant les règles bord à bord de la section 3. */
+  .page__column .home__body .card {
+    border-radius: var(--radius-card);
+  }
+
 
   .lever__title {
     margin: 0;

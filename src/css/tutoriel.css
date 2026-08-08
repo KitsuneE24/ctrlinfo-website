@@ -1,0 +1,185 @@
+/* ========================================================================
+   TUTORIEL D'UN JEU
+   Un carrousel qui se lève par-dessus le jeu et couvre l'écran entier, barre
+   du bas comprise.
+   ======================================================================== */
+
+@layer components {
+  .tuto {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    /* Le jeu reste visible derrière, reculé. */
+    background: rgba(20, 8, 44, 0.55);
+    backdrop-filter: blur(3px);
+  }
+
+  .tuto__card {
+    display: flex;
+    width: 100%;
+    max-width: 420px;
+    flex-direction: column;
+    padding: 18px 18px 16px;
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 24px 60px rgba(20, 8, 44, 0.4);
+  }
+
+  .tuto__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .tuto__eyebrow {
+    margin: 0;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .tuto__game {
+    margin: 3px 0 0;
+    font-family: var(--font-title);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .tuto__skip {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--wash);
+    color: var(--ink-muted);
+    transition: background-color 0.15s;
+  }
+
+  .tuto__skip:hover {
+    background: var(--wash-strong);
+  }
+
+  /* Hauteur plancher : la fenêtre ne saute pas d'un volet à l'autre. */
+  .tuto__stage {
+    display: flex;
+    min-height: 210px;
+    align-items: center;
+    margin: 16px 0 4px;
+    overflow: hidden;
+  }
+
+  .tuto__slide {
+    width: 100%;
+    cursor: grab;
+    text-align: center;
+  }
+
+  .tuto__slide:active {
+    cursor: grabbing;
+  }
+
+  .tuto__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--brand-gradient);
+    color: var(--brand-cream);
+  }
+
+  .tuto__title {
+    margin: 14px 0 0;
+    font-family: var(--font-title);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .tuto__text {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  .tuto__dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  .tuto__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--wash-strong);
+    transition: width 0.18s, background-color 0.18s;
+  }
+
+  .tuto__dot--active {
+    width: 20px;
+    border-radius: 999px;
+    background: var(--brand-blue);
+  }
+
+  .tuto__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .tuto__back {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 14px 10px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: background-color 0.15s, opacity 0.15s;
+  }
+
+  .tuto__back:hover:not(:disabled) {
+    background: var(--wash);
+  }
+
+  /* Au premier volet, le bouton s'efface sans quitter sa place. */
+  .tuto__back:disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .tuto__next {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 11px 18px;
+    border-radius: 999px;
+    background: var(--brand-gradient);
+    color: var(--brand-cream);
+    font-size: 14px;
+    font-weight: 700;
+    transition: transform 0.12s;
+  }
+
+  .tuto__next:active {
+    transform: scale(0.97);
+  }
+}

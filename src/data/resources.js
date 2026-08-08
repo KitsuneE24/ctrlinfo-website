@@ -1,4 +1,4 @@
-import { brand } from '../styles/colors'
+import { brand } from '../css/colors'
 
 // Ressources de l'onglet « Ressources ». Liste volontairement courte et
 // éditable : ajouter une entrée suffit à la faire apparaître dans l'écran.

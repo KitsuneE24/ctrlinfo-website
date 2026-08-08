@@ -1,4 +1,4 @@
-import { brand } from './src/styles/colors'
+import { brand } from './src/css/colors'
 
 /** @type {import('tailwindcss').Config} */
 export default {

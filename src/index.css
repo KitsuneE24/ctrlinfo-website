@@ -639,7 +639,6 @@ button {
     gap: 12px;
     margin-bottom: 10px;
   }
-    font-family: var(--font-title);
 
   .feed-stats__level {
     padding: 3px 9px;
@@ -688,27 +687,80 @@ button {
     color: var(--ink-faint);
   }
 
-  /* --- Chrono du post --- */
+  /* --- Chrono du post ---
+     Un décompte en chiffres, logé dans l'en-tête de la publication à côté du
+     compte : on sait combien de temps il reste, et on le sait en arrivant sur
+     la publication, pas en cherchant une barre au ras du cadre. */
 
-  .timer {
-    height: 3px;
-    width: 100%;
-    background: var(--wash-strong);
+  /* Aux couleurs de la marque, pas en gris d'interface : c'est une contrainte
+     du jeu, pas une indication discrète. On doit comprendre au premier coup
+     d'œil que la publication est chronométrée. */
+  .countdown {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: baseline;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--brand-gradient);
+    color: var(--brand-cream);
+    font-size: 13px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    box-shadow: 0 3px 10px rgba(24, 0, 173, 0.28);
+    transition: background 0.25s, box-shadow 0.25s;
   }
 
-  .timer__bar {
-    height: 100%;
-    background: linear-gradient(
-      to right,
-      var(--brand-blue),
-      var(--brand-magenta),
-      var(--brand-magenta-light)
-    );
+  /* L'icône n'a pas de ligne de base : on la recale sur celle des chiffres. */
+  .countdown svg {
+    align-self: center;
   }
+
+  .countdown__value {
+    /* Deux chiffres réservés : le cadran ne se décale pas en passant de 10 à 9. */
+    min-width: 1.35em;
+    text-align: right;
+    font-size: 14.5px;
+  }
+
+  .countdown__unit {
+    font-size: 11.5px;
+    font-weight: 600;
+    opacity: 0.75;
+  }
+
+  /* Dix dernières secondes : le violet cède au rouge. La pulsation dit que ça
+     se termine, sans bouger la mise en page. */
+  .countdown--urgent {
+    background: var(--verdict-ko);
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(192, 57, 43, 0.4);
+    animation: countdown-pulse 1s ease-in-out infinite;
+  }
+    /* La page défile sous l'en-tête, qui n'est plus posé par-dessus : le
+       bandeau se cale donc simplement en haut de la zone défilante. */
 
   /* --- Publication --- */
 
   .post {
+    /* Sur téléphone, le bandeau déborde des gouttières de la colonne pour
+       occuper toute la largeur, comme une vraie barre d'application. Les
+       valeurs annulent exactement le padding de `.page__column--feed`. */
+    margin: -16px -12px 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  /* À partir du rail latéral, il redevient une carte comme les autres. */
+  @media (min-width: 768px) {
+    .feed-stats {
+      margin: 0;
+      border-radius: var(--radius-card);
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius-card);
@@ -842,6 +894,13 @@ button {
     flex-shrink: 0;
     margin-top: 3px;
     color: var(--ink-faint);
+  }
+
+  /* Le texte, posé avant l'image : ce qui est affirmé se lit avant ce qui est
+     montré. Même gouttière que le bas de carte, pour que la colonne de texte
+     soit d'aplomb du haut en bas. */
+  .post__lead {
+    padding: 0 14px 12px;
   }
 
   .post__link-domain {
@@ -1029,6 +1088,7 @@ button {
     font-size: 13px;
     line-height: 1.6;
     color: var(--ink-faint);
+    font-family: var(--font-title);
   }
 
   .outcome__action {
@@ -1086,6 +1146,7 @@ button {
   .messaging__scroll {
     flex: 1 1 0;
     min-height: 0;
+    font-family: var(--font-title);
     overflow-y: auto;
     overscroll-behavior: contain;
   }
@@ -1110,7 +1171,11 @@ button {
     text-align: center;
   }
 
+  /* Un ou deux boutons : rejouer, et l'autre jeu proposé à la suite. */
   .messaging__empty-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     display: flex;
     align-items: center;
     justify-content: center;

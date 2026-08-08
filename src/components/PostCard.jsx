@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Heart, Send, Flag, Link2 } from 'lucide-react'
-import TimerBar from './TimerBar'
+import Countdown from './Countdown'
 
 function ActionIcon({ label, onClick, disabled, active, modifier, children }) {
   return (
@@ -36,9 +36,9 @@ export default function PostCard({
 
   return (
     <article className={`post${isActive ? '' : ' post--past'}`}>
-      {/* Chrono du post, tout en haut de la carte. */}
-      {isActive && <TimerBar active={timerActive} onComplete={onTimerComplete} />}
-
+      {/* Qui parle, et combien de temps il reste : les deux ensemble, tout en
+          haut. Le fil amène chaque publication sous le bandeau de niveau, cette
+          ligne est donc la première chose qu'on voit en arrivant dessus. */}
       <header className="post__header">
         <span className="post__avatar" style={{ backgroundColor: post.sourceColor }}>
           {initial}
@@ -47,7 +47,29 @@ export default function PostCard({
           <p className="post__account">{post.source}</p>
           <p className="post__domain">{post.domain || 'publication sponsorisée'}</p>
         </div>
+        {isActive && <Countdown active={timerActive} onComplete={onTimerComplete} />}
       </header>
+
+      {/*
+        Le texte avant l'image, à l'inverse d'un fil ordinaire. C'est délibéré :
+        une photo forte emporte l'adhésion avant qu'on ait lu quoi que ce soit,
+        et c'est précisément ce réflexe que le jeu travaille. On lit d'abord ce
+        qui est affirmé, on voit l'illustration ensuite.
+      */}
+      <div className="post__lead">
+        <p className="post__caption">
+          <span className="post__caption-account">{post.source}</span> {post.texte}
+        </p>
+
+        {/* Aperçu de l'article partagé */}
+        <div className="post__link">
+          <Link2 size={14} className="post__link-icon" />
+          <div className="post__link-text">
+            <p className="post__link-domain">{post.domain || post.source}</p>
+            <p className="post__link-title">{post.titre}</p>
+          </div>
+        </div>
+      </div>
 
       <img src={post.image} alt="" className="post__media" />
 
@@ -90,20 +112,6 @@ export default function PostCard({
         <p className="post__likes">
           {(post.reactionCount ?? 1222).toLocaleString('fr-FR')} J'aime
         </p>
-
-        {/* Légende : nom du compte en gras suivi du texte. */}
-        <p className="post__caption">
-          <span className="post__caption-account">{post.source}</span> {post.texte}
-        </p>
-
-        {/* Aperçu de l'article partagé */}
-        <div className="post__link">
-          <Link2 size={14} className="post__link-icon" />
-          <div className="post__link-text">
-            <p className="post__link-domain">{post.domain || post.source}</p>
-            <p className="post__link-title">{post.titre}</p>
-          </div>
-        </div>
 
         {/* Compteur seul : rien n'est cliquable ici, la formulation ne promet
             donc aucune action. */}

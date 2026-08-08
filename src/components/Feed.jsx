@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Sparkles, Trophy, GraduationCap } from 'lucide-react'
+import { Sparkles, Trophy, GraduationCap, ArrowRight } from 'lucide-react'
 import posts, { remediationPosts } from '../data/posts.index'
+import { autreJeu } from '../data/games'
 import Page from './ui/Page'
 import FeedStats from './FeedStats'
 import PostCard from './PostCard'
@@ -24,9 +25,23 @@ function opacityFor(distance) {
   return Math.max(0.18, 0.42 - (Math.abs(distance) - 1) * 0.06)
 }
 
-export default function Feed() {
+export default function Feed({ onSwitch, enPause = false }) {
+  // Proposé à l'arrivée : plutôt que de laisser le joueur sur un écran final,
+  // on l'envoie vers l'autre jeu.
+  const suite = autreJeu('feed')
+
   const activeRef = useRef(null)
-  const firstRenderRef = useRef(true)
+  // La publication déjà amenée en haut de l'écran. Comparer plutôt que compter
+  // les rendus : en développement, React monte les effets deux fois, et un
+  // simple drapeau « premier rendu » laissait filer un défilement sur la
+  // première publication — son en-tête passait sous le bandeau de niveau.
+  const dernierScrollRef = useRef(null)
+  const statsRef = useRef(null)
+
+  // Hauteur réelle du bandeau collé en haut. Elle sert de marge de
+  // défilement : sans elle, la publication amenée en haut passerait sous le
+  // bandeau et on ne verrait plus son compte ni son avatar.
+  const [statsHeight, setStatsHeight] = useState(0)
 
   const [currentLevel, setCurrentLevel] = useState(1)
   const [levelTransition, setLevelTransition] = useState(false)
@@ -51,15 +66,28 @@ export default function Feed() {
       ? action === currentPost.correctAction
       : false
 
-  // Le fil est continu : on amène la publication en cours en haut de l'écran
-  // plutôt que de remonter tout en haut du fil. On ne le fait pas au premier
-  // rendu, sinon le bandeau de progression et les règles passeraient d'emblée
-  // hors de l'écran.
+  // On mesure le bandeau plutôt que de coder sa hauteur en dur : elle change
+  // avec la largeur de l'écran et la longueur du libellé de niveau.
+  // L'observateur émet un premier appel dès l'observation, ce qui donne la
+  // mesure initiale sans setState synchrone dans l'effet.
   useEffect(() => {
-    if (firstRenderRef.current) {
-      firstRenderRef.current = false
-      return
-    }
+    const el = statsRef.current
+    if (!el || typeof ResizeObserver === 'undefined') return
+    const observer = new ResizeObserver(() => setStatsHeight(el.offsetHeight))
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // Le fil est continu : on amène la publication en cours en haut de l'écran
+  // plutôt que de remonter tout en haut du fil. La toute première n'a pas
+  // besoin qu'on la déplace — elle est déjà en haut, et la bouger enfoncerait
+  // son en-tête sous le bandeau.
+  useEffect(() => {
+    const cle = `${currentLevel}:${queueIdx}`
+    const premiere = dernierScrollRef.current === null
+    if (dernierScrollRef.current === cle) return
+    dernierScrollRef.current = cle
+    if (premiere) return
     activeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }, [queueIdx, currentLevel])
 
@@ -156,6 +184,18 @@ export default function Feed() {
               compte davantage qu'un score — retourne dans le fil quand tu veux
               refaire l'exercice.
             </p>
+            {suite && (
+              <div className="outcome__action">
+                <button
+                  type="button"
+                  onClick={() => onSwitch(suite.id)}
+                  className="button"
+                >
+                  Enchaîner sur «&nbsp;{suite.titre}&nbsp;»
+                  <ArrowRight size={16} strokeWidth={2.2} />
+                </button>
+              </div>
+            )}
           </section>
         ) : levelTransition ? (
           <motion.section
@@ -173,15 +213,27 @@ export default function Feed() {
             <p className="outcome__note">
               {LEVEL_MESSAGES[currentLevel + 1]?.subtitle}
             </p>
+            {/* Fin de niveau : c'est le moment où l'on peut souffler, donc
+                celui où l'on propose l'autre jeu. */}
             <div className="outcome__action">
               <button type="button" onClick={handleLevelUnlock} className="button">
                 Continuer
               </button>
+              {suite && (
+                <button
+                  type="button"
+                  onClick={() => onSwitch(suite.id)}
+                  className="button button--ghost"
+                >
+                  Changer de jeu&nbsp;: «&nbsp;{suite.titre}&nbsp;»
+                </button>
+              )}
             </div>
           </motion.section>
         ) : (
           <>
             <FeedStats
+              ref={statsRef}
               progress={levelProgress}
               currentLevel={Math.min(currentLevel, 3)}
               levelDoneCount={levelDoneCount}
@@ -200,7 +252,12 @@ export default function Feed() {
                 <div
                   key={`${post.id}-${i}`}
                   ref={isActive ? activeRef : null}
-                  style={{ opacity: opacityFor(i - queueIdx) }}
+                  style={{
+                    opacity: opacityFor(i - queueIdx),
+                    // Marge respectée par scrollIntoView : la publication se
+                    // cale sous le bandeau, en-tête visible.
+                    scrollMarginTop: statsHeight + 12,
+                  }}
                   aria-hidden={isActive ? undefined : 'true'}
                 >
                   {post.isRemediation && (
@@ -212,7 +269,9 @@ export default function Feed() {
                   <PostCard
                     post={post}
                     isActive={isActive}
-                    timerActive={timerActive}
+                    // Relire les règles ne doit pas coûter la publication en
+                    // cours : le chrono s'arrête tant qu'elles sont à l'écran.
+                    timerActive={timerActive && !enPause}
                     onTimerComplete={handleTimerExpire}
                     onAction={handleAction}
                     disabled={actionsDisabled}

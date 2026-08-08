@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -13,14 +13,28 @@
    ========================================================================== */
 
 :root {
+  /*
+   * Deux familles, et une règle : les titres ne sont jamais du texte courant
+   * en gras. Le corps de texte est la police du système ; les titres sont en
+   * Archivo, plus étroite et plus dessinée — on distingue donc d'un coup d'œil
+   * un titre d'un simple <b> dans un paragraphe.
+   *
+   * Archivo Black, elle, reste réservée à la marque : le logotype et la
+   * bannière d'accueil.
+   */
+  --font-title: 'Archivo', 'Segoe UI', system-ui, sans-serif;
+  --font-brand: 'Archivo Black', system-ui, sans-serif;
+
   --brand-blue: #1800ad;
   --brand-magenta: #791561;
   --brand-magenta-light: #e0309a;
   --brand-cream: #fffaf9;
 
   /* Fond de page : légèrement plus soutenu que le blanc des cartes, pour que
-     les publications se détachent comme dans un vrai fil d'actualité. */
-  --page: #f0ecea;
+     les publications se détachent comme dans un vrai fil d'actualité. Ce n'est
+     pas un gris neutre mais un lilas très pâle, teinté du bleu de la marque —
+     le gris faisait « interface vide » derrière les blocs blancs. */
+  --page: #f1eef8;
   --surface: #ffffff;
 
   --ink: #262626;
@@ -39,12 +53,47 @@
   --verdict-ko: #c0392b;
 
   --brand-gradient: linear-gradient(135deg, var(--brand-blue), var(--brand-magenta));
-  --story-ring: linear-gradient(
-    135deg,
-    var(--brand-magenta-light),
-    var(--brand-magenta) 55%,
-    var(--brand-blue)
+
+  /*
+   * « Métal en fusion » : des reflets spéculaires qui dérivent sur le dégradé
+   * de marque, pour donner à la surface un aspect de métal liquide.
+   *
+   * Trois couches empilées, de la plus proche de l'œil à la plus lointaine :
+   *   1. les bandes claires et sombres — le reflet du métal poli ;
+   *   2. une nappe lumineuse en haut à gauche — la source de lumière ;
+   *   3. le dégradé de marque, qui donne sa couleur au métal.
+   *
+   * Tout passe par `background-image` : les fonds se peignent derrière le
+   * contenu, il n'y a donc aucun empilement à gérer et le texte reste net.
+   */
+  --molten-bands: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 6%,
+    rgba(255, 255, 255, 0.5) 18%,
+    rgba(255, 255, 255, 0) 29%,
+    rgba(0, 0, 0, 0.34) 40%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.4) 62%,
+    rgba(255, 255, 255, 0) 71%,
+    rgba(0, 0, 0, 0.28) 82%,
+    rgba(255, 255, 255, 0) 94%
   );
+
+  --molten-sheen: radial-gradient(
+    140% 95% at 16% -12%,
+    rgba(255, 255, 255, 0.42),
+    rgba(255, 255, 255, 0) 62%
+  );
+
+  /* Une couleur par onglet : le bleu de la marque, un bleu foncé, un mauve.
+     Elles ne servent qu'à l'état actif — au repos, les icônes restent
+     grises. */
+  --nav-home: #1800ad;   /* bleu de marque */
+  --nav-game: #0d0080;   /* bleu foncé */
+  --nav-feed: #0d0080;   /* bleu foncé — le fil d'actualité */
+  --nav-detect: #5c1a9e; /* violet — repère les indices */
+  --nav-chat: #8a4fbe;   /* mauve — les conversations */
+  --nav-sources: #791561; /* magenta de marque — les sources */
 
   --sa-top: env(safe-area-inset-top, 0px);
   --sa-bottom: env(safe-area-inset-bottom, 0px);
@@ -96,21 +145,88 @@ button {
 @layer components {
   /* ========================================================================
      2. COQUE ET NAVIGATION
-     Points de bascule : 768px le rail latéral remplace la barre d'onglets,
-     1280px le rail s'élargit et affiche ses libellés.
+     Deux navigations, une seule bascule, à 768px :
+       - au-delà, la barre horizontale d'icônes logée dans l'en-tête ;
+       - en deçà, la barre d'onglets du bas, jeux à plat.
+     Les deux sont toujours rendues, seule leur visibilité change.
      ======================================================================== */
 
   .app {
+    /* Hauteur fixe : l'en-tête garde le même format quel que soit le
+       défilement. */
+    --header-h: 60px;
+    position: relative;
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100dvh;
     overflow: hidden;
     background: var(--page);
   }
 
+  /* --- En-tête : logotype à gauche, navigation à droite --- */
+
+  .app-header {
+    z-index: 50;
+    flex-shrink: 0;
+    padding-top: var(--sa-top);
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .app-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    height: var(--header-h);
+    padding: 0 14px;
+  }
+
+  @media (min-width: 768px) {
+    .app-header__inner {
+      padding: 0 22px;
+    }
+  }
+
+  /* Le logotype ramène à l'accueil. */
+  .app-header__home {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 9px;
+    padding: 4px 6px 4px 0;
+    border-radius: 10px;
+    transition: opacity 0.15s;
+  }
+
+  .app-header__home:hover {
+    opacity: 0.75;
+  }
+
+  /* Le logotype porte la marque à lui seul : il est plus grand que le texte
+     qui l'accompagne, et occupe presque toute la hauteur de l'en-tête. */
+  .app-header__logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  .app-header__name {
+    font-family: var(--font-brand);
+    font-size: 19px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    background-image: var(--brand-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
   .app__main {
     display: flex;
     flex: 1 1 0;
+    min-height: 0;
     min-width: 0;
     flex-direction: column;
   }
@@ -122,84 +238,127 @@ button {
     flex-direction: column;
   }
 
-  /* --- Rail latéral (≥768px) --- */
+  /* --- Barre horizontale de l'en-tête : ordinateur uniquement --- */
 
-  .side-nav {
+  .top-nav {
     display: none;
-    flex-shrink: 0;
-    flex-direction: column;
-    padding: 20px 12px;
-    background: var(--surface);
-    border-right: 1px solid var(--line);
+    align-self: stretch;
   }
 
-  .side-nav__brand {
-    margin-bottom: 24px;
-    padding: 0 8px;
+  @media (min-width: 768px) {
+    .top-nav {
+      display: flex;
+    }
   }
 
-  .side-nav__logo {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-  }
-
-  .side-nav__list {
+  .top-nav__list {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    align-items: stretch;
+    gap: 2px;
   }
 
-  .side-nav__item {
+  .top-nav__group {
+    position: relative;
+    display: flex;
+  }
+
+  .top-nav__button {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 12px 8px;
+    justify-content: center;
+    gap: 3px;
+    width: 52px;
+    color: var(--ink-faint);
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  .top-nav__button:hover {
+    background: var(--wash);
+  }
+
+  .top-nav__button--menu {
+    width: 62px;
+  }
+
+  /* La couleur de l'onglet actif vient de l'onglet lui-même (navItems.js) ;
+     le trait sous l'icône la reprend. */
+  .top-nav__button--active::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 0;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    background: currentColor;
+  }
+
+  .top-nav__chevron {
+    transition: transform 0.18s;
+  }
+
+  .top-nav__chevron--open {
+    transform: rotate(180deg);
+  }
+
+  /* --- Menu déroulant de l'onglet « Jeux » --- */
+
+  .top-nav__menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    margin-top: 1px;
+    padding: 6px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+  }
+
+  .top-nav__menu-item {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
     border-radius: 8px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.35;
     color: var(--ink);
     transition: background-color 0.15s;
   }
 
-  .side-nav__item:hover {
+  .top-nav__menu-item:hover {
     background: var(--wash);
   }
 
-  .side-nav__item--active {
-    color: var(--brand-blue);
-    font-weight: 700;
+  .top-nav__menu-item--active {
+    color: var(--nav-game);
+    background: rgba(13, 0, 128, 0.06);
   }
 
-  .side-nav__label {
-    display: none;
-    font-size: 15px;
+  .top-nav__menu-text {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
   }
 
-  @media (min-width: 768px) {
-    .side-nav {
-      display: flex;
-      width: 76px;
-    }
+  .top-nav__menu-hint {
+    margin-top: 2px;
+    font-size: 11.5px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink-faint);
   }
 
-  @media (min-width: 1280px) {
-    .side-nav {
-      width: 245px;
-    }
-    .side-nav__brand {
-      padding: 0 12px;
-    }
-    .side-nav__logo {
-      display: none;
-    }
-    .side-nav__item {
-      padding: 12px;
-    }
-    .side-nav__label {
-      display: inline;
-    }
-  }
-
-  /* --- Barre d'onglets (<768px) --- */
+  /* --- Barre d'onglets du bas : téléphone uniquement --- */
 
   .tab-bar {
     z-index: 30;
@@ -224,7 +383,7 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 3px;
     padding: 6px 0;
     border-radius: 12px;
     color: var(--ink-faint);
@@ -235,15 +394,13 @@ button {
     transform: scale(0.9);
   }
 
-  .tab-bar__button--active {
-    color: var(--brand-blue);
-  }
-
+  /* La couleur de l'onglet actif vient de l'onglet lui-même (navItems.js) ;
+     le point d'état la reprend. */
   .tab-bar__dot {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: var(--brand-magenta-light);
+    background: currentColor;
     opacity: 0;
     transition: opacity 0.15s;
   }
@@ -294,8 +451,28 @@ button {
     flex-direction: column;
     overflow-y: auto;
     overscroll-behavior: contain;
-    background: var(--page);
-    padding-top: var(--sa-top);
+    /* Le bouton « Sources » flotte en bas à droite : on réserve la place pour
+       qu'il ne recouvre jamais la fin d'un écran. Sur téléphone il est plus
+       haut, puisqu'il passe au-dessus de la barre d'onglets — la réserve suit
+       (la zone défilante s'arrête déjà au-dessus de la barre, il n'y a donc
+       pas d'encoche à ajouter ici). */
+    padding-bottom: 5vh;
+    background-color: var(--surface);
+  }
+
+  /* Sur téléphone il n'y a plus de bouton flottant à esquiver : la barre du
+     bas suffit, et le contenu s'arrête juste au-dessus d'elle. */
+  @media (max-width: 767px) {
+    .page {
+      padding-bottom: 20px;
+    }
+  }
+
+  /* Les écrans qui remplissent la hauteur gèrent eux-mêmes leur bas de page
+     (le jeu de conversations et sa zone d'écriture) : le bouton est décalé
+     pour eux, voir `.sources-fab--sur-champ`. */
+  .page--fill {
+    padding-bottom: 0;
   }
 
   /* Par défaut, un écran occupe toute la largeur, bord à bord : ni marge
@@ -414,6 +591,16 @@ button {
     opacity: 0.4;
     transform: none;
   }
+  /* Enchaînement sans couture : aucun filet ne sépare les blocs. Utilisé par
+     l'accueil, où les sections se lisent d'une traite. */
+  .page__column--seamless .card {
+    border: 0;
+  }
+
+  .page__column--seamless .split > * + * {
+    border-left: 0;
+  }
+
 
   .button--ghost {
     background: transparent;
@@ -424,6 +611,7 @@ button {
   .button--cream {
     background: var(--brand-cream);
     color: var(--brand-blue);
+    font-family: var(--font-title);
   }
 
   /* ========================================================================
@@ -451,6 +639,7 @@ button {
     gap: 12px;
     margin-bottom: 10px;
   }
+    font-family: var(--font-title);
 
   .feed-stats__level {
     padding: 3px 9px;
@@ -1755,8 +1944,8 @@ button {
     color: #fff;
   }
 
-  /* Bandeau de recherche et de filtres, en tête de l'onglet Ressources. */
-  .resources__controls {
+  /* Bandeau de recherche et de filtres, en tête du panneau. */
+  .sources__controls {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -1764,7 +1953,7 @@ button {
     border-bottom: 1px solid var(--line);
   }
 
-  .resource-list {
+  .source-list {
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -1772,7 +1961,7 @@ button {
     list-style: none;
   }
 
-  .resource {
+  .source {
     display: flex;
     align-items: flex-start;
     gap: 12px;
@@ -1780,11 +1969,11 @@ button {
     transition: background-color 0.15s;
   }
 
-  .resource:hover {
+  .source:hover {
     background: var(--wash);
   }
 
-  .resource__badge {
+  .source__badge {
     display: flex;
     flex-shrink: 0;
     align-items: center;
@@ -1797,18 +1986,18 @@ button {
     font-weight: 700;
   }
 
-  .resource__text {
+  .source__text {
     min-width: 0;
     flex: 1 1 0;
   }
 
-  .resource__line {
+  .source__line {
     display: flex;
     align-items: center;
     gap: 6px;
   }
 
-  .resource__title {
+  .source__title {
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1818,7 +2007,7 @@ button {
     color: var(--ink);
   }
 
-  .resource__editor {
+  .source__editor {
     display: block;
     margin: 1px 0 0;
     font-size: 11.5px;
@@ -1827,7 +2016,7 @@ button {
     color: var(--ink-faint);
   }
 
-  .resource__desc {
+  .source__desc {
     display: block;
     margin: 6px 0 0;
     font-size: 13.5px;
@@ -1854,3 +2043,100 @@ button {
   }
 
 }
+  /*
+   * Le bouton se pose là où il ne recouvre rien d'utile — d'où une seule
+   * variable de hauteur plutôt qu'une cascade de `bottom`.
+   */
+  .sources-fab {
+    --fab-bottom: 16px;
+    position: fixed;
+    right: 16px;
+    bottom: calc(var(--fab-bottom) + var(--sa-bottom));
+    z-index: 70;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 18px;
+    border-radius: 999px;
+    background: var(--brand-gradient);
+    color: var(--brand-cream);
+    box-shadow: 0 10px 26px rgba(24, 0, 173, 0.34);
+    transition: transform 0.14s, bottom 0.2s;
+  }
+
+  .sources-fab:active {
+    transform: scale(0.95);
+  }
+
+  /* Sur le jeu de conversations, le bouton descend au niveau du champ de
+     saisie barré, et se pose dessus.
+     C'est la seule bande morte de l'écran : on n'y écrit jamais, rien n'y est
+     cliquable. Plus haut, il masquait une réponse à choisir — la seule chose
+     qu'on ait à faire ici. La valeur centre le bouton sur le champ : 10px de
+     marge du composeur, deux blocs de même hauteur. */
+  .sources-fab--sur-champ {
+    --fab-bottom: 10px;
+  }
+
+  /* Sur téléphone, les sources ont leur onglet dans la barre du bas : le
+     bouton flottant ferait doublon, et la réserve qu'il imposait en bas de
+     chaque écran laissait une grande bande vide. Il ne sert donc plus qu'à
+     l'ordinateur, où la barre du bas n'existe pas. */
+  @media (max-width: 767px) {
+    .sources-fab {
+      display: none;
+    }
+  }
+
+  .sources-fab__label {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* Sur les petits écrans, l'icône suffit : le libellé mangerait le contenu. */
+  @media (max-width: 520px) {
+    .sources-fab {
+      padding: 14px;
+    }
+    .sources-fab__label {
+      display: none;
+    }
+  }
+
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-title);
+  /* ========================================================================
+     SURFACES EN MÉTAL EN FUSION
+     Les zones colorées au dégradé de marque prennent un aspect de métal
+     liquide : des reflets clairs et sombres les parcourent lentement.
+
+     Cette règle vient volontairement en fin de feuille : les surfaces
+     concernées déclarent déjà `background: var(--brand-gradient)`, et c'est
+     l'ordre d'écriture qui décide — à spécificité égale, la dernière gagne.
+     ======================================================================== */
+
+  .hero,
+  .video__poster,
+  .tile__visual,
+  .outcome__badge,
+  .sources-fab {
+    background-image: var(--molten-bands), var(--molten-sheen), var(--brand-gradient);
+    /* Les bandes sont deux fois et demie plus larges que la surface : c'est
+       ce débord qui leur laisse de la place pour dériver. */
+    background-size: 260% 100%, 100% 100%, 100% 100%;
+    background-position: 0% 0, 0 0, 0 0;
+    background-blend-mode: overlay, screen, normal;
+    animation: molten-flow 18s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes countdown-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes molten-flow {
+  to {
+    background-position: 100% 0, 0 0, 0 0;
+  }

@@ -6,26 +6,15 @@ import ChatScreen from './ChatScreen'
 import DetectGame from './DetectScreen'
 
 /**
- * Onglet « Jeux » : la sous-navigation, puis le jeu choisi — ou, si aucun ne
- * l'est, la galerie de présentation.
+ * Onglet « Jeux » : la barre du jeu, puis le jeu choisi — ou la galerie si
+ * aucun ne l'est. Le jeu en cours vient de la coque (AppShell).
  *
- * Les conversations sont un jeu comme les autres : elles entrent par ici, au
- * même titre que le fil et les indices.
+ * Deux drapeaux pour le tutoriel :
  *
- * Le jeu en cours n'est pas un état local : il vient de la coque (AppShell),
- * pour que le menu déroulant du haut et les onglets de la page pilotent
- * exactement la même chose.
- *
- * Deux drapeaux disent ce que fait le tutoriel, parce qu'il ne fait pas la même
- * chose selon qu'il s'ouvre tout seul ou qu'on le rouvre :
- *
- * - `enAttente` — ce sont les règles d'ouverture. Le jeu est monté derrière,
- *   on l'aperçoit en fond, mais il est remonté à leur fermeture : sinon le
- *   chrono du fil aurait tourné pendant la lecture et la partie commencerait
- *   avec la moitié de son temps consommée.
- * - `enPause` — les règles sont à l'écran, quelles qu'elles soient. Le jeu
- *   garde son état mais suspend ce qui court : relire les règles en pleine
- *   partie ne doit pas coûter la publication en cours.
+ * - `enAttente` — ce sont les règles d'ouverture. Le jeu est remonté à leur
+ *   fermeture, pour qu'il démarre à neuf.
+ * - `enPause` — des règles sont à l'écran. Le jeu garde son état mais suspend
+ *   ce qui court.
  */
 export default function GameScreen({
   jeu,

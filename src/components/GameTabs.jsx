@@ -2,19 +2,13 @@ import { HelpCircle } from 'lucide-react'
 import games from '../data/games'
 
 /**
- * Barre du jeu en cours, posée entre l'en-tête du site et le jeu lui-même.
- * Elle porte deux choses, et elles n'apparaissent pas aux mêmes largeurs :
+ * Barre du jeu en cours, entre l'en-tête du site et l'aire de jeu :
  *
- * - les onglets, pour passer d'un jeu à l'autre — à partir de 768px seulement.
- *   Sur téléphone, les jeux se choisissent dans la galerie, et le nom du jeu en
- *   cours prend leur place ;
- * - le bouton « Règles du jeu », dès qu'une partie est ouverte. Il est ici et
- *   pas dans l'en-tête du site : à côté du nom du jeu, on comprend que ce sont
- *   ses règles à lui, pas celles d'Alert NC. Et il est hors de l'aire de jeu,
- *   donc il ne recouvre jamais une publication, une réponse ou un indice.
+ * - les onglets, pour changer de jeu — à partir de 768px seulement ;
+ * - le bouton « Règles du jeu », dès qu'une partie est ouverte. Il est ici, à
+ *   côté du nom du jeu, pour qu'on lise « ses règles à lui ».
  *
- * Sur téléphone, la barre disparaît entièrement dans la galerie : sans jeu en
- * cours, elle n'aurait rien à dire.
+ * Sur téléphone, la barre disparaît dans la galerie.
  */
 const TOUS = 'tous'
 

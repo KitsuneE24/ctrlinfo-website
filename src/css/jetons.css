@@ -1,0 +1,54 @@
+/* ==========================================================================
+   JETONS
+   Palette, polices, rayons, encoches. Doublés en JS dans colors.js.
+   ========================================================================== */
+
+@layer base {
+  :root {
+    /* Titres en Archivo ; Archivo Black réservée à la marque. Le corps de
+       texte est la police du système. */
+    --font-title: 'Archivo', 'Segoe UI', system-ui, sans-serif;
+    --font-brand: 'Archivo Black', system-ui, sans-serif;
+
+    --brand-blue: #1800ad;
+    --brand-magenta: #791561;
+    --brand-magenta-light: #e0309a;
+    --brand-cream: #fffaf9;
+
+    /* Fond de page : un lilas très pâle, pour détacher les cartes blanches. */
+    --page: #f1eef8;
+    --surface: #ffffff;
+
+    --ink: #262626;
+    --ink-soft: #3a3a3a;
+    --ink-muted: #5a5a5a;
+    --ink-faint: #8e8e8e;
+    --ink-ghost: #a3a3a3;
+
+    --line: rgba(0, 0, 0, 0.1);
+    --line-strong: rgba(0, 0, 0, 0.15);
+    --wash: rgba(0, 0, 0, 0.03);
+    --wash-strong: rgba(0, 0, 0, 0.06);
+
+    --like-red: #ed4956;
+    --verdict-ok: #1a7f4b;
+    --verdict-ko: #c0392b;
+
+    --brand-gradient: linear-gradient(135deg, var(--brand-blue), var(--brand-magenta));
+
+    /* Une couleur par onglet, pour l'état actif seulement. */
+    --nav-home: #1800ad;
+    --nav-game: #0d0080;
+    --nav-feed: #0d0080;
+    --nav-detect: #5c1a9e;
+    --nav-chat: #8a4fbe;
+    --nav-sources: #791561;
+
+    --sa-top: env(safe-area-inset-top, 0px);
+    --sa-bottom: env(safe-area-inset-bottom, 0px);
+
+    --radius-card: 12px;
+    --gap-card: 14px;
+    --content-max: 640px;
+  }
+}

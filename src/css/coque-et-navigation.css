@@ -1,0 +1,264 @@
+/* ========================================================================
+   COQUE ET NAVIGATION
+   Bascule à 768px : au-delà, la barre d'icônes de l'en-tête ; en deçà, la
+   barre d'onglets du bas. Les deux sont rendues, seule la visibilité change.
+   ======================================================================== */
+
+@layer components {
+  .app {
+    --header-h: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+    background: var(--page);
+  }
+
+  /* --- En-tête : logotype à gauche, navigation à droite --- */
+
+  .app-header {
+    z-index: 50;
+    flex-shrink: 0;
+    padding-top: var(--sa-top);
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .app-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    height: var(--header-h);
+    padding: 0 14px;
+  }
+
+  @media (min-width: 768px) {
+    .app-header__inner {
+      padding: 0 22px;
+    }
+  }
+
+  .app-header__home {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 9px;
+    padding: 4px 6px 4px 0;
+    border-radius: 10px;
+    transition: opacity 0.15s;
+  }
+
+  .app-header__home:hover {
+    opacity: 0.75;
+  }
+
+  .app-header__logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  .app-header__name {
+    font-family: var(--font-brand);
+    font-size: 19px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    background-image: var(--brand-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .app__main {
+    display: flex;
+    flex: 1 1 0;
+    min-height: 0;
+    min-width: 0;
+    flex-direction: column;
+  }
+
+  .app__screen {
+    display: flex;
+    flex: 1 1 0;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  /* --- Barre horizontale de l'en-tête : ordinateur uniquement --- */
+
+  .top-nav {
+    display: none;
+    align-self: stretch;
+  }
+
+  @media (min-width: 768px) {
+    .top-nav {
+      display: flex;
+    }
+  }
+
+  .top-nav__list {
+    display: flex;
+    align-items: stretch;
+    gap: 2px;
+  }
+
+  .top-nav__group {
+    position: relative;
+    display: flex;
+  }
+
+  .top-nav__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    width: 52px;
+    color: var(--ink-faint);
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  .top-nav__button:hover {
+    background: var(--wash);
+  }
+
+  .top-nav__button--menu {
+    width: 62px;
+  }
+
+  /* Couleur de l'onglet actif : elle vient de navItems.js. */
+  .top-nav__button--active::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 0;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    background: currentColor;
+  }
+
+  .top-nav__chevron {
+    transition: transform 0.18s;
+  }
+
+  .top-nav__chevron--open {
+    transform: rotate(180deg);
+  }
+
+  /* --- Menu déroulant de l'onglet « Jeux » --- */
+
+  .top-nav__menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    margin-top: 1px;
+    padding: 6px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+  }
+
+  .top-nav__menu-item {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--ink);
+    transition: background-color 0.15s;
+  }
+
+  .top-nav__menu-item:hover {
+    background: var(--wash);
+  }
+
+  .top-nav__menu-item--active {
+    color: var(--nav-game);
+    background: rgba(13, 0, 128, 0.06);
+  }
+
+  .top-nav__menu-text {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+  }
+
+  .top-nav__menu-hint {
+    margin-top: 2px;
+    font-size: 11.5px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink-faint);
+  }
+
+  /* --- Barre d'onglets du bas : téléphone uniquement --- */
+
+  .tab-bar {
+    z-index: 30;
+    flex-shrink: 0;
+    background: color-mix(in srgb, var(--surface) 95%, transparent);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+    padding-bottom: var(--sa-bottom);
+  }
+
+  .tab-bar__list {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    padding: 6px 4px;
+  }
+
+  .tab-bar__button {
+    position: relative;
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 6px 0;
+    border-radius: 12px;
+    color: var(--ink-faint);
+    transition: transform 0.12s;
+  }
+
+  .tab-bar__button:active {
+    transform: scale(0.9);
+  }
+
+  /* Couleur de l'onglet actif : elle vient de navItems.js. */
+  .tab-bar__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .tab-bar__button--active .tab-bar__dot {
+    opacity: 1;
+  }
+
+  @media (min-width: 768px) {
+    .tab-bar {
+      display: none;
+    }
+  }
+}

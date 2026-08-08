@@ -1,0 +1,461 @@
+/* ========================================================================
+   FIL DE JEU
+   ======================================================================== */
+
+@layer components {
+  /* Bandeau de progression, collé en haut pendant le défilement. Opaque : les
+     publications passent dessous. */
+  .feed-stats {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 14px 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    /* Débord pleine largeur : annule le padding de `.page__column--feed`. */
+    margin: -16px -12px 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  /* Sur grand écran, une carte comme les autres. */
+  @media (min-width: 768px) {
+    .feed-stats {
+      margin: 0;
+      border-radius: var(--radius-card);
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
+  }
+
+  /* Niveau à gauche, avancement et décompte à droite. */
+  .feed-stats__top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .feed-stats__level {
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--brand-magenta);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+
+  .feed-stats__track {
+    height: 4px;
+    width: 100%;
+    border-radius: 999px;
+    background: var(--wash-strong);
+    overflow: hidden;
+  }
+
+  .feed-stats__bar {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--brand-blue), var(--brand-magenta-light));
+    transition: width 0.5s;
+  }
+
+  .feed-stats__caption {
+    margin: 0 0 0 auto;
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+
+  /* --- Chrono de la publication ---
+     Il vit dans le bandeau ci-dessus, qui ne défile pas. */
+
+  .countdown {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: baseline;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--brand-gradient);
+    color: var(--brand-cream);
+    font-size: 13px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    box-shadow: 0 3px 10px rgba(24, 0, 173, 0.28);
+    transition: background 0.25s, box-shadow 0.25s;
+  }
+
+  /* L'icône n'a pas de ligne de base : on la recale. */
+  .countdown svg {
+    align-self: center;
+  }
+
+  .countdown__value {
+    /* Deux chiffres réservés, pour que le cadran ne se décale pas. */
+    min-width: 1.35em;
+    text-align: right;
+    font-size: 14.5px;
+  }
+
+  .countdown__unit {
+    font-size: 11.5px;
+    font-weight: 600;
+    opacity: 0.75;
+  }
+
+  /* Dix dernières secondes. */
+  .countdown--urgent {
+    background: var(--verdict-ko);
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(192, 57, 43, 0.4);
+    animation: countdown-pulse 1s ease-in-out infinite;
+  }
+
+  /* --- Publication --- */
+
+  .post {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  .post--past {
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .post__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .post__avatar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .post__identity {
+    min-width: 0;
+    flex: 1 1 0;
+    line-height: 1.3;
+  }
+
+  .post__account {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .post__domain {
+    margin: 1px 0 0;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Le texte, posé avant l'image. Même gouttière que le bas de carte. */
+  .post__lead {
+    padding: 0 14px 12px;
+  }
+
+  .post__media {
+    display: block;
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    background: var(--wash);
+  }
+
+  .post__actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 14px 6px;
+  }
+
+  .post__action {
+    color: var(--ink);
+    transition: opacity 0.15s;
+  }
+
+  .post__action:disabled {
+    opacity: 0.4;
+  }
+
+  .post__action--liked {
+    color: var(--like-red);
+  }
+
+  .post__action--reported {
+    color: var(--brand-magenta);
+  }
+
+  .post__action--last {
+    margin-left: auto;
+  }
+
+  .post__body {
+    padding: 4px 14px 16px;
+  }
+
+  .post__likes {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .post__caption {
+    margin: 6px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  .post__caption-account {
+    font-weight: 600;
+  }
+
+  .post__link {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--wash);
+  }
+
+  .post__link-text {
+    min-width: 0;
+  }
+
+  .post__link-icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: var(--ink-faint);
+  }
+
+  .post__link-domain {
+    margin: 0;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .post__link-title {
+    margin: 2px 0 0;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  .post__comments {
+    margin: 10px 0 0;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+
+  .post__date {
+    margin: 4px 0 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-ghost);
+  }
+
+  /* Bandeau d'entraînement ciblé, au-dessus d'un post de remédiation. */
+  .remediation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: var(--brand-magenta);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .feed {
+    position: relative;
+  }
+
+
+  /* --- Retour après un choix : fenêtre centrée --- */
+
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(20, 8, 40, 0.55);
+    backdrop-filter: blur(4px);
+  }
+
+  .modal__card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 28px 24px 24px;
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+    text-align: center;
+  }
+
+  /* Filet en haut de la fenêtre : bleu si le choix est bon, magenta sinon. */
+  .modal__card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5px;
+    border-radius: 18px 18px 0 0;
+    background: var(--brand-gradient);
+  }
+
+  .modal__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: rgba(24, 0, 173, 0.08);
+    color: var(--brand-blue);
+  }
+
+  .modal__card--wrong .modal__badge {
+    background: rgba(121, 21, 97, 0.08);
+    color: var(--brand-magenta);
+  }
+
+  .modal__title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .modal__text {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+  }
+
+  .modal__bias {
+    display: inline-block;
+    margin: 14px 0 0;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--brand-magenta);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .modal__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 22px;
+  }
+
+  /* --- Écrans de transition et de fin --- */
+
+  .outcome {
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .outcome__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: var(--brand-gradient);
+    color: #fff;
+  }
+
+  .outcome__badge--small {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 14px;
+  }
+
+  .outcome__title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .outcome__line {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+
+  .outcome__figure {
+    font-weight: 700;
+    color: var(--brand-blue);
+  }
+
+  .outcome__note {
+    max-width: 34ch;
+    margin: 12px auto 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-faint);
+  }
+
+  /* Un ou deux boutons : rejouer, et l'autre jeu proposé à la suite. */
+  .outcome__action {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 22px;
+  }
+}
+
+@keyframes countdown-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}

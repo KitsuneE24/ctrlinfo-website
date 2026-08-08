@@ -1,4 +1,4 @@
-import { brand } from '../styles/colors'
+import { brand } from '../css/colors'
 
 /**
  * Mini-jeux de conversation (écrans « Mini-jeu conv » de la maquette).

@@ -1,0 +1,114 @@
+/* ========================================================================
+   ACCUEIL
+   ======================================================================== */
+
+@layer components {
+  /* Corps de l'accueil : colonne bornée en largeur, détachée des bords. La
+     borne tient aussi la hauteur de la vidéo, qui en occupe la moitié. */
+  .home__body {
+    display: flex;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: var(--gap-card);
+    padding: 16px 14px 24px;
+  }
+
+
+  @media (min-width: 768px) {
+    .home__body {
+      padding: 24px 24px 32px;
+    }
+  }
+
+  /* Cartes arrondies, sans filet : c'est le fond lilas qui les détache. Trois
+     classes pour repasser devant les règles bord à bord de colonne-de-contenu. */
+  .page__column .home__body .card {
+    border-radius: var(--radius-card);
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 34px 22px 28px;
+    border-radius: var(--radius-card);
+    background: var(--brand-gradient);
+    text-align: center;
+    color: var(--brand-cream);
+  }
+
+  .hero__title {
+    margin: 0;
+    font-family: var(--font-brand);
+    font-size: 38px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .hero__tagline {
+    max-width: 30ch;
+    margin: 12px auto 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255);
+  }
+
+  /* En grand écran, l'accroche tient sur une ligne. */
+  @media (min-width: 768px) {
+    .hero__tagline {
+      max-width: none;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+  }
+
+
+  .video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+
+  .video__poster {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--brand-gradient);
+  }
+
+  .video__play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 250, 249, 0.95);
+    transition: transform 0.15s;
+  }
+
+  .video__poster:active .video__play {
+    transform: scale(0.9);
+  }
+
+  .video__hint {
+    margin: 0;
+    padding: 0 24px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(255, 250, 249, 0.85);
+  }
+
+  .video__player {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

@@ -1,14 +1,11 @@
 import TopNav from './TopNav'
 
 /**
- * En-tête de l'application : le logotype à gauche, la navigation à droite —
- * la disposition d'un site, pas celle d'une application mobile.
+ * En-tête de l'application : le logotype à gauche, qui ramène à l'accueil, et
+ * la navigation à droite.
  *
- * Le logotype est cliquable : il ramène à l'accueil, où qu'on soit.
- *
- * Rien de propre à un jeu ne se range ici : ce bandeau appartient au site. Les
- * règles d'un jeu, elles, sont dans la barre du jeu (voir GameTabs) — sans quoi
- * on les prendrait pour celles de l'application entière.
+ * Rien de propre à un jeu ici : ses règles sont dans la barre du jeu, voir
+ * GameTabs.
  */
 export default function AppHeader({ tab, jeu, onNavigate }) {
   return (

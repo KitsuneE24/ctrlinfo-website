@@ -11,37 +11,26 @@ import GameScreen from '../screens/GameScreen'
 import SourcesScreen from '../screens/SourcesScreen'
 
 /**
- * Coque de l'application.
+ * Coque de l'application : l'en-tête, l'écran en cours, la barre d'onglets du
+ * bas, et le bouton « Sources » par-dessus.
  *
- * Trois rangées empilées : l'en-tête, l'écran en cours, et la barre d'onglets
- * du bas. Le bouton « Sources » flotte par-dessus, en bas à droite, quel que
- * soit l'écran.
+ * Les deux navigations sont toujours rendues, le CSS décide laquelle se
+ * montre. Elles partagent le même état et les mêmes données (navItems.js).
  *
- * Les deux navigations sont toujours rendues, et c'est le CSS qui décide
- * laquelle se montre : la barre horizontale de l'en-tête sur ordinateur, la
- * barre d'onglets sur téléphone. Elles partagent le même état et les mêmes
- * données (navItems.js) — il n'y a pas deux applications à tenir à jour.
- *
- * Le tutoriel d'un jeu vit ici, et non dans l'écran de jeu : il s'ouvre de deux
- * manières — tout seul à la première partie, et par le bouton « Règles du jeu »
- * de la barre du jeu à tout moment.
+ * Le tutoriel d'un jeu vit ici : il s'ouvre tout seul à la première partie, et
+ * par le bouton « Règles du jeu » à tout moment.
  */
 export default function AppShell() {
   const [tab, setTab] = useState('home')
-  // Le jeu en cours vit ici et non dans GameScreen : le menu déroulant de
-  // l'en-tête doit pouvoir lancer un jeu directement, depuis n'importe quel
-  // onglet.
+  // Le jeu en cours, pour que le menu de l'en-tête puisse en lancer un depuis
+  // n'importe quel onglet.
   const [jeu, setJeu] = useState(null)
-  // D'où l'on venait avant d'ouvrir les sources. Le bouton fait alors l'aller
-  // et le retour : on les consulte sans perdre le fil de ce qu'on faisait.
+  // D'où l'on venait avant d'ouvrir les sources, pour y revenir.
   const [avantSources, setAvantSources] = useState(null)
-  // { id, auto } — quel tutoriel est ouvert, et s'il s'est ouvert de lui-même.
-  // La distinction compte à la fermeture, voir plus bas.
+  // { id, auto } — le tutoriel ouvert, et s'il s'est ouvert de lui-même.
   const [tuto, setTuto] = useState(null)
 
-  // Ouvrir un jeu, c'est aussi décider s'il commence par ses règles. La
-  // question se tranche ici, au moment du choix, plutôt que dans un effet qui
-  // courrait après le changement.
+  // Ouvrir un jeu, c'est aussi décider s'il commence par ses règles.
   const ouvrirJeu = useCallback((id) => {
     setJeu(id)
     setTuto(id && !dejaVu(`tuto:${id}`) ? { id, auto: true } : null)
@@ -98,9 +87,8 @@ export default function AppShell() {
                 jeu={jeu}
                 onSelect={ouvrirJeu}
                 onRevoirRegles={revoirRegles}
-                // Le jeu n'a pas encore commencé : ses règles sont à l'écran.
+                // Le jeu n'a pas commencé : ses règles sont à l'écran.
                 enAttente={tuto?.auto === true}
-                // Des règles sont ouvertes, d'une manière ou d'une autre.
                 enPause={tuto !== null}
               />
             )}
@@ -111,14 +99,9 @@ export default function AppShell() {
 
       <TabBar tab={tab} onNavigate={navigate} />
 
-      {/*
-        Bouton constant sur ordinateur : les sources sont à portée depuis tous
-        les écrans, et le même bouton ramène d'où l'on vient. Sur téléphone,
-        elles ont leur onglet dans la barre du bas et le bouton s'efface.
-
-        Sur les conversations, il descend se poser sur le champ de saisie barré
-        — la seule bande de l'écran qu'il ne prive de rien.
-      */}
+      {/* Ordinateur seulement : sur téléphone, les sources ont leur onglet dans
+          la barre du bas. Sur les conversations, le bouton descend se poser sur
+          le champ de saisie barré. */}
       <button
         type="button"
         onClick={basculerSources}

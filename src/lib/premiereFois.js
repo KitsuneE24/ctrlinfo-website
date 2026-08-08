@@ -1,12 +1,10 @@
 /**
- * « Est-ce la première fois ? » — la mémoire des choses qu'on ne montre qu'une
- * fois, le tutoriel d'un jeu par exemple.
+ * La mémoire des choses qu'on ne montre qu'une fois — le tutoriel d'un jeu.
  *
- * Tout passe par `localStorage`, et tout est enveloppé : en navigation privée,
- * sur un stockage plein ou derrière un blocage de cookies, y écrire lève une
- * exception. Un tutoriel ne vaut pas d'écran blanc — en cas d'échec on répond
- * simplement « oui, c'est la première fois », et il se remontrera. C'est le bon
- * sens du défaut : mieux vaut réexpliquer que priver.
+ * Tout passe par `localStorage` et tout est enveloppé : en navigation privée
+ * ou derrière un blocage de cookies, y écrire lève une exception. En cas
+ * d'échec on répond « oui, c'est la première fois » et le tutoriel se
+ * remontre.
  */
 const PREFIXE = 'alert-nc:vu:'
 
@@ -32,15 +30,6 @@ export function marquerVu(cle) {
   try {
     stockage()?.setItem(PREFIXE + cle, '1')
   } catch {
-    // Rien à faire : au pire, ce sera montré à nouveau.
-  }
-}
-
-/** Repartir de zéro — utile pour retester un tutoriel depuis la console. */
-export function oublier(cle) {
-  try {
-    stockage()?.removeItem(PREFIXE + cle)
-  } catch {
-    // idem
+    // Au pire, ce sera montré à nouveau.
   }
 }

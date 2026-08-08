@@ -415,27 +415,105 @@ button {
     }
   }
 
-  /* --- Logotype --- */
+  /* ------------------------------------------------------------------------
+     BARRE DU JEU
+     Entre l'en-tête du site et l'aire de jeu. À partir de 768px : les onglets
+     pour changer de jeu, et les règles du jeu en cours. En dessous : le nom du
+     jeu et ses règles seulement — les jeux se choisissent dans la galerie.
+     Sans partie en cours, la barre n'existe pas sur téléphone.
+     ------------------------------------------------------------------------ */
 
-  .wordmark {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .wordmark__logo {
+  .game-tabs {
+    display: none;
     flex-shrink: 0;
-    object-fit: contain;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
   }
 
-  .wordmark__text {
-    font-family: 'Archivo Black', system-ui, sans-serif;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    background-image: var(--brand-gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+  .game-tabs--partie {
+    display: flex;
+  }
+
+  .game-tabs__row {
+    display: none;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* Le nom du jeu, à la place des onglets sur téléphone. Il est là pour le
+     bouton d'à côté : « Règles du jeu », lequel ? Celui-ci. */
+  .game-tabs__current {
+    margin: 0;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: var(--font-title);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* Les règles du jeu en cours. Volontairement discret : on doit pouvoir le
+     trouver sans qu'il tire l'œil pendant une partie. */
+  .rules-button {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 13px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink-muted);
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .rules-button:hover {
+    border-color: var(--nav-game);
+    background: var(--wash);
+    color: var(--nav-game);
+  }
+
+  .game-tabs__tab {
+    padding: 8px 15px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .game-tabs__tab:hover {
+    background: var(--wash);
+  }
+
+  .game-tabs__tab--active {
+    border-color: var(--nav-game);
+    background: var(--nav-game);
+    color: #fff;
+  }
+
+  @media (min-width: 768px) {
+    .game-tabs {
+      display: flex;
+      padding: 10px 22px;
+    }
+    .game-tabs__row {
+      display: flex;
+    }
+    /* Les onglets nomment déjà le jeu en cours. */
+    .game-tabs__current {
+      display: none;
+    }
   }
 
   /* ========================================================================
@@ -513,6 +591,16 @@ button {
     border-right: 0;
   }
 
+  /* Enchaînement sans couture : aucun filet ne sépare les blocs. Utilisé par
+     l'accueil, où les sections se lisent d'une traite. */
+  .page__column--seamless .card {
+    border: 0;
+  }
+
+  .page__column--seamless .split > * + * {
+    border-left: 0;
+  }
+
   .page__heading {
     padding: 18px 16px 12px;
   }
@@ -523,6 +611,7 @@ button {
 
   .page__title {
     margin: 0;
+    font-family: var(--font-title);
     font-size: 22px;
     font-weight: 700;
     line-height: 1.2;
@@ -550,6 +639,7 @@ button {
 
   .card__title {
     margin: 0 0 10px;
+    font-family: var(--font-title);
     font-size: 17px;
     font-weight: 700;
     line-height: 1.25;
@@ -591,16 +681,6 @@ button {
     opacity: 0.4;
     transform: none;
   }
-  /* Enchaînement sans couture : aucun filet ne sépare les blocs. Utilisé par
-     l'accueil, où les sections se lisent d'une traite. */
-  .page__column--seamless .card {
-    border: 0;
-  }
-
-  .page__column--seamless .split > * + * {
-    border-left: 0;
-  }
-
 
   .button--ghost {
     background: transparent;
@@ -611,7 +691,6 @@ button {
   .button--cream {
     background: var(--brand-cream);
     color: var(--brand-blue);
-    font-family: var(--font-title);
   }
 
   /* ========================================================================
@@ -626,10 +705,30 @@ button {
      les publications défilent dessous, et la carte est opaque. */
   .feed-stats {
     position: sticky;
+    /* La page défile sous l'en-tête, qui n'est plus posé par-dessus : le
+       bandeau se cale donc simplement en haut de la zone défilante. */
     top: 0;
     z-index: 20;
     padding: 14px 16px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    /* Sur téléphone, le bandeau déborde des gouttières de la colonne pour
+       occuper toute la largeur, comme une vraie barre d'application. Les
+       valeurs annulent exactement le padding de `.page__column--feed`. */
+    margin: -16px -12px 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  /* À partir du rail latéral, il redevient une carte comme les autres. */
+  @media (min-width: 768px) {
+    .feed-stats {
+      margin: 0;
+      border-radius: var(--radius-card);
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
   }
 
   .feed-stats__top {
@@ -737,30 +836,10 @@ button {
     box-shadow: 0 3px 12px rgba(192, 57, 43, 0.4);
     animation: countdown-pulse 1s ease-in-out infinite;
   }
-    /* La page défile sous l'en-tête, qui n'est plus posé par-dessus : le
-       bandeau se cale donc simplement en haut de la zone défilante. */
 
   /* --- Publication --- */
 
   .post {
-    /* Sur téléphone, le bandeau déborde des gouttières de la colonne pour
-       occuper toute la largeur, comme une vraie barre d'application. Les
-       valeurs annulent exactement le padding de `.page__column--feed`. */
-    margin: -16px -12px 0;
-    border-radius: 0;
-    border-left: 0;
-    border-right: 0;
-  }
-
-  /* À partir du rail latéral, il redevient une carte comme les autres. */
-  @media (min-width: 768px) {
-    .feed-stats {
-      margin: 0;
-      border-radius: var(--radius-card);
-      border-left: 1px solid var(--line);
-      border-right: 1px solid var(--line);
-    }
-
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius-card);
@@ -815,6 +894,13 @@ button {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  /* Le texte, posé avant l'image : ce qui est affirmé se lit avant ce qui est
+     montré. Même gouttière que le bas de carte, pour que la colonne de texte
+     soit d'aplomb du haut en bas. */
+  .post__lead {
+    padding: 0 14px 12px;
   }
 
   .post__media {
@@ -894,13 +980,6 @@ button {
     flex-shrink: 0;
     margin-top: 3px;
     color: var(--ink-faint);
-  }
-
-  /* Le texte, posé avant l'image : ce qui est affirmé se lit avant ce qui est
-     montré. Même gouttière que le bas de carte, pour que la colonne de texte
-     soit d'aplomb du haut en bas. */
-  .post__lead {
-    padding: 0 14px 12px;
   }
 
   .post__link-domain {
@@ -1009,6 +1088,7 @@ button {
 
   .modal__title {
     margin: 0;
+    font-family: var(--font-title);
     font-size: 19px;
     font-weight: 700;
     color: var(--ink);
@@ -1066,6 +1146,7 @@ button {
 
   .outcome__title {
     margin: 0;
+    font-family: var(--font-title);
     font-size: 20px;
     font-weight: 700;
     color: var(--ink);
@@ -1088,10 +1169,13 @@ button {
     font-size: 13px;
     line-height: 1.6;
     color: var(--ink-faint);
-    font-family: var(--font-title);
   }
 
+  /* Un ou deux boutons : rejouer, et l'autre jeu proposé à la suite. */
   .outcome__action {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     margin-top: 22px;
   }
 
@@ -1146,7 +1230,6 @@ button {
   .messaging__scroll {
     flex: 1 1 0;
     min-height: 0;
-    font-family: var(--font-title);
     overflow-y: auto;
     overscroll-behavior: contain;
   }
@@ -1171,11 +1254,7 @@ button {
     text-align: center;
   }
 
-  /* Un ou deux boutons : rejouer, et l'autre jeu proposé à la suite. */
   .messaging__empty-icon {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1188,6 +1267,7 @@ button {
 
   .messaging__empty-title {
     margin: 0;
+    font-family: var(--font-title);
     font-size: 19px;
     color: var(--ink);
   }
@@ -1220,25 +1300,15 @@ button {
     background: var(--wash);
   }
 
-  .inbox-item__ring {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 58px;
-    height: 58px;
-    padding: 2.5px;
-    border-radius: 50%;
-    background: var(--story-ring);
-  }
-
+  /* Pas d'anneau de story : ce sont des conversations, pas un réseau social —
+     l'anneau laissait croire à un contenu à ouvrir. */
   .inbox-item__avatar {
     display: flex;
-    width: 100%;
-    height: 100%;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
     align-items: center;
     justify-content: center;
-    border: 2.5px solid var(--surface);
     border-radius: 50%;
     color: #fff;
     font-size: 19px;
@@ -1314,7 +1384,6 @@ button {
     align-items: center;
     gap: 10px;
     padding: 12px 14px;
-    padding-top: calc(12px + var(--sa-top));
     border-bottom: 1px solid var(--line);
   }
 
@@ -1504,7 +1573,8 @@ button {
 
   /* --- Zone d'écriture ---
      Les choix reprennent l'apparence du champ de saisie : choisir une réponse
-     revient visuellement à l'envoyer. */
+     revient visuellement à l'envoyer. Le champ, lui, ne disparaît jamais : il
+     reste en place, grisé, sous les choix — la messagerie garde sa forme. */
 
   .composer {
     flex-shrink: 0;
@@ -1518,6 +1588,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    margin-bottom: 6px;
   }
 
   .composer__field {
@@ -1531,6 +1602,21 @@ button {
     background: var(--surface);
     text-align: left;
     transition: background-color 0.15s, transform 0.12s;
+  }
+
+  /* Hors tour de parole comme pendant : le champ est là, simplement éteint.
+     Les hachures disent ce que le gris seul ne dit pas — on n'écrit jamais
+     ici, on répond en choisissant une bulle. C'est une zone barrée, pas un
+     champ qui attend son tour. */
+  .composer__field--idle {
+    border-color: var(--line);
+    background-color: var(--wash);
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.055) 0 5px,
+      rgba(0, 0, 0, 0) 5px 11px
+    );
+    cursor: not-allowed;
   }
 
   .composer__field--choice:hover {
@@ -1567,7 +1653,8 @@ button {
   }
 
   .composer__send--idle {
-    opacity: 0.35;
+    background: var(--wash-strong);
+    color: var(--ink-ghost);
   }
 
   /* ========================================================================
@@ -1763,6 +1850,40 @@ button {
      7. ACCUEIL
      ======================================================================== */
 
+  /* Corps de l'accueil : une colonne bornée en largeur et détachée des bords.
+     Deux raisons, une seule règle :
+       - les lignes de texte cessent de traverser tout l'écran ;
+       - la vidéo, moitié de cette colonne, ne dépasse plus en hauteur le texte
+         posé à côté d'elle — c'est ce déséquilibre qui creusait un grand vide
+         sous le résumé sur les écrans larges. */
+  .home__body {
+    display: flex;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: var(--gap-card);
+    padding: 16px 14px 24px;
+  }
+
+  .card-split {
+    padding-left: 2vw;
+  }
+
+  @media (min-width: 768px) {
+    .home__body {
+      padding: 24px 24px 32px;
+    }
+  }
+
+  /* La colonne a maintenant des bords : les blocs redeviennent des cartes
+     posées sur le fond. Arrondies, mais sans filet — c'est le fond lilas qui
+     les détache, un trait autour ferait formulaire. Trois classes pour
+     repasser devant les règles bord à bord de la section 3. */
+  .page__column .home__body .card {
+    border-radius: var(--radius-card);
+  }
+
   .hero {
     position: relative;
     overflow: hidden;
@@ -1850,8 +1971,257 @@ button {
     object-fit: contain;
   }
 
-  .game-start__action {
-    margin-top: 22px;
+  /* ========================================================================
+     GALERIE DES JEUX (onglet Jeux)
+
+     Deux mises en page pour un seul balisage, départagées par `hover: hover` :
+
+     - Sans survol (téléphone, tablette) : la tuile est une fiche classique —
+       l'image, puis le texte en dessous. Rien ne se cache derrière un geste
+       qui n'existe pas au doigt.
+     - Avec survol (souris) : on ne voit que l'image ; le texte se lève
+       par-dessus quand on la survole, ou quand on l'atteint au clavier.
+     ======================================================================== */
+
+  .gallery {
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+  }
+
+  @media (min-width: 700px) {
+    .gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1150px) {
+    .gallery {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  /* La tuile entière est le bouton : cliquer n'importe où lance le jeu. */
+  .tile {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--surface);
+    text-align: left;
+  }
+
+  .tile__visual {
+    position: relative;
+    flex-shrink: 0;
+    background: var(--brand-gradient);
+  }
+
+  .tile__shot {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+
+  /* Cadre d'attente, tant qu'aucune capture n'est fournie. Il occupe la place
+     exacte du visuel pour que la mise en page ne bouge pas ensuite. */
+  .tile__shot--empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(255, 250, 249, 0.75);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Bandeau posé sur l'image : il ne sert qu'au survol, où il nomme la tuile
+     avant qu'on la désigne. Sans survol, le titre est dans le texte. */
+  .tile__caption {
+    display: none;
+  }
+
+  .tile__title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  /* --- Le texte, en fiche par défaut --- */
+
+  .tile__reveal {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 18px 16px 20px;
+  }
+
+  .tile__reveal-title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .tile__tagline {
+    margin: 4px 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-magenta);
+  }
+
+  .tile__text {
+    margin: 10px 0 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .tile__points {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tile__point {
+    position: relative;
+    padding-left: 16px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--ink-muted);
+  }
+
+  .tile__point::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-gradient);
+  }
+
+  .tile__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    align-self: flex-start;
+    margin-top: 18px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    background: var(--brand-blue);
+    color: #fff;
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+
+  /* --- Le même texte, en voile de survol --- */
+
+  @media (hover: hover) {
+    .tile__caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      padding: 40px 16px 14px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
+      transition: opacity 0.28s;
+    }
+
+    .tile__reveal {
+      position: absolute;
+      inset: 0;
+      justify-content: center;
+      padding: 22px 20px;
+      background: linear-gradient(
+        150deg,
+        rgba(24, 0, 173, 0.95),
+        rgba(121, 21, 97, 0.95)
+      );
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+
+    .tile__reveal-title {
+      color: var(--brand-cream);
+    }
+
+    .tile__tagline {
+      color: rgba(255, 250, 249, 0.8);
+    }
+
+    .tile__text {
+      color: rgba(255, 250, 249, 0.92);
+    }
+
+    .tile__point {
+      color: rgba(255, 250, 249, 0.85);
+    }
+
+    .tile__point::before {
+      background: var(--brand-magenta-light);
+    }
+
+    .tile__cta {
+      background: var(--brand-cream);
+      color: var(--brand-blue);
+    }
+
+    /* `focus-visible` autant que `hover` : au clavier, la tuile doit s'ouvrir
+       comme à la souris. */
+    .tile:hover .tile__reveal,
+    .tile:focus-visible .tile__reveal {
+      opacity: 1;
+    }
+
+    .tile:hover .tile__caption,
+    .tile:focus-visible .tile__caption {
+      opacity: 0;
+    }
+
+    .tile:hover .tile__shot {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Deux blocs côte à côte quand la largeur le permet : sur l'accueil, la
+     vidéo à gauche et le résumé à droite.
+     Les deux colonnes ne se touchent pas : un filet séparait bien les blocs,
+     mais le texte démarrait aussitôt après la vidéo. La gouttière donne à
+     chacun l'air qu'il lui faut. */
+  .split {
+    display: grid;
+    gap: 24px;
+  }
+
+  @media (min-width: 900px) {
+    .split {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 0;
+    }
+
+    /* La gouttière est portée par la seconde colonne : la vidéo va jusqu'à son
+       bord, le texte démarre bien après. */
+    .split > * + * {
+      border-left: 1px solid var(--line);
+      padding-left: 24px;
+    }
   }
 
   /* Liste numérotée : les étapes du jeu, sur l'accueil et sur la page de
@@ -1915,43 +2285,10 @@ button {
     background: var(--brand-magenta);
     color: #fff;
   }
-  /* Corps de l'accueil : une colonne bornée en largeur et détachée des bords.
-     Deux raisons, une seule règle :
-       - les lignes de texte cessent de traverser tout l'écran ;
-       - la vidéo, moitié de cette colonne, ne dépasse plus en hauteur le texte
-         posé à côté d'elle — c'est ce déséquilibre qui creusait un grand vide
-         sous le résumé sur les écrans larges. */
-  .home__body {
-    display: flex;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    flex-direction: column;
-    gap: var(--gap-card);
-    padding: 16px 14px 24px;
-  }
-
-  .card-split {
-    padding-left: 2vw;
-  }
-
-  @media (min-width: 768px) {
-    .home__body {
-      padding: 24px 24px 32px;
-    }
-  }
-
-  /* La colonne a maintenant des bords : les blocs redeviennent des cartes
-     posées sur le fond. Arrondies, mais sans filet — c'est le fond lilas qui
-     les détache, un trait autour ferait formulaire. Trois classes pour
-     repasser devant les règles bord à bord de la section 3. */
-  .page__column .home__body .card {
-    border-radius: var(--radius-card);
-  }
-
 
   .lever__title {
     margin: 0;
+    font-family: var(--font-title);
     font-size: 14px;
     font-weight: 600;
     color: var(--ink);
@@ -1993,255 +2330,6 @@ button {
      règles ou choisi de les passer, il n'y a rien d'autre à faire.
      ======================================================================== */
 
-  .search-field {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    background: var(--surface);
-  }
-
-  .search-field__input {
-    min-width: 0;
-    flex: 1 1 0;
-    background: transparent;
-    border: 0;
-    outline: none;
-    font-size: 14px;
-    color: var(--ink);
-  }
-
-  .search-field__input::placeholder {
-    color: var(--ink-ghost);
-  }
-
-  .filters {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-  }
-
-  .filter {
-    flex-shrink: 0;
-    padding: 7px 13px;
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--ink-muted);
-    background: var(--surface);
-    transition: transform 0.12s;
-  }
-
-  .filter:active {
-    transform: scale(0.95);
-  }
-
-  .filter--active {
-    border-color: var(--brand-blue);
-    background: var(--brand-blue);
-    color: #fff;
-  }
-
-  /* Bandeau de recherche et de filtres, en tête du panneau. */
-  .sources__controls {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0 16px 14px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .source-list {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .source {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 16px;
-    transition: background-color 0.15s;
-  }
-
-  .source:hover {
-    background: var(--wash);
-  }
-
-  .source__badge {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 11px;
-    color: #fff;
-    font-size: 17px;
-    font-weight: 700;
-  }
-
-  .source__text {
-    min-width: 0;
-    flex: 1 1 0;
-  }
-
-  .source__line {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .source__title {
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .source__editor {
-    display: block;
-    margin: 1px 0 0;
-    font-size: 11.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--ink-faint);
-  }
-
-  .source__desc {
-    display: block;
-    margin: 6px 0 0;
-    font-size: 13.5px;
-    line-height: 1.6;
-    color: var(--ink-muted);
-  }
-
-  .empty-result {
-    padding: 48px 16px;
-    text-align: center;
-  }
-
-  .empty-result__title {
-    margin: 0;
-    font-size: 14.5px;
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .empty-result__text {
-    margin: 4px 0 0;
-    font-size: 13.5px;
-    color: var(--ink-faint);
-  }
-
-}
-  /*
-   * Le bouton se pose là où il ne recouvre rien d'utile — d'où une seule
-   * variable de hauteur plutôt qu'une cascade de `bottom`.
-   */
-  .sources-fab {
-    --fab-bottom: 16px;
-    position: fixed;
-    right: 16px;
-    bottom: calc(var(--fab-bottom) + var(--sa-bottom));
-    z-index: 70;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    padding: 13px 18px;
-    border-radius: 999px;
-    background: var(--brand-gradient);
-    color: var(--brand-cream);
-    box-shadow: 0 10px 26px rgba(24, 0, 173, 0.34);
-    transition: transform 0.14s, bottom 0.2s;
-  }
-
-  .sources-fab:active {
-    transform: scale(0.95);
-  }
-
-  /* Sur le jeu de conversations, le bouton descend au niveau du champ de
-     saisie barré, et se pose dessus.
-     C'est la seule bande morte de l'écran : on n'y écrit jamais, rien n'y est
-     cliquable. Plus haut, il masquait une réponse à choisir — la seule chose
-     qu'on ait à faire ici. La valeur centre le bouton sur le champ : 10px de
-     marge du composeur, deux blocs de même hauteur. */
-  .sources-fab--sur-champ {
-    --fab-bottom: 10px;
-  }
-
-  /* Sur téléphone, les sources ont leur onglet dans la barre du bas : le
-     bouton flottant ferait doublon, et la réserve qu'il imposait en bas de
-     chaque écran laissait une grande bande vide. Il ne sert donc plus qu'à
-     l'ordinateur, où la barre du bas n'existe pas. */
-  @media (max-width: 767px) {
-    .sources-fab {
-      display: none;
-    }
-  }
-
-  .sources-fab__label {
-    font-size: 14px;
-    font-weight: 700;
-  }
-
-  /* Sur les petits écrans, l'icône suffit : le libellé mangerait le contenu. */
-  @media (max-width: 520px) {
-    .sources-fab {
-      padding: 14px;
-    }
-    .sources-fab__label {
-      display: none;
-    }
-  }
-
-    border-bottom: 1px solid var(--line);
-    font-family: var(--font-title);
-  /* ========================================================================
-     SURFACES EN MÉTAL EN FUSION
-     Les zones colorées au dégradé de marque prennent un aspect de métal
-     liquide : des reflets clairs et sombres les parcourent lentement.
-
-     Cette règle vient volontairement en fin de feuille : les surfaces
-     concernées déclarent déjà `background: var(--brand-gradient)`, et c'est
-     l'ordre d'écriture qui décide — à spécificité égale, la dernière gagne.
-     ======================================================================== */
-
-  .hero,
-  .video__poster,
-  .tile__visual,
-  .outcome__badge,
-  .sources-fab {
-    background-image: var(--molten-bands), var(--molten-sheen), var(--brand-gradient);
-    /* Les bandes sont deux fois et demie plus larges que la surface : c'est
-       ce débord qui leur laisse de la place pour dériver. */
-    background-size: 260% 100%, 100% 100%, 100% 100%;
-    background-position: 0% 0, 0 0, 0 0;
-    background-blend-mode: overlay, screen, normal;
-    animation: molten-flow 18s ease-in-out infinite alternate;
-  }
-}
-
-@keyframes countdown-pulse {
-  50% {
-    opacity: 0.55;
-  }
-}
-
-@keyframes molten-flow {
-  to {
-    background-position: 100% 0, 0 0, 0 0;
-  }
   .tuto {
     position: fixed;
     inset: 0;
@@ -2490,3 +2578,192 @@ button {
     }
   }
 
+  .search-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+
+  .search-field__input {
+    min-width: 0;
+    flex: 1 1 0;
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .search-field__input::placeholder {
+    color: var(--ink-ghost);
+  }
+
+  .filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .filter {
+    flex-shrink: 0;
+    padding: 7px 13px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    background: var(--surface);
+    transition: transform 0.12s;
+  }
+
+  .filter:active {
+    transform: scale(0.95);
+  }
+
+  .filter--active {
+    border-color: var(--brand-blue);
+    background: var(--brand-blue);
+    color: #fff;
+  }
+
+  /* Bandeau de recherche et de filtres, en tête du panneau. */
+  .sources__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 16px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .source-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .source {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    transition: background-color 0.15s;
+  }
+
+  .source:hover {
+    background: var(--wash);
+  }
+
+  .source__badge {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .source__text {
+    min-width: 0;
+    flex: 1 1 0;
+  }
+
+  .source__line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .source__title {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .source__editor {
+    display: block;
+    margin: 1px 0 0;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+  }
+
+  .source__desc {
+    display: block;
+    margin: 6px 0 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+  }
+
+  .empty-result {
+    padding: 48px 16px;
+    text-align: center;
+  }
+
+  .empty-result__title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .empty-result__text {
+    margin: 4px 0 0;
+    font-size: 13.5px;
+    color: var(--ink-faint);
+  }
+
+  /* ========================================================================
+     SURFACES EN MÉTAL EN FUSION
+     Les zones colorées au dégradé de marque prennent un aspect de métal
+     liquide : des reflets clairs et sombres les parcourent lentement.
+
+     Cette règle vient volontairement en fin de feuille : les surfaces
+     concernées déclarent déjà `background: var(--brand-gradient)`, et c'est
+     l'ordre d'écriture qui décide — à spécificité égale, la dernière gagne.
+     ======================================================================== */
+
+  .hero,
+  .video__poster,
+  .tile__visual,
+  .outcome__badge,
+  .sources-fab {
+    background-image: var(--molten-bands), var(--molten-sheen), var(--brand-gradient);
+    /* Les bandes sont deux fois et demie plus larges que la surface : c'est
+       ce débord qui leur laisse de la place pour dériver. */
+    background-size: 260% 100%, 100% 100%, 100% 100%;
+    background-position: 0% 0, 0 0, 0 0;
+    background-blend-mode: overlay, screen, normal;
+    animation: molten-flow 18s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes countdown-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes molten-flow {
+  to {
+    background-position: 100% 0, 0 0, 0 0;
+  }
+}

@@ -44,8 +44,10 @@ export default function ChatScreen() {
         <div className={`messaging__list${open ? ' messaging__list--hidden' : ''}`}>
           <div className="messaging__scroll no-scrollbar">
             <header className="page__heading">
-              <h1 className="page__title">Messages</h1>
-              <p className="page__subtitle">Mini-jeux de conversation</p>
+              <h1 className="page__title">Les conversations</h1>
+              <p className="page__subtitle">
+                Quand la fausse info vient de tes proches
+              </p>
             </header>
 
             <ul>
@@ -58,13 +60,11 @@ export default function ChatScreen() {
                       onClick={() => setOpenId(conversation.id)}
                       className={`inbox-item${isOpen ? ' inbox-item--active' : ''}`}
                     >
-                      <span className="inbox-item__ring">
-                        <span
-                          className="inbox-item__avatar"
-                          style={{ background: conversation.color }}
-                        >
-                          {conversation.name[0]}
-                        </span>
+                      <span
+                        className="inbox-item__avatar"
+                        style={{ background: conversation.color }}
+                      >
+                        {conversation.name[0]}
                       </span>
 
                       <span className="inbox-item__text">
@@ -88,12 +88,6 @@ export default function ChatScreen() {
                 )
               })}
             </ul>
-
-            <p className="messaging__note">
-              Dans ces conversations, tu réponds en choisissant une bulle. Chaque
-              choix est commenté&nbsp;: c'est l'occasion de te tromper sans
-              conséquence.
-            </p>
           </div>
         </div>
 

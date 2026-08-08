@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ScanSearch, Check, X, Minus, Trophy } from 'lucide-react'
+import { ScanSearch, Check, X, Minus, Trophy, ArrowRight } from 'lucide-react'
 import manches from '../data/detect'
+import { autreJeu } from '../data/games'
 import Page from '../components/ui/Page'
 
 // Trois états après validation : indice correctement repéré, indice manqué,
@@ -20,7 +21,8 @@ const VERDICTS = {
   neutral: { Icon: Check, texte: 'Rien à signaler' },
 }
 
-export default function DetectScreen() {
+export default function DetectScreen({ onSwitch }) {
+  const suite = autreJeu('detect')
   const [mancheIdx, setMancheIdx] = useState(0)
   const [selection, setSelection] = useState([])
   const [valide, setValide] = useState(false)
@@ -85,10 +87,21 @@ export default function DetectScreen() {
             exiger une date précise, et se demander d'où vient l'image avant de
             croire ce que dit la légende.
           </p>
+          {/* Fin de partie : rejouer, ou enchaîner sur l'autre jeu. */}
           <div className="outcome__action">
             <button type="button" onClick={rejouer} className="button">
               Rejouer
             </button>
+            {suite && (
+              <button
+                type="button"
+                onClick={() => onSwitch(suite.id)}
+                className="button button--ghost"
+              >
+                Enchaîner sur «&nbsp;{suite.titre}&nbsp;»
+                <ArrowRight size={16} strokeWidth={2.2} />
+              </button>
+            )}
           </div>
         </section>
       </Page>

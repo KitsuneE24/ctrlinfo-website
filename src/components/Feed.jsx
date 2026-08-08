@@ -26,21 +26,16 @@ function opacityFor(distance) {
 }
 
 export default function Feed({ onSwitch, enPause = false }) {
-  // Proposé à l'arrivée : plutôt que de laisser le joueur sur un écran final,
-  // on l'envoie vers l'autre jeu.
+  // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
   const suite = autreJeu('feed')
 
   const activeRef = useRef(null)
-  // La publication déjà amenée en haut de l'écran. Comparer plutôt que compter
-  // les rendus : en développement, React monte les effets deux fois, et un
-  // simple drapeau « premier rendu » laissait filer un défilement sur la
-  // première publication — son en-tête passait sous le bandeau de niveau.
+  // La publication déjà amenée en haut. On la compare plutôt que de compter
+  // les rendus : React monte les effets deux fois en développement.
   const dernierScrollRef = useRef(null)
   const statsRef = useRef(null)
 
-  // Hauteur réelle du bandeau collé en haut. Elle sert de marge de
-  // défilement : sans elle, la publication amenée en haut passerait sous le
-  // bandeau et on ne verrait plus son compte ni son avatar.
+  // Hauteur du bandeau collé en haut, qui sert de marge de défilement.
   const [statsHeight, setStatsHeight] = useState(0)
 
   const [currentLevel, setCurrentLevel] = useState(1)
@@ -66,10 +61,8 @@ export default function Feed({ onSwitch, enPause = false }) {
       ? action === currentPost.correctAction
       : false
 
-  // On mesure le bandeau plutôt que de coder sa hauteur en dur : elle change
-  // avec la largeur de l'écran et la longueur du libellé de niveau.
-  // L'observateur émet un premier appel dès l'observation, ce qui donne la
-  // mesure initiale sans setState synchrone dans l'effet.
+  // Mesuré plutôt que codé en dur : la hauteur change avec la largeur de
+  // l'écran. L'observateur émet un premier appel dès l'observation.
   useEffect(() => {
     const el = statsRef.current
     if (!el || typeof ResizeObserver === 'undefined') return
@@ -78,10 +71,9 @@ export default function Feed({ onSwitch, enPause = false }) {
     return () => observer.disconnect()
   }, [])
 
-  // Le fil est continu : on amène la publication en cours en haut de l'écran
-  // plutôt que de remonter tout en haut du fil. La toute première n'a pas
-  // besoin qu'on la déplace — elle est déjà en haut, et la bouger enfoncerait
-  // son en-tête sous le bandeau.
+  // Le fil est continu : on amène la publication en cours en haut de l'écran.
+  // La toute première y est déjà, la déplacer enfoncerait son en-tête sous le
+  // bandeau.
   useEffect(() => {
     const cle = `${currentLevel}:${queueIdx}`
     const premiere = dernierScrollRef.current === null
@@ -213,8 +205,7 @@ export default function Feed({ onSwitch, enPause = false }) {
             <p className="outcome__note">
               {LEVEL_MESSAGES[currentLevel + 1]?.subtitle}
             </p>
-            {/* Fin de niveau : c'est le moment où l'on peut souffler, donc
-                celui où l'on propose l'autre jeu. */}
+            {/* Fin de niveau : le moment où l'on propose l'autre jeu. */}
             <div className="outcome__action">
               <button type="button" onClick={handleLevelUnlock} className="button">
                 Continuer
@@ -238,14 +229,16 @@ export default function Feed({ onSwitch, enPause = false }) {
               currentLevel={Math.min(currentLevel, 3)}
               levelDoneCount={levelDoneCount}
               levelTotal={levelPosts.length}
+              // Une publication, un décompte : la clé le remonte.
+              timerKey={`${currentLevel}:${queueIdx}`}
+              // Le chrono s'arrête tant que les règles sont à l'écran.
+              timerActive={timerActive && !enPause}
+              onTimerComplete={handleTimerExpire}
             />
 
 
-            {/*
-              Fil continu : toutes les publications du niveau sont là dès le
-              départ. Seule celle en cours est à pleine opacité et reste
-              interactive ; les autres s'estompent avec la distance.
-            */}
+            {/* Fil continu : tout le niveau est là dès le départ. Seule la
+                publication en cours est interactive, les autres s'estompent. */}
             {postQueue.map((post, i) => {
               const isActive = i === queueIdx
               return (
@@ -254,8 +247,7 @@ export default function Feed({ onSwitch, enPause = false }) {
                   ref={isActive ? activeRef : null}
                   style={{
                     opacity: opacityFor(i - queueIdx),
-                    // Marge respectée par scrollIntoView : la publication se
-                    // cale sous le bandeau, en-tête visible.
+                    // Marge respectée par scrollIntoView.
                     scrollMarginTop: statsHeight + 12,
                   }}
                   aria-hidden={isActive ? undefined : 'true'}
@@ -269,10 +261,6 @@ export default function Feed({ onSwitch, enPause = false }) {
                   <PostCard
                     post={post}
                     isActive={isActive}
-                    // Relire les règles ne doit pas coûter la publication en
-                    // cours : le chrono s'arrête tant qu'elles sont à l'écran.
-                    timerActive={timerActive && !enPause}
-                    onTimerComplete={handleTimerExpire}
                     onAction={handleAction}
                     disabled={actionsDisabled}
                     selectedAction={isActive ? action : null}

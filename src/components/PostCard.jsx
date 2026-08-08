@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Heart, Send, Flag, Link2 } from 'lucide-react'
-import Countdown from './Countdown'
 
 function ActionIcon({ label, onClick, disabled, active, modifier, children }) {
   return (
@@ -24,8 +23,6 @@ function ActionIcon({ label, onClick, disabled, active, modifier, children }) {
 export default function PostCard({
   post,
   isActive,
-  timerActive,
-  onTimerComplete,
   onAction,
   disabled,
   selectedAction = null,
@@ -36,9 +33,7 @@ export default function PostCard({
 
   return (
     <article className={`post${isActive ? '' : ' post--past'}`}>
-      {/* Qui parle, et combien de temps il reste : les deux ensemble, tout en
-          haut. Le fil amène chaque publication sous le bandeau de niveau, cette
-          ligne est donc la première chose qu'on voit en arrivant dessus. */}
+      {/* Qui parle. Le décompte, lui, est dans le bandeau (FeedStats). */}
       <header className="post__header">
         <span className="post__avatar" style={{ backgroundColor: post.sourceColor }}>
           {initial}
@@ -47,15 +42,10 @@ export default function PostCard({
           <p className="post__account">{post.source}</p>
           <p className="post__domain">{post.domain || 'publication sponsorisée'}</p>
         </div>
-        {isActive && <Countdown active={timerActive} onComplete={onTimerComplete} />}
       </header>
 
-      {/*
-        Le texte avant l'image, à l'inverse d'un fil ordinaire. C'est délibéré :
-        une photo forte emporte l'adhésion avant qu'on ait lu quoi que ce soit,
-        et c'est précisément ce réflexe que le jeu travaille. On lit d'abord ce
-        qui est affirmé, on voit l'illustration ensuite.
-      */}
+      {/* Le texte avant l'image, à l'inverse d'un fil ordinaire : on lit ce qui
+          est affirmé avant de voir l'illustration. */}
       <div className="post__lead">
         <p className="post__caption">
           <span className="post__caption-account">{post.source}</span> {post.texte}
@@ -73,7 +63,7 @@ export default function PostCard({
 
       <img src={post.image} alt="" className="post__media" />
 
-      {/* Actions : à gauche les gestes d'adhésion, à droite le signalement. */}
+      {/* À gauche les gestes d'adhésion, à droite le signalement. */}
       {isActive && (
         <div className="post__actions">
           <ActionIcon
@@ -113,8 +103,7 @@ export default function PostCard({
           {(post.reactionCount ?? 1222).toLocaleString('fr-FR')} J'aime
         </p>
 
-        {/* Compteur seul : rien n'est cliquable ici, la formulation ne promet
-            donc aucune action. */}
+        {/* Compteur seul : rien n'est cliquable ici. */}
         <p className="post__comments">
           {(post.commentCount ?? 638).toLocaleString('fr-FR')} commentaires
         </p>

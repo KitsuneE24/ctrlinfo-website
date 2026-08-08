@@ -1,17 +1,24 @@
 import { forwardRef } from 'react'
+import Countdown from './Countdown'
 
 /**
- * Bandeau de progression du fil, collé en haut pendant le défilement.
+ * Bandeau de progression du fil, collé en haut pendant le défilement : niveau,
+ * avancement et décompte. Le décompte est ici parce que le bandeau, lui, ne
+ * défile pas.
  *
- * Niveau et avancement seulement : la marque est portée par l'en-tête de
- * l'application, et le retour au joueur passe par l'explication de chaque
- * choix, pas par un compteur de points.
- *
- * La `ref` est transmise au Feed, qui mesure la hauteur du bandeau pour caler
- * le défilement de la publication suivante juste en dessous.
+ * `timerKey` remonte le décompte à chaque publication. Le bandeau, lui, n'est
+ * jamais remonté : il porte la `ref` que le Feed mesure.
  */
 const FeedStats = forwardRef(function FeedStats(
-  { progress, currentLevel, levelDoneCount, levelTotal },
+  {
+    progress,
+    currentLevel,
+    levelDoneCount,
+    levelTotal,
+    timerKey,
+    timerActive,
+    onTimerComplete,
+  },
   ref
 ) {
   return (
@@ -21,6 +28,11 @@ const FeedStats = forwardRef(function FeedStats(
         <span className="feed-stats__caption">
           {levelDoneCount}/{levelTotal} publications traitées
         </span>
+        <Countdown
+          key={timerKey}
+          active={timerActive}
+          onComplete={onTimerComplete}
+        />
       </div>
 
       <div className="feed-stats__track">

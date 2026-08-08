@@ -271,14 +271,15 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
       </div>
 
       {/*
-        Zone d'écriture : elle reste toujours en place, seul son contenu change.
-        Quand c'est au joueur de répondre, chaque choix reprend l'apparence du
-        champ de saisie — même pilule, même bouton d'envoi — de sorte que
-        choisir une réponse revient visuellement à l'envoyer.
+        Zone d'écriture. Le champ de saisie ne disparaît jamais : quand c'est au
+        joueur de répondre, il reste en place, grisé, et les choix s'ouvrent
+        au-dessus de lui. Chaque choix reprend son apparence — même pilule, même
+        bouton d'envoi — de sorte que choisir une réponse revient visuellement à
+        l'envoyer.
       */}
       <div className="composer">
-        <AnimatePresence mode="wait" initial={false}>
-          {choices.length > 0 ? (
+        <AnimatePresence initial={false}>
+          {choices.length > 0 && (
             <motion.div
               key="choix"
               initial={{ opacity: 0, y: 12 }}
@@ -301,24 +302,17 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
                 </button>
               ))}
             </motion.div>
-          ) : (
-            <motion.div
-              key="attente"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.18 }}
-              className="composer__field"
-            >
-              <span className="composer__text composer__text--waiting">
-                {COMPOSER_PLACEHOLDER}
-              </span>
-              <span className="composer__send composer__send--idle">
-                <SendHorizontal size={15} strokeWidth={2.2} />
-              </span>
-            </motion.div>
           )}
         </AnimatePresence>
+
+        <div className="composer__field composer__field--idle" aria-hidden="true">
+          <span className="composer__text composer__text--waiting">
+            {COMPOSER_PLACEHOLDER}
+          </span>
+          <span className="composer__send composer__send--idle">
+            <SendHorizontal size={15} strokeWidth={2.2} />
+          </span>
+        </div>
       </div>
     </div>
   )

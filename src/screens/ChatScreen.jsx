@@ -18,11 +18,10 @@ import ChatThread from '../components/ChatThread'
  *   pilote les deux cas, seule la visibilité change.
  */
 export default function ChatScreen() {
-  // L'état d'ouverture est repris de la session : revenir sur l'onglet rouvre
-  // la conversation qu'on consultait, au message près.
+  // Repris de la session : revenir sur l'onglet rouvre la conversation.
   const [openId, setOpenId] = useState(() => getInboxState().openId)
-  // Un numéro de partie par conversation. Il change à chaque « Recommencer » :
-  // la clé du fil change, le composant se remonte à zéro.
+  // Un numéro de partie par conversation, qui change à chaque
+  // « Recommencer » : la clé du fil change, le composant se remonte.
   const [runIds, setRunIds] = useState(() => getInboxState().runIds)
 
   useEffect(() => {

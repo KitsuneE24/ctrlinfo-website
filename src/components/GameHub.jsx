@@ -3,18 +3,12 @@ import games from '../data/games'
 import Page from './ui/Page'
 
 /**
- * Galerie des jeux, en entrée de l'onglet « Jeux ».
+ * Galerie des jeux, en entrée de l'onglet « Jeux ». La tuile entière est le
+ * bouton.
  *
- * Au repos, on ne voit que les visuels — une galerie, pas une liste de fiches.
- * Le texte (accroche, description, ce qu'on y apprend) se lève par-dessus
- * l'image au survol.
- *
- * Là où le survol n'existe pas — écrans tactiles —, le texte est visible en
- * permanence : la règle de révélation est enfermée dans un `@media (hover:
- * hover)` côté CSS, on ne peut donc pas se retrouver avec un contenu
- * inatteignable au doigt.
- *
- * La tuile entière est le bouton : cliquer n'importe où lance le jeu.
+ * Au repos on ne voit que les visuels ; le texte se lève au survol. Sans
+ * survol, il reste visible en permanence — la règle est enfermée dans un
+ * `@media (hover: hover)` côté CSS.
  */
 function GameTile({ jeu, onPlay }) {
   return (
@@ -35,12 +29,12 @@ function GameTile({ jeu, onPlay }) {
         )}
       </div>
 
-      {/* Bandeau toujours lisible : le titre nomme la tuile même sans survol. */}
+      {/* Le titre, lisible même sans survol. */}
       <div className="tile__caption">
         <h2 className="tile__title">{jeu.titre}</h2>
       </div>
 
-      {/* Voile de survol : tout ce qu'on ne montre pas au repos. */}
+      {/* Voile de survol. */}
       <div className="tile__reveal">
         <h3 className="tile__reveal-title">{jeu.titre}</h3>
         <p className="tile__tagline">{jeu.accroche}</p>

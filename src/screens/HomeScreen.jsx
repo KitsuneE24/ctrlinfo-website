@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Play, Zap, Flame, ShieldQuestion } from 'lucide-react'
 import Page from '../components/ui/Page'
 
-// Renseigner un chemin (ex. '/alert-nc.mp4') ou une URL d'intégration pour
-// remplacer le visuel d'attente par la vraie vidéo de présentation.
+// Un chemin (ex. '/alert-nc.mp4') ou une URL d'intégration, pour remplacer le
+// visuel d'attente par la vraie vidéo.
 const VIDEO_URL = null
 
 const LEVIERS = [
@@ -29,7 +29,7 @@ export default function HomeScreen() {
 
   return (
     <Page seamless>
-      {/* En-tête de marque — bord à bord : c'est une bannière. */}
+      {/* En-tête de marque, bord à bord. */}
       <section className="hero">
         <h1 className="hero__title">Alert&nbsp;NC</h1>
         <p className="hero__tagline">
@@ -37,12 +37,7 @@ export default function HomeScreen() {
         </p>
       </section>
 
-      {/*
-        Le corps de l'accueil : une colonne bornée en largeur, espacée des bords
-        de la fenêtre. C'est cette borne qui empêche la vidéo de devenir deux
-        fois plus haute que le texte d'à côté sur grand écran — et donc le grand
-        vide qui suivait.
-      */}
+      {/* Le corps : une colonne bornée en largeur, espacée des bords. */}
       <div className="home__body">
         <section className="card">
           <div className="card__body">
@@ -62,11 +57,8 @@ export default function HomeScreen() {
           </div>
         </section>
 
-        {/*
-          Vidéo et résumé côte à côte dès que la largeur le permet : la vidéo à
-          gauche, l'explication à droite. En dessous de 900px, les deux blocs
-          s'empilent.
-        */}
+        {/* Vidéo à gauche, explication à droite. En dessous de 900px, les deux
+            blocs s'empilent. */}
         <section className="card split">
           <div>
             <div className="card__body">

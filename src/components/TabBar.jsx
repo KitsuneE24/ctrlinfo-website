@@ -1,15 +1,11 @@
 import { TAB_ITEMS } from './navItems'
 
 /**
- * Barre d'onglets du bas — la navigation sur téléphone, à la manière d'un
- * réseau social. Au-delà de 768px elle cède la place à la barre horizontale de
- * l'en-tête (voir `.tab-bar` dans index.css).
+ * Barre d'onglets du bas, sur téléphone. Au-delà de 768px, la barre de
+ * l'en-tête prend le relais.
  *
- * Trois onglets, jamais plus : l'accueil, les jeux, les sources. Le jeu en
- * cours ne s'y lit pas — l'onglet « Jeux » reste allumé du début à la fin
- * d'une partie, et c'est la galerie qui sert d'aiguillage entre les jeux.
- *
- * L'onglet actif prend sa couleur propre, les autres restent gris.
+ * Trois onglets : accueil, jeux, sources. Le jeu en cours ne s'y lit pas —
+ * « Jeux » reste allumé pendant toute une partie.
  */
 export default function TabBar({ tab, onNavigate }) {
   return (
@@ -32,8 +28,7 @@ export default function TabBar({ tab, onNavigate }) {
                 strokeWidth={actif ? 2.4 : 1.7}
                 fill={actif && id === 'home' ? 'currentColor' : 'none'}
               />
-              {/* Point d'état : garde l'onglet actif lisible même pour les
-                  icônes qu'on ne remplit pas. */}
+              {/* Point d'état, pour les icônes qu'on ne remplit pas. */}
               <span className="tab-bar__dot" />
             </button>
           )

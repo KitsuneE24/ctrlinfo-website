@@ -3,12 +3,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { CircleCheck, TriangleAlert } from 'lucide-react'
 
 /**
- * Retour après chaque choix, en fenêtre centrée plutôt qu'en bannière.
- *
- * Elle ne se referme pas toute seule : c'est le seul endroit où le joueur
- * apprend pourquoi son choix était bon ou non, et le faire disparaître au
- * bout de quelques secondes revenait à perdre l'explication. On avance avec
- * « Continuer », par la touche Échap ou en cliquant à côté.
+ * Retour après chaque choix, en fenêtre centrée. Elle ne se referme pas toute
+ * seule : on avance avec « Continuer », par Échap ou en cliquant à côté.
  */
 export default function FeedbackModal({
   visible,

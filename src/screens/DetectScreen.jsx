@@ -5,8 +5,7 @@ import manches from '../data/detect'
 import { autreJeu } from '../data/games'
 import Page from '../components/ui/Page'
 
-// Trois états après validation : indice correctement repéré, indice manqué,
-// et fausse alerte (élément sain signalé à tort).
+// Trois états après validation : repéré, manqué, fausse alerte.
 function verdictOf(indice, selected) {
   if (indice.suspect && selected) return 'found'
   if (indice.suspect && !selected) return 'missed'
@@ -87,7 +86,7 @@ export default function DetectScreen({ onSwitch }) {
             exiger une date précise, et se demander d'où vient l'image avant de
             croire ce que dit la légende.
           </p>
-          {/* Fin de partie : rejouer, ou enchaîner sur l'autre jeu. */}
+          {/* Rejouer, ou enchaîner sur l'autre jeu. */}
           <div className="outcome__action">
             <button type="button" onClick={rejouer} className="button">
               Rejouer

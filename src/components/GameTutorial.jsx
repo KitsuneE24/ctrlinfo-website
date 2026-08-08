@@ -3,20 +3,16 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react'
 
 /**
- * Tutoriel d'un jeu : un carrousel qui se lève par-dessus le jeu la première
- * fois qu'on l'ouvre, et une seule fois (voir src/lib/premiereFois.js).
+ * Tutoriel d'un jeu : un carrousel de trois volets — le but, les actions, le
+ * pourquoi. Les contenus sont dans src/data/games.js.
  *
- * Trois volets, toujours dans le même ordre — le but, les actions, le pourquoi.
- * Les contenus vivent dans src/data/games.js, avec le reste de ce qui décrit un
- * jeu : le tutoriel d'un jeu ne s'écrit pas ailleurs que le jeu.
- *
- * On le traverse au clavier (flèches, Échap), au doigt (glissement horizontal)
- * ou au bouton : c'est le premier écran du jeu, il ne doit bloquer personne.
+ * Il se traverse au clavier (flèches, Échap), au doigt (glissement) ou au
+ * bouton.
  */
 export default function GameTutorial({ jeu, onClose }) {
   const volets = jeu.tuto ?? []
   const [index, setIndex] = useState(0)
-  // Le sens du dernier passage : le volet sort du côté opposé à son entrée.
+  // Le sens du dernier passage : le volet sort à l'opposé de son entrée.
   const [sens, setSens] = useState(1)
 
   useEffect(() => {
@@ -80,11 +76,8 @@ export default function GameTutorial({ jeu, onClose }) {
           </button>
         </header>
 
-        {/*
-          Le volet glisse, le cadre ne bouge pas : la scène a une hauteur
-          minimale, sinon la fenêtre sauterait à chaque passage selon la
-          longueur du texte.
-        */}
+        {/* Le volet glisse, le cadre ne bouge pas : la scène a une hauteur
+            minimale. */}
         <div className="tuto__stage">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div

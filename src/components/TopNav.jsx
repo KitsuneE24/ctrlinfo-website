@@ -3,31 +3,23 @@ import { ChevronDown } from 'lucide-react'
 import { NAV_ITEMS } from './navItems'
 import games from '../data/games'
 
-/**
- * Le survol n'ouvre le menu que là où il existe vraiment. Sur un écran
- * tactile, `mouseenter` est simulé au moment du toucher : sans ce garde-fou,
- * le menu s'ouvrirait puis se refermerait aussitôt au clic.
- */
+// Sur un écran tactile, `mouseenter` est simulé au toucher : sans ce
+// garde-fou, le menu s'ouvrirait puis se refermerait au clic.
 const survolPossible =
   typeof window !== 'undefined' &&
   window.matchMedia?.('(hover: hover)').matches === true
 
 /**
- * Navigation principale : une barre horizontale d'icônes, logée dans l'en-tête.
- * Elle est identique sur téléphone et sur grand écran — il n'y a plus ni rail
- * latéral ni barre du bas.
+ * Barre horizontale d'icônes, logée dans l'en-tête.
  *
- * L'onglet « Jeux » porte les deux gestes sans les confondre : le clic sur la
- * manette mène droit à la galerie — c'est « Tous les jeux » —, le survol
- * déplie la liste pour lancer un jeu précis sans passer par elle. Le menu ne
- * répète donc pas la galerie : elle est sur l'icône.
+ * L'onglet « Jeux » porte deux gestes : le clic mène à la galerie, le survol
+ * déplie la liste des jeux. Le menu ne répète donc pas « Tous les jeux ».
  */
 export default function TopNav({ tab, jeu, onNavigate }) {
   const [menuOuvert, setMenuOuvert] = useState(false)
   const groupeRef = useRef(null)
 
-  // Le menu se referme au clic à côté et à la touche Échap — on ne veut pas
-  // qu'il reste ouvert par-dessus l'écran qu'on vient d'atteindre.
+  // Fermeture au clic à côté et à la touche Échap.
   useEffect(() => {
     if (!menuOuvert) return
 
@@ -51,8 +43,8 @@ export default function TopNav({ tab, jeu, onNavigate }) {
     onNavigate('game', id)
   }
 
-  // Le survol porte sur tout le groupe, bouton et menu réunis : le menu est
-  // collé sous le bouton, la souris passe de l'un à l'autre sans le fermer.
+  // Le survol porte sur le groupe entier : la souris passe du bouton au menu
+  // sans le fermer.
   const survol = survolPossible
     ? {
         onMouseEnter: () => setMenuOuvert(true),

@@ -5,11 +5,10 @@ import { correspond } from '../lib/search'
 import Page from '../components/ui/Page'
 
 /**
- * Page « Sources » : une recherche, des filtres, puis les résultats. On y
- * arrive par le bouton posé en bas à droite, présent sur tous les écrans.
+ * Page « Sources » : une recherche, des filtres, puis les résultats.
  *
- * La recherche tolère les accents et les fautes de frappe : « deco » ramène
- * « Les Décodeurs » (voir src/lib/search.js).
+ * La recherche tolère les accents et les fautes : « deco » ramène « Les
+ * Décodeurs » (voir src/lib/search.js).
  */
 export default function SourcesScreen() {
   const [query, setQuery] = useState('')

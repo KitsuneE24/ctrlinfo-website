@@ -2,15 +2,11 @@ import { forwardRef } from 'react'
 
 /**
  * Gabarit commun à tous les écrans : une zone défilante contenant la colonne
- * de contenu. L'en-tête, lui, vit dans AppShell — il coiffe aussi le rail de
- * navigation, il ne peut donc pas être rendu ici.
+ * de contenu. Par défaut la colonne est bord à bord.
  *
- * Par défaut la colonne est bord à bord, sans marge ni gouttière.
- *
- * - `feed`     : mise en page du fil d'actualité — colonne centrée, bornée en
- *   largeur, avec des interstices entre les cartes.
+ * - `feed`     : colonne centrée et bornée, avec des interstices entre cartes.
  * - `fill`     : la colonne prend toute la hauteur, pour les écrans qui gèrent
- *   eux-mêmes leur mise en page interne (la messagerie et ses deux volets).
+ *   eux-mêmes leur mise en page interne.
  * - `seamless` : les blocs s'enchaînent sans filet de séparation.
  */
 const Page = forwardRef(function Page(

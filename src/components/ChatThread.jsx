@@ -4,27 +4,21 @@ import { ChevronLeft, Check, Lightbulb, SendHorizontal } from 'lucide-react'
 import { getSession, saveSession } from '../state/conversationSessions'
 
 /**
- * Durée d'affichage des points de frappe, pour les messages du personnage.
- *
- * Modulé par la longueur : une phrase courte n'a pas besoin d'autant de temps
- * qu'un paragraphe, et un délai fixe finit par paraître faux. Valeurs calées
- * sur les messages réellement présents dans conversations.js — moyenne
- * mesurée ≈ 1,8 s, de 1,2 s à 2,6 s.
+ * Durée des points de frappe, modulée par la longueur du message. Valeurs
+ * calées sur conversations.js : moyenne ≈ 1,8 s, de 1,2 s à 2,6 s.
  */
 const TYPING_BASE_MS = 700
 const TYPING_PER_CHAR_MS = 10
 const TYPING_MIN_MS = 1200
 const TYPING_MAX_MS = 2600
 
-// Les explications ne sont pas « tapées » par le personnage : elles arrivent
-// juste après sa réplique, sans indicateur de frappe.
+// Les explications ne sont pas « tapées » : pas d'indicateur de frappe.
 const EXPLICATION_DELAY_MS = 500
 
 const COMPOSER_PLACEHOLDER = 'Votre message...'
 
 function delayFor(item, isFirst) {
-  // Le tout premier message est déjà là quand on ouvre la conversation :
-  // attendre devant un écran vide n'a aucun intérêt.
+  // Le premier message est déjà là à l'ouverture.
   if (isFirst) return 0
   if (item.kind === 'explication') return EXPLICATION_DELAY_MS
   const estimation = TYPING_BASE_MS + item.text.length * TYPING_PER_CHAR_MS
@@ -59,14 +53,11 @@ function TypingBubble() {
 
 /**
  * Le composant est monté avec une clé qui change à chaque partie
- * (`conversation-runId`, cf. ChatScreen) : recommencer, c'est remonter le
- * composant, et l'état de départ tient dans les initialiseurs de useState.
+ * (`conversation-runId`, cf. ChatScreen) : recommencer, c'est le remonter.
  *
- * Ces initialiseurs commencent par regarder si une partie est déjà en cours
- * pour cette clé : changer d'onglet démonte l'écran, et on doit revenir là où
- * la discussion s'était arrêtée. La reprise est fidèle au message près — la
- * seule chose qui repart à zéro est le compte à rebours du message en train
- * d'être « tapé » au moment où on a quitté.
+ * Les initialiseurs de useState regardent d'abord si une partie est en cours
+ * pour cette clé, et reprennent au message près. Seul le compte à rebours du
+ * message en cours de frappe repart à zéro.
  */
 export default function ChatThread({ conversation, sessionKey, onBack, onRestart }) {
   const { name, subtitle, color, intro, steps, outro } = conversation
@@ -137,21 +128,15 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
   const choices = awaiting ? steps[stepIdx]?.choices ?? [] : []
   const typing = queue.length > 0 && queue[0].kind !== 'explication' && log.length > 0
 
-  /*
-   * Le fil suit toujours le dernier message, comme une vraie messagerie.
-   * Trois choses font remonter la discussion, pas seulement l'arrivée d'un
-   * message : l'indicateur de frappe qui apparaît puis disparaît, et la zone
-   * de réponses qui s'ouvre en trois pilules et réduit d'autant la hauteur
-   * disponible. D'où les dépendances, en plus du journal lui-même.
-   */
+  // Le fil suit le dernier message. Trois choses le font remonter : un
+  // message, l'indicateur de frappe, et la zone de réponses qui s'ouvre —
+  // d'où les dépendances.
   useEffect(() => {
     const el = scrollRef.current
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' })
   }, [log, typing, choices.length, done])
 
-  // Filet de sécurité : toute variation de hauteur du fil — y compris celles
-  // qu'aucune dépendance ne capte, comme un retour à la ligne au
-  // redimensionnement — le ramène en bas.
+  // Filet de sécurité : toute variation de hauteur ramène le fil en bas.
   useEffect(() => {
     const el = scrollRef.current
     if (!el || typeof ResizeObserver === 'undefined') return
@@ -165,8 +150,7 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
   return (
     <div className="thread">
       <header className="thread__header">
-        {/* Le retour n'a de sens que sur téléphone : en grand écran la liste
-            reste affichée à côté du fil. */}
+        {/* Le retour ne sert que sur téléphone. */}
         <button
           type="button"
           onClick={onBack}
@@ -184,9 +168,7 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
 
       <div ref={scrollRef} className="thread__log no-scrollbar">
         {log.map((message, i) => {
-          // Registre 1 — la voix pédagogique. Hors fiction : pas d'avatar,
-          // pas de bulle, un bloc à part qui ne peut pas être confondu avec
-          // ce que dit le personnage.
+          // Registre 1 — la voix pédagogique : ni avatar ni bulle.
           if (message.kind === 'explication') {
             return (
               <motion.div
@@ -220,9 +202,8 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
             )
           }
 
-          // Registre 3 — ce que dit le personnage. Les messages qui interrogent
-          // portent un liseré de la couleur du contact : on repère d'un coup
-          // d'œil ceux qui attendent une réponse.
+          // Registre 3 — ce que dit le personnage. Liseré de la couleur du
+          // contact sur les messages qui attendent une réponse.
           const isQuestion = message.kind === 'question'
           return (
             <motion.div
@@ -270,13 +251,8 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
         )}
       </div>
 
-      {/*
-        Zone d'écriture. Le champ de saisie ne disparaît jamais : quand c'est au
-        joueur de répondre, il reste en place, grisé, et les choix s'ouvrent
-        au-dessus de lui. Chaque choix reprend son apparence — même pilule, même
-        bouton d'envoi — de sorte que choisir une réponse revient visuellement à
-        l'envoyer.
-      */}
+      {/* Le champ de saisie ne disparaît jamais : les choix s'ouvrent
+          au-dessus de lui et reprennent son apparence. */}
       <div className="composer">
         <AnimatePresence initial={false}>
           {choices.length > 0 && (

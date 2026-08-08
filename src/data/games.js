@@ -8,25 +8,14 @@ import {
 } from 'lucide-react'
 
 /**
- * Les jeux, décrits une seule fois. Trois endroits s'en servent et ne peuvent
- * donc pas diverger : le menu déroulant de l'onglet « Jeux », la
- * sous-navigation à l'intérieur de la page, et la galerie de présentation.
- *
- * Les conversations en font partie : c'est un jeu comme les deux autres, avec
- * ses règles et son score — pas un onglet de messagerie.
+ * Les jeux, décrits une seule fois. Le menu de l'en-tête, la barre du jeu et
+ * la galerie s'en servent, et ne peuvent donc pas diverger.
  *
  * `capture` attend un chemin d'image dans /public (ex. '/captures/fil.png').
- * Tant qu'il vaut null, un cadre d'attente occupe la place exacte du visuel,
- * pour que la mise en page ne bouge pas quand les vraies captures arriveront.
+ * Tant qu'il vaut null, un cadre d'attente en occupe la place exacte.
  *
- * `tuto` est le carrousel montré la première fois qu'on ouvre le jeu, et une
- * seule fois (voir src/lib/premiereFois.js). Trois volets, toujours les mêmes
- * questions dans le même ordre — on apprend à jouer aux trois jeux de la même
- * manière :
- *
- *   1. le but      — ce qu'on cherche à faire ;
- *   2. les actions — ce qu'on peut faire, concrètement ;
- *   3. le pourquoi — ce que le jeu apprend au passage.
+ * `tuto` est le carrousel montré à la première ouverture. Trois volets, dans
+ * le même ordre pour les trois jeux : le but, les actions, le pourquoi.
  */
 const VOLETS = {
   but: { Icon: Target, titre: 'Le but' },
@@ -34,7 +23,7 @@ const VOLETS = {
   pourquoi: { Icon: Lightbulb, titre: 'Comment ça marche' },
 }
 
-/** Un volet de tutoriel : l'icône et le titre sont communs, le texte non. */
+/** Un volet : l'icône et le titre sont communs, le texte non. */
 const volet = (cle, texte) => ({ ...VOLETS[cle], texte })
 
 const games = [

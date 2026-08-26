@@ -4,8 +4,7 @@ Presque tout le contenu de CTRL INFO est éditable sans toucher à un composant 
 les écrans lisent des listes, et ajouter une entrée suffit. Ce guide décrit la
 forme attendue de chaque type de contenu.
 
-Voir [architecture.md](architecture.md) pour le code, [agent.md](agent.md) pour
-la génération automatique des publications.
+Voir [architecture.md](architecture.md) pour le code.
 
 ## Où va quoi
 
@@ -15,14 +14,12 @@ la génération automatique des publications.
 | ajouter une manche d'indices | [src/data/detect.js](../src/data/detect.js) |
 | ajouter une conversation | [src/data/conversations.js](../src/data/conversations.js) |
 | ajouter une ressource | [src/data/resources.js](../src/data/resources.js) |
-| ajouter un flux RSS à l'agent | [agent/config/sources.js](../agent/config/sources.js) |
 | retoucher un tutoriel de jeu | [src/data/games.js](../src/data/games.js) |
 
 ## 1. Une publication du fil
 
-Le fichier est écrit à la main et sert de filet de sécurité : c'est lui qui
-s'affiche quand l'agent n'a rien généré. Les publications sont groupées par
-niveau, du plus grossier au plus subtil.
+Le fichier est écrit à la main : c'est la seule source des publications du fil.
+Elles sont groupées par niveau, du plus grossier au plus subtil.
 
 ```js
 {
@@ -53,13 +50,12 @@ niveau, du plus grossier au plus subtil.
 }
 ```
 
-**Deux règles à ne pas violer**, les mêmes que celles appliquées par l'agent
-(voir [agent.md](agent.md) §3) :
+**Deux règles à ne pas violer** :
 
 1. `scores[correctAction]` doit être le **maximum** des trois scores.
-2. Un vrai post porte un `biais` commençant par « Aucun » ; un faux post porte
-   un biais figurant dans `BIASES`
-   ([taxonomy.js](../agent/config/taxonomy.js)).
+2. Un vrai post porte un `biais` commençant par « Aucun » ; un faux post nomme
+   le biais qu'il illustre, repris à l'identique d'une publication existante —
+   c'est cette chaîne qui relie le post à sa publication de remédiation.
 
 Rappel utile : `correctAction: 'ignore'` est atteint en laissant filer le
 chrono, il n'y a pas de bouton « ignorer ».
@@ -156,34 +152,7 @@ entrée à la liste suffit.
 tolérante aux fautes et aux accents ([search.js](../src/lib/search.js)) : « deco »
 comme « dekodeurs » ramènent « Les Décodeurs ».
 
-## 5. Un flux RSS pour l'agent
-
-```js
-{
-  id: 'nc1ere',
-  name: 'Nouvelle-Calédonie La 1ère',
-  url: 'https://la1ere.franceinfo.fr/nouvellecaledonie/rss',
-  domain: 'la1ere.franceinfo.fr',
-  color: '#16a34a',
-  trust: 'institutionnel',          // 'institutionnel' | 'reference' | 'regional'
-  scope: 'nc',                      // 'nc' | 'fr' | 'monde'
-  sourceUrl: 'https://la1ere.franceinfo.fr/nouvellecaledonie/',
-}
-```
-
-`trust` et `scope` ne sont pas décoratifs : `trust` détermine le niveau de
-difficulté attribué aux publications tirées de cette source, et `scope` la part
-qu'elle occupe dans la collecte (`SCOPE_QUOTA` : 60 % NC, 25 % France, 15 %
-monde).
-
-**La whitelist est en dur, et c'est délibéré** : aucun modèle ne doit juger si un
-média est fiable. Cela se vérifie, cela ne se devine pas — c'est donc une donnée
-déclarée par un humain.
-
-Après ajout : `npm run agent:collect` pour vérifier que le flux répond et que les
-articles sont exploitables.
-
-## 6. Les couleurs
+## 5. Les couleurs
 
 Les fichiers de données importent `brand` depuis
 [src/css/colors.js](../src/css/colors.js) plutôt que d'écrire un code
@@ -194,7 +163,7 @@ Exception assumée : les faux comptes du fil et de « Repère les indices » por
 des couleurs « alarmistes » codées en dur, hors palette de marque. C'est
 volontaire, elles ne sont pas de la marque.
 
-## 7. Vérifier son ajout
+## 6. Vérifier son ajout
 
 ```bash
 npm run lint     # syntaxe, imports, règles React
@@ -202,6 +171,6 @@ npm run dev      # et on joue le passage modifié
 ```
 
 Il n'y a pas de tests automatisés — la relecture à l'écran est le seul filet.
-Pour une publication, vérifier en particulier que le score de la bonne action est
-bien le plus élevé : rien ne le signale à l'exécution côté application, ce
-contrôle n'existe que dans l'agent.
+Pour une publication, vérifier en particulier que le score de la bonne action
+est bien le plus élevé : rien ne le signale à l'exécution, c'est à la relecture
+de l'attraper.

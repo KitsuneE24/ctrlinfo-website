@@ -14,11 +14,11 @@ export default function AppHeader({ tab, jeu, onNavigate }) {
         <button
           type="button"
           onClick={() => onNavigate('home')}
-          aria-label="Alert NC — retour à l'accueil"
+          aria-label="CTRL INFO — retour à l'accueil"
           className="app-header__home"
         >
-          <img src="/Logo_alerte_NC-02.png" alt="" className="app-header__logo" />
-          <span className="app-header__name">Alert NC</span>
+          <img src="/logo-ctrl-info.png" alt="" className="app-header__logo" />
+          <span className="app-header__name">CTRL INFO</span>
         </button>
 
         <TopNav tab={tab} jeu={jeu} onNavigate={onNavigate} />

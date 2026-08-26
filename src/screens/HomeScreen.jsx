@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Play, Zap, Flame, ShieldQuestion } from 'lucide-react'
 import Page from '../components/ui/Page'
 
-// Un chemin (ex. '/alert-nc.mp4') ou une URL d'intégration, pour remplacer le
+// Un chemin (ex. '/ctrl-info.mp4') ou une URL d'intégration, pour remplacer le
 // visuel d'attente par la vraie vidéo.
 const VIDEO_URL = null
 
@@ -43,7 +43,7 @@ export default function HomeScreen() {
           <div className="card__body">
             <h2 className="card__title">Explication du projet</h2>
             <p className="card__text">
-              Alert NC est un projet d'éducation aux médias né en
+              CTRL INFO est un projet d'éducation aux médias né en
               Nouvelle-Calédonie. Le principe&nbsp;: plutôt que d'expliquer la
               désinformation dans un cours, on te la fait vivre dans un fil
               d'actualité qui ressemble à ceux que tu consultes tous les jours.

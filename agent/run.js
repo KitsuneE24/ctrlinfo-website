@@ -29,7 +29,7 @@ async function main() {
   const t0 = Date.now()
 
   console.log(`\n\x1b[1m╭─────────────────────────────────────────────╮`)
-  console.log(`│  Agent Alerte-NC — génération de posts       │`)
+  console.log(`│  Agent CTRL INFO — génération de posts       │`)
   console.log(`│  Phase ${phase} : ${phase === 1 ? 'vrais posts uniquement          ' : 'vrais posts + faux posts        '}    │`)
   console.log(`╰─────────────────────────────────────────────╯\x1b[0m`)
 

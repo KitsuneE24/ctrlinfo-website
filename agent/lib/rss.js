@@ -81,7 +81,7 @@ export async function fetchFeed(source, { timeoutMs = 15000 } = {}) {
       redirect: 'follow',
       headers: {
         // Plusieurs rédactions renvoient 403 sans User-Agent.
-        'User-Agent': 'AlerteNC-EducationalBot/1.0 (+jeu pédagogique de littératie médiatique)',
+        'User-Agent': 'CtrlInfo-EducationalBot/1.0 (+jeu pédagogique de littératie médiatique)',
         Accept: 'application/rss+xml, application/atom+xml, application/xml, text/xml, */*',
       },
     })

@@ -6,7 +6,7 @@
  * d'échec on répond « oui, c'est la première fois » et le tutoriel se
  * remontre.
  */
-const PREFIXE = 'alert-nc:vu:'
+const PREFIXE = 'ctrl-info:vu:'
 
 function stockage() {
   try {

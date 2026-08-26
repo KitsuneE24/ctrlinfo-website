@@ -31,7 +31,7 @@ export default function HomeScreen() {
     <Page seamless>
       {/* En-tête de marque, bord à bord. */}
       <section className="hero">
-        <h1 className="hero__title">Alert&nbsp;NC</h1>
+        <h1 className="hero__title">CTRL&nbsp;INFO</h1>
         <p className="hero__tagline">
           Sauras-tu repérer le vrai du faux dans ton fil d'actualité&nbsp;?
         </p>

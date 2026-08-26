@@ -1,22 +1,20 @@
 # Architecture de CTRL INFO
 
-Vue d'ensemble du code : ce qui se trouve où, et pourquoi. Pour la chaîne de
-génération de contenu, voir [agent.md](agent.md) ; pour ajouter ou modifier du
-contenu, [contenu.md](contenu.md) ; pour la CI et le déploiement,
-[devops.md](devops.md).
+Vue d'ensemble du code : ce qui se trouve où, et pourquoi. Pour ajouter ou
+modifier du contenu, voir [contenu.md](contenu.md) ; pour la CI et le
+déploiement, [devops.md](devops.md).
 
 ## 1. En une phrase
 
 Une application React 19 entièrement **statique** : pas de back-end, pas de base
 de données, pas de compte utilisateur. Tout le contenu du jeu est du JavaScript
-livré avec le bundle, produit soit à la main (`src/data/`), soit hors ligne par
-l'agent (`agent/`).
+écrit à la main dans `src/data/` et livré avec le bundle.
 
 ## 2. Arborescence
 
 ```
 index.html            point d'entrée Vite
-vite.config.js        base URL (BASE_PATH pour GitHub Pages)
+vite.config.js        configuration Vite (plugin React)
 tailwind.config.js    Tailwind, aligné sur la palette de src/css/colors.js
 
 src/
@@ -30,7 +28,6 @@ src/
   lib/                utilitaires purs (localStorage, recherche floue)
   state/              état hors de React (sessions de conversation)
 
-agent/                chaîne de génération hors ligne, voir agent.md
 docs/                 cette documentation
 public/               fichiers servis tels quels (logo)
 ```
@@ -126,24 +123,15 @@ mémoire seulement — un rechargement de page repart de zéro.
 | Fichier | Contenu |
 | --- | --- |
 | [posts.index.js](../src/data/posts.index.js) | **point d'entrée unique** des publications |
-| [posts.js](../src/data/posts.js) | le jeu de cartes écrit à la main (filet de sécurité) |
-| `posts.generated.js` | produit par l'agent, non versionné |
+| [posts.js](../src/data/posts.js) | le jeu de cartes, écrit à la main |
 | [detect.js](../src/data/detect.js) | les manches de « Repère les indices » |
 | [conversations.js](../src/data/conversations.js) | les discussions et leurs branches |
 | [games.js](../src/data/games.js) | les trois jeux et leurs tutoriels |
 | [resources.js](../src/data/resources.js) | l'onglet Sources |
 
-`posts.index.js` porte une règle importante : si `posts.generated.js` existe et
-n'est pas vide, ce sont ses publications qui alimentent le fil ; sinon on
-retombe sur le jeu écrit à la main. Le repli garantit que le jeu reste jouable
-même sans génération. `import.meta.glob` est utilisé plutôt qu'un `import`
-direct, pour que le build ne casse pas quand le fichier généré est absent.
-
-Pour forcer le jeu manuel malgré une génération existante :
-`VITE_USE_GENERATED=false npm run dev`.
-
-Le module exporte aussi `source` (`'agent'` ou `'manuel'`) et `meta`, qui
-décrivent l'origine du deck en cours.
+`posts.index.js` ne fait que ré-exporter `posts.js`. Il existe pour que les
+écrans n'aient qu'un seul import à connaître : le jour où l'origine des
+publications change, un seul fichier est à toucher.
 
 ## 6. Les styles
 
@@ -187,5 +175,5 @@ remontre — jamais une page blanche.
 - **Aucun test.** C'est le manque le plus coûteux ; voir [devops.md](devops.md) §3.
 - **Aucun routeur** — donc aucune URL partageable vers un jeu précis.
 - **Aucun score persistant** entre deux visites.
-- **Aucun back-end** : l'agent tourne hors ligne, avant le build, et son
-  résultat est un fichier JavaScript comme un autre.
+- **Aucun back-end** : le contenu est livré avec le bundle, il n'y a rien à
+  interroger au moment du jeu.

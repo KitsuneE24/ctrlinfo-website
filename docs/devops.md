@@ -1,5 +1,9 @@
 # DevOps sur CTRL INFO
 
+> **État : à mettre en place.** Les workflows décrits au §2 ne sont pas encore
+> dans le dépôt — `.github/` n'existe pas. Ce document sert de plan de mise en
+> œuvre, pas de description de l'existant.
+
 ## 1. Le cours en une page
 
 DevOps consiste à supprimer le mur entre le développement (qui livre du

@@ -14,8 +14,6 @@ dist
 dist-ssr
 *.local
 
-# Sorties intermédiaires de l'agent (rejouables : npm run agent)
-agent/out
 
 # Editor directories and files
 .vscode/*

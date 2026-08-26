@@ -1,4 +1,4 @@
-# Rendre Alert NC disponible en ligne
+# Rendre CTRL INFO disponible en ligne
 
 Ce guide explique comment héberger l'application sur le web (accessible par un lien) et comment l'optimiser pour mobile.
 
@@ -16,9 +16,9 @@ npm run build   # génère le dossier dist/
 
 | Service | Commande de déploiement | Lien obtenu |
 |---------|------------------------|-------------|
-| **Vercel** | `npx vercel` | `https://alert-nc.vercel.app` |
-| **Netlify** | `npx netlify deploy --prod --dir=dist` | `https://alert-nc.netlify.app` |
-| **GitHub Pages** | Push + activer Pages dans les settings | `https://username.github.io/alert-nc` |
+| **Vercel** | `npx vercel` | `https://ctrl-info.vercel.app` |
+| **Netlify** | `npx netlify deploy --prod --dir=dist` | `https://ctrl-info.netlify.app` |
+| **GitHub Pages** | Push + activer Pages dans les settings | `https://username.github.io/ctrl-info` |
 
 Une fois déployée, l'application est accessible depuis n'importe quel navigateur sur téléphone ou ordinateur — sans installation.
 
@@ -45,8 +45,8 @@ export default {
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Alert NC',
-        short_name: 'Alert NC',
+        name: 'CTRL INFO',
+        short_name: 'CTRL INFO',
         start_url: '/',
         display: 'standalone',
         background_color: '#1800ad',

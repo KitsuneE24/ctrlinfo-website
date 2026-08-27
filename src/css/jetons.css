@@ -15,6 +15,15 @@
     --brand-magenta-light: #e0309a;
     --brand-cream: #fffaf9;
 
+    /* Les deux violets de la marque : le chemin du bleu vers le mauve clair.
+       Ils portent le fond animé de la bannière d'accueil. */
+    --brand-violet: #5c1a9e;
+    --brand-mauve: #8a4fbe;
+
+    /* Le fond sur lequel ce fond animé est posé : le milieu exact du violet et
+       du mauve, bien assombri pour que les reflets clairs ressortent. */
+    --brand-violet-deep: #451f69;
+
     /* Fond de page : un lilas très pâle, pour détacher les cartes blanches. */
     --page: #f1eef8;
     --surface: #ffffff;

@@ -6,11 +6,11 @@ import { Renderer, Program, Mesh, Triangle } from 'ogl'
  *
  * Purement décoratif : le composant remplit son parent, ne rend aucun texte et
  * n'attend aucune interaction. Si le navigateur ne sait pas faire de WebGL 2,
- * rien n'est dessiné — c'est au parent de prévoir un fond derrière (à
- * l'accueil, l'aplat violet de `.hero`).
+ * rien n'est dessiné — c'est au parent de prévoir un fond derrière :
+ * l'aplat violet de `.banniere`.
  *
- * Les styles du conteneur vivent dans `css/accueil.css`, seul endroit où
- * l'effet est utilisé pour l'instant.
+ * Les styles du conteneur vivent dans `css/colonne-de-contenu.css`, aux
+ * côtés de la bannière qui le porte (`ui/Banniere.jsx`).
  */
 
 const hexToRgb = hex => {

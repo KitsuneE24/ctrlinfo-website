@@ -1,11 +1,11 @@
-import { BookOpen, House, Gamepad2 } from 'lucide-react'
+import { BookOpen, House, Gamepad2, Lightbulb } from 'lucide-react'
 
 /**
  * Les deux navigations de l'application, décrites ici et nulle part ailleurs.
  *
  * - `NAV_ITEMS` — la barre du haut, sur ordinateur. L'onglet « Jeux » y déplie
  *   en plus la liste des jeux (voir TopNav).
- * - `TAB_ITEMS` — la barre du bas, sur téléphone. Trois entrées : les jeux se
+ * - `TAB_ITEMS` — la barre du bas, sur téléphone. Quatre entrées : les jeux se
  *   choisissent dans la galerie, pas dans la barre.
  *
  * Les sources ne sont que dans la barre du bas ; sur ordinateur, c'est le
@@ -19,6 +19,14 @@ const ACCUEIL = {
   Icon: House,
   label: 'Accueil',
   couleur: 'var(--nav-home)',
+}
+
+const COMPRENDRE = {
+  id: 'learn',
+  jeu: null,
+  Icon: Lightbulb,
+  label: 'Comprendre',
+  couleur: 'var(--nav-learn)',
 }
 
 const TOUS_LES_JEUX = {
@@ -37,6 +45,6 @@ const SOURCES = {
   couleur: 'var(--nav-sources)',
 }
 
-export const NAV_ITEMS = [ACCUEIL, { ...TOUS_LES_JEUX, label: 'Jeux' }]
+export const NAV_ITEMS = [ACCUEIL, COMPRENDRE, { ...TOUS_LES_JEUX, label: 'Jeux' }]
 
-export const TAB_ITEMS = [ACCUEIL, TOUS_LES_JEUX, SOURCES]
+export const TAB_ITEMS = [ACCUEIL, COMPRENDRE, TOUS_LES_JEUX, SOURCES]

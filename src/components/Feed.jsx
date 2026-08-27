@@ -1,12 +1,18 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, Trophy, GraduationCap, ArrowRight } from 'lucide-react'
-import posts, { remediationPosts } from '../data/posts.index'
-import { autreJeu } from '../data/games'
+import { getRemediations, getTirage } from '../api/contenu'
+import { auMieux, enregistrerDecision, sauvegarder, terminerSession } from '../api/progression'
+import { useSessionJeu } from '../lib/useSessionJeu'
+import { useAutreJeu } from '../state/jeux'
 import Page from './ui/Page'
+import { Chargement, ErreurChargement } from './ui/Chargement'
 import FeedStats from './FeedStats'
 import PostCard from './PostCard'
 import FeedbackModal from './FeedbackModal'
+
+/** Le nombre de publications d'un niveau. Le serveur tire dans tout le vivier. */
+const PAR_NIVEAU = 5
 
 const LEVEL_MESSAGES = {
   2: {
@@ -27,7 +33,7 @@ function opacityFor(distance) {
 
 export default function Feed({ onSwitch, enPause = false }) {
   // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
-  const suite = autreJeu('feed')
+  const suite = useAutreJeu('feed')
 
   const activeRef = useRef(null)
   // La publication déjà amenée en haut. On la compare plutôt que de compter
@@ -40,7 +46,7 @@ export default function Feed({ onSwitch, enPause = false }) {
 
   const [currentLevel, setCurrentLevel] = useState(1)
   const [levelTransition, setLevelTransition] = useState(false)
-  const [postQueue, setPostQueue] = useState(() => posts.filter((p) => p.level === 1))
+  const [postQueue, setPostQueue] = useState([])
   const [queueIdx, setQueueIdx] = useState(0)
   const [levelDoneCount, setLevelDoneCount] = useState(0)
   const [action, setAction] = useState(null)
@@ -49,12 +55,66 @@ export default function Feed({ onSwitch, enPause = false }) {
   const [timerActive, setTimerActive] = useState(true)
   const [feedbackVisible, setFeedbackVisible] = useState(false)
 
-  const levelPosts = posts.filter((p) => p.level === currentLevel)
+  // Le contenu vient du serveur : deux états de plus qu'avant.
+  const [erreur, setErreur] = useState(null)
+  const [remediations, setRemediations] = useState({})
+
+  // Le moment où la publication en cours s'est affichée, pour mesurer le temps
+  // de décision — la vraie donnée intéressante du jeu.
+  const affichee = useRef(0)
+
+  // Pas de partie tant que les règles d'ouverture sont à l'écran : le fil sera
+  // remonté à leur fermeture, et une partie vide resterait en base.
+  const sessionId = useSessionJeu({ jeu: 'feed', level: 1, actif: !enPause })
+
+  /**
+   * Un niveau, tiré au sort par le serveur.
+   *
+   * C'est le changement de fond par rapport au fil d'origine : le niveau
+   * n'était que « les publications marquées level: 2 », toujours les mêmes
+   * dans le même ordre. Le serveur pioche maintenant dans tout le vivier —
+   * publications écrites à la main et publications fabriquées à partir des
+   * flux — en écartant celles que ce joueur a déjà traitées.
+   *
+   * La fonction ne touche à aucun état avant la réponse : la file vide suffit
+   * à dire « ça charge », et l'appelant la vide avant de relancer.
+   */
+  const chargerNiveau = useCallback(
+    (level) =>
+      getTirage(level, PAR_NIVEAU)
+        .then((tirage) => {
+          setPostQueue(tirage)
+          setQueueIdx(0)
+          setLevelDoneCount(0)
+          setBiasRemediationAdded(new Set())
+          setAction(null)
+          setTimerActive(true)
+          setErreur(null)
+          affichee.current = Date.now()
+        })
+        .catch(setErreur),
+    []
+  )
+
+  useEffect(() => {
+    chargerNiveau(1)
+    // Les remédiations sont peu nombreuses : on les prend une fois pour toutes.
+    getRemediations()
+      .then(setRemediations)
+      .catch(() => setRemediations({}))
+  }, [chargerNiveau])
+
+  // Pas de drapeau de chargement : tant que la file est vide et qu'aucune
+  // erreur n'est remontée, c'est que le tirage est en route.
+  const chargement = postQueue.length === 0 && erreur === null
   const isAllDone = currentLevel > 3
   const currentPost = !isAllDone && !levelTransition ? postQueue[queueIdx] : null
 
-  const levelProgress =
-    levelPosts.length > 0 ? Math.min(levelDoneCount / levelPosts.length, 1) : 0
+  // Le total du niveau est la taille du tirage : les publications de
+  // remédiation s'y ajoutent sans compter dans l'avancement.
+  const levelTotal = postQueue.filter((post) => !post.isRemediation).length
+
+  const levelProgress = levelTotal > 0 ? Math.min(levelDoneCount / levelTotal, 1) : 0
 
   const isCorrect =
     action !== null && currentPost !== null
@@ -91,12 +151,25 @@ export default function Feed({ onSwitch, enPause = false }) {
       const newCount = (errorsPerBias[biais] || 0) + 1
       setErrorsPerBias({ ...errorsPerBias, [biais]: newCount })
 
-      if (newCount === 2 && !biasRemediationAdded.has(biais) && remediationPosts[biais]) {
+      if (newCount === 2 && !biasRemediationAdded.has(biais) && remediations[biais]) {
         const newQueue = [...postQueue]
-        newQueue.splice(queueIdx + 1, 0, remediationPosts[biais])
+        newQueue.splice(queueIdx + 1, 0, remediations[biais])
         setPostQueue(newQueue)
         setBiasRemediationAdded((prev) => new Set([...prev, biais]))
       }
+    }
+
+    // La décision part au serveur : c'est lui qui tranche, compte le score et
+    // retient que cette publication a été vue — elle ne reviendra pas dans les
+    // prochains tirages de ce joueur.
+    if (sessionId) {
+      auMieux(
+        enregistrerDecision(sessionId, {
+          postId: currentPost.id,
+          action: type,
+          tempsMs: Date.now() - affichee.current,
+        })
+      )
     }
 
     setAction(type)
@@ -124,27 +197,44 @@ export default function Feed({ onSwitch, enPause = false }) {
     }
 
     if (nextIdx >= postQueue.length) {
-      if (newLevelDoneCount >= levelPosts.length) {
-        if (currentLevel < 3) setLevelTransition(true)
-        else setCurrentLevel(4)
+      if (newLevelDoneCount >= levelTotal) {
+        if (currentLevel < 3) {
+          setLevelTransition(true)
+        } else {
+          setCurrentLevel(4)
+          if (sessionId) auMieux(terminerSession(sessionId))
+        }
       }
       return
     }
 
     setQueueIdx(nextIdx)
     setTimerActive(true)
+    affichee.current = Date.now()
+
+    // Sauvegarde : où on en est, et de quoi reprendre le fil tel quel.
+    if (sessionId) {
+      auMieux(
+        sauvegarder(sessionId, {
+          etape: nextIdx,
+          etat: {
+            level: currentLevel,
+            queueIdx: nextIdx,
+            slugs: postQueue.map((post) => post.slug),
+            errorsPerBias,
+          },
+        })
+      )
+    }
   }
 
   function handleLevelUnlock() {
     const nextLevel = currentLevel + 1
     setCurrentLevel(nextLevel)
     setLevelTransition(false)
-    setPostQueue(posts.filter((p) => p.level === nextLevel))
-    setQueueIdx(0)
-    setLevelDoneCount(0)
-    setBiasRemediationAdded(new Set())
-    setAction(null)
-    setTimerActive(true)
+    // Vider la file, c'est afficher le chargement le temps du tirage suivant.
+    setPostQueue([])
+    chargerNiveau(nextLevel)
   }
 
   function handleLearnMore(url) {
@@ -165,7 +255,11 @@ export default function Feed({ onSwitch, enPause = false }) {
       />
 
       <Page feed>
-        {isAllDone ? (
+        {erreur ? (
+          <ErreurChargement erreur={erreur} onReessayer={() => chargerNiveau(currentLevel)} />
+        ) : chargement ? (
+          <Chargement quoi="le fil" />
+        ) : isAllDone ? (
           <section className="card outcome">
             <span className="outcome__badge">
               <Trophy size={34} strokeWidth={1.8} />
@@ -228,7 +322,7 @@ export default function Feed({ onSwitch, enPause = false }) {
               progress={levelProgress}
               currentLevel={Math.min(currentLevel, 3)}
               levelDoneCount={levelDoneCount}
-              levelTotal={levelPosts.length}
+              levelTotal={levelTotal}
               // Une publication, un décompte : la clé le remonte.
               timerKey={`${currentLevel}:${queueIdx}`}
               // Le chrono s'arrête tant que les règles sont à l'écran.

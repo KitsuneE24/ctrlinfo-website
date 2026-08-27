@@ -4,9 +4,10 @@ import { BookOpen, X } from 'lucide-react'
 import AppHeader from './AppHeader'
 import GameTutorial from './GameTutorial'
 import TabBar from './TabBar'
-import games from '../data/games'
+import { useJeux } from '../state/jeux'
 import { dejaVu, marquerVu } from '../lib/premiereFois'
 import HomeScreen from '../screens/HomeScreen'
+import LearnScreen from '../screens/LearnScreen'
 import GameScreen from '../screens/GameScreen'
 import SourcesScreen from '../screens/SourcesScreen'
 
@@ -21,6 +22,10 @@ import SourcesScreen from '../screens/SourcesScreen'
  * par le bouton « Règles du jeu » à tout moment.
  */
 export default function AppShell() {
+  // Les jeux viennent de l'API : au premier rendu, la liste est vide et le
+  // tutoriel n'a rien à montrer. Il s'ouvrira dès qu'elle sera là.
+  const { jeux } = useJeux()
+
   const [tab, setTab] = useState('home')
   // Le jeu en cours, pour que le menu de l'en-tête puisse en lancer un depuis
   // n'importe quel onglet.
@@ -65,7 +70,7 @@ export default function AppShell() {
   }, [tab, avantSources])
 
   const surSources = tab === 'sources'
-  const jeuDuTuto = games.find(({ id }) => id === tuto?.id)
+  const jeuDuTuto = jeux.find(({ id }) => id === tuto?.id)
 
   return (
     <div className="app">
@@ -82,6 +87,7 @@ export default function AppShell() {
             className="app__screen"
           >
             {tab === 'home' && <HomeScreen />}
+            {tab === 'learn' && <LearnScreen onNavigate={navigate} />}
             {tab === 'game' && (
               <GameScreen
                 jeu={jeu}

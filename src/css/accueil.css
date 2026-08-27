@@ -28,40 +28,12 @@
     border-radius: var(--radius-card);
   }
 
+  /* La coquille du bandeau — position, aplat de repli, fond animé — est
+     commune à tous les écrans (colonne-de-contenu.css). Ne restent ici que les
+     marges de l'accueil et sa typographie. */
   .hero {
-    position: relative;
-    overflow: hidden;
     padding: 34px 22px 28px;
-    border-radius: var(--radius-card);
-    /* Un aplat, pas le dégradé de marque : c'est le fond animé posé par-dessus
-       qui fait le relief, du violet au magenta. Cet aplat est aussi le repli si
-       WebGL manque à l'appel. */
-    background: var(--brand-violet-deep);
     text-align: center;
-    color: var(--brand-cream);
-  }
-
-  /* Le fond animé (MoltenMetal) : une couche posée sur le dégradé, sous le
-     texte. `inset: 0` la fait épouser la bannière quelle que soit sa hauteur.
-     Sans WebGL 2, elle reste vide et la bannière garde son dégradé. */
-  .hero__fx {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .molten-metal {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  /* Le texte repasse devant l'effet. */
-  .hero__title,
-  .hero__tagline {
-    position: relative;
-    z-index: 1;
   }
 
   .hero__title {

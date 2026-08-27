@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react'
 import { ExternalLink, Search, X } from 'lucide-react'
-import sources, { CATEGORIES } from '../data/resources'
+import { getCategories, getRessources } from '../api/contenu'
 import { correspond } from '../lib/search'
+import { useRessource } from '../lib/useRessource'
 import Page from '../components/ui/Page'
+import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
 /**
  * Page « Sources » : une recherche, des filtres, puis les résultats.
@@ -10,9 +12,20 @@ import Page from '../components/ui/Page'
  * La recherche tolère les accents et les fautes : « deco » ramène « Les
  * Décodeurs » (voir src/lib/search.js).
  */
+/** Les deux listes arrivent ensemble : un seul état de chargement à gérer. */
+const chargerSources = () =>
+  Promise.all([getRessources(), getCategories()]).then(([ressources, categories]) => ({
+    ressources,
+    categories,
+  }))
+
 export default function SourcesScreen() {
   const [query, setQuery] = useState('')
   const [categorie, setCategorie] = useState('Tout')
+  const { donnees, chargement, erreur, recharger } = useRessource(chargerSources, [])
+
+  const sources = useMemo(() => donnees?.ressources ?? [], [donnees])
+  const categories = useMemo(() => donnees?.categories ?? ['Tout'], [donnees])
 
   const results = useMemo(
     () =>
@@ -24,8 +37,24 @@ export default function SourcesScreen() {
         )
         return matchCategorie && matchQuery
       }),
-    [query, categorie]
+    [sources, query, categorie]
   )
+
+  if (erreur) {
+    return (
+      <Page title="Sources" subtitle="Où vérifier une information">
+        <ErreurChargement erreur={erreur} onReessayer={recharger} />
+      </Page>
+    )
+  }
+
+  if (chargement) {
+    return (
+      <Page title="Sources" subtitle="Où vérifier une information">
+        <Chargement quoi="les sources" />
+      </Page>
+    )
+  }
 
   return (
     <Page title="Sources" subtitle="Où vérifier une information">
@@ -52,7 +81,7 @@ export default function SourcesScreen() {
         </div>
 
         <div className="filters no-scrollbar">
-          {CATEGORIES.map((c) => (
+          {categories.map((c) => (
             <button
               key={c}
               type="button"

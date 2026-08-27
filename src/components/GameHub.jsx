@@ -1,6 +1,7 @@
 import { Image as ImageIcon, Play } from 'lucide-react'
-import games from '../data/games'
+import { useJeux } from '../state/jeux'
 import Page from './ui/Page'
+import { Chargement, ErreurChargement } from './ui/Chargement'
 
 /**
  * Galerie des jeux, en entrée de l'onglet « Jeux ». La tuile entière est le
@@ -58,13 +59,21 @@ function GameTile({ jeu, onPlay }) {
 }
 
 export default function GameHub({ onPlay }) {
+  const { jeux, chargement, erreur, recharger } = useJeux()
+
   return (
     <Page title="Jeux" subtitle="Trois jeux pour reconnaître la désinformation">
-      <div className="gallery">
-        {games.map((jeu) => (
-          <GameTile key={jeu.id} jeu={jeu} onPlay={onPlay} />
-        ))}
-      </div>
+      {erreur ? (
+        <ErreurChargement erreur={erreur} onReessayer={recharger} />
+      ) : chargement ? (
+        <Chargement quoi="les jeux" />
+      ) : (
+        <div className="gallery">
+          {jeux.map((jeu) => (
+            <GameTile key={jeu.id} jeu={jeu} onPlay={onPlay} />
+          ))}
+        </div>
+      )}
     </Page>
   )
 }

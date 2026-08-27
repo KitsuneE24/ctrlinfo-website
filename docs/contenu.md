@@ -1,25 +1,43 @@
 # Ajouter et modifier du contenu
 
-Presque tout le contenu de CTRL INFO est éditable sans toucher à un composant :
-les écrans lisent des listes, et ajouter une entrée suffit. Ce guide décrit la
-forme attendue de chaque type de contenu.
+Le contenu des jeux vit dans la base de [ctrlinfo-app](../../ctrlinfo-app), pas
+dans ce dépôt. Ce guide décrit **la forme attendue de chaque type de contenu** —
+les règles à ne pas violer sont les mêmes qu'avant, seul l'endroit a changé.
 
-Voir [architecture.md](architecture.md) pour le code.
+Voir [architecture.md](architecture.md) pour le code du front, et
+[ctrlinfo-app/docs/architecture.md](../../ctrlinfo-app/docs/architecture.md)
+pour celui de l'API.
 
 ## Où va quoi
 
-| Je veux… | Fichier |
+| Je veux… | Où |
 | --- | --- |
-| ajouter une publication au fil | [src/data/posts.js](../src/data/posts.js) |
-| ajouter une manche d'indices | [src/data/detect.js](../src/data/detect.js) |
-| ajouter une conversation | [src/data/conversations.js](../src/data/conversations.js) |
-| ajouter une ressource | [src/data/resources.js](../src/data/resources.js) |
-| retoucher un tutoriel de jeu | [src/data/games.js](../src/data/games.js) |
+| ajouter une publication au fil | table `post` (+ `option_post`) |
+| ajouter une manche d'indices | tables `manche_detect` et `indice_detect` |
+| ajouter une conversation | tables `conversation`, `etape_conversation`, `choix_conversation` |
+| ajouter une ressource | table `ressource` |
+| retoucher un tutoriel de jeu | tables `game` et `volet_tutoriel` |
+| ajouter un flux de presse | table `flux` — voir [flux-rss.md](../../ctrlinfo-app/docs/flux-rss.md) |
+| retoucher un chapitre de « Comprendre » | [src/data/learn.js](../src/data/learn.js), dans ce dépôt |
+
+## Comment écrire en base
+
+Trois façons, de la plus durable à la plus rapide :
+
+1. **Par le seed** — ajouter l'entrée dans
+   [`ctrlinfo-app/prisma/data/*.json`](../../ctrlinfo-app/prisma/data), puis
+   `npm run db:seed`. Le semis est idempotent : il met à jour ce qui existe et
+   crée ce qui manque, sans doublon. C'est la seule façon dont le contenu
+   survit à une base recréée — **à privilégier**.
+2. **Par Prisma Studio** — `npm run prisma:studio` ouvre un éditeur de tables
+   dans le navigateur. Pratique pour corriger une faute de frappe.
+3. **Par SQL** — `docker compose --profile outils up -d adminer`, puis
+   http://localhost:8080.
 
 ## 1. Une publication du fil
 
-Le fichier est écrit à la main : c'est la seule source des publications du fil.
-Elles sont groupées par niveau, du plus grossier au plus subtil.
+Une ligne de `post` et ses trois lignes de `option_post` — une par geste
+possible. Dans `posts.json`, cela s'écrit encore comme avant :
 
 ```js
 {
@@ -54,19 +72,35 @@ Elles sont groupées par niveau, du plus grossier au plus subtil.
 
 1. `scores[correctAction]` doit être le **maximum** des trois scores.
 2. Un vrai post porte un `biais` commençant par « Aucun » ; un faux post nomme
-   le biais qu'il illustre, repris à l'identique d'une publication existante —
-   c'est cette chaîne qui relie le post à sa publication de remédiation.
+   le biais qu'il illustre, repris à l'identique de la table `biais` — c'est ce
+   libellé qui relie le post à sa publication de remédiation.
+
+Les deux sont désormais **vérifiées au seed** : une incohérence fait échouer le
+chargement avec le numéro de la publication fautive, au lieu de passer
+inaperçue jusqu'à la partie. C'est le filet qui manquait quand tout était en
+dur.
 
 Rappel utile : `correctAction: 'ignore'` est atteint en laissant filer le
 chrono, il n'y a pas de bouton « ignorer ».
 
 ### Les publications de remédiation
 
-`remediationPosts`, plus bas dans le même fichier, est un objet **indexé par nom de
-biais**. Après deux erreurs sur le même biais, la publication correspondante est
-insérée dans la file comme entraînement ciblé. Les clés doivent correspondre
-exactement à celles de `BIASES` — une faute de frappe rend la remédiation
-silencieusement inactive.
+`posts-remediation.json` est un objet **indexé par nom de biais** ; en base, ce
+sont des `post` de genre `REMEDIATION` rattachés à leur `biais`. Après deux
+erreurs sur le même biais, la publication correspondante est insérée dans la
+file comme entraînement ciblé, sans compter dans l'avancement du niveau.
+
+Le libellé doit correspondre exactement à celui de la table `biais` — une faute
+de frappe rend la remédiation silencieusement inactive.
+
+### Les publications fabriquées à partir des flux
+
+La majorité des publications ne sont plus écrites : elles sont fabriquées
+toutes les six heures à partir d'articles de presse réels. Elles obéissent aux
+mêmes règles, portent `origine: RSS`, et gardent le lien vers leur article
+d'origine. Voir
+[flux-rss.md](../../ctrlinfo-app/docs/flux-rss.md) — en particulier les
+garde-fous, qui ne sont pas négociables.
 
 ## 2. Une manche de « Repère les indices »
 
@@ -148,11 +182,44 @@ entrée à la liste suffit.
 }
 ```
 
-`CATEGORIES`, en tête du fichier, pilote les filtres de l'écran. La recherche est
-tolérante aux fautes et aux accents ([search.js](../src/lib/search.js)) : « deco »
-comme « dekodeurs » ramènent « Les Décodeurs ».
+La table `categorie_ressource` pilote les filtres de l'écran ; l'API y ajoute
+« Tout » en tête, qui est un filtre et non une catégorie. Une ressource dont la
+catégorie n'existe pas fait échouer le seed, avec son nom. La recherche reste
+côté front, tolérante aux fautes et aux accents
+([search.js](../src/lib/search.js)) : « deco » comme « dekodeurs » ramènent
+« Les Décodeurs ».
 
-## 5. Les couleurs
+## 5. Un chapitre de « Comprendre »
+
+[learn.js](../src/data/learn.js) porte **tout** le texte de l'onglet : l'écran
+n'en contient aucun. Le fichier est en deux temps.
+
+`CHAPITRES` ne décrit que les en-têtes, et fixe au passage l'ordre des sections
+comme celui du sommaire :
+
+```js
+{
+  id: 'familles',              // sert d'ancre au sommaire
+  numero: '01',
+  Icon: Layers,                // importée de lucide-react
+  onglet: 'Les 4 familles',    // le texte de la pastille du sommaire
+  titre: 'Quatre familles de fausses infos',
+  chapo: '…',                  // 1 à 2 phrases, sous le titre
+}
+```
+
+Les blocs de chaque chapitre sont exportés à part, sous leur propre nom
+(`FAMILLES`, `CHIFFRES`, `QUESTIONS`, `BIAIS`, `CAS`…), parce qu'ils n'ont
+pas tous la même forme. Chacun est câblé une fois dans
+[LearnScreen.jsx](../src/screens/LearnScreen.jsx) : **ajouter une entrée à une
+liste existante suffit**, ajouter un chapitre entier demande en revanche de
+poser sa mise en page dans l'écran.
+
+Une convention à respecter : un chapitre ajouté à `CHAPITRES` doit avoir son
+`<Chapitre>` correspondant dans l'écran, sinon il apparaît au sommaire et ne
+mène nulle part.
+
+## 6. Les couleurs
 
 Les fichiers de données importent `brand` depuis
 [src/css/colors.js](../src/css/colors.js) plutôt que d'écrire un code
@@ -163,14 +230,21 @@ Exception assumée : les faux comptes du fil et de « Repère les indices » por
 des couleurs « alarmistes » codées en dur, hors palette de marque. C'est
 volontaire, elles ne sont pas de la marque.
 
-## 6. Vérifier son ajout
+## 7. Vérifier son ajout
 
 ```bash
-npm run lint     # syntaxe, imports, règles React
-npm run dev      # et on joue le passage modifié
+cd ../ctrlinfo-app
+npm run db:seed      # échoue et dit pourquoi si le contenu est incohérent
+npm test             # les règles du jeu sont vérifiées ici
+
+cd ../ctrlinfo-website
+npm run lint         # syntaxe, imports, règles React
+npm run dev          # et on joue le passage modifié
 ```
 
-Il n'y a pas de tests automatisés — la relecture à l'écran est le seul filet.
-Pour une publication, vérifier en particulier que le score de la bonne action
-est bien le plus élevé : rien ne le signale à l'exécution, c'est à la relecture
-de l'attraper.
+Le seed vérifie ce qui ne se voyait pas à l'exécution : que le score de la
+bonne action est bien le plus élevé, que `isFake` s'accorde avec le biais
+annoncé, qu'une manche contient des indices sains, qu'une ressource vise une
+catégorie existante. Le reste — le ton, la justesse d'une explication, le fait
+que `reply` et `explication` ne se ressemblent pas — demande toujours une
+relecture à l'écran.

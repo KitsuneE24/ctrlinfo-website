@@ -47,6 +47,7 @@
 
     /* Une couleur par onglet, pour l'état actif seulement. */
     --nav-home: #1800ad;
+    --nav-learn: #5c1a9e;
     --nav-game: #0d0080;
     --nav-feed: #0d0080;
     --nav-detect: #5c1a9e;

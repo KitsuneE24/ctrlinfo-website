@@ -135,19 +135,26 @@ publications change, un seul fichier est à toucher.
 
 ## 6. Les styles
 
-Tailwind est présent, mais l'essentiel de la mise en forme passe par des classes
-maison, réparties en douze feuilles nommées en français et assemblées par
-[index.css](../src/css/index.css) — qui ne contient aucune règle, seulement le
-sommaire et les `@import`.
+Toute la mise en forme passe par des classes maison en notation BEM
+(`bloc__element--variante`), réparties en douze feuilles nommées en français et
+assemblées par [index.css](../src/css/index.css) — qui ne contient aucune règle,
+seulement le sommaire et les `@import`. Environ 2 600 lignes au total.
+
+**Tailwind est installé mais n'est pas utilisé comme tel** : il n'y a aucune
+classe utilitaire (`flex`, `p-4`, `text-sm`…) dans le JSX. Ce qu'il apporte
+réellement au bundle se réduit à son *preflight* — la remise à zéro des styles
+par défaut du navigateur — et au bloc de variables `--tw-*`. La configuration
+(`tailwind.config.js`) déclare bien la palette et les polices, mais rien ne les
+consomme. C'est un candidat au retrait : voir §8.
 
 **L'ordre des imports fait foi** : à spécificité égale, une feuille tardive
 l'emporte. `jetons` et `base` déclarent `@layer base` quand les autres déclarent
 `@layer components`, ce qui les range après le preflight Tailwind.
 
 [colors.js](../src/css/colors.js) double la palette côté JavaScript, pour les
-deux endroits qui ne peuvent pas lire du CSS : `tailwind.config.js` et les
-fichiers de données qui attribuent une couleur. Il doit rester aligné sur
-`jetons.css`.
+fichiers de données qui attribuent une couleur et ne peuvent pas lire du CSS
+(`tailwind.config.js` l'importe aussi, sans effet aujourd'hui). Il doit rester
+aligné sur `jetons.css`.
 
 Tous les écrans passent par le même gabarit,
 [ui/Page.jsx](../src/components/ui/Page.jsx), qui expose quatre variantes :
@@ -175,5 +182,8 @@ remontre — jamais une page blanche.
 - **Aucun test.** C'est le manque le plus coûteux ; voir [devops.md](devops.md) §3.
 - **Aucun routeur** — donc aucune URL partageable vers un jeu précis.
 - **Aucun score persistant** entre deux visites.
+- **Tailwind, en pratique** : installé et configuré, mais aucune classe
+  utilitaire n'est écrite. Le retirer allégerait les dépendances au prix d'un
+  reset CSS à réintroduire à la main (voir §6).
 - **Aucun back-end** : le contenu est livré avec le bundle, il n'y a rien à
   interroger au moment du jeu.

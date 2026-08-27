@@ -73,19 +73,39 @@ et `vite.config.js` le lit pour préfixer les URLs générées.
 3. **Dependabot.** Un `.github/dependabot.yml` pour les mises à jour de
    sécurité npm automatiques.
 
-## 4. Conteneurisation : reportée
+## 4. Conteneurisation : faite, côté back
 
-Tant que le projet est un site statique, un conteneur n'apporterait rien que
-GitHub Pages ne fasse déjà. La conteneurisation est donc reportée à l'arrivée
-d'un back-end, où elle devient nécessaire : il faudra alors un processus qui
-tourne en continu, avec sa version de Node, ses variables d'environnement et sa
-base de données.
+La conteneurisation était reportée « à l'arrivée d'un back-end ». Il est
+arrivé : [ctrlinfo-app](../../ctrlinfo-app) tourne en continu, avec sa version
+de Node, ses variables d'environnement et sa base de données. Ce qui existe
+aujourd'hui :
 
-Ce que ça donnera à ce moment-là :
+| Élément | Où | Volet DevOps |
+| --- | --- | --- |
+| `Dockerfile` multi-étapes (install → build → image mince) | `ctrlinfo-app/Dockerfile` | artefact immuable |
+| `docker-compose.yml` : PostgreSQL + API + Adminer (profil `outils`) | `ctrlinfo-app/docker-compose.yml` | **IaC** |
+| `HEALTHCHECK` sur les deux services, l'API attend une base saine | idem | **observabilité** |
+| migrations et seed joués au démarrage du conteneur | `ctrlinfo-app/docker-entrypoint.sh` | reproductibilité |
+| tests de la logique métier | `npm test` dans `ctrlinfo-app` | qualité |
 
-- un `Dockerfile` par service, et un `compose.yml` qui décrit la stack
-  complète — c'est le volet **IaC** du tableau du §1 ;
-- un conteneur `ctrl-info-app` réunissant le front servi et l'API ;
-- un `HEALTHCHECK` par service — le volet **observabilité** ;
-- une étape de plus dans la CI : construire l'image et la pousser sur un
-  registre, l'image devenant alors l'artefact déployé.
+```bash
+cd ../ctrlinfo-app
+docker compose up -d          # base + API
+docker compose --profile outils up -d adminer
+```
+
+Le front reste hors du compose : il est statique, et Vercel ou GitHub Pages
+suffit à le servir. Il lui faut seulement connaître l'adresse de l'API
+(`VITE_API_URL`, injectée au build).
+
+### Ce qui manque encore
+
+- **Le front n'est pas conteneurisé.** Ce serait un `nginx` servant `dist/` —
+  utile seulement si l'on veut tout déployer d'un bloc.
+- **La CI ne construit pas encore l'image** ni ne la pousse sur un registre :
+  c'est l'étape qui ferait de l'image l'artefact déployé.
+- **Pas de sauvegarde de la base.** Le volume `donnees-postgres` vit sur la
+  machine hôte ; un `pg_dump` planifié est le premier filet à poser avant toute
+  mise en ligne réelle.
+- **Les secrets sont dans `.env`.** Suffisant en local, à remplacer par les
+  secrets de l'hébergeur en production — les deux clés JWT en particulier.

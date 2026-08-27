@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Play, Zap, Flame, ShieldQuestion } from 'lucide-react'
 import Page from '../components/ui/Page'
+import MoltenMetal from '../components/MoltenMetal'
+import { brand } from '../css/colors'
 
 // Un chemin (ex. '/ctrl-info.mp4') ou une URL d'intégration, pour remplacer le
 // visuel d'attente par la vraie vidéo.
@@ -29,8 +31,32 @@ export default function HomeScreen() {
 
   return (
     <Page seamless>
-      {/* En-tête de marque, bord à bord. */}
+      {/* En-tête de marque, bord à bord. Seul endroit du site où l'on pose le
+          fond animé : c'est la première image de la marque. */}
       <section className="hero">
+        <div className="hero__fx">
+          <MoltenMetal
+            color1={brand.violet}
+            color2={brand.mauve}
+            color3={brand.cream}
+            speed={0.28}
+            scale={3}
+            detail={3}
+            glow={1.5}
+            coreSize={0.1}
+            swirl={1}
+            fold={-0.2}
+            blackPoint={0.06}
+            brightness={1.3}
+            colorMode="molten"
+            grain
+            grainIntensity={0.05}
+            mouseInteraction
+            mouseStrength={0.3}
+            opacity={1}
+          />
+        </div>
+
         <h1 className="hero__title">CTRL&nbsp;INFO</h1>
         <p className="hero__tagline">
           Sauras-tu repérer le vrai du faux dans ton fil d'actualité&nbsp;?

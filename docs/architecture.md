@@ -162,6 +162,16 @@ Tous les écrans passent par le même gabarit,
 mise en page), `seamless` (blocs enchaînés sans filet), et le défaut bord à
 bord.
 
+Une seule exception à « tout est en CSS » :
+[MoltenMetal.jsx](../src/components/MoltenMetal.jsx) dessine le fond animé de la
+bannière d'accueil dans un `<canvas>` WebGL 2 (via `ogl`), avec un *fragment
+shader*. Il est posé **uniquement** sur `.hero`, derrière le titre, et reste
+décoratif : sans WebGL 2, rien n'est dessiné et la bannière garde son aplat
+violet (`--brand-violet-deep`). La boucle de rendu s'arrête dès que la bannière
+sort de l'écran ou que l'onglet passe en arrière-plan. Elle tourne en revanche
+pour tout le monde, y compris pour qui a désactivé les effets d'animation de son
+système.
+
 ## 7. Persistance
 
 Trois mémoires, trois portées, aucune sur un serveur :

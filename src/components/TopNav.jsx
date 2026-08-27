@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { NAV_ITEMS } from './navItems'
-import games from '../data/games'
+import { useJeux } from '../state/jeux'
 
 // Sur un écran tactile, `mouseenter` est simulé au toucher : sans ce
 // garde-fou, le menu s'ouvrirait puis se refermerait au clic.
@@ -16,6 +16,7 @@ const survolPossible =
  * déplie la liste des jeux. Le menu ne répète donc pas « Tous les jeux ».
  */
 export default function TopNav({ tab, jeu, onNavigate }) {
+  const { jeux } = useJeux()
   const [menuOuvert, setMenuOuvert] = useState(false)
   const groupeRef = useRef(null)
 
@@ -107,7 +108,7 @@ export default function TopNav({ tab, jeu, onNavigate }) {
 
               {menuOuvert && (
                 <div role="menu" className="top-nav__menu">
-                  {games.map(({ id: jeuId, Icon: JeuIcon, titre, accroche }) => (
+                  {jeux.map(({ id: jeuId, Icon: JeuIcon, titre, accroche }) => (
                     <button
                       key={jeuId}
                       type="button"

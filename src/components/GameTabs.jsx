@@ -1,5 +1,5 @@
 import { HelpCircle } from 'lucide-react'
-import games from '../data/games'
+import { useJeux } from '../state/jeux'
 
 /**
  * Barre du jeu en cours, entre l'en-tête du site et l'aire de jeu :
@@ -13,9 +13,10 @@ import games from '../data/games'
 const TOUS = 'tous'
 
 export default function GameTabs({ jeu, onSelect, onRevoirRegles }) {
+  const { jeux } = useJeux()
   const valeur = jeu ?? TOUS
-  const entrees = [{ id: TOUS, titre: 'Tous les jeux' }, ...games]
-  const enCours = games.find(({ id }) => id === jeu)
+  const entrees = [{ id: TOUS, titre: 'Tous les jeux' }, ...jeux]
+  const enCours = jeux.find(({ id }) => id === jeu)
 
   function choisir(id) {
     onSelect(id === TOUS ? null : id)

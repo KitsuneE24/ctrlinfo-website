@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, Check, Lightbulb, SendHorizontal } from 'lucide-react'
+import { auMieux, enregistrerChoix, terminerSession } from '../api/progression'
+import { useSessionJeu } from '../lib/useSessionJeu'
 import { getSession, saveSession } from '../state/conversationSessions'
 
 /**
@@ -62,6 +64,10 @@ function TypingBubble() {
 export default function ChatThread({ conversation, sessionKey, onBack, onRestart }) {
   const { name, subtitle, color, intro, steps, outro } = conversation
 
+  // Une partie côté serveur par montage — donc une par « Recommencer », qui
+  // remonte justement le composant.
+  const sessionId = useSessionJeu({ jeu: 'chat', conversationSlug: conversation.id })
+
   const saved = getSession(sessionKey)
 
   const [log, setLog] = useState(() => saved?.log ?? [])
@@ -104,6 +110,10 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
     setAwaiting(false)
     setLog((prev) => [...prev, { text: choice.text, kind: 'message', from: 'me' }])
 
+    // Le choix part au serveur, qui garde la trace et rejuge de son côté.
+    // L'affichage, lui, n'attend pas la réponse : la conversation continue.
+    if (sessionId) auMieux(enregistrerChoix(sessionId, choice.id))
+
     const finalScore = score + (choice.correct ? 1 : 0)
     setScore(finalScore)
 
@@ -124,6 +134,11 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
       setEndAfterQueue(true)
     }
   }
+
+  // La discussion arrive à son terme : la partie est close côté serveur.
+  useEffect(() => {
+    if (done && sessionId) auMieux(terminerSession(sessionId))
+  }, [done, sessionId])
 
   const choices = awaiting ? steps[stepIdx]?.choices ?? [] : []
   const typing = queue.length > 0 && queue[0].kind !== 'explication' && log.length > 0

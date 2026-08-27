@@ -3,20 +3,22 @@
 /* ==========================================================================
    FEUILLE DE STYLE DE CTRL INFO — SOMMAIRE
 
-   Assemble les douze parties du dossier. Aucune règle ici.
+   Assemble les quatorze parties du dossier. Aucune règle ici.
 
    jetons ............... palette, polices, rayons, encoches
    base ................. le document : hauteur, fond, animations
    coque-et-navigation .. en-tête, barre du haut, barre du bas
    barre-du-jeu ......... onglets de jeux et bouton « Règles »
-   colonne-de-contenu ... le gabarit commun aux écrans (Page.jsx)
+   colonne-de-contenu ... le gabarit commun aux écrans et le bandeau de tête
    fil-de-jeu ........... publications, actions, décompte
    conversations ........ bulles, réponses à choisir, composeur
    repere-les-indices ... la publication décomposée et ses éléments
-   accueil .............. bannière, vidéo, leviers
+   accueil .............. titre de marque, vidéo, leviers
    galerie-des-jeux ..... les tuiles de l'onglet « Jeux »
+   comprendre ........... la page de lecture : sommaire, chapitres, encadrés
    tutoriel ............. le carrousel de règles d'un jeu
    sources .............. la page des sources et son bouton flottant
+   etat-api ............. chargement et panne de l'API
 
    `colors.js`, à côté, expose la même palette au JavaScript — aux données et à
    tailwind.config.js. Il doit rester aligné sur les jetons.
@@ -37,8 +39,10 @@
 @import './repere-les-indices.css';
 @import './accueil.css';
 @import './galerie-des-jeux.css';
+@import './comprendre.css';
 @import './tutoriel.css';
 @import './sources.css';
+@import './etat-api.css';
 
 @tailwind base;
 @tailwind components;

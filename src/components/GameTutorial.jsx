@@ -4,7 +4,8 @@ import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react'
 
 /**
  * Tutoriel d'un jeu : un carrousel de trois volets — le but, les actions, le
- * pourquoi. Les contenus sont dans src/data/games.js.
+ * pourquoi. Les contenus viennent de l'API (table `volet_tutoriel`), chargés
+ * avec les jeux ; seule l'icône est rattachée ici, côté front.
  *
  * Il se traverse au clavier (flèches, Échap), au doigt (glissement) ou au
  * bouton.

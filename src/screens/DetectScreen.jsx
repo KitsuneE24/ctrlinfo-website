@@ -1,9 +1,13 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ScanSearch, Check, X, Minus, Trophy, ArrowRight } from 'lucide-react'
-import manches from '../data/detect'
-import { autreJeu } from '../data/games'
+import { getManches } from '../api/contenu'
+import { auMieux, enregistrerManche, terminerSession } from '../api/progression'
+import { useRessource } from '../lib/useRessource'
+import { useSessionJeu } from '../lib/useSessionJeu'
+import { useAutreJeu } from '../state/jeux'
 import Page from '../components/ui/Page'
+import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
 // Trois états après validation : repéré, manqué, fausse alerte.
 function verdictOf(indice, selected) {
@@ -21,14 +25,21 @@ const VERDICTS = {
 }
 
 export default function DetectScreen({ onSwitch }) {
-  const suite = autreJeu('detect')
+  const suite = useAutreJeu('detect')
+  const { donnees, chargement, erreur, recharger } = useRessource(getManches, [])
+  const manches = useMemo(() => donnees ?? [], [donnees])
+
+  // La partie s'ouvre dès que les manches sont là : inutile d'enregistrer une
+  // partie pour un écran qui n'affiche encore rien.
+  const sessionId = useSessionJeu({ jeu: 'detect', actif: manches.length > 0 })
+
   const [mancheIdx, setMancheIdx] = useState(0)
   const [selection, setSelection] = useState([])
   const [valide, setValide] = useState(false)
   const [total, setTotal] = useState({ points: 0, max: 0 })
 
   const manche = manches[mancheIdx]
-  const fini = mancheIdx >= manches.length
+  const fini = manches.length > 0 && mancheIdx >= manches.length
 
   const bilan = useMemo(() => {
     if (!manche) return null
@@ -50,6 +61,18 @@ export default function DetectScreen({ onSwitch }) {
     )
   }
 
+  /**
+   * Valider, c'est aussi enregistrer. Le barème affiché est calculé ici pour
+   * que le verdict soit immédiat ; le serveur refait le même calcul de son
+   * côté, et c'est le sien qui est gardé.
+   */
+  function valider() {
+    setValide(true)
+    if (sessionId) {
+      auMieux(enregistrerManche(sessionId, { mancheSlug: manche.id, choisis: selection }))
+    }
+  }
+
   function suivant() {
     setTotal((prev) => ({
       points: prev.points + bilan.points,
@@ -57,7 +80,9 @@ export default function DetectScreen({ onSwitch }) {
     }))
     setSelection([])
     setValide(false)
-    setMancheIdx((i) => i + 1)
+    const prochain = mancheIdx + 1
+    setMancheIdx(prochain)
+    if (prochain >= manches.length && sessionId) auMieux(terminerSession(sessionId))
   }
 
   function rejouer() {
@@ -65,6 +90,22 @@ export default function DetectScreen({ onSwitch }) {
     setSelection([])
     setValide(false)
     setTotal({ points: 0, max: 0 })
+  }
+
+  if (erreur) {
+    return (
+      <Page title="Repère les indices">
+        <ErreurChargement erreur={erreur} onReessayer={recharger} />
+      </Page>
+    )
+  }
+
+  if (chargement || manches.length === 0) {
+    return (
+      <Page title="Repère les indices">
+        <Chargement quoi="les manches" />
+      </Page>
+    )
   }
 
   if (fini) {
@@ -209,7 +250,7 @@ export default function DetectScreen({ onSwitch }) {
           ) : (
             <button
               type="button"
-              onClick={() => setValide(true)}
+              onClick={valider}
               disabled={selection.length === 0}
               className="button"
             >

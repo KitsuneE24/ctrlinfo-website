@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Play, Zap, Flame, ShieldQuestion } from 'lucide-react'
+import { ArrowRight, Play, Zap, Flame, ShieldQuestion } from 'lucide-react'
 import Page from '../components/ui/Page'
 import Banniere from '../components/ui/Banniere'
 
@@ -25,7 +25,7 @@ const LEVIERS = [
   },
 ]
 
-export default function HomeScreen() {
+export default function HomeScreen({ onNavigate }) {
   const [videoOpen, setVideoOpen] = useState(false)
 
   return (
@@ -37,6 +37,24 @@ export default function HomeScreen() {
         <p className="hero__tagline">
           Reprends le contrôle de ton fil&nbsp;
         </p>
+
+        {/* Les deux entrées du site. Sans galerie de jeux, c'est ici qu'on
+            commence — l'accueil ne doit pas être un cul-de-sac. */}
+        {onNavigate && (
+          <div className="hero__actions">
+            <button type="button" onClick={() => onNavigate('feed')} className="hero__cta">
+              Jouer au fil d'actualité
+              <ArrowRight size={16} strokeWidth={2.2} />
+            </button>
+            <button
+              type="button"
+              onClick={() => onNavigate('learn')}
+              className="hero__cta hero__cta--ghost"
+            >
+              Comprendre d'abord
+            </button>
+          </div>
+        )}
       </Banniere>
 
       {/* Le corps : une colonne bornée en largeur, espacée des bords. */}

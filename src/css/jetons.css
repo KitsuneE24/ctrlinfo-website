@@ -45,13 +45,13 @@
 
     --brand-gradient: linear-gradient(135deg, var(--brand-blue), var(--brand-magenta));
 
-    /* Une couleur par onglet, pour l'état actif seulement. */
+    /* Une couleur par onglet, pour l'état actif seulement. Dans l'ordre de la
+       barre du bas (navItems.js). */
     --nav-home: #1800ad;
-    --nav-learn: #5c1a9e;
-    --nav-game: #0d0080;
     --nav-feed: #0d0080;
-    --nav-detect: #5c1a9e;
     --nav-chat: #8a4fbe;
+    --nav-learn: #5c1a9e;
+    --nav-profil: #791561;
     --nav-sources: #791561;
 
     --sa-top: env(safe-area-inset-top, 0px);

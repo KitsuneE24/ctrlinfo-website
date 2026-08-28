@@ -1,50 +1,49 @@
-import { BookOpen, House, Gamepad2, Lightbulb } from 'lucide-react'
+import { CircleUserRound, Compass, House, Search, Send } from 'lucide-react'
 
 /**
- * Les deux navigations de l'application, décrites ici et nulle part ailleurs.
+ * La navigation de l'application, décrite ici et nulle part ailleurs.
  *
- * - `NAV_ITEMS` — la barre du haut, sur ordinateur. L'onglet « Jeux » y déplie
- *   en plus la liste des jeux (voir TopNav).
- * - `TAB_ITEMS` — la barre du bas, sur téléphone. Quatre entrées : les jeux se
- *   choisissent dans la galerie, pas dans la barre.
+ * Une seule barre, en bas, à toutes les tailles d'écran : ce que faisait le
+ * téléphone est devenu la règle, y compris sur ordinateur. Il n'y a donc plus
+ * de barre horizontale dans l'en-tête, ni de menu déroulant de jeux.
  *
- * Les sources ne sont que dans la barre du bas ; sur ordinateur, c'est le
- * bouton flottant qui les ouvre.
+ * Les icônes reprennent le vocabulaire d'Instagram, que le public visé lit sans
+ * y penser : la maison, la boussole, l'avion en papier, la loupe, l'avatar. Le
+ * site imite un réseau social — sa navigation aussi.
  *
  * Chaque entrée porte sa couleur, pour l'état actif seulement (jetons.css).
  */
-const ACCUEIL = {
-  id: 'home',
-  jeu: null,
-  Icon: House,
-  label: 'Accueil',
-  couleur: 'var(--nav-home)',
-}
-
-const COMPRENDRE = {
-  id: 'learn',
-  jeu: null,
-  Icon: Lightbulb,
-  label: 'Comprendre',
-  couleur: 'var(--nav-learn)',
-}
-
-const TOUS_LES_JEUX = {
-  id: 'game',
-  jeu: null,
-  Icon: Gamepad2,
-  label: 'Tous les jeux',
-  couleur: 'var(--nav-game)',
-}
-
-const SOURCES = {
-  id: 'sources',
-  jeu: null,
-  Icon: BookOpen,
-  label: 'Sources',
-  couleur: 'var(--nav-sources)',
-}
-
-export const NAV_ITEMS = [ACCUEIL, COMPRENDRE, { ...TOUS_LES_JEUX, label: 'Jeux' }]
-
-export const TAB_ITEMS = [ACCUEIL, COMPRENDRE, TOUS_LES_JEUX, SOURCES]
+export const TAB_ITEMS = [
+  {
+    id: 'home',
+    Icon: House,
+    label: 'Accueil',
+    couleur: 'var(--nav-home)',
+    // Remplie à l'état actif, comme la maison d'Instagram.
+    pleine: true,
+  },
+  {
+    id: 'feed',
+    Icon: Compass,
+    label: "Fil d'actualité",
+    couleur: 'var(--nav-feed)',
+  },
+  {
+    id: 'chat',
+    Icon: Send,
+    label: 'Conversations',
+    couleur: 'var(--nav-chat)',
+  },
+  {
+    id: 'learn',
+    Icon: Search,
+    label: 'Comprendre',
+    couleur: 'var(--nav-learn)',
+  },
+  {
+    id: 'profil',
+    Icon: CircleUserRound,
+    label: 'Profil',
+    couleur: 'var(--nav-profil)',
+  },
+]

@@ -5,11 +5,16 @@
 
 @layer components {
   /* Une seule variable de hauteur, plutôt qu'une cascade de `bottom`. */
+  /* Les sources n'ont pas d'onglet : ce sont un outil qu'on ouvre par-dessus
+     ce qu'on fait, pas une destination. Le bouton flotte donc au-dessus de la
+     barre du bas, à toutes les tailles d'écran — d'où la hauteur de barre
+     ajoutée à `bottom`. */
   .sources-fab {
     --fab-bottom: 16px;
+    --tab-bar-h: 62px;
     position: fixed;
     right: 16px;
-    bottom: calc(var(--fab-bottom) + var(--sa-bottom));
+    bottom: calc(var(--fab-bottom) + var(--tab-bar-h) + var(--sa-bottom));
     z-index: 70;
     display: flex;
     align-items: center;
@@ -32,10 +37,10 @@
     --fab-bottom: 10px;
   }
 
-  /* Sur téléphone, les sources ont leur onglet dans la barre du bas. */
-  @media (max-width: 767px) {
+  @media (min-width: 420px) {
     .sources-fab {
-      display: none;
+      /* L'intitulé apparaît dans la barre du bas : elle grandit d'autant. */
+      --tab-bar-h: 70px;
     }
   }
 

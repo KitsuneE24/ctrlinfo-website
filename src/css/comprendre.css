@@ -1,301 +1,149 @@
-/* ========================================================================
+/* ==========================================================================
    COMPRENDRE
-   La page de lecture : un bandeau d'entrée, un sommaire collant, puis neuf
-   chapitres à la file. Colonne plus large que le fil, mais bornée : au-delà
-   de ~70 caractères par ligne, on ne lit plus, on décroche.
-   ======================================================================== */
+   Deux vues pour un seul onglet : la galerie de thèmes (recherche + vignettes)
+   et la page d'un thème. Les vignettes portent le résumé, la page porte le
+   texte entier — d'où deux familles de règles bien séparées ici.
+   ========================================================================== */
 
 @layer components {
-  /* --- Bandeau d'entrée --------------------------------------------------
-     Même coquille que l'accueil, fond animé compris (ui/Banniere.jsx) : ne
-     restent ici que les marges et la typographie. */
+  /* --- Bandeau d'entrée ------------------------------------------------- */
 
   .learn-hero {
-    padding: 40px 20px 36px;
-    text-align: center;
+    padding: 28px 20px 30px;
   }
 
   @media (min-width: 768px) {
     .learn-hero {
-      padding: 56px 24px 48px;
+      padding: 40px 28px 42px;
     }
   }
 
   .learn-hero__eyebrow {
-    margin: 0;
+    margin: 0 0 8px;
     font-family: var(--font-title);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(255, 250, 249, 0.72);
+    color: rgba(255, 255, 255, 0.68);
   }
 
   .learn-hero__title {
-    max-width: 18ch;
-    margin: 10px auto 0;
+    margin: 0;
+    max-width: 22ch;
     font-family: var(--font-title);
-    font-size: 28px;
+    font-size: 27px;
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.02em;
+    color: #fff;
   }
 
   @media (min-width: 768px) {
     .learn-hero__title {
-      font-size: 38px;
+      font-size: 36px;
     }
   }
 
   .learn-hero__lead {
-    max-width: 54ch;
-    margin: 16px auto 0;
+    margin: 12px 0 0;
+    max-width: 56ch;
     font-size: 14.5px;
-    line-height: 1.65;
-    color: rgba(255, 250, 249, 0.9);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.86);
   }
 
-  .learn-hero__meta {
-    margin: 18px 0 0;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    color: rgba(255, 250, 249, 0.65);
-  }
-
-  /* --- Sommaire collant --------------------------------------------------
-     Il reste en haut pendant toute la lecture et allume le chapitre traversé
-     (observateur d'intersection, côté JSX). */
-
-  .learn-toc {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: color-mix(in srgb, var(--surface) 92%, transparent);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .learn-toc__inner {
-    display: flex;
-    gap: 6px;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 10px 14px;
-    overflow-x: auto;
-  }
-
-  @media (min-width: 768px) {
-    .learn-toc__inner {
-      padding: 10px 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-      overflow-x: visible;
-    }
-  }
-
-  .learn-toc__chip {
-    display: inline-flex;
-    flex-shrink: 0;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 13px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    font-size: 12.5px;
-    font-weight: 600;
-    white-space: nowrap;
-    color: var(--ink-muted);
-    transition: color 0.15s, border-color 0.15s, background-color 0.15s;
-  }
-
-  .learn-toc__chip:hover {
-    color: var(--ink);
-    border-color: var(--line-strong);
-  }
-
-  .learn-toc__num {
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--ink-ghost);
-    transition: color 0.15s;
-  }
-
-  .learn-toc__chip--active {
-    background: var(--brand-blue);
-    border-color: var(--brand-blue);
-    color: #fff;
-  }
-
-  .learn-toc__chip--active .learn-toc__num {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  /* --- Le corps ---------------------------------------------------------- */
+  /* --- Corps de l'onglet ------------------------------------------------ */
 
   .learn__body {
+    display: flex;
     width: 100%;
-    max-width: 940px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 16px 32px;
+    flex-direction: column;
+    gap: 18px;
+    padding: 16px 14px 28px;
   }
 
   @media (min-width: 768px) {
     .learn__body {
-      padding: 0 24px 56px;
+      padding: 22px 22px 36px;
     }
   }
 
-  .chapitre {
-    padding: 36px 0;
-    /* Le sommaire collant ne doit pas recouvrir le titre visé. */
-    scroll-margin-top: 58px;
-  }
+  /* --- La galerie de thèmes --------------------------------------------- */
 
-  .chapitre + .chapitre {
-    border-top: 1px solid var(--line);
-  }
-
-  @media (min-width: 768px) {
-    .chapitre {
-      padding: 48px 0;
-    }
-  }
-
-  .chapitre__head {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-  }
-
-  .chapitre__badge {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: var(--brand-gradient);
-    color: var(--brand-cream);
-  }
-
-  .chapitre__intro {
-    min-width: 0;
-  }
-
-  .chapitre__numero {
-    margin: 0;
-    font-family: var(--font-title);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--brand-magenta);
-  }
-
-  .chapitre__titre {
-    margin: 4px 0 0;
-    font-family: var(--font-title);
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-  }
-
-  @media (min-width: 768px) {
-    .chapitre__titre {
-      font-size: 26px;
-    }
-  }
-
-  .chapitre__chapo {
-    max-width: 62ch;
-    margin: 10px 0 0;
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--ink-muted);
-  }
-
-  .chapitre__corps {
-    margin-top: 24px;
-  }
-
-  .chapitre__texte {
-    max-width: 68ch;
-    margin: 0;
-    font-size: 14.5px;
-    line-height: 1.75;
-    color: var(--ink-soft);
-  }
-
-  .chapitre__texte + .chapitre__texte {
-    margin-top: 14px;
-  }
-
-  /* --- L'encadré « à retenir » -------------------------------------------
-     Reprend `.tip` (galerie-des-jeux.css) et lui ajoute son intitulé. */
-
-  .conseil {
-    max-width: 68ch;
-    border-left-color: var(--brand-magenta);
-    background: rgba(121, 21, 97, 0.05);
-  }
-
-  .conseil__label {
-    margin: 0 0 5px;
-    font-family: var(--font-title);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--brand-magenta);
-  }
-
-  /* --- 01. Les quatre familles ------------------------------------------- */
-
-  .familles {
+  .themes {
     display: grid;
-    gap: 12px;
-    margin: 0 0 20px;
+    gap: var(--gap-card);
+    margin: 0;
     padding: 0;
     list-style: none;
-    counter-reset: famille;
+    grid-template-columns: 1fr;
   }
 
-  @media (min-width: 720px) {
-    .familles {
+  @media (min-width: 620px) {
+    .themes {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
     }
   }
 
-  .famille {
-    padding: 18px 18px 20px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-card);
-    background: var(--surface);
+  @media (min-width: 1000px) {
+    .themes {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
-  .famille__rang {
+  /* La vignette est une carte ; le lien d'aide vit en dehors du bouton, en
+     pied de carte, pour rester atteignable au clavier. */
+  .theme {
     display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  }
+
+  @media (hover: hover) {
+    .theme:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .theme__ouvrir {
+    display: grid;
+    flex: 1 1 auto;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 4px 12px;
+    padding: 16px 16px 14px;
+    text-align: left;
+  }
+
+  .theme__badge {
+    display: flex;
+    grid-row: span 2;
+    width: 40px;
+    height: 40px;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    margin: 0 0 10px;
-    border-radius: 50%;
-    background: var(--brand-blue);
-    font-family: var(--font-title);
-    font-size: 12px;
-    font-weight: 700;
+    border-radius: 12px;
     color: #fff;
   }
 
-  .famille__titre {
-    margin: 0;
+  .theme__numero {
+    font-family: var(--font-title);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--ink-ghost);
+  }
+
+  .theme__titre {
     font-family: var(--font-title);
     font-size: 16.5px;
     font-weight: 700;
@@ -303,79 +151,308 @@
     color: var(--ink);
   }
 
-  .famille__texte {
-    margin: 8px 0 0;
-    font-size: 14px;
+  .theme__resume {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+  }
+
+  .theme__lire {
+    display: inline-flex;
+    grid-column: 1 / -1;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--brand-blue);
+  }
+
+  /* --- Le lien d'aide de chaque thème ----------------------------------- */
+
+  .chapitre-lien {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  .chapitre-lien:hover {
+    background: var(--wash);
+    color: var(--brand-magenta);
+  }
+
+  .chapitre-lien--compact {
+    border-top: 1px solid var(--line);
+  }
+
+  /* --- La page d'un thème ------------------------------------------------ */
+
+  .chapitre {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-bottom: 28px;
+  }
+
+  .chapitre__retour {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px 8px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: background-color 0.15s, color 0.15s;
+  }
+
+  .chapitre__retour:hover {
+    background: var(--wash);
+    color: var(--ink);
+  }
+
+  .chapitre__head {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .chapitre__badge {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+    border-radius: 13px;
+    color: #fff;
+  }
+
+  .chapitre__numero {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-ghost);
+  }
+
+  .chapitre__titre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  @media (min-width: 768px) {
+    .chapitre__titre {
+      font-size: 30px;
+    }
+  }
+
+  .chapitre__chapo {
+    margin: 6px 0 0;
+    max-width: 62ch;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  .chapitre__corps {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .chapitre__pied {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+
+  .chapitre__pied-titre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .chapitre__pied .chapitre-lien {
+    padding-left: 0;
+    color: var(--brand-magenta);
+  }
+
+  /* --- Les blocs -------------------------------------------------------- */
+
+  .bloc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bloc__titre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .bloc__texte {
+    margin: 0;
+    max-width: 68ch;
+    font-size: 14.5px;
     line-height: 1.7;
     color: var(--ink-soft);
   }
 
-  /* Encadré secondaire : un cas réel, ou la formule type à reconnaître. */
-  .encadre {
-    position: relative;
-    margin-top: 14px;
-    padding: 12px 14px;
-    border-radius: 10px;
-    background: var(--page);
+  .entrees {
+    display: grid;
+    gap: var(--gap-card);
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .encadre--piege {
-    background: rgba(224, 48, 154, 0.07);
+  @media (min-width: 760px) {
+    .entrees {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .entree {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+  }
+
+  .entree__surtitre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-magenta-light);
+  }
+
+  .entree__titre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 15.5px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .entree__texte {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+  }
+
+  /* --- Encadrés --------------------------------------------------------- */
+
+  .encadre {
+    padding: 10px 12px;
+    border-left: 3px solid var(--line-strong);
+    border-radius: 8px;
+    background: var(--wash);
   }
 
   .encadre__label {
-    margin: 0 0 4px;
-    font-size: 10.5px;
+    margin: 0 0 3px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--brand-violet);
-  }
-
-  .encadre--piege .encadre__label {
-    color: var(--brand-magenta);
+    color: var(--ink-faint);
   }
 
   .encadre__texte {
     margin: 0;
     font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .conseil {
+    padding: 13px 15px;
+    border-left: 4px solid var(--brand-blue);
+    border-radius: 10px;
+    background: rgba(24, 0, 173, 0.05);
+  }
+
+  .conseil__label {
+    margin: 0 0 4px;
+    font-family: var(--font-title);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+  }
+
+  .conseil__texte {
+    margin: 0;
+    font-size: 14px;
     line-height: 1.65;
-    color: var(--ink-muted);
+    color: var(--ink-soft);
   }
 
-  .encadre__icone {
-    margin-bottom: 6px;
-    color: var(--brand-violet);
+  .conseil__texte + .conseil__texte {
+    margin-top: 8px;
   }
 
-  /* --- 02. L'argent ------------------------------------------------------- */
+  /* --- Les chiffres ----------------------------------------------------- */
 
   .chiffres {
     display: grid;
-    gap: 12px;
-    margin: 0 0 22px;
+    gap: var(--gap-card);
+    margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 620px) {
     .chiffres {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
   .chiffre {
-    padding: 18px 16px;
+    padding: 15px 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: var(--radius-card);
-    background: var(--page);
   }
 
   .chiffre__valeur {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 700;
-    line-height: 1.1;
     letter-spacing: -0.02em;
     background-image: var(--brand-gradient);
     background-clip: text;
@@ -384,375 +461,79 @@
   }
 
   .chiffre__texte {
-    margin: 8px 0 0;
+    margin: 6px 0 0;
     font-size: 13px;
     line-height: 1.6;
     color: var(--ink-muted);
   }
 
-  .rouages {
-    display: flex;
-    max-width: 68ch;
-    flex-direction: column;
-    gap: 12px;
-    margin: 0 0 20px;
-    padding: 0;
-    list-style: none;
-  }
-
-  .rouage {
-    position: relative;
-    padding-left: 20px;
-    font-size: 14.5px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-  }
-
-  .rouage::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 9px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--brand-gradient);
-  }
-
-  /* --- 03 et 04. Deux blocs côte à côte ----------------------------------- */
-
-  .duo {
-    display: grid;
-    gap: 24px;
-  }
-
-  .duo--serre {
-    margin-top: 28px;
-  }
-
-  @media (min-width: 820px) {
-    .duo {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-  }
-
-  .moteur__titre {
-    margin: 0;
-    font-family: var(--font-title);
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--ink);
-  }
-
-  .moteur__texte {
-    margin: 8px 0 0;
-    font-size: 14.5px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-  }
-
-  /* --- 04. Les quatre questions ------------------------------------------- */
-
-  .questions {
-    display: flex;
-    max-width: 70ch;
-    flex-direction: column;
-    gap: 2px;
-    margin: 0 0 20px;
-    padding: 0;
-    list-style: none;
-  }
-
-  .question {
-    display: flex;
-    gap: 14px;
-    padding: 16px 4px;
-  }
-
-  .question + .question {
-    border-top: 1px solid var(--line);
-  }
-
-  .question__num {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1.5px solid var(--brand-blue);
-    font-family: var(--font-title);
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--brand-blue);
-  }
-
-  .question__titre {
-    margin: 4px 0 0;
-    font-family: var(--font-title);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--ink);
-  }
-
-  .question__texte {
-    margin: 6px 0 0;
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--ink-muted);
-  }
-
-  /* Renvoi vers un autre onglet, en fin de chapitre. */
-  .learn-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    margin-top: 26px;
-    padding: 12px 20px;
-    border-radius: 999px;
-    background: var(--brand-blue);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    transition: transform 0.12s, opacity 0.15s;
-  }
-
-  .learn-cta:hover {
-    opacity: 0.9;
-  }
-
-  .learn-cta:active {
-    transform: scale(0.97);
-  }
-
-  /* --- 05. Les signaux complotistes --------------------------------------- */
-
-  .signaux {
-    display: grid;
-    gap: 12px;
-    margin: 20px 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  @media (min-width: 720px) {
-    .signaux {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  .signal {
-    padding: 16px 18px;
-    border-left: 3px solid var(--brand-violet);
-    border-radius: 10px;
-    background: var(--page);
-  }
-
-  .signal__titre {
-    margin: 0;
-    font-family: var(--font-title);
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.35;
-    color: var(--brand-violet);
-  }
-
-  .signal__texte {
-    margin: 6px 0 0;
-    font-size: 13.5px;
-    line-height: 1.65;
-    color: var(--ink-soft);
-  }
-
-  /* --- 07. Les biais ------------------------------------------------------ */
-
-  .biais-grille {
-    display: grid;
-    gap: 14px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  @media (min-width: 720px) {
-    .biais-grille {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 1100px) {
-    .biais-grille {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  .biais {
-    display: flex;
-    flex-direction: column;
-    padding: 18px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-card);
-    background: var(--surface);
-  }
-
-  .biais__nom {
-    margin: 0;
-    font-family: var(--font-title);
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--ink);
-  }
-
-  /* La pensée spontanée : c'est elle qu'on doit reconnaître en soi. */
-  .biais__pensee {
-    margin: 10px 0 14px;
-    padding: 10px 12px;
-    border-radius: 10px;
-    background: var(--page);
-    font-size: 13.5px;
-    font-style: italic;
-    line-height: 1.55;
-    color: var(--brand-violet);
-  }
-
-  .biais__ligne + .biais__ligne {
-    margin-top: 12px;
-  }
-
-  .biais__label {
-    margin: 0 0 3px;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-
-  .biais__ligne--reflexe .biais__label {
-    color: var(--verdict-ok);
-  }
-
-  .biais__texte {
-    margin: 0;
-    font-size: 13.5px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-  }
-
-  .biais__ligne--reflexe .biais__texte {
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  /* --- 08. Les cas réels --------------------------------------------------- */
-
-  .cas-liste {
-    display: grid;
-    gap: 14px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  @media (min-width: 820px) {
-    .cas-liste {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  .cas {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: var(--radius-card);
-    background: var(--page);
-  }
-
-  .cas__annee {
-    align-self: flex-start;
-    margin: 0 0 10px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: var(--surface);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--brand-magenta);
-  }
-
-  .cas__titre {
-    margin: 0;
-    font-family: var(--font-title);
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--ink);
-  }
-
-  .cas__texte {
-    margin: 8px 0 0;
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-  }
-
-  .cas__lecon {
-    margin: 14px 0 0;
-    padding-top: 14px;
-    border-top: 1px solid var(--line);
-    font-size: 13.5px;
-    font-weight: 600;
-    line-height: 1.6;
-    color: var(--brand-blue);
-  }
-
-  /* --- Sortie de lecture ---------------------------------------------------- */
+  /* --- Sortie de lecture ------------------------------------------------- */
 
   .learn-fin {
-    margin-top: 8px;
-    padding: 34px 24px 36px;
-    border-radius: var(--radius-card);
-    background: var(--brand-gradient);
+    padding: 22px 18px;
     text-align: center;
-    color: var(--brand-cream);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
   }
 
   .learn-fin__titre {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 22px;
+    font-size: 19px;
     font-weight: 700;
-    line-height: 1.2;
+    color: var(--ink);
   }
 
   .learn-fin__texte {
-    max-width: 46ch;
-    margin: 10px auto 0;
+    margin: 8px auto 0;
+    max-width: 52ch;
     font-size: 14px;
-    line-height: 1.7;
-    color: rgba(255, 250, 249, 0.9);
+    line-height: 1.65;
+    color: var(--ink-muted);
+  }
+
+  .learn-fin__boutons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
   }
 
   .learn-fin__bouton {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 20px;
-    padding: 12px 22px;
+    padding: 11px 20px;
     border-radius: 999px;
-    background: var(--brand-cream);
-    color: var(--brand-blue);
+    background-image: var(--brand-gradient);
     font-size: 14px;
     font-weight: 700;
-    transition: transform 0.12s;
+    color: #fff;
+    transition: opacity 0.15s;
   }
 
-  .learn-fin__bouton:active {
-    transform: scale(0.97);
+  .learn-fin__bouton:hover {
+    opacity: 0.9;
+  }
+
+  .learn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .learn-cta:hover {
+    border-color: var(--brand-magenta);
+    background: var(--wash);
+    color: var(--brand-magenta);
   }
 }

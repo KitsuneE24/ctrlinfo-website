@@ -3,7 +3,7 @@
 Jeu web de sensibilisation à la désinformation en Nouvelle-Calédonie.
 React 19 + Vite + Tailwind.
 
-Le contenu des jeux — publications, manches, conversations, ressources — vient
+Le contenu — publications, conversations, thèmes, ressources — vient
 de l'API [ctrlinfo-app](../ctrlinfo-app), qui garde aussi la progression des
 joueurs. **Le front ne fonctionne pas sans elle** : il n'embarque plus aucune
 publication.
@@ -19,7 +19,7 @@ ctrlinfo/
 | Document | Contenu |
 | --- | --- |
 | [docs/architecture.md](docs/architecture.md) | comment le code est organisé : coque, écrans, données, styles, persistance |
-| [docs/contenu.md](docs/contenu.md) | ajouter une publication, une manche, une conversation, un chapitre, une source |
+| [docs/contenu.md](docs/contenu.md) | ajouter une publication, une conversation, un thème, une source |
 | [docs/devops.md](docs/devops.md) | notes CI / déploiement — à mettre en place |
 | [docs/MOBILE_EXPORT.md](docs/MOBILE_EXPORT.md) | mise en ligne et pistes PWA / mobile |
 | [../ctrlinfo-app/README.md](../ctrlinfo-app/README.md) | l'API : routes, base, flux RSS |
@@ -60,11 +60,10 @@ Si l'API est éteinte, les écrans le disent au lieu d'afficher une page vide.
 | Contenu | Où |
 | --- | --- |
 | les publications du fil | base — table `post`, semée puis alimentée par les flux RSS |
-| les manches de « Repère les indices » | base — table `manche_detect` |
 | les discussions et leurs branches | base — table `conversation` |
 | l'onglet Sources | base — table `ressource` |
 | les jeux et leurs tutoriels | base — tables `game` et `volet_tutoriel` |
-| les chapitres de « Comprendre » | [src/data/learn.js](src/data/learn.js) — le seul texte encore dans ce dépôt |
+| les thèmes de « Comprendre » | base — tables `chapitre` et `bloc_chapitre` |
 
 Marche à suivre détaillée dans [docs/contenu.md](docs/contenu.md).
 

@@ -4,6 +4,11 @@
  * après ça, la base est la source unique du contenu.
  *
  *   node scripts/export-contenu.mjs
+ *
+ * **Ce script ne tourne plus.** Les fichiers qu'il lit ont été supprimés une
+ * fois la migration faite, et l'un des jeux qu'il exporte — « Repère les
+ * indices », d'où `detect.json` — n'existe plus du tout. Il est gardé comme
+ * trace de la migration, pas comme outil.
  */
 import { writeFileSync } from 'node:fs'
 import { registerHooks } from 'node:module'

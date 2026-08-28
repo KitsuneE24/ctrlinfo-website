@@ -13,12 +13,11 @@ pour celui de l'API.
 | Je veux… | Où |
 | --- | --- |
 | ajouter une publication au fil | table `post` (+ `option_post`) |
-| ajouter une manche d'indices | tables `manche_detect` et `indice_detect` |
 | ajouter une conversation | tables `conversation`, `etape_conversation`, `choix_conversation` |
 | ajouter une ressource | table `ressource` |
 | retoucher un tutoriel de jeu | tables `game` et `volet_tutoriel` |
 | ajouter un flux de presse | table `flux` — voir [flux-rss.md](../../ctrlinfo-app/docs/flux-rss.md) |
-| retoucher un chapitre de « Comprendre » | [src/data/learn.js](../src/data/learn.js), dans ce dépôt |
+| retoucher un thème de « Comprendre » | tables `chapitre` et `bloc_chapitre` |
 
 ## Comment écrire en base
 
@@ -102,35 +101,7 @@ d'origine. Voir
 [flux-rss.md](../../ctrlinfo-app/docs/flux-rss.md) — en particulier les
 garde-fous, qui ne sont pas négociables.
 
-## 2. Une manche de « Repère les indices »
-
-```js
-{
-  id: 'urgence',
-  titre: 'Publication n°1',
-  contexte: 'Un post partagé dans un groupe familial, ce matin.',
-  apercu: { compte: 'ALERTE-VÉRITÉ.net', couleur: '#dc2626', titre: '…' },
-  indices: [
-    {
-      id: 'nom',
-      label: 'Nom du compte',
-      valeur: 'ALERTE-VÉRITÉ.net',
-      suspect: true,
-      explication: '…',   // montrée à la validation, suspect ou non
-    },
-  ],
-}
-```
-
-**Chaque manche doit contenir des indices sains** (`suspect: false`), et ils
-doivent être eux aussi expliqués. C'est le point de conception du jeu :
-sur-signaler coûte un point, pour ne pas apprendre au joueur à se méfier de
-tout. Une manche entièrement suspecte n'enseigne rien.
-
-Le barème est automatique : +1 par indice suspect repéré, −1 par fausse alerte,
-plancher à 0.
-
-## 3. Une conversation
+## 2. Une conversation
 
 ```js
 {
@@ -168,7 +139,7 @@ l'explication — et les confondre casse l'effet.
 L'écran et la boîte de réception se mettent à jour tout seuls : ajouter une
 entrée à la liste suffit.
 
-## 4. Une ressource
+## 3. Une ressource
 
 ```js
 {
@@ -189,48 +160,68 @@ côté front, tolérante aux fautes et aux accents
 ([search.js](../src/lib/search.js)) : « deco » comme « dekodeurs » ramènent
 « Les Décodeurs ».
 
-## 5. Un chapitre de « Comprendre »
+## 4. Un thème de « Comprendre »
 
-[learn.js](../src/data/learn.js) porte **tout** le texte de l'onglet : l'écran
-n'en contient aucun. Le fichier est en deux temps.
-
-`CHAPITRES` ne décrit que les en-têtes, et fixe au passage l'ordre des sections
-comme celui du sommaire :
+Dans `chapitres.json`. Le haut de l'entrée est ce que montre la galerie ; les
+`blocs` sont le corps, qui n'est chargé qu'à l'ouverture du thème.
 
 ```js
 {
-  id: 'familles',              // sert d'ancre au sommaire
+  id: 'familles',
   numero: '01',
-  Icon: Layers,                // importée de lucide-react
-  onglet: 'Les 4 familles',    // le texte de la pastille du sommaire
+  icone: 'Layers',                    // un nom connu de src/data/icones.js
+  couleur: '#1800ad',
+  onglet: 'Les 4 familles',           // le libellé court
   titre: 'Quatre familles de fausses infos',
-  chapo: '…',                  // 1 à 2 phrases, sous le titre
+  resume: '…',                        // 60 à 260 caractères : la vignette
+  chapo: '…',                         // 1 à 2 phrases, en tête du thème
+  lienTexte: 'Les fiches du CLEMI',   // la sortie de secours du thème
+  lienUrl: 'https://www.clemi.fr/',
+  blocs: [ … ],
 }
 ```
 
-Les blocs de chaque chapitre sont exportés à part, sous leur propre nom
-(`FAMILLES`, `CHIFFRES`, `QUESTIONS`, `BIAIS`, `CAS`…), parce qu'ils n'ont
-pas tous la même forme. Chacun est câblé une fois dans
-[LearnScreen.jsx](../src/screens/LearnScreen.jsx) : **ajouter une entrée à une
-liste existante suffit**, ajouter un chapitre entier demande en revanche de
-poser sa mise en page dans l'écran.
+**Chaque thème doit mener quelque part** : `lienUrl` est obligatoire, en
+`https`, et le seed refuse le contenu sinon. C'est la promesse faite au
+lecteur — la fiche est courte, mais elle dit où aller ensuite.
 
-Une convention à respecter : un chapitre ajouté à `CHAPITRES` doit avoir son
-`<Chapitre>` correspondant dans l'écran, sinon il apparaît au sommaire et ne
-mène nulle part.
+Un bloc porte un `genre`, qui décide de sa mise en page et de rien d'autre :
 
-## 6. Les couleurs
+| Genre | Ce qu'il porte | Rendu |
+| --- | --- | --- |
+| `TEXTE` | `texte` — paragraphes séparés par une ligne vide | des paragraphes |
+| `LISTE` | `entrees` | des cartes, en une ou deux colonnes |
+| `CHIFFRES` | `entrees` où `titre` est la valeur (« 2,6 Md$ ») | trois nombres en avant |
+| `CONSEIL` | `titre` (l'intitulé) et `texte` | l'encadré « à retenir » |
+
+Une entrée de liste a toujours la même forme, quel que soit le sujet :
+
+```js
+{
+  surtitre: '1',                      // facultatif — un rang, une année
+  titre: 'Inventée de toutes pièces',
+  texte: '…',
+  notes: [                            // facultatif — les encadrés
+    { label: 'Cas réel', texte: '…' },
+  ],
+}
+```
+
+**Ajouter un thème ne demande donc aucune modification du front** : l'écran sait
+dessiner quatre formes de blocs, et n'a rien à savoir des thèmes eux-mêmes.
+
+## 5. Les couleurs
 
 Les fichiers de données importent `brand` depuis
 [src/css/colors.js](../src/css/colors.js) plutôt que d'écrire un code
 hexadécimal. Ce module double les jetons de `jetons.css` pour les endroits qui ne
 peuvent pas lire du CSS — il doit rester aligné sur eux.
 
-Exception assumée : les faux comptes du fil et de « Repère les indices » portent
-des couleurs « alarmistes » codées en dur, hors palette de marque. C'est
-volontaire, elles ne sont pas de la marque.
+Exception assumée : les faux comptes du fil portent des couleurs
+« alarmistes » codées en dur, hors palette de marque. C'est volontaire, elles ne
+sont pas de la marque.
 
-## 7. Vérifier son ajout
+## 6. Vérifier son ajout
 
 ```bash
 cd ../ctrlinfo-app
@@ -244,7 +235,7 @@ npm run dev          # et on joue le passage modifié
 
 Le seed vérifie ce qui ne se voyait pas à l'exécution : que le score de la
 bonne action est bien le plus élevé, que `isFake` s'accorde avec le biais
-annoncé, qu'une manche contient des indices sains, qu'une ressource vise une
+annoncé, qu'un thème porte un lien d'aide en `https`, qu'une ressource vise une
 catégorie existante. Le reste — le ton, la justesse d'une explication, le fait
 que `reply` et `explication` ne se ressemblent pas — demande toujours une
 relecture à l'écran.

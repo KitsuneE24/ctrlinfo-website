@@ -61,6 +61,45 @@
     }
   }
 
+  /* Les deux entrées du site, sous l'accroche : il n'y a plus de galerie de
+     jeux pour les proposer. */
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--brand-blue);
+    transition: opacity 0.15s, background-color 0.15s;
+  }
+
+  .hero__cta:hover {
+    opacity: 0.88;
+  }
+
+  .hero__cta--ghost {
+    border-color: rgba(255, 255, 255, 0.55);
+    background: transparent;
+    color: #fff;
+  }
+
+  .hero__cta--ghost:hover {
+    background: rgba(255, 255, 255, 0.12);
+    opacity: 1;
+  }
+
 
   .video {
     position: relative;
@@ -108,5 +147,83 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  /* Deux blocs côte à côte quand la largeur le permet : sur l'accueil, la
+     vidéo à gauche et le résumé à droite. */
+  .split {
+    display: grid;
+    gap: 24px;
+  }
+
+  @media (min-width: 900px) {
+    .split {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 0;
+    }
+
+    /* La gouttière est portée par la seconde colonne. */
+    .split > * + * {
+      border-left: 1px solid var(--line);
+      padding-left: 24px;
+    }
+  }
+
+  .levers {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .lever {
+    display: flex;
+    gap: 12px;
+  }
+
+  .lever__icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-top: 2px;
+    border-radius: 50%;
+    background: var(--brand-magenta);
+    color: #fff;
+  }
+
+  .lever__title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .lever__text {
+    margin: 2px 0 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+  }
+
+  .tip {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-left: 4px solid var(--brand-blue);
+    border-radius: 10px;
+    background: rgba(24, 0, 173, 0.05);
+  }
+
+  .tip__text {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--ink-soft);
   }
 }

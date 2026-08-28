@@ -6,15 +6,15 @@ déploiement, [devops.md](devops.md).
 
 ## 1. En une phrase
 
-Une application React 19 qui ne porte plus aucun contenu de jeu : publications,
-manches, conversations, ressources et tutoriels viennent de l'API
-[ctrlinfo-app](../../ctrlinfo-app), et la progression du joueur y retourne.
+Une application React 19 qui ne porte plus aucun contenu : publications,
+conversations, chapitres, ressources et tutoriels viennent de l'API
+[ctrlinfo-app](../../ctrlinfo-app), et la progression du joueur y retourne —
+quand il a un compte.
 
 > **Ce document décrit l'état actuel.** Jusqu'à la mise en place du back, le
 > site était entièrement statique et son contenu écrit à la main dans
-> `src/data/`. Ces fichiers n'existent plus — seuls restent `icones.js` (du
-> code) et `learn.js` (le texte de l'onglet « Comprendre », qui n'est pas du
-> contenu de jeu).
+> `src/data/`. Ces fichiers n'existent plus — seul reste `icones.js`, qui est
+> du code : la table des noms d'icônes vers les composants lucide.
 
 ## 2. Arborescence
 
@@ -25,16 +25,16 @@ tailwind.config.js    Tailwind, aligné sur la palette de src/css/colors.js
 
 src/
   main.jsx            montage React + import de la feuille de style
-  App.jsx             pose le fournisseur des jeux au-dessus de la coque
+  App.jsx             pose les fournisseurs (compte, jeux) au-dessus de la coque
   api/                le lien avec l'API : client, contenu, progression
   components/         coque, navigation, briques de jeu
     ui/Page.jsx       gabarit commun à tous les écrans
     ui/Chargement.jsx « ça charge » et « l'API ne répond pas »
   screens/            un fichier par écran
-  data/               icônes (du code) et le texte de « Comprendre »
-  css/                quatorze feuilles assemblées par index.css
+  data/               la table des icônes (du code, pas du contenu)
+  css/                douze feuilles assemblées par index.css
   lib/                utilitaires purs + les crochets de chargement
-  state/              état hors de React (sessions de conversation, jeux)
+  state/              état hors de React (compte, jeux, conversations en cours)
 
 docs/                 cette documentation
 public/               fichiers servis tels quels (logo)
@@ -48,43 +48,50 @@ l'application n'a pas d'URL par écran.
 
 ```
 AppShell
-├─ AppHeader ──── TopNav          barre du haut (ordinateur)
-├─ app__main ──── HomeScreen | LearnScreen | GameScreen | SourcesScreen
-├─ TabBar                         barre du bas (téléphone)
-├─ bouton flottant « Sources »    ordinateur seulement
-└─ GameTutorial                   par-dessus tout, quand des règles sont ouvertes
+├─ AppHeader                      logo, règles du fil, pastille d'identité
+├─ app__main ──── HomeScreen | Feed | ChatScreen | LearnScreen | ProfileScreen | SourcesScreen
+├─ TabBar                         la barre du bas, à toutes les tailles d'écran
+├─ bouton flottant « Sources »    par-dessus l'écran en cours
+└─ GameTutorial                   par-dessus tout, quand les règles sont ouvertes
 ```
 
-Quatre états, tous dans `AppShell` :
+Trois états, tous dans `AppShell` :
 
 | État | Rôle |
 | --- | --- |
-| `tab` | l'onglet affiché : `home`, `learn`, `game`, `sources` |
-| `jeu` | le jeu en cours dans l'onglet Jeux : `feed`, `detect`, `chat`, ou `null` (galerie) |
+| `tab` | l'onglet affiché : `home`, `feed`, `chat`, `learn`, `profil`, `sources` |
 | `avantSources` | l'onglet d'où l'on vient, pour que le bouton Sources sache où revenir |
-| `tuto` | `{ id, auto }` — les règles ouvertes, et si elles se sont ouvertes seules |
+| `tuto` | `{ auto }` — les règles du fil, et si elles se sont ouvertes seules |
 
 Points de conception à connaître :
 
-- **Les deux navigations sont toujours rendues.** C'est le CSS qui décide
-  laquelle se montre, pas le JavaScript. Elles lisent les mêmes données
-  ([navItems.js](../src/components/navItems.js)) et ne peuvent donc pas
-  diverger.
+- **Une seule navigation, en bas, à toutes les tailles.** La vue du téléphone
+  est devenue la règle : sur ordinateur, la barre se centre et affiche ses
+  intitulés, mais ne change pas de nature. Il n'y a plus de barre dans
+  l'en-tête ni de menu déroulant de jeux.
+- **Un onglet, un écran.** Les jeux ne sont plus regroupés derrière une
+  galerie : le fil et les conversations sont au même rang que le reste du site.
+  Les cinq entrées et leurs icônes — reprises du vocabulaire d'Instagram — sont
+  décrites dans [navItems.js](../src/components/navItems.js) et nulle part
+  ailleurs.
+- **Les sources n'ont pas d'onglet.** C'est un outil qu'on ouvre par-dessus ce
+  qu'on fait, d'où le bouton flottant, qui ramène d'où l'on vient à la
+  fermeture.
 - **Le tutoriel appartient à la coque, pas au jeu.** Il s'ouvre tout seul à la
   première partie (via [premiereFois.js](../src/lib/premiereFois.js), qui écrit
-  dans `localStorage`) et par le bouton « Règles du jeu » à tout moment.
-- **Deux drapeaux distincts** descendent vers `GameScreen` : `enAttente` (ce
-  sont les règles d'ouverture, le jeu sera remonté à leur fermeture) et
-  `enPause` (des règles sont à l'écran, le jeu garde son état mais suspend son
-  chrono).
+  dans `localStorage`) et par le bouton « Règles du jeu » de l'en-tête à tout
+  moment. Sa fermeture remonte le fil, par un changement de clé, pour que la
+  partie démarre à neuf.
 
-## 4. Les trois jeux
+## 4. Les deux jeux
 
 Ils sont décrits une seule fois en base — titre, accroche, couleur, nom
 d'icône, et les trois volets de leur tutoriel — et chargés une seule fois par
-[FournisseurJeux.jsx](../src/state/FournisseurJeux.jsx). La galerie, la barre
-du jeu, le menu de l'en-tête et le tutoriel lisent tous ce contexte : ils ne
-peuvent pas diverger.
+[FournisseurJeux.jsx](../src/state/FournisseurJeux.jsx).
+
+> Un troisième jeu, « Repère les indices », a existé : une publication
+> décomposée en éléments, dont il fallait désigner ceux qui posaient problème.
+> Il a été retiré du site et de la base.
 
 ### « Le fil d'actualité » — [Feed.jsx](../src/components/Feed.jsx)
 
@@ -107,16 +114,6 @@ publication, un chrono de 30 secondes.
 - Chaque décision part à l'API, qui la corrige de son côté, la note, et retient
   la publication comme vue.
 
-### « Repère les indices » — [DetectScreen.jsx](../src/screens/DetectScreen.jsx)
-
-Là où le fil demande *quoi faire*, ce jeu demande *pourquoi*. Une publication
-est décomposée en éléments (nom de compte, date, signature, source, photo) ; le
-joueur désigne ceux qui posent problème.
-
-Chaque manche contient des éléments parfaitement sains, et sur-signaler coûte un
-point — c'est ce qui évite d'apprendre au joueur à se méfier de tout. Quatre
-verdicts à la validation : repéré, manqué, fausse alerte, rien à signaler.
-
 ### « Les conversations » — [ChatScreen.jsx](../src/screens/ChatScreen.jsx)
 
 Une boîte de réception et un fil, façon messagerie. Sur téléphone, une vue à la
@@ -136,18 +133,36 @@ mémoire seulement — un rechargement de page repart de zéro.
 ## 5. L'onglet « Comprendre »
 
 La partie lecture du site, là où les jeux font pratiquer :
-[LearnScreen.jsx](../src/screens/LearnScreen.jsx). Neuf chapitres à la file,
-précédés d'un sommaire collant.
+[LearnScreen.jsx](../src/screens/LearnScreen.jsx). Deux vues, jamais les deux à
+la fois :
 
-- **Aucun texte de fond dans le JSX.** Tout le contenu vit dans
-  [learn.js](../src/data/learn.js) ; l'écran ne fait que le mettre en page.
-- `CHAPITRES` fixe l'ordre des sections **et** celui du sommaire — les deux
-  lisent la même liste, ils ne peuvent donc pas se désaccorder.
-- Le chapitre allumé dans le sommaire est calculé par un `IntersectionObserver`
-  dont la racine est la zone défilante — c'est elle qui défile, pas la fenêtre,
-  et `Page` expose sa `ref` précisément pour ça.
-- L'écran reçoit `onNavigate` : deux renvois mènent aux onglets « Sources » et
-  « Jeux », pour que la lecture débouche sur autre chose qu'un cul-de-sac.
+1. **la galerie** — une recherche en tête, puis une vignette par thème : son
+   numéro, son titre, quelques lignes de résumé, et un lien externe qui mène
+   plus loin. C'est ce qu'on voit en arrivant ;
+2. **le thème** — ouvert depuis une vignette, avec son texte entier.
+
+- **Aucun texte de fond dans le JSX.** Tout vient de `GET /chapitres`.
+- **Deux appels, et c'est voulu.** La galerie ne charge que les résumés ; le
+  corps d'un thème n'arrive qu'à son ouverture. Même partage que pour les
+  conversations.
+- **Le corps d'un thème est une suite de blocs typés** — `TEXTE`, `LISTE`,
+  `CHIFFRES`, `CONSEIL`. Le genre décide de la mise en page, pas du sujet :
+  l'écran sait dessiner quatre formes, et n'a rien à savoir des huit thèmes.
+- **Chaque thème mène quelque part.** Le lien d'aide (`lien.url`) est en base et
+  vérifié au seed : une fiche qui ne renvoie nulle part n'est pas acceptée.
+- L'écran reçoit `onNavigate` : deux renvois mènent au fil et aux sources, pour
+  que la lecture débouche sur autre chose qu'un cul-de-sac.
+
+## 5 bis. L'onglet « Profil »
+
+[ProfileScreen.jsx](../src/screens/ProfileScreen.jsx), deux états jamais
+mélangés :
+
+- **sans compte** — connexion, inscription, et le mode invité, annoncé pour ce
+  qu'il est : tout reste jouable, mais rien n'est enregistré ;
+- **connecté** — les chiffres du joueur, tels que `GET /moi/tableau-de-bord` les
+  calcule : parties, complétion, scénarios et parcours, et surtout les biais sur
+  lesquels il se fait avoir. Le front n'en recalcule aucun.
 
 ## 6. Les données
 
@@ -157,23 +172,25 @@ front ne le stocke pas, il le demande.
 | Module | Rôle |
 | --- | --- |
 | [api/client.js](../src/api/client.js) | l'adresse de l'API, l'identité du joueur, le rejeu après expiration |
-| [api/contenu.js](../src/api/contenu.js) | jeux, publications, manches, conversations, ressources, parcours |
+| [api/contenu.js](../src/api/contenu.js) | jeux, publications, conversations, chapitres, ressources, parcours |
 | [api/progression.js](../src/api/progression.js) | parties, décisions, sauvegarde, tableau de bord |
 | [lib/useRessource.js](../src/lib/useRessource.js) | charger, avec ses trois états |
 | [lib/useSessionJeu.js](../src/lib/useSessionJeu.js) | ouvrir une partie côté serveur |
 | [state/jeux.js](../src/state/jeux.js) | les jeux, chargés une fois pour toute l'application |
+| [state/compte.js](../src/state/compte.js) | l'identité du joueur, partagée par l'en-tête et le profil |
 | [data/icones.js](../src/data/icones.js) | le nom d'icône rangé en base → le composant lucide |
-| [data/learn.js](../src/data/learn.js) | les chapitres de « Comprendre » — le seul texte encore dans ce dépôt |
 
 Trois choses à savoir :
 
 - **L'API rend les formes d'avant.** `date`, `consequences`, `scores`,
   `apercu`, `steps.choices` : les composants n'ont pas eu à changer de langage,
   seulement d'origine. Ce qui s'ajoute est additif (`slug`, l'`id` d'un choix).
-- **Personne n'a besoin de compte.** Au premier appel, le front demande une
-  session invitée et la range dans `localStorage`. C'est un vrai compte en
-  base : la progression est enregistrée, et « créer un compte » plus tard ne
-  fait qu'y ajouter une adresse et un mot de passe.
+- **Deux identités, pas trois.** *Connecté* : un compte, un jeton, la
+  progression enregistrée. *Invité* : aucun jeton, aucun compte en base, et les
+  routes de progression ne sont même pas appelées — `api()` échoue tout de
+  suite et `auMieux()` avale l'échec. Le contenu, lui, se lit dans les deux
+  cas. L'état vit dans `api/client.js`, hors de React ; `FournisseurCompte` s'y
+  abonne par `useSyncExternalStore`.
 - **Il n'y a pas de repli local.** Si l'API ne répond pas, les écrans le disent
   ([ui/Chargement.jsx](../src/components/ui/Chargement.jsx)) plutôt que
   d'afficher une page vide. C'est le prix d'une source unique de vérité.
@@ -186,9 +203,9 @@ ne se ressemblent donc pas.
 ## 7. Les styles
 
 Toute la mise en forme passe par des classes maison en notation BEM
-(`bloc__element--variante`), réparties en quatorze feuilles nommées en français et
+(`bloc__element--variante`), réparties en douze feuilles nommées en français et
 assemblées par [index.css](../src/css/index.css) — qui ne contient aucune règle,
-seulement le sommaire et les `@import`. Environ 3 450 lignes au total.
+seulement le sommaire et les `@import`.
 
 **Tailwind est installé mais n'est pas utilisé comme tel** : il n'y a aucune
 classe utilitaire (`flex`, `p-4`, `text-sm`…) dans le JSX. Ce qu'il apporte
@@ -235,14 +252,15 @@ serveur :
 | Où | Quoi | Durée |
 | --- | --- | --- |
 | la base, via l'API | parties, décisions, avancement, biais ratés | permanent |
-| `localStorage` (`api/client.js`) | la session du joueur (jetons) | permanent |
+| `localStorage` (`api/client.js`) | la session du joueur (jetons) et le mode invité | permanent |
 | `localStorage` (`premiereFois.js`) | tutoriels déjà vus | permanent |
 | module en mémoire (`conversationSessions.js`) | conversations en cours | jusqu'au rechargement |
 | `useState` | tout le reste | jusqu'au démontage de l'écran |
 
 L'enregistrement d'une décision ne doit jamais interrompre une partie : les
 appels de progression passent par `auMieux()`, qui avale l'échec. On perd la
-trace d'un coup, pas la manche en cours.
+trace d'un coup, pas la partie en cours. En mode invité, c'est le cas normal et
+non un incident.
 
 Les accès à `localStorage` sont tous enveloppés dans un `try` : en navigation
 privée ou derrière un blocage de cookies, y écrire lève une exception. En cas
@@ -253,13 +271,11 @@ remontre — jamais une page blanche.
 
 - **Aucun test côté front.** C'est le manque le plus coûteux ; voir
   [devops.md](devops.md) §3. (L'API, elle, en a.)
-- **Aucun routeur** — donc aucune URL partageable vers un jeu précis.
-- **Aucun écran de compte** : le joueur joue en invité, sa progression est
-  gardée, mais rien dans l'interface ne propose encore de créer un compte, de
-  se connecter, ni de voir son tableau de bord. L'API sert déjà les trois
-  (`/auth/*`, `/moi/tableau-de-bord`).
-- **Aucun écran de parcours** : les quatre parcours et le scénario existent en
-  base et sont servis par l'API, mais aucun écran ne les propose.
+- **Aucun routeur** — donc aucune URL partageable vers un jeu ou un thème.
+- **Aucune réinitialisation de mot de passe** : l'API ne la sert pas encore.
+- **Aucun écran de parcours** : les parcours et le scénario existent en base et
+  s'affichent dans le tableau de bord, mais aucun écran ne les fait jouer
+  étape par étape.
 - **Tailwind, en pratique** : installé et configuré, mais aucune classe
   utilitaire n'est écrite. Le retirer allégerait les dépendances au prix d'un
   reset CSS à réintroduire à la main (voir §7).

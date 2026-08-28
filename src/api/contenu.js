@@ -10,7 +10,7 @@ import { api } from './client'
 
 const requete = (chemin) => api(chemin, { authentifie: false })
 
-/** Les trois jeux et leurs tutoriels. */
+/** Les jeux et leurs tutoriels. */
 export const getJeux = () => requete('/jeux')
 
 /**
@@ -31,13 +31,19 @@ export const getNiveaux = () => requete('/posts/niveaux')
 
 export const getPost = (slugOuId) => requete(`/posts/${encodeURIComponent(slugOuId)}`)
 
-export const getManches = () => requete('/manches')
-
-export const getManche = (slug) => requete(`/manches/${encodeURIComponent(slug)}`)
-
 export const getConversations = () => requete('/conversations')
 
 export const getConversation = (slug) => requete(`/conversations/${encodeURIComponent(slug)}`)
+
+/**
+ * Les thèmes de « Comprendre », en version galerie : titre, résumé, lien
+ * d'aide. Le corps d'un chapitre ne vient qu'à son ouverture, avec
+ * `getChapitre` — huit chapitres entiers pour afficher huit vignettes seraient
+ * du gâchis.
+ */
+export const getChapitres = () => requete('/chapitres')
+
+export const getChapitre = (slug) => requete(`/chapitres/${encodeURIComponent(slug)}`)
 
 export const getRessources = () => requete('/ressources')
 

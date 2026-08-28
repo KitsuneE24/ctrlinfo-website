@@ -1,358 +1,309 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { ArrowRight, BookOpen, Quote } from 'lucide-react'
+import { createElement, useCallback, useMemo, useState } from 'react'
+import { ArrowLeft, ArrowRight, BookOpen, ExternalLink, Search, X } from 'lucide-react'
+import { getChapitre, getChapitres } from '../api/contenu'
+import { icone } from '../data/icones'
+import { correspond } from '../lib/search'
+import { useRessource } from '../lib/useRessource'
 import Banniere from '../components/ui/Banniere'
 import Page from '../components/ui/Page'
-import {
-  BIAIS,
-  BULLE,
-  CAS,
-  CHAPITRES,
-  CHIFFRES,
-  FAMILLES,
-  MOTEURS,
-  OUTILS_DE_VERIF,
-  QUESTIONS,
-  ROUAGES,
-  SIGNAUX,
-} from '../data/learn'
+import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
 /**
  * Onglet « Comprendre » : la partie lecture du site, là où les jeux font
  * pratiquer.
  *
- * Huit chapitres à la file, précédés d'un sommaire collant qui suit la
- * lecture. Le sommaire et les sections lisent la même liste (`CHAPITRES`) et
- * ne peuvent donc pas se désaccorder.
+ * Deux vues, jamais les deux à la fois :
  *
- * Tout le texte vit dans src/data/learn.js — ici, il n'y a que la mise en
- * page.
+ *   1. **la galerie** — une recherche en tête, puis une vignette par thème :
+ *      son numéro, son titre, quelques lignes de résumé, et le lien qui mène
+ *      plus loin. C'est ce qu'on voit en arrivant ;
+ *   2. **le thème** — ouvert depuis une vignette, avec son texte entier.
+ *
+ * Tout le texte vient de l'API (`/chapitres`) : il n'y a pas une ligne de
+ * contenu dans ce fichier, seulement la mise en page. La galerie ne charge que
+ * les résumés ; le corps d'un thème n'arrive qu'à son ouverture.
  */
 
-/** L'encadré « à retenir », commun à plusieurs chapitres. */
-function Conseil({ label = 'Le réflexe', children }) {
+/**
+ * Le nom d'icône rangé en base, dessiné.
+ *
+ * `createElement` plutôt qu'une variable `Icon` : le dessin est choisi à chaque
+ * rendu, et le déclarer comme un composant local ferait remonter le sous-arbre
+ * à chaque fois.
+ */
+function Icone({ nom, size }) {
+  return createElement(icone(nom), { size, strokeWidth: 1.9 })
+}
+
+/** Le lien de sortie d'un thème : où aller quand la fiche ne suffit pas. */
+function LienDAide({ lien, compact = false }) {
   return (
-    <div className="tip conseil">
-      <p className="conseil__label">{label}</p>
-      <p className="tip__text">{children}</p>
+    <a
+      href={lien.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`chapitre-lien${compact ? ' chapitre-lien--compact' : ''}`}
+    >
+      <ExternalLink size={14} strokeWidth={2} />
+      {lien.texte}
+    </a>
+  )
+}
+
+/** Une entrée de liste : un surtitre, un titre, un texte, des encadrés. */
+function Entree({ entree }) {
+  const { surtitre, titre, texte, notes } = entree
+
+  return (
+    <li className="entree">
+      {surtitre && <p className="entree__surtitre">{surtitre}</p>}
+      {titre && <h3 className="entree__titre">{titre}</h3>}
+      {texte && <p className="entree__texte">{texte}</p>}
+
+      {notes?.map((note) => (
+        <div key={note.label} className="encadre">
+          <p className="encadre__label">{note.label}</p>
+          <p className="encadre__texte">{note.texte}</p>
+        </div>
+      ))}
+    </li>
+  )
+}
+
+/** Un bloc de thème. Le genre décide de la mise en page, pas du sujet. */
+function Bloc({ bloc }) {
+  const { genre, titre, paragraphes, entrees } = bloc
+
+  if (genre === 'CONSEIL') {
+    return (
+      <div className="conseil">
+        <p className="conseil__label">{titre ?? 'Le réflexe'}</p>
+        {paragraphes?.map((p) => (
+          <p key={p} className="conseil__texte">
+            {p}
+          </p>
+        ))}
+      </div>
+    )
+  }
+
+  if (genre === 'CHIFFRES') {
+    return (
+      <div className="bloc">
+        {titre && <h3 className="bloc__titre">{titre}</h3>}
+        <ul className="chiffres">
+          {entrees?.map((entree) => (
+            <li key={entree.titre} className="chiffre">
+              <p className="chiffre__valeur">{entree.titre}</p>
+              <p className="chiffre__texte">{entree.texte}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  if (genre === 'TEXTE') {
+    return (
+      <div className="bloc">
+        {titre && <h3 className="bloc__titre">{titre}</h3>}
+        {paragraphes?.map((p) => (
+          <p key={p} className="bloc__texte">
+            {p}
+          </p>
+        ))}
+      </div>
+    )
+  }
+
+  return (
+    <div className="bloc">
+      {titre && <h3 className="bloc__titre">{titre}</h3>}
+      <ul className="entrees">
+        {entrees?.map((entree, i) => (
+          <Entree key={entree.titre ?? i} entree={entree} />
+        ))}
+      </ul>
     </div>
   )
 }
 
-function Chapitre({ chapitre, enregistrer, children }) {
-  const { id, numero, Icon, titre, chapo } = chapitre
+/** La page d'un thème, ouverte depuis sa vignette. */
+function Chapitre({ slug, onFermer }) {
+  const charger = useCallback(() => getChapitre(slug), [slug])
+  const { donnees, chargement, erreur, recharger } = useRessource(charger, [slug])
 
-  return (
-    <section
-      ref={(el) => enregistrer(id, el)}
-      data-chapitre={id}
-      aria-labelledby={`titre-${id}`}
-      className="chapitre"
-    >
-      <header className="chapitre__head">
-        <span className="chapitre__badge">
-          <Icon size={19} strokeWidth={1.9} />
-        </span>
-        <div className="chapitre__intro">
-          <p className="chapitre__numero">Chapitre {numero}</p>
-          <h2 id={`titre-${id}`} className="chapitre__titre">
-            {titre}
-          </h2>
-          <p className="chapitre__chapo">{chapo}</p>
-        </div>
-      </header>
-
-      <div className="chapitre__corps">{children}</div>
-    </section>
+  const retour = (
+    <button type="button" onClick={onFermer} className="chapitre__retour">
+      <ArrowLeft size={16} strokeWidth={2.2} />
+      Tous les thèmes
+    </button>
   )
-}
 
-/** Les en-têtes, indexés par identifiant, pour aller les chercher un à un. */
-const PAR_ID = Object.fromEntries(CHAPITRES.map((c) => [c.id, c]))
-
-export default function LearnScreen({ onNavigate }) {
-  // La zone défilante, pour le sommaire et l'observateur : c'est elle qui
-  // défile, pas la fenêtre.
-  const pageRef = useRef(null)
-  const sections = useRef({})
-  const [actif, setActif] = useState(CHAPITRES[0].id)
-
-  // Stable : sans `useCallback`, chaque rendu détacherait puis rattacherait
-  // les références de toutes les sections.
-  const enregistrer = useCallback((id, el) => {
-    sections.current[id] = el
-  }, [])
-
-  // Le sommaire suit la lecture : le chapitre allumé est le premier qui
-  // traverse la bande centrale de l'écran.
-  useEffect(() => {
-    const racine = pageRef.current
-    if (!racine) return
-
-    const observateur = new IntersectionObserver(
-      (entrees) => {
-        const visibles = entrees
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
-
-        if (visibles.length > 0) setActif(visibles[0].target.dataset.chapitre)
-      },
-      { root: racine, rootMargin: '-30% 0px -55% 0px' }
+  if (erreur) {
+    return (
+      <Page seamless>
+        <div className="learn__body">
+          {retour}
+          <ErreurChargement erreur={erreur} onReessayer={recharger} />
+        </div>
+      </Page>
     )
+  }
 
-    Object.values(sections.current).forEach((el) => {
-      if (el) observateur.observe(el)
-    })
-    return () => observateur.disconnect()
-  }, [])
-
-  function allerAu(id) {
-    sections.current[id]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  if (chargement || !donnees) {
+    return (
+      <Page seamless>
+        <div className="learn__body">
+          {retour}
+          <Chargement quoi="le thème" />
+        </div>
+      </Page>
+    )
   }
 
   return (
-    <Page ref={pageRef} seamless>
+    <Page seamless>
+      <article className="chapitre learn__body">
+        {retour}
+
+        <header className="chapitre__head">
+          <span className="chapitre__badge" style={{ background: donnees.couleur }}>
+            <Icone nom={donnees.icone} size={20} />
+          </span>
+          <p className="chapitre__numero">Thème {donnees.numero}</p>
+          <h1 className="chapitre__titre">{donnees.titre}</h1>
+          <p className="chapitre__chapo">{donnees.chapo}</p>
+        </header>
+
+        <div className="chapitre__corps">
+          {donnees.blocs.map((bloc, i) => (
+            <Bloc key={i} bloc={bloc} />
+          ))}
+        </div>
+
+        <footer className="chapitre__pied">
+          <p className="chapitre__pied-titre">Pour aller plus loin</p>
+          <LienDAide lien={donnees.lien} />
+        </footer>
+      </article>
+    </Page>
+  )
+}
+
+export default function LearnScreen({ onNavigate }) {
+  const [query, setQuery] = useState('')
+  const [ouvert, setOuvert] = useState(null)
+  const { donnees, chargement, erreur, recharger } = useRessource(getChapitres, [])
+
+  const chapitres = useMemo(() => donnees ?? [], [donnees])
+
+  const resultats = useMemo(
+    () =>
+      chapitres.filter((chapitre) =>
+        correspond(query, `${chapitre.titre} ${chapitre.onglet} ${chapitre.resume}`)
+      ),
+    [chapitres, query]
+  )
+
+  if (ouvert) return <Chapitre slug={ouvert} onFermer={() => setOuvert(null)} />
+
+  return (
+    <Page seamless>
       {/* Bandeau d'entrée : la même bannière que l'accueil, fond animé
           compris (ui/Banniere.jsx). */}
       <Banniere className="learn-hero">
         <p className="learn-hero__eyebrow">Comprendre</p>
-        <h1 className="learn-hero__title">
-          Ce qu'il faut savoir avant de partager
-        </h1>
+        <h1 className="learn-hero__title">Ce qu'il faut savoir avant de partager</h1>
         <p className="learn-hero__lead">
-          Comment une fausse information se fabrique, pourquoi elle rapporte de
-          l'argent, à quoi elle s'accroche dans ta tête — et les quelques
-          secondes qui suffisent à ne pas tomber dedans.
-        </p>
-        <p className="learn-hero__meta">
-          {CHAPITRES.length} chapitres · une dizaine de minutes de lecture
+          Huit thèmes courts. Chacun se lit en deux minutes et mène vers un site
+          qui va plus loin.
         </p>
       </Banniere>
 
-      {/* Sommaire collant : il reste en haut pendant toute la lecture. */}
-      <nav aria-label="Sommaire" className="learn-toc">
-        <div className="learn-toc__inner no-scrollbar">
-          {CHAPITRES.map(({ id, numero, onglet }) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => allerAu(id)}
-              aria-current={actif === id ? 'true' : undefined}
-              className={`learn-toc__chip${
-                actif === id ? ' learn-toc__chip--active' : ''
-              }`}
-            >
-              <span className="learn-toc__num">{numero}</span>
-              {onglet}
-            </button>
-          ))}
-        </div>
-      </nav>
-
       <div className="learn__body">
-        {/* --- 01 ---------------------------------------------------------- */}
-        <Chapitre chapitre={PAR_ID.familles} enregistrer={enregistrer}>
-          <ol className="familles">
-            {FAMILLES.map(({ id, titre, texte, exemple, piege }, i) => (
-              <li key={id} className="famille">
-                <p className="famille__rang">{i + 1}</p>
-                <h3 className="famille__titre">{titre}</h3>
-                <p className="famille__texte">{texte}</p>
-
-                {exemple && (
-                  <div className="encadre encadre--cas">
-                    <p className="encadre__label">Cas réel</p>
-                    <p className="encadre__texte">{exemple}</p>
-                  </div>
-                )}
-
-                {piege && (
-                  <div className="encadre encadre--piege">
-                    <p className="encadre__label">Le piège</p>
-                    <p className="encadre__texte">{piege}</p>
-                  </div>
-                )}
-              </li>
-            ))}
-          </ol>
-
-          <Conseil label="À retenir">
-            Avant de croire une info qui te choque, demande-toi de quelle
-            famille elle relève. Inventée&nbsp;? Déplacée&nbsp;? Faite pour le
-            clic&nbsp;? Ou juste une blague qui a mal tourné&nbsp;?
-          </Conseil>
-        </Chapitre>
-
-        {/* --- 02 ---------------------------------------------------------- */}
-        <Chapitre chapitre={PAR_ID.argent} enregistrer={enregistrer}>
-          <ul className="chiffres">
-            {CHIFFRES.map(({ valeur, texte }) => (
-              <li key={valeur} className="chiffre">
-                <p className="chiffre__valeur">{valeur}</p>
-                <p className="chiffre__texte">{texte}</p>
-              </li>
-            ))}
-          </ul>
-
-          <ul className="rouages">
-            {ROUAGES.map((texte) => (
-              <li key={texte} className="rouage">
-                {texte}
-              </li>
-            ))}
-          </ul>
-
-          <Conseil label="À retenir">
-            Un titre qui te met une claque — peur, colère, indignation — a
-            peut-être été calibré pour ça. Le clic est le carburant de la
-            désinformation. Pose-toi la seule question qui compte&nbsp;:{' '}
-            <b>à qui profite mon clic&nbsp;?</b>
-          </Conseil>
-        </Chapitre>
-
-        {/* --- 03 ---------------------------------------------------------- */}
-        <Chapitre chapitre={PAR_ID.propagation} enregistrer={enregistrer}>
-          <div className="duo">
-            {MOTEURS.map(({ id, titre, texte, conseil }) => (
-              <article key={id} className="moteur">
-                <h3 className="moteur__titre">{titre}</h3>
-                <p className="moteur__texte">{texte}</p>
-                <Conseil>{conseil}</Conseil>
-              </article>
-            ))}
-          </div>
-        </Chapitre>
-
-        {/* --- 04 ---------------------------------------------------------- */}
-        <Chapitre chapitre={PAR_ID.reflexe} enregistrer={enregistrer}>
-          <ol className="questions">
-            {QUESTIONS.map(({ question, texte }, i) => (
-              <li key={question} className="question">
-                <span className="question__num">{i + 1}</span>
-                <div>
-                  <p className="question__titre">{question}</p>
-                  <p className="question__texte">{texte}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-
-          <Conseil label="À retenir">
-            Dix secondes, quatre questions. Ce petit réflexe suffit à éviter la
-            grande majorité des pièges.
-          </Conseil>
-
-          <div className="duo duo--serre">
-            {OUTILS_DE_VERIF.map(({ id, titre, texte, encadre }) => (
-              <article key={id} className="moteur">
-                <h3 className="moteur__titre">{titre}</h3>
-                <p className="moteur__texte">{texte}</p>
-                <div className="encadre encadre--cas">
-                  <Quote size={14} strokeWidth={2} className="encadre__icone" />
-                  <p className="encadre__texte">{encadre}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {onNavigate && (
+        {/* La recherche en premier : c'est la porte d'entrée de l'onglet. */}
+        <div className="search-field">
+          <Search size={16} />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Chercher un thème — le complotisme, les biais…"
+            aria-label="Chercher un thème"
+            className="search-field__input"
+          />
+          {query && (
             <button
               type="button"
-              onClick={() => onNavigate('sources')}
-              className="learn-cta"
+              onClick={() => setQuery('')}
+              aria-label="Effacer la recherche"
             >
-              <BookOpen size={16} strokeWidth={2} />
-              Voir les sources où vérifier une info
-              <ArrowRight size={15} strokeWidth={2.2} />
+              <X size={15} />
             </button>
           )}
-        </Chapitre>
+        </div>
 
-        {/* --- 05 ---------------------------------------------------------- */}
-        <Chapitre chapitre={PAR_ID.complot} enregistrer={enregistrer}>
-          <p className="chapitre__texte">
-            Ces discours ne se reconnaissent pas à leur sujet — n'importe quel
-            sujet peut y passer — mais à leur forme. Quatre signes reviennent
-            presque toujours.
-          </p>
+        {erreur ? (
+          <ErreurChargement erreur={erreur} onReessayer={recharger} />
+        ) : chargement ? (
+          <Chargement quoi="les thèmes" />
+        ) : resultats.length === 0 ? (
+          <div className="empty-result">
+            <p className="empty-result__title">Aucun thème ne correspond</p>
+            <p className="empty-result__text">Essaie un autre mot-clé.</p>
+          </div>
+        ) : (
+          <ul className="themes">
+            {resultats.map((chapitre) => (
+              <li key={chapitre.id} className="theme">
+                <button
+                  type="button"
+                  onClick={() => setOuvert(chapitre.id)}
+                  aria-label={`Ouvrir le thème « ${chapitre.titre} »`}
+                  className="theme__ouvrir"
+                >
+                  <span className="theme__badge" style={{ background: chapitre.couleur }}>
+                    <Icone nom={chapitre.icone} size={19} />
+                  </span>
+                  <span className="theme__numero">{chapitre.numero}</span>
+                  <span className="theme__titre">{chapitre.titre}</span>
+                  <span className="theme__resume">{chapitre.resume}</span>
+                  <span className="theme__lire">
+                    Lire le thème
+                    <ArrowRight size={14} strokeWidth={2.2} />
+                  </span>
+                </button>
 
-          <ul className="signaux">
-            {SIGNAUX.map(({ titre, texte }) => (
-              <li key={titre} className="signal">
-                <p className="signal__titre">{titre}</p>
-                <p className="signal__texte">{texte}</p>
+                {/* Hors du bouton : un lien dans un bouton n'est pas
+                    cliquable au clavier de façon fiable. */}
+                <LienDAide lien={chapitre.lien} compact />
               </li>
             ))}
           </ul>
+        )}
 
-          <Conseil label="À retenir">
-            Une explication qui transforme chaque objection en confirmation ne
-            peut jamais être contredite. Et ce qui ne peut jamais être contredit
-            ne peut jamais être vérifié non plus.
-          </Conseil>
-        </Chapitre>
-
-        {/* --- 06 ---------------------------------------------------------- */}
-        <Chapitre chapitre={PAR_ID.bulle} enregistrer={enregistrer}>
-          {BULLE.paragraphes.map((p) => (
-            <p key={p} className="chapitre__texte">
-              {p}
-            </p>
-          ))}
-          <Conseil label="À retenir">{BULLE.conseil}</Conseil>
-        </Chapitre>
-
-        {/* --- 07 ---------------------------------------------------------- */}
-        <Chapitre chapitre={PAR_ID.biais} enregistrer={enregistrer}>
-          <ul className="biais-grille">
-            {BIAIS.map(({ nom, pensee, exploitation, reflexe }) => (
-              <li key={nom} className="biais">
-                <p className="biais__nom">{nom}</p>
-                <p className="biais__pensee">{pensee}</p>
-
-                <div className="biais__ligne">
-                  <p className="biais__label">Ce qu'on en fait</p>
-                  <p className="biais__texte">{exploitation}</p>
-                </div>
-                <div className="biais__ligne biais__ligne--reflexe">
-                  <p className="biais__label">Le bon réflexe</p>
-                  <p className="biais__texte">{reflexe}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </Chapitre>
-
-        {/* --- 08 ---------------------------------------------------------- */}
-        <Chapitre chapitre={PAR_ID.cas} enregistrer={enregistrer}>
-          <ul className="cas-liste">
-            {CAS.map(({ id, annee, titre, texte, lecon }) => (
-              <li key={id} className="cas">
-                <p className="cas__annee">{annee}</p>
-                <h3 className="cas__titre">{titre}</h3>
-                <p className="cas__texte">{texte}</p>
-                <p className="cas__lecon">{lecon}</p>
-              </li>
-            ))}
-          </ul>
-        </Chapitre>
-
-        {/* Sortie de lecture : la théorie appelle la pratique. */}
         {onNavigate && (
           <section className="learn-fin">
             <h2 className="learn-fin__titre">À toi de jouer</h2>
             <p className="learn-fin__texte">
-              Lire, c'est bien. Se faire piéger pour de faux, c'est mieux : les
-              trois jeux reprennent tout ce qui précède, mais dans un fil
-              d'actualité.
+              Lire, c'est bien. Se faire piéger pour de faux, c'est mieux : le
+              fil d'actualité reprend tout ce qui précède, mais en situation.
             </p>
-            <button
-              type="button"
-              onClick={() => onNavigate('game')}
-              className="learn-fin__bouton"
-            >
-              Ouvrir les jeux
-              <ArrowRight size={16} strokeWidth={2.2} />
-            </button>
+            <div className="learn-fin__boutons">
+              <button
+                type="button"
+                onClick={() => onNavigate('feed')}
+                className="learn-fin__bouton"
+              >
+                Ouvrir le fil d'actualité
+                <ArrowRight size={16} strokeWidth={2.2} />
+              </button>
+              <button type="button" onClick={() => onNavigate('sources')} className="learn-cta">
+                <BookOpen size={16} strokeWidth={2} />
+                Où vérifier une info
+              </button>
+            </div>
           </section>
         )}
       </div>

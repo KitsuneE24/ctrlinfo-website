@@ -2,8 +2,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router'
 import './css/index.css'
-// Pose les préférences d'affichage sur <html> avant le premier rendu.
-import './lib/preferences'
 import App from './App.jsx'
 
 /**

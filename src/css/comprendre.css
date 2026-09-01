@@ -118,56 +118,64 @@
     }
   }
 
-  /* --- La galerie de thèmes --------------------------------------------- */
+  /* --- La galerie, façon Explore ----------------------------------------
+     Des vignettes carrées, presque jointives : c'est l'image qui porte, le
+     titre ne fait que nommer. */
 
   .themes {
     display: grid;
-    gap: var(--gap-card);
-    margin: 0;
+    gap: 3px;
+    margin: 0 -14px;
     padding: 0;
     list-style: none;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  /* La vignette est une carte ; le lien d'aide vit en dehors du bouton, en
-     pied de carte, pour rester atteignable au clavier. */
-  .theme {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-card);
-    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
-  }
-
-  @media (hover: hover) {
-    .theme:hover {
-      transform: translateY(-2px);
-      border-color: var(--line-strong);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  @media (min-width: 768px) {
+    .themes {
+      margin: 0;
+      gap: 4px;
     }
   }
 
-  .theme__ouvrir {
-    display: grid;
-    flex: 1 1 auto;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 4px 12px;
-    padding: 16px 16px 14px;
-    text-align: left;
+  .theme {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 1;
+    text-decoration: none;
   }
 
-  .theme__badge {
+  .theme__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s;
+  }
+
+  @media (hover: hover) {
+    .theme:hover .theme__image {
+      transform: scale(1.04);
+    }
+  }
+
+  /* Sans couverture, la couleur du thème et son pictogramme tiennent le carré. */
+  .theme__icone {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .theme__voile {
+    position: absolute;
+    inset: auto 0 0;
     display: flex;
-    grid-row: span 2;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    color: #fff;
+    flex-direction: column;
+    gap: 2px;
+    padding: 22px 10px 10px;
+    background: linear-gradient(to top, rgba(10, 6, 20, 0.85), rgba(10, 6, 20, 0));
   }
 
   .theme__numero {
@@ -175,34 +183,15 @@
     font-size: var(--text-2xs);
     font-weight: 700;
     letter-spacing: 0.14em;
-    color: var(--ink-ghost);
+    color: rgba(255, 255, 255, 0.75);
   }
 
   .theme__titre {
     font-family: var(--font-title);
-    font-size: var(--text-lg);
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--ink);
-  }
-
-  .theme__resume {
-    grid-column: 1 / -1;
-    margin-top: 10px;
-    font-size: var(--text-sm);
-    line-height: 1.6;
-    color: var(--ink-muted);
-  }
-
-  .theme__lire {
-    display: inline-flex;
-    grid-column: 1 / -1;
-    align-items: center;
-    gap: 6px;
-    margin-top: 12px;
     font-size: var(--text-sm);
     font-weight: 700;
-    color: var(--brand-blue);
+    line-height: 1.2;
+    color: #fff;
   }
 
   /* --- Le lien d'aide de chaque thème ----------------------------------- */
@@ -221,10 +210,6 @@
   .chapitre-lien:hover {
     background: var(--wash);
     color: var(--brand-magenta);
-  }
-
-  .chapitre-lien--compact {
-    border-top: 1px solid var(--line);
   }
 
   /* --- La page d'un thème ------------------------------------------------ */

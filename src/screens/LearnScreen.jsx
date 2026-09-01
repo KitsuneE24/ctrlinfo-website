@@ -291,18 +291,20 @@ export default function LearnScreen() {
           </ul>
         )}
 
-        <section className="learn-fin">
-          <h2 className="learn-fin__titre">À toi de jouer</h2>
-          <p className="learn-fin__texte">
+        {/* La même carte qu'en fin d'accueil : un seul bloc de sortie pour
+            tout le site (entry-card.css). */}
+        <section className="entry-card">
+          <h2 className="entry-card__title">À toi de jouer</h2>
+          <p className="entry-card__text">
             Lire, c'est bien. Se faire piéger pour de faux, c'est mieux : le
             fil d'actualité reprend tout ce qui précède, mais en situation.
           </p>
-          <div className="learn-fin__boutons">
-            <Link to={PATHS.feed} className="learn-fin__bouton">
+          <div className="entry-card__actions">
+            <Link to={PATHS.feed} className="entry-card__button">
               Ouvrir le fil d'actualité
               <ArrowRight size={16} strokeWidth={2.2} />
             </Link>
-            <Link to={PATHS.verify} className="learn-cta">
+            <Link to={PATHS.verify} className="entry-card__link">
               <BookOpen size={16} strokeWidth={2} />
               Où vérifier une info
             </Link>

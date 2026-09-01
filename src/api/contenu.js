@@ -14,6 +14,15 @@ const requete = (chemin) => api(chemin, { authentifie: false })
 export const getJeux = () => requete('/jeux')
 
 /**
+ * Les stories de l'accueil, destination déjà résolue par l'API : chacune porte
+ * soit une `url` extérieure, soit le slug d'un `chapitre` d'ici.
+ */
+export const getStories = () => requete('/stories')
+
+/** La brève « Le saviez-vous ? » du jour. */
+export const getDailyTip = () => requete('/astuces/du-jour')
+
+/**
  * Un tirage de publications pour un niveau.
  *
  * Le serveur écarte celles que ce joueur a déjà traitées : deux parties de

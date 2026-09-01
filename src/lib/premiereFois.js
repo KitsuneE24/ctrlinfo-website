@@ -33,3 +33,27 @@ export function marquerVu(cle) {
     // Au pire, ce sera montré à nouveau.
   }
 }
+
+/** Le jour courant, sous une forme comparable : « 2026-09-01 ». */
+const today = () => new Date().toISOString().slice(0, 10)
+
+/**
+ * Comme `dejaVu`, mais pour ce qui revient chaque jour — la brève « Le
+ * saviez-vous ? ». Ce n'est pas la même question : on ne demande pas si ça a
+ * déjà été vu un jour, mais si ça a été vu **aujourd'hui**.
+ */
+export function seenToday(key) {
+  try {
+    return stockage()?.getItem(PREFIXE + key) === today()
+  } catch {
+    return false
+  }
+}
+
+export function markSeenToday(key) {
+  try {
+    stockage()?.setItem(PREFIXE + key, today())
+  } catch {
+    // Au pire, ce sera montré à nouveau.
+  }
+}

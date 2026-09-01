@@ -1,0 +1,83 @@
+/* ==========================================================================
+   CARTE D'ENTRÉE
+   Le bloc de fin de page : un titre, une phrase, et par où continuer.
+
+   Il vient de l'onglet Ressources, où il évitait qu'un thème lu soit un
+   cul-de-sac. L'accueil s'en sert maintenant aussi : les deux boutons qui
+   étaient dans la bannière descendent ici. Une seule règle pour les deux
+   écrans — c'est ce qui rend le site cohérent plutôt que ressemblant.
+   ========================================================================== */
+
+@layer components {
+  .entry-card {
+    padding: 22px 18px;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+  }
+
+  .entry-card__title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .entry-card__text {
+    margin: 8px auto 0;
+    max-width: 52ch;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+  }
+
+  .entry-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  /* L'action principale : une seule par carte. */
+  .entry-card__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    background-image: var(--brand-gradient);
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .entry-card__button:hover {
+    opacity: 0.9;
+  }
+
+  /* Les suivantes, en retrait : elles proposent, elles n'appellent pas. */
+  .entry-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .entry-card__link:hover {
+    border-color: var(--brand-magenta);
+    background: var(--wash);
+    color: var(--brand-magenta);
+  }
+}

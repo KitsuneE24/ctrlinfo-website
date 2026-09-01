@@ -33,7 +33,7 @@ export default function GameStart({ jeu, connecte, reprise, onStart, onRules }) 
         initial={{ y: 16 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.22 }}
-        className="game-start__card"
+        className="game-start__card no-scrollbar"
       >
         <header className="game-start__head">
           <span className="game-start__badge" style={{ background: jeu.couleur }}>

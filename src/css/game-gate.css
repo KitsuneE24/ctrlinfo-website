@@ -119,6 +119,10 @@
     max-height: 100%;
     flex-direction: column;
     gap: 14px;
+    /* `overflow-y: auto` fait passer l'axe horizontal en `auto` lui aussi :
+       sans cette ligne, un enfant trop large d'un pixel dessine une barre de
+       défilement en bas de la carte. */
+    overflow-x: hidden;
     overflow-y: auto;
     padding: 20px;
     border-radius: 18px;
@@ -222,6 +226,7 @@
      cul-de-sac — il porte de quoi y remédier, en bouton et non en lien. */
   .game-start__guest {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
@@ -232,6 +237,8 @@
   }
 
   .game-start__guest-text {
+    flex: 1 1 auto;
+    min-width: 0;
     margin: 0;
     font-size: var(--text-sm);
     line-height: 1.4;

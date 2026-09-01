@@ -205,8 +205,7 @@
     }
   }
 
-  /* Par défaut l'intitulé n'apparaît qu'à partir du moment où il tient sans
-     serrer les icônes ; le profil permet de forcer l'un ou l'autre. */
+  /* L'intitulé n'apparaît que quand il tient sans serrer les icônes. */
   .tab-bar__label {
     display: none;
     font-size: var(--text-2xs);
@@ -215,25 +214,13 @@
   }
 
   @media (min-width: 420px) {
-    :root[data-tab-labels='auto'] .tab-bar__label {
+    .tab-bar__label {
       display: block;
     }
 
-    :root[data-tab-labels='auto'] .tab-bar__dot {
+    .tab-bar__dot {
       display: none;
     }
-  }
-
-  :root[data-tab-labels='visible'] .tab-bar__label {
-    display: block;
-  }
-
-  :root[data-tab-labels='visible'] .tab-bar__dot {
-    display: none;
-  }
-
-  :root[data-tab-labels='caches'] .tab-bar__label {
-    display: none;
   }
 
   /* Couleur de l'onglet actif : elle vient de navItems.js. */

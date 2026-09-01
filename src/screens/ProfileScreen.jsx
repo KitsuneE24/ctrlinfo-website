@@ -14,7 +14,6 @@ import { useRessource } from '../lib/useRessource'
 import { useCompte } from '../state/compte'
 import { PATHS } from '../routes'
 import Page from '../components/ui/Page'
-import DisplaySettings from '../components/DisplaySettings'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
 /**
@@ -188,8 +187,6 @@ function Formulaire() {
           )}
         </div>
       </section>
-
-      <DisplaySettings />
     </Page>
   )
 }
@@ -355,8 +352,6 @@ function TableauDeBord() {
           .
         </p>
       )}
-
-      <DisplaySettings />
     </Page>
   )
 }

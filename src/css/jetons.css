@@ -80,6 +80,8 @@
     --radius-card: 12px;
     --gap-card: 14px;
     --content-max: 640px;
+    /* La colonne unique des écrans de lecture. */
+    --content-read: 720px;
   }
 
   @media (min-width: 768px) {

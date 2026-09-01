@@ -3,12 +3,12 @@
    ======================================================================== */
 
 @layer components {
-  /* Corps de l'accueil : colonne bornée en largeur, détachée des bords. La
-     borne tient aussi la hauteur de la vidéo, qui en occupe la moitié. */
+  /* Une seule colonne, bornée : les cartes s'empilent, la hiérarchie se lit
+     de haut en bas. */
   .home__body {
     display: flex;
     width: 100%;
-    max-width: 1300px;
+    max-width: var(--content-read);
     margin: 0 auto;
     flex-direction: column;
     gap: var(--gap-card);
@@ -119,20 +119,6 @@
     gap: 24px;
   }
 
-  @media (min-width: 900px) {
-    .split {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      align-items: start;
-      gap: 0;
-    }
-
-    /* La gouttière est portée par la seconde colonne. */
-    .split > * + * {
-      border-left: 1px solid var(--line);
-      padding-left: 24px;
-    }
-  }
-
   .levers {
     display: flex;
     flex-direction: column;
@@ -216,12 +202,6 @@
     display: grid;
     gap: var(--gap-card);
     grid-template-columns: 1fr;
-  }
-
-  @media (min-width: 760px) {
-    .game-teasers__liste {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
   }
 
   /* Une annonce se lit comme une publication : un compte, un texte, une

@@ -3,6 +3,7 @@ import { ExternalLink, Search, X } from 'lucide-react'
 import { getCategories, getRessources } from '../api/contenu'
 import { correspond } from '../lib/search'
 import { useRessource } from '../lib/useRessource'
+import ResourcesTabs from '../components/ResourcesTabs'
 import Page from '../components/ui/Page'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
@@ -42,7 +43,8 @@ export default function SourcesScreen() {
 
   if (erreur) {
     return (
-      <Page title="Sources" subtitle="Où vérifier une information">
+      <Page title="Ressources" subtitle="Où vérifier une information">
+        <ResourcesTabs />
         <ErreurChargement erreur={erreur} onReessayer={recharger} />
       </Page>
     )
@@ -50,14 +52,17 @@ export default function SourcesScreen() {
 
   if (chargement) {
     return (
-      <Page title="Sources" subtitle="Où vérifier une information">
+      <Page title="Ressources" subtitle="Où vérifier une information">
+        <ResourcesTabs />
         <Chargement quoi="les sources" />
       </Page>
     )
   }
 
   return (
-    <Page title="Sources" subtitle="Où vérifier une information">
+    <Page title="Ressources" subtitle="Où vérifier une information">
+      <ResourcesTabs />
+
       <div className="sources__controls">
         <div className="search-field">
           <Search size={16} />

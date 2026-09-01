@@ -31,7 +31,7 @@ function opacityFor(distance) {
   return Math.max(0.18, 0.42 - (Math.abs(distance) - 1) * 0.06)
 }
 
-export default function Feed({ onSwitch, enPause = false }) {
+export default function Feed({ onSwitch, paused = false }) {
   // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
   const suite = useAutreJeu('feed')
 
@@ -65,7 +65,7 @@ export default function Feed({ onSwitch, enPause = false }) {
 
   // Pas de partie tant que les règles d'ouverture sont à l'écran : le fil sera
   // remonté à leur fermeture, et une partie vide resterait en base.
-  const sessionId = useSessionJeu({ jeu: 'feed', level: 1, actif: !enPause })
+  const sessionId = useSessionJeu({ jeu: 'feed', level: 1, actif: !paused })
 
   /**
    * Un niveau, tiré au sort par le serveur.
@@ -326,7 +326,7 @@ export default function Feed({ onSwitch, enPause = false }) {
               // Une publication, un décompte : la clé le remonte.
               timerKey={`${currentLevel}:${queueIdx}`}
               // Le chrono s'arrête tant que les règles sont à l'écran.
-              timerActive={timerActive && !enPause}
+              timerActive={timerActive && !paused}
               onTimerComplete={handleTimerExpire}
             />
 

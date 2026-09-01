@@ -1,23 +1,27 @@
 import { createElement, useCallback, useMemo, useState } from 'react'
+import { Link, useParams } from 'react-router'
 import { ArrowLeft, ArrowRight, BookOpen, ExternalLink, Search, X } from 'lucide-react'
 import { getChapitre, getChapitres } from '../api/contenu'
 import { icone } from '../data/icones'
 import { correspond } from '../lib/search'
 import { useRessource } from '../lib/useRessource'
+import { PATHS, chapterPath } from '../routes'
 import Banniere from '../components/ui/Banniere'
 import Page from '../components/ui/Page'
+import ResourcesTabs from '../components/ResourcesTabs'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
 /**
- * Onglet « Comprendre » : la partie lecture du site, là où les jeux font
- * pratiquer.
+ * L'onglet « Ressources », côté *Comprendre* : la partie lecture du site, là
+ * où les jeux font pratiquer.
  *
- * Deux vues, jamais les deux à la fois :
+ * Deux écrans, et deux adresses — c'est le changement : un thème se partage,
+ * se met en favori et survit à un rechargement.
  *
- *   1. **la galerie** — une recherche en tête, puis une vignette par thème :
- *      son numéro, son titre, quelques lignes de résumé, et le lien qui mène
- *      plus loin. C'est ce qu'on voit en arrivant ;
- *   2. **le thème** — ouvert depuis une vignette, avec son texte entier.
+ *   1. **la galerie** (`/ressources`) — une recherche en tête, puis une
+ *      vignette par thème : son numéro, son titre, quelques lignes de résumé,
+ *      et le lien qui mène plus loin ;
+ *   2. **le thème** (`/ressources/comprendre/:slug`), avec son texte entier.
  *
  * Tout le texte vient de l'API (`/chapitres`) : il n'y a pas une ligne de
  * contenu dans ce fichier, seulement la mise en page. La galerie ne charge que
@@ -128,16 +132,22 @@ function Bloc({ bloc }) {
   )
 }
 
-/** La page d'un thème, ouverte depuis sa vignette. */
-function Chapitre({ slug, onFermer }) {
+/**
+ * La page d'un thème — son adresse est `/ressources/comprendre/:slug`.
+ *
+ * Elle n'a pas de sous-onglets : on est dans un thème, pas dans la galerie. Le
+ * retour se fait par le lien en tête, ou par le bouton « précédent ».
+ */
+export function ChapterScreen() {
+  const { slug } = useParams()
   const charger = useCallback(() => getChapitre(slug), [slug])
   const { donnees, chargement, erreur, recharger } = useRessource(charger, [slug])
 
   const retour = (
-    <button type="button" onClick={onFermer} className="chapitre__retour">
+    <Link to={PATHS.resources} className="chapitre__retour">
       <ArrowLeft size={16} strokeWidth={2.2} />
       Tous les thèmes
-    </button>
+    </Link>
   )
 
   if (erreur) {
@@ -191,9 +201,8 @@ function Chapitre({ slug, onFermer }) {
   )
 }
 
-export default function LearnScreen({ onNavigate }) {
+export default function LearnScreen() {
   const [query, setQuery] = useState('')
-  const [ouvert, setOuvert] = useState(null)
   const { donnees, chargement, erreur, recharger } = useRessource(getChapitres, [])
 
   const chapitres = useMemo(() => donnees ?? [], [donnees])
@@ -206,14 +215,12 @@ export default function LearnScreen({ onNavigate }) {
     [chapitres, query]
   )
 
-  if (ouvert) return <Chapitre slug={ouvert} onFermer={() => setOuvert(null)} />
-
   return (
     <Page seamless>
       {/* Bandeau d'entrée : la même bannière que l'accueil, fond animé
           compris (ui/Banniere.jsx). */}
       <Banniere className="learn-hero">
-        <p className="learn-hero__eyebrow">Comprendre</p>
+        <p className="learn-hero__eyebrow">Ressources</p>
         <h1 className="learn-hero__title">Ce qu'il faut savoir avant de partager</h1>
         <p className="learn-hero__lead">
           Huit thèmes courts. Chacun se lit en deux minutes et mène vers un site
@@ -222,6 +229,8 @@ export default function LearnScreen({ onNavigate }) {
       </Banniere>
 
       <div className="learn__body">
+        <ResourcesTabs />
+
         {/* La recherche en premier : c'est la porte d'entrée de l'onglet. */}
         <div className="search-field">
           <Search size={16} />
@@ -257,9 +266,8 @@ export default function LearnScreen({ onNavigate }) {
           <ul className="themes">
             {resultats.map((chapitre) => (
               <li key={chapitre.id} className="theme">
-                <button
-                  type="button"
-                  onClick={() => setOuvert(chapitre.id)}
+                <Link
+                  to={chapterPath(chapitre.id)}
                   aria-label={`Ouvrir le thème « ${chapitre.titre} »`}
                   className="theme__ouvrir"
                 >
@@ -273,39 +281,33 @@ export default function LearnScreen({ onNavigate }) {
                     Lire le thème
                     <ArrowRight size={14} strokeWidth={2.2} />
                   </span>
-                </button>
+                </Link>
 
-                {/* Hors du bouton : un lien dans un bouton n'est pas
-                    cliquable au clavier de façon fiable. */}
+                {/* Hors du lien : un lien dans un lien n'est pas valide, et le
+                    clavier s'y perd. */}
                 <LienDAide lien={chapitre.lien} compact />
               </li>
             ))}
           </ul>
         )}
 
-        {onNavigate && (
-          <section className="learn-fin">
-            <h2 className="learn-fin__titre">À toi de jouer</h2>
-            <p className="learn-fin__texte">
-              Lire, c'est bien. Se faire piéger pour de faux, c'est mieux : le
-              fil d'actualité reprend tout ce qui précède, mais en situation.
-            </p>
-            <div className="learn-fin__boutons">
-              <button
-                type="button"
-                onClick={() => onNavigate('feed')}
-                className="learn-fin__bouton"
-              >
-                Ouvrir le fil d'actualité
-                <ArrowRight size={16} strokeWidth={2.2} />
-              </button>
-              <button type="button" onClick={() => onNavigate('sources')} className="learn-cta">
-                <BookOpen size={16} strokeWidth={2} />
-                Où vérifier une info
-              </button>
-            </div>
-          </section>
-        )}
+        <section className="learn-fin">
+          <h2 className="learn-fin__titre">À toi de jouer</h2>
+          <p className="learn-fin__texte">
+            Lire, c'est bien. Se faire piéger pour de faux, c'est mieux : le
+            fil d'actualité reprend tout ce qui précède, mais en situation.
+          </p>
+          <div className="learn-fin__boutons">
+            <Link to={PATHS.feed} className="learn-fin__bouton">
+              Ouvrir le fil d'actualité
+              <ArrowRight size={16} strokeWidth={2.2} />
+            </Link>
+            <Link to={PATHS.verify} className="learn-cta">
+              <BookOpen size={16} strokeWidth={2} />
+              Où vérifier une info
+            </Link>
+          </div>
+        </section>
       </div>
     </Page>
   )

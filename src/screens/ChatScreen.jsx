@@ -1,12 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router'
 import { ChevronRight, MessageCircle } from 'lucide-react'
 import { getConversation, getConversations } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
-import {
-  clearSession,
-  getInboxState,
-  saveInboxState,
-} from '../state/conversationSessions'
+import { clearSession, getRunIds, saveRunIds } from '../state/conversationSessions'
+import { PATHS, chatPath } from '../routes'
 import Page from '../components/ui/Page'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 import ChatThread from '../components/ChatThread'
@@ -16,8 +14,12 @@ import ChatThread from '../components/ChatThread'
  *
  * - Téléphone : une seule vue à la fois — la liste, puis le fil, avec un
  *   bouton retour.
- * - À partir de 768px : les deux volets côte à côte. Le même état (`openId`)
- *   pilote les deux cas, seule la visibilité change.
+ * - À partir de 768px : les deux volets côte à côte. La même adresse pilote
+ *   les deux cas, seule la visibilité change.
+ *
+ * La conversation ouverte est dans l'URL, pas dans un état : on peut envoyer
+ * le lien d'une discussion, la retrouver après un rechargement, et le bouton
+ * « précédent » du navigateur revient à la liste.
  *
  * Deux appels, et c'est volontaire : la boîte de réception ne charge que de
  * quoi lister (nom, aperçu, couleur), et les branches d'une discussion
@@ -25,11 +27,13 @@ import ChatThread from '../components/ChatThread'
  * embranchements de toutes les conversations pour en afficher les titres.
  */
 export default function ChatScreen() {
-  // Repris de la session : revenir sur l'onglet rouvre la conversation.
-  const [openId, setOpenId] = useState(() => getInboxState().openId)
+  const { slug: openId = null } = useParams()
+  const navigate = useNavigate()
+
   // Un numéro de partie par conversation, qui change à chaque
-  // « Recommencer » : la clé du fil change, le composant se remonte.
-  const [runIds, setRunIds] = useState(() => getInboxState().runIds)
+  // « Recommencer » : la clé du fil change, le composant se remonte. Il vit
+  // hors de React pour survivre au passage d'un écran à l'autre.
+  const [runIds, setRunIds] = useState(getRunIds)
 
   const liste = useRessource(getConversations, [])
   const conversations = liste.donnees ?? []
@@ -41,8 +45,8 @@ export default function ChatScreen() {
   const ouverte = useRessource(chargerOuverte, [openId])
 
   useEffect(() => {
-    saveInboxState({ openId, runIds })
-  }, [openId, runIds])
+    saveRunIds(runIds)
+  }, [runIds])
 
   const open = ouverte.donnees
   const sessionKey = openId ? `${openId}-${runIds[openId] ?? 0}` : null
@@ -75,9 +79,8 @@ export default function ChatScreen() {
                   const isOpen = conversation.id === openId
                   return (
                     <li key={conversation.id}>
-                      <button
-                        type="button"
-                        onClick={() => setOpenId(conversation.id)}
+                      <Link
+                        to={chatPath(conversation.id)}
                         className={`inbox-item${isOpen ? ' inbox-item--active' : ''}`}
                       >
                         <span
@@ -103,7 +106,7 @@ export default function ChatScreen() {
                         </span>
 
                         <ChevronRight size={18} className="inbox-item__chevron" />
-                      </button>
+                      </Link>
                     </li>
                   )
                 })}
@@ -123,7 +126,7 @@ export default function ChatScreen() {
               key={sessionKey}
               sessionKey={sessionKey}
               conversation={open}
-              onBack={() => setOpenId(null)}
+              onBack={() => navigate(PATHS.chats)}
               onRestart={restart}
             />
           ) : (

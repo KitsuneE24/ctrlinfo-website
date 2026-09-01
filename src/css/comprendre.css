@@ -6,6 +6,39 @@
    ========================================================================== */
 
 @layer components {
+  /* --- Sous-onglets ------------------------------------------------------
+     « Comprendre » et « Vérifier » sont deux façons de lire, pas deux
+     rubriques : ils partagent l'onglet Ressources et se choisissent ici. */
+
+  .resources-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 2px;
+  }
+
+  .resources-tabs__link {
+    padding: 8px 15px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: var(--font-title);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .resources-tabs__link:hover {
+    background: var(--wash);
+    color: var(--ink);
+  }
+
+  .resources-tabs__link--active {
+    border-color: transparent;
+    background: var(--nav-learn);
+    color: #fff;
+  }
+
   /* --- Bandeau d'entrée ------------------------------------------------- */
 
   .learn-hero {

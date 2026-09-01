@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import { useNavigate } from 'react-router'
 import {
   ArrowRight,
   CircleUserRound,
@@ -11,6 +12,7 @@ import {
 import { getTableauDeBord } from '../api/progression'
 import { useRessource } from '../lib/useRessource'
 import { useCompte } from '../state/compte'
+import { PATHS } from '../routes'
 import Page from '../components/ui/Page'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
@@ -58,7 +60,8 @@ function Chiffre({ valeur, libelle }) {
 
 // ── Sans compte ──────────────────────────────────────────────────────────────
 
-function Formulaire({ onNavigate }) {
+function Formulaire() {
+  const navigate = useNavigate()
   const { connexion, inscription, continuerEnInvite, invite } = useCompte()
 
   const [mode, setMode] = useState('connexion')
@@ -169,7 +172,7 @@ function Formulaire({ onNavigate }) {
             type="button"
             onClick={() => {
               continuerEnInvite()
-              onNavigate?.('feed')
+              navigate(PATHS.feed)
             }}
             className="button button--ghost"
           >
@@ -353,7 +356,7 @@ function TableauDeBord() {
   )
 }
 
-export default function ProfileScreen({ onNavigate }) {
+export default function ProfileScreen() {
   const { connecte } = useCompte()
-  return connecte ? <TableauDeBord /> : <Formulaire onNavigate={onNavigate} />
+  return connecte ? <TableauDeBord /> : <Formulaire />
 }

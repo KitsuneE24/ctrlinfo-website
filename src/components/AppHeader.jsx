@@ -1,5 +1,7 @@
+import { Link } from 'react-router'
 import { HelpCircle } from 'lucide-react'
 import { useCompte } from '../state/compte'
+import { PATHS } from '../routes'
 
 /**
  * En-tête de l'application : le logotype à gauche, qui ramène à l'accueil.
@@ -8,27 +10,26 @@ import { useCompte } from '../state/compte'
  * toutes les tailles d'écran. Il ne reste donc à droite que ce qui dépend de
  * l'écran en cours : les règles du fil, et l'identité du joueur.
  */
-export default function AppHeader({ tab, onNavigate, onRevoirRegles }) {
+export default function AppHeader({ onFeed, onShowRules }) {
   const { utilisateur, connecte } = useCompte()
 
   return (
     <header className="app-header">
       <div className="app-header__inner">
-        <button
-          type="button"
-          onClick={() => onNavigate('home')}
+        <Link
+          to={PATHS.home}
           aria-label="CTRL INFO — retour à l'accueil"
           className="app-header__home"
         >
           <img src="/logo-ctrl-info.png" alt="" className="app-header__logo" />
           <span className="app-header__name">CTRL INFO</span>
-        </button>
+        </Link>
 
         <div className="app-header__actions">
-          {tab === 'feed' && (
+          {onFeed && (
             <button
               type="button"
-              onClick={onRevoirRegles}
+              onClick={onShowRules}
               title="Revoir les règles du fil d'actualité"
               className="rules-button"
             >
@@ -39,13 +40,12 @@ export default function AppHeader({ tab, onNavigate, onRevoirRegles }) {
 
           {/* Dire en permanence si la partie compte ou non : c'est la seule
               chose que le mode invité change pour le joueur. */}
-          <button
-            type="button"
-            onClick={() => onNavigate('profil')}
+          <Link
+            to={PATHS.profile}
             className={`app-header__compte${connecte ? ' app-header__compte--connecte' : ''}`}
           >
             {connecte ? utilisateur?.pseudo : 'Invité'}
-          </button>
+          </Link>
         </div>
       </div>
     </header>

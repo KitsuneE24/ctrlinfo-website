@@ -1,23 +1,26 @@
 /**
  * Mémoire des conversations en cours, pour la durée de la session.
  *
- * Changer d'onglet démonte l'écran : l'état vit donc ici, hors de l'arbre
- * React, et les composants s'y raccrochent au montage. En mémoire seulement —
- * un rechargement repart de zéro.
+ * Changer d'écran démonte le fil : l'état vit donc ici, hors de l'arbre React,
+ * et les composants s'y raccrochent au montage. En mémoire seulement — un
+ * rechargement repart de zéro.
+ *
+ * Ce que la mémoire ne garde plus, c'est *quelle* conversation était ouverte :
+ * cela se lit maintenant dans l'adresse (`/conversations/:slug`), qui survit
+ * au rechargement et se partage.
  */
 
 const sessions = new Map()
 
-// Quelle conversation était ouverte, et le numéro de partie de chacune. Le
-// compteur est par conversation.
-let ui = { openId: null, runIds: {} }
+// Le numéro de partie de chaque conversation, incrémenté par « Recommencer ».
+let runIds = {}
 
-export function getInboxState() {
-  return ui
+export function getRunIds() {
+  return runIds
 }
 
-export function saveInboxState(next) {
-  ui = next
+export function saveRunIds(next) {
+  runIds = next
 }
 
 export function getSession(key) {

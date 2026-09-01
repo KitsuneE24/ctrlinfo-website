@@ -46,6 +46,28 @@ npm run dev                # http://localhost:5173
 
 Si l'API est éteinte, les écrans le disent au lieu d'afficher une page vide.
 
+## Les adresses
+
+Chaque écran a la sienne : un lien se partage, un rechargement ne renvoie plus
+à l'accueil, et le bouton « précédent » du navigateur fait ce qu'on attend.
+
+| Adresse | Écran |
+| --- | --- |
+| `/` | l'accueil |
+| `/fil` | le fil d'actualité |
+| `/conversations` · `/conversations/:slug` | la boîte de réception, puis une discussion |
+| `/ressources` | les thèmes à comprendre |
+| `/ressources/comprendre/:slug` | un thème |
+| `/ressources/verifier` | l'annuaire des sources |
+| `/profil` | le compte et le tableau de bord |
+
+Elles sont décrites une seule fois, dans [src/routes.js](src/routes.js).
+
+Sur un hébergement statique (GitHub Pages), une adresse profonde demande un
+fichier qui n'existe pas. Le build recopie donc `index.html` en `404.html` :
+l'application démarre, lit l'adresse et affiche le bon écran. Voir
+[vite.config.js](vite.config.js).
+
 ## Scripts
 
 | Commande | Rôle |
@@ -61,7 +83,7 @@ Si l'API est éteinte, les écrans le disent au lieu d'afficher une page vide.
 | --- | --- |
 | les publications du fil | base — table `post`, semée puis alimentée par les flux RSS |
 | les discussions et leurs branches | base — table `conversation` |
-| l'onglet Sources | base — table `ressource` |
+| l'annuaire « Vérifier une info » | base — table `ressource` |
 | les jeux et leurs tutoriels | base — tables `game` et `volet_tutoriel` |
 | les thèmes de « Comprendre » | base — tables `chapitre` et `bloc_chapitre` |
 

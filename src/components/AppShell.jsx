@@ -1,125 +1,131 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { Outlet, useLocation, useNavigate } from 'react-router'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BookOpen, X } from 'lucide-react'
 import AppHeader from './AppHeader'
 import GameTutorial from './GameTutorial'
 import TabBar from './TabBar'
-import Feed from './Feed'
 import { useJeu } from '../state/jeux'
 import { dejaVu, marquerVu } from '../lib/premiereFois'
-import HomeScreen from '../screens/HomeScreen'
-import LearnScreen from '../screens/LearnScreen'
-import ChatScreen from '../screens/ChatScreen'
-import ProfileScreen from '../screens/ProfileScreen'
-import SourcesScreen from '../screens/SourcesScreen'
+import { PATHS, pageTitle } from '../routes'
 
 /**
  * Coque de l'application : l'en-tête, l'écran en cours, la barre d'onglets du
  * bas, et le bouton « Sources » par-dessus.
  *
- * Il n'y a plus de galerie de jeux ni d'onglet « Jeux » : chaque jeu a son
- * propre onglet dans la barre du bas, au même rang que le reste du site. Un
- * onglet, un écran — la navigation ne cache plus rien.
+ * L'écran affiché n'est plus choisi ici : c'est le routeur qui le pose dans
+ * l'`<Outlet />`. La coque ne garde que ce qui l'entoure et ce qui survit d'un
+ * écran à l'autre.
+ *
+ * Le tutoriel du fil vit ici : il s'ouvre tout seul à la première arrivée sur
+ * le fil, et par le bouton « Règles du jeu » à tout moment. Le fil, lui, a
+ * besoin de savoir qu'il est en pause tant que les règles sont à l'écran —
+ * c'est ce que la coque lui passe par le contexte de l'`<Outlet />`.
  *
  * Les sources gardent leur bouton flottant plutôt qu'un onglet : c'est un
  * outil qu'on ouvre par-dessus ce qu'on est en train de faire, pas une
  * destination.
- *
- * Le tutoriel du fil vit ici : il s'ouvre tout seul à la première partie, et
- * par le bouton « Règles du jeu » à tout moment.
  */
 export default function AppShell() {
   // Le jeu du fil vient de l'API : au premier rendu il n'est pas là, et le
   // tutoriel n'a rien à montrer. Il s'ouvrira dès qu'il sera arrivé.
-  const jeuDuFil = useJeu('feed')
+  const feedGame = useJeu('feed')
 
-  const [tab, setTab] = useState('home')
-  // D'où l'on venait avant d'ouvrir les sources, pour y revenir.
-  const [avantSources, setAvantSources] = useState(null)
-  // { auto } — le tutoriel du fil, et s'il s'est ouvert de lui-même.
-  const [tuto, setTuto] = useState(null)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
 
-  const navigate = useCallback((prochainOnglet) => {
-    setTab(prochainOnglet)
-    setAvantSources(null)
-    // Arriver sur le fil, c'est peut-être commencer par ses règles.
-    setTuto(prochainOnglet === 'feed' && !dejaVu('tuto:feed') ? { auto: true } : null)
-  }, [])
+  const onFeed = pathname === PATHS.feed
+  const onSources = pathname === PATHS.verify
 
-  const revoirRegles = useCallback(() => setTuto({ auto: false }), [])
+  /** Les règles s'ouvrent d'elles-mêmes à la première partie, et là seulement. */
+  const openingRules = (path) =>
+    path === PATHS.feed && !dejaVu('tuto:feed') ? { auto: true } : null
 
-  const fermerTuto = useCallback(() => {
+  // { auto } — le tutoriel du fil, et s'il s'est ouvert de lui-même. Il est
+  // calculé dès le premier rendu : arriver directement sur /fil, par un lien
+  // ou un favori, doit ouvrir les règles comme n'importe quelle autre arrivée.
+  const [tutorial, setTutorial] = useState(() => openingRules(pathname))
+  const [lastPath, setLastPath] = useState(pathname)
+
+  // Changer d'adresse rejoue la question : les règles s'ouvrent en arrivant
+  // sur le fil, et se referment en le quittant. Ajusté pendant le rendu plutôt
+  // que dans un effet — sinon l'écran s'affiche une fois sans elles.
+  if (lastPath !== pathname) {
+    setLastPath(pathname)
+    setTutorial(openingRules(pathname))
+  }
+
+  // Le titre de l'onglet du navigateur suit l'adresse : c'est ce qui rend
+  // l'historique lisible, et une page mise en favori reconnaissable.
+  useEffect(() => {
+    document.title = pageTitle(pathname)
+  }, [pathname])
+
+  const showRules = useCallback(() => setTutorial({ auto: false }), [])
+
+  const closeTutorial = useCallback(() => {
     marquerVu('tuto:feed')
-    setTuto(null)
+    setTutorial(null)
   }, [])
 
-  const basculerSources = useCallback(() => {
-    if (tab === 'sources') {
-      setTab(avantSources ?? 'home')
-      setAvantSources(null)
-      return
-    }
-    setAvantSources(tab)
-    setTab('sources')
-  }, [tab, avantSources])
-
-  const surSources = tab === 'sources'
+  const toggleSources = useCallback(() => {
+    // Fermer les sources, c'est revenir d'où l'on vient — le routeur s'en
+    // souvient mieux que nous.
+    if (onSources) navigate(-1)
+    else navigate(PATHS.verify)
+  }, [onSources, navigate])
 
   return (
     <div className="app">
-      <AppHeader tab={tab} onNavigate={navigate} onRevoirRegles={revoirRegles} />
+      <AppHeader onFeed={onFeed} onShowRules={showRules} />
 
       <div className="app__main">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
-            key={tab}
+            key={pathname}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.16 }}
             className="app__screen"
           >
-            {tab === 'home' && <HomeScreen onNavigate={navigate} />}
-            {tab === 'feed' && (
-              // La clé remonte le fil à la fermeture des règles d'ouverture :
-              // la partie démarre à neuf, pas au milieu.
-              <Feed
-                key={tuto?.auto ? 'regles' : 'partie'}
-                onSwitch={navigate}
-                enPause={tuto !== null}
-              />
-            )}
-            {tab === 'chat' && <ChatScreen />}
-            {tab === 'learn' && <LearnScreen onNavigate={navigate} />}
-            {tab === 'profil' && <ProfileScreen onNavigate={navigate} />}
-            {tab === 'sources' && <SourcesScreen />}
+            {/* `runKey` remonte le fil à la fermeture des règles d'ouverture :
+                la partie démarre à neuf, pas au milieu. */}
+            <Outlet
+              context={{
+                paused: tutorial !== null,
+                runKey: tutorial?.auto ? 'rules' : 'game',
+              }}
+            />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <TabBar tab={surSources ? avantSources : tab} onNavigate={navigate} />
+      <TabBar />
 
       {/* Sur les conversations, le bouton descend se poser sur le champ de
           saisie barré. */}
       <button
         type="button"
-        onClick={basculerSources}
-        aria-label={surSources ? 'Fermer les sources' : 'Ouvrir les sources'}
-        className={`sources-fab${tab === 'chat' ? ' sources-fab--sur-champ' : ''}`}
+        onClick={toggleSources}
+        aria-label={onSources ? 'Fermer les sources' : 'Ouvrir les sources'}
+        className={`sources-fab${
+          pathname.startsWith(PATHS.chats) ? ' sources-fab--sur-champ' : ''
+        }`}
       >
-        {surSources ? (
+        {onSources ? (
           <X size={20} strokeWidth={2.2} />
         ) : (
           <BookOpen size={20} strokeWidth={2} />
         )}
         <span className="sources-fab__label">
-          {surSources ? 'Fermer' : 'Sources'}
+          {onSources ? 'Fermer' : 'Sources'}
         </span>
       </button>
 
       <AnimatePresence>
-        {tab === 'feed' && tuto && jeuDuFil && (
-          <GameTutorial jeu={jeuDuFil} onClose={fermerTuto} />
+        {onFeed && tutorial && feedGame && (
+          <GameTutorial jeu={feedGame} onClose={closeTutorial} />
         )}
       </AnimatePresence>
     </div>

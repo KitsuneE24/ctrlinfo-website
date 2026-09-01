@@ -1,4 +1,5 @@
 import { CircleUserRound, Compass, House, Search, Send } from 'lucide-react'
+import { PATHS } from '../routes'
 
 /**
  * La navigation de l'application, décrite ici et nulle part ailleurs.
@@ -11,39 +12,48 @@ import { CircleUserRound, Compass, House, Search, Send } from 'lucide-react'
  * y penser : la maison, la boussole, l'avion en papier, la loupe, l'avatar. Le
  * site imite un réseau social — sa navigation aussi.
  *
- * Chaque entrée porte sa couleur, pour l'état actif seulement (jetons.css).
+ * Chaque entrée porte son chemin et sa couleur, cette dernière pour l'état
+ * actif seulement (jetons.css).
  */
 export const TAB_ITEMS = [
   {
     id: 'home',
+    path: PATHS.home,
     Icon: House,
     label: 'Accueil',
-    couleur: 'var(--nav-home)',
+    color: 'var(--nav-home)',
     // Remplie à l'état actif, comme la maison d'Instagram.
-    pleine: true,
+    filled: true,
   },
   {
     id: 'feed',
+    path: PATHS.feed,
     Icon: Compass,
     label: "Fil d'actualité",
-    couleur: 'var(--nav-feed)',
+    color: 'var(--nav-feed)',
   },
   {
     id: 'chat',
+    path: PATHS.chats,
     Icon: Send,
     label: 'Conversations',
-    couleur: 'var(--nav-chat)',
+    color: 'var(--nav-chat)',
   },
   {
-    id: 'learn',
+    // « Comprendre » et l'annuaire des sources étaient deux rubriques de
+    // lecture, à deux endroits, sous deux noms proches. Elles n'en font plus
+    // qu'une : « Ressources », avec ses deux sous-onglets.
+    id: 'resources',
+    path: PATHS.resources,
     Icon: Search,
-    label: 'Comprendre',
-    couleur: 'var(--nav-learn)',
+    label: 'Ressources',
+    color: 'var(--nav-learn)',
   },
   {
-    id: 'profil',
+    id: 'profile',
+    path: PATHS.profile,
     Icon: CircleUserRound,
     label: 'Profil',
-    couleur: 'var(--nav-profil)',
+    color: 'var(--nav-profil)',
   },
 ]

@@ -112,18 +112,23 @@
      à mesure que la hauteur manque, et le défilement ne reste qu'un filet de
      sécurité — mieux vaut faire défiler que rogner le bouton. --- */
 
+  .game-start {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  /* La carte n'est pas bornée en hauteur et ne rogne rien : c'est le voile qui
+     défile, dans le cas rare où le contenu ne tient pas. Une carte à coins
+     arrondis qui découpe son propre contenu laisse un liseré au ras de la
+     découpe, et `margin: auto` — plutôt que `align-items: center` — garde le
+     haut atteignable quand ça déborde. */
   .game-start__card {
     display: flex;
     width: 100%;
     max-width: 440px;
-    max-height: 100%;
+    margin: auto;
     flex-direction: column;
     gap: 14px;
-    /* `overflow-y: auto` fait passer l'axe horizontal en `auto` lui aussi :
-       sans cette ligne, un enfant trop large d'un pixel dessine une barre de
-       défilement en bas de la carte. */
-    overflow-x: hidden;
-    overflow-y: auto;
     padding: 20px;
     border-radius: 18px;
     background: var(--surface);

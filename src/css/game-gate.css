@@ -252,19 +252,21 @@
 
   .game-start__guest-button {
     flex-shrink: 0;
-    padding: 8px 14px;
+    padding: 9px 15px;
     border-radius: 999px;
-    background: var(--surface);
-    border: 1px solid var(--line-strong);
+    background: var(--brand-blue);
     font-size: var(--text-sm);
     font-weight: 700;
-    color: var(--ink);
-    transition: background-color 0.15s, border-color 0.15s;
+    color: var(--brand-cream);
+    transition: background-color 0.15s, transform 0.12s;
   }
 
   .game-start__guest-button:hover {
-    border-color: var(--brand-blue);
-    color: var(--brand-blue);
+    background: color-mix(in srgb, var(--brand-blue) 86%, black);
+  }
+
+  .game-start__guest-button:active {
+    transform: scale(0.97);
   }
 
   .game-start__actions {
@@ -280,11 +282,15 @@
     gap: 8px;
     padding: 13px 18px;
     border-radius: 999px;
-    background: var(--brand-gradient);
+    background: var(--brand-violet);
     color: var(--brand-cream);
     font-size: var(--text-lg);
     font-weight: 700;
-    transition: transform 0.12s;
+    transition: background-color 0.15s, transform 0.12s;
+  }
+
+  .game-start__go:hover {
+    background: color-mix(in srgb, var(--brand-violet) 88%, black);
   }
 
   .game-start__go:active {

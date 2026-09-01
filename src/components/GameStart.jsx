@@ -27,13 +27,13 @@ export default function GameStart({ jeu, connecte, reprise, onStart, onRules }) 
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.18 }}
-      className="game-start"
+      className="game-start no-scrollbar"
     >
       <motion.div
         initial={{ y: 16 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.22 }}
-        className="game-start__card no-scrollbar"
+        className="game-start__card"
       >
         <header className="game-start__head">
           <span className="game-start__badge" style={{ background: jeu.couleur }}>

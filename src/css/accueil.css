@@ -321,4 +321,80 @@
     background: var(--wash);
     color: var(--ink);
   }
+  /* --- Le parcours conseillé : une colonne numérotée, jamais des cartes
+     côte à côte. L'ordre est l'information. --- */
+
+  .journey {
+    padding: 20px 18px 18px;
+    border-radius: 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+  }
+
+  .journey__title {
+    margin: 0 0 4px;
+    font-family: var(--font-title);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .journey__steps {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .journey__step {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0 4px;
+  }
+
+  .journey__step + .journey__step {
+    border-top: 1px solid var(--line);
+  }
+
+  .journey__number {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--brand-gradient);
+    color: var(--brand-cream);
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+
+  .journey__step-title {
+    margin: 3px 0 0;
+    font-size: var(--text-md);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .journey__step-text {
+    margin: 4px 0 0;
+    max-width: var(--measure);
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+
+  .journey__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--brand-blue);
+  }
+
+  .journey__link:hover {
+    text-decoration: underline;
+  }
+
 }

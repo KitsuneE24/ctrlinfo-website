@@ -12,6 +12,36 @@ import { GAME_PATHS, PATHS } from '../routes'
 // visuel d'attente par la vraie vidéo.
 const VIDEO_URL = null
 
+// Le parcours conseillé, dans l'ordre. Il n'oblige à rien : il répond à
+// « je fais quoi, et dans quel ordre ? », qui restait sans réponse.
+const JOURNEY_STEPS = [
+  {
+    titre: 'Lis un thème',
+    texte: "Deux minutes pour savoir ce qu'on cherche à te faire faire.",
+    lien: PATHS.resources,
+    action: 'Ouvrir les ressources',
+  },
+  {
+    titre: "Joue le fil d'actualité",
+    texte: 'Publication par publication, tu décides : aimer, partager, signaler.',
+    lien: PATHS.feed,
+    action: 'Ouvrir le fil',
+  },
+  {
+    titre: 'Réponds à un proche',
+    texte:
+      "Les conversations, c'est la même chose, mais quand ça vient de quelqu'un que tu connais.",
+    lien: PATHS.chats,
+    action: 'Ouvrir les conversations',
+  },
+  {
+    titre: 'Regarde ce qui te piège',
+    texte: 'Ton profil garde tes parties et te dit sur quel type de piège tu tombes le plus.',
+    lien: PATHS.profile,
+    action: 'Ouvrir mon profil',
+  },
+]
+
 const LEVIERS = [
   {
     Icon: Zap,
@@ -104,6 +134,27 @@ export default function HomeScreen() {
               <b>partager</b> ou <b>signaler</b>.
             </p>
           </div>
+        </section>
+
+        {/* Le parcours, avant les explications : on sait où l'on va avant
+            d'apprendre pourquoi. */}
+        <section className="journey">
+          <h2 className="journey__title">Comment ça se passe</h2>
+          <ol className="journey__steps">
+            {JOURNEY_STEPS.map((etape, i) => (
+              <li key={etape.titre} className="journey__step">
+                <span className="journey__number">{i + 1}</span>
+                <div className="journey__text">
+                  <p className="journey__step-title">{etape.titre}</p>
+                  <p className="journey__step-text">{etape.texte}</p>
+                  <Link to={etape.lien} className="journey__link">
+                    {etape.action}
+                    <ArrowRight size={14} strokeWidth={2.2} />
+                  </Link>
+                </div>
+              </li>
+            ))}
+          </ol>
         </section>
 
         {/* Vidéo à gauche, explication à droite. En dessous de 900px, les deux

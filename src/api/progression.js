@@ -32,12 +32,11 @@ export const demarrerSession = ({ jeu, level, conversationSlug }) =>
 export const sessionEnCours = (jeu) =>
   api(`/sessions/en-cours${jeu ? `?jeu=${jeu}` : ''}`)
 
-export const sauvegarder = (sessionId, { etape, score, etat }) =>
+export const sauvegarder = (sessionId, { etape, etat }) =>
   api(`/sessions/${sessionId}`, {
     method: 'PATCH',
     body: {
       ...(etape !== undefined ? { etape } : {}),
-      ...(score !== undefined ? { score } : {}),
       ...(etat !== undefined ? { etat } : {}),
     },
   })

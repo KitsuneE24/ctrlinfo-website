@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Heart, Send, Flag, Link2 } from 'lucide-react'
+import { Heart, Send, Flag } from 'lucide-react'
 
 function ActionIcon({ label, onClick, disabled, active, modifier, children }) {
   return (
@@ -48,17 +48,9 @@ export default function PostCard({
           est affirmé avant de voir l'illustration. */}
       <div className="post__lead">
         <p className="post__caption">
-          <span className="post__caption-account">{post.source}</span> {post.texte}
+          <span className="post__caption-account">{post.source}</span>{' '}
+          <span className="post__claim">{post.titre}</span> {post.texte}
         </p>
-
-        {/* Aperçu de l'article partagé */}
-        <div className="post__link">
-          <Link2 size={14} className="post__link-icon" />
-          <div className="post__link-text">
-            <p className="post__link-domain">{post.domain || post.source}</p>
-            <p className="post__link-title">{post.titre}</p>
-          </div>
-        </div>
       </div>
 
       <img src={post.image} alt="" className="post__media" />

@@ -1,11 +1,6 @@
 /* ==========================================================================
    CARTE D'ENTRÉE
-   Le bloc de fin de page : un titre, une phrase, et par où continuer.
-
-   Il vient de l'onglet Ressources, où il évitait qu'un thème lu soit un
-   cul-de-sac. L'accueil s'en sert maintenant aussi : les deux boutons qui
-   étaient dans la bannière descendent ici. Une seule règle pour les deux
-   écrans — c'est ce qui rend le site cohérent plutôt que ressemblant.
+   Le bloc de fin de page, partagé par l'accueil et Ressources.
    ========================================================================== */
 
 @layer components {
@@ -41,7 +36,6 @@
     margin-top: 16px;
   }
 
-  /* L'action principale : une seule par carte. */
   .entry-card__button {
     display: inline-flex;
     align-items: center;
@@ -60,7 +54,6 @@
     opacity: 0.9;
   }
 
-  /* Les suivantes, en retrait : elles proposent, elles n'appellent pas. */
   .entry-card__link {
     display: inline-flex;
     align-items: center;

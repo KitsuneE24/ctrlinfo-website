@@ -4,20 +4,14 @@ import { ExternalLink, X } from 'lucide-react'
 import { icone } from '../data/icones'
 import { chapterPath } from '../routes'
 
-/** Combien de temps une story reste à l'écran avant de passer à la suivante. */
 const DUREE = '8s'
 
 /**
- * Une story ouverte, en plein écran.
+ * Une story en plein écran : barres de progression, tap à droite ou à gauche,
+ * flèches, Échap.
  *
- * Les codes sont ceux d'Instagram, parce que c'est ce que le public sait déjà
- * lire : les barres de progression en haut, une par story ; le tap à droite
- * pour avancer, à gauche pour revenir ; la croix pour sortir.
- *
- * L'avancement automatique est porté par une animation CSS plutôt que par un
- * minuteur : quand le visiteur a demandé moins d'animations, elle ne tourne
- * pas, et la story attend qu'on la fasse avancer. Personne ne doit voir un
- * texte disparaître avant de l'avoir fini.
+ * L'avancement passe par une animation CSS et non un minuteur — sans
+ * animation, la story attend qu'on la fasse avancer.
  */
 export default function StoryViewer({ stories, index, onIndex, onClose }) {
   const story = stories[index]
@@ -43,12 +37,11 @@ export default function StoryViewer({ stories, index, onIndex, onClose }) {
           {stories.map((autre, i) => (
             <span key={autre.id} className="story-view__bar">
               <span
+                // La clé remonte la barre : sans elle l'animation ne repart pas.
+                key={`${story.id}-${i}`}
                 className={`story-view__fill${
                   i < index ? ' story-view__fill--vue' : ''
                 }${i === index ? ' story-view__fill--en-cours' : ''}`}
-                // La clé remonte la barre à chaque changement de story :
-                // sans elle, l'animation ne repartirait pas de zéro.
-                key={`${story.id}-${i}`}
                 style={i === index ? { animationDuration: DUREE } : undefined}
                 onAnimationEnd={i === index ? () => onIndex(index + 1) : undefined}
               />
@@ -71,7 +64,6 @@ export default function StoryViewer({ stories, index, onIndex, onClose }) {
           </button>
         </header>
 
-        {/* Les deux moitiés qui font défiler, au doigt comme à la souris. */}
         <button
           type="button"
           aria-label="Story précédente"
@@ -92,7 +84,6 @@ export default function StoryViewer({ stories, index, onIndex, onClose }) {
             </p>
           ))}
 
-          {/* Une story mène toujours quelque part : soit ici, soit dehors. */}
           {story.lien.chapitre ? (
             <Link
               to={chapterPath(story.lien.chapitre)}

@@ -1,11 +1,6 @@
 /* ==========================================================================
    STORIES
-   La rangée de pastilles en haut de l'accueil, et la vue plein écran.
-
-   Elle remplace le bouton flottant « Sources », que personne n'ouvrait : le
-   même contenu, à l'endroit où l'on regarde en arrivant sur un réseau social.
-   L'anneau dégradé, la pastille barrée quand elle est vue, le défilement
-   horizontal : ce sont les codes d'Instagram, et c'est le but.
+   La rangée de pastilles de l'accueil, et sa vue plein écran.
    ========================================================================== */
 
 @layer components {
@@ -37,8 +32,7 @@
     text-decoration: none;
   }
 
-  /* L'anneau : dégradé de marque tant que la story n'a pas été ouverte, gris
-     ensuite. C'est le seul indicateur, et il suffit. */
+  /* Anneau dégradé tant que la story n'est pas ouverte, gris ensuite. */
   .stories__ring {
     display: grid;
     width: 62px;
@@ -59,7 +53,6 @@
     background-color: var(--line-strong);
   }
 
-  /* Le liseré blanc entre l'anneau et la pastille, comme sur Instagram. */
   .stories__disc {
     display: grid;
     width: 100%;
@@ -105,7 +98,6 @@
     padding: 0 14px;
   }
 
-  /* Une barre par story, comme un compteur de pages. */
   .story-view__bars {
     display: flex;
     gap: 4px;
@@ -145,8 +137,7 @@
     }
   }
 
-  /* Sans animation, la story attend qu'on la fasse avancer : elle ne doit pas
-     disparaître toute seule sous les yeux de quelqu'un qui lit lentement. */
+  /* Sans animation, la story attend qu'on la fasse avancer. */
   @media (prefers-reduced-motion: reduce) {
     .story-view__fill--en-cours {
       animation: none;
@@ -193,7 +184,6 @@
     background: rgba(255, 255, 255, 0.12);
   }
 
-  /* Le corps : le texte, centré verticalement, et rien d'autre. */
   .story-view__corps {
     display: flex;
     flex: 1 1 auto;
@@ -230,9 +220,7 @@
     text-decoration: none;
   }
 
-  /* Les deux moitiés invisibles qui font avancer ou reculer, au doigt comme
-     sur Instagram. Elles passent sous le contenu : le lien de sortie et la
-     croix restent cliquables. */
+  /* Moitiés invisibles de navigation, sous le contenu. */
   .story-view__zone {
     position: absolute;
     z-index: 0;

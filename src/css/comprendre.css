@@ -516,3 +516,34 @@
   /* La carte de sortie de lecture est partagée avec l'accueil : elle vit
      désormais dans entry-card.css. */
 }
+
+@layer components {
+  .bloc__figure {
+    margin: 0 0 14px;
+  }
+
+  .bloc__image {
+    display: block;
+    width: 100%;
+    max-width: var(--measure);
+    border-radius: var(--radius-card);
+  }
+
+  .bloc__picto {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--wash-strong);
+    color: var(--brand-violet);
+  }
+
+  .bloc__legende {
+    margin: 6px 0 0;
+    max-width: var(--measure);
+    font-size: var(--text-xs);
+    line-height: var(--leading-snug);
+    color: var(--ink-faint);
+  }
+}

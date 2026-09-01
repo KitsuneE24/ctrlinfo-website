@@ -73,9 +73,25 @@ function Entree({ entree }) {
   )
 }
 
+/** L'illustration d'un bloc : une image légendée, ou un pictogramme. */
+function Illustration({ image, legende, picto }) {
+  if (!image && !picto) return null
+
+  return (
+    <figure className="bloc__figure">
+      {image ? (
+        <img src={image} alt={legende ?? ''} loading="lazy" className="bloc__image" />
+      ) : (
+        <span className="bloc__picto">{createElement(icone(picto), { size: 26 })}</span>
+      )}
+      {legende && <figcaption className="bloc__legende">{legende}</figcaption>}
+    </figure>
+  )
+}
+
 /** Un bloc de thème. Le genre décide de la mise en page, pas du sujet. */
 function Bloc({ bloc }) {
-  const { genre, titre, paragraphes, entrees } = bloc
+  const { genre, titre, paragraphes, entrees, image, legende, picto } = bloc
 
   if (genre === 'CONSEIL') {
     return (
@@ -110,6 +126,7 @@ function Bloc({ bloc }) {
     return (
       <div className="bloc">
         {titre && <h3 className="bloc__titre">{titre}</h3>}
+        <Illustration image={image} legende={legende} picto={picto} />
         {paragraphes?.map((p) => (
           <p key={p} className="bloc__texte">
             {p}
@@ -122,6 +139,7 @@ function Bloc({ bloc }) {
   return (
     <div className="bloc">
       {titre && <h3 className="bloc__titre">{titre}</h3>}
+      <Illustration image={image} legende={legende} picto={picto} />
       <ul className="entrees">
         {entrees?.map((entree, i) => (
           <Entree key={entree.titre ?? i} entree={entree} />

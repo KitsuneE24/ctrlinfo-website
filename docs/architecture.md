@@ -20,12 +20,13 @@ quand il a un compte.
 
 ```
 index.html            point d'entrée Vite
-vite.config.js        configuration Vite (plugin React)
+vite.config.js        Vite : plugin React, base d'URL, repli des adresses
 tailwind.config.js    Tailwind, aligné sur la palette de src/css/colors.js
 
 src/
   main.jsx            montage React + import de la feuille de style
-  App.jsx             pose les fournisseurs (compte, jeux) au-dessus de la coque
+  App.jsx             les fournisseurs (compte, jeux) et la table des routes
+  routes.js           les adresses du site, et le titre de chaque page
   api/                le lien avec l'API : client, contenu, progression
   components/         coque, navigation, briques de jeu
     ui/Page.jsx       gabarit commun à tous les écrans
@@ -42,28 +43,43 @@ public/               fichiers servis tels quels (logo)
 
 ## 3. Coque et navigation
 
-Tout l'état de navigation vit dans un seul composant :
-[AppShell.jsx](../src/components/AppShell.jsx). Il n'y a **pas de routeur** —
-l'application n'a pas d'URL par écran.
+L'écran affiché est choisi par **react-router**, à partir de l'adresse. Les
+chemins sont décrits une seule fois, dans [routes.js](../src/routes.js), et la
+table des routes est dans [App.jsx](../src/App.jsx).
 
 ```
-AppShell
-├─ AppHeader                      logo, règles du fil, pastille d'identité
-├─ app__main ──── HomeScreen | Feed | ChatScreen | LearnScreen | ProfileScreen | SourcesScreen
-├─ TabBar                         la barre du bas, à toutes les tailles d'écran
-├─ bouton flottant « Sources »    par-dessus l'écran en cours
-└─ GameTutorial                   par-dessus tout, quand les règles sont ouvertes
+BrowserRouter
+└─ AppShell                       la coque, commune à toutes les routes
+   ├─ AppHeader                   logo, règles du fil, pastille d'identité
+   ├─ app__main ──── <Outlet />   l'écran de la route en cours
+   ├─ TabBar                      la barre du bas, à toutes les tailles d'écran
+   ├─ bouton flottant « Sources » par-dessus l'écran en cours
+   └─ GameTutorial                par-dessus tout, quand les règles sont ouvertes
 ```
 
-Trois états, tous dans `AppShell` :
-
-| État | Rôle |
+| Adresse | Écran |
 | --- | --- |
-| `tab` | l'onglet affiché : `home`, `feed`, `chat`, `learn`, `profil`, `sources` |
-| `avantSources` | l'onglet d'où l'on vient, pour que le bouton Sources sache où revenir |
-| `tuto` | `{ auto }` — les règles du fil, et si elles se sont ouvertes seules |
+| `/` | `HomeScreen` |
+| `/fil` | `FeedScreen` → `Feed` |
+| `/conversations` · `/conversations/:slug` | `ChatScreen` |
+| `/ressources` | `LearnScreen` |
+| `/ressources/comprendre/:slug` | `ChapterScreen` |
+| `/ressources/verifier` | `SourcesScreen` |
+| `/profil` | `ProfileScreen` |
+
+Il ne reste qu'un seul état dans `AppShell` : `tutorial` — `{ auto }`, les
+règles du fil et si elles se sont ouvertes seules. Le reste se lit dans
+l'adresse.
 
 Points de conception à connaître :
+
+- **Ce qui est affiché est dans l'adresse.** Une conversation et un thème sont
+  des pages : elles se partagent, se mettent en favori, et survivent à un
+  rechargement. C'est aussi ce qui fait fonctionner le bouton « précédent ».
+- **La coque parle à l'écran par le contexte de l'`<Outlet />`.** Le fil a
+  besoin de savoir que les règles sont ouvertes pour arrêter son chrono : c'est
+  la seule chose qui descend, et elle passe par là plutôt que par un état
+  partagé.
 
 - **Une seule navigation, en bas, à toutes les tailles.** La vue du téléphone
   est devenue la règle : sur ordinateur, la barre se centre et affiche ses
@@ -74,9 +90,12 @@ Points de conception à connaître :
   Les cinq entrées et leurs icônes — reprises du vocabulaire d'Instagram — sont
   décrites dans [navItems.js](../src/components/navItems.js) et nulle part
   ailleurs.
-- **Les sources n'ont pas d'onglet.** C'est un outil qu'on ouvre par-dessus ce
-  qu'on fait, d'où le bouton flottant, qui ramène d'où l'on vient à la
-  fermeture.
+- **« Comprendre » et les sources sont réunis sous « Ressources ».** C'étaient
+  deux endroits où l'on lit, sous deux noms proches : ils partagent maintenant
+  un onglet et deux sous-onglets — *Comprendre* explique, *Vérifier* sert
+  d'outil (voir [ResourcesTabs.jsx](../src/components/ResourcesTabs.jsx)). Le
+  bouton flottant survit en attendant les stories de l'accueil, et pointe vers
+  `/ressources/verifier`.
 - **Le tutoriel appartient à la coque, pas au jeu.** Il s'ouvre tout seul à la
   première partie (via [premiereFois.js](../src/lib/premiereFois.js), qui écrit
   dans `localStorage`) et par le bouton « Règles du jeu » de l'en-tête à tout
@@ -125,21 +144,26 @@ choisissent. Chaque choix produit deux contenus séparés, à ne pas confondre :
 `reply` (ce que le personnage répond, en bulle) et `explication` (la voix
 pédagogique, hors fiction, dans un bloc à part).
 
-L'état des parties vit hors de React, dans
+La conversation ouverte est dans l'adresse (`/conversations/:slug`) : son lien
+se partage, et un rechargement la rouvre.
+
+L'avancement dans une partie, lui, vit hors de React, dans
 [conversationSessions.js](../src/state/conversationSessions.js) : changer
-d'onglet démonte l'écran, mais la conversation reprend où elle en était. En
-mémoire seulement — un rechargement de page repart de zéro.
+d'écran le démonte, mais la conversation reprend où elle en était. En mémoire
+seulement — un rechargement de page repart de zéro.
 
-## 5. L'onglet « Comprendre »
+## 5. L'onglet « Ressources »
 
-La partie lecture du site, là où les jeux font pratiquer :
-[LearnScreen.jsx](../src/screens/LearnScreen.jsx). Deux vues, jamais les deux à
-la fois :
+La partie lecture du site, là où les jeux font pratiquer. Deux sous-onglets :
+*Comprendre* ([LearnScreen.jsx](../src/screens/LearnScreen.jsx)) et *Vérifier*
+([SourcesScreen.jsx](../src/screens/SourcesScreen.jsx)).
 
-1. **la galerie** — une recherche en tête, puis une vignette par thème : son
-   numéro, son titre, quelques lignes de résumé, et un lien externe qui mène
-   plus loin. C'est ce qu'on voit en arrivant ;
-2. **le thème** — ouvert depuis une vignette, avec son texte entier.
+Côté *Comprendre*, deux écrans et deux adresses :
+
+1. **la galerie** (`/ressources`) — une recherche en tête, puis une vignette
+   par thème : son numéro, son titre, quelques lignes de résumé, et un lien
+   externe qui mène plus loin ;
+2. **le thème** (`/ressources/comprendre/:slug`), avec son texte entier.
 
 - **Aucun texte de fond dans le JSX.** Tout vient de `GET /chapitres`.
 - **Deux appels, et c'est voulu.** La galerie ne charge que les résumés ; le
@@ -150,8 +174,8 @@ la fois :
   l'écran sait dessiner quatre formes, et n'a rien à savoir des huit thèmes.
 - **Chaque thème mène quelque part.** Le lien d'aide (`lien.url`) est en base et
   vérifié au seed : une fiche qui ne renvoie nulle part n'est pas acceptée.
-- L'écran reçoit `onNavigate` : deux renvois mènent au fil et aux sources, pour
-  que la lecture débouche sur autre chose qu'un cul-de-sac.
+- **La lecture débouche sur autre chose.** Deux liens en fin de galerie mènent
+  au fil et à l'annuaire : un thème lu ne doit pas être un cul-de-sac.
 
 ## 5 bis. L'onglet « Profil »
 

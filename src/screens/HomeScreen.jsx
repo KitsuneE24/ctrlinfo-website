@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
 import { ArrowRight, Play, Zap, Flame, ShieldQuestion } from 'lucide-react'
 import Page from '../components/ui/Page'
 import Banniere from '../components/ui/Banniere'
+import { PATHS } from '../routes'
 
 // Un chemin (ex. '/ctrl-info.mp4') ou une URL d'intégration, pour remplacer le
 // visuel d'attente par la vraie vidéo.
@@ -25,7 +27,7 @@ const LEVIERS = [
   },
 ]
 
-export default function HomeScreen({ onNavigate }) {
+export default function HomeScreen() {
   const [videoOpen, setVideoOpen] = useState(false)
 
   return (
@@ -40,21 +42,15 @@ export default function HomeScreen({ onNavigate }) {
 
         {/* Les deux entrées du site. Sans galerie de jeux, c'est ici qu'on
             commence — l'accueil ne doit pas être un cul-de-sac. */}
-        {onNavigate && (
-          <div className="hero__actions">
-            <button type="button" onClick={() => onNavigate('feed')} className="hero__cta">
-              Jouer au fil d'actualité
-              <ArrowRight size={16} strokeWidth={2.2} />
-            </button>
-            <button
-              type="button"
-              onClick={() => onNavigate('learn')}
-              className="hero__cta hero__cta--ghost"
-            >
-              Comprendre d'abord
-            </button>
-          </div>
-        )}
+        <div className="hero__actions">
+          <Link to={PATHS.feed} className="hero__cta">
+            Jouer au fil d'actualité
+            <ArrowRight size={16} strokeWidth={2.2} />
+          </Link>
+          <Link to={PATHS.resources} className="hero__cta hero__cta--ghost">
+            Comprendre d'abord
+          </Link>
+        </div>
       </Banniere>
 
       {/* Le corps : une colonne bornée en largeur, espacée des bords. */}

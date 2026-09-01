@@ -48,12 +48,6 @@ export const terminerSession = (sessionId) =>
 export const abandonnerSession = (sessionId) =>
   api(`/sessions/${sessionId}/abandonner`, { method: 'POST' })
 
-/** Les jeux dont ce compte a déjà lu les règles. */
-export const getReglesVues = () => api('/moi/regles')
-
-export const marquerReglesVues = (gameId) =>
-  api(`/moi/regles/${encodeURIComponent(gameId)}`, { method: 'POST' })
-
 export const enregistrerDecision = (sessionId, { postId, action, tempsMs }) =>
   api(`/sessions/${sessionId}/tentatives/post`, {
     method: 'POST',

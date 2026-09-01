@@ -1,6 +1,8 @@
 import { createElement } from 'react'
+import { Link } from 'react-router'
 import { motion } from 'framer-motion'
-import { Clock, HelpCircle, Play } from 'lucide-react'
+import { ArrowRight, Clock, HelpCircle, Play, RotateCcw } from 'lucide-react'
+import { PATHS } from '../routes'
 
 /**
  * L'écran de départ d'un jeu : ce qu'on va faire, en combien de temps, et la
@@ -9,8 +11,15 @@ import { Clock, HelpCircle, Play } from 'lucide-react'
  * Il s'affiche avant chaque partie. Le tutoriel complet, lui, ne s'ouvre de
  * lui-même que quand les règles n'ont pas encore été lues — il reste ici à
  * portée d'un bouton.
+ *
+ * C'est aussi le seul endroit qui rappelle qu'on joue sans compte. Rien ne
+ * barre l'entrée d'un jeu : le rappel revient à chaque départ, avec de quoi y
+ * remédier, plutôt qu'une fenêtre posée une seule fois.
+ *
+ * Rouvert en cours de partie (`reprise`), il ne relance rien : il rappelle, et
+ * on repart où on en était.
  */
-export default function GameStart({ jeu, connecte, onStart, onRules }) {
+export default function GameStart({ jeu, connecte, reprise, onStart, onRules }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -29,7 +38,9 @@ export default function GameStart({ jeu, connecte, onStart, onRules }) {
           {createElement(jeu.Icon, { size: 24, strokeWidth: 1.9 })}
         </span>
 
-        <p className="game-start__eyebrow">Avant de jouer</p>
+        <p className="game-start__eyebrow">
+          {reprise ? 'Les règles' : 'Avant de jouer'}
+        </p>
         <h1 className="game-start__title">{jeu.titre}</h1>
 
         {jeu.regleCourte && <p className="game-start__rule">{jeu.regleCourte}</p>}
@@ -48,15 +59,26 @@ export default function GameStart({ jeu, connecte, onStart, onRules }) {
         </ul>
 
         {!connecte && (
-          <p className="game-start__guest">
-            Tu joues en invité&nbsp;: tes scores ne seront pas enregistrés.
-          </p>
+          <div className="game-start__guest">
+            <p className="game-start__guest-text">
+              Tu joues sans compte&nbsp;: <b>tes scores ne seront pas
+              enregistrés</b>, et tu ne retrouveras rien à ta prochaine visite.
+            </p>
+            <Link to={PATHS.profile} className="game-start__guest-link">
+              Me connecter pour les garder
+              <ArrowRight size={14} strokeWidth={2.2} />
+            </Link>
+          </div>
         )}
 
         <div className="game-start__actions">
           <button type="button" onClick={onStart} className="game-start__go">
-            <Play size={16} fill="currentColor" strokeWidth={0} />
-            Commencer
+            {reprise ? (
+              <RotateCcw size={16} strokeWidth={2.2} />
+            ) : (
+              <Play size={16} fill="currentColor" strokeWidth={0} />
+            )}
+            {reprise ? 'Reprendre' : 'Commencer'}
           </button>
           <button type="button" onClick={onRules} className="game-start__rules">
             <HelpCircle size={15} strokeWidth={2} />

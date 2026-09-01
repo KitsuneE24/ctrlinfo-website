@@ -1,8 +1,8 @@
 /* ========================================================================
    LE SEUIL DES JEUX
-   Trois passages, dans cet ordre : la question de l'identité, l'écran de
-   départ, et l'alerte quand on quitte une partie en route. Tous couvrent
-   l'écran entier, barre du bas comprise.
+   Deux passages : l'écran de départ avant une partie, et l'alerte quand on
+   la quitte en route. Tous deux couvrent l'écran entier, barre du bas
+   comprise.
    ======================================================================== */
 
 @layer components {
@@ -19,7 +19,7 @@
     backdrop-filter: blur(3px);
   }
 
-  /* --- Identité et alerte : une même petite fenêtre --- */
+  /* --- L'alerte : une petite fenêtre --- */
 
   .gate__card {
     width: 100%;
@@ -45,15 +45,6 @@
   .gate__icon--alert {
     background: var(--wash-strong);
     color: var(--ink);
-  }
-
-  .gate__eyebrow {
-    margin: 12px 0 0;
-    font-size: var(--text-2xs);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
   }
 
   .gate__title {
@@ -205,14 +196,36 @@
     background: var(--brand-blue);
   }
 
+  /* Le rappel du mode sans compte : présent à chaque départ, et jamais un
+     cul-de-sac — il porte de quoi y remédier. */
   .game-start__guest {
     margin: 16px 0 0;
-    padding: 10px 13px;
+    padding: 12px 14px;
+    border: 1px solid var(--line-strong);
     border-radius: 12px;
     background: var(--wash);
+    text-align: left;
+  }
+
+  .game-start__guest-text {
+    margin: 0;
     font-size: var(--text-sm);
     line-height: var(--leading-body);
-    color: var(--ink-muted);
+    color: var(--ink-soft);
+  }
+
+  .game-start__guest-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 7px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--brand-blue);
+  }
+
+  .game-start__guest-link:hover {
+    text-decoration: underline;
   }
 
   .game-start__actions {

@@ -7,19 +7,9 @@ import { useRessource } from '../lib/useRessource'
 import { markSeenToday, seenToday } from '../lib/premiereFois'
 import { chapterPath } from '../routes'
 
-/** La clé de mémoire : une brève par jour, pas une par visite. */
 const CLE = 'astuce-du-jour'
 
-/**
- * « Le saviez-vous ? » — la brève d'arrivée.
- *
- * Deux phrases, un lien vers le thème qui va plus loin, et c'est tout. Elle ne
- * revient pas dans la journée : quelqu'un qui navigue entre les onglets ne
- * doit pas la revoir dix fois.
- *
- * Elle ne s'affiche pas non plus tant que l'API n'a rien renvoyé — une fenêtre
- * vide vaut moins que pas de fenêtre.
- */
+/** « Le saviez-vous ? » — une brève par jour, pas une par visite. */
 export default function DailyTip() {
   const { donnees } = useRessource(getDailyTip, [])
   const [ferme, setFerme] = useState(() => seenToday(CLE))

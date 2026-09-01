@@ -31,7 +31,7 @@ function opacityFor(distance) {
   return Math.max(0.18, 0.42 - (Math.abs(distance) - 1) * 0.06)
 }
 
-export default function Feed({ onSwitch, paused = false }) {
+export default function Feed({ onSwitch, onFinished, paused = false }) {
   // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
   const suite = useAutreJeu('feed')
 
@@ -202,6 +202,7 @@ export default function Feed({ onSwitch, paused = false }) {
           setLevelTransition(true)
         } else {
           setCurrentLevel(4)
+          onFinished?.()
           if (sessionId) auMieux(terminerSession(sessionId))
         }
       }

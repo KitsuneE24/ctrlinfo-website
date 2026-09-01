@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router'
 import { PATHS } from '../routes'
+import { useExitGuard } from '../state/exitGuard'
 import { TAB_ITEMS } from './navItems'
 
 /**
@@ -17,6 +18,8 @@ import { TAB_ITEMS } from './navItems'
  * couleur seule ne suffirait pas.
  */
 export default function TabBar() {
+  const { requestExit } = useExitGuard()
+
   return (
     <nav aria-label="Navigation principale" className="tab-bar">
       <div className="tab-bar__list">
@@ -27,6 +30,10 @@ export default function TabBar() {
             // L'accueil est le seul dont le chemin préfixe tous les autres :
             // sans `end`, il resterait actif partout.
             end={path === PATHS.home}
+            // Quitter en pleine partie se demande avant de se faire.
+            onClick={(event) => {
+              if (!requestExit(path)) event.preventDefault()
+            }}
             aria-label={label}
             title={label}
             className={({ isActive }) =>

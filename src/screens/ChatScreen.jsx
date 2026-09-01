@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router'
+import { Link, useNavigate, useOutletContext, useParams } from 'react-router'
 import { ChevronRight, MessageCircle } from 'lucide-react'
 import { getConversation, getConversations } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
 import { clearSession, getRunIds, saveRunIds } from '../state/conversationSessions'
+import { useExitGuard } from '../state/exitGuard'
 import { PATHS, chatPath } from '../routes'
 import Page from '../components/ui/Page'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
@@ -29,6 +30,9 @@ import ChatThread from '../components/ChatThread'
 export default function ChatScreen() {
   const { slug: openId = null } = useParams()
   const navigate = useNavigate()
+  // Tant que l'écran de départ est là, la discussion ne se déroule pas.
+  const { paused, onFinished } = useOutletContext()
+  const { requestExit } = useExitGuard()
 
   // Un numéro de partie par conversation, qui change à chaque
   // « Recommencer » : la clé du fil change, le composant se remonte. Il vit
@@ -126,7 +130,11 @@ export default function ChatScreen() {
               key={sessionKey}
               sessionKey={sessionKey}
               conversation={open}
-              onBack={() => navigate(PATHS.chats)}
+              paused={paused}
+              onFinished={onFinished}
+              onBack={() => {
+                if (requestExit(PATHS.chats)) navigate(PATHS.chats)
+              }}
               onRestart={restart}
             />
           ) : (

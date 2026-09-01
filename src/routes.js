@@ -15,7 +15,6 @@ export const PATHS = {
   feed: '/fil',
   chats: '/conversations',
   resources: '/ressources',
-  verify: '/ressources/verifier',
   profile: '/profil',
 }
 
@@ -40,8 +39,7 @@ export const GAME_PATHS = {
  * L'ordre compte : `/ressources/verifier` doit être trouvé avant `/ressources`.
  */
 const TITLES = [
-  [PATHS.verify, 'Où vérifier une information'],
-  [`${PATHS.resources}/comprendre`, 'Comprendre'],
+  [`${PATHS.resources}/comprendre`, 'Ressources'],
   [PATHS.resources, 'Ressources'],
   [PATHS.chats, 'Les conversations'],
   [PATHS.feed, "Le fil d'actualité"],

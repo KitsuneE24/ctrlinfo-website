@@ -53,7 +53,6 @@ BrowserRouter
    ├─ AppHeader                   logo, règles du fil, pastille d'identité
    ├─ app__main ──── <Outlet />   l'écran de la route en cours
    ├─ TabBar                      la barre du bas, à toutes les tailles d'écran
-   ├─ bouton flottant « Sources » par-dessus l'écran en cours
    └─ GameTutorial                par-dessus tout, quand les règles sont ouvertes
 ```
 
@@ -64,7 +63,6 @@ BrowserRouter
 | `/conversations` · `/conversations/:slug` | `ChatScreen` |
 | `/ressources` | `LearnScreen` |
 | `/ressources/comprendre/:slug` | `ChapterScreen` |
-| `/ressources/verifier` | `SourcesScreen` |
 | `/profil` | `ProfileScreen` |
 
 Il ne reste qu'un seul état dans `AppShell` : `tutorial` — `{ auto }`, les
@@ -90,17 +88,40 @@ Points de conception à connaître :
   Les cinq entrées et leurs icônes — reprises du vocabulaire d'Instagram — sont
   décrites dans [navItems.js](../src/components/navItems.js) et nulle part
   ailleurs.
-- **« Comprendre » et les sources sont réunis sous « Ressources ».** C'étaient
-  deux endroits où l'on lit, sous deux noms proches : ils partagent maintenant
-  un onglet et deux sous-onglets — *Comprendre* explique, *Vérifier* sert
-  d'outil (voir [ResourcesTabs.jsx](../src/components/ResourcesTabs.jsx)). Le
-  bouton flottant survit en attendant les stories de l'accueil, et pointe vers
-  `/ressources/verifier`.
+- **Il n'y a plus de page d'annuaire, ni de bouton flottant.** Les sites où
+  vérifier une information sont devenus les **stories de l'accueil** : le même
+  contenu, à l'endroit où l'on regarde en arrivant. L'onglet s'appelle
+  « Ressources » et ne contient plus que les thèmes. Le seed refuse une
+  ressource qu'aucune story ne porte — sans cela, elle deviendrait
+  inatteignable.
 - **Le tutoriel appartient à la coque, pas au jeu.** Il s'ouvre tout seul à la
   première partie (via [premiereFois.js](../src/lib/premiereFois.js), qui écrit
   dans `localStorage`) et par le bouton « Règles du jeu » de l'en-tête à tout
   moment. Sa fermeture remonte le fil, par un changement de clé, pour que la
   partie démarre à neuf.
+
+## 3 bis. L'accueil
+
+L'accueil suit la grammaire d'Instagram, de haut en bas :
+
+| Bloc | Composant | Ce qu'il porte |
+| --- | --- | --- |
+| la bannière | `ui/Banniere` | le nom du site et son accroche, rien à cliquer |
+| les stories | [StoryBar.jsx](../src/components/StoryBar.jsx) · [StoryViewer.jsx](../src/components/StoryViewer.jsx) | les sites où vérifier une info et les thèmes, en carrousel plein écran |
+| les cartes | `HomeScreen` | le projet, la vidéo, les trois leviers |
+| les annonces de jeux | `HomeScreen` | chaque jeu présenté comme une publication |
+| la carte de sortie | `entry-card.css` | les deux entrées du site — la même carte qu'en fin de Ressources |
+
+Deux choix à connaître :
+
+- **La bannière ne porte plus de boutons.** Ils sont en fin de page, dans la
+  carte partagée avec Ressources : on ne demande pas de choisir avant d'avoir
+  lu.
+- **Une story avance toute seule par une animation CSS**, pas par un minuteur.
+  Quand le visiteur a demandé moins d'animations, elle ne tourne pas et la
+  story attend : personne ne doit voir un texte disparaître avant de l'avoir
+  fini. La brève « Le saviez-vous ? » suit la même retenue — une par jour, pas
+  une par visite ([DailyTip.jsx](../src/components/DailyTip.jsx)).
 
 ## 4. Les deux jeux
 
@@ -154,11 +175,9 @@ seulement — un rechargement de page repart de zéro.
 
 ## 5. L'onglet « Ressources »
 
-La partie lecture du site, là où les jeux font pratiquer. Deux sous-onglets :
-*Comprendre* ([LearnScreen.jsx](../src/screens/LearnScreen.jsx)) et *Vérifier*
-([SourcesScreen.jsx](../src/screens/SourcesScreen.jsx)).
-
-Côté *Comprendre*, deux écrans et deux adresses :
+La partie lecture du site, là où les jeux font pratiquer :
+[LearnScreen.jsx](../src/screens/LearnScreen.jsx). Deux écrans et deux
+adresses :
 
 1. **la galerie** (`/ressources`) — une recherche en tête, puis une vignette
    par thème : son numéro, son titre, quelques lignes de résumé, et un lien

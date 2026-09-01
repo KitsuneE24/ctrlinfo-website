@@ -58,7 +58,6 @@ Chaque écran a la sienne : un lien se partage, un rechargement ne renvoie plus
 | `/conversations` · `/conversations/:slug` | la boîte de réception, puis une discussion |
 | `/ressources` | les thèmes à comprendre |
 | `/ressources/comprendre/:slug` | un thème |
-| `/ressources/verifier` | l'annuaire des sources |
 | `/profil` | le compte et le tableau de bord |
 
 Elles sont décrites une seule fois, dans [src/routes.js](src/routes.js).
@@ -83,7 +82,8 @@ l'application démarre, lit l'adresse et affiche le bon écran. Voir
 | --- | --- |
 | les publications du fil | base — table `post`, semée puis alimentée par les flux RSS |
 | les discussions et leurs branches | base — table `conversation` |
-| l'annuaire « Vérifier une info » | base — table `ressource` |
+| les sites où vérifier une info | base — table `ressource`, servis en stories |
+| les stories de l'accueil et leurs brèves | base — tables `story` et `astuce` |
 | les jeux et leurs tutoriels | base — tables `game` et `volet_tutoriel` |
 | les thèmes de « Comprendre » | base — tables `chapitre` et `bloc_chapitre` |
 

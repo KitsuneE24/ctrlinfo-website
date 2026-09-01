@@ -177,7 +177,7 @@
     height: 34px;
     place-items: center;
     border-radius: 50%;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.92);
   }
 
   .story-view__fermer:hover {
@@ -203,7 +203,7 @@
 
   .story-view__texte + .story-view__texte {
     font-size: var(--text-md);
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.92);
   }
 
   .story-view__lien {

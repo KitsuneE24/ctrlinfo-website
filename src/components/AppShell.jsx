@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Outlet, useLocation, useNavigate } from 'react-router'
+import { Outlet, useLocation } from 'react-router'
 import { AnimatePresence, motion } from 'framer-motion'
-import { BookOpen, X } from 'lucide-react'
 import AppHeader from './AppHeader'
 import GameTutorial from './GameTutorial'
 import TabBar from './TabBar'
@@ -11,7 +10,7 @@ import { PATHS, pageTitle } from '../routes'
 
 /**
  * Coque de l'application : l'en-tête, l'écran en cours, la barre d'onglets du
- * bas, et le bouton « Sources » par-dessus.
+ * bas.
  *
  * L'écran affiché n'est plus choisi ici : c'est le routeur qui le pose dans
  * l'`<Outlet />`. La coque ne garde que ce qui l'entoure et ce qui survit d'un
@@ -22,9 +21,10 @@ import { PATHS, pageTitle } from '../routes'
  * besoin de savoir qu'il est en pause tant que les règles sont à l'écran —
  * c'est ce que la coque lui passe par le contexte de l'`<Outlet />`.
  *
- * Les sources gardent leur bouton flottant plutôt qu'un onglet : c'est un
- * outil qu'on ouvre par-dessus ce qu'on est en train de faire, pas une
- * destination.
+ * Le bouton flottant « Sources » a disparu : l'annuaire est devenu la rangée
+ * de stories de l'accueil et le sous-onglet « Vérifier » de Ressources. Un
+ * bouton qui suivait le visiteur partout n'était utile qu'à cause de sa
+ * mauvaise place.
  */
 export default function AppShell() {
   // Le jeu du fil vient de l'API : au premier rendu il n'est pas là, et le
@@ -32,10 +32,8 @@ export default function AppShell() {
   const feedGame = useJeu('feed')
 
   const { pathname } = useLocation()
-  const navigate = useNavigate()
 
   const onFeed = pathname === PATHS.feed
-  const onSources = pathname === PATHS.verify
 
   /** Les règles s'ouvrent d'elles-mêmes à la première partie, et là seulement. */
   const openingRules = (path) =>
@@ -68,13 +66,6 @@ export default function AppShell() {
     setTutorial(null)
   }, [])
 
-  const toggleSources = useCallback(() => {
-    // Fermer les sources, c'est revenir d'où l'on vient — le routeur s'en
-    // souvient mieux que nous.
-    if (onSources) navigate(-1)
-    else navigate(PATHS.verify)
-  }, [onSources, navigate])
-
   return (
     <div className="app">
       <AppHeader onFeed={onFeed} onShowRules={showRules} />
@@ -102,26 +93,6 @@ export default function AppShell() {
       </div>
 
       <TabBar />
-
-      {/* Sur les conversations, le bouton descend se poser sur le champ de
-          saisie barré. */}
-      <button
-        type="button"
-        onClick={toggleSources}
-        aria-label={onSources ? 'Fermer les sources' : 'Ouvrir les sources'}
-        className={`sources-fab${
-          pathname.startsWith(PATHS.chats) ? ' sources-fab--sur-champ' : ''
-        }`}
-      >
-        {onSources ? (
-          <X size={20} strokeWidth={2.2} />
-        ) : (
-          <BookOpen size={20} strokeWidth={2} />
-        )}
-        <span className="sources-fab__label">
-          {onSources ? 'Fermer' : 'Sources'}
-        </span>
-      </button>
 
       <AnimatePresence>
         {onFeed && tutorial && feedGame && (

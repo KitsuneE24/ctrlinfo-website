@@ -61,12 +61,23 @@ function TypingBubble() {
  * pour cette clé, et reprennent au message près. Seul le compte à rebours du
  * message en cours de frappe repart à zéro.
  */
-export default function ChatThread({ conversation, sessionKey, onBack, onRestart }) {
+export default function ChatThread({
+  conversation,
+  sessionKey,
+  paused,
+  onFinished,
+  onBack,
+  onRestart,
+}) {
   const { name, subtitle, color, intro, steps, outro } = conversation
 
   // Une partie côté serveur par montage — donc une par « Recommencer », qui
   // remonte justement le composant.
-  const sessionId = useSessionJeu({ jeu: 'chat', conversationSlug: conversation.id })
+  const sessionId = useSessionJeu({
+    jeu: 'chat',
+    conversationSlug: conversation.id,
+    actif: !paused,
+  })
 
   const saved = getSession(sessionKey)
 
@@ -93,7 +104,7 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
 
   // Délivre les messages de l'interlocuteur un par un.
   useEffect(() => {
-    if (queue.length === 0) return
+    if (paused || queue.length === 0) return
     const timer = setTimeout(() => {
       const [next, ...rest] = queue
       setLog((prev) => [...prev, { ...next, from: 'them' }])
@@ -104,7 +115,7 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
       }
     }, delayFor(queue[0], log.length === 0))
     return () => clearTimeout(timer)
-  }, [queue, endAfterQueue, log.length])
+  }, [paused, queue, endAfterQueue, log.length])
 
   function choose(choice) {
     setAwaiting(false)
@@ -132,6 +143,7 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
       const verdict = finalScore >= steps.length - 1 ? outro.high : outro.low
       setQueue([...suite, { text: verdict, kind: 'message' }])
       setEndAfterQueue(true)
+      onFinished?.()
     }
   }
 

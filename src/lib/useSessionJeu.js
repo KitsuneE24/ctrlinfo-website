@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { auMieux, demarrerSession } from '../api/progression'
+import { clearCurrentSession, setCurrentSession } from '../state/currentSession'
 
 /**
  * Ouvre une partie côté serveur et rend son identifiant.
@@ -31,11 +32,15 @@ export function useSessionJeu({ jeu, level, conversationSlug, actif = true }) {
 
     let annule = false
     demande.current.then((session) => {
-      if (!annule && session) setSessionId(session.id)
+      if (!annule && session) {
+        setSessionId(session.id)
+        setCurrentSession(session.id)
+      }
     })
 
     return () => {
       annule = true
+      demande.current?.then((session) => session && clearCurrentSession(session.id))
     }
   }, [jeu, level, conversationSlug, actif])
 

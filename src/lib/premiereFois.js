@@ -1,10 +1,11 @@
 /**
- * La mémoire des choses qu'on ne montre qu'une fois — le tutoriel d'un jeu.
+ * La mémoire des choses qu'on ne montre qu'une fois — les stories déjà
+ * ouvertes, la brève du jour. Les règles d'un jeu, elles, sont retenues par le
+ * serveur : elles doivent suivre le compte d'un appareil à l'autre.
  *
  * Tout passe par `localStorage` et tout est enveloppé : en navigation privée
  * ou derrière un blocage de cookies, y écrire lève une exception. En cas
- * d'échec on répond « oui, c'est la première fois » et le tutoriel se
- * remontre.
+ * d'échec on répond « oui, c'est la première fois » et l'élément se remontre.
  */
 const PREFIXE = 'ctrl-info:vu:'
 

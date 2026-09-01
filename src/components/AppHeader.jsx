@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import { HelpCircle } from 'lucide-react'
 import { useCompte } from '../state/compte'
+import { useExitGuard } from '../state/exitGuard'
 import { PATHS } from '../routes'
 
 /**
@@ -10,14 +11,18 @@ import { PATHS } from '../routes'
  * toutes les tailles d'écran. Il ne reste donc à droite que ce qui dépend de
  * l'écran en cours : les règles du fil, et l'identité du joueur.
  */
-export default function AppHeader({ onFeed, onShowRules }) {
+export default function AppHeader({ onGame, onShowRules }) {
   const { utilisateur, connecte } = useCompte()
+  const { requestExit } = useExitGuard()
 
   return (
     <header className="app-header">
       <div className="app-header__inner">
         <Link
           to={PATHS.home}
+          onClick={(event) => {
+            if (!requestExit(PATHS.home)) event.preventDefault()
+          }}
           aria-label="CTRL INFO — retour à l'accueil"
           className="app-header__home"
         >
@@ -26,11 +31,11 @@ export default function AppHeader({ onFeed, onShowRules }) {
         </Link>
 
         <div className="app-header__actions">
-          {onFeed && (
+          {onGame && (
             <button
               type="button"
               onClick={onShowRules}
-              title="Revoir les règles du fil d'actualité"
+              title="Revoir les règles du jeu"
               className="rules-button"
             >
               <HelpCircle size={17} strokeWidth={2} />

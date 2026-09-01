@@ -42,7 +42,7 @@ export default function GameTutorial({ jeu, onClose }) {
   }
 
   const dernier = index === volets.length - 1
-  const { Icon, titre, texte } = volets[index]
+  const { Icon, titre, texte, capture } = volets[index]
 
   return (
     <motion.div
@@ -96,9 +96,15 @@ export default function GameTutorial({ jeu, onClose }) {
               }}
               className="tuto__slide"
             >
-              <span className="tuto__icon">
-                <Icon size={26} strokeWidth={1.9} />
-              </span>
+              {/* Une capture du jeu quand elle existe, l'icône sinon : le
+                  volet doit rester lisible avant que les images arrivent. */}
+              {capture ? (
+                <img src={capture} alt="" loading="lazy" className="tuto__capture" />
+              ) : (
+                <span className="tuto__icon">
+                  <Icon size={26} strokeWidth={1.9} />
+                </span>
+              )}
               <h3 className="tuto__title">{titre}</h3>
               <p className="tuto__text">{texte}</p>
             </motion.div>

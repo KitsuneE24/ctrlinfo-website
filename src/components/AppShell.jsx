@@ -152,10 +152,11 @@ export default function AppShell() {
         <TabBar />
 
         <AnimatePresence>
-          {step === 'identity' && <IdentityGate onGuest={acceptGuest} />}
+          {step === 'identity' && <IdentityGate key="identity" onGuest={acceptGuest} />}
 
           {step === 'start' && jeu && gameId && (
             <GameStart
+              key="start"
               jeu={jeu}
               connecte={connecte}
               onStart={() => setStep('playing')}
@@ -163,10 +164,11 @@ export default function AppShell() {
             />
           )}
 
-          {tutorialOpen && <GameTutorial jeu={jeu} onClose={closeTutorial} />}
+          {tutorialOpen && <GameTutorial key="rules" jeu={jeu} onClose={closeTutorial} />}
 
           {exitTo !== null && (
             <ExitGamePrompt
+              key="exit"
               connecte={connecte}
               onConfirm={confirmExit}
               onCancel={() => setExitTo(null)}

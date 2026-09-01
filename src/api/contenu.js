@@ -54,6 +54,14 @@ export const getChapitres = () => requete('/chapitres')
 
 export const getChapitre = (slug) => requete(`/chapitres/${encodeURIComponent(slug)}`)
 
+/**
+ * L'annuaire des sites de vérification.
+ *
+ * Plus aucun écran ne l'affiche en liste : ces sites sont devenus les stories
+ * de l'accueil, et c'est l'API qui y résout leur adresse. Les deux appels
+ * restent ici parce que la table, elle, est toujours la source de vérité — et
+ * qu'un futur écran d'administration en aura besoin.
+ */
 export const getRessources = () => requete('/ressources')
 
 export const getCategories = () => requete('/ressources/categories')

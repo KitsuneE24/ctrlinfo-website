@@ -6,37 +6,60 @@
    ========================================================================== */
 
 @layer components {
-  /* --- Sous-onglets ------------------------------------------------------
-     « Comprendre » et « Vérifier » sont deux façons de lire, pas deux
-     rubriques : ils partagent l'onglet Ressources et se choisissent ici. */
+  /* --- Recherche et résultat vide ----------------------------------------
+     Ces règles venaient de l'annuaire des sources, qui avait sa page. La page
+     n'existe plus — les sites où vérifier une info sont les stories de
+     l'accueil — mais la recherche des thèmes s'en sert toujours. */
 
-  .resources-tabs {
+  .search-field {
     display: flex;
+    align-items: center;
     gap: 8px;
-    padding: 2px;
-  }
-
-  .resources-tabs__link {
-    padding: 8px 15px;
+    padding: 10px 12px;
     border: 1px solid var(--line);
-    border-radius: 999px;
-    font-family: var(--font-title);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink-muted);
-    text-decoration: none;
-    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+    border-radius: 10px;
+    background: var(--surface);
   }
 
-  .resources-tabs__link:hover {
-    background: var(--wash);
+  .search-field__input {
+    min-width: 0;
+    flex: 1 1 0;
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-size: 14px;
     color: var(--ink);
   }
 
-  .resources-tabs__link--active {
-    border-color: transparent;
-    background: var(--nav-learn);
-    color: #fff;
+  .search-field__input::placeholder {
+    color: var(--ink-ghost);
+  }
+
+  /* Un `type="search"` porte sa propre croix d'effacement : on la retire, le
+     champ a la sienne. Le type reste `search` pour le clavier et le rôle. */
+  .search-field__input::-webkit-search-cancel-button,
+  .search-field__input::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .empty-result {
+    padding: 48px 16px;
+    text-align: center;
+  }
+
+  .empty-result__title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .empty-result__text {
+    margin: 4px 0 0;
+    font-size: 13.5px;
+    color: var(--ink-faint);
   }
 
   /* --- Bandeau d'entrée ------------------------------------------------- */

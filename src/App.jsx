@@ -7,7 +7,6 @@ import HomeScreen from './screens/HomeScreen'
 import FeedScreen from './screens/FeedScreen'
 import ChatScreen from './screens/ChatScreen'
 import LearnScreen, { ChapterScreen } from './screens/LearnScreen'
-import SourcesScreen from './screens/SourcesScreen'
 import ProfileScreen from './screens/ProfileScreen'
 
 /**
@@ -34,7 +33,6 @@ export default function App() {
             <Route path={PATHS.chats} element={<ChatScreen />} />
             <Route path={`${PATHS.chats}/:slug`} element={<ChatScreen />} />
             <Route path={PATHS.resources} element={<LearnScreen />} />
-            <Route path={PATHS.verify} element={<SourcesScreen />} />
             <Route
               path={`${PATHS.resources}/comprendre/:slug`}
               element={<ChapterScreen />}

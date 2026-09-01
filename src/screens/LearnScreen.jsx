@@ -8,7 +8,6 @@ import { useRessource } from '../lib/useRessource'
 import { PATHS, chapterPath } from '../routes'
 import Banniere from '../components/ui/Banniere'
 import Page from '../components/ui/Page'
-import ResourcesTabs from '../components/ResourcesTabs'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
 /**
@@ -229,8 +228,6 @@ export default function LearnScreen() {
       </Banniere>
 
       <div className="learn__body">
-        <ResourcesTabs />
-
         {/* La recherche en premier : c'est la porte d'entrée de l'onglet. */}
         <div className="search-field">
           <Search size={16} />
@@ -304,7 +301,9 @@ export default function LearnScreen() {
               Ouvrir le fil d'actualité
               <ArrowRight size={16} strokeWidth={2.2} />
             </Link>
-            <Link to={PATHS.verify} className="entry-card__link">
+            {/* Les sites où vérifier une info sont les stories de l'accueil :
+                c'est là qu'on renvoie, plutôt que vers une page de liens. */}
+            <Link to={PATHS.home} className="entry-card__link">
               <BookOpen size={16} strokeWidth={2} />
               Où vérifier une info
             </Link>

@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: calc(20px + var(--sa-top)) 20px calc(20px + var(--sa-bottom));
     /* Le jeu reste visible derrière, reculé. */
     background: rgba(20, 8, 44, 0.55);
     backdrop-filter: blur(3px);

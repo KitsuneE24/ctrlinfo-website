@@ -14,7 +14,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    /* Elles couvrent l'écran entier, encoches comprises : sans ça, le bas de
+       la carte passe sous le trait de geste du téléphone. */
+    padding: calc(20px + var(--sa-top)) 20px calc(20px + var(--sa-bottom));
     background: rgba(20, 8, 44, 0.55);
     backdrop-filter: blur(3px);
   }
@@ -297,7 +299,7 @@
   /* Écran court : on resserre plutôt que de faire défiler. */
   @media (max-height: 700px) {
     .game-start {
-      padding: 12px;
+      padding: calc(12px + var(--sa-top)) 12px calc(12px + var(--sa-bottom));
     }
 
     .game-start__card {

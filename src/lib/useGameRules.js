@@ -9,8 +9,9 @@ import { useCompte } from '../state/compte'
  * qu'on annonce au joueur. Avec un compte, seulement la première fois — le
  * serveur s'en souvient (`/moi/regles`), donc d'un appareil à l'autre aussi.
  *
- * Tant que la réponse n'est pas là, on répond « non » : mieux vaut un rappel
- * manquant qu'un tutoriel qui s'ouvre par-dessus une partie commencée.
+ * `pret` dit si la réponse est arrivée. Le seuil d'un jeu l'attend plutôt que
+ * de trancher sans savoir : un tutoriel qui s'ouvre après coup, par-dessus une
+ * partie déjà commencée, serait pire que tardif.
  */
 export function useGameRules(gameId) {
   const { connecte } = useCompte()
@@ -35,7 +36,8 @@ export function useGameRules(gameId) {
     }
   }, [connecte])
 
-  const aAfficher = connecte ? vues !== null && !vues.has(gameId) : true
+  const pret = !connecte || vues !== null
+  const aAfficher = connecte ? pret && !vues.has(gameId) : true
 
   const marquerLues = useCallback(() => {
     if (!connecte || !gameId || vues?.has(gameId)) return
@@ -43,5 +45,5 @@ export function useGameRules(gameId) {
     auMieux(marquerReglesVues(gameId))
   }, [connecte, gameId, vues])
 
-  return { aAfficher: Boolean(gameId) && aAfficher, marquerLues }
+  return { aAfficher: Boolean(gameId) && aAfficher, pret, marquerLues }
 }

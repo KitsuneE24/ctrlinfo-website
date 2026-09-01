@@ -282,7 +282,9 @@
     gap: 8px;
     padding: 13px 18px;
     border-radius: 999px;
-    background: var(--brand-violet);
+    /* Le mauve plutôt que le violet : c'est l'action qui entraîne, elle a
+       droit à la couleur la plus vive de la marque. 5,15:1 sur le crème, AA. */
+    background: var(--brand-mauve);
     color: var(--brand-cream);
     font-size: var(--text-lg);
     font-weight: 700;
@@ -290,7 +292,7 @@
   }
 
   .game-start__go:hover {
-    background: color-mix(in srgb, var(--brand-violet) 88%, black);
+    background: color-mix(in srgb, var(--brand-mauve) 88%, black);
   }
 
   .game-start__go:active {

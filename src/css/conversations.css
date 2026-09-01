@@ -169,7 +169,7 @@
 
   .inbox-item__chevron {
     flex-shrink: 0;
-    color: #c7c7c7;
+    color: var(--ink-ghost);
   }
 
   @media (min-width: 768px) {

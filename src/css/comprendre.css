@@ -6,10 +6,7 @@
    ========================================================================== */
 
 @layer components {
-  /* --- Recherche et résultat vide ----------------------------------------
-     Ces règles venaient de l'annuaire des sources, qui avait sa page. La page
-     n'existe plus — les sites où vérifier une info sont les stories de
-     l'accueil — mais la recherche des thèmes s'en sert toujours. */
+  /* --- Recherche et résultat vide --------------------------------------- */
 
   .search-field {
     display: flex;

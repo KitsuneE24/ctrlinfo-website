@@ -162,6 +162,15 @@ export function continuerEnInvite() {
   definirModeInvite(true)
 }
 
+/**
+ * Revenir sur ce choix. Sans cela, « continuer en invité » serait définitif :
+ * la question ne se reposerait plus jamais, et rien à l'écran ne dirait
+ * pourquoi.
+ */
+export function quitterModeInvite() {
+  definirModeInvite(false)
+}
+
 /** S'abonner aux changements d'identité. Rend la fonction de désabonnement. */
 export function abonner(ecouteur) {
   abonnes.add(ecouteur)

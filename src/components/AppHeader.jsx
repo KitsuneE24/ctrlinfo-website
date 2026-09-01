@@ -12,7 +12,7 @@ import { PATHS } from '../routes'
  * l'écran en cours : les règles du fil, et l'identité du joueur.
  */
 export default function AppHeader({ onGame, onShowRules }) {
-  const { utilisateur, connecte } = useCompte()
+  const { utilisateur, connecte, invite } = useCompte()
   const { requestExit } = useExitGuard()
 
   return (
@@ -43,13 +43,14 @@ export default function AppHeader({ onGame, onShowRules }) {
             </button>
           )}
 
-          {/* Dire en permanence si la partie compte ou non : c'est la seule
-              chose que le mode invité change pour le joueur. */}
+          {/* Dire en permanence si la partie compte ou non. « Invité » n'est
+              affiché que si le joueur l'a choisi : sinon la pastille l'invite à
+              choisir, au lieu de décider pour lui. */}
           <Link
             to={PATHS.profile}
             className={`app-header__compte${connecte ? ' app-header__compte--connecte' : ''}`}
           >
-            {connecte ? utilisateur?.pseudo : 'Invité'}
+            {connecte ? utilisateur?.pseudo : invite ? 'Invité' : 'Se connecter'}
           </Link>
         </div>
       </div>

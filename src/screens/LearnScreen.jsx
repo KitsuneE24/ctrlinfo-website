@@ -17,9 +17,8 @@ import { Chargement, ErreurChargement } from '../components/ui/Chargement'
  * Deux écrans, et deux adresses — c'est le changement : un thème se partage,
  * se met en favori et survit à un rechargement.
  *
- *   1. **la galerie** (`/ressources`) — une recherche en tête, puis une
- *      vignette par thème : son numéro, son titre, quelques lignes de résumé,
- *      et le lien qui mène plus loin ;
+ *   1. **la galerie** (`/ressources`) — une recherche, puis une vignette
+ *      carrée par thème, façon Explore : la couverture porte, le titre nomme ;
  *   2. **le thème** (`/ressources/comprendre/:slug`), avec son texte entier.
  *
  * Tout le texte vient de l'API (`/chapitres`) : il n'y a pas une ligne de
@@ -39,14 +38,9 @@ function Icone({ nom, size }) {
 }
 
 /** Le lien de sortie d'un thème : où aller quand la fiche ne suffit pas. */
-function LienDAide({ lien, compact = false }) {
+function LienDAide({ lien }) {
   return (
-    <a
-      href={lien.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`chapitre-lien${compact ? ' chapitre-lien--compact' : ''}`}
-    >
+    <a href={lien.url} target="_blank" rel="noopener noreferrer" className="chapitre-lien">
       <ExternalLink size={14} strokeWidth={2} />
       {lien.texte}
     </a>
@@ -280,27 +274,31 @@ export default function LearnScreen() {
         ) : (
           <ul className="themes">
             {resultats.map((chapitre) => (
-              <li key={chapitre.id} className="theme">
+              <li key={chapitre.id}>
                 <Link
                   to={chapterPath(chapitre.id)}
                   aria-label={`Ouvrir le thème « ${chapitre.titre} »`}
-                  className="theme__ouvrir"
+                  className="theme"
+                  style={{ background: chapitre.couleur }}
                 >
-                  <span className="theme__badge" style={{ background: chapitre.couleur }}>
-                    <Icone nom={chapitre.icone} size={19} />
-                  </span>
-                  <span className="theme__numero">{chapitre.numero}</span>
-                  <span className="theme__titre">{chapitre.titre}</span>
-                  <span className="theme__resume">{chapitre.resume}</span>
-                  <span className="theme__lire">
-                    Lire le thème
-                    <ArrowRight size={14} strokeWidth={2.2} />
+                  {chapitre.couverture ? (
+                    <img
+                      src={chapitre.couverture}
+                      alt=""
+                      loading="lazy"
+                      className="theme__image"
+                    />
+                  ) : (
+                    <span className="theme__icone">
+                      <Icone nom={chapitre.icone} size={34} />
+                    </span>
+                  )}
+
+                  <span className="theme__voile">
+                    <span className="theme__numero">{chapitre.numero}</span>
+                    <span className="theme__titre">{chapitre.titre}</span>
                   </span>
                 </Link>
-
-                {/* Hors du lien : un lien dans un lien n'est pas valide, et le
-                    clavier s'y perd. */}
-                <LienDAide lien={chapitre.lien} compact />
               </li>
             ))}
           </ul>

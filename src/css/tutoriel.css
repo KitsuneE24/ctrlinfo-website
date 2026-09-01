@@ -5,10 +5,11 @@
    ======================================================================== */
 
 @layer components {
+  /* Au-dessus de l'écran de départ : il s'ouvre par-dessus lui. */
   .tuto {
     position: fixed;
     inset: 0;
-    z-index: 90;
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,6 +100,15 @@
     border-radius: 50%;
     background: var(--brand-gradient);
     color: var(--brand-cream);
+  }
+
+  /* Une capture par volet : on reconnaît l'écran avant d'y arriver. */
+  .tuto__capture {
+    width: 100%;
+    max-height: 190px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 1px solid var(--line);
   }
 
   .tuto__title {

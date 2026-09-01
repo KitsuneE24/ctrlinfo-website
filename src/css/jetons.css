@@ -46,13 +46,13 @@
     --page: #f1eef8;
     --surface: #ffffff;
 
-    /* Encres légèrement violettes, toutes au-dessus de 4,5:1 sur blanc comme
-       sur le lilas de la page. Les deux plus claires échouaient (3,3 et 2,5). */
-    --ink: #231f2b;
-    --ink-soft: #3a3543;
-    --ink-muted: #565061;
-    --ink-faint: #635f6b;
-    --ink-ghost: #6b6772;
+    /* Pas de texte gris : tout le ramp reste noir, à peine dégradé. La
+       hiérarchie se lit à la taille et à la graisse, pas à la pâleur. */
+    --ink: #15121b;
+    --ink-soft: #1c1924;
+    --ink-muted: #26222e;
+    --ink-faint: #332e3d;
+    --ink-ghost: #413b4c;
 
     --line: rgba(0, 0, 0, 0.1);
     --line-strong: rgba(0, 0, 0, 0.15);

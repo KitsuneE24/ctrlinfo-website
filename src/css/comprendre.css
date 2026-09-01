@@ -78,7 +78,7 @@
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.68);
+    color: rgba(255, 255, 255, 0.9);
   }
 
   .learn-hero__title {
@@ -97,7 +97,7 @@
     max-width: 56ch;
     font-size: var(--text-lg);
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.86);
+    color: rgba(255, 255, 255, 0.95);
   }
 
   /* --- Corps de l'onglet ------------------------------------------------ */

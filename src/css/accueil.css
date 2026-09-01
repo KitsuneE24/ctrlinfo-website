@@ -39,7 +39,7 @@
   .hero__title {
     margin: 0;
     font-family: var(--font-brand);
-    font-size: 38px;
+    font-size: var(--text-3xl);
     line-height: 1.05;
     letter-spacing: -0.02em;
   }
@@ -47,7 +47,7 @@
   .hero__tagline {
     max-width: 30ch;
     margin: 12px auto 0;
-    font-size: 14px;
+    font-size: var(--text-md);
     line-height: 1.6;
     color: rgba(255, 255, 255);
   }
@@ -56,7 +56,6 @@
   @media (min-width: 768px) {
     .hero__tagline {
       max-width: none;
-      font-size: 15px;
       white-space: nowrap;
     }
   }
@@ -102,7 +101,7 @@
     margin: 0;
     padding: 0 24px;
     text-align: center;
-    font-size: 12px;
+    font-size: var(--text-xs);
     line-height: 1.5;
     color: rgba(255, 250, 249, 0.85);
   }
@@ -164,14 +163,14 @@
   .lever__title {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 14px;
+    font-size: var(--text-md);
     font-weight: 600;
     color: var(--ink);
   }
 
   .lever__text {
     margin: 2px 0 0;
-    font-size: 13.5px;
+    font-size: var(--text-sm);
     line-height: 1.6;
     color: var(--ink-muted);
   }
@@ -186,7 +185,7 @@
 
   .tip__text {
     margin: 0;
-    font-size: 13.5px;
+    font-size: var(--text-sm);
     line-height: 1.65;
     color: var(--ink-soft);
   }
@@ -208,7 +207,7 @@
   .game-teasers__titre {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 19px;
+    font-size: var(--text-xl);
     font-weight: 700;
     color: var(--ink);
   }
@@ -256,20 +255,20 @@
   .game-teaser__titre {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 15.5px;
+    font-size: var(--text-lg);
     font-weight: 700;
     color: var(--ink);
   }
 
   .game-teaser__court {
     margin: 2px 0 0;
-    font-size: 12.5px;
+    font-size: var(--text-xs);
     color: var(--ink-faint);
   }
 
   .game-teaser__accroche {
     margin: 0;
-    font-size: 14px;
+    font-size: var(--text-md);
     line-height: 1.6;
     color: var(--ink-soft);
   }
@@ -286,7 +285,7 @@
   .game-teaser__points li {
     position: relative;
     padding-left: 16px;
-    font-size: 13px;
+    font-size: var(--text-sm);
     line-height: 1.55;
     color: var(--ink-muted);
   }
@@ -308,7 +307,7 @@
     align-items: center;
     gap: 7px;
     margin-top: 2px;
-    font-size: 13.5px;
+    font-size: var(--text-sm);
     font-weight: 700;
     color: var(--brand-blue);
     text-decoration: none;

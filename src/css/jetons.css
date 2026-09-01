@@ -5,10 +5,28 @@
 
 @layer base {
   :root {
-    /* Titres en Archivo ; Archivo Black réservée à la marque. Le corps de
-       texte est la police du système. */
+    /* Archivo pour tout : 400/500 le corps, 600/700 les titres, Black la
+       marque. Le corps héritait de la police du système. */
+    --font-body: 'Archivo', 'Segoe UI', system-ui, -apple-system, sans-serif;
     --font-title: 'Archivo', 'Segoe UI', system-ui, sans-serif;
     --font-brand: 'Archivo Black', system-ui, sans-serif;
+
+    /* L'échelle typographique. Un cran de plus sur grand écran. */
+    --text-2xs: 11.5px;
+    --text-xs: 13px;
+    --text-sm: 14.5px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 21px;
+    --text-2xl: 26px;
+    --text-3xl: 32px;
+
+    --leading-tight: 1.18;
+    --leading-snug: 1.4;
+    --leading-body: 1.65;
+
+    /* Largeur d'une colonne de lecture confortable. */
+    --measure: 65ch;
 
     --brand-blue: #1800ad;
     --brand-magenta: #791561;
@@ -28,11 +46,13 @@
     --page: #f1eef8;
     --surface: #ffffff;
 
-    --ink: #262626;
-    --ink-soft: #3a3a3a;
-    --ink-muted: #5a5a5a;
-    --ink-faint: #8e8e8e;
-    --ink-ghost: #a3a3a3;
+    /* Encres légèrement violettes, toutes au-dessus de 4,5:1 sur blanc comme
+       sur le lilas de la page. Les deux plus claires échouaient (3,3 et 2,5). */
+    --ink: #231f2b;
+    --ink-soft: #3a3543;
+    --ink-muted: #565061;
+    --ink-faint: #635f6b;
+    --ink-ghost: #6b6772;
 
     --line: rgba(0, 0, 0, 0.1);
     --line-strong: rgba(0, 0, 0, 0.15);
@@ -40,8 +60,8 @@
     --wash-strong: rgba(0, 0, 0, 0.06);
 
     --like-red: #ed4956;
-    --verdict-ok: #1a7f4b;
-    --verdict-ko: #c0392b;
+    --verdict-ok: #15693e;
+    --verdict-ko: #b8332a;
 
     --brand-gradient: linear-gradient(135deg, var(--brand-blue), var(--brand-magenta));
 
@@ -60,5 +80,18 @@
     --radius-card: 12px;
     --gap-card: 14px;
     --content-max: 640px;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --text-2xs: 12px;
+      --text-xs: 13.5px;
+      --text-sm: 15px;
+      --text-md: 17px;
+      --text-lg: 19px;
+      --text-xl: 23px;
+      --text-2xl: 31px;
+      --text-3xl: 40px;
+    }
   }
 }

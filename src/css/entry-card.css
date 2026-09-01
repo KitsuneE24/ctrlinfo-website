@@ -20,7 +20,7 @@
   .entry-card__title {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 19px;
+    font-size: var(--text-xl);
     font-weight: 700;
     color: var(--ink);
   }
@@ -28,7 +28,7 @@
   .entry-card__text {
     margin: 8px auto 0;
     max-width: 52ch;
-    font-size: 14px;
+    font-size: var(--text-md);
     line-height: 1.65;
     color: var(--ink-muted);
   }
@@ -49,7 +49,7 @@
     padding: 11px 20px;
     border-radius: 999px;
     background-image: var(--brand-gradient);
-    font-size: 14px;
+    font-size: var(--text-md);
     font-weight: 700;
     color: #fff;
     text-decoration: none;
@@ -68,7 +68,7 @@
     padding: 11px 18px;
     border: 1px solid var(--line-strong);
     border-radius: 999px;
-    font-size: 14px;
+    font-size: var(--text-md);
     font-weight: 600;
     color: var(--ink-muted);
     text-decoration: none;

@@ -19,7 +19,7 @@ export default function ExitGamePrompt({ connecte, onConfirm, onCancel }) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="exit-prompt-title"
-      className="gate gate--alert"
+      className="gate"
     >
       <motion.div
         initial={{ y: 14, scale: 0.98 }}

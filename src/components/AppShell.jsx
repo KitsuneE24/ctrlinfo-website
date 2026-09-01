@@ -12,7 +12,7 @@ import { useGameRules } from '../lib/useGameRules'
 import { useCompte } from '../state/compte'
 import { ExitGuardContext } from '../state/exitGuard'
 import { getCurrentSession } from '../state/currentSession'
-import { useJeu } from '../state/jeux'
+import { useJeu, useJeux } from '../state/jeux'
 import { PATHS, pageTitle } from '../routes'
 
 /** Le jeu qui commence à cette adresse. La boîte de réception n'en est pas un. */
@@ -29,14 +29,15 @@ const isGameTab = (path) => path === PATHS.feed || path.startsWith(PATHS.chats)
  * Coque de l'application : en-tête, écran de la route en cours, barre
  * d'onglets.
  *
- * C'est aussi le seuil des jeux, et il se franchit dans cet ordre :
+ * C'est aussi le seuil des jeux, et il se franchit dans cet ordre, une porte
+ * à la fois :
  *
- *   1. **l'identité** — avec un compte ou en invité, la question est posée une
+ *   1. **l'identité** — avec un compte ou en invité. La question est posée une
  *      fois, à l'entrée de l'onglet ;
- *   2. **l'écran de départ** — avant chaque partie, la règle en une phrase et
- *      la durée. Les règles détaillées s'ouvrent par-dessus si elles n'ont
- *      jamais été lues ;
- *   3. **la partie**, qui ne démarre — et n'ouvre de session — qu'ici.
+ *   2. **les règles** — elles ne s'ouvrent qu'une fois l'identité choisie,
+ *      puisque c'est elle qui décide si on les remontre ;
+ *   3. **l'écran de départ** — la règle en une phrase et la durée ;
+ *   4. **la partie**, qui ne démarre — et n'ouvre de session — qu'ici.
  *
  * Et une sortie : quitter un onglet en pleine partie demande confirmation.
  */
@@ -47,20 +48,12 @@ export default function AppShell() {
 
   const gameId = gameOfPath(pathname)
   const jeu = useJeu(gameId)
-  const { aAfficher, marquerLues } = useGameRules(gameId)
+  const { chargement: jeuxEnCours } = useJeux()
+  const { aAfficher, pret, marquerLues } = useGameRules(gameId)
 
-  const premiereEtape = useCallback(
-    (path) => {
-      if (isGameTab(path) && !connecte && !invite) return 'identity'
-      return gameOfPath(path) ? 'start' : 'playing'
-    },
-    [connecte, invite]
-  )
-
-  const [step, setStep] = useState(() => premiereEtape(pathname))
+  const [franchies, setFranchies] = useState([])
   const [lastPath, setLastPath] = useState(pathname)
   const [rulesAsked, setRulesAsked] = useState(false)
-  const [rulesDone, setRulesDone] = useState(false)
   const [exitTo, setExitTo] = useState(null)
   const [finished, setFinished] = useState(false)
 
@@ -68,9 +61,8 @@ export default function AppShell() {
   // fois sans son seuil.
   if (lastPath !== pathname) {
     setLastPath(pathname)
-    setStep(premiereEtape(pathname))
+    setFranchies([])
     setRulesAsked(false)
-    setRulesDone(false)
     setExitTo(null)
     setFinished(false)
   }
@@ -79,28 +71,44 @@ export default function AppShell() {
     document.title = pageTitle(pathname)
   }, [pathname])
 
-  const tutorialOpen = Boolean(
-    jeu && gameId && (rulesAsked || (step === 'start' && aAfficher && !rulesDone))
+  // Les portes de cette adresse, dans l'ordre. L'identité disparaît d'elle-même
+  // une fois choisie ; les deux autres se franchissent d'un geste.
+  const portes = []
+  if (isGameTab(pathname) && !connecte && !invite) portes.push('identity')
+  // Sans le jeu, on ne sait ni quoi annoncer ni quelles règles montrer : on
+  // laisse alors passer, et l'écran affichera sa propre erreur de chargement.
+  if (gameId && jeu) {
+    if (aAfficher) portes.push('rules')
+    portes.push('start')
+  }
+
+  // Une fois la partie lancée, plus rien ne s'intercale : une réponse tardive
+  // du serveur ne doit pas ouvrir un tutoriel par-dessus le jeu.
+  const porte = franchies.includes('start')
+    ? null
+    : (portes.find((nom) => !franchies.includes(nom)) ?? null)
+
+  const enAttente = Boolean(gameId) && (!pret || jeuxEnCours)
+  const jouable = porte === null && !enAttente
+  const tutorial = Boolean(jeu) && (rulesAsked || porte === 'rules')
+
+  const franchir = useCallback(
+    (nom) => setFranchies((deja) => (deja.includes(nom) ? deja : [...deja, nom])),
+    []
   )
 
   const showRules = useCallback(() => setRulesAsked(true), [])
-
   const marquerFini = useCallback(() => setFinished(true), [])
 
   const closeTutorial = useCallback(() => {
     marquerLues()
     setRulesAsked(false)
-    setRulesDone(true)
-  }, [marquerLues])
-
-  const acceptGuest = useCallback(() => {
-    continuerEnInvite()
-    setStep(gameId ? 'start' : 'playing')
-  }, [continuerEnInvite, gameId])
+    franchir('rules')
+  }, [franchir, marquerLues])
 
   // La sortie n'est retenue que pendant une partie en cours : une fois jouée
   // jusqu'au bout, il n'y a plus rien à perdre et la question serait de trop.
-  const enPartie = step === 'playing' && gameId !== null && !finished
+  const enPartie = jouable && gameId !== null && !finished
 
   const requestExit = useCallback(
     (to) => {
@@ -140,8 +148,8 @@ export default function AppShell() {
                   commence à neuf, pas au milieu de l'écran d'attente. */}
               <Outlet
                 context={{
-                  paused: step !== 'playing' || tutorialOpen,
-                  runKey: step === 'playing' ? 'play' : 'idle',
+                  paused: !jouable || tutorial,
+                  runKey: jouable ? 'play' : 'idle',
                   onFinished: marquerFini,
                 }}
               />
@@ -152,19 +160,19 @@ export default function AppShell() {
         <TabBar />
 
         <AnimatePresence>
-          {step === 'identity' && <IdentityGate key="identity" onGuest={acceptGuest} />}
+          {porte === 'identity' && <IdentityGate key="identity" onGuest={continuerEnInvite} />}
 
-          {step === 'start' && jeu && gameId && (
+          {porte === 'start' && (
             <GameStart
               key="start"
               jeu={jeu}
               connecte={connecte}
-              onStart={() => setStep('playing')}
+              onStart={() => franchir('start')}
               onRules={showRules}
             />
           )}
 
-          {tutorialOpen && <GameTutorial key="rules" jeu={jeu} onClose={closeTutorial} />}
+          {tutorial && <GameTutorial key="rules" jeu={jeu} onClose={closeTutorial} />}
 
           {exitTo !== null && (
             <ExitGamePrompt

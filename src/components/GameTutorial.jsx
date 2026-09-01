@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react'
+import { Check, ChevronLeft, ChevronRight, X } from 'lucide-react'
 
 /**
  * Tutoriel d'un jeu : un carrousel de trois volets — le but, les actions, le
@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react'
  * avec les jeux ; seule l'icône est rattachée ici, côté front.
  *
  * Il se traverse au clavier (flèches, Échap), au doigt (glissement) ou au
- * bouton.
+ * bouton. Il ne lance pas la partie : l'écran de départ vient après.
  */
 export default function GameTutorial({ jeu, onClose }) {
   const volets = jeu.tuto ?? []
@@ -137,8 +137,8 @@ export default function GameTutorial({ jeu, onClose }) {
 
           {dernier ? (
             <button type="button" onClick={onClose} className="tuto__next">
-              <Play size={15} fill="currentColor" strokeWidth={0} />
-              Commencer
+              <Check size={16} strokeWidth={2.4} />
+              J'ai compris
             </button>
           ) : (
             <button

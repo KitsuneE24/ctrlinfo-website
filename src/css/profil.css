@@ -135,6 +135,21 @@
     color: var(--ink-faint);
   }
 
+  .invite__annuler {
+    padding: 9px 15px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: background-color 0.15s;
+  }
+
+  .invite__annuler:hover {
+    background: var(--wash);
+  }
+
   /* --- Tableau de bord --------------------------------------------------- */
 
   .profil__tete {

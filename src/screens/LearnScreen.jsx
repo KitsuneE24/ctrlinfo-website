@@ -235,7 +235,7 @@ export default function LearnScreen() {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Chercher un thème — le complotisme, les biais…"
+            placeholder="Chercher un thème: le complotisme, les biais…"
             aria-label="Chercher un thème"
             className="search-field__input"
           />

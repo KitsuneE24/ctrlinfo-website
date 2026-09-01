@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { createElement, useState } from 'react'
 import { Link } from 'react-router'
 import { ArrowRight, Play, Zap, Flame, ShieldQuestion } from 'lucide-react'
 import Page from '../components/ui/Page'
 import Banniere from '../components/ui/Banniere'
-import { PATHS } from '../routes'
+import StoryBar from '../components/StoryBar'
+import DailyTip from '../components/DailyTip'
+import { useJeux } from '../state/jeux'
+import { GAME_PATHS, PATHS } from '../routes'
 
 // Un chemin (ex. '/ctrl-info.mp4') ou une URL d'intégration, pour remplacer le
 // visuel d'attente par la vraie vidéo.
@@ -27,31 +30,61 @@ const LEVIERS = [
   },
 ]
 
+/**
+ * L'annonce d'un jeu, dessinée comme une publication : un compte en tête, une
+ * accroche, ce qu'on y apprend, et un bouton pour y aller.
+ *
+ * C'est la même grammaire que le reste du site — on ne quitte jamais la forme
+ * du réseau social, pas même pour présenter les jeux.
+ */
+function GameTeaser({ jeu }) {
+  return (
+    <article className="game-teaser">
+      <header className="game-teaser__head">
+        <span className="game-teaser__badge" style={{ background: jeu.couleur }}>
+          {createElement(jeu.Icon, { size: 19, strokeWidth: 1.9 })}
+        </span>
+        <div>
+          <p className="game-teaser__titre">{jeu.titre}</p>
+          <p className="game-teaser__court">{jeu.court}</p>
+        </div>
+      </header>
+
+      <p className="game-teaser__accroche">{jeu.accroche}</p>
+
+      <ul className="game-teaser__points">
+        {jeu.points.slice(0, 3).map((point) => (
+          <li key={point}>{point}</li>
+        ))}
+      </ul>
+
+      <Link to={GAME_PATHS[jeu.id] ?? PATHS.home} className="game-teaser__lien">
+        Commencer
+        <ArrowRight size={15} strokeWidth={2.2} />
+      </Link>
+    </article>
+  )
+}
+
 export default function HomeScreen() {
   const [videoOpen, setVideoOpen] = useState(false)
+  const { jeux } = useJeux()
 
   return (
     <Page seamless>
       {/* En-tête de marque, bord à bord. Le fond animé vient de la bannière
-          partagée (ui/Banniere.jsx), commune avec « Comprendre ». */}
+          partagée (ui/Banniere.jsx), commune avec Ressources. */}
       <Banniere className="hero">
         <h1 className="hero__title">CTRL&nbsp;INFO</h1>
         <p className="hero__tagline">
           Reprends le contrôle de ton fil&nbsp;
         </p>
-
-        {/* Les deux entrées du site. Sans galerie de jeux, c'est ici qu'on
-            commence — l'accueil ne doit pas être un cul-de-sac. */}
-        <div className="hero__actions">
-          <Link to={PATHS.feed} className="hero__cta">
-            Jouer au fil d'actualité
-            <ArrowRight size={16} strokeWidth={2.2} />
-          </Link>
-          <Link to={PATHS.resources} className="hero__cta hero__cta--ghost">
-            Comprendre d'abord
-          </Link>
-        </div>
       </Banniere>
+
+      {/* Les stories, juste sous la bannière : c'est la première chose qu'on
+          fait défiler sur un réseau social, et c'est là que sont maintenant
+          les sites où vérifier une information. */}
+      <StoryBar />
 
       {/* Le corps : une colonne bornée en largeur, espacée des bords. */}
       <div className="home__body">
@@ -79,7 +112,7 @@ export default function HomeScreen() {
           <div>
             <div className="card__body">
               <h2 className="card__title">
-                Et tout le monde s'en fout — La désinformation
+                Et tout le monde y croit — La désinformation
               </h2>
             </div>
             <div className="video">
@@ -138,7 +171,42 @@ export default function HomeScreen() {
             </div>
           </div>
         </section>
+
+        {/* Les jeux, annoncés avant d'être proposés : on sait où l'on met les
+            pieds, et combien de temps ça prend. */}
+        {jeux.length > 0 && (
+          <section className="game-teasers">
+            <h2 className="game-teasers__titre">Confronte-toi</h2>
+            <div className="game-teasers__liste">
+              {jeux.map((jeu) => (
+                <GameTeaser key={jeu.id} jeu={jeu} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Les deux entrées du site, en fin de page — comme à la fin de
+            Ressources, et avec la même carte. Elles étaient dans la bannière,
+            avant d'avoir été lues. */}
+        <section className="entry-card">
+          <h2 className="entry-card__title">Par où commencer</h2>
+          <p className="entry-card__text">
+            Le fil d'actualité te met en situation tout de suite. Si tu préfères
+            savoir avant d'essayer, les ressources se lisent en deux minutes.
+          </p>
+          <div className="entry-card__actions">
+            <Link to={PATHS.feed} className="entry-card__button">
+              Jouer au fil d'actualité
+              <ArrowRight size={16} strokeWidth={2.2} />
+            </Link>
+            <Link to={PATHS.resources} className="entry-card__link">
+              Comprendre d'abord
+            </Link>
+          </div>
+        </section>
       </div>
+
+      <DailyTip />
     </Page>
   )
 }

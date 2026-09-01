@@ -61,45 +61,9 @@
     }
   }
 
-  /* Les deux entrées du site, sous l'accroche : il n'y a plus de galerie de
-     jeux pour les proposer. */
-  .hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-  }
-
-  .hero__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 11px 20px;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    background: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--brand-blue);
-    transition: opacity 0.15s, background-color 0.15s;
-  }
-
-  .hero__cta:hover {
-    opacity: 0.88;
-  }
-
-  .hero__cta--ghost {
-    border-color: rgba(255, 255, 255, 0.55);
-    background: transparent;
-    color: #fff;
-  }
-
-  .hero__cta--ghost:hover {
-    background: rgba(255, 255, 255, 0.12);
-    opacity: 1;
-  }
-
+  /* Les deux entrées du site ne sont plus dans la bannière : elles attendent
+     en fin de page, dans la carte partagée avec Ressources (entry-card.css).
+     On ne demande pas de choisir avant d'avoir lu. */
 
   .video {
     position: relative;
@@ -225,5 +189,157 @@
     font-size: 13.5px;
     line-height: 1.65;
     color: var(--ink-soft);
+  }
+}
+
+/* ==========================================================================
+   ANNONCES DE JEUX ET BRÈVE DU JOUR
+   Ajoutés avec les stories : l'accueil annonce ce qu'il propose, au lieu de
+   poser deux boutons sans contexte.
+   ========================================================================== */
+
+@layer components {
+  .game-teasers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .game-teasers__titre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .game-teasers__liste {
+    display: grid;
+    gap: var(--gap-card);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 760px) {
+    .game-teasers__liste {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  /* Une annonce se lit comme une publication : un compte, un texte, une
+     action. C'est la grammaire du site, y compris pour se présenter. */
+  .game-teaser {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+  }
+
+  .game-teaser__head {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .game-teaser__badge {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    flex: none;
+    place-items: center;
+    border-radius: 50%;
+    color: #fff;
+  }
+
+  .game-teaser__titre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .game-teaser__court {
+    margin: 2px 0 0;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+  }
+
+  .game-teaser__accroche {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .game-teaser__points {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .game-teaser__points li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-muted);
+  }
+
+  .game-teaser__points li::before {
+    content: '';
+    position: absolute;
+    top: 0.62em;
+    left: 2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--line-strong);
+  }
+
+  .game-teaser__lien {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 7px;
+    margin-top: 2px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--brand-blue);
+    text-decoration: none;
+  }
+
+  /* --- « Le saviez-vous ? » ---------------------------------------------- */
+
+  .tip-card {
+    text-align: left;
+  }
+
+  .tip-card .modal__badge,
+  .tip-card .modal__title {
+    margin-left: 0;
+  }
+
+  .tip-card__fermer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--ink-faint);
+    transition: background-color 0.15s, color 0.15s;
+  }
+
+  .tip-card__fermer:hover {
+    background: var(--wash);
+    color: var(--ink);
   }
 }

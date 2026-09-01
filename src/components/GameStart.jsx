@@ -1,16 +1,17 @@
 import { createElement } from 'react'
 import { Link } from 'react-router'
 import { motion } from 'framer-motion'
-import { ArrowRight, Clock, HelpCircle, Play, RotateCcw } from 'lucide-react'
+import { Clock, HelpCircle, Play, RotateCcw } from 'lucide-react'
 import { PATHS } from '../routes'
 
 /**
  * L'écran de départ d'un jeu : ce qu'on va faire, en combien de temps, et la
  * règle en une phrase.
  *
- * Il s'affiche avant chaque partie. Le tutoriel complet, lui, ne s'ouvre de
- * lui-même que quand les règles n'ont pas encore été lues — il reste ici à
- * portée d'un bouton.
+ * Il s'affiche avant chaque partie et tient en un écran, sans défilement : le
+ * bouton « Commencer » doit être visible en même temps que ce qu'on accepte en
+ * le pressant. D'où l'en-tête sur une ligne — pastille, titre, durée — plutôt
+ * qu'empilé.
  *
  * C'est aussi le seul endroit qui rappelle qu'on joue sans compte. Rien ne
  * barre l'entrée d'un jeu : le rappel revient à chaque départ, avec de quoi y
@@ -34,23 +35,25 @@ export default function GameStart({ jeu, connecte, reprise, onStart, onRules }) 
         transition={{ duration: 0.22 }}
         className="game-start__card"
       >
-        <span className="game-start__badge" style={{ background: jeu.couleur }}>
-          {createElement(jeu.Icon, { size: 24, strokeWidth: 1.9 })}
-        </span>
-
-        <p className="game-start__eyebrow">
-          {reprise ? 'Les règles' : 'Avant de jouer'}
-        </p>
-        <h1 className="game-start__title">{jeu.titre}</h1>
+        <header className="game-start__head">
+          <span className="game-start__badge" style={{ background: jeu.couleur }}>
+            {createElement(jeu.Icon, { size: 22, strokeWidth: 1.9 })}
+          </span>
+          <div className="game-start__naming">
+            <p className="game-start__eyebrow">
+              {reprise ? 'Les règles' : 'Avant de jouer'}
+            </p>
+            <h1 className="game-start__title">{jeu.titre}</h1>
+          </div>
+          {jeu.dureeMinutes && (
+            <p className="game-start__duration">
+              <Clock size={14} strokeWidth={2} />
+              {jeu.dureeMinutes} min
+            </p>
+          )}
+        </header>
 
         {jeu.regleCourte && <p className="game-start__rule">{jeu.regleCourte}</p>}
-
-        {jeu.dureeMinutes && (
-          <p className="game-start__duration">
-            <Clock size={15} strokeWidth={2} />
-            Environ {jeu.dureeMinutes} minutes
-          </p>
-        )}
 
         <ul className="game-start__points">
           {jeu.points.map((point) => (
@@ -61,12 +64,10 @@ export default function GameStart({ jeu, connecte, reprise, onStart, onRules }) 
         {!connecte && (
           <div className="game-start__guest">
             <p className="game-start__guest-text">
-              Tu joues sans compte&nbsp;: <b>tes scores ne seront pas
-              enregistrés</b>, et tu ne retrouveras rien à ta prochaine visite.
+              Sans compte, <b>tes scores ne seront pas enregistrés</b>.
             </p>
-            <Link to={PATHS.profile} className="game-start__guest-link">
-              Me connecter pour les garder
-              <ArrowRight size={14} strokeWidth={2.2} />
+            <Link to={PATHS.profile} className="game-start__guest-button">
+              Me connecter
             </Link>
           </div>
         )}

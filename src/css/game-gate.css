@@ -104,32 +104,52 @@
     background: var(--wash);
   }
 
-  /* --- L'écran de départ : plus grand, c'est une page, pas une fenêtre --- */
+  /* --- L'écran de départ ---------------------------------------------------
+     Il doit tenir en un écran : le bouton « Commencer » et ce qu'on accepte en
+     le pressant se lisent d'un seul regard. Les espacements se resserrent donc
+     à mesure que la hauteur manque, et le défilement ne reste qu'un filet de
+     sécurité — mieux vaut faire défiler que rogner le bouton. --- */
 
   .game-start__card {
+    display: flex;
     width: 100%;
     max-width: 440px;
     max-height: 100%;
+    flex-direction: column;
+    gap: 14px;
     overflow-y: auto;
-    padding: 24px 22px 20px;
+    padding: 20px;
     border-radius: 18px;
     background: var(--surface);
     box-shadow: 0 24px 60px rgba(20, 8, 44, 0.4);
-    text-align: center;
+  }
+
+  /* En-tête sur une ligne : la pastille, le nom, la durée. Empilés, ils
+     coûtaient une centaine de pixels pour trois informations courtes. */
+  .game-start__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
   .game-start__badge {
-    display: inline-flex;
+    display: flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
     color: var(--brand-cream);
   }
 
+  .game-start__naming {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
   .game-start__eyebrow {
-    margin: 12px 0 0;
+    margin: 0;
     font-size: var(--text-2xs);
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -138,30 +158,21 @@
   }
 
   .game-start__title {
-    margin: 5px 0 0;
+    margin: 2px 0 0;
     font-family: var(--font-title);
-    font-size: var(--text-2xl);
+    font-size: var(--text-xl);
     font-weight: 700;
     line-height: 1.15;
     color: var(--ink);
   }
 
-  /* La règle en une phrase : c'est elle qu'on lit si on ne lit rien d'autre. */
-  .game-start__rule {
-    margin: 12px auto 0;
-    max-width: var(--measure);
-    font-size: var(--text-lg);
-    line-height: var(--leading-body);
-    font-weight: 600;
-    color: var(--ink);
-  }
-
   .game-start__duration {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
-    gap: 6px;
-    margin: 14px 0 0;
-    padding: 6px 13px;
+    gap: 5px;
+    margin: 0;
+    padding: 6px 11px;
     border-radius: 999px;
     background: var(--wash);
     font-size: var(--text-sm);
@@ -169,27 +180,36 @@
     color: var(--ink-muted);
   }
 
+  /* La règle en une phrase : c'est elle qu'on lit si on ne lit rien d'autre. */
+  .game-start__rule {
+    margin: 0;
+    max-width: var(--measure);
+    font-size: var(--text-lg);
+    line-height: 1.35;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
   .game-start__points {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin: 16px 0 0;
-    text-align: left;
+    gap: 6px;
+    margin: 0;
   }
 
   .game-start__points li {
     position: relative;
-    padding-left: 20px;
+    padding-left: 18px;
     font-size: var(--text-md);
-    line-height: var(--leading-body);
+    line-height: 1.4;
     color: var(--ink-soft);
   }
 
   .game-start__points li::before {
     content: '';
     position: absolute;
-    top: 0.6em;
-    left: 4px;
+    top: 0.55em;
+    left: 3px;
     width: 6px;
     height: 6px;
     border-radius: 50%;
@@ -197,42 +217,46 @@
   }
 
   /* Le rappel du mode sans compte : présent à chaque départ, et jamais un
-     cul-de-sac — il porte de quoi y remédier. */
+     cul-de-sac — il porte de quoi y remédier, en bouton et non en lien. */
   .game-start__guest {
-    margin: 16px 0 0;
-    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 12px;
     border: 1px solid var(--line-strong);
     border-radius: 12px;
     background: var(--wash);
-    text-align: left;
   }
 
   .game-start__guest-text {
     margin: 0;
     font-size: var(--text-sm);
-    line-height: var(--leading-body);
+    line-height: 1.4;
     color: var(--ink-soft);
   }
 
-  .game-start__guest-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 7px;
+  .game-start__guest-button {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
     font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--brand-blue);
+    font-weight: 700;
+    color: var(--ink);
+    transition: background-color 0.15s, border-color 0.15s;
   }
 
-  .game-start__guest-link:hover {
-    text-decoration: underline;
+  .game-start__guest-button:hover {
+    border-color: var(--brand-blue);
+    color: var(--brand-blue);
   }
 
   .game-start__actions {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 18px;
+    gap: 6px;
   }
 
   .game-start__go {
@@ -240,7 +264,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 14px 18px;
+    padding: 13px 18px;
     border-radius: 999px;
     background: var(--brand-gradient);
     color: var(--brand-cream);
@@ -258,7 +282,7 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
-    padding: 11px 18px;
+    padding: 9px 18px;
     border-radius: 999px;
     color: var(--ink-muted);
     font-size: var(--text-md);
@@ -268,5 +292,38 @@
 
   .game-start__rules:hover {
     background: var(--wash);
+  }
+
+  /* Écran court : on resserre plutôt que de faire défiler. */
+  @media (max-height: 700px) {
+    .game-start {
+      padding: 12px;
+    }
+
+    .game-start__card {
+      gap: 10px;
+      padding: 16px;
+    }
+
+    .game-start__rule {
+      font-size: var(--text-md);
+    }
+
+    .game-start__points li {
+      font-size: var(--text-sm);
+    }
+
+    .game-start__go {
+      padding: 11px 18px;
+      font-size: var(--text-md);
+    }
+  }
+
+  /* Le rappel se casse en deux quand la ligne ne tient plus. */
+  @media (max-width: 400px) {
+    .game-start__guest {
+      flex-direction: column;
+      align-items: stretch;
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, Trophy, GraduationCap, ArrowRight } from 'lucide-react'
-import { getRemediations, getTirage } from '../api/contenu'
+import { getNiveaux, getRemediations, getTirage } from '../api/contenu'
 import { auMieux, enregistrerDecision, sauvegarder, terminerSession } from '../api/progression'
 import { useSessionJeu } from '../lib/useSessionJeu'
 import { useAutreJeu } from '../state/jeux'
@@ -11,38 +11,13 @@ import FeedStats from './FeedStats'
 import PostCard from './PostCard'
 import FeedbackModal from './FeedbackModal'
 
-/** Le nombre de publications d'un niveau. Le serveur tire dans tout le vivier. */
-const PAR_NIVEAU = 5
-
-const LEVEL_MESSAGES = {
-  2: {
-    title: 'Niveau 2 débloqué',
-    subtitle: 'Les signaux se font plus subtils — sources qui ressemblent à des vraies, dates vagues, émotions plausibles.',
-  },
-  3: {
-    title: 'Niveau 3 débloqué',
-    subtitle: 'Niveau expert — vraie source, vraie image, vrais faits… mais contexte manipulé.',
-  },
-}
-
-/** Opacité d'une publication selon sa distance à celle en cours. */
-function opacityFor(distance) {
-  if (distance === 0) return 1
-  return Math.max(0.18, 0.42 - (Math.abs(distance) - 1) * 0.06)
-}
-
 export default function Feed({ onSwitch, onFinished, paused = false }) {
   // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
   const suite = useAutreJeu('feed')
 
-  const activeRef = useRef(null)
-  // La publication déjà amenée en haut. On la compare plutôt que de compter
-  // les rendus : React monte les effets deux fois en développement.
-  const dernierScrollRef = useRef(null)
-  const statsRef = useRef(null)
-
-  // Hauteur du bandeau collé en haut, qui sert de marge de défilement.
-  const [statsHeight, setStatsHeight] = useState(0)
+  // Les règles des niveaux — taille du tirage, durée du chrono, texte de
+  // transition. Elles étaient écrites ici ; elles viennent de l'API.
+  const [niveaux, setNiveaux] = useState({})
 
   const [currentLevel, setCurrentLevel] = useState(1)
   const [levelTransition, setLevelTransition] = useState(false)
@@ -81,7 +56,7 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
    */
   const chargerNiveau = useCallback(
     (level) =>
-      getTirage(level, PAR_NIVEAU)
+      getTirage(level)
         .then((tirage) => {
           setPostQueue(tirage)
           setQueueIdx(0)
@@ -102,6 +77,9 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
     getRemediations()
       .then(setRemediations)
       .catch(() => setRemediations({}))
+    getNiveaux()
+      .then((liste) => setNiveaux(Object.fromEntries(liste.map((n) => [n.level, n]))))
+      .catch(() => setNiveaux({}))
   }, [chargerNiveau])
 
   // Pas de drapeau de chargement : tant que la file est vide et qu'aucune
@@ -122,27 +100,6 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
       : false
 
   // Mesuré plutôt que codé en dur : la hauteur change avec la largeur de
-  // l'écran. L'observateur émet un premier appel dès l'observation.
-  useEffect(() => {
-    const el = statsRef.current
-    if (!el || typeof ResizeObserver === 'undefined') return
-    const observer = new ResizeObserver(() => setStatsHeight(el.offsetHeight))
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  // Le fil est continu : on amène la publication en cours en haut de l'écran.
-  // La toute première y est déjà, la déplacer enfoncerait son en-tête sous le
-  // bandeau.
-  useEffect(() => {
-    const cle = `${currentLevel}:${queueIdx}`
-    const premiere = dernierScrollRef.current === null
-    if (dernierScrollRef.current === cle) return
-    dernierScrollRef.current = cle
-    if (premiere) return
-    activeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }, [queueIdx, currentLevel])
-
   function handleAction(type) {
     if (action !== null) return
 
@@ -294,12 +251,8 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
             <span className="outcome__badge outcome__badge--small">
               <Sparkles size={24} strokeWidth={2} />
             </span>
-            <h2 className="outcome__title">
-              {LEVEL_MESSAGES[currentLevel + 1]?.title}
-            </h2>
-            <p className="outcome__note">
-              {LEVEL_MESSAGES[currentLevel + 1]?.subtitle}
-            </p>
+            <h2 className="outcome__title">{niveaux[currentLevel + 1]?.titre}</h2>
+            <p className="outcome__note">{niveaux[currentLevel + 1]?.sousTitre}</p>
             {/* Fin de niveau : le moment où l'on propose l'autre jeu. */}
             <div className="outcome__action">
               <button type="button" onClick={handleLevelUnlock} className="button">
@@ -319,7 +272,6 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
         ) : (
           <>
             <FeedStats
-              ref={statsRef}
               progress={levelProgress}
               currentLevel={Math.min(currentLevel, 3)}
               levelDoneCount={levelDoneCount}
@@ -328,41 +280,36 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
               timerKey={`${currentLevel}:${queueIdx}`}
               // Le chrono s'arrête tant que les règles sont à l'écran.
               timerActive={timerActive && !paused}
+              timerSecondes={niveaux[currentLevel]?.dureeSecondes ?? null}
               onTimerComplete={handleTimerExpire}
             />
 
 
-            {/* Fil continu : tout le niveau est là dès le départ. Seule la
-                publication en cours est interactive, les autres s'estompent. */}
-            {postQueue.map((post, i) => {
-              const isActive = i === queueIdx
-              return (
-                <div
-                  key={`${post.id}-${i}`}
-                  ref={isActive ? activeRef : null}
-                  style={{
-                    opacity: opacityFor(i - queueIdx),
-                    // Marge respectée par scrollIntoView.
-                    scrollMarginTop: statsHeight + 12,
-                  }}
-                  aria-hidden={isActive ? undefined : 'true'}
-                >
-                  {post.isRemediation && (
-                    <p className="remediation">
-                      <GraduationCap size={15} strokeWidth={2} />
-                      Entraînement ciblé — reconnaître ce biais
-                    </p>
-                  )}
-                  <PostCard
-                    post={post}
-                    isActive={isActive}
-                    onAction={handleAction}
-                    disabled={actionsDisabled}
-                    selectedAction={isActive ? action : null}
-                  />
-                </div>
-              )
-            })}
+            {/* Une publication à la fois. Le fil continu affichait tout le
+                niveau d'un coup, estompé : on lisait la suite au lieu de
+                décider de celle-ci. */}
+            {currentPost && (
+              <motion.div
+                key={`${currentPost.id}-${queueIdx}`}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.22 }}
+              >
+                {currentPost.isRemediation && (
+                  <p className="remediation">
+                    <GraduationCap size={15} strokeWidth={2} />
+                    Entraînement ciblé — reconnaître ce biais
+                  </p>
+                )}
+                <PostCard
+                  post={currentPost}
+                  isActive
+                  onAction={handleAction}
+                  disabled={actionsDisabled}
+                  selectedAction={action}
+                />
+              </motion.div>
+            )}
           </>
         )}
       </Page>

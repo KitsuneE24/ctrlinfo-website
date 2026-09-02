@@ -148,6 +148,25 @@
     font-weight: 700;
   }
 
+  /* Les réactions, dans la grammaire d'une légende : le pseudo puis le texte,
+     sur la même ligne. */
+  .post__thread {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 8px 0 0;
+  }
+
+  .reaction {
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+
+  .reaction__auteur {
+    font-weight: 700;
+  }
+
   /* Discrète, comme sur un vrai réseau — mais lisible. */
   .post__sponso {
     margin-left: auto;

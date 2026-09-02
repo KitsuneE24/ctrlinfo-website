@@ -98,6 +98,22 @@ export default function PostCard({
           {(post.reactionCount ?? 1222).toLocaleString('fr-FR')} J'aime
         </p>
 
+        {/* Les réactions ne sont pas du décor : c'est la pression sociale qui
+            fait circuler une information. Il y a toujours quelqu'un qui y
+            croit, quelqu'un qui doute, et quelqu'un qui va vérifier. */}
+        {post.commentaires?.length > 0 && (
+          <ul className="post__thread">
+            {post.commentaires.map((commentaire, i) => (
+              <li key={i} className="reaction">
+                <span className="reaction__auteur" style={{ color: commentaire.couleur }}>
+                  {commentaire.auteur}
+                </span>{' '}
+                <span className="reaction__texte">{commentaire.texte}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
         {/* Compteur seul : rien n'est cliquable ici. */}
         <p className="post__comments">
           {(post.commentCount ?? 638).toLocaleString('fr-FR')} commentaires

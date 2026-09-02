@@ -40,8 +40,11 @@ export default function PostCard({
         </span>
         <div className="post__identity">
           <p className="post__account">{post.source}</p>
-          <p className="post__domain">{post.domain || 'publication sponsorisée'}</p>
+          <p className="post__domain">{post.domain || 'compte non identifié'}</p>
         </div>
+        {/* La mention légale d'une publicité. Instagram l'affiche, en petit et
+            en gris : c'est justement pour ça qu'il faut apprendre à la voir. */}
+        {post.sponsorise && <span className="post__sponso">Sponsorisé</span>}
       </header>
 
       {/* Le texte avant l'image, à l'inverse d'un fil ordinaire : on lit ce qui

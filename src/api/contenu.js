@@ -29,8 +29,12 @@ export const getDailyTip = () => requete('/astuces/du-jour')
  * suite ne se ressemblent pas, et le fil ne se réduit pas aux quinze mêmes
  * publications.
  */
-export const getTirage = (level, taille = 5) =>
-  requete(`/posts/tirage?level=${level}&taille=${taille}`)
+export const getTirage = (level, { taille, themes } = {}) => {
+  const parametres = new URLSearchParams({ level })
+  if (taille) parametres.set('taille', taille)
+  if (themes?.length) parametres.set('themes', themes.join(','))
+  return requete(`/posts/tirage?${parametres}`)
+}
 
 /** Les publications d'entraînement ciblé, indexées par nom de biais. */
 export const getRemediations = () => requete('/posts/remediations')

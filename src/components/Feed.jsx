@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Sparkles, Trophy, GraduationCap, ArrowRight } from 'lucide-react'
 import { getNiveaux, getRemediations, getTirage } from '../api/contenu'
 import { auMieux, enregistrerDecision, sauvegarder, terminerSession } from '../api/progression'
+import { lireInterets } from '../lib/interests'
 import { useSessionJeu } from '../lib/useSessionJeu'
 import { useAutreJeu } from '../state/jeux'
 import Page from './ui/Page'
@@ -56,7 +57,8 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
    */
   const chargerNiveau = useCallback(
     (level) =>
-      getTirage(level)
+      // Les sujets choisis ordonnent le tirage ; ils ne le filtrent pas.
+      getTirage(level, { themes: lireInterets() })
         .then((tirage) => {
           setPostQueue(tirage)
           setQueueIdx(0)

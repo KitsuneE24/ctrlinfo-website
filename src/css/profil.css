@@ -150,6 +150,39 @@
     background: var(--wash);
   }
 
+  /* --- Centres d'intérêt -------------------------------------------------- */
+
+  .interests__liste {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 14px;
+  }
+
+  .interests__puce {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 14px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+  }
+
+  .interests__puce:hover {
+    background: var(--wash);
+  }
+
+  .interests__puce--actif {
+    border-color: transparent;
+    background: var(--brand-blue);
+    color: var(--brand-cream);
+  }
+
   /* --- Tableau de bord --------------------------------------------------- */
 
   .profil__tete {

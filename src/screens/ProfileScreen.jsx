@@ -13,6 +13,7 @@ import { getTableauDeBord } from '../api/progression'
 import { useRessource } from '../lib/useRessource'
 import { useCompte } from '../state/compte'
 import { PATHS } from '../routes'
+import InterestPicker from '../components/InterestPicker'
 import Page from '../components/ui/Page'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
@@ -157,6 +158,8 @@ function Formulaire() {
           </button>
         </form>
       </section>
+
+      <InterestPicker />
 
       {/* Le mode invité, annoncé sans détour : ce qu'on y gagne, ce qu'on y
           perd. C'est la seule différence qu'il produit pour le joueur. */}
@@ -353,6 +356,8 @@ function TableauDeBord() {
           </div>
         </section>
       )}
+
+      <InterestPicker />
 
       {donnees.derniereSession && (
         <p className="profil__derniere">

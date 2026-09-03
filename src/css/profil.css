@@ -91,26 +91,25 @@
     margin-top: 14px;
   }
 
+  /* Le mode invité est un vrai choix, pas une note de bas de page : le bouton
+     porte la couleur de la marque, en contour pour rester second devant
+     « Créer mon compte ». */
+  .invite__bouton {
+    border: 2px solid var(--brand-blue);
+    background: var(--surface);
+    color: var(--brand-blue);
+    transition: background-color 0.15s;
+  }
+
+  .invite__bouton:hover {
+    background: color-mix(in srgb, var(--brand-blue) 10%, var(--surface));
+  }
+
   .invite__note {
     margin: 0;
     font-size: var(--text-sm);
     line-height: 1.55;
     color: var(--ink-faint);
-  }
-
-  .invite__annuler {
-    padding: 9px 15px;
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    background: var(--surface);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--ink-muted);
-    transition: background-color 0.15s;
-  }
-
-  .invite__annuler:hover {
-    background: var(--wash);
   }
 
   /* --- Centres d'intérêt -------------------------------------------------- */

@@ -58,7 +58,7 @@ function Chiffre({ valeur, libelle }) {
 
 function Formulaire() {
   const navigate = useNavigate()
-  const { connexion, inscription, continuerEnInvite, quitterModeInvite, invite } = useCompte()
+  const { connexion, inscription, continuerEnInvite, invite } = useCompte()
 
   const [mode, setMode] = useState('connexion')
   const [email, setEmail] = useState('')
@@ -153,27 +153,16 @@ function Formulaire() {
               continuerEnInvite()
               navigate(PATHS.feed)
             }}
-            className="button button--ghost"
+            className="button invite__bouton"
           >
             Continuer en invité
             <ArrowRight size={16} strokeWidth={2.2} />
           </button>
           {invite && (
-            <>
-              <p className="invite__note">
-                Tu joues actuellement en invité. Crée un compte quand tu veux :
-                ce que tu feras à partir de là sera gardé.
-              </p>
-              {/* Sans ce bouton, « continuer en invité » serait sans retour :
-                  la question ne se reposerait plus jamais. */}
-              <button
-                type="button"
-                onClick={quitterModeInvite}
-                className="invite__annuler"
-              >
-                Annuler le mode invité
-              </button>
-            </>
+            <p className="invite__note">
+              Tu joues actuellement en invité. Crée un compte quand tu veux : ce
+              que tu feras à partir de là sera gardé.
+            </p>
           )}
         </div>
       </section>

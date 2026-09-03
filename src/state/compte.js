@@ -22,7 +22,6 @@ export const ContexteCompte = createContext({
   inscription: async () => {},
   deconnexion: async () => {},
   continuerEnInvite: () => {},
-  quitterModeInvite: () => {},
 })
 
 export function useCompte() {

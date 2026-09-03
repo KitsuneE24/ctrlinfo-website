@@ -1,11 +1,11 @@
 import { createElement } from 'react'
 import { Link } from 'react-router'
 import { motion } from 'framer-motion'
-import { Clock, HelpCircle, Play, RotateCcw } from 'lucide-react'
+import { HelpCircle, Play, RotateCcw } from 'lucide-react'
 import { PATHS } from '../routes'
 
 /**
- * L'écran de départ d'un jeu : ce qu'on va faire, et en combien de temps.
+ * L'écran de départ d'un jeu : ce qu'on va y faire.
  *
  * Il tient en un écran, sans défilement : le bouton « Commencer » et ce qu'on
  * accepte en le pressant se lisent d'un seul regard.
@@ -36,12 +36,6 @@ export default function GameStart({ jeu, connecte, reprise, onStart, onRules }) 
             {reprise ? 'Les règles' : 'Avant de jouer'}
           </p>
           <h1 className="game-start__title">{jeu.titre}</h1>
-          {jeu.dureeMinutes && (
-            <p className="game-start__duration">
-              <Clock size={14} strokeWidth={2} />
-              {jeu.dureeMinutes} min
-            </p>
-          )}
         </header>
 
         <ul className="game-start__points">

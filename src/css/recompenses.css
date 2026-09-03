@@ -189,11 +189,21 @@
     gap: 10px;
   }
 
+  /* Les deux moitiés se touchent : pas d'écart, un seul filet entre elles, et
+     les angles arrondis portés par le conteneur. */
   .auth__portes,
   .auth__volets {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+  }
+
+  /* Le filet fait le tour des deux blocs : sans lui, la moitié blanche du
+     formulaire flotterait sur le fond de page. */
+  .auth__portes,
+  .auth__volets {
+    border: 1px solid var(--line-strong);
   }
 
   /* Les volets s'empilent quand deux colonnes écraseraient le formulaire ; les
@@ -205,26 +215,36 @@
   }
 
   .auth__porte {
-    padding: 14px 10px;
-    border: 1px solid var(--line-strong);
-    border-radius: 12px;
+    padding: 15px 10px;
     background: var(--surface);
     font-size: var(--text-md);
     font-weight: 700;
     color: var(--ink-muted);
-    transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+    transition: color 0.15s, background-color 0.15s;
   }
 
+  .auth__porte + .auth__porte {
+    border-left: 1px solid var(--line-strong);
+  }
+
+  /* Le survol éclaircit, il n'assombrit pas — actif compris. */
   .auth__porte:hover {
-    background: var(--wash);
+    background: color-mix(in srgb, var(--brand-blue) 10%, var(--surface));
+    color: var(--ink);
   }
 
   .auth__porte--actif {
-    border-color: transparent;
     background: var(--brand-blue);
     color: var(--brand-cream);
   }
 
+  .auth__porte--actif:hover {
+    background: color-mix(in srgb, var(--brand-blue) 80%, white);
+    color: var(--brand-cream);
+  }
+
+  /* Les deux volets font la même taille : la grille les étire à la hauteur du
+     plus grand, et leur contenu remplit la case. */
   .auth__volet {
     display: flex;
     min-width: 0;
@@ -233,6 +253,8 @@
 
   .auth__volet > * {
     flex: 1 1 auto;
+    border-radius: 0;
+    border: 0;
   }
 
   .auth__decor {

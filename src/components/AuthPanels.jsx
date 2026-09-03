@@ -1,31 +1,31 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Banniere from './ui/Banniere'
 
 /**
  * Connexion et inscription, sur un même cadre.
  *
- *   ┌══════════════┬──────────────┐
- *   ║ Créer compte ║ Se connecter │   la porte active est dans le métal
- *   ║              ╫──────────────┤
- *   ║   accroche   ║  formulaire  │   le métal descend sous sa porte
- *   └══════════════┴──────────────┘
+ * Le métal en fusion est **une seule surface**, qui passe **devant** le
+ * formulaire — comme un rideau. Elle porte son accroche, donc rien ne peut se
+ * désynchroniser : un seul élément se déplace, et un seul contexte WebGL est
+ * ouvert.
  *
- * Le métal en fusion est **une seule surface**, posée derrière la colonne
- * active — bouton compris. Elle glisse d'un bord à l'autre quand on change de
- * porte : un seul élément qui bouge, donc un mouvement qui ne peut pas se
- * désynchroniser. C'est aussi un seul contexte WebGL, là où deux panneaux
- * séparés en auraient demandé deux.
+ * Le formulaire, lui, change de côté **à mi-course**, pendant qu'il est
+ * couvert. C'est ce qui fait la transition : on ne le voit jamais sauter, il
+ * est déjà à sa nouvelle place quand le rideau le découvre.
  *
- * Ce qui est posé par-dessus suit le même ressort : l'accroche et le
- * formulaire changent de colonne avec `layout`. La colonne de chacun est
- * décidée en CSS depuis `data-mode`, et non par un style en ligne — sinon la
- * disposition empilée du téléphone ne pourrait plus la reprendre.
+ * Les boutons restent au-dessus du rideau : ce sont les deux portes, elles ne
+ * bougent pas — c'est le métal qui passe de l'une à l'autre.
  *
  * Les réglages du métal ne sont pas recopiés ici : ils vivent dans
  * `ui/Banniere.jsx`, et cette surface est donc réglée comme les bandeaux de
  * l'accueil et des ressources.
  */
-const RESSORT = { type: 'spring', stiffness: 120, damping: 22, mass: 1.1 }
+const COURSE_MS = 620
+
+// Une courbe sans rebond : un rideau qui dépasse puis revient ne ressemble
+// plus à une transition de page.
+const GLISSEMENT = { type: 'tween', duration: COURSE_MS / 1000, ease: [0.65, 0, 0.35, 1] }
 
 const ACCROCHES = {
   connexion: {
@@ -40,22 +40,19 @@ const ACCROCHES = {
 }
 
 export default function AuthPanels({ mode, onMode, children }) {
+  // Ce que le rideau a déjà découvert. En retard d'une demi-course sur `mode`.
+  const [decouvert, setDecouvert] = useState(mode)
+
+  useEffect(() => {
+    const minuteur = setTimeout(() => setDecouvert(mode), COURSE_MS / 2)
+    return () => clearTimeout(minuteur)
+  }, [mode])
+
   const inscrire = mode === 'inscription'
-  const accroche = ACCROCHES[mode] ?? ACCROCHES.connexion
+  const accroche = ACCROCHES[decouvert] ?? ACCROCHES.connexion
 
   return (
-    <div className="auth" data-mode={mode}>
-      {/* La surface de métal, derrière tout le reste. Le formulaire est opaque
-          et la recouvre : elle ne se voit que sous la porte active. */}
-      <motion.div
-        aria-hidden="true"
-        animate={{ x: inscrire ? '0%' : '100%' }}
-        transition={RESSORT}
-        className="auth__metal"
-      >
-        <Banniere className="auth__fond" />
-      </motion.div>
-
+    <div className="auth" data-mode={mode} data-decouvert={decouvert}>
       <div className="auth__grille">
         <button
           type="button"
@@ -78,16 +75,30 @@ export default function AuthPanels({ mode, onMode, children }) {
           Se connecter
         </button>
 
-        <motion.div layout transition={RESSORT} className="auth__accroche">
+        <div className="auth__forme">{children}</div>
+      </div>
+
+      {/* Le rideau, par-dessus le formulaire et sous les portes. */}
+      <motion.div
+        animate={{ x: inscrire ? '0%' : '100%' }}
+        transition={GLISSEMENT}
+        className="auth__metal"
+      >
+        <Banniere className="auth__fond" />
+        <motion.div
+          // La clé refait l'apparition : l'accroche se substitue en fondu
+          // plutôt que de changer d'un coup au milieu du mouvement.
+          key={decouvert}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.25 }}
+          className="auth__accroche"
+        >
           <p className="auth__eyebrow">CTRL INFO</p>
           <h2 className="auth__titre">{accroche.titre}</h2>
           <p className="auth__texte">{accroche.texte}</p>
         </motion.div>
-
-        <motion.div layout transition={RESSORT} className="auth__forme">
-          {children}
-        </motion.div>
-      </div>
+      </motion.div>
     </div>
   )
 }

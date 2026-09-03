@@ -1,46 +1,15 @@
-import { createElement, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router'
 import { ArrowRight, Play, Zap, Flame, ShieldQuestion } from 'lucide-react'
 import Page from '../components/ui/Page'
 import Banniere from '../components/ui/Banniere'
 import StoryBar from '../components/StoryBar'
 import DailyTip from '../components/DailyTip'
-import { useJeux } from '../state/jeux'
-import { GAME_PATHS, PATHS } from '../routes'
+import { PATHS } from '../routes'
 
 // Un chemin (ex. '/ctrl-info.mp4') ou une URL d'intégration, pour remplacer le
 // visuel d'attente par la vraie vidéo.
 const VIDEO_URL = null
-
-// Le parcours conseillé, dans l'ordre. Il n'oblige à rien : il répond à
-// « je fais quoi, et dans quel ordre ? », qui restait sans réponse.
-const JOURNEY_STEPS = [
-  {
-    titre: 'Lis un thème',
-    texte: "Deux minutes pour savoir ce qu'on cherche à te faire faire.",
-    lien: PATHS.resources,
-    action: 'Ouvrir les ressources',
-  },
-  {
-    titre: "Joue le fil d'actualité",
-    texte: 'Publication par publication, tu décides : aimer, partager, signaler.',
-    lien: PATHS.feed,
-    action: 'Ouvrir le fil',
-  },
-  {
-    titre: 'Réponds à un proche',
-    texte:
-      "Les conversations, c'est la même chose, mais quand ça vient de quelqu'un que tu connais.",
-    lien: PATHS.chats,
-    action: 'Ouvrir les conversations',
-  },
-  {
-    titre: 'Regarde ce qui te piège',
-    texte: 'Ton profil garde tes parties et te dit sur quel type de piège tu tombes le plus.',
-    lien: PATHS.profile,
-    action: 'Ouvrir mon profil',
-  },
-]
 
 const LEVIERS = [
   {
@@ -60,45 +29,8 @@ const LEVIERS = [
   },
 ]
 
-/**
- * L'annonce d'un jeu, dessinée comme une publication : un compte en tête, une
- * accroche, ce qu'on y apprend, et un bouton pour y aller.
- *
- * C'est la même grammaire que le reste du site — on ne quitte jamais la forme
- * du réseau social, pas même pour présenter les jeux.
- */
-function GameTeaser({ jeu }) {
-  return (
-    <article className="game-teaser">
-      <header className="game-teaser__head">
-        <span className="game-teaser__badge" style={{ background: jeu.couleur }}>
-          {createElement(jeu.Icon, { size: 19, strokeWidth: 1.9 })}
-        </span>
-        <div>
-          <p className="game-teaser__titre">{jeu.titre}</p>
-          <p className="game-teaser__court">{jeu.court}</p>
-        </div>
-      </header>
-
-      <p className="game-teaser__accroche">{jeu.accroche}</p>
-
-      <ul className="game-teaser__points">
-        {jeu.points.slice(0, 3).map((point) => (
-          <li key={point}>{point}</li>
-        ))}
-      </ul>
-
-      <Link to={GAME_PATHS[jeu.id] ?? PATHS.home} className="game-teaser__lien">
-        Commencer
-        <ArrowRight size={15} strokeWidth={2.2} />
-      </Link>
-    </article>
-  )
-}
-
 export default function HomeScreen() {
   const [videoOpen, setVideoOpen] = useState(false)
-  const { jeux } = useJeux()
 
   return (
     <Page seamless>
@@ -134,27 +66,6 @@ export default function HomeScreen() {
               <b>partager</b> ou <b>signaler</b>.
             </p>
           </div>
-        </section>
-
-        {/* Le parcours, avant les explications : on sait où l'on va avant
-            d'apprendre pourquoi. */}
-        <section className="journey">
-          <h2 className="journey__title">Comment ça se passe</h2>
-          <ol className="journey__steps">
-            {JOURNEY_STEPS.map((etape, i) => (
-              <li key={etape.titre} className="journey__step">
-                <span className="journey__number">{i + 1}</span>
-                <div className="journey__text">
-                  <p className="journey__step-title">{etape.titre}</p>
-                  <p className="journey__step-text">{etape.texte}</p>
-                  <Link to={etape.lien} className="journey__link">
-                    {etape.action}
-                    <ArrowRight size={14} strokeWidth={2.2} />
-                  </Link>
-                </div>
-              </li>
-            ))}
-          </ol>
         </section>
 
         {/* Vidéo à gauche, explication à droite. En dessous de 900px, les deux
@@ -222,19 +133,6 @@ export default function HomeScreen() {
             </div>
           </div>
         </section>
-
-        {/* Les jeux, annoncés avant d'être proposés : on sait où l'on met les
-            pieds, et combien de temps ça prend. */}
-        {jeux.length > 0 && (
-          <section className="game-teasers">
-            <h2 className="game-teasers__titre">Confronte-toi</h2>
-            <div className="game-teasers__liste">
-              {jeux.map((jeu) => (
-                <GameTeaser key={jeu.id} jeu={jeu} />
-              ))}
-            </div>
-          </section>
-        )}
 
         {/* Les deux entrées du site, en fin de page — comme à la fin de
             Ressources, et avec la même carte. Elles étaient dans la bannière,

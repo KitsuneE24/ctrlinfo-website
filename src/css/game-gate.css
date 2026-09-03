@@ -142,32 +142,22 @@
     box-shadow: 0 24px 60px rgba(20, 8, 44, 0.4);
   }
 
-  /* En-tête sur une ligne : la pastille, le nom, la durée. Empilés, ils
-     coûtaient une centaine de pixels pour trois informations courtes. */
+  /* En-tête centré : la pastille, le surtitre, le nom du jeu, la durée. */
   .game-start__head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    text-align: center;
   }
 
   .game-start__badge {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 14px;
+    display: inline-grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
     color: var(--brand-cream);
   }
 
-  .game-start__naming {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
   .game-start__eyebrow {
-    margin: 0;
+    margin: 10px 0 0;
     font-size: var(--text-2xs);
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -176,9 +166,9 @@
   }
 
   .game-start__title {
-    margin: 2px 0 0;
+    margin: 4px 0 0;
     font-family: var(--font-title);
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
     font-weight: 700;
     line-height: 1.15;
     color: var(--ink);
@@ -186,11 +176,10 @@
 
   .game-start__duration {
     display: inline-flex;
-    flex-shrink: 0;
     align-items: center;
     gap: 5px;
-    margin: 0;
-    padding: 6px 11px;
+    margin: 10px 0 0;
+    padding: 5px 12px;
     border-radius: 999px;
     background: var(--wash);
     font-size: var(--text-sm);
@@ -198,35 +187,25 @@
     color: var(--ink-muted);
   }
 
-  /* La règle en une phrase : c'est elle qu'on lit si on ne lit rien d'autre. */
-  .game-start__rule {
-    margin: 0;
-    max-width: var(--measure);
-    font-size: var(--text-lg);
-    line-height: 1.35;
-    font-weight: 600;
-    color: var(--ink);
-  }
-
   .game-start__points {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     margin: 0;
   }
 
   .game-start__points li {
     position: relative;
-    padding-left: 18px;
+    padding-left: 20px;
     font-size: var(--text-md);
-    line-height: 1.4;
+    line-height: 1.45;
     color: var(--ink-soft);
   }
 
   .game-start__points li::before {
     content: '';
     position: absolute;
-    top: 0.55em;
+    top: 0.6em;
     left: 3px;
     width: 6px;
     height: 6px;
@@ -234,88 +213,76 @@
     background: var(--brand-blue);
   }
 
-  /* Le rappel du mode sans compte : présent à chaque départ, et jamais un
-     cul-de-sac — il porte de quoi y remédier, en bouton et non en lien. */
-  .game-start__guest {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 10px 12px;
-    border: 1px solid var(--line-strong);
-    border-radius: 12px;
-    background: var(--wash);
-  }
-
-  .game-start__guest-text {
-    flex: 1 1 auto;
-    min-width: 0;
-    margin: 0;
-    font-size: var(--text-sm);
-    line-height: 1.4;
-    color: var(--ink-soft);
-  }
-
-  .game-start__guest-button {
-    flex-shrink: 0;
-    padding: 9px 15px;
-    border-radius: 999px;
-    background: var(--brand-blue);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--brand-cream);
-    transition: background-color 0.15s, transform 0.12s;
-  }
-
-  .game-start__guest-button:hover {
-    background: color-mix(in srgb, var(--brand-blue) 86%, black);
-  }
-
-  .game-start__guest-button:active {
-    transform: scale(0.97);
-  }
-
+  /* Les deux boutons côte à côte. En dessous de 360 px ils s'empilent : deux
+     libellés sur une ligne y deviennent illisibles. */
   .game-start__actions {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
+  .game-start__login,
   .game-start__go {
     display: flex;
+    flex: 1 1 140px;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 13px 18px;
+    padding: 13px 16px;
     border-radius: 999px;
-    /* Le magenta de la marque : c'est l'action qui entraîne, elle porte la
-       couleur chaude plutôt que celle des jeux. 9,70:1 sur le crème, AAA. */
-    background: var(--brand-magenta);
-    color: var(--brand-cream);
-    font-size: var(--text-lg);
+    font-size: var(--text-md);
     font-weight: 700;
     transition: background-color 0.15s, transform 0.12s;
+  }
+
+  .game-start__login {
+    background: var(--brand-blue);
+    color: var(--brand-cream);
+  }
+
+  .game-start__login:hover {
+    background: color-mix(in srgb, var(--brand-blue) 86%, black);
+  }
+
+  .game-start__go {
+    background: var(--brand-magenta);
+    color: var(--brand-cream);
   }
 
   .game-start__go:hover {
     background: color-mix(in srgb, var(--brand-magenta) 88%, black);
   }
 
+  .game-start__login:active,
   .game-start__go:active {
     transform: scale(0.98);
   }
 
-  .game-start__rules {
+  /* Le pied : la mention légère, et la porte vers les règles détaillées. */
+  .game-start__pied {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 6px;
-    padding: 9px 18px;
-    border-radius: 999px;
+  }
+
+  .game-start__guest {
+    margin: 0;
+    font-size: var(--text-xs);
+    line-height: 1.45;
+    text-align: center;
     color: var(--ink-muted);
-    font-size: var(--text-md);
+  }
+
+  .game-start__rules {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: var(--text-xs);
     font-weight: 600;
+    color: var(--ink-muted);
     transition: background-color 0.15s;
   }
 
@@ -332,10 +299,6 @@
     .game-start__card {
       gap: 10px;
       padding: 16px;
-    }
-
-    .game-start__rule {
-      font-size: var(--text-md);
     }
 
     .game-start__points li {

@@ -221,12 +221,14 @@
   }
 
   /* Moitiés invisibles de navigation, sous le contenu. */
+  /* Moitié gauche, moitié droite, comme sur Instagram — et au-dessus du
+     texte : elles passaient dessous, donc un tap au milieu ne faisait rien. */
   .story-view__zone {
     position: absolute;
-    z-index: 0;
+    z-index: 2;
     top: 0;
     bottom: 0;
-    width: 33%;
+    width: 50%;
   }
 
   .story-view__zone--precedent {
@@ -235,7 +237,6 @@
 
   .story-view__zone--suivant {
     right: 0;
-    width: 67%;
   }
 
   /* Nommées une par une, et pas par `> *` : la règle attraperait aussi les
@@ -245,5 +246,12 @@
   .story-view__corps {
     position: relative;
     z-index: 1;
+  }
+
+  /* Ce qui reste cliquable repasse au-dessus des zones. */
+  .story-view__head,
+  .story-view__lien {
+    position: relative;
+    z-index: 3;
   }
 }

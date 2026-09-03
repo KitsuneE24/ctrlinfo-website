@@ -86,25 +86,29 @@ function Formulaire() {
   return (
     <Page feed title="Ton profil" subtitle="Pour garder tes scores d'une fois sur l'autre">
       <AuthPanels mode={mode}>
-        <section className="card compte">
+        <div className="compte">
+          {/* Les deux portes, au-dessus du cadre plutôt que dedans : on choisit
+              où l'on va avant de commencer à taper. */}
           <div className="compte__bascule">
             <button
               type="button"
-              onClick={() => setMode('connexion')}
-              className={`compte__onglet${!inscrire ? ' compte__onglet--actif' : ''}`}
-            >
-              Se connecter
-            </button>
-            <button
-              type="button"
               onClick={() => setMode('inscription')}
+              aria-pressed={inscrire}
               className={`compte__onglet${inscrire ? ' compte__onglet--actif' : ''}`}
             >
               Créer un compte
             </button>
+            <button
+              type="button"
+              onClick={() => setMode('connexion')}
+              aria-pressed={!inscrire}
+              className={`compte__onglet${!inscrire ? ' compte__onglet--actif' : ''}`}
+            >
+              Se connecter
+            </button>
           </div>
 
-          <form onSubmit={envoyer} className="compte__form">
+          <form onSubmit={envoyer} className="card compte__form">
             {inscrire && (
               <label className="champ">
                 <span className="champ__label">Pseudo</span>
@@ -153,7 +157,7 @@ function Formulaire() {
               {enCours ? 'Un instant…' : inscrire ? 'Créer mon compte' : 'Me connecter'}
             </button>
           </form>
-        </section>
+        </div>
       </AuthPanels>
 
       <InterestPicker />

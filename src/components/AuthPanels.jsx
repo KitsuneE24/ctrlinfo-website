@@ -2,27 +2,29 @@ import { motion } from 'framer-motion'
 import Banniere from './ui/Banniere'
 
 /**
- * Connexion et inscription : deux portes au-dessus, deux volets en dessous.
+ * Connexion et inscription, sur un même cadre.
  *
- *   ┌──────────────┬──────────────┐
- *   │ Créer compte │ Se connecter │   les deux portes, moitié-moitié
- *   ├──────────────┼──────────────┤
- *   │              │              │
- *   │    décor     │  formulaire  │   alignés sur les portes
- *   └──────────────┴──────────────┘
+ *   ┌══════════════┬──────────────┐
+ *   ║ Créer compte ║ Se connecter │   la porte active est dans le métal
+ *   ║              ╫──────────────┤
+ *   ║   accroche   ║  formulaire  │   le métal descend sous sa porte
+ *   └══════════════┴──────────────┘
  *
- * Le formulaire se place **sous la porte active** : à droite pour se
- * connecter, à gauche pour s'inscrire. C'est ce déplacement qui dit qu'on a
- * changé de porte, plutôt qu'un onglet qui s'allume. Les deux volets portent
- * `layout` — framer-motion anime alors leur déplacement par une
- * transformation, sans redimensionner le canevas WebGL qui se trouve dedans.
+ * Le métal en fusion est **une seule surface**, posée derrière la colonne
+ * active — bouton compris. Elle glisse d'un bord à l'autre quand on change de
+ * porte : un seul élément qui bouge, donc un mouvement qui ne peut pas se
+ * désynchroniser. C'est aussi un seul contexte WebGL, là où deux panneaux
+ * séparés en auraient demandé deux.
  *
- * Les réglages du « métal en fusion » ne sont pas recopiés ici : ils vivent
- * dans `ui/Banniere.jsx`, et ce volet est donc réglé comme les bandeaux de
+ * Ce qui est posé par-dessus suit le même ressort : l'accroche et le
+ * formulaire changent de colonne avec `layout`. La colonne de chacun est
+ * décidée en CSS depuis `data-mode`, et non par un style en ligne — sinon la
+ * disposition empilée du téléphone ne pourrait plus la reprendre.
+ *
+ * Les réglages du métal ne sont pas recopiés ici : ils vivent dans
+ * `ui/Banniere.jsx`, et cette surface est donc réglée comme les bandeaux de
  * l'accueil et des ressources.
  */
-// Ressort volontairement mou : le volet parcourt la moitié de l'écran, et un
-// ressort vif y donne un à-coup au lieu d'un glissement.
 const RESSORT = { type: 'spring', stiffness: 120, damping: 22, mass: 1.1 }
 
 const ACCROCHES = {
@@ -42,13 +44,26 @@ export default function AuthPanels({ mode, onMode, children }) {
   const accroche = ACCROCHES[mode] ?? ACCROCHES.connexion
 
   return (
-    <div className="auth">
-      <div className="auth__portes">
+    <div className="auth" data-mode={mode}>
+      {/* La surface de métal, derrière tout le reste. Le formulaire est opaque
+          et la recouvre : elle ne se voit que sous la porte active. */}
+      <motion.div
+        aria-hidden="true"
+        animate={{ x: inscrire ? '0%' : '100%' }}
+        transition={RESSORT}
+        className="auth__metal"
+      >
+        <Banniere className="auth__fond" />
+      </motion.div>
+
+      <div className="auth__grille">
         <button
           type="button"
           onClick={() => onMode('inscription')}
           aria-pressed={inscrire}
-          className={`auth__porte${inscrire ? ' auth__porte--actif' : ''}`}
+          className={`auth__porte auth__porte--gauche${
+            inscrire ? ' auth__porte--actif' : ''
+          }`}
         >
           Créer un compte
         </button>
@@ -56,32 +71,20 @@ export default function AuthPanels({ mode, onMode, children }) {
           type="button"
           onClick={() => onMode('connexion')}
           aria-pressed={!inscrire}
-          className={`auth__porte${!inscrire ? ' auth__porte--actif' : ''}`}
+          className={`auth__porte auth__porte--droite${
+            !inscrire ? ' auth__porte--actif' : ''
+          }`}
         >
           Se connecter
         </button>
-      </div>
 
-      <div className="auth__volets">
-        <motion.div
-          layout
-          transition={RESSORT}
-          className="auth__volet"
-          style={{ order: inscrire ? 2 : 1 }}
-        >
-          <Banniere className="auth__decor">
-            <p className="auth__eyebrow">CTRL INFO</p>
-            <h2 className="auth__titre">{accroche.titre}</h2>
-            <p className="auth__texte">{accroche.texte}</p>
-          </Banniere>
+        <motion.div layout transition={RESSORT} className="auth__accroche">
+          <p className="auth__eyebrow">CTRL INFO</p>
+          <h2 className="auth__titre">{accroche.titre}</h2>
+          <p className="auth__texte">{accroche.texte}</p>
         </motion.div>
 
-        <motion.div
-          layout
-          transition={RESSORT}
-          className="auth__volet"
-          style={{ order: inscrire ? 1 : 2 }}
-        >
+        <motion.div layout transition={RESSORT} className="auth__forme">
           {children}
         </motion.div>
       </div>

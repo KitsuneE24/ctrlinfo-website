@@ -5,6 +5,7 @@ import { getRecords, getTableauDeBord } from '../api/progression'
 import { useRessource } from '../lib/useRessource'
 import { useCompte } from '../state/compte'
 import { PATHS } from '../routes'
+import AuthPanels from '../components/AuthPanels'
 import AvatarPicker, { AvatarJoueur } from '../components/AvatarPicker'
 import InterestPicker from '../components/InterestPicker'
 import Records from '../components/Records'
@@ -84,74 +85,76 @@ function Formulaire() {
 
   return (
     <Page feed title="Ton profil" subtitle="Pour garder tes scores d'une fois sur l'autre">
-      <section className="card compte">
-        <div className="compte__bascule">
-          <button
-            type="button"
-            onClick={() => setMode('connexion')}
-            className={`compte__onglet${!inscrire ? ' compte__onglet--actif' : ''}`}
-          >
-            Se connecter
-          </button>
-          <button
-            type="button"
-            onClick={() => setMode('inscription')}
-            className={`compte__onglet${inscrire ? ' compte__onglet--actif' : ''}`}
-          >
-            Créer un compte
-          </button>
-        </div>
+      <AuthPanels mode={mode}>
+        <section className="card compte">
+          <div className="compte__bascule">
+            <button
+              type="button"
+              onClick={() => setMode('connexion')}
+              className={`compte__onglet${!inscrire ? ' compte__onglet--actif' : ''}`}
+            >
+              Se connecter
+            </button>
+            <button
+              type="button"
+              onClick={() => setMode('inscription')}
+              className={`compte__onglet${inscrire ? ' compte__onglet--actif' : ''}`}
+            >
+              Créer un compte
+            </button>
+          </div>
 
-        <form onSubmit={envoyer} className="compte__form">
-          {inscrire && (
+          <form onSubmit={envoyer} className="compte__form">
+            {inscrire && (
+              <label className="champ">
+                <span className="champ__label">Pseudo</span>
+                <input
+                  type="text"
+                  value={pseudo}
+                  onChange={(e) => setPseudo(e.target.value)}
+                  required
+                  minLength={2}
+                  maxLength={40}
+                  autoComplete="nickname"
+                  className="champ__input"
+                />
+              </label>
+            )}
+
             <label className="champ">
-              <span className="champ__label">Pseudo</span>
+              <span className="champ__label">Adresse e-mail</span>
               <input
-                type="text"
-                value={pseudo}
-                onChange={(e) => setPseudo(e.target.value)}
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
-                minLength={2}
-                maxLength={40}
-                autoComplete="nickname"
+                autoComplete="email"
                 className="champ__input"
               />
             </label>
-          )}
 
-          <label className="champ">
-            <span className="champ__label">Adresse e-mail</span>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              autoComplete="email"
-              className="champ__input"
-            />
-          </label>
+            <label className="champ">
+              <span className="champ__label">Mot de passe</span>
+              <input
+                type="password"
+                value={motDePasse}
+                onChange={(e) => setMotDePasse(e.target.value)}
+                required
+                minLength={inscrire ? 8 : 1}
+                autoComplete={inscrire ? 'new-password' : 'current-password'}
+                className="champ__input"
+              />
+              {inscrire && <span className="champ__aide">Huit caractères au minimum.</span>}
+            </label>
 
-          <label className="champ">
-            <span className="champ__label">Mot de passe</span>
-            <input
-              type="password"
-              value={motDePasse}
-              onChange={(e) => setMotDePasse(e.target.value)}
-              required
-              minLength={inscrire ? 8 : 1}
-              autoComplete={inscrire ? 'new-password' : 'current-password'}
-              className="champ__input"
-            />
-            {inscrire && <span className="champ__aide">Huit caractères au minimum.</span>}
-          </label>
+            {erreur && <p className="compte__erreur">{erreur}</p>}
 
-          {erreur && <p className="compte__erreur">{erreur}</p>}
-
-          <button type="submit" disabled={enCours} className="button">
-            {enCours ? 'Un instant…' : inscrire ? 'Créer mon compte' : 'Me connecter'}
-          </button>
-        </form>
-      </section>
+            <button type="submit" disabled={enCours} className="button">
+              {enCours ? 'Un instant…' : inscrire ? 'Créer mon compte' : 'Me connecter'}
+            </button>
+          </form>
+        </section>
+      </AuthPanels>
 
       <InterestPicker />
 

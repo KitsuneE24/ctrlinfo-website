@@ -422,17 +422,6 @@
     color: var(--ink);
   }
 
-  .outcome__line {
-    margin: 10px 0 0;
-    font-size: var(--text-md);
-    color: var(--ink-muted);
-  }
-
-  .outcome__figure {
-    font-weight: 700;
-    color: var(--brand-blue);
-  }
-
   .outcome__note {
     max-width: 34ch;
     margin: 12px auto 0;

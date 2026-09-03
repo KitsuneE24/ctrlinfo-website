@@ -85,29 +85,7 @@ function Formulaire() {
 
   return (
     <Page feed title="Ton profil" subtitle="Pour garder tes scores d'une fois sur l'autre">
-      <AuthPanels mode={mode}>
-        <div className="compte">
-          {/* Les deux portes, au-dessus du cadre plutôt que dedans : on choisit
-              où l'on va avant de commencer à taper. */}
-          <div className="compte__bascule">
-            <button
-              type="button"
-              onClick={() => setMode('inscription')}
-              aria-pressed={inscrire}
-              className={`compte__onglet${inscrire ? ' compte__onglet--actif' : ''}`}
-            >
-              Créer un compte
-            </button>
-            <button
-              type="button"
-              onClick={() => setMode('connexion')}
-              aria-pressed={!inscrire}
-              className={`compte__onglet${!inscrire ? ' compte__onglet--actif' : ''}`}
-            >
-              Se connecter
-            </button>
-          </div>
-
+      <AuthPanels mode={mode} onMode={setMode}>
           <form onSubmit={envoyer} className="card compte__form">
             {inscrire && (
               <label className="champ">
@@ -157,10 +135,7 @@ function Formulaire() {
               {enCours ? 'Un instant…' : inscrire ? 'Créer mon compte' : 'Me connecter'}
             </button>
           </form>
-        </div>
       </AuthPanels>
-
-      <InterestPicker />
 
       {/* Le mode invité, annoncé sans détour : ce qu'on y gagne, ce qu'on y
           perd. C'est la seule différence qu'il produit pour le joueur. */}

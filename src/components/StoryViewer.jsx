@@ -8,7 +8,7 @@ const DUREE = '8s'
 
 /**
  * Une story en plein écran : barres de progression, tap à droite ou à gauche,
- * flèches, Échap.
+ * flèches, Échap, et un clic à côté du cadre pour sortir.
  *
  * L'avancement passe par une animation CSS et non un minuteur — sans
  * animation, la story attend qu'on la fasse avancer.
@@ -31,8 +31,16 @@ export default function StoryViewer({ stories, index, onIndex, onClose }) {
   const Icone = icone(story.icone)
 
   return (
-    <div className="story-view" role="dialog" aria-modal="true" aria-label={story.titre}>
-      <div className="story-view__frame">
+    <div
+      className="story-view"
+      role="dialog"
+      aria-modal="true"
+      aria-label={story.titre}
+      // Cliquer à côté du cadre ferme, comme sur Instagram. Le cadre arrête la
+      // propagation : les zones de tap gardent leur rôle.
+      onClick={onClose}
+    >
+      <div className="story-view__frame" onClick={(event) => event.stopPropagation()}>
         <div className="story-view__bars">
           {stories.map((autre, i) => (
             <span key={autre.id} className="story-view__bar">

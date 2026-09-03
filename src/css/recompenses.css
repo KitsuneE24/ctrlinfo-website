@@ -191,6 +191,7 @@
     --porte-h: 54px;
     position: relative;
     overflow: hidden;
+    border: 1px solid var(--line-strong);
     border-radius: var(--radius-card);
   }
 

@@ -178,4 +178,107 @@
     text-transform: uppercase;
     color: var(--ink-muted);
   }
+
+  /* --- Connexion et inscription, en deux volets --------------------------- */
+
+  .auth {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Les volets ne se côtoient qu'à partir du moment où deux colonnes tiennent
+     sans écraser le formulaire. */
+  @media (min-width: 820px) {
+    .auth {
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    .auth__volet {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .auth__volet > * {
+      height: 100%;
+    }
+  }
+
+  .auth__decor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 26px 22px;
+    min-height: 160px;
+  }
+
+  .auth__eyebrow {
+    margin: 0;
+    font-family: var(--font-brand);
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    opacity: 0.9;
+  }
+
+  .auth__titre {
+    margin: 10px 0 0;
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .auth__texte {
+    margin: 9px 0 0;
+    max-width: 34ch;
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
+    opacity: 0.92;
+  }
+
+  /* --- Les couronnes décrochées en fin de partie -------------------------- */
+
+  .gains {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 20px 0 0;
+    text-align: left;
+  }
+
+  .gain {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+  }
+
+  .gain__picto {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    color: var(--brand-cream);
+  }
+
+  .gain__nom {
+    margin: 0;
+    font-size: var(--text-md);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .gain__texte {
+    margin: 2px 0 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+
 }

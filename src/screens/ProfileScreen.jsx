@@ -1,19 +1,13 @@
 import { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router'
-import {
-  ArrowRight,
-  CircleUserRound,
-  LogOut,
-  MessagesSquare,
-  Newspaper,
-  Route,
-  Trophy,
-} from 'lucide-react'
-import { getTableauDeBord } from '../api/progression'
+import { ArrowRight, LogOut, MessagesSquare, Newspaper, Route, Trophy } from 'lucide-react'
+import { getRecords, getTableauDeBord } from '../api/progression'
 import { useRessource } from '../lib/useRessource'
 import { useCompte } from '../state/compte'
 import { PATHS } from '../routes'
+import AvatarPicker, { AvatarJoueur } from '../components/AvatarPicker'
 import InterestPicker from '../components/InterestPicker'
+import Records from '../components/Records'
 import Page from '../components/ui/Page'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
@@ -212,14 +206,19 @@ const NOM_DU_JEU = { feed: "Le fil d'actualité", chat: 'Les conversations' }
 function TableauDeBord() {
   const { utilisateur, deconnexion } = useCompte()
   const { donnees, chargement, erreur, recharger } = useRessource(getTableauDeBord, [])
+  const { donnees: records } = useRessource(getRecords, [])
+
+  // L'avatar vient du serveur avec les records ; le choix en cours prend le
+  // dessus tant qu'il n'a pas été rechargé — se tromper de vignette ne doit pas
+  // coûter un aller-retour.
+  const [choisi, setChoisi] = useState(undefined)
+  const avatar = choisi === undefined ? (records?.avatar ?? null) : choisi
 
   const partir = useCallback(() => deconnexion(), [deconnexion])
 
   const entete = (
     <header className="profil__tete">
-      <span className="profil__avatar">
-        <CircleUserRound size={30} strokeWidth={1.6} />
-      </span>
+      <AvatarJoueur avatar={avatar} pseudo={utilisateur?.pseudo} />
       <div className="profil__identite">
         <p className="profil__pseudo">{utilisateur?.pseudo}</p>
         <p className="profil__email">{utilisateur?.email}</p>
@@ -256,6 +255,8 @@ function TableauDeBord() {
   return (
     <Page feed>
       {entete}
+
+      <Records records={records} />
 
       <section className="card">
         <div className="card__body">
@@ -356,6 +357,11 @@ function TableauDeBord() {
           </div>
         </section>
       )}
+
+      <AvatarPicker
+        choisi={avatar?.id ?? null}
+        onChoisi={setChoisi}
+      />
 
       <InterestPicker />
 

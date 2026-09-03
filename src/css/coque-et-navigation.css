@@ -138,6 +138,8 @@
   }
 
   .app__main {
+    /* Repère de l'écran de départ, qui s'y pose en absolu. */
+    position: relative;
     display: flex;
     flex: 1 1 0;
     min-height: 0;

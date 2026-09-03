@@ -7,6 +7,11 @@ export default function FeedScreen() {
   const { paused, runKey, onFinished } = useOutletContext()
   const navigate = useNavigate()
 
+  // Rien ne se charge tant que la partie n'a pas commencé : l'écran de départ
+  // couvre de toute façon le fil, et un tirage fait pour rien serait jeté au
+  // remontage.
+  if (runKey !== 'play') return null
+
   return (
     <Feed
       key={runKey}

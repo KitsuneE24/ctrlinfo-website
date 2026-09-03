@@ -25,6 +25,18 @@ const numerosPour = (indices, cible) =>
     .map((indice, i) => (indice.cible === cible ? i + 1 : null))
     .filter((numero) => numero !== null)
 
+/**
+ * La classe de surlignage d'une partie de texte.
+ *
+ * Elle prend la nature du premier indice qui la vise : sur une publication
+ * vraie, le surlignage était rouge alors que la pastille était verte.
+ */
+function surlignage(indices, cible) {
+  if (!ZONES_TEXTE.includes(cible)) return ''
+  const vise = indices.find((indice) => indice.cible === cible)
+  return vise ? ` annot--vise annot--${vise.nature.toLowerCase()}` : ''
+}
+
 function Marques({ indices, cible }) {
   const numeros = numerosPour(indices, cible)
   if (numeros.length === 0) return null
@@ -44,10 +56,7 @@ function Marques({ indices, cible }) {
 
 export default function PostAnnotated({ post }) {
   const indices = post.indices ?? []
-  const surligne = (cible) =>
-    ZONES_TEXTE.includes(cible) && numerosPour(indices, cible).length > 0
-      ? ' annot--vise'
-      : ''
+  const surligne = (cible) => surlignage(indices, cible)
 
   return (
     <article className="annot">

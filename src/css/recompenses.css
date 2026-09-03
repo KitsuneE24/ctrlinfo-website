@@ -183,42 +183,34 @@
      Deux portes au-dessus, deux volets en dessous, sur la même grille : les
      séparations se superposent, la colonne active se lit d'un trait. --- */
 
-  /* Un seul cadre. Le métal glisse derrière la colonne active, bouton
-     compris : c'est une seule surface, donc rien ne peut se désynchroniser. */
+  /* Un seul cadre, trois plans : le formulaire dessous, le rideau de métal
+     par-dessus, les deux portes tout en haut. */
   .auth {
+    /* Hauteur des portes, partagée : le rideau s'en sert pour poser son
+       accroche sous elles plutôt qu'au milieu de toute sa hauteur. */
+    --porte-h: 54px;
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-card);
   }
 
-  .auth__metal {
-    position: absolute;
-    inset: 0 auto 0 0;
-    z-index: 0;
-    width: 50%;
-  }
-
-  .auth__fond {
-    height: 100%;
-    border-radius: 0;
-  }
-
   .auth__grille {
     position: relative;
-    z-index: 1;
+    z-index: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: var(--porte-h) 1fr;
   }
 
   .auth__porte {
+    z-index: 2;
     grid-row: 1;
-    padding: 15px 10px;
+    padding: 0 10px;
     background: var(--surface);
     font-size: var(--text-md);
     font-weight: 700;
     color: var(--ink-muted);
-    transition: color 0.15s, background-color 0.15s;
+    transition: color 0.2s, background-color 0.2s;
   }
 
   .auth__porte--gauche {
@@ -241,54 +233,58 @@
     color: var(--ink);
   }
 
-  /* Le filet ne court que du côté blanc : côté métal, la surface descend d'un
-     trait du bouton jusqu'au bas du cadre. */
   .auth__porte:not(.auth__porte--actif) {
     border-bottom: 1px solid var(--line-strong);
   }
 
-  .auth__accroche,
+  /* Le formulaire occupe la moitié que le rideau vient de découvrir. Il change
+     de côté à mi-course, donc pendant qu'il est couvert. */
   .auth__forme {
+    z-index: 0;
     grid-row: 2;
+    display: flex;
     min-width: 0;
-  }
-
-  .auth[data-mode='inscription'] .auth__accroche {
-    grid-column: 1;
-  }
-
-  .auth[data-mode='inscription'] .auth__forme {
-    grid-column: 2;
-  }
-
-  .auth[data-mode='connexion'] .auth__accroche {
-    grid-column: 2;
-  }
-
-  .auth[data-mode='connexion'] .auth__forme {
-    grid-column: 1;
-  }
-
-  .auth__accroche {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 26px 22px;
-    min-height: 180px;
-    color: var(--brand-cream);
-  }
-
-  /* Opaque : c'est elle qui cache le métal du côté qui n'est pas actif. */
-  .auth__forme {
-    display: flex;
     flex-direction: column;
     background: var(--surface);
+  }
+
+  .auth[data-decouvert='inscription'] .auth__forme {
+    grid-column: 2;
+  }
+
+  .auth[data-decouvert='connexion'] .auth__forme {
+    grid-column: 1;
   }
 
   .auth__forme > * {
     flex: 1 1 auto;
     border: 0;
     border-radius: 0;
+  }
+
+  /* Le rideau : au-dessus du formulaire, en dessous des portes. */
+  .auth__metal {
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 1;
+    width: 50%;
+  }
+
+  .auth__fond {
+    position: absolute;
+    inset: 0;
+    border-radius: 0;
+  }
+
+  .auth__accroche {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 26px 22px;
+    padding-top: calc(26px + var(--porte-h));
+    color: var(--brand-cream);
   }
 
   /* Inscription a un champ de plus que connexion. Sans hauteur plancher, tout
@@ -299,14 +295,19 @@
     }
   }
 
-  /* Sur téléphone, l'accroche disparaît et le formulaire prend toute la
-     largeur : le métal ne se voit plus que derrière sa porte. */
+  /* Sur téléphone, le rideau ne couvre plus que sa porte : le formulaire prend
+     toute la largeur, et l'accroche n'aurait plus de place. */
   @media (max-width: 819px) {
+    .auth__metal {
+      bottom: auto;
+      height: var(--porte-h);
+    }
+
     .auth__accroche {
       display: none;
     }
 
-    .auth[data-mode] .auth__forme {
+    .auth[data-decouvert] .auth__forme {
       grid-column: 1 / -1;
     }
   }

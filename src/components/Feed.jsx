@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { createElement, useState, useRef, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, Trophy, GraduationCap, ArrowRight } from 'lucide-react'
 import { getNiveaux, getRemediations, getTirage } from '../api/contenu'
+import { icone } from '../data/icones'
 import { auMieux, enregistrerDecision, sauvegarder, terminerSession } from '../api/progression'
 import { lireInterets } from '../lib/interests'
 import { useSessionJeu } from '../lib/useSessionJeu'
@@ -34,6 +35,9 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
   // Le contenu vient du serveur : deux états de plus qu'avant.
   const [erreur, setErreur] = useState(null)
   const [remediations, setRemediations] = useState({})
+  // Les couronnes que cette partie vient de faire tomber. Elles arrivent avec
+  // la réponse de « terminer » : c'est le seul moment où on peut les montrer.
+  const [couronnes, setCouronnes] = useState([])
 
   // Le moment où la publication en cours s'est affichée, pour mesurer le temps
   // de décision — la vraie donnée intéressante du jeu.
@@ -162,7 +166,9 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
         } else {
           setCurrentLevel(4)
           onFinished?.()
-          if (sessionId) auMieux(terminerSession(sessionId))
+          if (sessionId) {
+            auMieux(terminerSession(sessionId)).then((fin) => setCouronnes(fin?.couronnes ?? []))
+          }
         }
       }
       return
@@ -230,6 +236,24 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
               compte davantage qu'un score — retourne dans le fil quand tu veux
               refaire l'exercice.
             </p>
+
+            {/* Ce que la partie vient de faire tomber. Rien n'apparaît en mode
+                invité : sans compte, rien n'est décroché. */}
+            {couronnes.length > 0 && (
+              <ul className="gains">
+                {couronnes.map((couronne) => (
+                  <li key={couronne.id} className="gain">
+                    <span className="gain__picto" style={{ background: couronne.couleur }}>
+                      {createElement(icone(couronne.picto), { size: 18, strokeWidth: 2 })}
+                    </span>
+                    <div>
+                      <p className="gain__nom">{couronne.nom}</p>
+                      <p className="gain__texte">{couronne.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
             {suite && (
               <div className="outcome__action">
                 <button

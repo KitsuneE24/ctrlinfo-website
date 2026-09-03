@@ -179,30 +179,60 @@
     color: var(--ink-muted);
   }
 
-  /* --- Connexion et inscription, en deux volets --------------------------- */
+  /* --- Connexion et inscription -------------------------------------------
+     Deux portes au-dessus, deux volets en dessous, sur la même grille : les
+     séparations se superposent, la colonne active se lit d'un trait. --- */
 
   .auth {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
-  /* Les volets ne se côtoient qu'à partir du moment où deux colonnes tiennent
-     sans écraser le formulaire. */
-  @media (min-width: 820px) {
-    .auth {
-      flex-direction: row;
-      align-items: stretch;
-    }
+  .auth__portes,
+  .auth__volets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
 
-    .auth__volet {
-      flex: 1 1 0;
-      min-width: 0;
+  /* Les volets s'empilent quand deux colonnes écraseraient le formulaire ; les
+     portes, elles, restent côte à côte : ce sont deux choix, pas deux étapes. */
+  @media (max-width: 819px) {
+    .auth__volets {
+      grid-template-columns: 1fr;
     }
+  }
 
-    .auth__volet > * {
-      height: 100%;
-    }
+  .auth__porte {
+    padding: 14px 10px;
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    background: var(--surface);
+    font-size: var(--text-md);
+    font-weight: 700;
+    color: var(--ink-muted);
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+  }
+
+  .auth__porte:hover {
+    background: var(--wash);
+  }
+
+  .auth__porte--actif {
+    border-color: transparent;
+    background: var(--brand-blue);
+    color: var(--brand-cream);
+  }
+
+  .auth__volet {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+  }
+
+  .auth__volet > * {
+    flex: 1 1 auto;
   }
 
   .auth__decor {
@@ -210,7 +240,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 26px 22px;
-    min-height: 160px;
+    min-height: 180px;
   }
 
   .auth__eyebrow {

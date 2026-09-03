@@ -215,59 +215,30 @@
 }
 
 /* ==========================================================================
-   L'ACCUEIL EN DÉGRADÉ
-   Ses cartes n'ont plus de filet : elles portent le dégradé de la marque,
-   comme l'écran de règles. Les boutons s'y inversent — fond crème, texte à
-   leur couleur — parce que deux aplats colorés se noieraient dedans.
+   LA CARTE DE SORTIE
+   « Par où commencer » est la seule carte de l'accueil à porter le dégradé de
+   la marque : c'est l'appel à l'action, il se détache des cartes de lecture
+   qui l'entourent. Ses boutons s'y inversent — fond crème, texte à leur
+   couleur — parce que deux aplats colorés se noieraient dedans.
 
-   Tout est porté par `.home__body` : `.card` et `.entry-card` servent
-   partout ailleurs sur le site, et n'ont pas à changer avec l'accueil.
+   Tout est porté par `.home__body` : `.entry-card` sert aussi en fin de
+   Ressources, et n'a pas à changer avec l'accueil.
    ========================================================================== */
 
 @layer components {
-  .home__body .card,
   .home__body .entry-card {
     border: 0;
     background: var(--brand-gradient);
     color: var(--brand-cream);
   }
 
-  /* Le filet qui sépare les deux moitiés de la carte vidéo s'en va avec les
-     autres : sur le dégradé, il coupait au lieu de séparer. */
-  .home__body .split > * + * {
-    border-left: 0;
-  }
-
-  .home__body .card__title,
   .home__body .entry-card__title {
     color: var(--brand-cream);
   }
 
-  .home__body .card__text,
-  .home__body .entry-card__text,
-  .home__body .lever__text {
+  .home__body .entry-card__text {
     color: var(--brand-cream);
     opacity: 0.92;
-  }
-
-  .home__body .lever__title {
-    color: var(--brand-cream);
-  }
-
-  .home__body .lever__icon {
-    background: rgba(255, 250, 249, 0.16);
-    color: var(--brand-cream);
-  }
-
-  /* L'encadré du réflexe : une teinte claire sur le dégradé, plutôt qu'un
-     aplat qui ferait une tache. */
-  .home__body .tip {
-    border-color: rgba(255, 250, 249, 0.28);
-    background: rgba(255, 250, 249, 0.12);
-  }
-
-  .home__body .tip__text {
-    color: var(--brand-cream);
   }
 
   /* Les deux boutons de sortie : fond crème, texte à leur couleur. */
@@ -289,17 +260,5 @@
 
   .home__body .entry-card__link:hover {
     background: #fff;
-  }
-
-  .home__body .video {
-    border-color: rgba(255, 250, 249, 0.28);
-  }
-
-  .home__body .video__play {
-    background: var(--brand-cream);
-  }
-
-  .home__body .video__hint {
-    color: var(--brand-cream);
   }
 }

@@ -10,6 +10,9 @@ import { api } from './client'
 
 const requete = (chemin) => api(chemin, { authentifie: false })
 
+/** La galerie d'avatars. Ouverte : on la voit avant d'avoir un compte. */
+export const getAvatars = () => requete('/avatars')
+
 /** Les jeux et leurs tutoriels. */
 export const getJeux = () => requete('/jeux')
 

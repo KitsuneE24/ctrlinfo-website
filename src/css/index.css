@@ -3,7 +3,7 @@
 /* ==========================================================================
    FEUILLE DE STYLE DE CTRL INFO — SOMMAIRE
 
-   Assemble les quatorze parties du dossier. Aucune règle ici.
+   Assemble les quinze parties du dossier. Aucune règle ici.
 
    jetons ............... palette, polices, rayons, encoches
    base ................. le document : hauteur, fond, animations
@@ -17,6 +17,7 @@
    accueil .............. marque, parcours, vidéo, leviers, annonces de jeux
    comprendre ........... galerie de thèmes et page d'un thème
    profil ............... connexion, mode invité, tableau de bord
+   recompenses .......... avatar, série de jours, couronnes
    tutoriel ............. le carrousel de règles du fil
    game-gate ............ identité, écran de départ, alerte de sortie
    etat-api ............. chargement et panne de l'API
@@ -42,6 +43,7 @@
 @import './accueil.css';
 @import './comprendre.css';
 @import './profil.css';
+@import './recompenses.css';
 @import './tutoriel.css';
 @import './game-gate.css';
 @import './etat-api.css';

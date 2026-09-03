@@ -148,6 +148,18 @@
     box-shadow: inset 2px 0 0 var(--indice-alerte);
   }
 
+  /* Le surlignage prend la couleur de l'indice qui le vise : sur une
+     publication vraie, il serait sinon rouge sous une pastille verte. */
+  .annot--verification {
+    background: rgba(24, 0, 173, 0.08);
+    box-shadow: inset 2px 0 0 var(--indice-verif);
+  }
+
+  .annot--fiable {
+    background: rgba(20, 102, 63, 0.1);
+    box-shadow: inset 2px 0 0 var(--indice-fiable);
+  }
+
   .annot__marques {
     display: inline-flex;
     gap: 3px;

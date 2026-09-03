@@ -132,22 +132,27 @@ export default function AppShell() {
               />
             </motion.div>
           </AnimatePresence>
+
+          {/* L'écran de départ vit dans la zone de l'écran, pas par-dessus
+              toute l'application : la barre d'onglets reste atteignable, et
+              qui change d'avis n'est pas coincé. */}
+          <AnimatePresence>
+            {departVisible && (
+              <GameStart
+                key="start"
+                jeu={jeu}
+                connecte={connecte}
+                reprise={lancee}
+                onStart={commencer}
+                onRules={() => setTutoriel(true)}
+              />
+            )}
+          </AnimatePresence>
         </div>
 
         <TabBar />
 
         <AnimatePresence>
-          {departVisible && (
-            <GameStart
-              key="start"
-              jeu={jeu}
-              connecte={connecte}
-              reprise={lancee}
-              onStart={commencer}
-              onRules={() => setTutoriel(true)}
-            />
-          )}
-
           {tutoriel && jeu && (
             <GameTutorial key="rules" jeu={jeu} onClose={() => setTutoriel(false)} />
           )}

@@ -10,7 +10,7 @@
   .game-start {
     position: fixed;
     inset: 0;
-    z-index: 95;
+    z-index: 97;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,7 +112,14 @@
      à mesure que la hauteur manque, et le défilement ne reste qu'un filet de
      sécurité — mieux vaut faire défiler que rogner le bouton. --- */
 
+  /* Absolu dans la zone de l'écran plutôt que fixe sur toute la page : la
+     barre d'onglets et l'en-tête restent atteignables pendant le seuil. */
   .game-start {
+    position: absolute;
+    z-index: 40;
+    /* La barre d'onglets est en dessous et gère elle-même l'encoche : la
+       réserver ici une seconde fois volerait de la hauteur pour rien. */
+    padding-bottom: 20px;
     overflow-y: auto;
     overscroll-behavior: contain;
   }

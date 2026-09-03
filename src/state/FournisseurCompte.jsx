@@ -6,7 +6,6 @@ import {
   deconnexion as deconnexionApi,
   etatCompte,
   inscription as inscriptionApi,
-  quitterModeInvite as quitterModeInviteApi,
 } from '../api/client'
 import { ContexteCompte } from './compte'
 
@@ -25,18 +24,10 @@ export default function FournisseurCompte({ children }) {
   const inscription = useCallback((identifiants) => inscriptionApi(identifiants), [])
   const deconnexion = useCallback(() => deconnexionApi(), [])
   const continuerEnInvite = useCallback(() => continuerEnInviteApi(), [])
-  const quitterModeInvite = useCallback(() => quitterModeInviteApi(), [])
 
   const valeur = useMemo(
-    () => ({
-      ...etat,
-      connexion,
-      inscription,
-      deconnexion,
-      continuerEnInvite,
-      quitterModeInvite,
-    }),
-    [etat, connexion, inscription, deconnexion, continuerEnInvite, quitterModeInvite]
+    () => ({ ...etat, connexion, inscription, deconnexion, continuerEnInvite }),
+    [etat, connexion, inscription, deconnexion, continuerEnInvite]
   )
 
   return <ContexteCompte.Provider value={valeur}>{children}</ContexteCompte.Provider>

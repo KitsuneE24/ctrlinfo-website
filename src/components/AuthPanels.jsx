@@ -21,7 +21,9 @@ import Banniere from './ui/Banniere'
  * dans `ui/Banniere.jsx`, et ce volet est donc réglé comme les bandeaux de
  * l'accueil et des ressources.
  */
-const RESSORT = { type: 'spring', stiffness: 260, damping: 30 }
+// Ressort volontairement mou : le volet parcourt la moitié de l'écran, et un
+// ressort vif y donne un à-coup au lieu d'un glissement.
+const RESSORT = { type: 'spring', stiffness: 120, damping: 22, mass: 1.1 }
 
 const ACCROCHES = {
   connexion: {

@@ -183,10 +183,19 @@
      Deux portes au-dessus, deux volets en dessous, sur la même grille : les
      séparations se superposent, la colonne active se lit d'un trait. --- */
 
+  /* Un seul cadre pour les portes et les volets : le contour et les angles
+     appartiennent au conteneur, les blocs du dedans n'ont plus que le filet
+     qui les sépare. */
   .auth {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-card);
+  }
+
+  .auth__portes {
+    border-bottom: 1px solid var(--line-strong);
   }
 
   /* Les deux moitiés se touchent : pas d'écart, un seul filet entre elles, et
@@ -195,15 +204,6 @@
   .auth__volets {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    overflow: hidden;
-    border-radius: var(--radius-card);
-  }
-
-  /* Le filet fait le tour des deux blocs : sans lui, la moitié blanche du
-     formulaire flotterait sur le fond de page. */
-  .auth__portes,
-  .auth__volets {
-    border: 1px solid var(--line-strong);
   }
 
   /* Les volets s'empilent quand deux colonnes écraseraient le formulaire ; les
@@ -211,6 +211,14 @@
   @media (max-width: 819px) {
     .auth__volets {
       grid-template-columns: 1fr;
+    }
+  }
+
+  /* Inscription a un champ de plus que connexion. Sans hauteur plancher, tout
+     le bloc sautait à chaque bascule. */
+  @media (min-width: 820px) {
+    .auth__volets {
+      min-height: 380px;
     }
   }
 

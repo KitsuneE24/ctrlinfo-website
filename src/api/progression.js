@@ -88,3 +88,9 @@ export async function auMieux(promesse) {
     return null
   }
 }
+
+/** Meilleur score, série de jours, couronnes. */
+export const getRecords = () => api('/moi/records')
+
+export const choisirAvatar = (avatarId) =>
+  api('/moi/avatar', { method: 'PATCH', body: { avatarId } })

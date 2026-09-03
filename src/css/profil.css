@@ -192,18 +192,6 @@
     padding: 4px 0 16px;
   }
 
-  .profil__avatar {
-    display: flex;
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-image: var(--brand-gradient);
-    color: #fff;
-  }
-
   .profil__identite {
     min-width: 0;
     flex: 1 1 auto;

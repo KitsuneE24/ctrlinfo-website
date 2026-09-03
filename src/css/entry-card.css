@@ -1,15 +1,20 @@
 /* ==========================================================================
    CARTE D'ENTRÉE
    Le bloc de fin de page, partagé par l'accueil et Ressources.
+
+   C'est l'appel à l'action : elle porte le dégradé de la marque, quand les
+   cartes de lecture qui la précèdent restent sur fond clair. Ses deux boutons
+   s'y inversent — fond crème, texte à leur couleur — parce que deux aplats
+   colorés se noieraient dans le dégradé.
    ========================================================================== */
 
 @layer components {
   .entry-card {
     padding: 22px 18px;
     text-align: center;
-    background: var(--surface);
-    border: 1px solid var(--line);
+    background: var(--brand-gradient);
     border-radius: var(--radius-card);
+    color: var(--brand-cream);
   }
 
   .entry-card__title {
@@ -17,7 +22,7 @@
     font-family: var(--font-title);
     font-size: var(--text-xl);
     font-weight: 700;
-    color: var(--ink);
+    color: var(--brand-cream);
   }
 
   .entry-card__text {
@@ -25,7 +30,8 @@
     max-width: 52ch;
     font-size: var(--text-md);
     line-height: 1.65;
-    color: var(--ink-muted);
+    color: var(--brand-cream);
+    opacity: 0.92;
   }
 
   .entry-card__actions {
@@ -36,41 +42,30 @@
     margin-top: 16px;
   }
 
-  .entry-card__button {
+  .entry-card__button,
+  .entry-card__link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 11px 20px;
     border-radius: 999px;
-    background-image: var(--brand-gradient);
+    background: var(--brand-cream);
     font-size: var(--text-md);
     font-weight: 700;
-    color: #fff;
     text-decoration: none;
-    transition: opacity 0.15s;
+    transition: background-color 0.15s;
   }
 
-  .entry-card__button:hover {
-    opacity: 0.9;
+  .entry-card__button {
+    color: var(--brand-magenta);
   }
 
   .entry-card__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 11px 18px;
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    font-size: var(--text-md);
-    font-weight: 600;
-    color: var(--ink-muted);
-    text-decoration: none;
-    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+    color: var(--brand-blue);
   }
 
+  .entry-card__button:hover,
   .entry-card__link:hover {
-    border-color: var(--brand-magenta);
-    background: var(--wash);
-    color: var(--brand-magenta);
+    background: #fff;
   }
 }

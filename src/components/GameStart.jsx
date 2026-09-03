@@ -29,7 +29,7 @@ export default function GameStart({ jeu, connecte, reprise, onStart, onRules }) 
         className="game-start__card"
       >
         <header className="game-start__head">
-          <span className="game-start__badge" style={{ background: jeu.couleur }}>
+          <span className="game-start__badge" style={{ color: jeu.couleur }}>
             {createElement(jeu.Icon, { size: 24, strokeWidth: 1.9 })}
           </span>
           <p className="game-start__eyebrow">

@@ -455,4 +455,39 @@
     background: var(--wash-strong);
     color: var(--ink-ghost);
   }
+  /* --- Les groupes ------------------------------------------------------- */
+
+  /* Les avatars des participants, empilés en tête : on voit d'un coup d'œil
+     qu'on n'est pas en tête-à-tête. */
+  .thread__pile {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  .thread__pile > * + * {
+    margin-left: -10px;
+    box-shadow: 0 0 0 2px var(--surface);
+  }
+
+  .message__corps {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  /* Qui parle : dans un groupe, la même phrase ne pèse pas pareil selon la
+     personne, et son rôle vis-à-vis du joueur en dit plus que son nom. */
+  .message__auteur {
+    font-size: var(--text-2xs);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .message__role {
+    font-weight: 500;
+    color: var(--ink-muted);
+  }
+
 }

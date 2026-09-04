@@ -206,10 +206,10 @@ export async function inscription({ email, motDePasse, pseudo }) {
   return identite
 }
 
-export async function connexion({ email, motDePasse }) {
+export async function connexion({ identifiant, motDePasse }) {
   const identite = await envoyer('/auth/connexion', {
     method: 'POST',
-    body: { email, motDePasse },
+    body: { identifiant, motDePasse },
   })
   ecrireSession(identite)
   return identite

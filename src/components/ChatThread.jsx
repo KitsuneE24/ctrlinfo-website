@@ -19,6 +19,21 @@ const EXPLICATION_DELAY_MS = 500
 
 const COMPOSER_PLACEHOLDER = 'Votre message...'
 
+/**
+ * Les messages d'une étape, le dernier portant la question.
+ *
+ * Dans un groupe, plusieurs personnes peuvent parler avant qu'on demande quoi
+ * que ce soit : c'est la conversation qui monte, et c'est elle qui fait la
+ * pression.
+ */
+function messagesDe(etape) {
+  return etape.messages.map((message, i) => ({
+    text: message.texte,
+    auteur: message.auteur,
+    kind: i === etape.messages.length - 1 ? 'question' : 'message',
+  }))
+}
+
 function delayFor(item, isFirst) {
   // Le premier message est déjà là à l'ouverture.
   if (isFirst) return 0
@@ -69,7 +84,12 @@ export default function ChatThread({
   onBack,
   onRestart,
 }) {
-  const { name, subtitle, color, intro, steps, outro } = conversation
+  const { name, subtitle, color, intro, steps, outro, groupe, contexte, participants } =
+    conversation
+
+  // Dans un groupe, l'en-tête montre qui est là ; en tête-à-tête, le nom de la
+  // conversation suffit.
+  const entete = groupe ? contexte || name : name
 
   // Une partie côté serveur par montage — donc une par « Recommencer », qui
   // remonte justement le composant.
@@ -85,8 +105,12 @@ export default function ChatThread({
   const [queue, setQueue] = useState(
     () =>
       saved?.queue ?? [
-        ...intro.map((text) => ({ text, kind: 'message' })),
-        { text: steps[0].prompt, kind: 'question' },
+        ...intro.map((message) => ({
+          text: message.texte,
+          auteur: message.auteur,
+          kind: 'message',
+        })),
+        ...messagesDe(steps[0]),
       ]
   )
   const [stepIdx, setStepIdx] = useState(() => saved?.stepIdx ?? 0)
@@ -133,12 +157,12 @@ export default function ChatThread({
 
     // Réplique du personnage, puis explication, puis question suivante.
     const suite = [
-      { text: choice.reply, kind: 'message' },
+      { text: choice.reply, auteur: steps[stepIdx].auteur, kind: 'message' },
       { text: choice.explication, kind: 'explication', correct: choice.correct },
     ]
 
     if (nextIdx < steps.length) {
-      setQueue([...suite, { text: steps[nextIdx].prompt, kind: 'question' }])
+      setQueue([...suite, ...messagesDe(steps[nextIdx])])
     } else {
       const verdict = finalScore >= steps.length - 1 ? outro.high : outro.low
       setQueue([...suite, { text: verdict, kind: 'message' }])
@@ -186,10 +210,22 @@ export default function ChatThread({
         >
           <ChevronLeft size={26} strokeWidth={2} />
         </button>
-        <Avatar name={name} color={color} size={38} />
+        {groupe ? (
+          <span className="thread__pile">
+            {participants.slice(0, 3).map((personne) => (
+              <Avatar key={personne.id} name={personne.nom} color={personne.couleur} size={30} />
+            ))}
+          </span>
+        ) : (
+          <Avatar name={name} color={color} size={38} />
+        )}
         <div>
-          <p className="thread__name">{name}</p>
-          <p className="thread__subtitle">{subtitle}</p>
+          <p className="thread__name">{entete}</p>
+          <p className="thread__subtitle">
+            {groupe
+              ? participants.map((personne) => personne.nom).join(', ')
+              : subtitle}
+          </p>
         </div>
       </header>
 
@@ -238,13 +274,26 @@ export default function ChatThread({
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               className="message"
-              style={{ '--contact-color': color }}
+              style={{ '--contact-color': message.auteur?.couleur ?? color }}
             >
-              <Avatar name={name} color={color} />
-              <span
-                className={`message__bubble${isQuestion ? ' message__bubble--question' : ''}`}
-              >
-                {message.text}
+              <Avatar
+                name={message.auteur?.nom ?? name}
+                color={message.auteur?.couleur ?? color}
+              />
+              <span className="message__corps">
+                {/* Dans un groupe, savoir qui parle change tout : la même
+                    phrase ne pèse pas pareil selon qui la dit. */}
+                {groupe && message.auteur && (
+                  <span className="message__auteur">
+                    {message.auteur.nom}
+                    <span className="message__role"> · {message.auteur.role}</span>
+                  </span>
+                )}
+                <span
+                  className={`message__bubble${isQuestion ? ' message__bubble--question' : ''}`}
+                >
+                  {message.text}
+                </span>
               </span>
             </motion.div>
           )
@@ -252,7 +301,10 @@ export default function ChatThread({
 
         {typing && (
           <div className="message">
-            <Avatar name={name} color={color} />
+            <Avatar
+              name={queue[0]?.auteur?.nom ?? name}
+              color={queue[0]?.auteur?.couleur ?? color}
+            />
             <TypingBubble />
           </div>
         )}

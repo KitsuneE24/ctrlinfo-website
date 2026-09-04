@@ -1,5 +1,15 @@
-import MoltenMetal from '../MoltenMetal'
+import { Suspense, lazy } from 'react'
 import { brand } from '../../css/colors'
+
+/**
+ * Le fond animé arrive après le reste.
+ *
+ * `ogl` — la bibliothèque WebGL — ne sert qu'ici, et l'effet est purement
+ * décoratif : le faire télécharger avant le premier écran retarde tout le
+ * monde pour une texture. L'aplat de la bannière tient la place entre-temps,
+ * exactement comme lorsque WebGL manque à l'appel.
+ */
+const MoltenMetal = lazy(() => import('../MoltenMetal'))
 
 /**
  * Bandeau de tête d'un écran, fond animé compris.
@@ -47,7 +57,9 @@ export default function Banniere({ className, children }) {
   return (
     <section className={`banniere${className ? ` ${className}` : ''}`}>
       <div className="banniere__fx">
-        <MoltenMetal {...REGLAGES} />
+        <Suspense fallback={null}>
+          <MoltenMetal {...REGLAGES} />
+        </Suspense>
       </div>
 
       {/* Le contenu repasse devant l'effet. */}

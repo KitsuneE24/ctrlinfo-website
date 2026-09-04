@@ -180,161 +180,50 @@
   }
 
   /* --- Connexion et inscription -------------------------------------------
-     Deux portes au-dessus, deux volets en dessous, sur la même grille : les
-     séparations se superposent, la colonne active se lit d'un trait. --- */
+     Les deux onglets et le formulaire sont dans la même colonne : ce qui va
+     ensemble se lit ensemble. Un seul cadre sur l'écran — celui-là — pour que
+     l'encadrement veuille encore dire quelque chose. --- */
 
-  /* Un seul cadre, trois plans : le formulaire dessous, le rideau de métal
-     par-dessus, les deux portes tout en haut. */
   .auth {
-    /* Hauteur des portes, partagée : le rideau s'en sert pour poser son
-       accroche sous elles plutôt qu'au milieu de toute sa hauteur. */
-    --porte-h: 54px;
-    position: relative;
     overflow: hidden;
-    border: 1px solid var(--line-strong);
+    border: 1px solid var(--line);
     border-radius: var(--radius-card);
+    background: var(--surface);
   }
 
-  .auth__grille {
-    position: relative;
-    z-index: 0;
+  .auth__onglets {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: var(--porte-h) 1fr;
+    border-bottom: 1px solid var(--line);
   }
 
-  .auth__porte {
-    z-index: 2;
-    grid-row: 1;
-    padding: 0 10px;
-    background: var(--surface);
+  .auth__onglet {
+    position: relative;
+    padding: 16px 12px;
     font-size: var(--text-md);
-    font-weight: 700;
+    font-weight: 600;
     color: var(--ink-muted);
-    transition: color 0.2s, background-color 0.2s;
+    transition: color 0.15s, background-color 0.15s;
   }
 
-  .auth__porte--gauche {
-    grid-column: 1;
-  }
-
-  .auth__porte--droite {
-    grid-column: 2;
-  }
-
-  /* La porte active est transparente : c'est le métal qu'on voit à travers. */
-  .auth__porte--actif {
-    background: transparent;
-    color: var(--brand-cream);
-  }
-
-  /* Le survol n'existe que sur la porte qu'on peut encore choisir. */
-  .auth__porte:not(.auth__porte--actif):hover {
-    background: color-mix(in srgb, var(--brand-blue) 10%, var(--surface));
+  .auth__onglet:hover {
+    background: var(--wash);
     color: var(--ink);
   }
 
-  .auth__porte:not(.auth__porte--actif) {
-    border-bottom: 1px solid var(--line-strong);
-  }
-
-  /* Le formulaire occupe la moitié que le rideau vient de découvrir. Il change
-     de côté à mi-course, donc pendant qu'il est couvert. */
-  .auth__forme {
-    z-index: 0;
-    grid-row: 2;
-    display: flex;
-    min-width: 0;
-    flex-direction: column;
-    background: var(--surface);
-  }
-
-  .auth[data-decouvert='inscription'] .auth__forme {
-    grid-column: 2;
-  }
-
-  .auth[data-decouvert='connexion'] .auth__forme {
-    grid-column: 1;
-  }
-
-  .auth__forme > * {
-    flex: 1 1 auto;
-    border: 0;
-    border-radius: 0;
-  }
-
-  /* Le rideau : au-dessus du formulaire, en dessous des portes. */
-  .auth__metal {
-    position: absolute;
-    inset: 0 auto 0 0;
-    z-index: 1;
-    width: 50%;
-  }
-
-  .auth__fond {
-    position: absolute;
-    inset: 0;
-    border-radius: 0;
-  }
-
-  .auth__accroche {
-    position: relative;
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    padding: 26px 22px;
-    padding-top: calc(26px + var(--porte-h));
-    color: var(--brand-cream);
-  }
-
-  /* Inscription a un champ de plus que connexion. Sans hauteur plancher, tout
-     le bloc sautait à chaque bascule. */
-  @media (min-width: 820px) {
-    .auth__grille {
-      min-height: 440px;
-    }
-  }
-
-  /* Sur téléphone, le rideau ne couvre plus que sa porte : le formulaire prend
-     toute la largeur, et l'accroche n'aurait plus de place. */
-  @media (max-width: 819px) {
-    .auth__metal {
-      bottom: auto;
-      height: var(--porte-h);
-    }
-
-    .auth__accroche {
-      display: none;
-    }
-
-    .auth[data-decouvert] .auth__forme {
-      grid-column: 1 / -1;
-    }
-  }
-
-  .auth__eyebrow {
-    margin: 0;
-    font-family: var(--font-brand);
-    font-size: var(--text-sm);
-    letter-spacing: 0.04em;
-    opacity: 0.9;
-  }
-
-  .auth__titre {
-    margin: 10px 0 0;
-    font-family: var(--font-title);
-    font-size: var(--text-2xl);
+  /* L'onglet actif se lit à deux signes — la graisse et le trait — jamais à la
+     seule couleur. */
+  .auth__onglet--actif {
     font-weight: 700;
-    line-height: 1.15;
+    color: var(--ink);
   }
 
-  .auth__texte {
-    margin: 9px 0 0;
-    max-width: 34ch;
-    font-size: var(--text-md);
-    line-height: var(--leading-body);
-    opacity: 0.92;
+  .auth__onglet--actif::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 -1px;
+    height: 2px;
+    background: var(--brand-blue);
   }
 
   /* --- Les couronnes décrochées en fin de partie -------------------------- */

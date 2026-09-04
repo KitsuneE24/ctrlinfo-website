@@ -45,8 +45,6 @@ export const getRemediations = () => requete('/posts/remediations')
 /** Les niveaux existants et leur volume. */
 export const getNiveaux = () => requete('/posts/niveaux')
 
-export const getPost = (slugOuId) => requete(`/posts/${encodeURIComponent(slugOuId)}`)
-
 export const getConversations = () => requete('/conversations')
 
 export const getConversation = (slug) => requete(`/conversations/${encodeURIComponent(slug)}`)
@@ -60,23 +58,3 @@ export const getConversation = (slug) => requete(`/conversations/${encodeURIComp
 export const getChapitres = () => requete('/chapitres')
 
 export const getChapitre = (slug) => requete(`/chapitres/${encodeURIComponent(slug)}`)
-
-/**
- * L'annuaire des sites de vérification.
- *
- * Plus aucun écran ne l'affiche en liste : ces sites sont devenus les stories
- * de l'accueil, et c'est l'API qui y résout leur adresse. Les deux appels
- * restent ici parce que la table, elle, est toujours la source de vérité — et
- * qu'un futur écran d'administration en aura besoin.
- */
-export const getRessources = () => requete('/ressources')
-
-export const getCategories = () => requete('/ressources/categories')
-
-export const getParcours = () => api('/parcours', { authentifie: false })
-
-export const getUnParcours = (slug) =>
-  api(`/parcours/${encodeURIComponent(slug)}`, { authentifie: false })
-
-/** D'où vient le contenu : la liste des flux suivis et leur dernier passage. */
-export const getFlux = () => requete('/flux')

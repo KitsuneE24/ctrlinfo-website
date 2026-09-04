@@ -28,10 +28,6 @@ export const demarrerSession = ({ jeu, level, conversationSlug }) =>
     },
   })
 
-/** La partie qu'on peut reprendre, s'il y en a une. */
-export const sessionEnCours = (jeu) =>
-  api(`/sessions/en-cours${jeu ? `?jeu=${jeu}` : ''}`)
-
 export const sauvegarder = (sessionId, { etape, etat }) =>
   api(`/sessions/${sessionId}`, {
     method: 'PATCH',
@@ -54,20 +50,8 @@ export const enregistrerDecision = (sessionId, { postId, action, tempsMs }) =>
     body: { postId, action, ...(tempsMs ? { tempsMs } : {}) },
   })
 
-export const enregistrerManche = (sessionId, { mancheSlug, choisis }) =>
-  api(`/sessions/${sessionId}/tentatives/manche`, {
-    method: 'POST',
-    body: { mancheSlug, choisis },
-  })
-
 export const enregistrerChoix = (sessionId, choixId) =>
   api(`/sessions/${sessionId}/choix`, { method: 'POST', body: { choixId } })
-
-export const avancerParcours = (slug, etape) =>
-  api(`/parcours/${encodeURIComponent(slug)}/avancer`, {
-    method: 'POST',
-    body: etape === undefined ? {} : { etape },
-  })
 
 export const getTableauDeBord = () => api('/moi/tableau-de-bord')
 

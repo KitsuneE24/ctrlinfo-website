@@ -144,10 +144,6 @@ async function rafraichir() {
 
 // ── État de session, pour les écrans ─────────────────────────────────────────
 
-export function sessionCourante() {
-  return memoire
-}
-
 /** L'identité courante — `{ utilisateur, connecte, invite }`, jamais nulle. */
 export function etatCompte() {
   return instantane

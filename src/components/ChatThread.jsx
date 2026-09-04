@@ -84,8 +84,7 @@ export default function ChatThread({
   onBack,
   onRestart,
 }) {
-  const { name, subtitle, color, intro, steps, outro, groupe, contexte, participants } =
-    conversation
+  const { name, color, intro, steps, outro, groupe, contexte, participants } = conversation
 
   // Dans un groupe, l'en-tête montre qui est là ; en tête-à-tête, le nom de la
   // conversation suffit.
@@ -221,10 +220,12 @@ export default function ChatThread({
         )}
         <div>
           <p className="thread__name">{entete}</p>
+          {/* Qui est en face, pas dans quel « mode » on joue : dans un groupe
+              la liste des présents, sinon le rôle de l'interlocuteur. */}
           <p className="thread__subtitle">
             {groupe
               ? participants.map((personne) => personne.nom).join(', ')
-              : subtitle}
+              : participants[0]?.role}
           </p>
         </div>
       </header>

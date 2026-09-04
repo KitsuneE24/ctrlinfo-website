@@ -95,15 +95,7 @@ export default function ChatScreen() {
                         </span>
 
                         <span className="inbox-item__text">
-                          <span className="inbox-item__line">
-                            <span className="inbox-item__name">{conversation.name}</span>
-                            <span
-                              className="inbox-item__mode"
-                              style={{ background: conversation.color }}
-                            >
-                              {conversation.subtitle.replace('Mode ', '')}
-                            </span>
-                          </span>
+                          <span className="inbox-item__name">{conversation.name}</span>
                           <span className="inbox-item__preview">
                             {conversation.preview}
                           </span>

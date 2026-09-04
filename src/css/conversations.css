@@ -130,12 +130,6 @@
     flex: 1 1 0;
   }
 
-  .inbox-item__line {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
   .inbox-item__name {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -143,18 +137,6 @@
     font-size: var(--text-md);
     font-weight: 600;
     color: var(--ink);
-  }
-
-  .inbox-item__mode {
-    flex-shrink: 0;
-    padding: 2px 6px;
-    border-radius: 999px;
-    color: #fff;
-    font-size: 9.5px;
-    font-weight: 700;
-    line-height: 1.4;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
   }
 
   .inbox-item__preview {

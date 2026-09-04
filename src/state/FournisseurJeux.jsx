@@ -7,7 +7,7 @@ import { ContexteJeux } from './jeux'
 /**
  * Charge les jeux une seule fois, pour toute l'application.
  *
- * C'est aussi ici que le nom d'icône rangé en base (« Newspaper ») redevient
+ * C'est ici que le nom d'icône rangé en base (« Newspaper ») redevient
  * un composant React : la base décrit, le front dessine.
  */
 export default function FournisseurJeux({ children }) {
@@ -17,7 +17,6 @@ export default function FournisseurJeux({ children }) {
     const jeux = (donnees ?? []).map((jeu) => ({
       ...jeu,
       Icon: icone(jeu.icone),
-      tuto: (jeu.tuto ?? []).map((volet) => ({ ...volet, Icon: icone(volet.icone) })),
     }))
     return { jeux, chargement, erreur, recharger }
   }, [donnees, chargement, erreur, recharger])

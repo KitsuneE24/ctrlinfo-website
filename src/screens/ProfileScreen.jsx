@@ -86,70 +86,70 @@ function Formulaire() {
   return (
     <Page feed title="Ton profil" subtitle="Pour garder tes scores d'une fois sur l'autre">
       <AuthPanels mode={mode} onMode={setMode}>
-          <form onSubmit={envoyer} className="card compte__form">
-            {inscrire && (
-              <label className="champ">
-                <span className="champ__label">Pseudo</span>
-                <input
-                  type="text"
-                  value={pseudo}
-                  onChange={(e) => setPseudo(e.target.value)}
-                  required
-                  minLength={2}
-                  maxLength={40}
-                  autoComplete="nickname"
-                  className="champ__input"
-                />
-              </label>
-            )}
-
-            {/* À la connexion, le champ accepte les deux : l'adresse et le
-                pseudo sont uniques tous les deux, et c'est le serveur qui
-                reconnaît lequel a été saisi. */}
+        <form onSubmit={envoyer} className="compte__form">
+          {inscrire && (
             <label className="champ">
-              <span className="champ__label">
-                {inscrire ? 'Adresse e-mail' : 'Adresse e-mail ou pseudo'}
-              </span>
+              <span className="champ__label">Pseudo</span>
               <input
-                type={inscrire ? 'email' : 'text'}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                value={pseudo}
+                onChange={(e) => setPseudo(e.target.value)}
                 required
-                autoComplete={inscrire ? 'email' : 'username'}
+                minLength={2}
+                maxLength={40}
+                autoComplete="nickname"
                 className="champ__input"
               />
             </label>
+          )}
 
-            <label className="champ">
-              <span className="champ__label">Mot de passe</span>
-              <input
-                type="password"
-                value={motDePasse}
-                onChange={(e) => setMotDePasse(e.target.value)}
-                required
-                minLength={inscrire ? 8 : 1}
-                autoComplete={inscrire ? 'new-password' : 'current-password'}
-                className="champ__input"
-              />
-              {inscrire && <span className="champ__aide">Huit caractères au minimum.</span>}
-            </label>
+          {/* À la connexion, le champ accepte les deux : l'adresse et le
+              pseudo sont uniques tous les deux, et c'est le serveur qui
+              reconnaît lequel a été saisi. */}
+          <label className="champ">
+            <span className="champ__label">
+              {inscrire ? 'Adresse e-mail' : 'Adresse e-mail ou pseudo'}
+            </span>
+            <input
+              type={inscrire ? 'email' : 'text'}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete={inscrire ? 'email' : 'username'}
+              className="champ__input"
+            />
+          </label>
 
-            {erreur && <p className="compte__erreur">{erreur}</p>}
+          <label className="champ">
+            <span className="champ__label">Mot de passe</span>
+            <input
+              type="password"
+              value={motDePasse}
+              onChange={(e) => setMotDePasse(e.target.value)}
+              required
+              minLength={inscrire ? 8 : 1}
+              autoComplete={inscrire ? 'new-password' : 'current-password'}
+              className="champ__input"
+            />
+            {inscrire && <span className="champ__aide">Huit caractères au minimum.</span>}
+          </label>
 
-            <button type="submit" disabled={enCours} className="button">
-              {enCours ? 'Un instant…' : inscrire ? 'Créer mon compte' : 'Me connecter'}
-            </button>
-          </form>
+          {erreur && <p className="compte__erreur">{erreur}</p>}
+
+          <button type="submit" disabled={enCours} className="button">
+            {enCours ? 'Un instant…' : inscrire ? 'Créer mon compte' : 'Me connecter'}
+          </button>
+        </form>
       </AuthPanels>
 
-      {/* Le mode invité, annoncé sans détour : ce qu'on y gagne, ce qu'on y
-          perd. C'est la seule différence qu'il produit pour le joueur. */}
-      <section className="card invite">
+      {/* Le mode invité suit le formulaire au lieu de lui faire face : c'est
+          une porte de sortie, pas une offre concurrente. Pas de cadre — un
+          seul encadré sur l'écran, celui qui compte. */}
+      <section className="invite">
         <h2 className="invite__titre">Jouer sans compte</h2>
         <p className="invite__texte">
-          Tout le site reste jouable : le fil d'actualité, les conversations, les
-          thèmes. En revanche <b>tes scores ne sont pas enregistrés</b> — pas de
-          tableau de bord, et rien à retrouver à ta prochaine visite.
+          Tout reste jouable — le fil, les conversations, les thèmes. En
+          revanche <b>tes scores ne sont pas enregistrés</b>.
         </p>
         <div className="invite__actions">
           <button

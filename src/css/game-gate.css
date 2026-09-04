@@ -40,7 +40,7 @@
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: var(--brand-gradient);
+    background: var(--brand-blue);
     color: var(--brand-cream);
   }
 
@@ -80,7 +80,7 @@
     gap: 7px;
     padding: 13px 18px;
     border-radius: 999px;
-    background: var(--brand-gradient);
+    background: var(--brand-blue);
     color: var(--brand-cream);
     font-size: var(--text-md);
     font-weight: 700;
@@ -107,213 +107,137 @@
   }
 
   /* --- L'écran de départ ---------------------------------------------------
-     Il doit tenir en un écran : le bouton « Commencer » et ce qu'on accepte en
-     le pressant se lisent d'un seul regard. Les espacements se resserrent donc
-     à mesure que la hauteur manque, et le défilement ne reste qu'un filet de
-     sécurité — mieux vaut faire défiler que rogner le bouton. --- */
+     Le seul endroit où les règles sont dites. Pas de dégradé, pas de cadre
+     autour de chaque morceau : un encadré unique, et de l'air entre les
+     blocs. Ce qui est encadré compte ; le reste respire. --- */
 
-  /* Absolu dans la zone de l'écran plutôt que fixe sur toute la page : la
-     barre d'onglets et l'en-tête restent atteignables pendant le seuil. */
-  .game-start {
-    position: absolute;
-    z-index: 40;
-    /* La barre d'onglets est en dessous et gère elle-même l'encoche : la
-       réserver ici une seconde fois volerait de la hauteur pour rien. */
-    padding-bottom: 20px;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
-
-  /* La carte n'est pas bornée en hauteur et ne rogne rien : c'est le voile qui
-     défile, dans le cas rare où le contenu ne tient pas. Une carte à coins
-     arrondis qui découpe son propre contenu laisse un liseré au ras de la
-     découpe, et `margin: auto` — plutôt que `align-items: center` — garde le
-     haut atteignable quand ça déborde. */
   .game-start__card {
     display: flex;
     width: 100%;
-    max-width: 440px;
+    max-width: 420px;
     margin: auto;
     flex-direction: column;
-    gap: 14px;
-    padding: 22px 20px;
-    border-radius: 18px;
-    background: var(--brand-gradient);
-    color: var(--brand-cream);
-    box-shadow: 0 24px 60px rgba(20, 8, 44, 0.45);
+    gap: 28px;
+    padding: 32px 28px;
+    border-radius: 20px;
+    background: var(--surface);
+    box-shadow: 0 20px 60px rgba(20, 8, 44, 0.28);
   }
 
-  /* En-tête centré : la pastille, le surtitre, le nom du jeu. */
+  /* Le titre d'abord, ce qui le qualifie en dessous : on nomme, puis on
+     précise. */
   .game-start__head {
     text-align: center;
   }
 
-  /* La pastille s'inverse : fond crème, pictogramme à la couleur du jeu — la
-     couleur du jeu ne se verrait pas sur le dégradé de la marque. */
   .game-start__badge {
     display: inline-grid;
     place-items: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 15px;
-    background: var(--brand-cream);
-    color: var(--ink);
-  }
-
-  .game-start__eyebrow {
-    margin: 10px 0 0;
-    font-size: var(--text-2xs);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
     color: var(--brand-cream);
-    opacity: 0.75;
   }
 
   .game-start__title {
-    margin: 4px 0 0;
+    margin: 16px 0 0;
     font-family: var(--font-title);
     font-size: var(--text-2xl);
     font-weight: 700;
     line-height: 1.15;
-    color: var(--brand-cream);
+    color: var(--ink);
+  }
+
+  .game-start__eyebrow {
+    margin: 6px 0 0;
+    font-size: var(--text-sm);
+    color: var(--ink-muted);
   }
 
   .game-start__points {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 14px;
     margin: 0;
   }
 
   .game-start__points li {
     position: relative;
-    padding-left: 20px;
+    padding-left: 22px;
     font-size: var(--text-md);
-    line-height: 1.45;
-    color: var(--brand-cream);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
   }
 
   .game-start__points li::before {
     content: '';
     position: absolute;
-    top: 0.6em;
-    left: 3px;
-    width: 6px;
-    height: 6px;
+    top: 0.62em;
+    left: 4px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    background: var(--brand-cream);
-    opacity: 0.7;
+    background: var(--brand-blue);
   }
 
-  /* Les deux boutons côte à côte. En dessous de 360 px ils s'empilent : deux
-     libellés sur une ligne y deviennent illisibles. */
   .game-start__actions {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-direction: column;
+    gap: 14px;
   }
 
-  .game-start__login,
   .game-start__go {
     display: flex;
-    flex: 1 1 140px;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 13px 16px;
-    border-radius: 999px;
+    padding: 15px 20px;
+    border-radius: 14px;
+    background: var(--brand-blue);
+    color: var(--brand-cream);
     font-size: var(--text-md);
     font-weight: 700;
     transition: background-color 0.15s, transform 0.12s;
   }
 
-  /* Fond crème, texte à la couleur du bouton : sur le dégradé, deux aplats
-     colorés se seraient noyés dedans. */
-  .game-start__login,
-  .game-start__go {
-    background: var(--brand-cream);
-  }
-
-  .game-start__login {
-    color: var(--brand-blue);
-  }
-
-  .game-start__go {
-    color: var(--brand-magenta);
-  }
-
-  .game-start__login:hover,
   .game-start__go:hover {
-    background: #fff;
+    background: color-mix(in srgb, var(--brand-blue) 84%, white);
   }
 
-  .game-start__login:active,
   .game-start__go:active {
     transform: scale(0.98);
   }
 
-  /* Le pied : la mention légère, et la porte vers les règles détaillées. */
-  .game-start__pied {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-  }
-
+  /* Une phrase, pas un encadré : la mention est utile, elle n'est pas au même
+     rang que les règles. */
   .game-start__guest {
     margin: 0;
-    font-size: var(--text-xs);
-    line-height: 1.45;
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
     text-align: center;
-    color: var(--brand-cream);
-    opacity: 0.8;
+    color: var(--ink-muted);
   }
 
-  .game-start__rules {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: var(--text-xs);
-    font-weight: 600;
-    color: var(--brand-cream);
-    opacity: 0.85;
-    transition: background-color 0.15s, opacity 0.15s;
+  .game-start__login {
+    font-weight: 700;
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
-  .game-start__rules:hover {
-    background: rgba(255, 255, 255, 0.14);
-    opacity: 1;
-  }
-
-  /* Écran court : on resserre plutôt que de faire défiler. */
+  /* Écran court : on resserre, sans jamais coller. */
   @media (max-height: 700px) {
     .game-start {
       padding: calc(12px + var(--sa-top)) 12px calc(12px + var(--sa-bottom));
     }
 
     .game-start__card {
+      gap: 20px;
+      padding: 24px 22px;
+    }
+
+    .game-start__points {
       gap: 10px;
-      padding: 16px;
-    }
-
-    .game-start__points li {
-      font-size: var(--text-sm);
-    }
-
-    .game-start__go {
-      padding: 11px 18px;
-      font-size: var(--text-md);
-    }
-  }
-
-  /* Le rappel se casse en deux quand la ligne ne tient plus. */
-  @media (max-width: 400px) {
-    .game-start__guest {
-      flex-direction: column;
-      align-items: stretch;
     }
   }
 }

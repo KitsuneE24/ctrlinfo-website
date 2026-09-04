@@ -464,10 +464,7 @@
     font-size: var(--text-2xl);
     font-weight: 700;
     letter-spacing: -0.02em;
-    background-image: var(--brand-gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    color: var(--brand-blue);
   }
 
   .chiffre__texte {

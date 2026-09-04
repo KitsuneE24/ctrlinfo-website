@@ -12,10 +12,9 @@
      alors la même hauteur, malgré leur champ d'écart. */
   .compte__form {
     display: flex;
-    flex: 1 1 auto;
     flex-direction: column;
-    gap: 14px;
-    padding: 18px 16px 20px;
+    gap: 20px;
+    padding: 24px 20px 26px;
   }
 
   .champ {
@@ -64,13 +63,13 @@
   }
 
   .invite {
-    padding: 18px 16px 20px;
+    padding: 4px 4px 0;
   }
 
   .invite__titre {
     margin: 0;
     font-family: var(--font-title);
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: 700;
     color: var(--ink);
   }
@@ -87,8 +86,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-    margin-top: 14px;
+    gap: 12px;
+    margin-top: 18px;
   }
 
   /* Le mode invité est un vrai choix, pas une note de bas de page : le bouton

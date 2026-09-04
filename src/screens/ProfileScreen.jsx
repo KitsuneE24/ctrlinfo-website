@@ -75,7 +75,7 @@ function Formulaire() {
     setEnCours(true)
     try {
       if (inscrire) await inscription({ email, motDePasse, pseudo })
-      else await connexion({ email, motDePasse })
+      else await connexion({ identifiant: email, motDePasse })
     } catch (echec) {
       setErreur(echec.message)
     } finally {
@@ -103,14 +103,19 @@ function Formulaire() {
               </label>
             )}
 
+            {/* À la connexion, le champ accepte les deux : l'adresse et le
+                pseudo sont uniques tous les deux, et c'est le serveur qui
+                reconnaît lequel a été saisi. */}
             <label className="champ">
-              <span className="champ__label">Adresse e-mail</span>
+              <span className="champ__label">
+                {inscrire ? 'Adresse e-mail' : 'Adresse e-mail ou pseudo'}
+              </span>
               <input
-                type="email"
+                type={inscrire ? 'email' : 'text'}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                autoComplete="email"
+                autoComplete={inscrire ? 'email' : 'username'}
                 className="champ__input"
               />
             </label>

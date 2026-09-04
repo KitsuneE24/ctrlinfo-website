@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router'
 import './css/index.css'
 import App from './App.jsx'
+import Rattrapage from './components/ui/Rattrapage.jsx'
 
 /**
  * `basename` suit la base de Vite : en local le site est à la racine, sur
@@ -11,8 +12,12 @@ import App from './App.jsx'
  */
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <App />
-    </BrowserRouter>
+    {/* Le filet est au-dessus du routeur : une erreur de rendu, où qu'elle
+        survienne, laisse un message et un bouton plutôt qu'une page vide. */}
+    <Rattrapage>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <App />
+      </BrowserRouter>
+    </Rattrapage>
   </StrictMode>,
 )

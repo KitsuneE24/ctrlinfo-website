@@ -1,19 +1,20 @@
 import { createElement } from 'react'
 import { Link } from 'react-router'
 import { motion } from 'framer-motion'
-import { HelpCircle, Play, RotateCcw } from 'lucide-react'
+import { Play, RotateCcw } from 'lucide-react'
 import { PATHS } from '../routes'
 
 /**
- * L'écran de départ d'un jeu : ce qu'on va y faire.
+ * L'écran de départ d'un jeu : ce qu'on va y faire, et rien d'autre.
  *
- * Il tient en un écran, sans défilement : le bouton « Commencer » et ce qu'on
- * accepte en le pressant se lisent d'un seul regard.
+ * C'est le **seul** endroit où les règles sont dites. Il y avait avant un
+ * tutoriel en trois volets qui répétait ces mêmes points : lues deux fois,
+ * elles n'étaient lues nulle part.
  *
  * Rouvert en cours de partie (`reprise`), il ne relance rien : il rappelle, et
  * on repart où on en était.
  */
-export default function GameStart({ jeu, connecte, reprise, onStart, onRules }) {
+export default function GameStart({ jeu, connecte, reprise, onStart }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,19 +24,19 @@ export default function GameStart({ jeu, connecte, reprise, onStart, onRules }) 
       className="game-start no-scrollbar"
     >
       <motion.div
-        initial={{ y: 16 }}
+        initial={{ y: 12 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.22 }}
         className="game-start__card"
       >
         <header className="game-start__head">
-          <span className="game-start__badge" style={{ color: jeu.couleur }}>
-            {createElement(jeu.Icon, { size: 24, strokeWidth: 1.9 })}
+          <span className="game-start__badge" style={{ background: jeu.couleur }}>
+            {createElement(jeu.Icon, { size: 22, strokeWidth: 1.9 })}
           </span>
-          <p className="game-start__eyebrow">
-            {reprise ? 'Les règles' : 'Avant de jouer'}
-          </p>
           <h1 className="game-start__title">{jeu.titre}</h1>
+          <p className="game-start__eyebrow">
+            {reprise ? 'Rappel des règles' : 'Avant de jouer'}
+          </p>
         </header>
 
         <ul className="game-start__points">
@@ -44,37 +45,25 @@ export default function GameStart({ jeu, connecte, reprise, onStart, onRules }) 
           ))}
         </ul>
 
-        {/* Côte à côte : commencer reste l'action principale, se connecter la
-            porte de sortie vers le compte. */}
         <div className="game-start__actions">
-          {!connecte && (
-            <Link to={PATHS.profile} className="game-start__login">
-              Se connecter
-            </Link>
-          )}
           <button type="button" onClick={onStart} className="game-start__go">
             {reprise ? (
               <RotateCcw size={16} strokeWidth={2.2} />
             ) : (
-              <Play size={16} fill="currentColor" strokeWidth={0} />
+              <Play size={15} fill="currentColor" strokeWidth={0} />
             )}
             {reprise ? 'Reprendre' : 'Commencer'}
           </button>
-        </div>
 
-        <footer className="game-start__pied">
           {!connecte && (
             <p className="game-start__guest">
-              Sans compte, les scores ne seront pas enregistrés.
+              Sans compte, les scores ne seront pas enregistrés.{' '}
+              <Link to={PATHS.profile} className="game-start__login">
+                Se connecter
+              </Link>
             </p>
           )}
-          {/* La seule porte vers les trois volets détaillés : sans ce lien, le
-              tutoriel et ses captures deviennent inatteignables. */}
-          <button type="button" onClick={onRules} className="game-start__rules">
-            <HelpCircle size={14} strokeWidth={2} />
-            Voir les règles en détail
-          </button>
-        </footer>
+        </div>
       </motion.div>
     </motion.div>
   )

@@ -79,7 +79,7 @@
     gap: 5px;
     padding: 6px 12px;
     border-radius: 999px;
-    background: var(--brand-gradient);
+    background: var(--brand-blue);
     color: var(--brand-cream);
     font-size: var(--text-sm);
     font-weight: 700;
@@ -336,7 +336,7 @@
     inset: 0 0 auto;
     height: 5px;
     border-radius: 18px 18px 0 0;
-    background: var(--brand-gradient);
+    background: var(--brand-blue);
   }
 
   .modal__badge {
@@ -404,7 +404,7 @@
     height: 76px;
     margin: 0 auto 18px;
     border-radius: 50%;
-    background: var(--brand-gradient);
+    background: var(--brand-blue);
     color: #fff;
   }
 

@@ -79,7 +79,7 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: var(--brand-gradient);
+    background: var(--brand-violet-deep);
   }
 
   .video__play {

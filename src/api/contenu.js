@@ -13,7 +13,7 @@ const requete = (chemin) => api(chemin, { authentifie: false })
 /** La galerie d'avatars. Ouverte : on la voit avant d'avoir un compte. */
 export const getAvatars = () => requete('/avatars')
 
-/** Les jeux et leurs tutoriels. */
+/** Les jeux. */
 export const getJeux = () => requete('/jeux')
 
 /**

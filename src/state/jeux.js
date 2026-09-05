@@ -4,8 +4,8 @@ import { createContext, useContext } from 'react'
  * Les jeux, partagés par toute l'application.
  *
  * Quatre endroits en ont besoin — la galerie, la barre du jeu, le menu de
- * l'en-tête, le tutoriel. Ils lisaient tous le même fichier de données ; ils
- * lisent maintenant le même contexte, et ne peuvent donc toujours pas
+ * l'en-tête, l'écran de départ. Ils lisaient tous le même fichier de données ;
+ * ils lisent maintenant le même contexte, et ne peuvent donc toujours pas
  * diverger.
  *
  * Le fournisseur qui remplit ce contexte est dans FournisseurJeux.jsx : les

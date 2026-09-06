@@ -33,12 +33,13 @@ src/
     ui/Chargement.jsx « ça charge » et « l'API ne répond pas »
   screens/            un fichier par écran
   data/               la table des icônes (du code, pas du contenu)
-  css/                douze feuilles assemblées par index.css
+  css/                les feuilles de style, assemblées par index.css
   lib/                utilitaires purs + les crochets de chargement
   state/              état hors de React (compte, jeux, conversations en cours)
 
 docs/                 cette documentation
-public/               fichiers servis tels quels (logo)
+public/               fichiers servis tels quels : logo, sprites du compagnon
+scripts/              outils hors application — dont la pose « téléphone »
 ```
 
 ## 3. Coque et navigation
@@ -122,6 +123,148 @@ Deux choix à connaître :
   story attend : personne ne doit voir un texte disparaître avant de l'avoir
   fini. La brève « Le saviez-vous ? » suit la même retenue — une par jour, pas
   une par visite ([DailyTip.jsx](../src/components/DailyTip.jsx)).
+
+## 3 ter. Le compagnon
+
+Un petit personnage en pixels vit en bas de l'écran :
+[Compagnon.jsx](../src/components/Compagnon.jsx) pour le comportement,
+[lib/compagnon.js](../src/lib/compagnon.js) pour tout ce qui le décrit —
+planches, postures, répliques, place retenue.
+
+Il se tient en bas de l'écran, **commente l'écran où l'on vient d'arriver** et
+réagit aux coups de la partie. On peut le toucher pour l'entendre tout de
+suite, et l'attraper pour le poser ailleurs : il retombe, s'écrase un instant,
+et reste où on l'a mis — d'une visite à l'autre.
+
+**Il ne se promène pas.** Il ne bouge que pour une raison : ne rien couvrir.
+Une balade au hasard a existé ici et a été retirée — elle accrochait l'œil sans
+rien apporter, et un personnage qui traverse un paragraphe reste un personnage
+qui traverse un paragraphe, même s'il ne s'y arrête pas.
+
+### La planche
+
+Le dessin est fait à la main, dans `public/cagou.png` : **neuf vignettes de
+32 × 48**, et les deux sens de marche y sont dessinés.
+
+```
+  0  1  2  3      4      5  6  7  8
+  marche gauche  face   marche droite
+```
+
+Les deux sens étant dessinés, **rien n'est retourné en miroir** : changer de
+direction change de vignettes. Un miroir aurait mis son œil et sa mèche du
+mauvais côté. Au repos, il joue la vignette de face : il se tourne vers le
+joueur quand il s'arrête.
+
+La dixième pose — celle où il regarde son téléphone pendant une partie —
+n'existe pas dans la planche : elle est **dérivée de la vignette de face** par
+[scripts/generer-pose-telephone.mjs](../scripts/generer-pose-telephone.mjs),
+qui lui pose un téléphone dans les mains et fait défiler l'écran sur quatre
+images. À relancer si le sprite change.
+
+| Posture | Quand | Vignettes |
+| --- | --- | --- |
+| `marche` | il traverse son couloir, se retourne aux bords | 0-3 ou 5-8, selon le sens |
+| `repos` | entre deux marches, quand il parle, et posé en lecture | 4, de face |
+| `porte` | on le tient en main | 4, avec un balancement CSS |
+| `telephone` | une partie est en cours | `cagou-telephone.png`, 4 vignettes |
+
+**`ECHELLE` est le seul réglage de sa taille** : sa vitesse, la longueur de son
+pas et le bord de sa bulle en découlent. À 1,5 — la valeur retenue — il occupe
+48 × 72 pixels, dont 41 × 63 de dessin : présent sans encombrer. Un
+agrandissement entier garderait des pixels parfaitement carrés ; à 1,5 une
+colonne sur deux est plus large d'un pixel physique sur un écran sans densité,
+et exacte sur les autres. Le compromis est assumé, il vaut mieux qu'il soit
+discret.
+
+**Les vignettes défilent à la distance, pas au temps** : la patte change tous
+les 10,5 pixels parcourus, un cycle complet toutes les 42 — soit, à 90 px/s, un
+peu moins de neuf dessins par seconde, la cadence d'un personnage pressé sans
+être affolé. Les dessins et le déplacement sont ainsi le même mouvement : le
+sol ne file jamais sous ses pieds, quelle que soit sa vitesse ou le nombre
+d'images par seconde de l'écran.
+C'est la boucle du composant qui pose `background-position-x`, et non une
+animation CSS : la première version, en `@keyframes` paramétrées par des
+variables, ne défilait pas du tout — un `var()` dans une image-clé ne s'anime
+pas partout — et le personnage glissait sans bouger les pattes.
+
+### Ce qu'il dit
+
+Les répliques sont dans `lib/compagnon.js`, rangées par écran, et il les dit
+**de lui-même** : une peu après l'arrivée sur un onglet — c'est ce qui fait
+qu'il commente là où l'on va — puis une autre de loin en loin, jusqu'à les
+avoir toutes dites. Le minuteur n'est pas une boucle : chaque réplique dite
+relance l'effet avec le délai suivant. Une réplique qui tombe mal — bulle déjà
+ouverte, personnage dans la main — est remise à quelques secondes.
+
+Il réagit aussi à la partie, par
+[state/compagnonSignaux.js](../src/state/compagnonSignaux.js) : le fil et la
+coque **signalent** ce qui vient d'arriver, lui seul **écoute**. Un contexte
+aurait fait re-rendre toute la coque à chaque décision. Ce qu'il en fait — les
+séries, ce qu'il en dit — n'appartient qu'à lui : trois bonnes réponses de
+suite, deux erreurs, une partie finie.
+
+Une pastille « 1 » flotte au-dessus de lui **la première fois seulement** : elle
+dit qu'il y a quelqu'un à toucher, part au premier appui et ne revient jamais.
+
+### Quatre points de conception
+
+- **Il ne gêne jamais.** La scène couvre la zone de l'écran mais ne reçoit
+  aucun clic ; seul le personnage en reçoit. Elle est posée dans `.app__main`,
+  donc **au-dessus de la barre d'onglets et non dessus** : la navigation reste
+  entière. Son `z-index` (25) le met devant le contenu et derrière l'écran de
+  départ (40) comme les fenêtres (100).
+- **Il ne marche pas sur les mots, ni devant les boutons.** Quelques colonnes
+  par image, il relève avec `elementsFromPoint` ce qu'il y a sous la ligne du
+  bas — du texte, ou quoi que ce soit qui se clique — et en garde un coût par
+  colonne : zéro si c'est libre, trois si c'est occupé sur toute sa hauteur —
+  la tête, le corps et les pattes sont sondés, car à deux hauteurs une ligne de
+  texte passait pile entre les deux et il allait s'installer dessus. Dès qu'il
+  couvre quelque chose, il marche jusqu'au vide le plus proche et s'y arrête —
+  juste assez, il ne traverse pas l'écran pour rien. Si tout est occupé, le
+  seuil monte d'un cran et il va là où il dérange le moins. **C'est en se
+  déplaçant qu'il libère la vue, jamais en devenant transparent.**
+- **Pendant une partie, il se met franchement sur le côté.** `AppShell` lui
+  passe `enJeu` : il rejoint alors le bout du couloir plutôt que le vide le plus
+  proche, et y sort son téléphone. C'est un retrait annoncé, pas un ajustement.
+  Il continue de commenter les coups. **Chaque nouveau relevé remet sa place en
+  question** — dans tous les cas, partie comprise : sans cela il la choisissait
+  avant le premier relevé, donc à l'aveugle, et restait planté devant une carte
+  jusqu'au changement d'écran.
+- **La bulle vit dans sa boîte**, celle que la transformation déplace : elle le
+  suit sans qu'une ligne de code ne la déplace. Un placement calculé image par
+  image a été essayé et retiré — React et framer-motion réécrivent les styles
+  qu'ils possèdent, et la bulle restait en arrière. Ses bords sont posés **en
+  style en ligne, en pixels** : ils ont vécu en `calc()` sur une variable CSS,
+  et une déclaration `calc()` invalide est jetée en silence par le navigateur —
+  la bulle repartait alors se coller au bord de l'écran, sans le moindre
+  message d'erreur. Sa largeur est mesurée à l'ouverture (la place qui reste
+  jusqu'au bord) et il **ne bouge plus tant qu'elle est ouverte**, ce qui garde
+  cette mesure vraie. Il attend d'ailleurs d'être sur une place libre pour
+  parler : s'immobiliser au milieu d'un paragraphe serait le pire moment.
+- **Une bulle reste le temps qu'on la lise** (`dureeLecture`) : une seconde et
+  demie pour y poser les yeux, puis quinze caractères par seconde, borné entre
+  quatre et douze secondes. Une phrase de trois mots n'occupe pas le coin de
+  l'écran aussi longtemps qu'une phrase de vingt. C'est le seul état où il ne se déplace pas tout seul — et si on le
+  repose ailleurs entre-temps, il reste où on l'a mis. Il continue de commenter
+  les coups.
+- **Le mouvement ne passe pas par React.** La position est écrite image par
+  image dans le `transform` de l'élément ; seuls les changements rares — la
+  posture, le sens, la bulle — sont des états. Une balade à soixante images par
+  seconde ne doit pas re-rendre l'application.
+
+**`prefers-reduced-motion` ne touche pas à son pas**, et c'est délibéré : se
+pousser d'un texte n'est pas une animation décorative, c'est la seule chose qui
+l'empêche de gêner. Ce qui reste à couper pour qui demande moins d'animations,
+ce sont les fioritures — la pastille qui bat, son balancement quand on le tient
+— et la feuille de style s'en charge déjà.
+
+Ce réglage a pourtant coupé net son déplacement, puis l'a ralenti de moitié.
+Deux erreurs de la même famille, invisibles à la lecture du code et parlantes à
+l'usage : sur les écrans où il se posait il bougeait, sur ceux où il se
+promenait il ne bougeait jamais ; puis, une fois la promenade retirée, il
+rampait.
+
 
 ## 4. Les deux jeux
 
@@ -246,7 +389,7 @@ ne se ressemblent donc pas.
 ## 7. Les styles
 
 Toute la mise en forme passe par des classes maison en notation BEM
-(`bloc__element--variante`), réparties en douze feuilles nommées en français et
+(`bloc__element--variante`), réparties en feuilles nommées en français et
 assemblées par [index.css](../src/css/index.css) — qui ne contient aucune règle,
 seulement le sommaire et les `@import`.
 
@@ -296,7 +439,8 @@ serveur :
 | --- | --- | --- |
 | la base, via l'API | parties, décisions, avancement, biais ratés | permanent |
 | `localStorage` (`api/client.js`) | la session du joueur (jetons) et le mode invité | permanent |
-| `localStorage` (`premiereFois.js`) | tutoriels déjà vus | permanent |
+| `localStorage` (`premiereFois.js`) | tutoriels déjà vus, présentations du compagnon | permanent |
+| `localStorage` (`compagnon.js`) | où le compagnon a été posé, en fraction de largeur | permanent |
 | module en mémoire (`conversationSessions.js`) | conversations en cours | jusqu'au rechargement |
 | `useState` | tout le reste | jusqu'au démontage de l'écran |
 

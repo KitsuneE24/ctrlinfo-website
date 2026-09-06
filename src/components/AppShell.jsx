@@ -2,14 +2,15 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router'
 import { AnimatePresence, motion } from 'framer-motion'
 import AppHeader from './AppHeader'
+import Compagnon from './Compagnon'
 import ExitGamePrompt from './ExitGamePrompt'
 import GameStart from './GameStart'
-import GameTutorial from './GameTutorial'
 import TabBar from './TabBar'
 import { abandonnerSession, auMieux } from '../api/progression'
 import { useCompte } from '../state/compte'
 import { ExitGuardContext } from '../state/exitGuard'
 import { getCurrentSession } from '../state/currentSession'
+import { signalerAuCompagnon } from '../state/compagnonSignaux'
 import { useJeu, useJeux } from '../state/jeux'
 import { PATHS, pageTitle } from '../routes'
 
@@ -26,8 +27,8 @@ const gameOfPath = (path) => {
  *
  * C'est aussi le seuil des jeux, et il tient en un écran : **l'écran de
  * départ**. Il dit la règle, la durée, ce qu'on va faire, et rappelle qu'on
- * joue sans compte quand c'est le cas. Le tutoriel détaillé n'est plus imposé
- * — il s'ouvre depuis là, à la demande.
+ * joue sans compte quand c'est le cas. C'est le seul endroit où les règles
+ * sont dites : les répéter dans un tutoriel revenait à ne les lire nulle part.
  *
  * Rien ne barre l'entrée d'un jeu : jouer sans compte se fait d'un trait.
  *
@@ -47,7 +48,6 @@ export default function AppShell() {
   const [lancee, setLancee] = useState(false)
   const [lastPath, setLastPath] = useState(pathname)
   const [relecture, setRelecture] = useState(false)
-  const [tutoriel, setTutoriel] = useState(false)
   const [exitTo, setExitTo] = useState(null)
   const [finished, setFinished] = useState(false)
 
@@ -57,7 +57,6 @@ export default function AppShell() {
     setLastPath(pathname)
     setLancee(false)
     setRelecture(false)
-    setTutoriel(false)
     setExitTo(null)
     setFinished(false)
   }
@@ -81,7 +80,10 @@ export default function AppShell() {
   }, [])
 
   const revoirLeDepart = useCallback(() => setRelecture(true), [])
-  const marquerFini = useCallback(() => setFinished(true), [])
+  const marquerFini = useCallback(() => {
+    setFinished(true)
+    signalerAuCompagnon('finPartie')
+  }, [])
 
   // La sortie n'est retenue que pendant une partie en cours : une fois jouée
   // jusqu'au bout, il n'y a plus rien à perdre et la question serait de trop.
@@ -125,7 +127,7 @@ export default function AppShell() {
                   cours de partie met en pause, il ne relance pas. */}
               <Outlet
                 context={{
-                  paused: !demarree || departVisible || tutoriel,
+                  paused: !demarree || departVisible,
                   runKey: demarree ? 'play' : 'idle',
                   onFinished: marquerFini,
                 }}
@@ -144,19 +146,20 @@ export default function AppShell() {
                 connecte={connecte}
                 reprise={lancee}
                 onStart={commencer}
-                onRules={() => setTutoriel(true)}
               />
             )}
           </AnimatePresence>
+
+          {/* Le compagnon vit dans la zone de l'écran, au-dessus du contenu et
+              en dessous du seuil de jeu. Il y est posé une fois pour toutes :
+              changer d'écran ne le fait pas disparaître, il continue sa
+              balade. Pendant une partie, il s'assoit sur le côté. */}
+          <Compagnon enJeu={enPartie && !departVisible} />
         </div>
 
         <TabBar />
 
         <AnimatePresence>
-          {tutoriel && jeu && (
-            <GameTutorial key="rules" jeu={jeu} onClose={() => setTutoriel(false)} />
-          )}
-
           {exitTo !== null && (
             <ExitGamePrompt
               key="exit"

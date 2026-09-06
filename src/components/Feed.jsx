@@ -12,6 +12,7 @@ import { Chargement, ErreurChargement } from './ui/Chargement'
 import FeedStats from './FeedStats'
 import PostCard from './PostCard'
 import FeedbackModal from './FeedbackModal'
+import { signalerAuCompagnon } from '../state/compagnonSignaux'
 
 export default function Feed({ onSwitch, onFinished, paused = false }) {
   // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
@@ -108,6 +109,12 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
   // Mesuré plutôt que codé en dur : la hauteur change avec la largeur de
   function handleAction(type) {
     if (action !== null) return
+
+    // Le compagnon suit la partie : il ne relève ni une bonne réponse isolée
+    // ni une erreur isolée, mais il compte les séries.
+    signalerAuCompagnon(
+      type === currentPost.correctAction ? 'bonneReponse' : 'mauvaiseReponse'
+    )
 
     if (type !== currentPost.correctAction && !currentPost.isRemediation) {
       const biais = currentPost.biais

@@ -1,130 +1,175 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { Outlet, useLocation, useNavigate } from 'react-router'
 import { AnimatePresence, motion } from 'framer-motion'
-import { BookOpen, X } from 'lucide-react'
 import AppHeader from './AppHeader'
-import GameTutorial from './GameTutorial'
+import Compagnon from './Compagnon'
+import ExitGamePrompt from './ExitGamePrompt'
+import GameStart from './GameStart'
 import TabBar from './TabBar'
-import games from '../data/games'
-import { dejaVu, marquerVu } from '../lib/premiereFois'
-import HomeScreen from '../screens/HomeScreen'
-import GameScreen from '../screens/GameScreen'
-import SourcesScreen from '../screens/SourcesScreen'
+import { abandonnerSession, auMieux } from '../api/progression'
+import { useCompte } from '../state/compte'
+import { ExitGuardContext } from '../state/exitGuard'
+import { getCurrentSession } from '../state/currentSession'
+import { signalerAuCompagnon } from '../state/compagnonSignaux'
+import { useJeu, useJeux } from '../state/jeux'
+import { PATHS, pageTitle } from '../routes'
+
+/** Le jeu qui commence à cette adresse. La boîte de réception n'en est pas un. */
+const gameOfPath = (path) => {
+  if (path === PATHS.feed) return 'feed'
+  if (path.startsWith(`${PATHS.chats}/`)) return 'chat'
+  return null
+}
 
 /**
- * Coque de l'application : l'en-tête, l'écran en cours, la barre d'onglets du
- * bas, et le bouton « Sources » par-dessus.
+ * Coque de l'application : en-tête, écran de la route en cours, barre
+ * d'onglets.
  *
- * Les deux navigations sont toujours rendues, le CSS décide laquelle se
- * montre. Elles partagent le même état et les mêmes données (navItems.js).
+ * C'est aussi le seuil des jeux, et il tient en un écran : **l'écran de
+ * départ**. Il dit la règle, la durée, ce qu'on va faire, et rappelle qu'on
+ * joue sans compte quand c'est le cas. C'est le seul endroit où les règles
+ * sont dites : les répéter dans un tutoriel revenait à ne les lire nulle part.
  *
- * Le tutoriel d'un jeu vit ici : il s'ouvre tout seul à la première partie, et
- * par le bouton « Règles du jeu » à tout moment.
+ * Rien ne barre l'entrée d'un jeu : jouer sans compte se fait d'un trait.
+ *
+ * Le même écran se rouvre en cours de partie par le bouton de l'en-tête. Il
+ * annonce alors « Reprendre », et la partie n'est pas relancée : elle est
+ * seulement mise en pause le temps de la relecture.
  */
 export default function AppShell() {
-  const [tab, setTab] = useState('home')
-  // Le jeu en cours, pour que le menu de l'en-tête puisse en lancer un depuis
-  // n'importe quel onglet.
-  const [jeu, setJeu] = useState(null)
-  // D'où l'on venait avant d'ouvrir les sources, pour y revenir.
-  const [avantSources, setAvantSources] = useState(null)
-  // { id, auto } — le tutoriel ouvert, et s'il s'est ouvert de lui-même.
-  const [tuto, setTuto] = useState(null)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+  const { connecte } = useCompte()
 
-  // Ouvrir un jeu, c'est aussi décider s'il commence par ses règles.
-  const ouvrirJeu = useCallback((id) => {
-    setJeu(id)
-    setTuto(id && !dejaVu(`tuto:${id}`) ? { id, auto: true } : null)
+  const gameId = gameOfPath(pathname)
+  const jeu = useJeu(gameId)
+  const { chargement: jeuxEnCours } = useJeux()
+
+  const [lancee, setLancee] = useState(false)
+  const [lastPath, setLastPath] = useState(pathname)
+  const [relecture, setRelecture] = useState(false)
+  const [exitTo, setExitTo] = useState(null)
+  const [finished, setFinished] = useState(false)
+
+  // Ajusté pendant le rendu, pas dans un effet : sinon l'écran s'affiche une
+  // fois sans son seuil.
+  if (lastPath !== pathname) {
+    setLastPath(pathname)
+    setLancee(false)
+    setRelecture(false)
+    setExitTo(null)
+    setFinished(false)
+  }
+
+  useEffect(() => {
+    document.title = pageTitle(pathname)
+  }, [pathname])
+
+  // Sans la description du jeu, on ne sait rien annoncer : on laisse passer, et
+  // l'écran affichera sa propre erreur de chargement.
+  const jeuEnPlace = Boolean(gameId && jeu)
+  const enAttente = Boolean(gameId) && jeuxEnCours
+  const seuil = jeuEnPlace && !lancee
+
+  const departVisible = jeuEnPlace && (seuil || relecture)
+  const demarree = !gameId || (!seuil && !enAttente)
+
+  const commencer = useCallback(() => {
+    setLancee(true)
+    setRelecture(false)
   }, [])
 
-  const navigate = useCallback(
-    (prochainOnglet, prochainJeu = null) => {
-      setTab(prochainOnglet)
-      setAvantSources(null)
-      if (prochainOnglet === 'game') ouvrirJeu(prochainJeu)
+  const revoirLeDepart = useCallback(() => setRelecture(true), [])
+  const marquerFini = useCallback(() => {
+    setFinished(true)
+    signalerAuCompagnon('finPartie')
+  }, [])
+
+  // La sortie n'est retenue que pendant une partie en cours : une fois jouée
+  // jusqu'au bout, il n'y a plus rien à perdre et la question serait de trop.
+  const enPartie = demarree && gameId !== null && !finished
+
+  const requestExit = useCallback(
+    (to) => {
+      if (!enPartie) return true
+      setExitTo(to)
+      return false
     },
-    [ouvrirJeu]
+    [enPartie]
   )
 
-  const revoirRegles = useCallback(() => {
-    if (jeu) setTuto({ id: jeu, auto: false })
-  }, [jeu])
+  const guard = useMemo(() => ({ requestExit }), [requestExit])
 
-  const fermerTuto = useCallback(() => {
-    marquerVu(`tuto:${tuto.id}`)
-    setTuto(null)
-  }, [tuto])
-
-  const basculerSources = useCallback(() => {
-    if (tab === 'sources') {
-      setTab(avantSources ?? 'home')
-      setAvantSources(null)
-      return
-    }
-    setAvantSources(tab)
-    setTab('sources')
-  }, [tab, avantSources])
-
-  const surSources = tab === 'sources'
-  const jeuDuTuto = games.find(({ id }) => id === tuto?.id)
+  const confirmExit = useCallback(() => {
+    const sessionId = getCurrentSession()
+    if (sessionId) auMieux(abandonnerSession(sessionId))
+    const to = exitTo
+    setExitTo(null)
+    if (to) navigate(to)
+  }, [exitTo, navigate])
 
   return (
-    <div className="app">
-      <AppHeader tab={tab} jeu={jeu} onNavigate={navigate} />
+    <ExitGuardContext.Provider value={guard}>
+      <div className="app">
+        <AppHeader onGame={Boolean(gameId)} onShowRules={revoirLeDepart} />
 
-      <div className="app__main">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={tab}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.16 }}
-            className="app__screen"
-          >
-            {tab === 'home' && <HomeScreen />}
-            {tab === 'game' && (
-              <GameScreen
+        <div className="app__main">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={pathname}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.16 }}
+              className="app__screen"
+            >
+              {/* `runKey` ne change qu'au premier départ : rouvrir l'écran en
+                  cours de partie met en pause, il ne relance pas. */}
+              <Outlet
+                context={{
+                  paused: !demarree || departVisible,
+                  runKey: demarree ? 'play' : 'idle',
+                  onFinished: marquerFini,
+                }}
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* L'écran de départ vit dans la zone de l'écran, pas par-dessus
+              toute l'application : la barre d'onglets reste atteignable, et
+              qui change d'avis n'est pas coincé. */}
+          <AnimatePresence>
+            {departVisible && (
+              <GameStart
+                key="start"
                 jeu={jeu}
-                onSelect={ouvrirJeu}
-                onRevoirRegles={revoirRegles}
-                // Le jeu n'a pas commencé : ses règles sont à l'écran.
-                enAttente={tuto?.auto === true}
-                enPause={tuto !== null}
+                connecte={connecte}
+                reprise={lancee}
+                onStart={commencer}
               />
             )}
-            {tab === 'sources' && <SourcesScreen />}
-          </motion.div>
+          </AnimatePresence>
+
+          {/* Le compagnon vit dans la zone de l'écran, au-dessus du contenu et
+              en dessous du seuil de jeu. Il y est posé une fois pour toutes :
+              changer d'écran ne le fait pas disparaître, il continue sa
+              balade. Pendant une partie, il s'assoit sur le côté. */}
+          <Compagnon enJeu={enPartie && !departVisible} />
+        </div>
+
+        <TabBar />
+
+        <AnimatePresence>
+          {exitTo !== null && (
+            <ExitGamePrompt
+              key="exit"
+              connecte={connecte}
+              onConfirm={confirmExit}
+              onCancel={() => setExitTo(null)}
+            />
+          )}
         </AnimatePresence>
       </div>
-
-      <TabBar tab={tab} onNavigate={navigate} />
-
-      {/* Ordinateur seulement : sur téléphone, les sources ont leur onglet dans
-          la barre du bas. Sur les conversations, le bouton descend se poser sur
-          le champ de saisie barré. */}
-      <button
-        type="button"
-        onClick={basculerSources}
-        aria-label={surSources ? 'Fermer les sources' : 'Ouvrir les sources'}
-        className={`sources-fab${
-          tab === 'game' && jeu === 'chat' ? ' sources-fab--sur-champ' : ''
-        }`}
-      >
-        {surSources ? (
-          <X size={20} strokeWidth={2.2} />
-        ) : (
-          <BookOpen size={20} strokeWidth={2} />
-        )}
-        <span className="sources-fab__label">
-          {surSources ? 'Fermer' : 'Sources'}
-        </span>
-      </button>
-
-      <AnimatePresence>
-        {jeuDuTuto && (
-          <GameTutorial key={jeuDuTuto.id} jeu={jeuDuTuto} onClose={fermerTuto} />
-        )}
-      </AnimatePresence>
-    </div>
+    </ExitGuardContext.Provider>
   )
 }

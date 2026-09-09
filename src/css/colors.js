@@ -10,6 +10,8 @@
  */
 export const brand = {
   blue:         '#1800ad',
+  violet:       '#5c1a9e',
+  mauve:        '#8a4fbe',
   magenta:      '#791561',
   magentaLight: '#e0309a',
   cream:        '#fffaf9',

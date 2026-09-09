@@ -1,0 +1,110 @@
+/* ========================================================================
+   ÉTAT DE L'API
+   Les deux moments qui n'existaient pas quand le contenu était livré avec le
+   bundle : celui où il n'est pas encore arrivé, et celui où il n'arrivera
+   pas. Volontairement sobres — ce ne sont pas des écrans, ce sont des
+   passages.
+   ======================================================================== */
+
+@layer components {
+  .etat-api {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 44px 22px;
+    text-align: center;
+    color: var(--texte-doux, #6b6b78);
+  }
+
+  .etat-api__spinner {
+    animation: etat-api-tourne 1s linear infinite;
+    color: var(--brand-blue);
+  }
+
+  .etat-api__titre {
+    font-weight: 700;
+    color: var(--texte, #1b1b23);
+  }
+
+  .etat-api__texte {
+    max-width: 46ch;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  /* L'API éteinte est le cas le plus fréquent en développement : le message
+     porte la commande qui la relance, pas seulement le constat. */
+  .etat-api--erreur {
+    color: var(--texte, #1b1b23);
+  }
+
+  .etat-api--erreur > svg {
+    color: #dc2626;
+  }
+
+  @keyframes etat-api-tourne {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Qui a désactivé les animations n'a pas besoin d'un disque qui tourne. */
+  @media (prefers-reduced-motion: reduce) {
+    .etat-api__spinner {
+      animation: none;
+    }
+  }
+  /* --- Le filet sous l'application --------------------------------------- */
+
+  .rattrapage {
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .rattrapage__titre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .rattrapage__texte {
+    margin: 0;
+    max-width: 46ch;
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
+    color: var(--ink-muted);
+  }
+
+  .rattrapage__detail {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--wash);
+    font-size: var(--text-xs);
+    text-align: left;
+    color: var(--ink-soft);
+  }
+
+  .rattrapage__bouton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: 12px;
+    background: var(--brand-blue);
+    color: var(--brand-cream);
+    font-size: var(--text-md);
+    font-weight: 700;
+  }
+
+}

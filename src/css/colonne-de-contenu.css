@@ -58,7 +58,7 @@
 
   /* Bord à bord : ni arrondi ni bordure latérale. */
   .page__column:not(.page__column--feed) .card,
-  .page__column:not(.page__column--feed) .hero {
+  .page__column:not(.page__column--feed) .banniere {
     border-radius: 0;
     border-left: 0;
     border-right: 0;
@@ -84,7 +84,7 @@
   .page__title {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 22px;
+    font-size: var(--text-2xl);
     font-weight: 700;
     line-height: 1.2;
     color: var(--ink);
@@ -92,9 +92,45 @@
 
   .page__subtitle {
     margin: 4px 0 0;
-    font-size: 13px;
+    font-size: var(--text-sm);
     line-height: 1.5;
     color: var(--ink-faint);
+  }
+
+  /* --- Bandeau de tête (ui/Banniere.jsx) ---
+     Coquille commune à l'accueil et à « Comprendre ». Chaque page pose
+     ensuite ses marges et sa typographie par-dessus. */
+
+  .banniere {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    /* Un aplat, pas le dégradé de marque : c'est le fond animé posé
+       par-dessus qui fait le relief. Cet aplat est aussi le repli si WebGL
+       manque à l'appel. */
+    background: var(--brand-violet-deep);
+    color: var(--brand-cream);
+  }
+
+  /* La couche animée, sous le contenu. `inset: 0` la fait épouser le bandeau
+     quelle que soit sa hauteur. Sans WebGL 2, elle reste vide et l'aplat
+     violet tient lieu de fond. */
+  .banniere__fx {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .molten-metal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .banniere__contenu {
+    position: relative;
+    z-index: 1;
   }
 
   /* Carte blanche détachée du fond. */
@@ -112,7 +148,7 @@
   .card__title {
     margin: 0 0 10px;
     font-family: var(--font-title);
-    font-size: 17px;
+    font-size: var(--text-xl);
     font-weight: 700;
     line-height: 1.25;
     color: var(--ink);
@@ -120,8 +156,9 @@
 
   .card__text {
     margin: 0;
-    font-size: 14px;
-    line-height: 1.65;
+    max-width: var(--measure);
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
     color: var(--ink-soft);
   }
 
@@ -140,7 +177,7 @@
     border-radius: 10px;
     background: var(--brand-blue);
     color: #fff;
-    font-size: 15px;
+    font-size: var(--text-md);
     font-weight: 700;
     transition: transform 0.12s;
   }

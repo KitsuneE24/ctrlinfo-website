@@ -1,4 +1,3 @@
-import { forwardRef } from 'react'
 import Countdown from './Countdown'
 
 /**
@@ -6,33 +5,37 @@ import Countdown from './Countdown'
  * avancement et décompte. Le décompte est ici parce que le bandeau, lui, ne
  * défile pas.
  *
- * `timerKey` remonte le décompte à chaque publication. Le bandeau, lui, n'est
- * jamais remonté : il porte la `ref` que le Feed mesure.
+ * `timerKey` remonte le décompte à chaque publication ; le bandeau, lui,
+ * n'est jamais remonté.
+ *
+ * `timerSecondes` peut être nul : au premier niveau il n'y a pas de chrono, et
+ * son emplacement disparaît plutôt que d'afficher un tiret.
  */
-const FeedStats = forwardRef(function FeedStats(
-  {
-    progress,
-    currentLevel,
-    levelDoneCount,
-    levelTotal,
-    timerKey,
-    timerActive,
-    onTimerComplete,
-  },
-  ref
-) {
+export default function FeedStats({
+  progress,
+  currentLevel,
+  levelDoneCount,
+  levelTotal,
+  timerKey,
+  timerActive,
+  timerSecondes,
+  onTimerComplete,
+}) {
   return (
-    <section ref={ref} className="card feed-stats">
+    <section className="card feed-stats">
       <div className="feed-stats__top">
         <span className="feed-stats__level">Niveau&nbsp;{currentLevel}</span>
         <span className="feed-stats__caption">
           {levelDoneCount}/{levelTotal} publications traitées
         </span>
-        <Countdown
-          key={timerKey}
-          active={timerActive}
-          onComplete={onTimerComplete}
-        />
+        {timerSecondes ? (
+          <Countdown
+            key={timerKey}
+            active={timerActive}
+            secondes={timerSecondes}
+            onComplete={onTimerComplete}
+          />
+        ) : null}
       </div>
 
       <div className="feed-stats__track">
@@ -43,6 +46,4 @@ const FeedStats = forwardRef(function FeedStats(
       </div>
     </section>
   )
-})
-
-export default FeedStats
+}

@@ -1,0 +1,243 @@
+/* ========================================================================
+   LE SEUIL DES JEUX
+   Deux passages : l'écran de départ avant une partie, et l'alerte quand on
+   la quitte en route. Tous deux couvrent l'écran entier, barre du bas
+   comprise.
+   ======================================================================== */
+
+@layer components {
+  .gate,
+  .game-start {
+    position: fixed;
+    inset: 0;
+    z-index: 97;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Elles couvrent l'écran entier, encoches comprises : sans ça, le bas de
+       la carte passe sous le trait de geste du téléphone. */
+    padding: calc(20px + var(--sa-top)) 20px calc(20px + var(--sa-bottom));
+    background: rgba(20, 8, 44, 0.55);
+    backdrop-filter: blur(3px);
+  }
+
+  /* --- L'alerte : une petite fenêtre --- */
+
+  .gate__card {
+    width: 100%;
+    max-width: 400px;
+    padding: 22px 20px 18px;
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 24px 60px rgba(20, 8, 44, 0.4);
+    text-align: center;
+  }
+
+  .gate__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--brand-blue);
+    color: var(--brand-cream);
+  }
+
+  .gate__icon--alert {
+    background: var(--wash-strong);
+    color: var(--ink);
+  }
+
+  .gate__title {
+    margin: 6px 0 0;
+    font-family: var(--font-title);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .gate__text {
+    margin: 10px auto 0;
+    max-width: var(--measure);
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+
+  .gate__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .gate__primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 13px 18px;
+    border-radius: 999px;
+    background: var(--brand-blue);
+    color: var(--brand-cream);
+    font-size: var(--text-md);
+    font-weight: 700;
+    transition: transform 0.12s;
+  }
+
+  .gate__primary:active {
+    transform: scale(0.98);
+  }
+
+  .gate__secondary {
+    padding: 12px 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink-muted);
+    font-size: var(--text-md);
+    font-weight: 600;
+    transition: background-color 0.15s;
+  }
+
+  .gate__secondary:hover {
+    background: var(--wash);
+  }
+
+  /* --- L'écran de départ ---------------------------------------------------
+     Le seul endroit où les règles sont dites. Pas de dégradé, pas de cadre
+     autour de chaque morceau : un encadré unique, et de l'air entre les
+     blocs. Ce qui est encadré compte ; le reste respire. --- */
+
+  .game-start__card {
+    display: flex;
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+    flex-direction: column;
+    gap: 28px;
+    padding: 32px 28px;
+    border-radius: 20px;
+    background: var(--surface);
+    box-shadow: 0 20px 60px rgba(20, 8, 44, 0.28);
+  }
+
+  /* Le titre d'abord, ce qui le qualifie en dessous : on nomme, puis on
+     précise. */
+  .game-start__head {
+    text-align: center;
+  }
+
+  .game-start__badge {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    color: var(--brand-cream);
+  }
+
+  .game-start__title {
+    margin: 16px 0 0;
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .game-start__eyebrow {
+    margin: 6px 0 0;
+    font-size: var(--text-sm);
+    color: var(--ink-muted);
+  }
+
+  .game-start__points {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+  }
+
+  .game-start__points li {
+    position: relative;
+    padding-left: 22px;
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+
+  .game-start__points li::before {
+    content: '';
+    position: absolute;
+    top: 0.62em;
+    left: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--brand-blue);
+  }
+
+  .game-start__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .game-start__go {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 20px;
+    border-radius: 14px;
+    background: var(--brand-blue);
+    color: var(--brand-cream);
+    font-size: var(--text-md);
+    font-weight: 700;
+    transition: background-color 0.15s, transform 0.12s;
+  }
+
+  .game-start__go:hover {
+    background: color-mix(in srgb, var(--brand-blue) 84%, white);
+  }
+
+  .game-start__go:active {
+    transform: scale(0.98);
+  }
+
+  /* Une phrase, pas un encadré : la mention est utile, elle n'est pas au même
+     rang que les règles. */
+  .game-start__guest {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    text-align: center;
+    color: var(--ink-muted);
+  }
+
+  .game-start__login {
+    font-weight: 700;
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Écran court : on resserre, sans jamais coller. */
+  @media (max-height: 700px) {
+    .game-start {
+      padding: calc(12px + var(--sa-top)) 12px calc(12px + var(--sa-bottom));
+    }
+
+    .game-start__card {
+      gap: 20px;
+      padding: 24px 22px;
+    }
+
+    .game-start__points {
+      gap: 10px;
+    }
+  }
+}

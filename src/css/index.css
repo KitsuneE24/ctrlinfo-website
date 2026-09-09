@@ -1,22 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap');
 
 /* ==========================================================================
    FEUILLE DE STYLE DE CTRL INFO — SOMMAIRE
 
-   Assemble les douze parties du dossier. Aucune règle ici.
+   Assemble les parties du dossier, dans l'ordre. Aucune règle ici.
 
    jetons ............... palette, polices, rayons, encoches
    base ................. le document : hauteur, fond, animations
-   coque-et-navigation .. en-tête, barre du haut, barre du bas
-   barre-du-jeu ......... onglets de jeux et bouton « Règles »
-   colonne-de-contenu ... le gabarit commun aux écrans (Page.jsx)
+   coque-et-navigation .. en-tête et barre d'onglets du bas
+   colonne-de-contenu ... le gabarit commun aux écrans et le bandeau de tête
+   stories .............. la rangée de l'accueil et sa vue plein écran
+   entry-card ........... la carte de fin de page, partagée par deux écrans
    fil-de-jeu ........... publications, actions, décompte
+   correction ........... le cagou, la publication annotée, les deux colonnes
    conversations ........ bulles, réponses à choisir, composeur
-   repere-les-indices ... la publication décomposée et ses éléments
-   accueil .............. bannière, vidéo, leviers
-   galerie-des-jeux ..... les tuiles de l'onglet « Jeux »
-   tutoriel ............. le carrousel de règles d'un jeu
-   sources .............. la page des sources et son bouton flottant
+   accueil .............. marque, parcours, vidéo, leviers, annonces de jeux
+   comprendre ........... galerie de thèmes et page d'un thème
+   profil ............... connexion, mode invité, tableau de bord
+   recompenses .......... avatar, série de jours, couronnes
+   game-gate ............ identité, écran de départ, alerte de sortie
+   compagnon ............ le personnage qui se balade en bas, et sa bulle
+   etat-api ............. chargement et panne de l'API
 
    `colors.js`, à côté, expose la même palette au JavaScript — aux données et à
    tailwind.config.js. Il doit rester aligné sur les jetons.
@@ -30,15 +34,19 @@
 @import './jetons.css';
 @import './base.css';
 @import './coque-et-navigation.css';
-@import './barre-du-jeu.css';
 @import './colonne-de-contenu.css';
+@import './stories.css';
+@import './entry-card.css';
 @import './fil-de-jeu.css';
+@import './correction.css';
 @import './conversations.css';
-@import './repere-les-indices.css';
 @import './accueil.css';
-@import './galerie-des-jeux.css';
-@import './tutoriel.css';
-@import './sources.css';
+@import './comprendre.css';
+@import './profil.css';
+@import './recompenses.css';
+@import './game-gate.css';
+@import './compagnon.css';
+@import './etat-api.css';
 
 @tailwind base;
 @tailwind components;

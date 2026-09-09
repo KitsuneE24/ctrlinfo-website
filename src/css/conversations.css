@@ -80,14 +80,14 @@
   .messaging__empty-title {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 19px;
+    font-size: var(--text-xl);
     color: var(--ink);
   }
 
   .messaging__empty-text {
     max-width: 34ch;
     margin: 6px 0 0;
-    font-size: 13.5px;
+    font-size: var(--text-sm);
     line-height: 1.6;
     color: var(--ink-faint);
   }
@@ -130,31 +130,13 @@
     flex: 1 1 0;
   }
 
-  .inbox-item__line {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
   .inbox-item__name {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 14.5px;
+    font-size: var(--text-md);
     font-weight: 600;
     color: var(--ink);
-  }
-
-  .inbox-item__mode {
-    flex-shrink: 0;
-    padding: 2px 6px;
-    border-radius: 999px;
-    color: #fff;
-    font-size: 9.5px;
-    font-weight: 700;
-    line-height: 1.4;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
   }
 
   .inbox-item__preview {
@@ -163,13 +145,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 13px;
+    font-size: var(--text-sm);
     color: var(--ink-faint);
   }
 
   .inbox-item__chevron {
     flex-shrink: 0;
-    color: #c7c7c7;
+    color: var(--ink-ghost);
   }
 
   @media (min-width: 768px) {
@@ -214,7 +196,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 14.5px;
+    font-size: var(--text-md);
     font-weight: 600;
     line-height: 1.3;
     color: var(--ink);
@@ -222,7 +204,7 @@
 
   .thread__subtitle {
     margin: 1px 0 0;
-    font-size: 11.5px;
+    font-size: var(--text-2xs);
     line-height: 1.3;
     color: var(--ink-faint);
   }
@@ -275,7 +257,7 @@
     border-radius: 18px;
     border-bottom-left-radius: 6px;
     background: var(--wash-strong);
-    font-size: 14px;
+    font-size: var(--text-md);
     line-height: 1.6;
     color: var(--ink);
   }
@@ -330,7 +312,7 @@
 
   .note__text {
     margin: 0;
-    font-size: 13px;
+    font-size: var(--text-sm);
     line-height: 1.65;
     color: var(--ink-muted);
   }
@@ -455,4 +437,39 @@
     background: var(--wash-strong);
     color: var(--ink-ghost);
   }
+  /* --- Les groupes ------------------------------------------------------- */
+
+  /* Les avatars des participants, empilés en tête : on voit d'un coup d'œil
+     qu'on n'est pas en tête-à-tête. */
+  .thread__pile {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  .thread__pile > * + * {
+    margin-left: -10px;
+    box-shadow: 0 0 0 2px var(--surface);
+  }
+
+  .message__corps {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  /* Qui parle : dans un groupe, la même phrase ne pèse pas pareil selon la
+     personne, et son rôle vis-à-vis du joueur en dit plus que son nom. */
+  .message__auteur {
+    font-size: var(--text-2xs);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .message__role {
+    font-weight: 500;
+    color: var(--ink-muted);
+  }
+
 }

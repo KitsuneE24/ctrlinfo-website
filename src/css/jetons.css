@@ -5,25 +5,54 @@
 
 @layer base {
   :root {
-    /* Titres en Archivo ; Archivo Black réservée à la marque. Le corps de
-       texte est la police du système. */
+    /* Archivo pour tout : 400/500 le corps, 600/700 les titres, Black la
+       marque. Le corps héritait de la police du système. */
+    --font-body: 'Archivo', 'Segoe UI', system-ui, -apple-system, sans-serif;
     --font-title: 'Archivo', 'Segoe UI', system-ui, sans-serif;
     --font-brand: 'Archivo Black', system-ui, sans-serif;
+
+    /* L'échelle typographique. Un cran de plus sur grand écran. */
+    --text-2xs: 11.5px;
+    --text-xs: 13px;
+    --text-sm: 14.5px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 21px;
+    --text-2xl: 26px;
+    --text-3xl: 32px;
+
+    --leading-tight: 1.18;
+    --leading-snug: 1.4;
+    --leading-body: 1.65;
+
+    /* Largeur d'une colonne de lecture confortable. */
+    --measure: 65ch;
 
     --brand-blue: #1800ad;
     --brand-magenta: #791561;
     --brand-magenta-light: #e0309a;
     --brand-cream: #fffaf9;
 
+    /* Les deux violets de la marque : le chemin du bleu vers le mauve clair.
+       Ils portent le fond animé de la bannière d'accueil. */
+    --brand-violet: #5c1a9e;
+    --brand-mauve: #8a4fbe;
+
+    /* Le fond sur lequel ce fond animé est posé : le milieu exact du violet et
+       du mauve, bien assombri pour que les reflets clairs ressortent. */
+    --brand-violet-deep: #451f69;
+
     /* Fond de page : un lilas très pâle, pour détacher les cartes blanches. */
     --page: #f1eef8;
     --surface: #ffffff;
 
-    --ink: #262626;
-    --ink-soft: #3a3a3a;
-    --ink-muted: #5a5a5a;
-    --ink-faint: #8e8e8e;
-    --ink-ghost: #a3a3a3;
+    /* Pas de texte gris : tout le ramp reste noir, à peine dégradé. La
+       hiérarchie se lit à la taille et à la graisse, pas à la pâleur. */
+    --ink: #15121b;
+    --ink-soft: #1c1924;
+    --ink-muted: #26222e;
+    --ink-faint: #332e3d;
+    --ink-ghost: #413b4c;
 
     --line: rgba(0, 0, 0, 0.1);
     --line-strong: rgba(0, 0, 0, 0.15);
@@ -31,17 +60,18 @@
     --wash-strong: rgba(0, 0, 0, 0.06);
 
     --like-red: #ed4956;
-    --verdict-ok: #1a7f4b;
-    --verdict-ko: #c0392b;
+    --verdict-ok: #15693e;
+    --verdict-ko: #b8332a;
 
     --brand-gradient: linear-gradient(135deg, var(--brand-blue), var(--brand-magenta));
 
-    /* Une couleur par onglet, pour l'état actif seulement. */
+    /* Une couleur par onglet, pour l'état actif seulement. Dans l'ordre de la
+       barre du bas (navItems.js). */
     --nav-home: #1800ad;
-    --nav-game: #0d0080;
     --nav-feed: #0d0080;
-    --nav-detect: #5c1a9e;
     --nav-chat: #8a4fbe;
+    --nav-learn: #5c1a9e;
+    --nav-profil: #791561;
     --nav-sources: #791561;
 
     --sa-top: env(safe-area-inset-top, 0px);
@@ -50,5 +80,20 @@
     --radius-card: 12px;
     --gap-card: 14px;
     --content-max: 640px;
+    /* La colonne unique des écrans de lecture. */
+    --content-read: 720px;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --text-2xs: 12px;
+      --text-xs: 13.5px;
+      --text-sm: 15px;
+      --text-md: 17px;
+      --text-lg: 19px;
+      --text-xl: 23px;
+      --text-2xl: 31px;
+      --text-3xl: 40px;
+    }
   }
 }

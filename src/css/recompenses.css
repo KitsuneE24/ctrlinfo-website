@@ -1,0 +1,273 @@
+/* ========================================================================
+   AVATAR, SÉRIES, COURONNES
+   Ce qui donne envie de revenir. Les couronnes non décrochées restent
+   visibles, avec leur avancement : une récompense qu'on ne voit pas ne fait
+   revenir personne.
+   ======================================================================== */
+
+@layer components {
+  /* --- L'avatar du joueur ------------------------------------------------ */
+
+  .avatar-joueur {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--brand-blue);
+    color: var(--brand-cream);
+    font-weight: 700;
+  }
+
+  .avatars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .avatars__choix {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    color: var(--brand-cream);
+    opacity: 0.55;
+    transition: opacity 0.15s, transform 0.12s, box-shadow 0.15s;
+  }
+
+  .avatars__choix:hover {
+    opacity: 0.85;
+  }
+
+  /* L'anneau plutôt qu'une bordure : la vignette ne change pas de taille. */
+  .avatars__choix--actif {
+    opacity: 1;
+    box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--ink);
+  }
+
+  .avatars__choix:active {
+    transform: scale(0.94);
+  }
+
+  /* --- Les records ------------------------------------------------------- */
+
+  .records {
+    display: flex;
+    gap: 10px;
+  }
+
+  .record {
+    flex: 1 1 0;
+    padding: 16px 14px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+    text-align: center;
+  }
+
+  .record__icone {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--wash);
+    color: var(--ink-muted);
+  }
+
+  /* La flamme n'est vive que si la journée est faite : la différence doit se
+     voir d'un coup d'œil, c'est tout l'intérêt d'une série. */
+  .record__icone--vif {
+    background: rgba(180, 83, 9, 0.12);
+    color: #b45309;
+  }
+
+  .record__valeur {
+    margin: 8px 0 0;
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .record__libelle {
+    margin: 3px 0 0;
+    font-size: var(--text-sm);
+    color: var(--ink-muted);
+  }
+
+  .record__note {
+    margin: 7px 0 0;
+    font-size: var(--text-2xs);
+    font-weight: 600;
+    color: #b45309;
+  }
+
+  /* --- Les couronnes ----------------------------------------------------- */
+
+  .card__compte {
+    margin-left: 6px;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink-muted);
+  }
+
+  .couronnes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .couronne {
+    display: flex;
+    gap: 11px;
+    padding: 11px 13px;
+    border-radius: 12px;
+    background: var(--wash);
+    opacity: 0.6;
+  }
+
+  .couronne--obtenue {
+    opacity: 1;
+    background: var(--surface);
+    border: 1px solid var(--line);
+  }
+
+  .couronne__picto {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--wash-strong);
+    color: var(--ink-faint);
+  }
+
+  .couronne--obtenue .couronne__picto {
+    color: var(--brand-cream);
+  }
+
+  .couronne__corps {
+    min-width: 0;
+  }
+
+  .couronne__nom {
+    margin: 0;
+    font-size: var(--text-md);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .couronne__texte {
+    margin: 2px 0 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+
+  .couronne__avancement {
+    margin: 5px 0 0;
+    font-size: var(--text-2xs);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* --- Connexion et inscription -------------------------------------------
+     Les deux onglets et le formulaire sont dans la même colonne : ce qui va
+     ensemble se lit ensemble. Un seul cadre sur l'écran — celui-là — pour que
+     l'encadrement veuille encore dire quelque chose. --- */
+
+  .auth {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+  }
+
+  .auth__onglets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .auth__onglet {
+    position: relative;
+    padding: 16px 12px;
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  .auth__onglet:hover {
+    background: var(--wash);
+    color: var(--ink);
+  }
+
+  /* L'onglet actif se lit à deux signes — la graisse et le trait — jamais à la
+     seule couleur. */
+  .auth__onglet--actif {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .auth__onglet--actif::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 -1px;
+    height: 2px;
+    background: var(--brand-blue);
+  }
+
+  /* --- Les couronnes décrochées en fin de partie -------------------------- */
+
+  .gains {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 20px 0 0;
+    text-align: left;
+  }
+
+  .gain {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+  }
+
+  .gain__picto {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    color: var(--brand-cream);
+  }
+
+  .gain__nom {
+    margin: 0;
+    font-size: var(--text-md);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .gain__texte {
+    margin: 2px 0 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+
+}

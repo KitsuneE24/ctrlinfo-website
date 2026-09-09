@@ -1,7 +1,8 @@
 /* ========================================================================
    COQUE ET NAVIGATION
-   Bascule à 768px : au-delà, la barre d'icônes de l'en-tête ; en deçà, la
-   barre d'onglets du bas. Les deux sont rendues, seule la visibilité change.
+   Une seule navigation, en bas, à toutes les tailles d'écran : la vue du
+   téléphone est devenue la règle. Sur ordinateur, la barre se contente de se
+   centrer et de s'aérer — elle ne change pas de nature.
    ======================================================================== */
 
 @layer components {
@@ -16,7 +17,7 @@
     background: var(--page);
   }
 
-  /* --- En-tête : logotype à gauche, navigation à droite --- */
+  /* --- En-tête : logotype à gauche, contexte à droite --- */
 
   .app-header {
     z-index: 50;
@@ -72,7 +73,73 @@
     color: transparent;
   }
 
+  .app-header__actions {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* La pastille d'identité : elle dit en permanence si la partie compte. */
+  .app-header__compte {
+    max-width: 140px;
+    overflow: hidden;
+    padding: 6px 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .app-header__compte:hover {
+    background: var(--wash);
+  }
+
+  .app-header__compte--connecte {
+    border-color: transparent;
+    background: rgba(121, 21, 97, 0.09);
+    color: var(--nav-profil);
+  }
+
+  /* Le bouton « Règles du jeu », seulement sur le fil. */
+  .rules-button {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 13px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink-muted);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .rules-button:hover {
+    border-color: var(--nav-feed);
+    background: var(--wash);
+    color: var(--nav-feed);
+  }
+
+  .rules-button__label {
+    display: none;
+  }
+
+  @media (min-width: 560px) {
+    .rules-button__label {
+      display: inline;
+    }
+  }
+
   .app__main {
+    /* Repère de l'écran de départ, qui s'y pose en absolu. */
+    position: relative;
     display: flex;
     flex: 1 1 0;
     min-height: 0;
@@ -87,126 +154,7 @@
     flex-direction: column;
   }
 
-  /* --- Barre horizontale de l'en-tête : ordinateur uniquement --- */
-
-  .top-nav {
-    display: none;
-    align-self: stretch;
-  }
-
-  @media (min-width: 768px) {
-    .top-nav {
-      display: flex;
-    }
-  }
-
-  .top-nav__list {
-    display: flex;
-    align-items: stretch;
-    gap: 2px;
-  }
-
-  .top-nav__group {
-    position: relative;
-    display: flex;
-  }
-
-  .top-nav__button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    width: 52px;
-    color: var(--ink-faint);
-    transition: color 0.15s, background-color 0.15s;
-  }
-
-  .top-nav__button:hover {
-    background: var(--wash);
-  }
-
-  .top-nav__button--menu {
-    width: 62px;
-  }
-
-  /* Couleur de l'onglet actif : elle vient de navItems.js. */
-  .top-nav__button--active::after {
-    content: '';
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 0;
-    height: 3px;
-    border-radius: 3px 3px 0 0;
-    background: currentColor;
-  }
-
-  .top-nav__chevron {
-    transition: transform 0.18s;
-  }
-
-  .top-nav__chevron--open {
-    transform: rotate(180deg);
-  }
-
-  /* --- Menu déroulant de l'onglet « Jeux » --- */
-
-  .top-nav__menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    z-index: 60;
-    display: flex;
-    flex-direction: column;
-    min-width: 250px;
-    margin-top: 1px;
-    padding: 6px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
-  }
-
-  .top-nav__menu-item {
-    display: flex;
-    width: 100%;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.35;
-    color: var(--ink);
-    transition: background-color 0.15s;
-  }
-
-  .top-nav__menu-item:hover {
-    background: var(--wash);
-  }
-
-  .top-nav__menu-item--active {
-    color: var(--nav-game);
-    background: rgba(13, 0, 128, 0.06);
-  }
-
-  .top-nav__menu-text {
-    display: flex;
-    min-width: 0;
-    flex-direction: column;
-  }
-
-  .top-nav__menu-hint {
-    margin-top: 2px;
-    font-size: 11.5px;
-    font-weight: 400;
-    line-height: 1.4;
-    color: var(--ink-faint);
-  }
-
-  /* --- Barre d'onglets du bas : téléphone uniquement --- */
+  /* --- Barre d'onglets du bas : la seule navigation du site --- */
 
   .tab-bar {
     z-index: 30;
@@ -224,6 +172,17 @@
     padding: 6px 4px;
   }
 
+  /* Sur grand écran, la barre reste au même endroit mais cesse de s'étirer :
+     cinq icônes réparties sur 1600 px ne se lisent plus comme une barre. */
+  @media (min-width: 768px) {
+    .tab-bar__list {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 8px 4px;
+    }
+  }
+
   .tab-bar__button {
     position: relative;
     display: flex;
@@ -235,11 +194,35 @@
     padding: 6px 0;
     border-radius: 12px;
     color: var(--ink-faint);
-    transition: transform 0.12s;
+    transition: transform 0.12s, color 0.15s;
   }
 
   .tab-bar__button:active {
     transform: scale(0.9);
+  }
+
+  @media (hover: hover) {
+    .tab-bar__button:hover {
+      color: var(--ink);
+    }
+  }
+
+  /* L'intitulé n'apparaît que quand il tient sans serrer les icônes. */
+  .tab-bar__label {
+    display: none;
+    font-size: var(--text-2xs);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  @media (min-width: 420px) {
+    .tab-bar__label {
+      display: block;
+    }
+
+    .tab-bar__dot {
+      display: none;
+    }
   }
 
   /* Couleur de l'onglet actif : elle vient de navItems.js. */
@@ -254,11 +237,5 @@
 
   .tab-bar__button--active .tab-bar__dot {
     opacity: 1;
-  }
-
-  @media (min-width: 768px) {
-    .tab-bar {
-      display: none;
-    }
   }
 }

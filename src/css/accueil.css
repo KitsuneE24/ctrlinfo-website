@@ -3,12 +3,12 @@
    ======================================================================== */
 
 @layer components {
-  /* Corps de l'accueil : colonne bornée en largeur, détachée des bords. La
-     borne tient aussi la hauteur de la vidéo, qui en occupe la moitié. */
+  /* Une seule colonne, bornée : les cartes s'empilent, la hiérarchie se lit
+     de haut en bas. */
   .home__body {
     display: flex;
     width: 100%;
-    max-width: 1300px;
+    max-width: var(--content-read);
     margin: 0 auto;
     flex-direction: column;
     gap: var(--gap-card);
@@ -28,20 +28,18 @@
     border-radius: var(--radius-card);
   }
 
+  /* La coquille du bandeau — position, aplat de repli, fond animé — est
+     commune à tous les écrans (colonne-de-contenu.css). Ne restent ici que les
+     marges de l'accueil et sa typographie. */
   .hero {
-    position: relative;
-    overflow: hidden;
     padding: 34px 22px 28px;
-    border-radius: var(--radius-card);
-    background: var(--brand-gradient);
     text-align: center;
-    color: var(--brand-cream);
   }
 
   .hero__title {
     margin: 0;
     font-family: var(--font-brand);
-    font-size: 38px;
+    font-size: var(--text-3xl);
     line-height: 1.05;
     letter-spacing: -0.02em;
   }
@@ -49,7 +47,7 @@
   .hero__tagline {
     max-width: 30ch;
     margin: 12px auto 0;
-    font-size: 14px;
+    font-size: var(--text-md);
     line-height: 1.6;
     color: rgba(255, 255, 255);
   }
@@ -58,11 +56,13 @@
   @media (min-width: 768px) {
     .hero__tagline {
       max-width: none;
-      font-size: 15px;
       white-space: nowrap;
     }
   }
 
+  /* Les deux entrées du site ne sont plus dans la bannière : elles attendent
+     en fin de page, dans la carte partagée avec Ressources (entry-card.css).
+     On ne demande pas de choisir avant d'avoir lu. */
 
   .video {
     position: relative;
@@ -79,7 +79,7 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: var(--brand-gradient);
+    background: var(--brand-violet-deep);
   }
 
   .video__play {
@@ -101,14 +101,115 @@
     margin: 0;
     padding: 0 24px;
     text-align: center;
-    font-size: 12px;
+    font-size: var(--text-xs);
     line-height: 1.5;
-    color: rgba(255, 250, 249, 0.85);
+    color: rgba(255, 250, 249, 0.95);
   }
 
   .video__player {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  /* Deux blocs côte à côte quand la largeur le permet : sur l'accueil, la
+     vidéo à gauche et le résumé à droite. */
+  .split {
+    display: grid;
+    gap: 24px;
+  }
+
+  .levers {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .lever {
+    display: flex;
+    gap: 12px;
+  }
+
+  .lever__icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-top: 2px;
+    border-radius: 50%;
+    background: var(--brand-magenta);
+    color: #fff;
+  }
+
+  .lever__title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .lever__text {
+    margin: 2px 0 0;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--ink-muted);
+  }
+
+  .tip {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-left: 4px solid var(--brand-blue);
+    border-radius: 10px;
+    background: rgba(24, 0, 173, 0.05);
+  }
+
+  .tip__text {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+}
+
+/* ==========================================================================
+   LA BRÈVE DU JOUR
+   « Le saviez-vous ? », à l'arrivée, une fois par jour.
+   ========================================================================== */
+
+@layer components {
+
+  /* --- « Le saviez-vous ? » ---------------------------------------------- */
+
+  .tip-card {
+    text-align: left;
+  }
+
+  .tip-card .modal__badge,
+  .tip-card .modal__title {
+    margin-left: 0;
+  }
+
+  .tip-card__fermer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--ink-faint);
+    transition: background-color 0.15s, color 0.15s;
+  }
+
+  .tip-card__fermer:hover {
+    background: var(--wash);
+    color: var(--ink);
   }
 }

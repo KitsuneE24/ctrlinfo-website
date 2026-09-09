@@ -1,0 +1,356 @@
+/* ========================================================================
+   LA CORRECTION
+   Le second temps du retour : le cagou, la publication rejouée avec ses
+   points entourés et numérotés, et les deux colonnes — ce qui est exact, ce
+   qui ne l'est pas.
+
+   Trois natures d'indice, trois couleurs, et elles ne changent pas d'un
+   écran à l'autre : alerte, à vérifier, fiable.
+   ======================================================================== */
+
+@layer components {
+  :root {
+    --indice-alerte: #791561;
+    --indice-verif: #1800ad;
+    --indice-fiable: #14663f;
+  }
+
+  /* --- La mascotte ------------------------------------------------------- */
+
+  .cagou {
+    position: relative;
+    display: block;
+    flex-shrink: 0;
+    margin: 0 auto 14px;
+  }
+
+  .cagou__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* L'humeur, en pastille : les trois dessins du cagou ne sont pas encore
+     livrés, c'est elle qui porte l'expression en attendant. */
+  .cagou__humeur {
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    display: grid;
+    place-items: center;
+    width: 42%;
+    height: 42%;
+    border-radius: 50%;
+    border: 2px solid var(--surface);
+    background: var(--indice-verif);
+    color: var(--brand-cream);
+  }
+
+  .cagou--content .cagou__humeur {
+    background: var(--indice-fiable);
+  }
+
+  .cagou--inquiet .cagou__humeur {
+    background: var(--indice-alerte);
+  }
+
+  /* --- La fenêtre, une fois dépliée -------------------------------------- */
+
+  .modal__card--large {
+    max-width: 560px;
+    max-height: 100%;
+    overflow-y: auto;
+    text-align: left;
+  }
+
+  .modal__card--large .modal__title {
+    text-align: center;
+  }
+
+  .correction {
+    margin-top: 16px;
+  }
+
+  .correction__note {
+    margin: 14px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+
+  /* --- La publication rejouée -------------------------------------------- */
+
+  .annot {
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--wash);
+  }
+
+  .annot__head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .annot__avatar {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    color: var(--brand-cream);
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+
+  .annot__identite {
+    min-width: 0;
+  }
+
+  .annot__compte {
+    margin: 0;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .annot__domaine {
+    margin: 1px 0 0;
+    font-size: var(--text-xs);
+    color: var(--ink-muted);
+  }
+
+  .annot__titre {
+    margin: 12px 0 0;
+    font-size: var(--text-md);
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  .annot__texte {
+    margin: 6px 0 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+
+  /* La partie visée par un indice se surligne au lieu de s'entourer : sur du
+     texte qui se reflue, un cadre ne tiendrait pas en place. */
+  .annot--vise {
+    display: inline;
+    padding: 1px 4px;
+    border-radius: 4px;
+    background: rgba(121, 21, 97, 0.09);
+    box-shadow: inset 2px 0 0 var(--indice-alerte);
+  }
+
+  /* Le surlignage prend la couleur de l'indice qui le vise : sur une
+     publication vraie, il serait sinon rouge sous une pastille verte. */
+  .annot--verification {
+    background: rgba(24, 0, 173, 0.08);
+    box-shadow: inset 2px 0 0 var(--indice-verif);
+  }
+
+  .annot--fiable {
+    background: rgba(20, 102, 63, 0.1);
+    box-shadow: inset 2px 0 0 var(--indice-fiable);
+  }
+
+  .annot__marques {
+    display: inline-flex;
+    gap: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .annot__puce {
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--indice-alerte);
+    color: var(--brand-cream);
+    font-size: var(--text-2xs);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .annot__puce--verification {
+    background: var(--indice-verif);
+  }
+
+  .annot__puce--fiable {
+    background: var(--indice-fiable);
+  }
+
+  /* --- L'image et ses cadres --------------------------------------------- */
+
+  .annot__media {
+    position: relative;
+    margin-top: 12px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .annot__image {
+    display: block;
+    width: 100%;
+  }
+
+  .annot__cadre {
+    position: absolute;
+    border: 2.5px solid var(--indice-alerte);
+    border-radius: 8px;
+    box-shadow: 0 0 0 9999px rgba(10, 6, 20, 0.35);
+  }
+
+  .annot__cadre--verification {
+    border-color: var(--indice-verif);
+  }
+
+  .annot__cadre--fiable {
+    border-color: var(--indice-fiable);
+  }
+
+  /* Le numéro se pose au coin du cadre, en débord. */
+  .annot__cadre .annot__puce {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 21px;
+    height: 21px;
+    border: 2px solid var(--surface);
+  }
+
+  /* --- La liste des indices ---------------------------------------------- */
+
+  .annot__liste {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 14px 0 0;
+  }
+
+  .indice {
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border-left: 3px solid var(--indice-alerte);
+    background: var(--surface);
+  }
+
+  .indice--verification {
+    border-left-color: var(--indice-verif);
+  }
+
+  .indice--fiable {
+    border-left-color: var(--indice-fiable);
+  }
+
+  .indice__picto {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: var(--wash);
+    color: var(--indice-alerte);
+  }
+
+  .indice--verification .indice__picto {
+    color: var(--indice-verif);
+  }
+
+  .indice--fiable .indice__picto {
+    color: var(--indice-fiable);
+  }
+
+  .indice__corps {
+    min-width: 0;
+  }
+
+  .indice__libelle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .indice__numero {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--indice-alerte);
+    color: var(--brand-cream);
+    font-size: var(--text-2xs);
+    line-height: 1;
+  }
+
+  .indice--verification .indice__numero {
+    background: var(--indice-verif);
+  }
+
+  .indice--fiable .indice__numero {
+    background: var(--indice-fiable);
+  }
+
+  .indice__texte {
+    margin: 4px 0 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+
+  /* --- Ce qui est exact, ce qui ne l'est pas ------------------------------ */
+
+  .verdict {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .verdict__pan {
+    padding: 11px 13px;
+    border-radius: 10px;
+    border-left: 3px solid var(--indice-fiable);
+    background: var(--wash);
+  }
+
+  .verdict__pan--faux {
+    border-left-color: var(--indice-alerte);
+  }
+
+  .verdict__label {
+    margin: 0;
+    font-size: var(--text-2xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--indice-fiable);
+  }
+
+  .verdict__pan--faux .verdict__label {
+    color: var(--indice-alerte);
+  }
+
+  .verdict__texte {
+    margin: 5px 0 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--ink-soft);
+  }
+}

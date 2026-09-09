@@ -1,0 +1,76 @@
+/* ==========================================================================
+   CARTE D'ENTRÉE
+   Le bloc de fin de page, partagé par l'accueil et Ressources.
+
+   C'est l'appel à l'action : un aplat de marque, sans filet — il se détache
+   par sa couleur, pas par un cadre. Deux boutons, deux rangs : celui qu'on
+   attend est plein, l'autre reste en contour.
+   ========================================================================== */
+
+@layer components {
+  .entry-card {
+    padding: 32px 24px;
+    text-align: center;
+    background: var(--brand-blue);
+    border-radius: var(--radius-card);
+    color: var(--brand-cream);
+  }
+
+  .entry-card__title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--brand-cream);
+  }
+
+  .entry-card__text {
+    margin: 10px auto 0;
+    max-width: 52ch;
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
+    color: var(--brand-cream);
+    opacity: 0.9;
+  }
+
+  .entry-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .entry-card__button,
+  .entry-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: 12px;
+    font-size: var(--text-md);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+
+  .entry-card__button {
+    background: var(--brand-cream);
+    color: var(--brand-blue);
+  }
+
+  .entry-card__button:hover {
+    background: #fff;
+  }
+
+  /* Le second choix reste lisible sans rivaliser : un contour, pas un aplat. */
+  .entry-card__link {
+    border: 1px solid rgba(255, 250, 249, 0.5);
+    color: var(--brand-cream);
+  }
+
+  .entry-card__link:hover {
+    border-color: var(--brand-cream);
+    background: rgba(255, 250, 249, 0.12);
+  }
+}

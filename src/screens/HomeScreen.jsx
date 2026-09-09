@@ -1,6 +1,11 @@
 import { useState } from 'react'
-import { Play, Zap, Flame, ShieldQuestion } from 'lucide-react'
+import { Link } from 'react-router'
+import { ArrowRight, Play, Zap, Flame, ShieldQuestion } from 'lucide-react'
 import Page from '../components/ui/Page'
+import Banniere from '../components/ui/Banniere'
+import StoryBar from '../components/StoryBar'
+import DailyTip from '../components/DailyTip'
+import { PATHS } from '../routes'
 
 // Un chemin (ex. '/ctrl-info.mp4') ou une URL d'intégration, pour remplacer le
 // visuel d'attente par la vraie vidéo.
@@ -29,13 +34,19 @@ export default function HomeScreen() {
 
   return (
     <Page seamless>
-      {/* En-tête de marque, bord à bord. */}
-      <section className="hero">
+      {/* En-tête de marque, bord à bord. Le fond animé vient de la bannière
+          partagée (ui/Banniere.jsx), commune avec Ressources. */}
+      <Banniere className="hero">
         <h1 className="hero__title">CTRL&nbsp;INFO</h1>
         <p className="hero__tagline">
-          Sauras-tu repérer le vrai du faux dans ton fil d'actualité&nbsp;?
+          Reprends le contrôle de ton fil&nbsp;
         </p>
-      </section>
+      </Banniere>
+
+      {/* Les stories, juste sous la bannière : c'est la première chose qu'on
+          fait défiler sur un réseau social, et c'est là que sont maintenant
+          les sites où vérifier une information. */}
+      <StoryBar />
 
       {/* Le corps : une colonne bornée en largeur, espacée des bords. */}
       <div className="home__body">
@@ -63,7 +74,7 @@ export default function HomeScreen() {
           <div>
             <div className="card__body">
               <h2 className="card__title">
-                Et tout le monde s'en fout — La désinformation
+                Et tout le monde y croit — La désinformation
               </h2>
             </div>
             <div className="video">
@@ -122,7 +133,29 @@ export default function HomeScreen() {
             </div>
           </div>
         </section>
+
+        {/* Les deux entrées du site, en fin de page — comme à la fin de
+            Ressources, et avec la même carte. Elles étaient dans la bannière,
+            avant d'avoir été lues. */}
+        <section className="entry-card">
+          <h2 className="entry-card__title">Par où commencer</h2>
+          <p className="entry-card__text">
+            Le fil d'actualité te met en situation tout de suite. Si tu préfères
+            savoir avant d'essayer, les ressources se lisent en deux minutes.
+          </p>
+          <div className="entry-card__actions">
+            <Link to={PATHS.feed} className="entry-card__button">
+              Jouer au fil d'actualité
+              <ArrowRight size={16} strokeWidth={2.2} />
+            </Link>
+            <Link to={PATHS.resources} className="entry-card__link">
+              Comprendre d'abord
+            </Link>
+          </div>
+        </section>
       </div>
+
+      <DailyTip />
     </Page>
   )
 }

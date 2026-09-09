@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Heart, Send, Flag, Link2 } from 'lucide-react'
+import { Heart, Send, Flag } from 'lucide-react'
 
 function ActionIcon({ label, onClick, disabled, active, modifier, children }) {
   return (
@@ -40,25 +40,20 @@ export default function PostCard({
         </span>
         <div className="post__identity">
           <p className="post__account">{post.source}</p>
-          <p className="post__domain">{post.domain || 'publication sponsorisée'}</p>
+          <p className="post__domain">{post.domain || 'compte non identifié'}</p>
         </div>
+        {/* La mention légale d'une publicité. Instagram l'affiche, en petit et
+            en gris : c'est justement pour ça qu'il faut apprendre à la voir. */}
+        {post.sponsorise && <span className="post__sponso">Sponsorisé</span>}
       </header>
 
       {/* Le texte avant l'image, à l'inverse d'un fil ordinaire : on lit ce qui
           est affirmé avant de voir l'illustration. */}
       <div className="post__lead">
         <p className="post__caption">
-          <span className="post__caption-account">{post.source}</span> {post.texte}
+          <span className="post__caption-account">{post.source}</span>{' '}
+          <span className="post__claim">{post.titre}</span> {post.texte}
         </p>
-
-        {/* Aperçu de l'article partagé */}
-        <div className="post__link">
-          <Link2 size={14} className="post__link-icon" />
-          <div className="post__link-text">
-            <p className="post__link-domain">{post.domain || post.source}</p>
-            <p className="post__link-title">{post.titre}</p>
-          </div>
-        </div>
       </div>
 
       <img src={post.image} alt="" className="post__media" />
@@ -102,6 +97,22 @@ export default function PostCard({
         <p className="post__likes">
           {(post.reactionCount ?? 1222).toLocaleString('fr-FR')} J'aime
         </p>
+
+        {/* Les réactions ne sont pas du décor : c'est la pression sociale qui
+            fait circuler une information. Il y a toujours quelqu'un qui y
+            croit, quelqu'un qui doute, et quelqu'un qui va vérifier. */}
+        {post.commentaires?.length > 0 && (
+          <ul className="post__thread">
+            {post.commentaires.map((commentaire, i) => (
+              <li key={i} className="reaction">
+                <span className="reaction__auteur" style={{ color: commentaire.couleur }}>
+                  {commentaire.auteur}
+                </span>{' '}
+                <span className="reaction__texte">{commentaire.texte}</span>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* Compteur seul : rien n'est cliquable ici. */}
         <p className="post__comments">

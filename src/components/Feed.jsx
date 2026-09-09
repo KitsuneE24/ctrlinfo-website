@@ -1,46 +1,30 @@
-import { useState, useRef, useEffect } from 'react'
+import { createElement, useState, useRef, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, Trophy, GraduationCap, ArrowRight } from 'lucide-react'
-import posts, { remediationPosts } from '../data/posts.index'
-import { autreJeu } from '../data/games'
+import { getNiveaux, getRemediations, getTirage } from '../api/contenu'
+import { icone } from '../data/icones'
+import { auMieux, enregistrerDecision, sauvegarder, terminerSession } from '../api/progression'
+import { lireInterets } from '../lib/interests'
+import { useSessionJeu } from '../lib/useSessionJeu'
+import { useAutreJeu } from '../state/jeux'
 import Page from './ui/Page'
+import { Chargement, ErreurChargement } from './ui/Chargement'
 import FeedStats from './FeedStats'
 import PostCard from './PostCard'
 import FeedbackModal from './FeedbackModal'
+import { signalerAuCompagnon } from '../state/compagnonSignaux'
 
-const LEVEL_MESSAGES = {
-  2: {
-    title: 'Niveau 2 débloqué',
-    subtitle: 'Les signaux se font plus subtils — sources qui ressemblent à des vraies, dates vagues, émotions plausibles.',
-  },
-  3: {
-    title: 'Niveau 3 débloqué',
-    subtitle: 'Niveau expert — vraie source, vraie image, vrais faits… mais contexte manipulé.',
-  },
-}
-
-/** Opacité d'une publication selon sa distance à celle en cours. */
-function opacityFor(distance) {
-  if (distance === 0) return 1
-  return Math.max(0.18, 0.42 - (Math.abs(distance) - 1) * 0.06)
-}
-
-export default function Feed({ onSwitch, enPause = false }) {
+export default function Feed({ onSwitch, onFinished, paused = false }) {
   // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
-  const suite = autreJeu('feed')
+  const suite = useAutreJeu('feed')
 
-  const activeRef = useRef(null)
-  // La publication déjà amenée en haut. On la compare plutôt que de compter
-  // les rendus : React monte les effets deux fois en développement.
-  const dernierScrollRef = useRef(null)
-  const statsRef = useRef(null)
-
-  // Hauteur du bandeau collé en haut, qui sert de marge de défilement.
-  const [statsHeight, setStatsHeight] = useState(0)
+  // Les règles des niveaux — taille du tirage, durée du chrono, texte de
+  // transition. Elles étaient écrites ici ; elles viennent de l'API.
+  const [niveaux, setNiveaux] = useState({})
 
   const [currentLevel, setCurrentLevel] = useState(1)
   const [levelTransition, setLevelTransition] = useState(false)
-  const [postQueue, setPostQueue] = useState(() => posts.filter((p) => p.level === 1))
+  const [postQueue, setPostQueue] = useState([])
   const [queueIdx, setQueueIdx] = useState(0)
   const [levelDoneCount, setLevelDoneCount] = useState(0)
   const [action, setAction] = useState(null)
@@ -49,12 +33,73 @@ export default function Feed({ onSwitch, enPause = false }) {
   const [timerActive, setTimerActive] = useState(true)
   const [feedbackVisible, setFeedbackVisible] = useState(false)
 
-  const levelPosts = posts.filter((p) => p.level === currentLevel)
+  // Le contenu vient du serveur : deux états de plus qu'avant.
+  const [erreur, setErreur] = useState(null)
+  const [remediations, setRemediations] = useState({})
+  // Les couronnes que cette partie vient de faire tomber. Elles arrivent avec
+  // la réponse de « terminer » : c'est le seul moment où on peut les montrer.
+  const [couronnes, setCouronnes] = useState([])
+
+  // Le moment où la publication en cours s'est affichée, pour mesurer le temps
+  // de décision — la vraie donnée intéressante du jeu.
+  const affichee = useRef(0)
+
+  // Pas de partie tant que les règles d'ouverture sont à l'écran : le fil sera
+  // remonté à leur fermeture, et une partie vide resterait en base.
+  const sessionId = useSessionJeu({ jeu: 'feed', level: 1, actif: !paused })
+
+  /**
+   * Un niveau, tiré au sort par le serveur.
+   *
+   * C'est le changement de fond par rapport au fil d'origine : le niveau
+   * n'était que « les publications marquées level: 2 », toujours les mêmes
+   * dans le même ordre. Le serveur pioche maintenant dans tout le vivier —
+   * publications écrites à la main et publications fabriquées à partir des
+   * flux — en écartant celles que ce joueur a déjà traitées.
+   *
+   * La fonction ne touche à aucun état avant la réponse : la file vide suffit
+   * à dire « ça charge », et l'appelant la vide avant de relancer.
+   */
+  const chargerNiveau = useCallback(
+    (level) =>
+      // Les sujets choisis ordonnent le tirage ; ils ne le filtrent pas.
+      getTirage(level, { themes: lireInterets() })
+        .then((tirage) => {
+          setPostQueue(tirage)
+          setQueueIdx(0)
+          setLevelDoneCount(0)
+          setBiasRemediationAdded(new Set())
+          setAction(null)
+          setTimerActive(true)
+          setErreur(null)
+          affichee.current = Date.now()
+        })
+        .catch(setErreur),
+    []
+  )
+
+  useEffect(() => {
+    chargerNiveau(1)
+    // Les remédiations sont peu nombreuses : on les prend une fois pour toutes.
+    getRemediations()
+      .then(setRemediations)
+      .catch(() => setRemediations({}))
+    getNiveaux()
+      .then((liste) => setNiveaux(Object.fromEntries(liste.map((n) => [n.level, n]))))
+      .catch(() => setNiveaux({}))
+  }, [chargerNiveau])
+
+  // Pas de drapeau de chargement : tant que la file est vide et qu'aucune
+  // erreur n'est remontée, c'est que le tirage est en route.
+  const chargement = postQueue.length === 0 && erreur === null
   const isAllDone = currentLevel > 3
   const currentPost = !isAllDone && !levelTransition ? postQueue[queueIdx] : null
 
-  const levelProgress =
-    levelPosts.length > 0 ? Math.min(levelDoneCount / levelPosts.length, 1) : 0
+  // Le total du niveau est la taille du tirage : les publications de
+  // remédiation s'y ajoutent sans compter dans l'avancement.
+  const levelTotal = postQueue.filter((post) => !post.isRemediation).length
+
+  const levelProgress = levelTotal > 0 ? Math.min(levelDoneCount / levelTotal, 1) : 0
 
   const isCorrect =
     action !== null && currentPost !== null
@@ -62,41 +107,39 @@ export default function Feed({ onSwitch, enPause = false }) {
       : false
 
   // Mesuré plutôt que codé en dur : la hauteur change avec la largeur de
-  // l'écran. L'observateur émet un premier appel dès l'observation.
-  useEffect(() => {
-    const el = statsRef.current
-    if (!el || typeof ResizeObserver === 'undefined') return
-    const observer = new ResizeObserver(() => setStatsHeight(el.offsetHeight))
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  // Le fil est continu : on amène la publication en cours en haut de l'écran.
-  // La toute première y est déjà, la déplacer enfoncerait son en-tête sous le
-  // bandeau.
-  useEffect(() => {
-    const cle = `${currentLevel}:${queueIdx}`
-    const premiere = dernierScrollRef.current === null
-    if (dernierScrollRef.current === cle) return
-    dernierScrollRef.current = cle
-    if (premiere) return
-    activeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }, [queueIdx, currentLevel])
-
   function handleAction(type) {
     if (action !== null) return
+
+    // Le compagnon suit la partie : il ne relève ni une bonne réponse isolée
+    // ni une erreur isolée, mais il compte les séries.
+    signalerAuCompagnon(
+      type === currentPost.correctAction ? 'bonneReponse' : 'mauvaiseReponse'
+    )
 
     if (type !== currentPost.correctAction && !currentPost.isRemediation) {
       const biais = currentPost.biais
       const newCount = (errorsPerBias[biais] || 0) + 1
       setErrorsPerBias({ ...errorsPerBias, [biais]: newCount })
 
-      if (newCount === 2 && !biasRemediationAdded.has(biais) && remediationPosts[biais]) {
+      if (newCount === 2 && !biasRemediationAdded.has(biais) && remediations[biais]) {
         const newQueue = [...postQueue]
-        newQueue.splice(queueIdx + 1, 0, remediationPosts[biais])
+        newQueue.splice(queueIdx + 1, 0, remediations[biais])
         setPostQueue(newQueue)
         setBiasRemediationAdded((prev) => new Set([...prev, biais]))
       }
+    }
+
+    // La décision part au serveur : c'est lui qui tranche, compte le score et
+    // retient que cette publication a été vue — elle ne reviendra pas dans les
+    // prochains tirages de ce joueur.
+    if (sessionId) {
+      auMieux(
+        enregistrerDecision(sessionId, {
+          postId: currentPost.id,
+          action: type,
+          tempsMs: Date.now() - affichee.current,
+        })
+      )
     }
 
     setAction(type)
@@ -124,27 +167,47 @@ export default function Feed({ onSwitch, enPause = false }) {
     }
 
     if (nextIdx >= postQueue.length) {
-      if (newLevelDoneCount >= levelPosts.length) {
-        if (currentLevel < 3) setLevelTransition(true)
-        else setCurrentLevel(4)
+      if (newLevelDoneCount >= levelTotal) {
+        if (currentLevel < 3) {
+          setLevelTransition(true)
+        } else {
+          setCurrentLevel(4)
+          onFinished?.()
+          if (sessionId) {
+            auMieux(terminerSession(sessionId)).then((fin) => setCouronnes(fin?.couronnes ?? []))
+          }
+        }
       }
       return
     }
 
     setQueueIdx(nextIdx)
     setTimerActive(true)
+    affichee.current = Date.now()
+
+    // Sauvegarde : où on en est, et de quoi reprendre le fil tel quel.
+    if (sessionId) {
+      auMieux(
+        sauvegarder(sessionId, {
+          etape: nextIdx,
+          etat: {
+            level: currentLevel,
+            queueIdx: nextIdx,
+            slugs: postQueue.map((post) => post.slug),
+            errorsPerBias,
+          },
+        })
+      )
+    }
   }
 
   function handleLevelUnlock() {
     const nextLevel = currentLevel + 1
     setCurrentLevel(nextLevel)
     setLevelTransition(false)
-    setPostQueue(posts.filter((p) => p.level === nextLevel))
-    setQueueIdx(0)
-    setLevelDoneCount(0)
-    setBiasRemediationAdded(new Set())
-    setAction(null)
-    setTimerActive(true)
+    // Vider la file, c'est afficher le chargement le temps du tirage suivant.
+    setPostQueue([])
+    chargerNiveau(nextLevel)
   }
 
   function handleLearnMore(url) {
@@ -165,7 +228,11 @@ export default function Feed({ onSwitch, enPause = false }) {
       />
 
       <Page feed>
-        {isAllDone ? (
+        {erreur ? (
+          <ErreurChargement erreur={erreur} onReessayer={() => chargerNiveau(currentLevel)} />
+        ) : chargement ? (
+          <Chargement quoi="le fil" />
+        ) : isAllDone ? (
           <section className="card outcome">
             <span className="outcome__badge">
               <Trophy size={34} strokeWidth={1.8} />
@@ -176,6 +243,24 @@ export default function Feed({ onSwitch, enPause = false }) {
               compte davantage qu'un score — retourne dans le fil quand tu veux
               refaire l'exercice.
             </p>
+
+            {/* Ce que la partie vient de faire tomber. Rien n'apparaît en mode
+                invité : sans compte, rien n'est décroché. */}
+            {couronnes.length > 0 && (
+              <ul className="gains">
+                {couronnes.map((couronne) => (
+                  <li key={couronne.id} className="gain">
+                    <span className="gain__picto" style={{ background: couronne.couleur }}>
+                      {createElement(icone(couronne.picto), { size: 18, strokeWidth: 2 })}
+                    </span>
+                    <div>
+                      <p className="gain__nom">{couronne.nom}</p>
+                      <p className="gain__texte">{couronne.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
             {suite && (
               <div className="outcome__action">
                 <button
@@ -199,12 +284,8 @@ export default function Feed({ onSwitch, enPause = false }) {
             <span className="outcome__badge outcome__badge--small">
               <Sparkles size={24} strokeWidth={2} />
             </span>
-            <h2 className="outcome__title">
-              {LEVEL_MESSAGES[currentLevel + 1]?.title}
-            </h2>
-            <p className="outcome__note">
-              {LEVEL_MESSAGES[currentLevel + 1]?.subtitle}
-            </p>
+            <h2 className="outcome__title">{niveaux[currentLevel + 1]?.titre}</h2>
+            <p className="outcome__note">{niveaux[currentLevel + 1]?.sousTitre}</p>
             {/* Fin de niveau : le moment où l'on propose l'autre jeu. */}
             <div className="outcome__action">
               <button type="button" onClick={handleLevelUnlock} className="button">
@@ -224,50 +305,44 @@ export default function Feed({ onSwitch, enPause = false }) {
         ) : (
           <>
             <FeedStats
-              ref={statsRef}
               progress={levelProgress}
               currentLevel={Math.min(currentLevel, 3)}
               levelDoneCount={levelDoneCount}
-              levelTotal={levelPosts.length}
+              levelTotal={levelTotal}
               // Une publication, un décompte : la clé le remonte.
               timerKey={`${currentLevel}:${queueIdx}`}
               // Le chrono s'arrête tant que les règles sont à l'écran.
-              timerActive={timerActive && !enPause}
+              timerActive={timerActive && !paused}
+              timerSecondes={niveaux[currentLevel]?.dureeSecondes ?? null}
               onTimerComplete={handleTimerExpire}
             />
 
 
-            {/* Fil continu : tout le niveau est là dès le départ. Seule la
-                publication en cours est interactive, les autres s'estompent. */}
-            {postQueue.map((post, i) => {
-              const isActive = i === queueIdx
-              return (
-                <div
-                  key={`${post.id}-${i}`}
-                  ref={isActive ? activeRef : null}
-                  style={{
-                    opacity: opacityFor(i - queueIdx),
-                    // Marge respectée par scrollIntoView.
-                    scrollMarginTop: statsHeight + 12,
-                  }}
-                  aria-hidden={isActive ? undefined : 'true'}
-                >
-                  {post.isRemediation && (
-                    <p className="remediation">
-                      <GraduationCap size={15} strokeWidth={2} />
-                      Entraînement ciblé — reconnaître ce biais
-                    </p>
-                  )}
-                  <PostCard
-                    post={post}
-                    isActive={isActive}
-                    onAction={handleAction}
-                    disabled={actionsDisabled}
-                    selectedAction={isActive ? action : null}
-                  />
-                </div>
-              )
-            })}
+            {/* Une publication à la fois. Le fil continu affichait tout le
+                niveau d'un coup, estompé : on lisait la suite au lieu de
+                décider de celle-ci. */}
+            {currentPost && (
+              <motion.div
+                key={`${currentPost.id}-${queueIdx}`}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.22 }}
+              >
+                {currentPost.isRemediation && (
+                  <p className="remediation">
+                    <GraduationCap size={15} strokeWidth={2} />
+                    Entraînement ciblé — reconnaître ce biais
+                  </p>
+                )}
+                <PostCard
+                  post={currentPost}
+                  isActive
+                  onAction={handleAction}
+                  disabled={actionsDisabled}
+                  selectedAction={action}
+                />
+              </motion.div>
+            )}
           </>
         )}
       </Page>

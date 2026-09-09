@@ -1,10 +1,11 @@
 /**
- * La mémoire des choses qu'on ne montre qu'une fois — le tutoriel d'un jeu.
+ * La mémoire des choses qu'on ne montre qu'une fois — les stories déjà
+ * ouvertes, la brève du jour. Les règles d'un jeu, elles, sont retenues par le
+ * serveur : elles doivent suivre le compte d'un appareil à l'autre.
  *
  * Tout passe par `localStorage` et tout est enveloppé : en navigation privée
  * ou derrière un blocage de cookies, y écrire lève une exception. En cas
- * d'échec on répond « oui, c'est la première fois » et le tutoriel se
- * remontre.
+ * d'échec on répond « oui, c'est la première fois » et l'élément se remontre.
  */
 const PREFIXE = 'ctrl-info:vu:'
 
@@ -29,6 +30,30 @@ export function dejaVu(cle) {
 export function marquerVu(cle) {
   try {
     stockage()?.setItem(PREFIXE + cle, '1')
+  } catch {
+    // Au pire, ce sera montré à nouveau.
+  }
+}
+
+/** Le jour courant, sous une forme comparable : « 2026-09-01 ». */
+const today = () => new Date().toISOString().slice(0, 10)
+
+/**
+ * Comme `dejaVu`, mais pour ce qui revient chaque jour — la brève « Le
+ * saviez-vous ? ». Ce n'est pas la même question : on ne demande pas si ça a
+ * déjà été vu un jour, mais si ça a été vu **aujourd'hui**.
+ */
+export function seenToday(key) {
+  try {
+    return stockage()?.getItem(PREFIXE + key) === today()
+  } catch {
+    return false
+  }
+}
+
+export function markSeenToday(key) {
+  try {
+    stockage()?.setItem(PREFIXE + key, today())
   } catch {
     // Au pire, ce sera montré à nouveau.
   }

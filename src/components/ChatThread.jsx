@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, Check, Lightbulb, SendHorizontal } from 'lucide-react'
+import { auMieux, enregistrerChoix, terminerSession } from '../api/progression'
+import { useSessionJeu } from '../lib/useSessionJeu'
 import { getSession, saveSession } from '../state/conversationSessions'
 
 /**
@@ -16,6 +18,21 @@ const TYPING_MAX_MS = 2600
 const EXPLICATION_DELAY_MS = 500
 
 const COMPOSER_PLACEHOLDER = 'Votre message...'
+
+/**
+ * Les messages d'une étape, le dernier portant la question.
+ *
+ * Dans un groupe, plusieurs personnes peuvent parler avant qu'on demande quoi
+ * que ce soit : c'est la conversation qui monte, et c'est elle qui fait la
+ * pression.
+ */
+function messagesDe(etape) {
+  return etape.messages.map((message, i) => ({
+    text: message.texte,
+    auteur: message.auteur,
+    kind: i === etape.messages.length - 1 ? 'question' : 'message',
+  }))
+}
 
 function delayFor(item, isFirst) {
   // Le premier message est déjà là à l'ouverture.
@@ -59,8 +76,27 @@ function TypingBubble() {
  * pour cette clé, et reprennent au message près. Seul le compte à rebours du
  * message en cours de frappe repart à zéro.
  */
-export default function ChatThread({ conversation, sessionKey, onBack, onRestart }) {
-  const { name, subtitle, color, intro, steps, outro } = conversation
+export default function ChatThread({
+  conversation,
+  sessionKey,
+  paused,
+  onFinished,
+  onBack,
+  onRestart,
+}) {
+  const { name, color, intro, steps, outro, groupe, contexte, participants } = conversation
+
+  // Dans un groupe, l'en-tête montre qui est là ; en tête-à-tête, le nom de la
+  // conversation suffit.
+  const entete = groupe ? contexte || name : name
+
+  // Une partie côté serveur par montage — donc une par « Recommencer », qui
+  // remonte justement le composant.
+  const sessionId = useSessionJeu({
+    jeu: 'chat',
+    conversationSlug: conversation.id,
+    actif: !paused,
+  })
 
   const saved = getSession(sessionKey)
 
@@ -68,8 +104,12 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
   const [queue, setQueue] = useState(
     () =>
       saved?.queue ?? [
-        ...intro.map((text) => ({ text, kind: 'message' })),
-        { text: steps[0].prompt, kind: 'question' },
+        ...intro.map((message) => ({
+          text: message.texte,
+          auteur: message.auteur,
+          kind: 'message',
+        })),
+        ...messagesDe(steps[0]),
       ]
   )
   const [stepIdx, setStepIdx] = useState(() => saved?.stepIdx ?? 0)
@@ -87,7 +127,7 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
 
   // Délivre les messages de l'interlocuteur un par un.
   useEffect(() => {
-    if (queue.length === 0) return
+    if (paused || queue.length === 0) return
     const timer = setTimeout(() => {
       const [next, ...rest] = queue
       setLog((prev) => [...prev, { ...next, from: 'them' }])
@@ -98,11 +138,15 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
       }
     }, delayFor(queue[0], log.length === 0))
     return () => clearTimeout(timer)
-  }, [queue, endAfterQueue, log.length])
+  }, [paused, queue, endAfterQueue, log.length])
 
   function choose(choice) {
     setAwaiting(false)
     setLog((prev) => [...prev, { text: choice.text, kind: 'message', from: 'me' }])
+
+    // Le choix part au serveur, qui garde la trace et rejuge de son côté.
+    // L'affichage, lui, n'attend pas la réponse : la conversation continue.
+    if (sessionId) auMieux(enregistrerChoix(sessionId, choice.id))
 
     const finalScore = score + (choice.correct ? 1 : 0)
     setScore(finalScore)
@@ -112,18 +156,24 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
 
     // Réplique du personnage, puis explication, puis question suivante.
     const suite = [
-      { text: choice.reply, kind: 'message' },
+      { text: choice.reply, auteur: steps[stepIdx].auteur, kind: 'message' },
       { text: choice.explication, kind: 'explication', correct: choice.correct },
     ]
 
     if (nextIdx < steps.length) {
-      setQueue([...suite, { text: steps[nextIdx].prompt, kind: 'question' }])
+      setQueue([...suite, ...messagesDe(steps[nextIdx])])
     } else {
       const verdict = finalScore >= steps.length - 1 ? outro.high : outro.low
       setQueue([...suite, { text: verdict, kind: 'message' }])
       setEndAfterQueue(true)
+      onFinished?.()
     }
   }
+
+  // La discussion arrive à son terme : la partie est close côté serveur.
+  useEffect(() => {
+    if (done && sessionId) auMieux(terminerSession(sessionId))
+  }, [done, sessionId])
 
   const choices = awaiting ? steps[stepIdx]?.choices ?? [] : []
   const typing = queue.length > 0 && queue[0].kind !== 'explication' && log.length > 0
@@ -159,10 +209,24 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
         >
           <ChevronLeft size={26} strokeWidth={2} />
         </button>
-        <Avatar name={name} color={color} size={38} />
+        {groupe ? (
+          <span className="thread__pile">
+            {participants.slice(0, 3).map((personne) => (
+              <Avatar key={personne.id} name={personne.nom} color={personne.couleur} size={30} />
+            ))}
+          </span>
+        ) : (
+          <Avatar name={name} color={color} size={38} />
+        )}
         <div>
-          <p className="thread__name">{name}</p>
-          <p className="thread__subtitle">{subtitle}</p>
+          <p className="thread__name">{entete}</p>
+          {/* Qui est en face, pas dans quel « mode » on joue : dans un groupe
+              la liste des présents, sinon le rôle de l'interlocuteur. */}
+          <p className="thread__subtitle">
+            {groupe
+              ? participants.map((personne) => personne.nom).join(', ')
+              : participants[0]?.role}
+          </p>
         </div>
       </header>
 
@@ -211,13 +275,26 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               className="message"
-              style={{ '--contact-color': color }}
+              style={{ '--contact-color': message.auteur?.couleur ?? color }}
             >
-              <Avatar name={name} color={color} />
-              <span
-                className={`message__bubble${isQuestion ? ' message__bubble--question' : ''}`}
-              >
-                {message.text}
+              <Avatar
+                name={message.auteur?.nom ?? name}
+                color={message.auteur?.couleur ?? color}
+              />
+              <span className="message__corps">
+                {/* Dans un groupe, savoir qui parle change tout : la même
+                    phrase ne pèse pas pareil selon qui la dit. */}
+                {groupe && message.auteur && (
+                  <span className="message__auteur">
+                    {message.auteur.nom}
+                    <span className="message__role"> · {message.auteur.role}</span>
+                  </span>
+                )}
+                <span
+                  className={`message__bubble${isQuestion ? ' message__bubble--question' : ''}`}
+                >
+                  {message.text}
+                </span>
               </span>
             </motion.div>
           )
@@ -225,7 +302,10 @@ export default function ChatThread({ conversation, sessionKey, onBack, onRestart
 
         {typing && (
           <div className="message">
-            <Avatar name={name} color={color} />
+            <Avatar
+              name={queue[0]?.auteur?.nom ?? name}
+              color={queue[0]?.auteur?.couleur ?? color}
+            />
             <TypingBubble />
           </div>
         )}

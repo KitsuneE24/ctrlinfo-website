@@ -14,9 +14,13 @@
     margin: 0;
     color: var(--ink);
     background: var(--page);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
     -webkit-font-smoothing: antialiased;
-    overscroll-behavior-y: none;
+    /* `contain` plutôt que `none` : le rebond de fin de page revient, sans
+       que le geste passe à la page derrière. */
+    overscroll-behavior-y: contain;
   }
 
   input,

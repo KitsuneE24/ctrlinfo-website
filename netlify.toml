@@ -1,0 +1,31 @@
+# Le déploiement Netlify du front.
+#
+# Netlify ne sert que des fichiers : l'API (ctrlinfo-app) vit ailleurs, et le
+# front la trouve par VITE_API_URL. Cette variable se règle dans l'interface
+# Netlify — Site configuration → Environment variables — et non ici, pour que
+# l'adresse de l'API ne soit pas écrite dans le dépôt.
+#
+# Attention : Vite remplace import.meta.env.VITE_API_URL par sa valeur au
+# moment du build. Changer la variable dans Netlify ne suffit donc pas ; il
+# faut relancer un déploiement pour qu'elle prenne effet.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# Le repli des adresses profondes.
+#
+# Chaque écran a son adresse, mais un seul fichier existe réellement :
+# index.html. Sans cette règle, ouvrir /fil directement demande à Netlify un
+# fichier absent. Le plugin deep-link-fallback de vite.config.js fabrique bien
+# un 404.html pour GitHub Pages, mais celui-ci répondrait avec un vrai statut
+# 404 — l'application démarrerait, en annonçant aux robots une page morte.
+# Cette réécriture sert index.html avec un statut 200 : l'application lit
+# l'adresse et affiche le bon écran.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

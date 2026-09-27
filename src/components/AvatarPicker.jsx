@@ -1,31 +1,24 @@
 import { createElement } from 'react'
 import { CircleUserRound } from 'lucide-react'
-import { getAvatars } from '../api/contenu'
-import { auMieux, choisirAvatar } from '../api/progression'
 import { icone } from '../data/icones'
-import { useRessource } from '../lib/useRessource'
+import { noterAvatar } from '../state/progression'
 
 /**
  * La galerie d'avatars.
  *
  * Comme partout, la base range un **nom** de pictogramme et une couleur : le
- * dessin est du code. Le choix part au serveur, mais l'écran ne l'attend pas —
- * se tromper de vignette ne doit pas coûter un aller-retour.
+ * dessin est du code. Le choix, lui, ne part plus nulle part : il est retenu
+ * par le navigateur, avec le reste de la progression, et voyage donc dans le
+ * code d'export.
  */
-export default function AvatarPicker({ choisi, onChoisi }) {
-  const { donnees } = useRessource(getAvatars, [])
-
-  const avatars = donnees ?? []
+export default function AvatarPicker({ avatars = [], choisi }) {
   if (avatars.length === 0) return null
 
-  // Entièrement piloté par le parent : c'est lui qui connaît l'avatar du
-  // serveur, et un état local doublerait cette vérité le temps du chargement.
+  // La galerie vient de l'écran, qui la charge déjà pour dessiner l'avatar en
+  // tête : deux appels pour la même liste n'auraient rien apporté. Le choix ne
+  // remonte pas non plus — il va dans le magasin, que l'écran relit.
   function poser(avatar) {
-    const garde = choisi === avatar.id ? null : avatar
-    // L'objet entier remonte : l'en-tête a besoin du picto et de la couleur,
-    // pas seulement de l'identifiant.
-    onChoisi?.(garde)
-    auMieux(choisirAvatar(garde?.id ?? null))
+    noterAvatar(choisi === avatar.id ? null : avatar.id)
   }
 
   return (
@@ -33,7 +26,7 @@ export default function AvatarPicker({ choisi, onChoisi }) {
       <div className="card__body">
         <h2 className="card__title">Ton avatar</h2>
         <p className="card__text">
-          Il apparaît sur ton profil. Sans lui, c'est l'initiale de ton pseudo.
+          Il apparaît en tête de cet écran, et suit ton code de progression.
         </p>
 
         <ul className="avatars">
@@ -60,16 +53,19 @@ export default function AvatarPicker({ choisi, onChoisi }) {
   )
 }
 
-/** L'avatar d'un joueur, ou son initiale. Le même dessin partout. */
-export function AvatarJoueur({ avatar, pseudo, taille = 52 }) {
+/**
+ * L'avatar du joueur. Le même dessin partout.
+ *
+ * Plus d'initiale en repli : il n'y a plus de pseudo à réduire à sa première
+ * lettre. Sans avatar choisi, c'est une silhouette.
+ */
+export function AvatarJoueur({ avatar, taille = 52 }) {
   const style = { width: taille, height: taille, background: avatar?.couleur }
 
   return (
     <span className="avatar-joueur" style={style}>
       {avatar ? (
         createElement(icone(avatar.picto), { size: taille * 0.5, strokeWidth: 1.8 })
-      ) : pseudo ? (
-        <span style={{ fontSize: taille * 0.38 }}>{pseudo[0]?.toUpperCase()}</span>
       ) : (
         <CircleUserRound size={taille * 0.58} strokeWidth={1.6} />
       )}

@@ -4,9 +4,13 @@ Jeu web de sensibilisation à la désinformation en Nouvelle-Calédonie.
 React 19 + Vite + Tailwind.
 
 Le contenu — publications, conversations, thèmes, ressources — vient
-de l'API [ctrlinfo-app](../ctrlinfo-app), qui garde aussi la progression des
-joueurs. **Le front ne fonctionne pas sans elle** : il n'embarque plus aucune
-publication.
+de l'API [ctrlinfo-app](../ctrlinfo-app). **Le front ne fonctionne pas sans
+elle** : il n'embarque plus aucune publication.
+
+La progression des joueurs, en revanche, ne quitte pas leur navigateur : il n'y
+a ni compte, ni e-mail, ni mot de passe. Un joueur qui veut la retrouver
+ailleurs exporte un code qu'il recolle sur l'autre appareil (voir
+[architecture.md](docs/architecture.md), § 5 ter).
 
 ```
 ctrlinfo/
@@ -58,7 +62,7 @@ Chaque écran a la sienne : un lien se partage, un rechargement ne renvoie plus
 | `/conversations` · `/conversations/:slug` | la boîte de réception, puis une discussion |
 | `/ressources` | les thèmes à comprendre |
 | `/ressources/comprendre/:slug` | un thème |
-| `/profil` | le compte et le tableau de bord |
+| `/profil` | la progression du joueur et son code de sauvegarde |
 
 Elles sont décrites une seule fois, dans [src/routes.js](src/routes.js).
 

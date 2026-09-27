@@ -4,12 +4,18 @@ import { TriangleAlert } from 'lucide-react'
 /**
  * L'alerte de sortie de partie.
  *
- * Elle ne dit pas la même chose selon l'identité, parce que ce n'est pas la
- * même perte : sans compte, tout ce qui vient d'être joué disparaît ; avec un
- * compte, les décisions déjà prises restent comptées et seule la partie est
- * abandonnée.
+ * Elle disait deux choses selon l'identité, la version sans compte annonçant
+ * une perte sèche. Il n'y a plus qu'un message, et il n'annonce plus de perte :
+ * chaque décision est déjà retenue par le navigateur au moment où elle est
+ * prise. Ce qui se perd en sortant, c'est la manche en cours — pas ce qu'on
+ * vient d'y apprendre.
+ *
+ * Aucun lien vers le code d'export ici, bien que ce soit le bon moment pour y
+ * penser : une alerte pose une question fermée, et un troisième chemin
+ * transformerait le choix en menu. Le rappel est à la fin de la partie, où il
+ * ne coupe rien.
  */
-export default function ExitGamePrompt({ connecte, onConfirm, onCancel }) {
+export default function ExitGamePrompt({ onConfirm, onCancel }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -36,9 +42,8 @@ export default function ExitGamePrompt({ connecte, onConfirm, onCancel }) {
           Quitter la partie&nbsp;?
         </h2>
         <p className="gate__text">
-          {connecte
-            ? 'La partie sera marquée comme abandonnée. Ce que tu as déjà répondu reste compté dans ton profil.'
-            : "Tu joues en invité : ta progression n'est pas enregistrée, et cette partie recommencera à zéro."}
+          Ce que tu as déjà répondu est gardé : les publications traitées et le
+          niveau atteint restent acquis. Seule cette manche recommencera.
         </p>
 
         <div className="gate__actions">

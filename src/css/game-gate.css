@@ -3,6 +3,10 @@
    Deux passages : l'écran de départ avant une partie, et l'alerte quand on
    la quitte en route. Tous deux couvrent l'écran entier, barre du bas
    comprise.
+
+   S'y ajoute le rappel du code de progression, qui apparaît sur l'écran de
+   départ et à la fin d'une partie : c'est le même message, et il n'a donc
+   qu'une définition.
    ======================================================================== */
 
 @layer components {
@@ -210,19 +214,36 @@
 
   /* Une phrase, pas un encadré : la mention est utile, elle n'est pas au même
      rang que les règles. */
-  .game-start__guest {
+  /* --- Le rappel du code de progression ------------------------------------
+     Partagé par l'écran de départ et la fin d'une partie de fil. Le
+     pictogramme reste en haut de sa ligne quand le texte se replie : centré,
+     il flotterait au milieu d'un paragraphe de deux lignes. --- */
+
+  .rappel-code {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 7px;
     margin: 0;
     font-size: var(--text-sm);
     line-height: var(--leading-body);
-    text-align: center;
     color: var(--ink-muted);
   }
 
-  .game-start__login {
+  .rappel-code svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .rappel-code__lien {
     font-weight: 700;
     color: var(--brand-blue);
     text-decoration: underline;
     text-underline-offset: 2px;
+  }
+
+  .game-start__guest {
+    text-align: left;
   }
 
   /* Écran court : on resserre, sans jamais coller. */

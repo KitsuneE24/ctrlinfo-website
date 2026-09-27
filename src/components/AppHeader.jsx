@@ -1,18 +1,18 @@
 import { Link } from 'react-router'
 import { HelpCircle } from 'lucide-react'
-import { useCompte } from '../state/compte'
 import { useExitGuard } from '../state/exitGuard'
 import { PATHS } from '../routes'
+import { useProgression } from '../state/useProgression'
 
 /**
  * En-tête de l'application : le logotype à gauche, qui ramène à l'accueil.
  *
  * La navigation n'est plus ici — elle est en bas, dans la barre d'onglets, à
  * toutes les tailles d'écran. Il ne reste donc à droite que ce qui dépend de
- * l'écran en cours : les règles du fil, et l'identité du joueur.
+ * l'écran en cours : les règles du fil, et l'avancement du joueur.
  */
 export default function AppHeader({ onGame, onShowRules }) {
-  const { utilisateur, connecte, invite } = useCompte()
+  const { fil } = useProgression()
   const { requestExit } = useExitGuard()
 
   return (
@@ -43,14 +43,15 @@ export default function AppHeader({ onGame, onShowRules }) {
             </button>
           )}
 
-          {/* Dire en permanence si la partie compte ou non. « Invité » n'est
-              affiché que si le joueur l'a choisi : sinon la pastille l'invite à
-              choisir, au lieu de décider pour lui. */}
+          {/* La pastille disait l'identité — « Invité », « Se connecter ». Elle
+              dit maintenant l'avancement, la seule chose qu'un joueur ait à
+              suivre : son score dès qu'il en a un, et l'invitation à aller
+              chercher son code sinon. */}
           <Link
             to={PATHS.profile}
-            className={`app-header__compte${connecte ? ' app-header__compte--connecte' : ''}`}
+            className={`app-header__score${fil.points > 0 ? ' app-header__score--actif' : ''}`}
           >
-            {connecte ? utilisateur?.pseudo : invite ? 'Invité' : 'Se connecter'}
+            {fil.points > 0 ? `${fil.points} pts` : 'Ma progression'}
           </Link>
         </div>
       </div>

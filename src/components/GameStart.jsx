@@ -1,8 +1,7 @@
 import { createElement } from 'react'
-import { Link } from 'react-router'
 import { motion } from 'framer-motion'
 import { Play, RotateCcw } from 'lucide-react'
-import { PATHS } from '../routes'
+import RappelDeCode from './RappelDeCode'
 
 /**
  * L'écran de départ d'un jeu : ce qu'on va y faire, et rien d'autre.
@@ -14,7 +13,7 @@ import { PATHS } from '../routes'
  * Rouvert en cours de partie (`reprise`), il ne relance rien : il rappelle, et
  * on repart où on en était.
  */
-export default function GameStart({ jeu, connecte, reprise, onStart }) {
+export default function GameStart({ jeu, reprise, onStart }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -55,14 +54,9 @@ export default function GameStart({ jeu, connecte, reprise, onStart }) {
             {reprise ? 'Reprendre' : 'Commencer'}
           </button>
 
-          {!connecte && (
-            <p className="game-start__guest">
-              Sans compte, les scores ne seront pas enregistrés.{' '}
-              <Link to={PATHS.profile} className="game-start__login">
-                Se connecter
-              </Link>
-            </p>
-          )}
+          {/* Dit une fois, à l'entrée : rien à créer pour que la partie
+              compte, mais elle ne compte que dans ce navigateur. */}
+          <RappelDeCode className="game-start__guest" />
         </div>
       </motion.div>
     </motion.div>

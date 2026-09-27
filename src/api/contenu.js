@@ -8,7 +8,7 @@
  */
 import { api } from './client'
 
-const requete = (chemin) => api(chemin, { authentifie: false })
+const requete = (chemin) => api(chemin)
 
 /** La galerie d'avatars. Ouverte : on la voit avant d'avoir un compte. */
 export const getAvatars = () => requete('/avatars')
@@ -28,9 +28,10 @@ export const getDailyTip = () => requete('/astuces/du-jour')
 /**
  * Un tirage de publications pour un niveau.
  *
- * Le serveur écarte celles que ce joueur a déjà traitées : deux parties de
- * suite ne se ressemblent pas, et le fil ne se réduit pas aux quinze mêmes
- * publications.
+ * Le serveur écartait celles que ce joueur avait déjà traitées. Il ne sait plus
+ * qui joue : c'est `components/Feed.jsx` qui s'en charge maintenant, sur la
+ * liste que le navigateur retient — d'où le `taille` généreux qu'il demande,
+ * pour avoir de quoi filtrer.
  */
 export const getTirage = (level, { taille, themes } = {}) => {
   const parametres = new URLSearchParams({ level })

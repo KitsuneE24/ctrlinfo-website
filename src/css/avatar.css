@@ -1,0 +1,52 @@
+/* ========================================================================
+   L'AVATAR
+   La seule décoration qui reste de l'ancien profil. Les records, les
+   couronnes et les onglets de connexion vivaient ici : il n'y a plus ni
+   compte à ouvrir ni historique daté pour tenir une série de jours.
+   ======================================================================== */
+
+@layer components {
+  /* --- L'avatar du joueur ------------------------------------------------ */
+
+  .avatar-joueur {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--brand-blue);
+    color: var(--brand-cream);
+    font-weight: 700;
+  }
+
+  .avatars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .avatars__choix {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    color: var(--brand-cream);
+    opacity: 0.55;
+    transition: opacity 0.15s, transform 0.12s, box-shadow 0.15s;
+  }
+
+  .avatars__choix:hover {
+    opacity: 0.85;
+  }
+
+  /* L'anneau plutôt qu'une bordure : la vignette ne change pas de taille. */
+  .avatars__choix--actif {
+    opacity: 1;
+    box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--ink);
+  }
+
+  .avatars__choix:active {
+    transform: scale(0.94);
+  }
+}

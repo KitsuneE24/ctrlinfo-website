@@ -1,31 +1,40 @@
-import { useCallback, useState } from 'react'
-import { useNavigate } from 'react-router'
-import { ArrowRight, LogOut, MessagesSquare, Newspaper, Route, Trophy } from 'lucide-react'
-import { getRecords, getTableauDeBord } from '../api/progression'
+import { MessagesSquare, Newspaper } from 'lucide-react'
+import { getAvatars, getConversations, getNiveaux } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
-import { useCompte } from '../state/compte'
-import { PATHS } from '../routes'
-import AuthPanels from '../components/AuthPanels'
+import { useProgression } from '../state/useProgression'
 import AvatarPicker, { AvatarJoueur } from '../components/AvatarPicker'
+import CodeProgression from '../components/CodeProgression'
 import InterestPicker from '../components/InterestPicker'
-import Records from '../components/Records'
 import Page from '../components/ui/Page'
-import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
 /**
- * Onglet « Profil » : la porte d'entrée du compte, et le tableau de bord.
+ * Onglet « Ma progression ».
  *
- * Deux états, jamais mélangés :
+ * Il portait la connexion, l'inscription et le mode invité, puis un tableau de
+ * bord calculé par l'API. Il n'y a plus de compte : ni e-mail, ni mot de passe,
+ * ni rien à créer pour que les parties comptent. Cet écran est devenu la
+ * réponse à une seule question — *où est passé ce que j'ai fait ?* — et il y
+ * répond en trois temps : ce que tu as fait, comment l'emporter, ce que tu veux
+ * voir.
  *
- *   - **sans compte** — on propose la connexion, l'inscription, et le mode
- *     invité. Le mode invité est présenté pour ce qu'il est : on joue tout de
- *     suite, mais rien n'est enregistré. Aucun compte n'est créé en base.
- *   - **connecté** — les chiffres du joueur, tels que l'API les calcule
- *     (`/moi/tableau-de-bord`). Le front n'en recalcule aucun.
+ * Les chiffres sont maintenant calculés ici, à partir du magasin local. Deux
+ * conséquences assumées :
+ *
+ *   - ce sont les mêmes définitions qu'au serveur, pas les mêmes calculs : les
+ *     points viennent du contenu lui-même (`post.scores`), que le serveur
+ *     additionnait de son côté ;
+ *   - les couronnes, les badges et la série de jours ont disparu. Ils
+ *     demandaient un historique daté que personne ne tient plus. Mieux valait
+ *     les retirer que d'en montrer des versions approximatives.
+ *
+ * Les totaux, eux, restent du contenu : combien de publications existent,
+ * combien de conversations. C'est à l'API de le dire.
  */
 
-/** Une jauge de complétion. Le pourcentage vient du serveur. */
-function Jauge({ Icon, libelle, valeur }) {
+/** Une jauge de complétion. */
+function Jauge({ Icon, libelle, fait, total }) {
+  const pourcentage = total > 0 ? Math.round((fait / total) * 100) : 0
+
   return (
     <div className="jauge">
       <div className="jauge__tete">
@@ -34,12 +43,12 @@ function Jauge({ Icon, libelle, valeur }) {
         </span>
         <p className="jauge__libelle">{libelle}</p>
         <p className="jauge__chiffre">
-          {valeur.fait}
-          <span className="jauge__total"> / {valeur.total}</span>
+          {fait}
+          <span className="jauge__total"> / {total}</span>
         </p>
       </div>
       <div className="jauge__piste">
-        <div className="jauge__barre" style={{ width: `${valeur.pourcentage}%` }} />
+        <div className="jauge__barre" style={{ width: `${pourcentage}%` }} />
       </div>
     </div>
   )
@@ -54,265 +63,96 @@ function Chiffre({ valeur, libelle }) {
   )
 }
 
-// ── Sans compte ──────────────────────────────────────────────────────────────
+export default function ProfileScreen() {
+  const etat = useProgression()
 
-function Formulaire() {
-  const navigate = useNavigate()
-  const { connexion, inscription, continuerEnInvite, invite } = useCompte()
+  // Les totaux : ce que contient le jeu, face à ce qui a été fait. Le reste de
+  // l'écran s'affiche sans eux — une jauge sans total vaut mieux qu'un écran de
+  // chargement devant un code de progression qu'on est venu chercher.
+  const { donnees: niveaux } = useRessource(getNiveaux, [])
+  const { donnees: conversations } = useRessource(getConversations, [])
+  const { donnees: avatars } = useRessource(getAvatars, [])
 
-  const [mode, setMode] = useState('connexion')
-  const [email, setEmail] = useState('')
-  const [motDePasse, setMotDePasse] = useState('')
-  const [pseudo, setPseudo] = useState('')
-  const [erreur, setErreur] = useState(null)
-  const [enCours, setEnCours] = useState(false)
+  const publications = (niveaux ?? []).reduce((somme, n) => somme + (n.publications ?? 0), 0)
+  const avatar = (avatars ?? []).find((entree) => entree.id === etat.avatar) ?? null
 
-  const inscrire = mode === 'inscription'
+  const { fil } = etat
+  const faites = Object.values(etat.conversations).filter((c) => c.faite).length
+  const reussite = fil.decisions > 0 ? Math.round((fil.justes / fil.decisions) * 100) : 0
 
-  async function envoyer(event) {
-    event.preventDefault()
-    setErreur(null)
-    setEnCours(true)
-    try {
-      if (inscrire) await inscription({ email, motDePasse, pseudo })
-      else await connexion({ identifiant: email, motDePasse })
-    } catch (echec) {
-      setErreur(echec.message)
-    } finally {
-      setEnCours(false)
-    }
-  }
+  // Ce qui piège le plus : les biais les moins bien réussis d'abord, et
+  // seulement ceux qu'on a rencontrés assez souvent pour que ça veuille dire
+  // quelque chose. Deux erreurs sur deux publications ne font pas une faiblesse.
+  const biais = Object.entries(fil.biais)
+    .filter(([, compte]) => compte.total >= 3)
+    .map(([nom, compte]) => ({
+      nom,
+      reussite: Math.round((compte.justes / compte.total) * 100),
+      total: compte.total,
+    }))
+    .sort((a, b) => a.reussite - b.reussite)
+    .slice(0, 5)
 
-  return (
-    <Page feed title="Ton profil" subtitle="Pour garder tes scores d'une fois sur l'autre">
-      <AuthPanels mode={mode} onMode={setMode}>
-        <form onSubmit={envoyer} className="compte__form">
-          {inscrire && (
-            <label className="champ">
-              <span className="champ__label">Pseudo</span>
-              <input
-                type="text"
-                value={pseudo}
-                onChange={(e) => setPseudo(e.target.value)}
-                required
-                minLength={2}
-                maxLength={40}
-                autoComplete="nickname"
-                className="champ__input"
-              />
-            </label>
-          )}
-
-          {/* À la connexion, le champ accepte les deux : l'adresse et le
-              pseudo sont uniques tous les deux, et c'est le serveur qui
-              reconnaît lequel a été saisi. */}
-          <label className="champ">
-            <span className="champ__label">
-              {inscrire ? 'Adresse e-mail' : 'Adresse e-mail ou pseudo'}
-            </span>
-            <input
-              type={inscrire ? 'email' : 'text'}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              autoComplete={inscrire ? 'email' : 'username'}
-              className="champ__input"
-            />
-          </label>
-
-          <label className="champ">
-            <span className="champ__label">Mot de passe</span>
-            <input
-              type="password"
-              value={motDePasse}
-              onChange={(e) => setMotDePasse(e.target.value)}
-              required
-              minLength={inscrire ? 8 : 1}
-              autoComplete={inscrire ? 'new-password' : 'current-password'}
-              className="champ__input"
-            />
-            {inscrire && <span className="champ__aide">Huit caractères au minimum.</span>}
-          </label>
-
-          {erreur && <p className="compte__erreur">{erreur}</p>}
-
-          <button type="submit" disabled={enCours} className="button">
-            {enCours ? 'Un instant…' : inscrire ? 'Créer mon compte' : 'Me connecter'}
-          </button>
-        </form>
-      </AuthPanels>
-
-      {/* Le mode invité suit le formulaire au lieu de lui faire face : c'est
-          une porte de sortie, pas une offre concurrente. Pas de cadre — un
-          seul encadré sur l'écran, celui qui compte. */}
-      <section className="invite">
-        <h2 className="invite__titre">Jouer sans compte</h2>
-        <p className="invite__texte">
-          Tout reste jouable — le fil, les conversations, les thèmes. En
-          revanche <b>tes scores ne sont pas enregistrés</b>.
-        </p>
-        <div className="invite__actions">
-          <button
-            type="button"
-            onClick={() => {
-              continuerEnInvite()
-              navigate(PATHS.feed)
-            }}
-            className="button invite__bouton"
-          >
-            Continuer en invité
-            <ArrowRight size={16} strokeWidth={2.2} />
-          </button>
-          {invite && (
-            <p className="invite__note">
-              Tu joues actuellement en invité. Crée un compte quand tu veux : ce
-              que tu feras à partir de là sera gardé.
-            </p>
-          )}
-        </div>
-      </section>
-    </Page>
-  )
-}
-
-// ── Connecté ─────────────────────────────────────────────────────────────────
-
-const NOM_DU_JEU = { feed: "Le fil d'actualité", chat: 'Les conversations' }
-
-function TableauDeBord() {
-  const { utilisateur, deconnexion } = useCompte()
-  const { donnees, chargement, erreur, recharger } = useRessource(getTableauDeBord, [])
-  const { donnees: records } = useRessource(getRecords, [])
-
-  // L'avatar vient du serveur avec les records ; le choix en cours prend le
-  // dessus tant qu'il n'a pas été rechargé — se tromper de vignette ne doit pas
-  // coûter un aller-retour.
-  const [choisi, setChoisi] = useState(undefined)
-  const avatar = choisi === undefined ? (records?.avatar ?? null) : choisi
-
-  const partir = useCallback(() => deconnexion(), [deconnexion])
-
-  const entete = (
-    <header className="profil__tete">
-      <AvatarJoueur avatar={avatar} pseudo={utilisateur?.pseudo} />
-      <div className="profil__identite">
-        <p className="profil__pseudo">{utilisateur?.pseudo}</p>
-        <p className="profil__email">{utilisateur?.email}</p>
-      </div>
-      <button type="button" onClick={partir} className="profil__sortie">
-        <LogOut size={15} strokeWidth={2} />
-        Se déconnecter
-      </button>
-    </header>
-  )
-
-  if (erreur) {
-    return (
-      <Page feed>
-        {entete}
-        <ErreurChargement erreur={erreur} onReessayer={recharger} />
-      </Page>
-    )
-  }
-
-  if (chargement || !donnees) {
-    return (
-      <Page feed>
-        {entete}
-        <Chargement quoi="tes résultats" />
-      </Page>
-    )
-  }
-
-  const { parties, decisions, score, completion, biais, parcours } = donnees
-  const scenarios = parcours.filter((p) => p.genre === 'SCENARIO')
-  const chemins = parcours.filter((p) => p.genre !== 'SCENARIO')
+  const jamaisJoue = fil.decisions === 0 && faites === 0
 
   return (
-    <Page feed>
-      {entete}
-
-      <Records records={records} />
-
-      <section className="card">
-        <div className="card__body">
-          <h2 className="card__title">Tes chiffres</h2>
-          <ul className="stats">
-            <Chiffre valeur={score} libelle="points au total" />
-            <Chiffre valeur={parties.fils} libelle="fils joués" />
-            <Chiffre valeur={parties.conversations} libelle="conversations" />
-            <Chiffre valeur={`${decisions.pourcentage} %`} libelle="de bonnes décisions" />
-          </ul>
-          <p className="card__note">
-            {decisions.correctes} bonnes réponses sur {decisions.total} décisions
-            prises.
+    <Page
+      feed
+      title="Ma progression"
+      subtitle="Gardée dans ce navigateur, sans compte ni e-mail"
+    >
+      <header className="profil__tete">
+        <AvatarJoueur avatar={avatar} />
+        <div className="profil__identite">
+          <p className="profil__etat">
+            {jamaisJoue ? "Rien de joué pour l'instant" : `Niveau ${fil.niveau} du fil`}
+          </p>
+          <p className="profil__detail">
+            {jamaisJoue
+              ? 'Lance une partie : tout sera retenu à partir de la première décision.'
+              : `${fil.decisions} décisions prises, ${faites} conversation${faites > 1 ? 's' : ''} menée${faites > 1 ? 's' : ''} au bout`}
           </p>
         </div>
-      </section>
+      </header>
+
+      {/* Le code d'abord quand il y a quelque chose à sauver : c'est la seule
+          chose de cet écran qui se perd si on ne la fait pas. */}
+      {!jamaisJoue && <CodeProgression />}
+
+      {!jamaisJoue && (
+        <section className="card">
+          <div className="card__body">
+            <h2 className="card__title">Tes chiffres</h2>
+            <ul className="stats">
+              <Chiffre valeur={fil.points} libelle="points au total" />
+              <Chiffre valeur={fil.parties} libelle="fils terminés" />
+              <Chiffre valeur={faites} libelle="conversations" />
+              <Chiffre valeur={`${reussite} %`} libelle="de bonnes décisions" />
+            </ul>
+            <p className="card__note">
+              {fil.justes} bonnes réponses sur {fil.decisions} décisions prises.
+            </p>
+          </div>
+        </section>
+      )}
 
       <section className="card">
         <div className="card__body">
           <h2 className="card__title">Ce qu'il te reste à voir</h2>
-          <Jauge Icon={Newspaper} libelle="Publications du fil" valeur={completion.fil} />
+          <Jauge
+            Icon={Newspaper}
+            libelle="Publications du fil"
+            fait={fil.vus.length}
+            total={publications}
+          />
           <Jauge
             Icon={MessagesSquare}
             libelle="Conversations"
-            valeur={completion.conversations}
+            fait={faites}
+            total={conversations?.length ?? 0}
           />
         </div>
       </section>
-
-      {scenarios.length > 0 && (
-        <section className="card">
-          <div className="card__body">
-            <h2 className="card__title">Les scénarios</h2>
-            <ul className="parcours">
-              {scenarios.map((scenario) => (
-                <li key={scenario.slug} className="parcours__item">
-                  <span className="parcours__icone">
-                    <Route size={16} strokeWidth={2} />
-                  </span>
-                  <div className="parcours__texte">
-                    <p className="parcours__titre">{scenario.titre}</p>
-                    <p className="parcours__etat">
-                      {scenario.termine
-                        ? 'Terminé'
-                        : `Étape ${scenario.etape} sur ${scenario.etapes}`}
-                    </p>
-                  </div>
-                  <span className="parcours__pourcentage">{scenario.pourcentage} %</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
-      {chemins.length > 0 && (
-        <section className="card">
-          <div className="card__body">
-            <h2 className="card__title">Les parcours</h2>
-            <ul className="parcours">
-              {chemins.map((chemin) => (
-                <li key={chemin.slug} className="parcours__item">
-                  <span className="parcours__icone">
-                    <Trophy size={16} strokeWidth={2} />
-                  </span>
-                  <div className="parcours__texte">
-                    <p className="parcours__titre">{chemin.titre}</p>
-                    <p className="parcours__etat">
-                      {chemin.termine
-                        ? 'Terminé'
-                        : `Étape ${chemin.etape} sur ${chemin.etapes}`}
-                    </p>
-                  </div>
-                  <span className="parcours__pourcentage">{chemin.pourcentage} %</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
 
       {/* Le seul chiffre vraiment utile : pas « combien », mais « sur quoi ». */}
       {biais.length > 0 && (
@@ -320,13 +160,15 @@ function TableauDeBord() {
           <div className="card__body">
             <h2 className="card__title">Ce qui te piège le plus</h2>
             <ul className="biais-liste">
-              {biais.slice(0, 5).map((entree) => (
+              {biais.map((entree) => (
                 <li key={entree.nom} className="biais-ligne">
                   <div className="biais-ligne__tete">
                     <p className="biais-ligne__nom">{entree.nom}</p>
                     <p className="biais-ligne__score">{entree.reussite} % de réussite</p>
                   </div>
-                  {entree.conseil && <p className="biais-ligne__conseil">{entree.conseil}</p>}
+                  <p className="biais-ligne__conseil">
+                    Rencontré {entree.total} fois.
+                  </p>
                 </li>
               ))}
             </ul>
@@ -334,27 +176,13 @@ function TableauDeBord() {
         </section>
       )}
 
-      <AvatarPicker
-        choisi={avatar?.id ?? null}
-        onChoisi={setChoisi}
-      />
+      <AvatarPicker avatars={avatars ?? []} choisi={etat.avatar} />
 
       <InterestPicker />
 
-      {donnees.derniereSession && (
-        <p className="profil__derniere">
-          Dernière partie : {NOM_DU_JEU[donnees.derniereSession.jeu] ?? donnees.derniereSession.jeu}
-          {donnees.derniereSession.conversation
-            ? ` — ${donnees.derniereSession.conversation.nom}`
-            : ''}
-          .
-        </p>
-      )}
+      {/* Rien de joué : le code n'a rien à transporter, mais un joueur qui
+          arrive avec le code d'un autre appareil vient le coller ici. */}
+      {jamaisJoue && <CodeProgression />}
     </Page>
   )
-}
-
-export default function ProfileScreen() {
-  const { connecte } = useCompte()
-  return connecte ? <TableauDeBord /> : <Formulaire />
 }

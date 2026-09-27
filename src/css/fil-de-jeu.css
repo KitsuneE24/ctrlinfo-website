@@ -430,6 +430,14 @@
     color: var(--ink-faint);
   }
 
+  /* Le rappel du code, en fin de partie : la même largeur de lecture que la
+     note au-dessus, pour qu'il se lise comme sa suite et non comme une alerte
+     collée dessous. Les couleurs sont dans game-gate.css. */
+  .outcome__rappel {
+    max-width: 34ch;
+    margin: 14px auto 0;
+  }
+
   /* Un ou deux boutons : rejouer, et l'autre jeu proposé à la suite. */
   .outcome__action {
     display: flex;

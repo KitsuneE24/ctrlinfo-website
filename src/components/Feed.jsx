@@ -1,18 +1,35 @@
-import { createElement, useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, Trophy, GraduationCap, ArrowRight } from 'lucide-react'
 import { getNiveaux, getRemediations, getTirage } from '../api/contenu'
-import { icone } from '../data/icones'
-import { auMieux, enregistrerDecision, sauvegarder, terminerSession } from '../api/progression'
 import { lireInterets } from '../lib/interests'
-import { useSessionJeu } from '../lib/useSessionJeu'
+import {
+  dejaVus,
+  finirLeFil,
+  niveauDeDepart,
+  noterDecision,
+  noterNiveau,
+} from '../state/progression'
 import { useAutreJeu } from '../state/jeux'
 import Page from './ui/Page'
 import { Chargement, ErreurChargement } from './ui/Chargement'
 import FeedStats from './FeedStats'
 import PostCard from './PostCard'
 import FeedbackModal from './FeedbackModal'
+import RappelDeCode from './RappelDeCode'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
+
+/**
+ * La taille d'un tirage demandé, et celle d'une manche.
+ *
+ * On demande le maximum que l'API accepte pour n'en garder qu'une manche :
+ * c'est le front qui écarte maintenant les publications déjà traitées, et il
+ * lui faut de la marge pour le faire sans rendre une manche trop courte. La
+ * taille de repli vaut celle du serveur, le temps que les règles des niveaux
+ * arrivent.
+ */
+const TIRAGE_DEMANDE = 20
+const TAILLE_PAR_DEFAUT = 5
 
 export default function Feed({ onSwitch, onFinished, paused = false }) {
   // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
@@ -22,7 +39,9 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
   // transition. Elles étaient écrites ici ; elles viennent de l'API.
   const [niveaux, setNiveaux] = useState({})
 
-  const [currentLevel, setCurrentLevel] = useState(1)
+  // Le niveau retenu par le navigateur : un joueur qui revient ne recommence
+  // pas au premier sous prétexte qu'il a fermé l'onglet.
+  const [currentLevel, setCurrentLevel] = useState(niveauDeDepart)
   const [levelTransition, setLevelTransition] = useState(false)
   const [postQueue, setPostQueue] = useState([])
   const [queueIdx, setQueueIdx] = useState(0)
@@ -36,36 +55,42 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
   // Le contenu vient du serveur : deux états de plus qu'avant.
   const [erreur, setErreur] = useState(null)
   const [remediations, setRemediations] = useState({})
-  // Les couronnes que cette partie vient de faire tomber. Elles arrivent avec
-  // la réponse de « terminer » : c'est le seul moment où on peut les montrer.
-  const [couronnes, setCouronnes] = useState([])
 
   // Le moment où la publication en cours s'est affichée, pour mesurer le temps
   // de décision — la vraie donnée intéressante du jeu.
   const affichee = useRef(0)
 
-  // Pas de partie tant que les règles d'ouverture sont à l'écran : le fil sera
-  // remonté à leur fermeture, et une partie vide resterait en base.
-  const sessionId = useSessionJeu({ jeu: 'feed', level: 1, actif: !paused })
-
   /**
-   * Un niveau, tiré au sort par le serveur.
+   * Un niveau, tiré au sort par le serveur puis filtré ici.
    *
-   * C'est le changement de fond par rapport au fil d'origine : le niveau
-   * n'était que « les publications marquées level: 2 », toujours les mêmes
-   * dans le même ordre. Le serveur pioche maintenant dans tout le vivier —
-   * publications écrites à la main et publications fabriquées à partir des
-   * flux — en écartant celles que ce joueur a déjà traitées.
+   * Le serveur pioche dans tout le vivier — publications écrites à la main et
+   * publications fabriquées à partir des flux. Il écartait aussi celles que le
+   * joueur avait déjà traitées ; il ne le peut plus, puisqu'il ne sait plus qui
+   * joue. C'est donc ici que ça se fait, sur la liste des vues retenue par le
+   * navigateur.
+   *
+   * Le compromis du serveur est repris tel quel : s'il ne reste pas assez de
+   * publications inédites, on complète avec des déjà-vues plutôt que de servir
+   * une manche amputée. Revoir une publication vaut mieux que jouer un niveau
+   * de deux cartes.
    *
    * La fonction ne touche à aucun état avant la réponse : la file vide suffit
    * à dire « ça charge », et l'appelant la vide avant de relancer.
+   *
+   * La taille de la manche est un paramètre, et non une lecture de `niveaux` :
+   * la fonction ne doit pas changer d'identité quand les règles arrivent,
+   * sinon l'effet de montage relancerait le tirage d'ouverture.
    */
   const chargerNiveau = useCallback(
-    (level) =>
+    (level, taille = TAILLE_PAR_DEFAUT) =>
       // Les sujets choisis ordonnent le tirage ; ils ne le filtrent pas.
-      getTirage(level, { themes: lireInterets() })
+      getTirage(level, { taille: TIRAGE_DEMANDE, themes: lireInterets() })
         .then((tirage) => {
-          setPostQueue(tirage)
+          const vus = new Set(dejaVus())
+          const inedites = tirage.filter((post) => !vus.has(post.slug))
+          const revues = tirage.filter((post) => vus.has(post.slug))
+
+          setPostQueue([...inedites, ...revues].slice(0, taille))
           setQueueIdx(0)
           setLevelDoneCount(0)
           setBiasRemediationAdded(new Set())
@@ -79,7 +104,9 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
   )
 
   useEffect(() => {
-    chargerNiveau(1)
+    // Relu du magasin plutôt que de `currentLevel` : l'effet ne doit pas
+    // dépendre du niveau, sinon le passage au suivant tirerait deux fois.
+    chargerNiveau(niveauDeDepart())
     // Les remédiations sont peu nombreuses : on les prend une fois pour toutes.
     getRemediations()
       .then(setRemediations)
@@ -129,17 +156,18 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
       }
     }
 
-    // La décision part au serveur : c'est lui qui tranche, compte le score et
-    // retient que cette publication a été vue — elle ne reviendra pas dans les
-    // prochains tirages de ce joueur.
-    if (sessionId) {
-      auMieux(
-        enregistrerDecision(sessionId, {
-          postId: currentPost.id,
-          action: type,
-          tempsMs: Date.now() - affichee.current,
-        })
-      )
+    // La décision est retenue tout de suite : points, biais, et le fait que
+    // cette publication a été traitée — elle sera écartée des prochains
+    // tirages. Les points sont ceux que le contenu porte, donc exactement ceux
+    // que le serveur comptait. Une publication de remédiation n'est pas notée :
+    // elle entraîne, elle ne juge pas.
+    if (!currentPost.isRemediation) {
+      noterDecision({
+        slug: currentPost.slug,
+        biais: currentPost.biais,
+        juste: type === currentPost.correctAction,
+        points: currentPost.scores?.[type] ?? 0,
+      })
     }
 
     setAction(type)
@@ -169,13 +197,15 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
     if (nextIdx >= postQueue.length) {
       if (newLevelDoneCount >= levelTotal) {
         if (currentLevel < 3) {
+          // Le niveau est acquis dès qu'il est bouclé, pas au clic sur
+          // « Continuer » : qui s'en va devant l'écran de transition a bel et
+          // bien fini ce niveau, et ne doit pas le rejouer.
+          noterNiveau(currentLevel + 1)
           setLevelTransition(true)
         } else {
           setCurrentLevel(4)
           onFinished?.()
-          if (sessionId) {
-            auMieux(terminerSession(sessionId)).then((fin) => setCouronnes(fin?.couronnes ?? []))
-          }
+          finirLeFil()
         }
       }
       return
@@ -184,21 +214,6 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
     setQueueIdx(nextIdx)
     setTimerActive(true)
     affichee.current = Date.now()
-
-    // Sauvegarde : où on en est, et de quoi reprendre le fil tel quel.
-    if (sessionId) {
-      auMieux(
-        sauvegarder(sessionId, {
-          etape: nextIdx,
-          etat: {
-            level: currentLevel,
-            queueIdx: nextIdx,
-            slugs: postQueue.map((post) => post.slug),
-            errorsPerBias,
-          },
-        })
-      )
-    }
   }
 
   function handleLevelUnlock() {
@@ -207,7 +222,7 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
     setLevelTransition(false)
     // Vider la file, c'est afficher le chargement le temps du tirage suivant.
     setPostQueue([])
-    chargerNiveau(nextLevel)
+    chargerNiveau(nextLevel, niveaux[nextLevel]?.taille ?? TAILLE_PAR_DEFAUT)
   }
 
   function handleLearnMore(url) {
@@ -229,7 +244,12 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
 
       <Page feed>
         {erreur ? (
-          <ErreurChargement erreur={erreur} onReessayer={() => chargerNiveau(currentLevel)} />
+          <ErreurChargement
+            erreur={erreur}
+            onReessayer={() =>
+              chargerNiveau(currentLevel, niveaux[currentLevel]?.taille ?? TAILLE_PAR_DEFAUT)
+            }
+          />
         ) : chargement ? (
           <Chargement quoi="le fil" />
         ) : isAllDone ? (
@@ -244,23 +264,10 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
               refaire l'exercice.
             </p>
 
-            {/* Ce que la partie vient de faire tomber. Rien n'apparaît en mode
-                invité : sans compte, rien n'est décroché. */}
-            {couronnes.length > 0 && (
-              <ul className="gains">
-                {couronnes.map((couronne) => (
-                  <li key={couronne.id} className="gain">
-                    <span className="gain__picto" style={{ background: couronne.couleur }}>
-                      {createElement(icone(couronne.picto), { size: 18, strokeWidth: 2 })}
-                    </span>
-                    <div>
-                      <p className="gain__nom">{couronne.nom}</p>
-                      <p className="gain__texte">{couronne.description}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
+            {/* Le moment le plus stratégique pour parler du code : la partie
+                est finie, il y a quelque chose à perdre, et rien ne presse. */}
+            <RappelDeCode className="outcome__rappel" />
+
             {suite && (
               <div className="outcome__action">
                 <button

@@ -50,10 +50,12 @@ export const TAB_ITEMS = [
     color: 'var(--nav-learn)',
   },
   {
+    // L'onglet ne porte plus un compte mais un avancement : le mot change,
+    // l'adresse non — `/profil` circule dans des liens déjà partagés.
     id: 'profile',
     path: PATHS.profile,
     Icon: CircleUserRound,
-    label: 'Profil',
+    label: 'Progression',
     color: 'var(--nav-profil)',
   },
 ]

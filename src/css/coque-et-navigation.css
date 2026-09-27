@@ -80,8 +80,9 @@
     gap: 8px;
   }
 
-  /* La pastille d'identité : elle dit en permanence si la partie compte. */
-  .app-header__compte {
+  /* La pastille de droite : « Ma progression » tant qu'il n'y a pas de score,
+     le score dès qu'il y en a un. */
+  .app-header__score {
     max-width: 140px;
     overflow: hidden;
     padding: 6px 12px;
@@ -95,11 +96,11 @@
     transition: background-color 0.15s, color 0.15s, border-color 0.15s;
   }
 
-  .app-header__compte:hover {
+  .app-header__score:hover {
     background: var(--wash);
   }
 
-  .app-header__compte--connecte {
+  .app-header__score--actif {
     border-color: transparent;
     background: rgba(121, 21, 97, 0.09);
     color: var(--nav-profil);

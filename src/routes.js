@@ -25,7 +25,7 @@ const TITLES = [
   [PATHS.resources, 'Ressources'],
   [PATHS.chats, 'Les conversations'],
   [PATHS.feed, "Le fil d'actualité"],
-  [PATHS.profile, 'Ton profil'],
+  [PATHS.profile, 'Ma progression'],
 ]
 
 export function pageTitle(path) {

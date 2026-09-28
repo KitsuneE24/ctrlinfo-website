@@ -54,9 +54,7 @@ export default function GameStart({ jeu, reprise, onStart }) {
             {reprise ? 'Reprendre' : 'Commencer'}
           </button>
 
-          {/* Dit une fois, à l'entrée : rien à créer pour que la partie
-              compte, mais elle ne compte que dans ce navigateur. */}
-          <RappelDeCode className="game-start__guest" />
+          <RappelDeCode />
         </div>
       </motion.div>
     </motion.div>

@@ -3,11 +3,22 @@ import { CircleUserRound } from 'lucide-react'
 import { icone } from '../data/icones'
 import { noterAvatar } from '../state/progression'
 
-/**
- * La galerie d'avatars, ouverte au clic sur la photo et refermée au choix.
- *
- * La base range un nom de pictogramme et une couleur ; le dessin est du code.
- */
+/** Un avatar porte soit une `image` (chemin dans public/), soit un `picto`. */
+function Dessin({ avatar, taille }) {
+  if (avatar?.image) {
+    return (
+      <span
+        className="avatar-joueur__image"
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${avatar.image})` }}
+      />
+    )
+  }
+  if (avatar?.picto) {
+    return createElement(icone(avatar.picto), { size: taille * 0.5, strokeWidth: 1.8 })
+  }
+  return <CircleUserRound size={taille * 0.58} strokeWidth={1.6} />
+}
+
 export default function AvatarPicker({ avatars = [], choisi, onChoisi }) {
   if (avatars.length === 0) return null
 
@@ -26,11 +37,18 @@ export default function AvatarPicker({ avatars = [], choisi, onChoisi }) {
               type="button"
               onClick={() => poser(avatar)}
               aria-pressed={actif}
+              aria-label={avatar.nom}
               title={avatar.nom}
-              className={`avatars__choix${actif ? ' avatars__choix--actif' : ''}`}
-              style={{ background: avatar.couleur }}
+              className={`avatars__choix${actif ? ' avatars__choix--actif' : ''}${
+                avatar.image ? ' avatars__choix--dessin' : ''
+              }`}
+              style={
+                avatar.image
+                  ? { borderColor: avatar.couleur }
+                  : { background: avatar.couleur }
+              }
             >
-              {createElement(icone(avatar.picto), { size: 24, strokeWidth: 1.9 })}
+              <Dessin avatar={avatar} taille={52} />
             </button>
           </li>
         )
@@ -39,17 +57,19 @@ export default function AvatarPicker({ avatars = [], choisi, onChoisi }) {
   )
 }
 
-/** L'avatar du joueur. Le même dessin partout. */
 export function AvatarJoueur({ avatar, taille = 52 }) {
-  const style = { width: taille, height: taille, background: avatar?.couleur }
-
   return (
-    <span className="avatar-joueur" style={style}>
-      {avatar ? (
-        createElement(icone(avatar.picto), { size: taille * 0.5, strokeWidth: 1.8 })
-      ) : (
-        <CircleUserRound size={taille * 0.58} strokeWidth={1.6} />
-      )}
+    <span
+      className={`avatar-joueur${avatar?.image ? ' avatar-joueur--dessin' : ''}`}
+      style={{
+        width: taille,
+        height: taille,
+        ...(avatar?.image
+          ? { borderColor: avatar.couleur }
+          : { background: avatar?.couleur }),
+      }}
+    >
+      <Dessin avatar={avatar} taille={taille} />
     </span>
   )
 }

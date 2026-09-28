@@ -19,18 +19,6 @@ import FeedbackModal from './FeedbackModal'
 import RappelDeCode from './RappelDeCode'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
 
-/**
- * La taille d'un tirage demandé, et celle d'une manche.
- *
- * On demande le maximum que l'API accepte pour n'en garder qu'une manche :
- * c'est le front qui écarte maintenant les publications déjà traitées, et il
- * lui faut de la marge pour le faire sans rendre une manche trop courte. La
- * taille de repli vaut celle du serveur, le temps que les règles des niveaux
- * arrivent.
- */
-const TIRAGE_DEMANDE = 20
-const TAILLE_PAR_DEFAUT = 5
-
 export default function Feed({ onSwitch, onFinished, paused = false }) {
   // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
   const suite = useAutreJeu('feed')
@@ -60,37 +48,13 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
   // de décision — la vraie donnée intéressante du jeu.
   const affichee = useRef(0)
 
-  /**
-   * Un niveau, tiré au sort par le serveur puis filtré ici.
-   *
-   * Le serveur pioche dans tout le vivier — publications écrites à la main et
-   * publications fabriquées à partir des flux. Il écartait aussi celles que le
-   * joueur avait déjà traitées ; il ne le peut plus, puisqu'il ne sait plus qui
-   * joue. C'est donc ici que ça se fait, sur la liste des vues retenue par le
-   * navigateur.
-   *
-   * Le compromis du serveur est repris tel quel : s'il ne reste pas assez de
-   * publications inédites, on complète avec des déjà-vues plutôt que de servir
-   * une manche amputée. Revoir une publication vaut mieux que jouer un niveau
-   * de deux cartes.
-   *
-   * La fonction ne touche à aucun état avant la réponse : la file vide suffit
-   * à dire « ça charge », et l'appelant la vide avant de relancer.
-   *
-   * La taille de la manche est un paramètre, et non une lecture de `niveaux` :
-   * la fonction ne doit pas changer d'identité quand les règles arrivent,
-   * sinon l'effet de montage relancerait le tirage d'ouverture.
-   */
+  // La file vide dit « ça charge » : la fonction ne touche à rien avant le
+  // tirage, et l'appelant la vide avant de relancer.
   const chargerNiveau = useCallback(
-    (level, taille = TAILLE_PAR_DEFAUT) =>
-      // Les sujets choisis ordonnent le tirage ; ils ne le filtrent pas.
-      getTirage(level, { taille: TIRAGE_DEMANDE, themes: lireInterets() })
+    (level) =>
+      getTirage(level, { themes: lireInterets(), vus: dejaVus() })
         .then((tirage) => {
-          const vus = new Set(dejaVus())
-          const inedites = tirage.filter((post) => !vus.has(post.slug))
-          const revues = tirage.filter((post) => vus.has(post.slug))
-
-          setPostQueue([...inedites, ...revues].slice(0, taille))
+          setPostQueue(tirage)
           setQueueIdx(0)
           setLevelDoneCount(0)
           setBiasRemediationAdded(new Set())
@@ -104,8 +68,8 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
   )
 
   useEffect(() => {
-    // Relu du magasin plutôt que de `currentLevel` : l'effet ne doit pas
-    // dépendre du niveau, sinon le passage au suivant tirerait deux fois.
+    // Relu du magasin : l'effet ne doit pas dépendre de `currentLevel`, sinon le
+    // passage au niveau suivant tirerait deux fois.
     chargerNiveau(niveauDeDepart())
     // Les remédiations sont peu nombreuses : on les prend une fois pour toutes.
     getRemediations()
@@ -222,7 +186,7 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
     setLevelTransition(false)
     // Vider la file, c'est afficher le chargement le temps du tirage suivant.
     setPostQueue([])
-    chargerNiveau(nextLevel, niveaux[nextLevel]?.taille ?? TAILLE_PAR_DEFAUT)
+    chargerNiveau(nextLevel)
   }
 
   function handleLearnMore(url) {
@@ -244,12 +208,7 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
 
       <Page feed>
         {erreur ? (
-          <ErreurChargement
-            erreur={erreur}
-            onReessayer={() =>
-              chargerNiveau(currentLevel, niveaux[currentLevel]?.taille ?? TAILLE_PAR_DEFAUT)
-            }
-          />
+          <ErreurChargement erreur={erreur} onReessayer={() => chargerNiveau(currentLevel)} />
         ) : chargement ? (
           <Chargement quoi="le fil" />
         ) : isAllDone ? (

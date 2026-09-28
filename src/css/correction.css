@@ -71,6 +71,30 @@
     margin-top: 16px;
   }
 
+  .correction__lecture {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Sur ordinateur : la publication seule à gauche, les indices numérotés et
+     les explications à droite. Les boutons restent en bas, sous les deux. */
+  @media (min-width: 900px) {
+    .modal__card--large {
+      max-width: 1020px;
+    }
+
+    .correction {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 24px;
+    }
+
+    .correction__lecture .annot__liste {
+      margin-top: 0;
+    }
+  }
+
   .correction__note {
     margin: 14px 0 0;
     padding-top: 14px;

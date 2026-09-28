@@ -54,7 +54,32 @@ function Marques({ indices, cible }) {
   )
 }
 
-export default function PostAnnotated({ post }) {
+/** Les indices numérotés, séparables du post : sur ordinateur ils vont à côté. */
+export function ListeIndices({ post }) {
+  const indices = post.indices ?? []
+  if (indices.length === 0) return null
+
+  return (
+    <ol className="annot__liste">
+      {indices.map((indice, i) => (
+        <li key={i} className={`indice indice--${indice.nature.toLowerCase()}`}>
+          <span className="indice__picto">
+            {createElement(icone(indice.picto), { size: 17, strokeWidth: 2 })}
+          </span>
+          <div className="indice__corps">
+            <p className="indice__libelle">
+              <span className="indice__numero">{i + 1}</span>
+              {indice.libelle}
+            </p>
+            <p className="indice__texte">{indice.explication}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  )
+}
+
+export default function PostAnnotated({ post, liste = true }) {
   const indices = post.indices ?? []
   const surligne = (cible) => surlignage(indices, cible)
 
@@ -108,24 +133,7 @@ export default function PostAnnotated({ post }) {
         </div>
       )}
 
-      {indices.length > 0 && (
-        <ol className="annot__liste">
-          {indices.map((indice, i) => (
-            <li key={i} className={`indice indice--${indice.nature.toLowerCase()}`}>
-              <span className="indice__picto">
-                {createElement(icone(indice.picto), { size: 17, strokeWidth: 2 })}
-              </span>
-              <div className="indice__corps">
-                <p className="indice__libelle">
-                  <span className="indice__numero">{i + 1}</span>
-                  {indice.libelle}
-                </p>
-                <p className="indice__texte">{indice.explication}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      )}
+      {liste && <ListeIndices post={post} />}
     </article>
   )
 }

@@ -16,7 +16,6 @@ import { Chargement, ErreurChargement } from './ui/Chargement'
 import FeedStats from './FeedStats'
 import PostCard from './PostCard'
 import FeedbackModal from './FeedbackModal'
-import RappelDeCode from './RappelDeCode'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
 
 export default function Feed({ onSwitch, onFinished, paused = false }) {
@@ -222,10 +221,6 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
               compte davantage qu'un score — retourne dans le fil quand tu veux
               refaire l'exercice.
             </p>
-
-            {/* Le moment le plus stratégique pour parler du code : la partie
-                est finie, il y a quelque chose à perdre, et rien ne presse. */}
-            <RappelDeCode className="outcome__rappel" />
 
             {suite && (
               <div className="outcome__action">

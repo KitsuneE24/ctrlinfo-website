@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router'
 import { PATHS } from '../routes'
+import { useAvatar } from '../state/useAvatar'
 import { useExitGuard } from '../state/exitGuard'
+import { AvatarJoueur } from './AvatarPicker'
 import { TAB_ITEMS } from './navItems'
 
 /**
@@ -19,6 +21,9 @@ import { TAB_ITEMS } from './navItems'
  */
 export default function TabBar() {
   const { requestExit } = useExitGuard()
+
+  // L'onglet de progression porte l'avatar du joueur.
+  const avatar = useAvatar()
 
   return (
     <nav aria-label="Navigation principale" className="tab-bar">
@@ -43,11 +48,15 @@ export default function TabBar() {
           >
             {({ isActive }) => (
               <>
-                <Icon
-                  size={24}
-                  strokeWidth={isActive ? 2.3 : 1.7}
-                  fill={isActive && filled ? 'currentColor' : 'none'}
-                />
+                {id === 'profile' && avatar ? (
+                  <AvatarJoueur avatar={avatar} taille={24} />
+                ) : (
+                  <Icon
+                    size={24}
+                    strokeWidth={isActive ? 2.3 : 1.7}
+                    fill={isActive && filled ? 'currentColor' : 'none'}
+                  />
+                )}
                 <span className="tab-bar__label">{label}</span>
                 {/* Point d'état, pour les icônes qu'on ne remplit pas. */}
                 <span className="tab-bar__dot" />

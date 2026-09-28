@@ -26,6 +26,15 @@ import { ecouterLeCompagnon } from '../state/compagnonSignaux'
 /** La largeur maximale d'une bulle, quand la place ne manque pas. */
 const BULLE_MAX = 250
 
+/** La pointe, à tant de pixels du bord de la bulle qui touche le personnage. */
+const POINTE = 7
+
+/** De combien le bord de la bulle dépasse l'ancre, pour centrer la pointe. */
+const RECOUVREMENT = 12
+
+/** Ce qui sépare le bas de la bulle du haut de sa tête : elle ne le couvre pas. */
+const DEGAGEMENT = 8
+
 /** La pesanteur qui le ramène au sol, en pixels par seconde carrée. */
 const CHUTE = 2400
 
@@ -161,18 +170,18 @@ export default function Compagnon({ enJeu = false }) {
    * jamais en arrière — un placement calculé image par image entrait en
    * conflit avec les styles que React et framer-motion réécrivent.
    *
-   * Elle pend à une ancre posée à l'axe du personnage (`left: 50 %`) : la
-   * pointe y retombe par construction, quel que soit le côté. Un décalage
-   * calculé en pixels a vécu ici — il devait rester d'accord avec le côté de la
-   * pointe, fixé en CSS, et les deux finissaient par diverger.
+   * Elle pend à une ancre posée à l'axe du personnage, et **la pointe est
+   * toujours du côté qui le touche** — jamais au milieu :
    *
-   * Ce qui est calculé ici, c'est **de quel côté elle s'ouvre et jusqu'où** :
+   *   il est à gauche                      il est à droite
+   *   ┌────────────┐                       ┌────────────┐
+   *   │   bulle    │                       │   bulle    │
+   *   └─┬──────────┘                       └──────────┬─┘
+   *   ▲ son axe                                       ▲ son axe
    *
-   *   côté droit                          largeur au plus égale à la place
-   *   ┌────────────┐                      qui reste jusqu'au bord :
-   *   │   bulle    │                      elle ne peut pas être coupée
-   *   └─────┬──────┘
-   *      ▲ son axe (le bord part de 12 px à sa gauche)
+   * Le côté de la pointe est posé en style en ligne, pas par une classe : les
+   * règles CSS qui s'en chargeaient ne s'appliquaient pas, et un `::after` sans
+   * `left` ni `right` retombe à sa position statique — au bout du texte.
    *
    * Et comme elle est accrochée à lui, il **ne bouge plus tant qu'elle est
    * ouverte** : c'est ce qui garantit que la place mesurée reste vraie
@@ -702,7 +711,7 @@ export default function Compagnon({ enJeu = false }) {
         {/* L'ancre est à son axe et la bulle y pend : la transformation qui le
             déplace les emporte toutes les deux. Sa largeur est mesurée à
             l'ouverture — la place qui reste jusqu'au bord. */}
-        <div className="compagnon__ancre" style={{ bottom: HAUTEUR - 6 }}>
+        <div className="compagnon__ancre" style={{ bottom: HAUTEUR + DEGAGEMENT }}>
           <AnimatePresence mode="wait">
             {bulle && (
               <motion.p
@@ -712,8 +721,14 @@ export default function Compagnon({ enJeu = false }) {
                 exit={{ opacity: 0, y: 4, scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 420, damping: 30 }}
                 role="status"
-                style={{ maxWidth: bulle.place }}
-                className={`compagnon__bulle compagnon__bulle--${bulle.cote}`}
+                style={{
+                  maxWidth: bulle.place,
+                  [bulle.cote === 'droite' ? 'left' : 'right']: -RECOUVREMENT,
+                  transformOrigin: `bottom ${bulle.cote === 'droite' ? 'left' : 'right'}`,
+                  '--pointe-gauche': bulle.cote === 'droite' ? `${POINTE}px` : 'auto',
+                  '--pointe-droite': bulle.cote === 'gauche' ? `${POINTE}px` : 'auto',
+                }}
+                className="compagnon__bulle"
               >
                 {bulle.texte}
               </motion.p>

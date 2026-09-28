@@ -77,6 +77,35 @@
     margin-top: 18px;
   }
 
+  /* L'aparté : sous un filet, en retrait des deux réponses. */
+  .gate__aparte {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  .gate__aparte-texte {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+
+  .gate__aparte-lien {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   .gate__primary {
     display: flex;
     align-items: center;

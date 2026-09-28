@@ -26,11 +26,17 @@ import { ecouterLeCompagnon } from '../state/compagnonSignaux'
 /** La largeur maximale d'une bulle, quand la place ne manque pas. */
 const BULLE_MAX = 250
 
-/** La pointe, à tant de pixels du bord de la bulle qui touche le personnage. */
-const POINTE = 7
+/**
+ * La pointe, à tant de pixels du bord de la bulle qui touche le personnage.
+ * Au-delà du rayon de l'angle (13 px) : posée dessus, elle en dépassait.
+ */
+const POINTE = 16
 
-/** De combien le bord de la bulle dépasse l'ancre, pour centrer la pointe. */
-const RECOUVREMENT = 12
+/**
+ * De combien le bord de la bulle dépasse l'ancre. Toujours `POINTE` plus la
+ * demi-largeur de la pointe : c'est ce qui la laisse sur l'axe du personnage.
+ */
+const RECOUVREMENT = POINTE + 6
 
 /** Ce qui sépare le bas de la bulle du haut de sa tête : elle ne le couvre pas. */
 const DEGAGEMENT = 8

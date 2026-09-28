@@ -192,11 +192,13 @@
        `left` ni `right` retombe à sa position statique — au bout du texte. */
     left: var(--pointe-gauche, auto);
     right: var(--pointe-droite, auto);
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
     border-right: 1px solid var(--line-strong);
     border-bottom: 1px solid var(--line-strong);
-    border-bottom-right-radius: 2px;
+    /* Le bout arrondi comme la bulle : une pointe sèche sous un cadre à
+       13 px de rayon se voit comme une pièce rapportée. */
+    border-bottom-right-radius: 4px;
     background: var(--surface);
     transform: rotate(45deg);
   }

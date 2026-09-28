@@ -1,11 +1,6 @@
 /* ========================================================================
    LE SEUIL DES JEUX
-   Deux passages : l'écran de départ avant une partie, et l'alerte quand on
-   la quitte en route. Tous deux couvrent l'écran entier, barre du bas
-   comprise.
-
-   L'alerte propose aussi le code de progression, en aparté : quitter une
-   manche est le moment où l'on est le plus près de quitter le site.
+   L'écran de départ, l'alerte de sortie, et le panneau du cagou.
    ======================================================================== */
 
 @layer components {
@@ -125,11 +120,6 @@
     background: var(--wash);
   }
 
-  /* --- L'écran de départ ---------------------------------------------------
-     Le seul endroit où les règles sont dites. Pas de dégradé, pas de cadre
-     autour de chaque morceau : un encadré unique, et de l'air entre les
-     blocs. Ce qui est encadré compte ; le reste respire. --- */
-
   .game-start__cadre,
   .modal__cadre {
     position: relative;
@@ -138,8 +128,6 @@
     margin: auto;
   }
 
-  /* Le panneau est plus petit qu'une carte : la typographie s'y ajuste, sans
-     toucher aux modales qui gardent leur propre cadre (la correction). */
   .cadre-cagou__panneau .modal__title {
     font-size: var(--text-lg);
     text-align: center;

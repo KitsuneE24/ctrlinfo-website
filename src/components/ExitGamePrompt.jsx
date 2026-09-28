@@ -4,18 +4,7 @@ import { Save } from 'lucide-react'
 import { PATHS } from '../routes'
 import CadreCagou from './CadreCagou'
 
-/**
- * L'alerte de sortie de partie.
- *
- * Elle disait deux choses selon l'identité, la version sans compte annonçant
- * une perte sèche. Il n'y a plus qu'un message, et il n'annonce plus de perte :
- * chaque décision est déjà retenue par le navigateur au moment où elle est
- * prise. Ce qui se perd en sortant, c'est la manche en cours — pas ce qu'on
- * vient d'y apprendre.
- *
- * Le code d'export est proposé en aparté, sous un filet : c'est le moment où
- * l'on y pense, mais la question posée doit rester binaire.
- */
+/** L'alerte de sortie de partie. */
 export default function ExitGamePrompt({ onConfirm, onCancel }) {
   return (
     <motion.div
@@ -53,8 +42,7 @@ export default function ExitGamePrompt({ onConfirm, onCancel }) {
             </button>
           </div>
 
-          {/* Pas de `onConfirm` sur le lien : changer d'adresse referme l'alerte
-              tout seul, et deux navigations se disputeraient la destination. */}
+          {/* Pas de `onConfirm` : changer d'adresse referme l'alerte tout seul. */}
           <div className="gate__aparte">
             <p className="gate__aparte-texte">Tu changes d'appareil&nbsp;?</p>
             <Link to={PATHS.profile} className="gate__aparte-bouton">

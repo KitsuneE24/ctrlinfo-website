@@ -80,18 +80,15 @@
     gap: 8px;
   }
 
-  /* À droite : l'avatar seul, comme la photo de profil d'un réseau social. */
   .app-header__avatar {
     display: inline-flex;
     flex-shrink: 0;
     border-radius: 50%;
-    box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--line-strong);
-    transition: transform 0.12s, box-shadow 0.15s;
+    transition: transform 0.12s;
   }
 
   .app-header__avatar:hover {
     transform: scale(1.06);
-    box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--brand-blue);
   }
 
   .app-header__avatar:focus-visible {

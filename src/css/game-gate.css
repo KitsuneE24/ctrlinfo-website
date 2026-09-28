@@ -26,54 +26,34 @@
 
   /* --- L'alerte : une petite fenêtre --- */
 
-  .gate__card {
+  .gate__cadre {
     width: 100%;
-    max-width: 400px;
-    padding: 22px 20px 18px;
-    border-radius: 18px;
-    background: var(--surface);
-    box-shadow: 0 24px 60px rgba(20, 8, 44, 0.4);
-    text-align: center;
-  }
-
-  .gate__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--brand-blue);
-    color: var(--brand-cream);
-  }
-
-  .gate__icon--alert {
-    background: var(--wash-strong);
-    color: var(--ink);
+    max-width: 720px;
+    margin: auto;
   }
 
   .gate__title {
-    margin: 6px 0 0;
+    margin: 0;
     font-family: var(--font-title);
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: 700;
     line-height: 1.2;
+    text-align: center;
     color: var(--ink);
   }
 
   .gate__text {
-    margin: 10px auto 0;
-    max-width: var(--measure);
-    font-size: var(--text-md);
-    line-height: var(--leading-body);
+    margin: 8px 0 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
     color: var(--ink-soft);
   }
 
   .gate__actions {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 18px;
+    gap: 7px;
+    margin-top: 12px;
   }
 
   /* L'aparté : sous un filet, en retrait des deux réponses. */
@@ -82,15 +62,15 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 16px;
-    padding-top: 14px;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
     border-top: 1px solid var(--line);
   }
 
   .gate__aparte-texte {
     margin: 0;
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     color: var(--ink-faint);
   }
 
@@ -98,7 +78,7 @@
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    padding: 10px 16px;
+    padding: 8px 14px;
     border: 2px solid var(--brand-blue);
     border-radius: 10px;
     background: var(--surface);
@@ -117,11 +97,11 @@
     align-items: center;
     justify-content: center;
     gap: 7px;
-    padding: 13px 18px;
+    padding: 10px 18px;
     border-radius: 999px;
     background: var(--brand-blue);
     color: var(--brand-cream);
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     font-weight: 700;
     transition: transform 0.12s;
   }
@@ -131,12 +111,12 @@
   }
 
   .gate__secondary {
-    padding: 12px 18px;
+    padding: 9px 18px;
     border: 1px solid var(--line-strong);
     border-radius: 999px;
     background: var(--surface);
     color: var(--ink-muted);
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     font-weight: 600;
     transition: background-color 0.15s;
   }
@@ -150,10 +130,37 @@
      autour de chaque morceau : un encadré unique, et de l'air entre les
      blocs. Ce qui est encadré compte ; le reste respire. --- */
 
-  .game-start__cadre {
+  .game-start__cadre,
+  .modal__cadre {
+    position: relative;
     width: 100%;
     max-width: 720px;
     margin: auto;
+  }
+
+  /* Le panneau est plus petit qu'une carte : la typographie s'y ajuste, sans
+     toucher aux modales qui gardent leur propre cadre (la correction). */
+  .cadre-cagou__panneau .modal__title {
+    font-size: var(--text-lg);
+    text-align: center;
+  }
+
+  .cadre-cagou__panneau .modal__text {
+    margin-top: 8px;
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+  }
+
+  .cadre-cagou__panneau .modal__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 12px;
+  }
+
+  .cadre-cagou__panneau .button {
+    padding: 10px 14px;
+    font-size: var(--text-sm);
   }
 
   .game-start__title {

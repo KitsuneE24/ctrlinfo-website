@@ -52,7 +52,7 @@ export default function AppHeader({ onGame, onShowRules }) {
             title={pseudo || 'Ma progression'}
             className="app-header__avatar"
           >
-            <AvatarJoueur avatar={avatar} taille={34} />
+            <AvatarJoueur avatar={avatar} taille={42} />
           </Link>
         </div>
       </div>

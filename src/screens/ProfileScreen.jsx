@@ -140,6 +140,8 @@ export default function ProfileScreen() {
         />
       )}
 
+      <CodeProgression />
+
       <section className="card">
         <div className="card__body">
           <h2 className="card__title">Où tu en es</h2>
@@ -158,8 +160,6 @@ export default function ProfileScreen() {
           />
         </div>
       </section>
-
-      <CodeProgression />
 
       {biais.length > 0 && (
         <section className="card">

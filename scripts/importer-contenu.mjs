@@ -3,7 +3,7 @@
  *
  *   node scripts/importer-contenu.mjs --api https://…/api
  */
-import { readFileSync, mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs'
 
 const VERSION = 1
 
@@ -104,6 +104,16 @@ const conversations = await details(listeConversations, '/conversations')
 const chapitres = await details(listeChapitres, '/chapitres')
 const astuces = await astucesDuSeed(chapitres)
 
+/** Les avatars en image ont été posés à la main : l'API ne les connaît pas. */
+function avatarsAGarder(distants) {
+  const fichier = new URL('contenu.json', SORTIE)
+  if (!existsSync(fichier)) return distants
+  const locaux = JSON.parse(readFileSync(fichier, 'utf8')).avatars ?? []
+  if (!locaux.some((avatar) => avatar.image)) return distants
+  console.log(`  avatars : ${locaux.length} gardés du fichier local`)
+  return locaux
+}
+
 const contenu = {
   version: VERSION,
   genere: new Date().toISOString(),
@@ -116,7 +126,7 @@ const contenu = {
   ressources,
   categoriesRessources,
   stories,
-  avatars,
+  avatars: avatarsAGarder(avatars),
   astuces,
 }
 

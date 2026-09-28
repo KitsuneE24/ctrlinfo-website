@@ -4205,64 +4205,22 @@
   ],
   "avatars": [
     {
-      "id": "cagou",
-      "nom": "Le cagou",
-      "picto": "Bird",
+      "id": "nonchalant",
+      "nom": "Le nonchalant",
+      "image": "avatar/avatar-1.png",
       "couleur": "#5c1a9e"
     },
     {
-      "id": "loupe",
-      "nom": "L'enquêteur",
-      "picto": "Search",
+      "id": "vacancier",
+      "nom": "Le vacancier",
+      "image": "avatar/avatar-2.png",
       "couleur": "#1800ad"
     },
     {
-      "id": "bouclier",
-      "nom": "Le gardien",
-      "picto": "ShieldCheck",
-      "couleur": "#14663f"
-    },
-    {
-      "id": "cerveau",
-      "nom": "L'esprit critique",
-      "picto": "Brain",
+      "id": "star",
+      "nom": "La star",
+      "image": "avatar/avatar-3.png",
       "couleur": "#791561"
-    },
-    {
-      "id": "eclair",
-      "nom": "Le rapide",
-      "picto": "Zap",
-      "couleur": "#b45309"
-    },
-    {
-      "id": "boussole",
-      "nom": "L'explorateur",
-      "picto": "Compass",
-      "couleur": "#0d0080"
-    },
-    {
-      "id": "feu",
-      "nom": "L'assidu",
-      "picto": "Flame",
-      "couleur": "#c2410c"
-    },
-    {
-      "id": "lune",
-      "nom": "Le nocturne",
-      "picto": "Moon",
-      "couleur": "#3f3d56"
-    },
-    {
-      "id": "vague",
-      "nom": "Le lagon",
-      "picto": "Waves",
-      "couleur": "#0e7490"
-    },
-    {
-      "id": "montagne",
-      "nom": "Le sommet",
-      "picto": "Mountain",
-      "couleur": "#4d7c0f"
     }
   ],
   "astuces": [

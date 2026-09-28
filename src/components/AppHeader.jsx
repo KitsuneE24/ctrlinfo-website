@@ -2,7 +2,9 @@ import { Link } from 'react-router'
 import { HelpCircle } from 'lucide-react'
 import { useExitGuard } from '../state/exitGuard'
 import { PATHS } from '../routes'
+import { useAvatar } from '../state/useAvatar'
 import { useProgression } from '../state/useProgression'
+import { AvatarJoueur } from './AvatarPicker'
 
 /**
  * En-tête de l'application : le logotype à gauche, qui ramène à l'accueil.
@@ -12,7 +14,8 @@ import { useProgression } from '../state/useProgression'
  * l'écran en cours : les règles du fil, et l'avancement du joueur.
  */
 export default function AppHeader({ onGame, onShowRules }) {
-  const { fil } = useProgression()
+  const { pseudo } = useProgression()
+  const avatar = useAvatar()
   const { requestExit } = useExitGuard()
 
   return (
@@ -43,15 +46,13 @@ export default function AppHeader({ onGame, onShowRules }) {
             </button>
           )}
 
-          {/* La pastille disait l'identité — « Invité », « Se connecter ». Elle
-              dit maintenant l'avancement, la seule chose qu'un joueur ait à
-              suivre : son score dès qu'il en a un, et l'invitation à aller
-              chercher son code sinon. */}
           <Link
             to={PATHS.profile}
-            className={`app-header__score${fil.points > 0 ? ' app-header__score--actif' : ''}`}
+            aria-label={pseudo ? `Profil de ${pseudo}` : 'Ma progression'}
+            title={pseudo || 'Ma progression'}
+            className="app-header__avatar"
           >
-            {fil.points > 0 ? `${fil.points} pts` : 'Ma progression'}
+            <AvatarJoueur avatar={avatar} taille={34} />
           </Link>
         </div>
       </div>

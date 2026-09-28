@@ -81,10 +81,15 @@
     width: 100%;
   }
 
+  /* `.button` est en largeur pleine : ici les boutons partagent la ligne. */
   .code__actions {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
+  }
+
+  .code__actions .button {
+    width: auto;
+    flex: 0 1 auto;
   }
 
   /* « Copier » à droite, « Masquer » juste à sa gauche. */

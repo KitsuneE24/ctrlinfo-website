@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Heart, Send, Flag } from 'lucide-react'
+import ChampEditable from './ChampEditable'
 
 function ActionIcon({ label, onClick, disabled, active, modifier, children }) {
   return (
@@ -39,8 +40,14 @@ export default function PostCard({
           {initial}
         </span>
         <div className="post__identity">
-          <p className="post__account">{post.source}</p>
-          <p className="post__domain">{post.domain || 'compte non identifié'}</p>
+          <ChampEditable balise="p" className="post__account" sur={post} cle="source" />
+          <ChampEditable
+            balise="p"
+            className="post__domain"
+            sur={post}
+            cle="domain"
+            repli="compte non identifié"
+          />
         </div>
         {/* La mention légale d'une publicité. Instagram l'affiche, en petit et
             en gris : c'est justement pour ça qu'il faut apprendre à la voir. */}
@@ -52,7 +59,8 @@ export default function PostCard({
       <div className="post__lead">
         <p className="post__caption">
           <span className="post__caption-account">{post.source}</span>{' '}
-          <span className="post__claim">{post.titre}</span> {post.texte}
+          <ChampEditable className="post__claim" sur={post} cle="titre" />{' '}
+          <ChampEditable sur={post} cle="texte" />
         </p>
       </div>
 

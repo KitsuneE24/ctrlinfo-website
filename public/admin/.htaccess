@@ -1,0 +1,14 @@
+# Tout ce dossier demande une identification. C'est la seule vraie barrière du
+# système : le mode édition du site n'est qu'un interrupteur d'affichage.
+#
+# AuthUserFile veut un chemin ABSOLU sur le serveur, hors de la racine web.
+# À régler au déploiement, par exemple :
+#
+#   AuthUserFile /home/ctrlinfo/.htpasswd
+#
+# Le fichier se crée avec :  htpasswd -c /home/ctrlinfo/.htpasswd admin
+
+AuthType Basic
+AuthName "Administration CTRL INFO"
+AuthUserFile /CHEMIN/ABSOLU/A/REGLER/.htpasswd
+Require valid-user

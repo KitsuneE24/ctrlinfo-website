@@ -161,6 +161,11 @@ export default function Compagnon({ enJeu = false }) {
    * jamais en arrière — un placement calculé image par image entrait en
    * conflit avec les styles que React et framer-motion réécrivent.
    *
+   * Elle pend à une ancre posée à l'axe du personnage (`left: 50 %`) : la
+   * pointe y retombe par construction, quel que soit le côté. Un décalage
+   * calculé en pixels a vécu ici — il devait rester d'accord avec le côté de la
+   * pointe, fixé en CSS, et les deux finissaient par diverger.
+   *
    * Ce qui est calculé ici, c'est **de quel côté elle s'ouvre et jusqu'où** :
    *
    *   côté droit                          largeur au plus égale à la place
@@ -186,20 +191,6 @@ export default function Compagnon({ enJeu = false }) {
       const cote = largeur - axe >= axe ? 'droite' : 'gauche'
       const place = (cote === 'droite' ? largeur - axe : axe) - MARGE
 
-      // La bulle est posée ici, en pixels, et non en CSS : ses bords partaient
-      // d'un `calc()` sur la largeur du personnage, et une seule variable
-      // manquante rendait la déclaration invalide — le navigateur la jetait
-      // sans un mot et la bulle retombait à sa position par défaut, loin de
-      // lui. Un style en ligne calculé ne peut pas être écarté comme ça.
-      //
-      // Elle se pose juste au-dessus de lui, et son bord part de 12 px en deçà
-      // de son axe : la pointe, décalée de 7 px dans la bulle, tombe alors
-      // exactement au milieu du personnage.
-      const bord = {
-        [cote === 'droite' ? 'left' : 'right']: LARGEUR / 2 - 12,
-        bottom: HAUTEUR - 6,
-      }
-
       // Il se tourne vers le joueur pour parler — c'est la vignette de face,
       // même en pleine partie : on ne parle pas le nez dans son téléphone. La
       // boucle le tient immobile tant que la bulle est là, et il reprend sa
@@ -210,7 +201,7 @@ export default function Compagnon({ enJeu = false }) {
       // pas occuper le coin de l'écran aussi longtemps qu'une longue.
       const duree = dureeLecture(texte)
 
-      setBulle({ texte, cote, bord, place: Math.min(BULLE_MAX, Math.max(place, 0)) })
+      setBulle({ texte, cote, place: Math.min(BULLE_MAX, Math.max(place, 0)) })
       clearTimeout(chrono.current.bulle)
       chrono.current.bulle = setTimeout(() => setBulle(null), duree)
     },
@@ -708,25 +699,27 @@ export default function Compagnon({ enJeu = false }) {
         ref={boiteRef}
         data-posture={posture}
       >
-        {/* La bulle est dans sa boîte : la transformation qui le déplace la
-            déplace avec lui, sans une ligne de code. Sa largeur, elle, est
-            mesurée à l'ouverture — la place qui reste jusqu'au bord. */}
-        <AnimatePresence mode="wait">
-          {bulle && (
-            <motion.p
-              key={bulle.texte}
-              initial={{ opacity: 0, y: 8, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 4, scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 420, damping: 30 }}
-              role="status"
-              style={{ maxWidth: bulle.place, ...bulle.bord }}
-              className={`compagnon__bulle compagnon__bulle--${bulle.cote}`}
-            >
-              {bulle.texte}
-            </motion.p>
-          )}
-        </AnimatePresence>
+        {/* L'ancre est à son axe et la bulle y pend : la transformation qui le
+            déplace les emporte toutes les deux. Sa largeur est mesurée à
+            l'ouverture — la place qui reste jusqu'au bord. */}
+        <div className="compagnon__ancre" style={{ bottom: HAUTEUR - 6 }}>
+          <AnimatePresence mode="wait">
+            {bulle && (
+              <motion.p
+                key={bulle.texte}
+                initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 4, scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 420, damping: 30 }}
+                role="status"
+                style={{ maxWidth: bulle.place }}
+                className={`compagnon__bulle compagnon__bulle--${bulle.cote}`}
+              >
+                {bulle.texte}
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </div>
 
         {/* Elle s'efface le temps d'une bulle : les deux se posent au même
             endroit, au-dessus de sa tête. */}

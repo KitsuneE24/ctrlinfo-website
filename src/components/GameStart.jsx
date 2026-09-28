@@ -1,7 +1,7 @@
 import { createElement } from 'react'
 import { motion } from 'framer-motion'
 import { Play, RotateCcw } from 'lucide-react'
-import RappelDeCode from './RappelDeCode'
+import CadreCagou from './CadreCagou'
 
 /**
  * L'écran de départ d'un jeu : ce qu'on va y faire, et rien d'autre.
@@ -38,11 +38,13 @@ export default function GameStart({ jeu, reprise, onStart }) {
           </p>
         </header>
 
-        <ul className="game-start__points">
-          {jeu.points.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-        </ul>
+        <CadreCagou>
+          <ul className="game-start__points">
+            {jeu.points.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </CadreCagou>
 
         <div className="game-start__actions">
           <button type="button" onClick={onStart} className="game-start__go">
@@ -53,8 +55,6 @@ export default function GameStart({ jeu, reprise, onStart }) {
             )}
             {reprise ? 'Reprendre' : 'Commencer'}
           </button>
-
-          <RappelDeCode />
         </div>
       </motion.div>
     </motion.div>

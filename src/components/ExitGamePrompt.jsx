@@ -62,7 +62,7 @@ export default function ExitGamePrompt({ onConfirm, onCancel }) {
           {/* Pas de `onConfirm` : changer d'adresse referme l'alerte tout seul
               (AppShell remet son état à zéro), et deux navigations
               concurrentes se disputeraient la destination. */}
-          <Link to={PATHS.profile} className="gate__aparte-lien">
+          <Link to={PATHS.profile} className="gate__aparte-bouton">
             <Save size={14} strokeWidth={2.2} />
             Exporter mon code
           </Link>

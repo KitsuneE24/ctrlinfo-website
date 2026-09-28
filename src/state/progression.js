@@ -40,6 +40,7 @@ export const VERSION = 1
 
 const vide = () => ({
   version: VERSION,
+  pseudo: '',
   avatar: null,
   fil: {
     niveau: 1,
@@ -95,6 +96,7 @@ function fusionner(recu) {
 
   return {
     version: VERSION,
+    pseudo: typeof recu.pseudo === 'string' ? recu.pseudo.slice(0, 40) : '',
     avatar: typeof recu.avatar === 'string' ? recu.avatar : null,
     fil: {
       niveau: Math.min(Math.max(nombre(fil.niveau, 1), 1), 3),
@@ -270,6 +272,10 @@ export function noterAvatar(avatarId) {
   appliquer({ ...etat, avatar: avatarId ?? null })
 }
 
+export function noterPseudo(pseudo) {
+  appliquer({ ...etat, pseudo: pseudo.trim().slice(0, 40) })
+}
+
 // ── Export et restauration ───────────────────────────────────────────────────
 
 /**
@@ -285,7 +291,13 @@ export function exportable() {
   for (const [slug, entree] of Object.entries(etat.conversations)) {
     if (entree.faite) conversations[slug] = { faite: true, score: entree.score, total: entree.total }
   }
-  return { version: VERSION, avatar: etat.avatar, fil: etat.fil, conversations }
+  return {
+    version: VERSION,
+    pseudo: etat.pseudo,
+    avatar: etat.avatar,
+    fil: etat.fil,
+    conversations,
+  }
 }
 
 /**

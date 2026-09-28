@@ -95,9 +95,7 @@ export default function CodeProgression() {
       <div className="card__body">
         <h2 className="card__title">Garder ta progression</h2>
         <p className="card__text">
-          Tout ce que tu fais est retenu dans ce navigateur, sans compte et sans
-          e-mail. Pour la retrouver sur un autre appareil — ou après un nettoyage
-          de ton historique — copie ton code et garde-le quelque part.
+          Copie ton code pour retrouver ta progression ailleurs.
         </p>
 
         {/* --- Exporter ---------------------------------------------------- */}
@@ -124,7 +122,14 @@ export default function CodeProgression() {
                   peut pas être relu.
                 </span>
               </label>
-              <div className="code__actions">
+              <div className="code__actions code__actions--droite">
+                <button
+                  type="button"
+                  onClick={() => setCode(null)}
+                  className="button button--ghost"
+                >
+                  Masquer
+                </button>
                 <button type="button" onClick={copier} className="button">
                   {copie ? (
                     <Check size={16} strokeWidth={2.4} />
@@ -132,13 +137,6 @@ export default function CodeProgression() {
                     <ClipboardCopy size={16} strokeWidth={2.2} />
                   )}
                   {copie ? 'Code copié' : 'Copier le code'}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCode(null)}
-                  className="button button--ghost"
-                >
-                  Masquer
                 </button>
               </div>
             </>
@@ -157,10 +155,10 @@ export default function CodeProgression() {
                 setAConfirmer(null)
                 setRestaure(false)
               }}
-              rows={3}
+              rows={2}
               spellCheck="false"
               placeholder="CTRL1.…"
-              className="champ__input champ__zone"
+              className="champ__input champ__zone champ__zone--courte"
             />
           </label>
 

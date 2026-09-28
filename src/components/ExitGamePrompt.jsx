@@ -1,7 +1,8 @@
 import { Link } from 'react-router'
 import { motion } from 'framer-motion'
-import { Save, TriangleAlert } from 'lucide-react'
+import { Save } from 'lucide-react'
 import { PATHS } from '../routes'
+import CadreCagou from './CadreCagou'
 
 /**
  * L'alerte de sortie de partie.
@@ -32,41 +33,36 @@ export default function ExitGamePrompt({ onConfirm, onCancel }) {
         animate={{ y: 0, scale: 1 }}
         exit={{ y: 14, scale: 0.98 }}
         transition={{ duration: 0.2 }}
-        className="gate__card"
+        className="gate__cadre"
       >
-        <span className="gate__icon gate__icon--alert">
-          <TriangleAlert size={23} strokeWidth={2} />
-        </span>
+        <CadreCagou>
+          <h2 id="exit-prompt-title" className="gate__title">
+            Quitter la partie&nbsp;?
+          </h2>
+          <p className="gate__text">
+            Ce que tu as déjà répondu est gardé : les publications traitées et
+            le niveau atteint restent acquis. Seule cette manche recommencera.
+          </p>
 
-        <h2 id="exit-prompt-title" className="gate__title">
-          Quitter la partie&nbsp;?
-        </h2>
-        <p className="gate__text">
-          Ce que tu as déjà répondu est gardé : les publications traitées et le
-          niveau atteint restent acquis. Seule cette manche recommencera.
-        </p>
+          <div className="gate__actions">
+            <button type="button" onClick={onCancel} className="gate__primary">
+              Continuer à jouer
+            </button>
+            <button type="button" onClick={onConfirm} className="gate__secondary">
+              Quitter quand même
+            </button>
+          </div>
 
-        <div className="gate__actions">
-          <button type="button" onClick={onCancel} className="gate__primary">
-            Continuer à jouer
-          </button>
-          <button type="button" onClick={onConfirm} className="gate__secondary">
-            Quitter quand même
-          </button>
-        </div>
-
-        {/* Sous un filet, et à l'écart des deux réponses : la question posée
-            reste binaire. */}
-        <div className="gate__aparte">
-          <p className="gate__aparte-texte">Tu changes d'appareil&nbsp;?</p>
-          {/* Pas de `onConfirm` : changer d'adresse referme l'alerte tout seul
-              (AppShell remet son état à zéro), et deux navigations
-              concurrentes se disputeraient la destination. */}
-          <Link to={PATHS.profile} className="gate__aparte-bouton">
-            <Save size={14} strokeWidth={2.2} />
-            Exporter mon code
-          </Link>
-        </div>
+          {/* Pas de `onConfirm` sur le lien : changer d'adresse referme l'alerte
+              tout seul, et deux navigations se disputeraient la destination. */}
+          <div className="gate__aparte">
+            <p className="gate__aparte-texte">Tu changes d'appareil&nbsp;?</p>
+            <Link to={PATHS.profile} className="gate__aparte-bouton">
+              <Save size={14} strokeWidth={2.2} />
+              Exporter mon code
+            </Link>
+          </div>
+        </CadreCagou>
       </motion.div>
     </motion.div>
   )

@@ -21,6 +21,7 @@
    game-gate ............ écran de départ, alerte de sortie, rappel du code
    compagnon ............ le personnage qui se balade en bas, et sa bulle
    etat-api ............. chargement et panne de l'API
+   admin ................ champs éditables et barre d'enregistrement
 
    `colors.js`, à côté, expose la même palette au JavaScript — aux données et à
    tailwind.config.js. Il doit rester aligné sur les jetons.
@@ -47,6 +48,7 @@
 @import './game-gate.css';
 @import './compagnon.css';
 @import './etat-api.css';
+@import './admin.css';
 
 @tailwind base;
 @tailwind components;

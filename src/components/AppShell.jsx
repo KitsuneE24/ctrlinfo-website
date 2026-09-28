@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router'
 import { AnimatePresence, motion } from 'framer-motion'
 import AppHeader from './AppHeader'
+import BarreAdmin from './BarreAdmin'
 import Compagnon from './Compagnon'
 import ExitGamePrompt from './ExitGamePrompt'
 import GameStart from './GameStart'
@@ -153,6 +154,7 @@ export default function AppShell() {
         </div>
 
         <TabBar />
+        <BarreAdmin />
 
         <AnimatePresence>
           {exitTo !== null && (

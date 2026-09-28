@@ -153,15 +153,20 @@
 
   /* La bulle est dans la boîte du personnage : elle le suit sans que rien
      n'ait à la déplacer. Elle s'ouvre du côté où il reste le plus de place, et
-     sa largeur est bornée par cette place, mesurée par le composant — c'est ce
-     qui l'empêche d'être coupée par le bord de l'écran. Elle ne prend aucun
-     clic : on la ferme en retouchant le personnage.
+     sa largeur est bornée par cette place, mesurée par le composant.
 
-     Elle se pose **juste au-dessus de lui**, et sa pointe est en bas, du côté
-     qui le surplombe. Ses bords — le côté et la hauteur — sont posés en ligne
-     par le composant. */
+     L'ancre est un point sans largeur posé à son axe : la bulle y pend d'un
+     côté ou de l'autre, et sa pointe y retombe forcément. Seule sa hauteur
+     vient du composant. */
+  .compagnon__ancre {
+    position: absolute;
+    left: 50%;
+    width: 0;
+  }
+
   .compagnon__bulle {
     position: absolute;
+    bottom: 0;
     width: max-content;
     pointer-events: none;
     margin: 0;
@@ -178,9 +183,7 @@
   }
 
   /* La pointe : un carré tourné d'un quart de tour, sous la bulle, dont on ne
-     garde que les deux bords qui forment le V vers le bas. Elle est toujours
-     du côté qui touche le personnage — les 7 px d'ici et les 12 px dont le
-     composant décale le bord la ramènent au milieu de lui. */
+     garde que les deux bords qui forment le V vers le bas. */
   .compagnon__bulle::after {
     content: '';
     position: absolute;
@@ -194,16 +197,15 @@
     transform: rotate(45deg);
   }
 
-  /* Le bord qui touche le personnage — `left` ou `right` selon le côté — est
-     posé en ligne par le composant, en pixels. Il a vécu ici, en `calc()` sur
-     sa largeur, et une déclaration `calc()` invalide est **jetée en silence**
-     par le navigateur : la bulle repartait alors à sa position par défaut,
-     loin de lui. Une valeur en ligne, elle, ne peut pas être écartée. */
+  /* Le bord qui touche le personnage part 12 px en deçà de l'ancre : la
+     pointe, large de 11 px et posée à 7 px du bord, retombe alors sur l'axe. */
   .compagnon__bulle--droite {
+    left: -12px;
     transform-origin: bottom left;
   }
 
   .compagnon__bulle--gauche {
+    right: -12px;
     transform-origin: bottom right;
   }
 

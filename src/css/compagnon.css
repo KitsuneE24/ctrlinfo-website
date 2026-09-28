@@ -188,6 +188,10 @@
     content: '';
     position: absolute;
     bottom: -6px;
+    /* Posées en ligne par le composant. Sans elles, un `::after` absolu sans
+       `left` ni `right` retombe à sa position statique — au bout du texte. */
+    left: var(--pointe-gauche, auto);
+    right: var(--pointe-droite, auto);
     width: 11px;
     height: 11px;
     border-right: 1px solid var(--line-strong);
@@ -197,25 +201,4 @@
     transform: rotate(45deg);
   }
 
-  /* Le bord qui touche le personnage part 12 px en deçà de l'ancre : la
-     pointe, large de 11 px et posée à 7 px du bord, retombe alors sur l'axe. */
-  .compagnon__bulle--droite {
-    left: -12px;
-    transform-origin: bottom left;
-  }
-
-  .compagnon__bulle--gauche {
-    right: -12px;
-    transform-origin: bottom right;
-  }
-
-  /* La bulle s'ouvre vers la droite : la pointe est à son bord gauche, celui
-     qui le surplombe. Et l'inverse. */
-  .compagnon__bulle--droite::after {
-    left: 7px;
-  }
-
-  .compagnon__bulle--gauche::after {
-    right: 7px;
-  }
 }

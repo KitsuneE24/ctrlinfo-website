@@ -1,23 +1,42 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, ExternalLink, ScanSearch } from 'lucide-react'
+import CadreCagou from './CadreCagou'
 import Mascotte from './Mascotte'
-import PostAnnotated from './PostAnnotated'
+import PostAnnotated, { ListeIndices } from './PostAnnotated'
+
+function Actions({ detail, isCorrect, aQuoiMontrer, learnMoreUrl, onDismiss, onDetail, onLearnMore }) {
+  return (
+    <div className="modal__actions">
+      <button type="button" onClick={onDismiss} className="button">
+        Continuer
+        <ArrowRight size={16} strokeWidth={2.2} />
+      </button>
+
+      {!detail && aQuoiMontrer && (
+        <button type="button" onClick={onDetail} className="button button--ghost">
+          <ScanSearch size={16} strokeWidth={2} />
+          {isCorrect ? 'Voir pourquoi' : 'Voir ce qui clochait'}
+        </button>
+      )}
+
+      {detail && learnMoreUrl && (
+        <button
+          type="button"
+          onClick={() => onLearnMore(learnMoreUrl)}
+          className="button button--ghost"
+        >
+          <ExternalLink size={15} strokeWidth={2} />
+          En savoir plus
+        </button>
+      )}
+    </div>
+  )
+}
 
 /**
- * Le retour après chaque choix, en deux temps.
- *
- *   1. **le verdict** — le cagou, une phrase, et c'est tout. Qui ne veut pas
- *      lire enchaîne d'ici ;
- *   2. **la correction** — la publication rejouée avec ses points entourés et
- *      numérotés, ce qui était exact, ce qui ne l'était pas.
- *
- * Le second temps ne s'ouvre que si on le demande : le rapport de test
- * signalait autant « trop de texte » que « on ne comprend pas pourquoi ». Les
- * deux se règlent en séparant, pas en raccourcissant.
- *
- * Elle ne se referme pas toute seule : on avance avec « Continuer », par Échap
- * ou en cliquant à côté.
+ * Le retour après chaque choix, en deux temps : le verdict, puis la correction
+ * si on la demande. Elle ne se referme pas toute seule.
  */
 export default function FeedbackModal({
   visible,
@@ -36,8 +55,7 @@ export default function FeedbackModal({
     return () => document.removeEventListener('keydown', onKey)
   }, [visible, onDismiss])
 
-  // Chaque publication repart de son verdict : le détail ne reste pas ouvert
-  // d'une décision à l'autre.
+  // Chaque publication repart de son verdict.
   const [dernier, setDernier] = useState(post?.id ?? null)
   if (dernier !== (post?.id ?? null)) {
     setDernier(post?.id ?? null)
@@ -48,6 +66,18 @@ export default function FeedbackModal({
 
   const learnMoreUrl = isCorrect ? post.learnMoreUrl || post.sourceUrl : post.learnMoreTips
   const aQuoiMontrer = (post.indices?.length ?? 0) > 0 || post.analyseVrai || post.analyseFaux
+
+  const actions = (
+    <Actions
+      detail={detail}
+      isCorrect={isCorrect}
+      aQuoiMontrer={aQuoiMontrer}
+      learnMoreUrl={learnMoreUrl}
+      onDismiss={onDismiss}
+      onDetail={() => setDetail(true)}
+      onLearnMore={onLearnMore}
+    />
+  )
 
   return (
     <AnimatePresence>
@@ -68,78 +98,61 @@ export default function FeedbackModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: 16 }}
             transition={{ type: 'spring', stiffness: 300, damping: 26 }}
-            className={`modal__card${isCorrect ? '' : ' modal__card--wrong'}${
-              detail ? ' modal__card--large' : ''
-            }`}
+            className={
+              detail
+                ? `modal__card modal__card--large${isCorrect ? '' : ' modal__card--wrong'}`
+                : 'modal__cadre'
+            }
             onClick={(e) => e.stopPropagation()}
           >
-            <Mascotte expression={detail ? 'curieux' : isCorrect ? 'content' : 'inquiet'} />
+            {detail ? (
+              <>
+                <Mascotte expression="curieux" />
+                <h2 className="modal__title">Ce qu’il fallait voir</h2>
 
-            <h2 className="modal__title">
-              {detail ? 'Ce qu’il fallait voir' : isCorrect ? 'Bon réflexe' : 'À revoir'}
-            </h2>
+                <div className="correction">
+                  <PostAnnotated post={post} liste={false} />
 
-            {!detail && (
-              <p className="modal__text">{isCorrect ? post.encouragement : post.warning}</p>
-            )}
+                  <div className="correction__lecture">
+                    <ListeIndices post={post} />
 
-            {!detail && post.biais && !post.biais.startsWith('Aucun') && (
-              <p className="modal__bias">{post.biais}</p>
-            )}
-
-            {detail && (
-              <div className="correction">
-                <PostAnnotated post={post} />
-
-                {/* Les deux colonnes : une fausse information s'appuie presque
-                    toujours sur du vrai, et c'est ce qui la rend crédible. */}
-                <div className="verdict">
-                  {post.analyseVrai && (
-                    <div className="verdict__pan verdict__pan--vrai">
-                      <p className="verdict__label">Ce qui est exact</p>
-                      <p className="verdict__texte">{post.analyseVrai}</p>
+                    <div className="verdict">
+                      {post.analyseVrai && (
+                        <div className="verdict__pan verdict__pan--vrai">
+                          <p className="verdict__label">Ce qui est exact</p>
+                          <p className="verdict__texte">{post.analyseVrai}</p>
+                        </div>
+                      )}
+                      {post.analyseFaux && (
+                        <div className="verdict__pan verdict__pan--faux">
+                          <p className="verdict__label">Ce qui ne l’est pas</p>
+                          <p className="verdict__texte">{post.analyseFaux}</p>
+                        </div>
+                      )}
                     </div>
-                  )}
-                  {post.analyseFaux && (
-                    <div className="verdict__pan verdict__pan--faux">
-                      <p className="verdict__label">Ce qui ne l’est pas</p>
-                      <p className="verdict__texte">{post.analyseFaux}</p>
-                    </div>
-                  )}
+
+                    {post.explication && (
+                      <p className="correction__note">{post.explication}</p>
+                    )}
+                  </div>
                 </div>
 
-                {post.explication && <p className="correction__note">{post.explication}</p>}
-              </div>
+                {actions}
+              </>
+            ) : (
+              <CadreCagou>
+                <h2 className="modal__title">
+                  {isCorrect ? 'Bon réflexe' : 'À revoir'}
+                </h2>
+                <p className="modal__text">
+                  {isCorrect ? post.encouragement : post.warning}
+                </p>
+                {post.biais && !post.biais.startsWith('Aucun') && (
+                  <p className="modal__bias">{post.biais}</p>
+                )}
+                {actions}
+              </CadreCagou>
             )}
-
-            <div className="modal__actions">
-              <button type="button" onClick={onDismiss} className="button">
-                Continuer
-                <ArrowRight size={16} strokeWidth={2.2} />
-              </button>
-
-              {!detail && aQuoiMontrer && (
-                <button
-                  type="button"
-                  onClick={() => setDetail(true)}
-                  className="button button--ghost"
-                >
-                  <ScanSearch size={16} strokeWidth={2} />
-                  {isCorrect ? 'Voir pourquoi' : 'Voir ce qui clochait'}
-                </button>
-              )}
-
-              {detail && learnMoreUrl && (
-                <button
-                  type="button"
-                  onClick={() => onLearnMore(learnMoreUrl)}
-                  className="button button--ghost"
-                >
-                  <ExternalLink size={15} strokeWidth={2} />
-                  En savoir plus
-                </button>
-              )}
-            </div>
           </motion.div>
         </motion.div>
       )}

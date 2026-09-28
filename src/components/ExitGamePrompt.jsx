@@ -1,5 +1,7 @@
+import { Link } from 'react-router'
 import { motion } from 'framer-motion'
-import { TriangleAlert } from 'lucide-react'
+import { Save, TriangleAlert } from 'lucide-react'
+import { PATHS } from '../routes'
 
 /**
  * L'alerte de sortie de partie.
@@ -10,10 +12,8 @@ import { TriangleAlert } from 'lucide-react'
  * prise. Ce qui se perd en sortant, c'est la manche en cours — pas ce qu'on
  * vient d'y apprendre.
  *
- * Aucun lien vers le code d'export ici, bien que ce soit le bon moment pour y
- * penser : une alerte pose une question fermée, et un troisième chemin
- * transformerait le choix en menu. Le rappel est à la fin de la partie, où il
- * ne coupe rien.
+ * Le code d'export est proposé en aparté, sous un filet : c'est le moment où
+ * l'on y pense, mais la question posée doit rester binaire.
  */
 export default function ExitGamePrompt({ onConfirm, onCancel }) {
   return (
@@ -53,6 +53,19 @@ export default function ExitGamePrompt({ onConfirm, onCancel }) {
           <button type="button" onClick={onConfirm} className="gate__secondary">
             Quitter quand même
           </button>
+        </div>
+
+        {/* Sous un filet, et à l'écart des deux réponses : la question posée
+            reste binaire. */}
+        <div className="gate__aparte">
+          <p className="gate__aparte-texte">Tu changes d'appareil&nbsp;?</p>
+          {/* Pas de `onConfirm` : changer d'adresse referme l'alerte tout seul
+              (AppShell remet son état à zéro), et deux navigations
+              concurrentes se disputeraient la destination. */}
+          <Link to={PATHS.profile} className="gate__aparte-lien">
+            <Save size={14} strokeWidth={2.2} />
+            Exporter mon code
+          </Link>
         </div>
       </motion.div>
     </motion.div>

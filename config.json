@@ -1,0 +1,90 @@
+{
+  "recolte": {
+    "maxArticlesParFlux": 20,
+    "maxPublications": 12,
+    "plafondActives": 90,
+    "aideUrl": "https://www.clemi.fr/"
+  },
+  "flux": [
+    {
+      "slug": "nc-la-1ere",
+      "nom": "NC la 1ère",
+      "url": "https://la1ere.francetvinfo.fr/nouvellecaledonie/rss",
+      "editeur": "France Télévisions",
+      "categorie": "Nouvelle-Calédonie",
+      "levelDefaut": 1,
+      "fiable": true,
+      "actif": true
+    },
+    {
+      "slug": "dnc",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "url": "https://dnc.nc/feed/",
+      "editeur": "DNC",
+      "categorie": "Nouvelle-Calédonie",
+      "levelDefaut": 2,
+      "fiable": true,
+      "actif": true
+    },
+    {
+      "slug": "google-news-nc",
+      "nom": "Google Actualités — Nouvelle-Calédonie",
+      "url": "https://news.google.com/rss/search?q=Nouvelle-Cal%C3%A9donie&hl=fr&gl=FR&ceid=FR:fr",
+      "editeur": "Google Actualités",
+      "categorie": "Nouvelle-Calédonie",
+      "levelDefaut": 2,
+      "fiable": true,
+      "actif": true
+    },
+    {
+      "slug": "decodeurs",
+      "nom": "Les Décodeurs",
+      "url": "https://www.lemonde.fr/les-decodeurs/rss_full.xml",
+      "editeur": "Le Monde",
+      "categorie": "Vérification",
+      "levelDefaut": 3,
+      "fiable": true,
+      "actif": true
+    },
+    {
+      "slug": "checknews",
+      "nom": "CheckNews",
+      "url": "https://www.liberation.fr/arc/outboundfeeds/rss-all/category/checknews/?outputType=xml",
+      "editeur": "Libération",
+      "categorie": "Vérification",
+      "levelDefaut": 3,
+      "fiable": true,
+      "actif": true
+    },
+    {
+      "slug": "franceinfo",
+      "nom": "franceinfo — à la une",
+      "url": "https://www.francetvinfo.fr/titres.rss",
+      "editeur": "France Télévisions",
+      "categorie": "National",
+      "levelDefaut": 1,
+      "fiable": true,
+      "actif": true
+    },
+    {
+      "slug": "lemonde-une",
+      "nom": "Le Monde — à la une",
+      "url": "https://www.lemonde.fr/rss/une.xml",
+      "editeur": "Le Monde",
+      "categorie": "National",
+      "levelDefaut": 2,
+      "fiable": true,
+      "actif": true
+    },
+    {
+      "slug": "rfi",
+      "nom": "RFI",
+      "url": "https://www.rfi.fr/fr/rss",
+      "editeur": "Radio France Internationale",
+      "categorie": "International",
+      "levelDefaut": 2,
+      "fiable": true,
+      "actif": true
+    }
+  ]
+}

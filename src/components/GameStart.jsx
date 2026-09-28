@@ -1,4 +1,3 @@
-import { createElement } from 'react'
 import { motion } from 'framer-motion'
 import { Play, RotateCcw } from 'lucide-react'
 import CadreCagou from './CadreCagou'
@@ -26,27 +25,20 @@ export default function GameStart({ jeu, reprise, onStart }) {
         initial={{ y: 12 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.22 }}
-        className="game-start__card"
+        className="game-start__cadre"
       >
-        <header className="game-start__head">
-          <span className="game-start__badge" style={{ background: jeu.couleur }}>
-            {createElement(jeu.Icon, { size: 22, strokeWidth: 1.9 })}
-          </span>
-          <h1 className="game-start__title">{jeu.titre}</h1>
+        <CadreCagou>
           <p className="game-start__eyebrow">
             {reprise ? 'Rappel des règles' : 'Avant de jouer'}
           </p>
-        </header>
+          <h1 className="game-start__title">{jeu.titre}</h1>
 
-        <CadreCagou>
           <ul className="game-start__points">
             {jeu.points.map((point) => (
               <li key={point}>{point}</li>
             ))}
           </ul>
-        </CadreCagou>
 
-        <div className="game-start__actions">
           <button type="button" onClick={onStart} className="game-start__go">
             {reprise ? (
               <RotateCcw size={16} strokeWidth={2.2} />
@@ -55,7 +47,7 @@ export default function GameStart({ jeu, reprise, onStart }) {
             )}
             {reprise ? 'Reprendre' : 'Commencer'}
           </button>
-        </div>
+        </CadreCagou>
       </motion.div>
     </motion.div>
   )

@@ -206,8 +206,8 @@ const REPLIQUES = [
   [
     PATHS.profile,
     [
-      'Ton tableau de bord dit sur quels biais tu te fais avoir. C’est là qu’on progresse.',
-      'Sans compte, tu peux jouer — mais rien n’est gardé.',
+      'Cet écran dit sur quels biais tu te fais avoir. C’est là qu’on progresse.',
+      'Ta progression reste dans ce navigateur. Copie ton code pour l’emporter.',
     ],
   ],
   [

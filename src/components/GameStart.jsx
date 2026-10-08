@@ -1,8 +1,6 @@
-import { createElement } from 'react'
-import { Link } from 'react-router'
 import { motion } from 'framer-motion'
 import { Play, RotateCcw } from 'lucide-react'
-import { PATHS } from '../routes'
+import CadreCagou from './CadreCagou'
 
 /**
  * L'écran de départ d'un jeu : ce qu'on va y faire, et rien d'autre.
@@ -14,7 +12,7 @@ import { PATHS } from '../routes'
  * Rouvert en cours de partie (`reprise`), il ne relance rien : il rappelle, et
  * on repart où on en était.
  */
-export default function GameStart({ jeu, connecte, reprise, onStart }) {
+export default function GameStart({ jeu, reprise, onStart }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -27,25 +25,20 @@ export default function GameStart({ jeu, connecte, reprise, onStart }) {
         initial={{ y: 12 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.22 }}
-        className="game-start__card"
+        className="game-start__cadre"
       >
-        <header className="game-start__head">
-          <span className="game-start__badge" style={{ background: jeu.couleur }}>
-            {createElement(jeu.Icon, { size: 22, strokeWidth: 1.9 })}
-          </span>
-          <h1 className="game-start__title">{jeu.titre}</h1>
+        <CadreCagou>
           <p className="game-start__eyebrow">
             {reprise ? 'Rappel des règles' : 'Avant de jouer'}
           </p>
-        </header>
+          <h1 className="game-start__title">{jeu.titre}</h1>
 
-        <ul className="game-start__points">
-          {jeu.points.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-        </ul>
+          <ul className="game-start__points">
+            {jeu.points.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
 
-        <div className="game-start__actions">
           <button type="button" onClick={onStart} className="game-start__go">
             {reprise ? (
               <RotateCcw size={16} strokeWidth={2.2} />
@@ -54,16 +47,7 @@ export default function GameStart({ jeu, connecte, reprise, onStart }) {
             )}
             {reprise ? 'Reprendre' : 'Commencer'}
           </button>
-
-          {!connecte && (
-            <p className="game-start__guest">
-              Sans compte, les scores ne seront pas enregistrés.{' '}
-              <Link to={PATHS.profile} className="game-start__login">
-                Se connecter
-              </Link>
-            </p>
-          )}
-        </div>
+        </CadreCagou>
       </motion.div>
     </motion.div>
   )

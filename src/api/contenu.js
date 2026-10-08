@@ -1,60 +1,48 @@
 /**
- * Le contenu du jeu, lu depuis l'API.
+ * Le contenu du jeu, lu dans donnees/contenu.json.
  *
- * Chaque fonction rend exactement la forme que les écrans attendaient quand
- * les données étaient écrites en dur dans `src/data/` : `date`, `scores`,
- * `consequences`, `apercu`, `steps.choices`… Le changement est dans l'origine
- * des données, pas dans leur forme.
+ * Il venait de l'API ; c'est un fichier servi à côté du site, chargé une fois
+ * (state/contenu.js). Les formes n'ont pas changé : les écrans lisent le même
+ * vocabulaire (`date`, `scores`, `steps.choices`, `apercu`…).
  */
-import { api } from './client'
+import { tirer } from '../lib/tirage'
+import { chargerContenu } from '../state/contenu'
 
-const requete = (chemin) => api(chemin, { authentifie: false })
+const depuis = (extraire) => () => chargerContenu().then(extraire)
 
-/** La galerie d'avatars. Ouverte : on la voit avant d'avoir un compte. */
-export const getAvatars = () => requete('/avatars')
+export const getAvatars = depuis((c) => c.avatars)
+export const getJeux = depuis((c) => c.jeux)
+export const getStories = depuis((c) => c.stories)
+export const getRemediations = depuis((c) => c.remediations)
+export const getNiveaux = depuis((c) => c.niveaux)
+export const getConversations = depuis((c) => c.conversations)
+export const getChapitres = depuis((c) => c.chapitres)
 
-/** Les jeux. */
-export const getJeux = () => requete('/jeux')
+/** La brève du jour : l'index vient du quantième, pas du hasard. */
+export const getDailyTip = depuis((c) => {
+  if (c.astuces.length === 0) return null
+  const jours = Math.floor(Date.now() / 86_400_000)
+  return c.astuces[jours % c.astuces.length]
+})
 
-/**
- * Les stories de l'accueil, destination déjà résolue par l'API : chacune porte
- * soit une `url` extérieure, soit le slug d'un `chapitre` d'ici.
- */
-export const getStories = () => requete('/stories')
-
-/** La brève « Le saviez-vous ? » du jour. */
-export const getDailyTip = () => requete('/astuces/du-jour')
-
-/**
- * Un tirage de publications pour un niveau.
- *
- * Le serveur écarte celles que ce joueur a déjà traitées : deux parties de
- * suite ne se ressemblent pas, et le fil ne se réduit pas aux quinze mêmes
- * publications.
- */
-export const getTirage = (level, { taille, themes } = {}) => {
-  const parametres = new URLSearchParams({ level })
-  if (taille) parametres.set('taille', taille)
-  if (themes?.length) parametres.set('themes', themes.join(','))
-  return requete(`/posts/tirage?${parametres}`)
+const un = (liste, id) => {
+  const trouve = liste.find((entree) => entree.id === id)
+  if (!trouve) throw new Error(`« ${id} » est introuvable.`)
+  return trouve
 }
 
-/** Les publications d'entraînement ciblé, indexées par nom de biais. */
-export const getRemediations = () => requete('/posts/remediations')
+export const getConversation = (slug) =>
+  chargerContenu().then((c) => un(c.conversations, slug))
 
-/** Les niveaux existants et leur volume. */
-export const getNiveaux = () => requete('/posts/niveaux')
+export const getChapitre = (slug) => chargerContenu().then((c) => un(c.chapitres, slug))
 
-export const getConversations = () => requete('/conversations')
-
-export const getConversation = (slug) => requete(`/conversations/${encodeURIComponent(slug)}`)
-
-/**
- * Les thèmes de « Comprendre », en version galerie : titre, résumé, lien
- * d'aide. Le corps d'un chapitre ne vient qu'à son ouverture, avec
- * `getChapitre` — huit chapitres entiers pour afficher huit vignettes seraient
- * du gâchis.
- */
-export const getChapitres = () => requete('/chapitres')
-
-export const getChapitre = (slug) => requete(`/chapitres/${encodeURIComponent(slug)}`)
+/** Une manche : le tirage que le serveur composait (voir lib/tirage.js). */
+export const getTirage = (level, { taille, themes, vus } = {}) =>
+  chargerContenu().then((c) =>
+    tirer(c.posts, {
+      level,
+      taille: taille ?? c.niveaux.find((n) => n.level === level)?.taille ?? 5,
+      themes,
+      vus,
+    })
+  )

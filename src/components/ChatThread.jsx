@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, Check, Lightbulb, SendHorizontal } from 'lucide-react'
-import { auMieux, enregistrerChoix, terminerSession } from '../api/progression'
-import { useSessionJeu } from '../lib/useSessionJeu'
 import { getSession, saveSession } from '../state/conversationSessions'
+import { finirConversation } from '../state/progression'
 
 /**
  * Durée des points de frappe, modulée par la longueur du message. Valeurs
@@ -73,32 +72,18 @@ function TypingBubble() {
  * (`conversation-runId`, cf. ChatScreen) : recommencer, c'est le remonter.
  *
  * Les initialiseurs de useState regardent d'abord si une partie est en cours
- * pour cette clé, et reprennent au message près. Seul le compte à rebours du
- * message en cours de frappe repart à zéro.
+ * pour cette conversation, et reprennent au message près — y compris après un
+ * rechargement, puisque le fil est maintenant écrit dans le navigateur. Seul le
+ * compte à rebours du message en cours de frappe repart à zéro.
  */
-export default function ChatThread({
-  conversation,
-  sessionKey,
-  paused,
-  onFinished,
-  onBack,
-  onRestart,
-}) {
+export default function ChatThread({ conversation, paused, onFinished, onBack, onRestart }) {
   const { name, color, intro, steps, outro, groupe, contexte, participants } = conversation
 
   // Dans un groupe, l'en-tête montre qui est là ; en tête-à-tête, le nom de la
   // conversation suffit.
   const entete = groupe ? contexte || name : name
 
-  // Une partie côté serveur par montage — donc une par « Recommencer », qui
-  // remonte justement le composant.
-  const sessionId = useSessionJeu({
-    jeu: 'chat',
-    conversationSlug: conversation.id,
-    actif: !paused,
-  })
-
-  const saved = getSession(sessionKey)
+  const saved = getSession(conversation.id)
 
   const [log, setLog] = useState(() => saved?.log ?? [])
   const [queue, setQueue] = useState(
@@ -122,8 +107,8 @@ export default function ChatThread({
 
   // Sauvegarde continue : au prochain montage, on reprend exactement ici.
   useEffect(() => {
-    saveSession(sessionKey, { log, queue, stepIdx, awaiting, endAfterQueue, score, done })
-  }, [sessionKey, log, queue, stepIdx, awaiting, endAfterQueue, score, done])
+    saveSession(conversation.id, { log, queue, stepIdx, awaiting, endAfterQueue, score, done })
+  }, [conversation.id, log, queue, stepIdx, awaiting, endAfterQueue, score, done])
 
   // Délivre les messages de l'interlocuteur un par un.
   useEffect(() => {
@@ -143,10 +128,6 @@ export default function ChatThread({
   function choose(choice) {
     setAwaiting(false)
     setLog((prev) => [...prev, { text: choice.text, kind: 'message', from: 'me' }])
-
-    // Le choix part au serveur, qui garde la trace et rejuge de son côté.
-    // L'affichage, lui, n'attend pas la réponse : la conversation continue.
-    if (sessionId) auMieux(enregistrerChoix(sessionId, choice.id))
 
     const finalScore = score + (choice.correct ? 1 : 0)
     setScore(finalScore)
@@ -170,10 +151,12 @@ export default function ChatThread({
     }
   }
 
-  // La discussion arrive à son terme : la partie est close côté serveur.
+  // La discussion arrive à son terme : la conversation est retenue comme faite,
+  // et son fil n'a plus à être gardé. Recommencer ne la retirera pas des
+  // conversations vues — seul le meilleur score bouge encore.
   useEffect(() => {
-    if (done && sessionId) auMieux(terminerSession(sessionId))
-  }, [done, sessionId])
+    if (done) finirConversation(conversation.id, { score, total: steps.length })
+  }, [done, conversation.id, score, steps.length])
 
   const choices = awaiting ? steps[stepIdx]?.choices ?? [] : []
   const typing = queue.length > 0 && queue[0].kind !== 'explication' && log.length > 0

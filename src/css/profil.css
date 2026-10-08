@@ -1,21 +1,12 @@
 /* ==========================================================================
-   PROFIL
-   Deux écrans sous un même onglet : les formulaires de compte (sans session)
-   et le tableau de bord (avec session). Rien n'est partagé entre les deux, à
-   part la carte.
+   MA PROGRESSION
+   Un seul écran maintenant : il portait les formulaires de compte et le
+   tableau de bord, il porte les chiffres du joueur et son code de progression.
+   Les champs de saisie restent ici — c'est le seul écran qui en a.
    ========================================================================== */
 
 @layer components {
-  /* --- Connexion, inscription, invité ------------------------------------ */
-
-  /* Le cadre occupe la hauteur restante : connexion et inscription font
-     alors la même hauteur, malgré leur champ d'écart. */
-  .compte__form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 24px 20px 26px;
-  }
+  /* --- Champs de saisie --------------------------------------------------- */
 
   .champ {
     display: flex;
@@ -51,7 +42,70 @@
     color: var(--ink-faint);
   }
 
-  .compte__erreur {
+  /* La zone du code : trois lignes, pas de redimensionnement, et une police à
+     pas fixe. Un code se lit caractère par caractère quand on le compare — la
+     chasse variable rend cette lecture impossible. Le retour à la ligne est
+     forcé même sans espace, sinon la chaîne déborderait de la carte. */
+  .champ__zone {
+    resize: none;
+    font-family: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', 'Liberation Mono', monospace;
+    font-size: var(--text-xs);
+    line-height: 1.5;
+    word-break: break-all;
+  }
+
+  /* --- Le code de progression --------------------------------------------- */
+
+  .code {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  /* Les deux moitiés du sujet — emporter, remettre — sont séparées d'un filet :
+     on ne colle pas un code dans le champ qui vient de nous en donner un. */
+  .code--restaurer {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+
+  .code--effacer {
+    margin-top: 20px;
+  }
+
+  .code .champ,
+  .code__message {
+    width: 100%;
+  }
+
+  /* `.button` est en largeur pleine : ici les boutons partagent la ligne. */
+  .code__actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .code__actions .button {
+    width: auto;
+    flex: 0 1 auto;
+  }
+
+  /* « Copier » à droite, « Masquer » juste à sa gauche. */
+  .code__actions--droite {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .champ__zone--courte {
+    font-size: var(--text-2xs);
+  }
+
+  .code__message {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
     margin: 0;
     padding: 10px 12px;
     border-left: 3px solid var(--verdict-ko);
@@ -62,184 +116,92 @@
     color: var(--verdict-ko);
   }
 
-  .invite {
-    padding: 4px 4px 0;
+  .code__message svg {
+    flex-shrink: 0;
+    margin-top: 2px;
   }
 
-  .invite__titre {
-    margin: 0;
+  .code__message--ok {
+    border-left-color: var(--verdict-ok);
+    background: rgba(20, 102, 63, 0.07);
+    color: var(--verdict-ok);
+  }
+
+  /* Effacer sa progression n'est pas une action de premier plan : un lien, pas
+     un bouton, et la confirmation seule porte la couleur de l'alerte. */
+  .code__lien {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink-faint);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .code__lien:hover {
+    color: var(--verdict-ko);
+  }
+
+  /* --- En-tête, sur le gabarit d'un profil de réseau social ---------------- */
+
+  .profil-tete {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 6px 0 14px;
+  }
+
+  /* La photo est le bouton qui ouvre la galerie : pas de carte pour ça. */
+  .profil-avatar {
+    flex-shrink: 0;
+    border-radius: 50%;
+    transition: transform 0.12s;
+  }
+
+  .profil-avatar:hover {
+    transform: scale(1.04);
+  }
+
+  .profil-avatar[aria-expanded='true'] .avatar-joueur {
+    box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--brand-blue);
+  }
+
+  .profil-bio {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .profil-pseudo {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
     font-family: var(--font-title);
     font-size: var(--text-lg);
     font-weight: 700;
     color: var(--ink);
   }
 
-  .invite__texte {
-    margin: 8px 0 0;
-    max-width: var(--measure);
-    font-size: var(--text-md);
+  .profil-pseudo svg {
+    color: var(--ink-ghost);
+  }
+
+  .profil-pseudo:hover svg {
+    color: var(--brand-blue);
+  }
+
+  .profil-pseudo__form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .profil-bio__ligne {
+    margin: 4px 0 0;
+    font-size: var(--text-sm);
     line-height: var(--leading-body);
     color: var(--ink-muted);
-  }
-
-  .invite__actions {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    margin-top: 18px;
-  }
-
-  /* Le mode invité est un vrai choix, pas une note de bas de page : le bouton
-     porte la couleur de la marque, en contour pour rester second devant
-     « Créer mon compte ». */
-  .invite__bouton {
-    border: 2px solid var(--brand-blue);
-    background: var(--surface);
-    color: var(--brand-blue);
-    transition: background-color 0.15s;
-  }
-
-  .invite__bouton:hover {
-    background: color-mix(in srgb, var(--brand-blue) 10%, var(--surface));
-  }
-
-  .invite__note {
-    margin: 0;
-    font-size: var(--text-sm);
-    line-height: 1.55;
-    color: var(--ink-faint);
-  }
-
-  /* --- Centres d'intérêt -------------------------------------------------- */
-
-  .interests__liste {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 14px;
-  }
-
-  .interests__puce {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 8px 14px;
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    background: var(--surface);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--ink-muted);
-    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
-  }
-
-  .interests__puce:hover {
-    background: var(--wash);
-  }
-
-  .interests__puce--actif {
-    border-color: transparent;
-    background: var(--brand-blue);
-    color: var(--brand-cream);
-  }
-
-  /* --- Tableau de bord --------------------------------------------------- */
-
-  .profil__tete {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 4px 0 16px;
-  }
-
-  .profil__identite {
-    min-width: 0;
-    flex: 1 1 auto;
-  }
-
-  .profil__pseudo {
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-family: var(--font-title);
-    font-size: var(--text-xl);
-    font-weight: 700;
-    color: var(--ink);
-  }
-
-  .profil__email {
-    margin: 2px 0 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
-  }
-
-  .profil__sortie {
-    display: inline-flex;
-    flex-shrink: 0;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 13px;
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    font-size: var(--text-xs);
-    font-weight: 600;
-    color: var(--ink-muted);
-    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
-  }
-
-  .profil__sortie:hover {
-    border-color: var(--verdict-ko);
-    background: var(--wash);
-    color: var(--verdict-ko);
-  }
-
-  .stats {
-    display: grid;
-    gap: 10px;
-    margin: 14px 0 0;
-    padding: 0;
-    list-style: none;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @media (min-width: 620px) {
-    .stats {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  }
-
-  .stat {
-    padding: 12px 14px;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    background: var(--wash);
-  }
-
-  .stat__valeur {
-    margin: 0;
-    font-family: var(--font-title);
-    font-size: var(--text-2xl);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-  }
-
-  .stat__libelle {
-    margin: 3px 0 0;
-    font-size: var(--text-xs);
-    line-height: 1.4;
-    color: var(--ink-muted);
-  }
-
-  .card__note {
-    margin: 12px 0 0;
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
   }
 
   .jauge {
@@ -300,62 +262,6 @@
     transition: width 0.4s ease-out;
   }
 
-  .parcours {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 14px 0 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .parcours__item {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    padding: 11px 13px;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-  }
-
-  .parcours__icone {
-    display: flex;
-    width: 30px;
-    height: 30px;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9px;
-    background: var(--wash-strong);
-    color: var(--nav-profil);
-  }
-
-  .parcours__texte {
-    min-width: 0;
-    flex: 1 1 auto;
-  }
-
-  .parcours__titre {
-    margin: 0;
-    font-size: var(--text-md);
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .parcours__etat {
-    margin: 2px 0 0;
-    font-size: var(--text-xs);
-    color: var(--ink-faint);
-  }
-
-  .parcours__pourcentage {
-    flex-shrink: 0;
-    font-family: var(--font-title);
-    font-size: var(--text-md);
-    font-weight: 700;
-    color: var(--ink-muted);
-  }
-
   .biais-liste {
     display: flex;
     flex-direction: column;
@@ -401,10 +307,5 @@
     color: var(--ink-muted);
   }
 
-  .profil__derniere {
-    margin: 4px 0 0;
-    font-size: var(--text-sm);
-    color: var(--ink-faint);
-  }
 }
 

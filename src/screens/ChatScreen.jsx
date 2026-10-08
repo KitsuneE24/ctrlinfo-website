@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useOutletContext, useParams } from 'react-router'
-import { ChevronRight, MessageCircle } from 'lucide-react'
+import { Check, ChevronRight, MessageCircle } from 'lucide-react'
 import { getConversation, getConversations } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
 import { clearSession, getRunIds, saveRunIds } from '../state/conversationSessions'
 import { useExitGuard } from '../state/exitGuard'
+import { useProgression } from '../state/useProgression'
 import { PATHS, chatPath } from '../routes'
 import Page from '../components/ui/Page'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
@@ -33,6 +34,9 @@ export default function ChatScreen() {
   // Tant que l'écran de départ est là, la discussion ne se déroule pas.
   const { paused, onFinished } = useOutletContext()
   const { requestExit } = useExitGuard()
+  // Les conversations déjà menées au bout, pour les marquer dans la liste : une
+  // progression qu'on ne voit pas ne se sent pas.
+  const { conversations: avancement } = useProgression()
 
   // Un numéro de partie par conversation, qui change à chaque
   // « Recommencer » : la clé du fil change, le composant se remonte. Il vit
@@ -56,7 +60,7 @@ export default function ChatScreen() {
   const sessionKey = openId ? `${openId}-${runIds[openId] ?? 0}` : null
 
   function restart() {
-    clearSession(sessionKey)
+    clearSession(openId)
     setRunIds((prev) => ({ ...prev, [openId]: (prev[openId] ?? 0) + 1 }))
   }
 
@@ -81,6 +85,7 @@ export default function ChatScreen() {
               <ul>
                 {conversations.map((conversation) => {
                   const isOpen = conversation.id === openId
+                  const faite = avancement[conversation.id]?.faite === true
                   return (
                     <li key={conversation.id}>
                       <Link
@@ -101,7 +106,16 @@ export default function ChatScreen() {
                           </span>
                         </span>
 
-                        <ChevronRight size={18} className="inbox-item__chevron" />
+                        {faite ? (
+                          <span
+                            title="Conversation déjà menée au bout"
+                            className="inbox-item__faite"
+                          >
+                            <Check size={14} strokeWidth={3} />
+                          </span>
+                        ) : (
+                          <ChevronRight size={18} className="inbox-item__chevron" />
+                        )}
                       </Link>
                     </li>
                   )
@@ -120,7 +134,6 @@ export default function ChatScreen() {
           ) : open ? (
             <ChatThread
               key={sessionKey}
-              sessionKey={sessionKey}
               conversation={open}
               paused={paused}
               onFinished={onFinished}

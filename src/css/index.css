@@ -16,9 +16,9 @@
    conversations ........ bulles, réponses à choisir, composeur
    accueil .............. marque, parcours, vidéo, leviers, annonces de jeux
    comprendre ........... galerie de thèmes et page d'un thème
-   profil ............... connexion, mode invité, tableau de bord
-   recompenses .......... avatar, série de jours, couronnes
-   game-gate ............ identité, écran de départ, alerte de sortie
+   profil ............... chiffres du joueur, code de progression, intérêts
+   avatar ............... la vignette du joueur et sa galerie
+   game-gate ............ écran de départ, alerte de sortie, rappel du code
    compagnon ............ le personnage qui se balade en bas, et sa bulle
    etat-api ............. chargement et panne de l'API
 
@@ -43,7 +43,7 @@
 @import './accueil.css';
 @import './comprendre.css';
 @import './profil.css';
-@import './recompenses.css';
+@import './avatar.css';
 @import './game-gate.css';
 @import './compagnon.css';
 @import './etat-api.css';

@@ -8,8 +8,9 @@ déploiement, [devops.md](devops.md).
 
 Une application React 19 qui ne porte plus aucun contenu : publications,
 conversations, chapitres, ressources et tutoriels viennent de l'API
-[ctrlinfo-app](../../ctrlinfo-app), et la progression du joueur y retourne —
-quand il a un compte.
+[ctrlinfo-app](../../ctrlinfo-app). La progression du joueur, elle, ne retourne
+nulle part : elle vit dans son navigateur, et s'emporte par un code qu'il copie.
+Il n'y a ni compte, ni e-mail, ni mot de passe.
 
 > **Ce document décrit l'état actuel.** Jusqu'à la mise en place du back, le
 > site était entièrement statique et son contenu écrit à la main dans
@@ -25,9 +26,9 @@ tailwind.config.js    Tailwind, aligné sur la palette de src/css/colors.js
 
 src/
   main.jsx            montage React + import de la feuille de style
-  App.jsx             les fournisseurs (compte, jeux) et la table des routes
+  App.jsx             le fournisseur des jeux et la table des routes
   routes.js           les adresses du site, et le titre de chaque page
-  api/                le lien avec l'API : client, contenu, progression
+  api/                le lien avec l'API : client, contenu
   components/         coque, navigation, briques de jeu
     ui/Page.jsx       gabarit commun à tous les écrans
     ui/Chargement.jsx « ça charge » et « l'API ne répond pas »
@@ -35,7 +36,7 @@ src/
   data/               la table des icônes (du code, pas du contenu)
   css/                les feuilles de style, assemblées par index.css
   lib/                utilitaires purs + les crochets de chargement
-  state/              état hors de React (compte, jeux, conversations en cours)
+  state/              état hors de React (progression, jeux, conversations)
 
 docs/                 cette documentation
 public/               fichiers servis tels quels : logo, sprites du compagnon
@@ -339,16 +340,76 @@ adresses :
 - **La lecture débouche sur autre chose.** Deux liens en fin de galerie mènent
   au fil et à l'annuaire : un thème lu ne doit pas être un cul-de-sac.
 
-## 5 bis. L'onglet « Profil »
+## 5 bis. L'onglet « Progression »
 
-[ProfileScreen.jsx](../src/screens/ProfileScreen.jsx), deux états jamais
-mélangés :
+[ProfileScreen.jsx](../src/screens/ProfileScreen.jsx). Il portait la connexion,
+l'inscription, le mode invité et un tableau de bord calculé par l'API. Il n'y a
+plus de compte : l'écran répond désormais à une seule question — *où est passé ce
+que j'ai fait ?* — en trois temps.
 
-- **sans compte** — connexion, inscription, et le mode invité, annoncé pour ce
-  qu'il est : tout reste jouable, mais rien n'est enregistré ;
-- **connecté** — les chiffres du joueur, tels que `GET /moi/tableau-de-bord` les
-  calcule : parties, complétion, scénarios et parcours, et surtout les biais sur
-  lesquels il se fait avoir. Le front n'en recalcule aucun.
+- **Ce que tu as fait** — points, parties, pourcentage de bonnes décisions,
+  complétion du fil et des conversations, et les biais sur lesquels le joueur se
+  fait avoir. Tout est calculé ici, à partir de
+  [state/progression.js](../src/state/progression.js). Les totaux restent du
+  contenu : combien de publications existent, combien de conversations.
+- **Comment l'emporter** — [CodeProgression.jsx](../src/components/CodeProgression.jsx) :
+  un bouton qui rend le code, un champ qui le relit.
+- **Ce que tu veux voir** — l'avatar et les centres d'intérêt.
+
+Ce qui a disparu avec les comptes : les couronnes, les badges et la série de
+jours. Ils demandaient un historique daté que plus personne ne tient. Mieux
+valait les retirer que d'en montrer des approximations. Le conseil attaché à
+chaque biais aussi : il vivait dans le tableau de bord, et aucune route publique
+ne l'expose.
+
+## 5 ter. La progression, sans compte
+
+Trois fichiers, et un principe : **le navigateur est la mémoire, le code est la
+sauvegarde.**
+
+| Module | Rôle |
+| --- | --- |
+| [state/progression.js](../src/state/progression.js) | le magasin : l'état, ses mutateurs, l'écriture dans `localStorage` |
+| [state/useProgression.js](../src/state/useProgression.js) | le brancher sur React, par `useSyncExternalStore` |
+| [lib/codeProgression.js](../src/lib/codeProgression.js) | l'état ⇄ une chaîne copiable, avec empreinte de contrôle |
+
+- **Chaque écriture est immédiate.** Pas de minuterie ni de regroupement : une
+  décision prise est une décision gardée, même si l'onglet se ferme dans la
+  seconde. Les points sont ceux que le contenu porte (`post.scores`), donc
+  exactement ceux que le serveur comptait.
+- **Pas de fournisseur.** Le magasin est un singleton de module ; les composants
+  qui écrivent appellent ses fonctions directement, et ceux qui affichent
+  s'abonnent par `useProgression()`. Un contexte n'aurait ajouté qu'un étage.
+- **Deux granularités de reprise**, et c'est voulu. Une conversation entamée
+  reprend au message près, parce que son fil se suffit à lui-même. Le fil
+  d'actualité reprend au **niveau** atteint : retenir une file de tirage
+  obligerait à redemander chaque publication par son slug pour resservir un fil
+  déjà à moitié vu.
+- **Le code ne transporte pas tout.** Le fil d'une conversation en cours en reste
+  dehors : un code sert à emporter un avancement, pas à figer une discussion à
+  moitié lue — et c'est lui qui pèserait le plus lourd.
+- **La forme du code** : `CTRL1.z.<base64url>.<empreinte>`. La marque porte la
+  version, `z`/`p` dit si la charge est déflatée, l'empreinte (FNV-1a, calculée
+  avant compression) distingue « tronqué » de « complet » — du base64 amputé se
+  décode souvent sans broncher en rendant des octets faux. Le point sépare parce
+  qu'il n'appartient pas à l'alphabet base64url. Compression par
+  `CompressionStream`, avec repli non comprimé : une liste de slugs français se
+  déflate au cinquième, soit un code de six cents caractères au lieu de trois
+  mille.
+- **Un refus dit pourquoi.** `decoderCode` lève une `ErreurCode` portant une
+  raison — `vide`, `forme`, `marque`, `version`, `illisible`, `abime`,
+  `compression` — et son message. « Ce code a été abîmé en route » et « ce code
+  vient d'une autre version du site » n'appellent pas le même geste.
+- **Restaurer écrase.** Quand il y a quelque chose à perdre, l'écran le dit et
+  demande une seconde fois. Le code est décodé *avant* cette question : inutile
+  de faire hésiter le joueur sur un code de toute façon illisible.
+
+Une conséquence côté fil : le serveur écartait les publications déjà traitées, il
+ne sait plus qui joue. C'est [Feed.jsx](../src/components/Feed.jsx) qui filtre
+maintenant, sur la liste que le navigateur retient — d'où le `taille` généreux
+qu'il demande au tirage, pour avoir de quoi filtrer. Son compromis est celui du
+serveur : s'il ne reste pas assez d'inédit, on complète avec des déjà-vues plutôt
+que de servir une manche amputée.
 
 ## 6. Les données
 
@@ -357,13 +418,11 @@ front ne le stocke pas, il le demande.
 
 | Module | Rôle |
 | --- | --- |
-| [api/client.js](../src/api/client.js) | l'adresse de l'API, l'identité du joueur, le rejeu après expiration |
+| [api/client.js](../src/api/client.js) | l'adresse de l'API, et ce qu'on fait quand elle ne répond pas |
 | [api/contenu.js](../src/api/contenu.js) | jeux, publications, conversations, chapitres, ressources, parcours |
-| [api/progression.js](../src/api/progression.js) | parties, décisions, sauvegarde, tableau de bord |
 | [lib/useRessource.js](../src/lib/useRessource.js) | charger, avec ses trois états |
-| [lib/useSessionJeu.js](../src/lib/useSessionJeu.js) | ouvrir une partie côté serveur |
 | [state/jeux.js](../src/state/jeux.js) | les jeux, chargés une fois pour toute l'application |
-| [state/compte.js](../src/state/compte.js) | l'identité du joueur, partagée par l'en-tête et le profil |
+| [state/progression.js](../src/state/progression.js) | l'avancement du joueur, dans son navigateur |
 | [data/icones.js](../src/data/icones.js) | le nom d'icône rangé en base → le composant lucide |
 
 Trois choses à savoir :
@@ -371,20 +430,20 @@ Trois choses à savoir :
 - **L'API rend les formes d'avant.** `date`, `consequences`, `scores`,
   `apercu`, `steps.choices` : les composants n'ont pas eu à changer de langage,
   seulement d'origine. Ce qui s'ajoute est additif (`slug`, l'`id` d'un choix).
-- **Deux identités, pas trois.** *Connecté* : un compte, un jeton, la
-  progression enregistrée. *Invité* : aucun jeton, aucun compte en base, et les
-  routes de progression ne sont même pas appelées — `api()` échoue tout de
-  suite et `auMieux()` avale l'échec. Le contenu, lui, se lit dans les deux
-  cas. L'état vit dans `api/client.js`, hors de React ; `FournisseurCompte` s'y
-  abonne par `useSyncExternalStore`.
+- **Toutes les routes appelées sont publiques.** Aucun en-tête d'autorisation
+  n'est joint, parce qu'il n'y a plus de jeton à joindre. Les routes de comptes
+  et de progression existent toujours dans ctrlinfo-app ; elles ne sont
+  simplement plus appelées.
 - **Il n'y a pas de repli local.** Si l'API ne répond pas, les écrans le disent
   ([ui/Chargement.jsx](../src/components/ui/Chargement.jsx)) plutôt que
-  d'afficher une page vide. C'est le prix d'une source unique de vérité.
+  d'afficher une page vide. C'est le prix d'une source unique de vérité — et
+  cela ne vaut que pour le contenu : la progression, elle, ne dépend d'aucun
+  réseau.
 
 Le tirage des publications mérite un mot : le fil ne demande plus « les
 publications de niveau 2 » mais un **tirage** de niveau 2, que le serveur
-compose en écartant celles que ce joueur a déjà traitées. Deux parties de suite
-ne se ressemblent donc pas.
+compose au hasard et que le front filtre de ce qui a déjà été traité (voir 5
+ter). Deux parties de suite ne se ressemblent donc pas.
 
 ## 7. Les styles
 
@@ -432,27 +491,25 @@ compris pour qui a désactivé les effets d'animation de son système.
 
 ## 8. Persistance
 
-Quatre mémoires, quatre portées — et l'une d'elles est désormais sur un
-serveur :
+Tout tient maintenant dans le navigateur : plus une seule ligne de progression
+ne part sur un serveur.
 
 | Où | Quoi | Durée |
 | --- | --- | --- |
-| la base, via l'API | parties, décisions, avancement, biais ratés | permanent |
-| `localStorage` (`api/client.js`) | la session du joueur (jetons) et le mode invité | permanent |
-| `localStorage` (`premiereFois.js`) | tutoriels déjà vus, présentations du compagnon | permanent |
+| `localStorage` (`progression.js`) | niveau, publications traitées, points, biais, conversations | permanent |
+| `localStorage` (`interests.js`) | les sujets qui passent en premier dans le fil | permanent |
+| `localStorage` (`premiereFois.js`) | stories déjà vues, brève du jour | permanent |
 | `localStorage` (`compagnon.js`) | où le compagnon a été posé, en fraction de largeur | permanent |
-| module en mémoire (`conversationSessions.js`) | conversations en cours | jusqu'au rechargement |
+| module en mémoire (`conversationSessions.js`) | le numéro de partie d'une conversation | jusqu'au rechargement |
 | `useState` | tout le reste | jusqu'au démontage de l'écran |
-
-L'enregistrement d'une décision ne doit jamais interrompre une partie : les
-appels de progression passent par `auMieux()`, qui avale l'échec. On perd la
-trace d'un coup, pas la partie en cours. En mode invité, c'est le cas normal et
-non un incident.
 
 Les accès à `localStorage` sont tous enveloppés dans un `try` : en navigation
 privée ou derrière un blocage de cookies, y écrire lève une exception. En cas
-d'échec, la réponse est « oui, c'est la première fois » et le tutoriel se
-remontre — jamais une page blanche.
+d'échec, la réponse est « oui, c'est la première fois » et l'élément se remontre
+— jamais une page blanche. Pour la progression, la conséquence est nommée
+explicitement : sans stockage, la partie en cours se joue normalement et c'est au
+rechargement seulement que l'avancement est perdu. Le code d'export reste
+exportable dans ce cas — c'est même sa raison d'être.
 
 ## 9. Ce qui n'existe pas (et c'est assumé)
 

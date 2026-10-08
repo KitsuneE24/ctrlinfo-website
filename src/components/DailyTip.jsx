@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router'
-import { ArrowRight, Lightbulb, X } from 'lucide-react'
+import { ArrowRight, X } from 'lucide-react'
 import { getDailyTip } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
 import { markSeenToday, seenToday } from '../lib/premiereFois'
 import { chapterPath } from '../routes'
+import CadreCagou from './CadreCagou'
 
 const CLE = 'astuce-du-jour'
 
@@ -41,40 +42,38 @@ export default function DailyTip() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 14 }}
             transition={{ type: 'spring', stiffness: 300, damping: 26 }}
-            className="modal__card tip-card"
+            className="modal__cadre"
             onClick={(event) => event.stopPropagation()}
           >
-            <button
-              type="button"
-              onClick={fermer}
-              aria-label="Fermer"
-              className="tip-card__fermer"
-            >
-              <X size={18} strokeWidth={2.2} />
-            </button>
-
-            <span className="modal__badge">
-              <Lightbulb size={26} strokeWidth={2} />
-            </span>
-
-            <h2 className="modal__title">Le saviez-vous&nbsp;?</h2>
-            <p className="modal__text">{astuce.texte}</p>
-
-            <div className="modal__actions">
-              {astuce.chapitre && (
-                <Link
-                  to={chapterPath(astuce.chapitre.id)}
-                  onClick={fermer}
-                  className="button"
-                >
-                  {astuce.chapitre.onglet}
-                  <ArrowRight size={16} strokeWidth={2.2} />
-                </Link>
-              )}
-              <button type="button" onClick={fermer} className="button button--ghost">
-                Plus tard
+            <CadreCagou>
+              <button
+                type="button"
+                onClick={fermer}
+                aria-label="Fermer"
+                className="tip-card__fermer"
+              >
+                <X size={16} strokeWidth={2.2} />
               </button>
-            </div>
+
+              <h2 className="modal__title">Le saviez-vous&nbsp;?</h2>
+              <p className="modal__text">{astuce.texte}</p>
+
+              <div className="modal__actions">
+                {astuce.chapitre && (
+                  <Link
+                    to={chapterPath(astuce.chapitre.id)}
+                    onClick={fermer}
+                    className="button"
+                  >
+                    {astuce.chapitre.onglet}
+                    <ArrowRight size={16} strokeWidth={2.2} />
+                  </Link>
+                )}
+                <button type="button" onClick={fermer} className="button button--ghost">
+                  Plus tard
+                </button>
+              </div>
+            </CadreCagou>
           </motion.div>
         </motion.div>
       )}

@@ -1,0 +1,278 @@
+/* L'administration : une feuille à elle, sans rien du site public. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f2ef;
+  color: #1a1a1a;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 14px;
+}
+
+button {
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.vide {
+  padding: 3rem;
+  text-align: center;
+  color: #6b6b6b;
+}
+
+/* --- La barre --- */
+
+.barre {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.barre__titre {
+  font-weight: 700;
+}
+
+.barre__compte {
+  margin-left: auto;
+  opacity: 0.7;
+}
+
+.barre__erreur {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  color: #ffb4ae;
+  font-weight: 600;
+}
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #1800ad;
+  color: #fff;
+  font-weight: 700;
+}
+
+.bouton:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.bouton--mince {
+  padding: 4px 10px;
+  font-size: 12px;
+  background: #e7e4ff;
+  color: #1800ad;
+}
+
+/* --- La mise en page --- */
+
+.atelier {
+  display: grid;
+  grid-template-columns: 190px 260px minmax(0, 1fr);
+  gap: 0;
+  height: calc(100vh - 44px);
+}
+
+@media (max-width: 900px) {
+  .atelier {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+.onglets {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 8px;
+  border-right: 1px solid #e0dcd6;
+  overflow-y: auto;
+}
+
+.onglet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.onglet:hover {
+  background: #eceae6;
+}
+
+.onglet--actif {
+  background: #1800ad;
+  color: #fff;
+  font-weight: 700;
+}
+
+.onglet__compte {
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+.liste-entrees {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-right: 1px solid #e0dcd6;
+  overflow-y: auto;
+}
+
+.liste-entrees ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entree {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-align: left;
+  line-height: 1.35;
+}
+
+.entree:hover {
+  background: #eceae6;
+}
+
+.entree--active {
+  background: #e7e4ff;
+  font-weight: 600;
+}
+
+.editeur {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* --- Les champs --- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form--1,
+.form--2 {
+  gap: 10px;
+}
+
+.ch {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ch__nom {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b6b6b;
+}
+
+.ch__saisie {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d5d0c9;
+  border-radius: 7px;
+  background: #fff;
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.ch__saisie:focus {
+  outline: 2px solid #1800ad;
+  outline-offset: -1px;
+}
+
+.ch--court .ch__saisie {
+  max-width: 140px;
+}
+
+.ch--case {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.bloc {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #e0dcd6;
+  border-radius: 9px;
+}
+
+.bloc__nom {
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #6b6b6b;
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #e0dcd6;
+  border-radius: 9px;
+  background: #faf9f7;
+}
+
+.liste__tete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.liste__compte {
+  opacity: 0.6;
+}
+
+.liste__entree {
+  padding: 10px;
+  border: 1px solid #e6e2dc;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.liste__outils {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  color: #6b6b6b;
+}
+
+.liste__rang {
+  margin-right: auto;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.liste__outils button:hover {
+  color: #1800ad;
+}

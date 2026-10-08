@@ -6,10 +6,7 @@ import Compagnon from './Compagnon'
 import ExitGamePrompt from './ExitGamePrompt'
 import GameStart from './GameStart'
 import TabBar from './TabBar'
-import { abandonnerSession, auMieux } from '../api/progression'
-import { useCompte } from '../state/compte'
 import { ExitGuardContext } from '../state/exitGuard'
-import { getCurrentSession } from '../state/currentSession'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
 import { useJeu, useJeux } from '../state/jeux'
 import { PATHS, pageTitle } from '../routes'
@@ -26,11 +23,11 @@ const gameOfPath = (path) => {
  * d'onglets.
  *
  * C'est aussi le seuil des jeux, et il tient en un écran : **l'écran de
- * départ**. Il dit la règle, la durée, ce qu'on va faire, et rappelle qu'on
- * joue sans compte quand c'est le cas. C'est le seul endroit où les règles
- * sont dites : les répéter dans un tutoriel revenait à ne les lire nulle part.
+ * départ**. Il dit la règle, la durée, ce qu'on va faire, et où la progression
+ * est gardée. C'est le seul endroit où les règles sont dites : les répéter dans
+ * un tutoriel revenait à ne les lire nulle part.
  *
- * Rien ne barre l'entrée d'un jeu : jouer sans compte se fait d'un trait.
+ * Rien ne barre l'entrée d'un jeu : il n'y a ni compte ni inscription.
  *
  * Le même écran se rouvre en cours de partie par le bouton de l'en-tête. Il
  * annonce alors « Reprendre », et la partie n'est pas relancée : elle est
@@ -39,7 +36,6 @@ const gameOfPath = (path) => {
 export default function AppShell() {
   const { pathname } = useLocation()
   const navigate = useNavigate()
-  const { connecte } = useCompte()
 
   const gameId = gameOfPath(pathname)
   const jeu = useJeu(gameId)
@@ -100,9 +96,9 @@ export default function AppShell() {
 
   const guard = useMemo(() => ({ requestExit }), [requestExit])
 
+  // Il n'y a plus de partie à clore côté serveur : la progression a été écrite
+  // au fil des décisions, il ne reste qu'à s'en aller.
   const confirmExit = useCallback(() => {
-    const sessionId = getCurrentSession()
-    if (sessionId) auMieux(abandonnerSession(sessionId))
     const to = exitTo
     setExitTo(null)
     if (to) navigate(to)
@@ -143,7 +139,6 @@ export default function AppShell() {
               <GameStart
                 key="start"
                 jeu={jeu}
-                connecte={connecte}
                 reprise={lancee}
                 onStart={commencer}
               />
@@ -163,7 +158,6 @@ export default function AppShell() {
           {exitTo !== null && (
             <ExitGamePrompt
               key="exit"
-              connecte={connecte}
               onConfirm={confirmExit}
               onCancel={() => setExitTo(null)}
             />

@@ -8,7 +8,8 @@
 #   docker run -p 8080:80 -e ADMIN_USER=admin -e ADMIN_PASSWORD=… \
 #     -v "$PWD/public/donnees:/var/www/html/donnees" ctrlinfo
 #
-# Sans ADMIN_USER / ADMIN_PASSWORD, /admin/ est fermé à tout le monde.
+# Sans ADMIN_USER / ADMIN_PASSWORD, l'administration est fermée à tout le monde.
+# Son dossier est celui que config.local.json a fixé à la construction.
 
 FROM node:24-alpine AS build
 WORKDIR /app

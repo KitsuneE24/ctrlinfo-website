@@ -25,3 +25,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Le vrai chemin de l'administration ne se publie pas.
+config.local.json

@@ -1,4 +1,8 @@
 {
+  "admin": {
+    "_note": "Le dossier où sort l'administration. Ne pas mettre le vrai chemin ici : ce fichier est versionné. Le vrai va dans config.local.json, qui n'est pas suivi par git.",
+    "chemin": "admin"
+  },
   "recolte": {
     "maxArticlesParFlux": 20,
     "maxPublications": 12,

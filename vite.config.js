@@ -33,4 +33,12 @@ function deepLinkFallback() {
 export default defineConfig({
   base,
   plugins: [react(), deepLinkFallback()],
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(import.meta.dirname, 'index.html'),
+        admin: resolve(import.meta.dirname, 'admin/index.html'),
+      },
+    },
+  },
 })

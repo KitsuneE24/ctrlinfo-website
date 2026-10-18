@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router'
-import { AnimatePresence, motion } from 'framer-motion'
 import {
   ATTENTE_ECRAN,
   ATTENTE_INACTIF,
@@ -174,7 +173,7 @@ export default function Compagnon({ enJeu = false }) {
    * déplacée par une transformation, et le suit donc sans qu'une seule ligne de
    * code ait à la déplacer. C'est la seule façon fiable qu'elle ne se retrouve
    * jamais en arrière — un placement calculé image par image entrait en
-   * conflit avec les styles que React et framer-motion réécrivent.
+   * conflit avec les styles que React réécrit.
    *
    * Elle pend à une ancre posée à l'axe du personnage, et **la pointe est
    * toujours du côté qui le touche** — jamais au milieu :
@@ -718,14 +717,9 @@ export default function Compagnon({ enJeu = false }) {
             déplace les emporte toutes les deux. Sa largeur est mesurée à
             l'ouverture — la place qui reste jusqu'au bord. */}
         <div className="compagnon__ancre" style={{ bottom: HAUTEUR + DEGAGEMENT }}>
-          <AnimatePresence mode="wait">
             {bulle && (
-              <motion.p
+              <p
                 key={bulle.texte}
-                initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 4, scale: 0.97 }}
-                transition={{ type: 'spring', stiffness: 420, damping: 30 }}
                 role="status"
                 style={{
                   maxWidth: bulle.place,
@@ -734,12 +728,11 @@ export default function Compagnon({ enJeu = false }) {
                   '--pointe-gauche': bulle.cote === 'droite' ? `${POINTE}px` : 'auto',
                   '--pointe-droite': bulle.cote === 'gauche' ? `${POINTE}px` : 'auto',
                 }}
-                className="compagnon__bulle"
+                className="compagnon__bulle anim-surgit"
               >
                 {bulle.texte}
-              </motion.p>
+              </p>
             )}
-          </AnimatePresence>
         </div>
 
         {/* Elle s'efface le temps d'une bulle : les deux se posent au même

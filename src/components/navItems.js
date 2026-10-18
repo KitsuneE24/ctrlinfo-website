@@ -1,19 +1,9 @@
-import { CircleUserRound, Compass, House, Search, Send } from 'lucide-react'
+import { BookOpen, CircleUserRound, House, Newspaper, Send } from 'lucide-react'
 import { PATHS } from '../routes'
 
 /**
- * La navigation de l'application, décrite ici et nulle part ailleurs.
- *
- * Une seule barre, en bas, à toutes les tailles d'écran : ce que faisait le
- * téléphone est devenu la règle, y compris sur ordinateur. Il n'y a donc plus
- * de barre horizontale dans l'en-tête, ni de menu déroulant de jeux.
- *
- * Les icônes reprennent le vocabulaire d'Instagram, que le public visé lit sans
- * y penser : la maison, la boussole, l'avion en papier, la loupe, l'avatar. Le
- * site imite un réseau social — sa navigation aussi.
- *
- * Chaque entrée porte son chemin et sa couleur, cette dernière pour l'état
- * actif seulement (jetons.css).
+ * Entrées de navigation. Téléphone : barre du bas.
+ * Ordinateur : pilule de l'en-tête, rangée par `ordreBureau` (sans le profil).
  */
 export const TAB_ITEMS = [
   {
@@ -21,41 +11,38 @@ export const TAB_ITEMS = [
     path: PATHS.home,
     Icon: House,
     label: 'Accueil',
-    color: 'var(--nav-home)',
-    // Remplie à l'état actif, comme la maison d'Instagram.
-    filled: true,
-  },
-  {
-    id: 'feed',
-    path: PATHS.feed,
-    Icon: Compass,
-    label: "Fil d'actualité",
-    color: 'var(--nav-feed)',
+    ordreBureau: 1,
   },
   {
     id: 'chat',
     path: PATHS.chats,
     Icon: Send,
-    label: 'Conversations',
-    color: 'var(--nav-chat)',
+    label: 'Messages',
+    ordreBureau: 3,
   },
   {
-    // « Comprendre » et l'annuaire des sources étaient deux rubriques de
-    // lecture, à deux endroits, sous deux noms proches. Elles n'en font plus
-    // qu'une : « Ressources », avec ses deux sous-onglets.
+    id: 'feed',
+    path: PATHS.feed,
+    Icon: Newspaper,
+    label: "Fil d'actu",
+    ordreBureau: 2,
+  },
+  {
     id: 'resources',
     path: PATHS.resources,
-    Icon: Search,
-    label: 'Ressources',
-    color: 'var(--nav-learn)',
+    Icon: BookOpen,
+    label: 'Comprendre',
+    ordreBureau: 4,
   },
   {
-    // L'onglet ne porte plus un compte mais un avancement : le mot change,
-    // l'adresse non — `/profil` circule dans des liens déjà partagés.
     id: 'profile',
     path: PATHS.profile,
     Icon: CircleUserRound,
-    label: 'Progression',
-    color: 'var(--nav-profil)',
+    label: 'Profil',
   },
 ]
+
+/** Entrées de la pilule de l'en-tête. */
+export const NAV_BUREAU = TAB_ITEMS.filter((item) => item.ordreBureau).sort(
+  (a, b) => a.ordreBureau - b.ordreBureau
+)

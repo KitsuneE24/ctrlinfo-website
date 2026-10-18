@@ -1,54 +1,47 @@
-import { motion } from 'framer-motion'
 import { Play, RotateCcw } from 'lucide-react'
-import CadreCagou from './CadreCagou'
+import Filaments from './ui/Filaments'
+import Kiwi from './ui/Kiwi'
 
-/**
- * L'écran de départ d'un jeu : ce qu'on va y faire, et rien d'autre.
- *
- * C'est le **seul** endroit où les règles sont dites. Il y avait avant un
- * tutoriel en trois volets qui répétait ces mêmes points : lues deux fois,
- * elles n'étaient lues nulle part.
- *
- * Rouvert en cours de partie (`reprise`), il ne relance rien : il rappelle, et
- * on repart où on en était.
- */
+/** Écran « Avant de jouer ». `reprise` : rouvert en cours de partie, ne relance rien. */
 export default function GameStart({ jeu, reprise, onStart }) {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.18 }}
-      className="game-start no-scrollbar"
+    <div
+      className="voile game-start anim-apparait"
     >
-      <motion.div
-        initial={{ y: 12 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.22 }}
-        className="game-start__cadre"
+      <span aria-hidden="true" className="voile__fantome" />
+      <Filaments forme="swirl" tourne />
+
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="regles-titre"
+        className="fenetre game-start__fenetre anim-surgit"
       >
-        <CadreCagou>
-          <p className="game-start__eyebrow">
-            {reprise ? 'Rappel des règles' : 'Avant de jouer'}
-          </p>
-          <h1 className="game-start__title">{jeu.titre}</h1>
+        <Kiwi className="game-start__kiwi" />
 
-          <ul className="game-start__points">
-            {jeu.points.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
+        <p className="etiquette">{reprise ? 'Rappel des règles' : 'Avant de jouer'}</p>
+        <h1 id="regles-titre" className="fenetre__titre game-start__titre">
+          {jeu.titre}
+        </h1>
 
-          <button type="button" onClick={onStart} className="game-start__go">
-            {reprise ? (
-              <RotateCcw size={16} strokeWidth={2.2} />
-            ) : (
-              <Play size={15} fill="currentColor" strokeWidth={0} />
-            )}
-            {reprise ? 'Reprendre' : 'Commencer'}
-          </button>
-        </CadreCagou>
-      </motion.div>
-    </motion.div>
+        <ol className="game-start__points">
+          {jeu.points.map((point, i) => (
+            <li key={point}>
+              <span className="game-start__numero">{i + 1}</span>
+              <span>{point}</span>
+            </li>
+          ))}
+        </ol>
+
+        <button type="button" onClick={onStart} className="bouton bouton--plein bouton--large">
+          {reprise ? (
+            <RotateCcw size={17} strokeWidth={2.2} />
+          ) : (
+            <Play size={16} fill="currentColor" strokeWidth={0} />
+          )}
+          {reprise ? 'Reprendre' : 'Commencer'}
+        </button>
+      </div>
+    </div>
   )
 }

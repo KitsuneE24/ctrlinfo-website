@@ -1,264 +1,217 @@
 /* ========================================================================
-   LE SEUIL DES JEUX
-   L'écran de départ, l'alerte de sortie, et le panneau du cagou.
+   SEUIL DES JEUX
+   « Avant de jouer », « Quitter la partie », et le panneau du cagou.
    ======================================================================== */
 
 @layer components {
-  .gate,
   .game-start {
-    position: fixed;
-    inset: 0;
     z-index: 97;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    /* Elles couvrent l'écran entier, encoches comprises : sans ça, le bas de
-       la carte passe sous le trait de geste du téléphone. */
-    padding: calc(20px + var(--sa-top)) 20px calc(20px + var(--sa-bottom));
-    background: rgba(20, 8, 44, 0.55);
-    backdrop-filter: blur(3px);
   }
 
-  /* --- L'alerte : une petite fenêtre --- */
-
-  .gate__cadre {
-    width: 100%;
-    max-width: 720px;
-    margin: auto;
+  .game-start__fenetre {
+    max-width: 480px;
+    margin-top: 30px;
+    overflow: visible;
   }
 
-  .gate__title {
-    margin: 0;
-    font-family: var(--font-title);
-    font-size: var(--text-lg);
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: center;
-    color: var(--ink);
-  }
-
-  .gate__text {
-    margin: 8px 0 0;
-    font-size: var(--text-sm);
-    line-height: var(--leading-snug);
-    color: var(--ink-soft);
-  }
-
-  .gate__actions {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    margin-top: 12px;
-  }
-
-  /* L'aparté : sous un filet, en retrait des deux réponses. */
-  .gate__aparte {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid var(--line);
-  }
-
-  .gate__aparte-texte {
-    margin: 0;
-    font-size: var(--text-xs);
-    color: var(--ink-faint);
-  }
-
-  .gate__aparte-bouton {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 8px 14px;
-    border: 2px solid var(--brand-blue);
-    border-radius: 10px;
-    background: var(--surface);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--brand-blue);
-    transition: background-color 0.15s;
-  }
-
-  .gate__aparte-bouton:hover {
-    background: color-mix(in srgb, var(--brand-blue) 10%, var(--surface));
-  }
-
-  .gate__primary {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    padding: 10px 18px;
-    border-radius: 999px;
-    background: var(--brand-blue);
-    color: var(--brand-cream);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    transition: transform 0.12s;
-  }
-
-  .gate__primary:active {
-    transform: scale(0.98);
-  }
-
-  .gate__secondary {
-    padding: 9px 18px;
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    background: var(--surface);
-    color: var(--ink-muted);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    transition: background-color 0.15s;
-  }
-
-  .gate__secondary:hover {
-    background: var(--wash);
-  }
-
-  .game-start__cadre,
-  .modal__cadre {
-    position: relative;
-    width: 100%;
-    max-width: 720px;
-    margin: auto;
-  }
-
-  .cadre-cagou__panneau .modal__title {
-    font-size: var(--text-xl);
-    text-align: center;
-  }
-
-  .cadre-cagou__panneau .modal__text {
-    margin-top: 10px;
-    font-size: var(--text-md);
-    line-height: var(--leading-body);
-    text-align: center;
-  }
-
-  .cadre-cagou__panneau .modal__bias {
-    align-self: center;
-    margin-top: 12px;
-  }
-
-  .cadre-cagou__panneau .modal__actions {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 16px;
-  }
-
-  .cadre-cagou__panneau .button {
-    padding: 12px 16px;
-    font-size: var(--text-md);
-  }
-
-  .game-start__title {
-    margin: 2px 0 12px;
-    font-family: var(--font-title);
-    font-size: var(--text-xl);
-    font-weight: 700;
-    line-height: 1.15;
-    text-align: center;
-    color: var(--ink);
-  }
-
-  .game-start__eyebrow {
-    margin: 0;
-    font-size: var(--text-xs);
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-align: center;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-
-  .cadre-cagou {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    margin: -7% 0 -16%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .cadre-cagou__panneau {
+  /* La mascotte qui dépasse en haut de la fenêtre. */
+  .game-start__kiwi {
     position: absolute;
-    top: 33%;
-    right: 27.5%;
-    bottom: 25%;
-    left: 8.5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 2%;
-    overflow-y: auto;
-    overscroll-behavior: contain;
+    top: -26px;
+    left: 22px;
+  }
+
+  @media (min-width: 768px) {
+    .game-start__kiwi {
+      top: -34px;
+      right: 36px;
+      left: auto;
+      width: 68px !important;
+      height: 68px !important;
+    }
+  }
+
+  .game-start__fenetre > .etiquette {
+    margin-top: 10px;
+  }
+
+  @media (min-width: 768px) {
+    .game-start__fenetre > .etiquette {
+      margin-top: 0;
+    }
+  }
+
+  .game-start__titre {
+    margin: 6px 0 22px;
+    line-height: 0.98;
   }
 
   .game-start__points {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 0;
+    gap: 14px;
+    margin: 0 0 24px;
+    padding: 0;
+    list-style: none;
   }
 
   .game-start__points li {
-    position: relative;
-    padding-left: 22px;
-    font-size: var(--text-md);
-    line-height: var(--leading-body);
-    color: var(--ink-soft);
-  }
-
-  .game-start__points li::before {
-    content: '';
-    position: absolute;
-    top: 0.62em;
-    left: 4px;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--brand-blue);
-  }
-
-  .game-start__go {
     display: flex;
-    align-self: stretch;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 14px;
-    padding: 14px 20px;
-    border-radius: 14px;
-    background: var(--brand-blue);
-    color: var(--brand-cream);
-    font-size: var(--text-md);
-    font-weight: 700;
-    transition: background-color 0.15s, transform 0.12s;
+    gap: 14px;
+    font-size: 15px;
+    line-height: 1.35;
+    color: var(--ink);
   }
 
-  .game-start__go:hover {
-    background: color-mix(in srgb, var(--brand-blue) 84%, white);
-  }
-
-  .game-start__go:active {
-    transform: scale(0.98);
-  }
-
-  /* Écran court : on resserre, sans jamais coller. */
-  @media (max-height: 700px) {
-    .game-start {
-      padding: calc(12px + var(--sa-top)) 12px calc(12px + var(--sa-bottom));
+  @media (min-width: 768px) {
+    .game-start__points li {
+      gap: 16px;
+      font-size: 17px;
     }
+  }
 
+  .game-start__numero {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    place-items: center;
+    border: 1px solid var(--filet-fenetre);
+    border-radius: 50%;
+    font-family: var(--font-title);
+    font-size: 22px;
+    color: var(--magenta-texte);
+  }
+
+  @media (min-width: 768px) {
+    .game-start__numero {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  .game-start .bouton--plein {
+    min-height: 58px;
+    font-size: 17px;
+  }
+
+  @media (max-height: 640px) {
     .game-start__points {
       gap: 8px;
     }
+  }
+
+  /* --- Quitter --- */
+
+  .gate {
+    z-index: 110;
+  }
+
+  .gate__fenetre {
+    text-align: center;
+  }
+
+  .gate__aparte {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--filet-2);
+    text-align: left;
+  }
+
+  .gate__aparte-texte {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+
+
+  /* --- Panneau tenu par le cagou (verdict, brève du jour) ---
+     Repères de notif-cagou.png (1200 px) : coin haut droit du panneau en
+     (892, 365), bordure 5 px. --s : échelle de l'image. */
+
+  .modal__cadre {
+    position: relative;
+    width: min(560px, calc(100vw - 24px));
+    margin: auto;
+  }
+
+  .cadre-cagou {
+    --s: 0.3;
+    position: relative;
+    width: calc(100% - 268px * var(--s));
+    margin-top: calc(165px * var(--s));
+  }
+
+  @media (min-width: 768px) {
+    .cadre-cagou {
+      --s: 0.42;
+    }
+  }
+
+  .cadre-cagou__panneau {
+    --ink: var(--papier-encre);
+    --ink-soft: var(--papier-encre);
+    --ink-muted: var(--papier-encre);
+    position: relative;
+    display: flex;
+    max-height: calc(100dvh - 140px);
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 20px 18px 18px;
+    border: calc(5px * var(--s)) solid var(--noir);
+    border-radius: calc(40px * var(--s));
+    background: var(--blanc);
+    color: var(--papier-encre);
+  }
+
+  @media (min-width: 768px) {
+    .cadre-cagou__panneau {
+      gap: 10px;
+      padding: 28px 28px 24px;
+    }
+  }
+
+  /* Découpe x 690–1160, y 200–870 ; sous la main, seul le corps (x > 892) reste. */
+  .cadre-cagou__oiseau {
+    position: absolute;
+    z-index: 1;
+    top: calc((200px - 365px) * var(--s));
+    left: calc(100% - 202px * var(--s));
+    width: calc(470px * var(--s));
+    height: calc(670px * var(--s));
+    background-repeat: no-repeat;
+    background-size: calc(1200px * var(--s)) auto;
+    background-position: calc(-690px * var(--s)) calc(-200px * var(--s));
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 43.4% 100%, 43.4% 31.6%, 0 31.6%);
+    pointer-events: none;
+  }
+
+  .cadre-cagou__panneau .modal__title {
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .cadre-cagou__panneau .modal__text {
+    margin: 0;
+    text-align: left;
+  }
+
+  .cadre-cagou__panneau .modal__actions {
+    margin-top: 6px;
+  }
+
+  /* Bouton secondaire sur fond blanc */
+  .cadre-cagou__panneau .bouton:not(.bouton--encre) {
+    border-color: color-mix(in srgb, var(--papier-encre) 55%, transparent);
+    background: transparent;
+    color: var(--papier-encre);
   }
 }

@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { motion } from 'framer-motion'
 import { Sparkles, Trophy, GraduationCap, ArrowRight } from 'lucide-react'
 import { getNiveaux, getRemediations, getTirage } from '../api/contenu'
-import { lireInterets } from '../lib/interests'
 import {
   dejaVus,
   finirLeFil,
@@ -18,7 +16,7 @@ import PostCard from './PostCard'
 import FeedbackModal from './FeedbackModal'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
 
-export default function Feed({ onSwitch, onFinished, paused = false }) {
+export default function Feed({ onSwitch, onFinished, onRegles, paused = false }) {
   // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
   const suite = useAutreJeu('feed')
 
@@ -51,7 +49,7 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
   // tirage, et l'appelant la vide avant de relancer.
   const chargerNiveau = useCallback(
     (level) =>
-      getTirage(level, { themes: lireInterets(), vus: dejaVus() })
+      getTirage(level, { vus: dejaVus() })
         .then((tirage) => {
           setPostQueue(tirage)
           setQueueIdx(0)
@@ -89,14 +87,11 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
   // remédiation s'y ajoutent sans compter dans l'avancement.
   const levelTotal = postQueue.filter((post) => !post.isRemediation).length
 
-  const levelProgress = levelTotal > 0 ? Math.min(levelDoneCount / levelTotal, 1) : 0
-
   const isCorrect =
     action !== null && currentPost !== null
       ? action === currentPost.correctAction
       : false
 
-  // Mesuré plutôt que codé en dur : la hauteur change avec la largeur de
   function handleAction(type) {
     if (action !== null) return
 
@@ -205,13 +200,14 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
         onLearnMore={handleLearnMore}
       />
 
-      <Page feed>
+      {/* Le post tient dans l'écran : pas de défilement. */}
+      <Page feed fill>
         {erreur ? (
           <ErreurChargement erreur={erreur} onReessayer={() => chargerNiveau(currentLevel)} />
         ) : chargement ? (
           <Chargement quoi="le fil" />
         ) : isAllDone ? (
-          <section className="card outcome">
+          <section className="card outcome anim-monte">
             <span className="outcome__badge">
               <Trophy size={34} strokeWidth={1.8} />
             </span>
@@ -227,7 +223,7 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
                 <button
                   type="button"
                   onClick={() => onSwitch(suite.id)}
-                  className="button"
+                  className="bouton bouton--plein bouton--large"
                 >
                   Enchaîner sur «&nbsp;{suite.titre}&nbsp;»
                   <ArrowRight size={16} strokeWidth={2.2} />
@@ -236,11 +232,8 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
             )}
           </section>
         ) : levelTransition ? (
-          <motion.section
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="card outcome"
+          <section
+            className="card outcome anim-monte"
           >
             <span className="outcome__badge outcome__badge--small">
               <Sparkles size={24} strokeWidth={2} />
@@ -249,24 +242,23 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
             <p className="outcome__note">{niveaux[currentLevel + 1]?.sousTitre}</p>
             {/* Fin de niveau : le moment où l'on propose l'autre jeu. */}
             <div className="outcome__action">
-              <button type="button" onClick={handleLevelUnlock} className="button">
+              <button type="button" onClick={handleLevelUnlock} className="bouton bouton--plein bouton--large">
                 Continuer
               </button>
               {suite && (
                 <button
                   type="button"
                   onClick={() => onSwitch(suite.id)}
-                  className="button button--ghost"
+                  className="bouton bouton--large"
                 >
                   Changer de jeu&nbsp;: «&nbsp;{suite.titre}&nbsp;»
                 </button>
               )}
             </div>
-          </motion.section>
+          </section>
         ) : (
-          <>
+          <div className="fil-jeu">
             <FeedStats
-              progress={levelProgress}
               currentLevel={Math.min(currentLevel, 3)}
               levelDoneCount={levelDoneCount}
               levelTotal={levelTotal}
@@ -276,18 +268,14 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
               timerActive={timerActive && !paused}
               timerSecondes={niveaux[currentLevel]?.dureeSecondes ?? null}
               onTimerComplete={handleTimerExpire}
+              onRegles={onRegles}
             />
 
 
-            {/* Une publication à la fois. Le fil continu affichait tout le
-                niveau d'un coup, estompé : on lisait la suite au lieu de
-                décider de celle-ci. */}
             {currentPost && (
-              <motion.div
+              <div
+                className="fil-jeu__post anim-monte"
                 key={`${currentPost.id}-${queueIdx}`}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.22 }}
               >
                 {currentPost.isRemediation && (
                   <p className="remediation">
@@ -302,9 +290,9 @@ export default function Feed({ onSwitch, onFinished, paused = false }) {
                   disabled={actionsDisabled}
                   selectedAction={action}
                 />
-              </motion.div>
+              </div>
             )}
-          </>
+          </div>
         )}
       </Page>
     </div>

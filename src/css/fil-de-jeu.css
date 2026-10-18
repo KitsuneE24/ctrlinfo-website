@@ -3,124 +3,365 @@
    ======================================================================== */
 
 @layer components {
-  /* Bandeau de progression, collé en haut pendant le défilement. Opaque : les
-     publications passent dessous. */
-  .feed-stats {
+  /* --- Partie en cours : tout tient dans la hauteur de l'écran --- */
+
+  .feed .page__column--feed {
+    padding-bottom: 12px;
+  }
+
+  .fil-jeu {
+    display: flex;
+    flex: 1 1 0;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  .fil-jeu__post {
+    display: flex;
+    flex: 1 1 0;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  /* Ordinateur : post à gauche, état de la partie à droite. */
+  @media (min-width: 1024px) {
+    .feed .page__column--feed {
+      max-width: 920px;
+      padding-bottom: 24px;
+    }
+
+    .fil-jeu {
+      display: grid;
+      grid-template-columns: minmax(0, 540px) 280px;
+      grid-template-rows: minmax(0, 1fr);
+      justify-content: center;
+      align-items: start;
+      gap: 40px;
+    }
+
+    .fil-jeu__post {
+      grid-column: 1;
+      grid-row: 1;
+      height: 100%;
+    }
+  }
+
+  /* --- État de la partie --- */
+
+  .fil-etat {
     position: sticky;
     top: 0;
     z-index: 20;
-    padding: 14px 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    /* Débord pleine largeur : annule le padding de `.page__column--feed`. */
-    margin: -16px -12px 0;
-    border-radius: 0;
-    border-left: 0;
-    border-right: 0;
+    flex-shrink: 0;
+    margin: -16px -12px 12px;
+    padding: 10px 16px 8px;
+    background: var(--encre);
+    border-bottom: 1px solid var(--filet-1);
   }
 
-  /* Sur grand écran, une carte comme les autres. */
   @media (min-width: 768px) {
-    .feed-stats {
-      margin: 0;
+    .fil-etat {
+      margin: 0 0 18px;
+      border: 1px solid var(--filet-2);
       border-radius: var(--radius-card);
-      border-left: 1px solid var(--line);
-      border-right: 1px solid var(--line);
     }
-
   }
 
-  /* Niveau à gauche, avancement et décompte à droite. */
-  .feed-stats__top {
+  .fil-etat__barre {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
+    gap: 14px;
   }
 
-  .feed-stats__level {
-    padding: 3px 9px;
-    border-radius: 999px;
-    background: var(--brand-magenta);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    line-height: 1.4;
+  .fil-etat__quitter-texte {
+    display: none;
   }
 
-
-  .feed-stats__track {
-    height: 4px;
-    width: 100%;
-    border-radius: 999px;
-    background: var(--wash-strong);
-    overflow: hidden;
+  /* « ? » des règles : en bout de bandeau sur mobile */
+  .fil-etat__regles {
+    order: 2;
   }
 
-  .feed-stats__bar {
-    height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(to right, var(--brand-blue), var(--brand-magenta-light));
-    transition: width 0.5s;
+  .fil-etat__avancement {
+    min-width: 0;
+    flex: 1 1 0;
   }
 
-  .feed-stats__caption {
-    margin: 0 0 0 auto;
+  .fil-etat__niveau {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 0 7px;
+  }
+
+  .fil-etat__niveau .etiquette {
     font-size: 12px;
-    color: var(--ink-faint);
   }
 
-  /* --- Chrono de la publication ---
-     Il vit dans le bandeau ci-dessus, qui ne défile pas. */
+  .fil-etat__compte {
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+
+  .fil-etat__segments {
+    display: flex;
+    gap: 4px;
+  }
+
+  .fil-etat__segment {
+    height: 4px;
+    flex: 1 1 0;
+    border-radius: 2px;
+    background: var(--filet-3);
+    transition: background-color 0.3s;
+  }
+
+  .fil-etat__segment--fait {
+    background: var(--blanc);
+  }
+
+  .fil-etat__segment--en-cours {
+    background: var(--magenta-texte);
+  }
+
+  .fil-etat__chrono {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+
+  .fil-etat__conseil {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .fil-etat {
+      position: sticky;
+      top: 24px;
+      grid-column: 2;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .fil-etat__barre {
+      position: relative;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 18px;
+      overflow: hidden;
+      padding: 20px 22px 26px;
+      border: 1px solid var(--filet-2);
+      border-radius: 28px;
+      background: var(--surface);
+    }
+
+    .fil-etat__quitter {
+      align-self: flex-end;
+      width: auto;
+      gap: 8px;
+      padding: 0 16px 0 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .fil-etat__quitter-texte {
+      display: inline;
+    }
+
+    .fil-etat__chrono {
+      align-self: center;
+      order: -1;
+      margin-top: 8px;
+    }
+
+    .fil-etat__quitter {
+      order: -2;
+    }
+
+    /* Métal en fusion en fond, voilé pour garder le compteur lisible. */
+    .fil-etat__molten {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+    }
+
+    .fil-etat__molten::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: color-mix(in srgb, var(--encre) 20%, transparent);
+    }
+
+    /* Même violet que les bandeaux, sous le shader. */
+    .fil-etat__barre:has(.fil-etat__molten) {
+      border-color: color-mix(in srgb, var(--blanc) 12%, transparent);
+      background: var(--brand-violet-deep);
+    }
+
+    .fil-etat__barre > :not(.fil-etat__molten) {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Ordinateur : « ? » en haut à gauche, Quitter en haut à droite. */
+    .fil-etat__barre > .fil-etat__regles {
+      position: absolute;
+      top: 20px;
+      left: 22px;
+    }
+
+    .fil-etat__conseil {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 18px 18px;
+      transform: rotate(1.5deg);
+    }
+
+    .fil-etat__conseil .papier__ruban {
+      left: 30px;
+      width: 70px;
+      margin-left: 0;
+      transform: rotate(-5deg);
+    }
+
+    .fil-etat__conseil .kiwi {
+      box-shadow: none;
+      background: var(--blanc);
+    }
+
+    .fil-etat__conseil p {
+      margin: 0;
+      font-family: var(--font-title);
+      font-size: 20px;
+      line-height: 1.15;
+    }
+  }
+
+  /* --- Chrono en anneau --- */
 
   .countdown {
-    display: inline-flex;
-    flex-shrink: 0;
-    align-items: baseline;
-    gap: 5px;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: var(--brand-blue);
-    color: var(--brand-cream);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-    box-shadow: 0 3px 10px rgba(24, 0, 173, 0.28);
-    transition: background 0.25s, box-shadow 0.25s;
+    position: relative;
+    display: block;
+    width: 44px;
+    height: 44px;
   }
 
-  /* L'icône n'a pas de ligne de base : on la recale. */
-  .countdown svg {
-    align-self: center;
+  @media (min-width: 1024px) {
+    .countdown {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  .countdown__anneau {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .countdown__piste {
+    fill: none;
+    stroke: var(--filet-2);
+    stroke-width: 3;
+  }
+
+  .countdown__reste {
+    fill: none;
+    stroke: var(--blanc);
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.1s linear, stroke 0.25s;
+  }
+
+  .countdown--urgent .countdown__reste {
+    stroke: var(--rouge-texte);
+  }
+
+  .countdown__chiffre {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .countdown__value {
-    /* Deux chiffres réservés, pour que le cadran ne se décale pas. */
-    min-width: 1.35em;
-    text-align: right;
-    font-size: var(--text-md);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+
+  .countdown--urgent .countdown__value {
+    color: var(--rouge-texte);
+    animation: countdown-pulse 1s ease-in-out infinite;
   }
 
   .countdown__unit {
-    font-size: 11.5px;
-    font-weight: 600;
-    opacity: 0.75;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
   }
 
-  /* Dix dernières secondes. */
-  .countdown--urgent {
-    background: var(--verdict-ko);
-    color: #fff;
-    box-shadow: 0 3px 12px rgba(192, 57, 43, 0.4);
-    animation: countdown-pulse 1s ease-in-out infinite;
+  @media (min-width: 1024px) {
+    .countdown__anneau circle {
+      stroke-width: 1.8;
+    }
+
+    .countdown__value {
+      font-family: var(--font-title);
+      font-size: 52px;
+      font-weight: 400;
+    }
+
+    .countdown__unit {
+      position: static;
+      width: auto;
+      height: auto;
+      margin-top: 2px;
+      clip: auto;
+      font-size: 12px;
+      color: var(--ink-faint);
+    }
   }
 
   /* --- Publication --- */
 
   .post {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-card);
+    display: flex;
+    max-height: 100%;
+    min-height: 0;
+    flex-direction: column;
     overflow: hidden;
+    border: 1px solid var(--filet-2);
+    border-radius: 22px;
+    background: var(--surface);
+  }
+
+  .post__header,
+  .remediation {
+    flex-shrink: 0;
+  }
+
+  /* Texte, image, commentaires : défilent dans le post si besoin. */
+  .post__defile {
+    min-height: 0;
+    flex: 0 1 auto;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .post--past {
@@ -132,24 +373,31 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 14px;
+    padding: 10px 14px 10px 16px;
+  }
+
+  .post__avatar-anneau {
+    display: flex;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+    border-radius: 50%;
+    background: var(--magenta);
   }
 
   .post__avatar {
     display: flex;
-    flex-shrink: 0;
+    flex: 1;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    border: 2px solid var(--surface);
     border-radius: 50%;
-    color: #fff;
-    font-size: 14px;
+    color: var(--blanc);
+    font-size: 13px;
     font-weight: 700;
   }
 
-  /* Les réactions, dans la grammaire d'une légende : le pseudo puis le texte,
-     sur la même ligne. */
   .post__thread {
     display: flex;
     flex-direction: column;
@@ -158,23 +406,24 @@
   }
 
   .reaction {
-    font-size: var(--text-sm);
-    line-height: var(--leading-body);
-    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink);
   }
 
+  /* Couleur du contenu, éclaircie pour le fond sombre */
   .reaction__auteur {
     font-weight: 700;
+    color: color-mix(in srgb, var(--auteur, var(--ink)) 45%, var(--blanc));
   }
 
-  /* Discrète, comme sur un vrai réseau — mais lisible. */
   .post__sponso {
-    margin-left: auto;
     flex-shrink: 0;
+    margin-left: auto;
     padding: 3px 9px;
-    border: 1px solid var(--line-strong);
+    border: 1px solid var(--filet-4);
     border-radius: 999px;
-    font-size: var(--text-2xs);
+    font-size: 12px;
     font-weight: 600;
     color: var(--ink-muted);
   }
@@ -187,46 +436,82 @@
 
   .post__account {
     margin: 0;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--ink);
     overflow: hidden;
+    font-size: 14px;
+    font-weight: 700;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: var(--ink);
   }
 
   .post__domain {
     margin: 1px 0 0;
-    font-size: var(--text-2xs);
-    color: var(--ink-faint);
     overflow: hidden;
+    font-size: 12px;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: var(--ink-faint);
   }
 
-  /* Le texte, posé avant l'image. Même gouttière que le bas de carte. */
   .post__lead {
-    padding: 0 14px 12px;
+    padding: 0 16px 12px;
   }
 
+  /* Image plafonnée : le texte passe en premier. */
   .post__media {
     display: block;
     width: 100%;
-    max-height: 420px;
+    max-height: 30dvh;
     object-fit: cover;
-    background: var(--wash);
+    background: var(--surface-media);
   }
 
+  @media (min-width: 1024px) {
+    .post__media {
+      max-height: 42dvh;
+    }
+  }
+
+  /* Toujours visible : collée en bas de la zone qui défile. */
   .post__actions {
+    position: sticky;
+    z-index: 1;
+    bottom: 0;
     display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 12px 14px 6px;
+    padding: 4px 8px;
+    background: var(--surface);
+    box-shadow: 0 -12px 14px -12px color-mix(in srgb, var(--noir) 70%, transparent);
   }
 
   .post__action {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border-radius: 50%;
     color: var(--ink);
-    transition: opacity 0.15s;
+    transition: background-color 0.15s, opacity 0.15s;
+  }
+
+  @media (hover: hover) {
+    .post__action:hover:not(:disabled) {
+      background: var(--surface-haute);
+    }
+  }
+
+  .post__action:active:not(:disabled) {
+    scale: 0.8;
+  }
+
+  .post__action--pop {
+    animation: pop 0.28s ease-out;
+  }
+
+  @keyframes pop {
+    50% {
+      scale: 1.28;
+    }
   }
 
   .post__action:disabled {
@@ -238,7 +523,7 @@
   }
 
   .post__action--reported {
-    color: var(--brand-magenta);
+    color: var(--rouge-texte);
   }
 
   .post__action--last {
@@ -246,56 +531,57 @@
   }
 
   .post__body {
-    padding: 4px 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 16px 14px;
   }
 
   .post__likes {
     margin: 0;
-    font-size: var(--text-sm);
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     color: var(--ink);
   }
 
   .post__caption {
-    margin: 6px 0 0;
-    font-size: var(--text-md);
-    line-height: 1.6;
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.45;
     color: var(--ink);
   }
 
-  .post__caption-account {
-    font-weight: 600;
-  }
-
-  /* Le titre porte souvent l'accroche manipulatrice : il se détache dans la
-     légende, sans l'habillage de lien qu'Instagram n'a pas. */
+  .post__caption-account,
   .post__claim {
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--ink);
   }
 
   .post__comments {
-    margin: 10px 0 0;
-    font-size: var(--text-sm);
+    margin: 0;
+    font-size: 14px;
     color: var(--ink-faint);
   }
 
   .post__date {
-    margin: 4px 0 0;
-    font-size: 11px;
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 0.3px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--ink-ghost);
+    color: var(--ink-faint);
   }
 
-  /* Bandeau d'entraînement ciblé, au-dessus d'un post de remédiation. */
+  /* Bandeau au-dessus d'un post de remédiation. */
   .remediation {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 9px 14px;
-    background: var(--brand-magenta);
-    color: #fff;
-    font-size: var(--text-xs);
+    margin: 0 0 10px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--magenta);
+    color: var(--blanc);
+    font-size: 13px;
     font-weight: 600;
   }
 
@@ -303,8 +589,7 @@
     position: relative;
   }
 
-
-  /* --- Retour après un choix : fenêtre centrée --- */
+  /* --- Fenêtre générique (brève du jour) --- */
 
   .modal {
     position: fixed;
@@ -314,72 +599,25 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: rgba(20, 8, 40, 0.55);
-    backdrop-filter: blur(4px);
-  }
-
-  .modal__card {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    padding: 28px 24px 24px;
-    border-radius: 18px;
-    background: var(--surface);
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
-    text-align: center;
-  }
-
-  /* Filet en haut de la fenêtre : bleu si le choix est bon, magenta sinon. */
-  .modal__card::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto;
-    height: 5px;
-    border-radius: 18px 18px 0 0;
-    background: var(--brand-blue);
-  }
-
-  .modal__badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    background: rgba(24, 0, 173, 0.08);
-    color: var(--brand-blue);
-  }
-
-  .modal__card--wrong .modal__badge {
-    background: rgba(121, 21, 97, 0.08);
-    color: var(--brand-magenta);
+    background: color-mix(in srgb, var(--encre-voile) 85%, transparent);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
   }
 
   .modal__title {
     margin: 0;
     font-family: var(--font-title);
-    font-size: var(--text-xl);
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
     color: var(--ink);
   }
 
   .modal__text {
     margin: 10px 0 0;
     font-size: var(--text-md);
-    line-height: 1.65;
+    line-height: 1.6;
     color: var(--ink-muted);
-  }
-
-  .modal__bias {
-    display: inline-block;
-    margin: 14px 0 0;
-    padding: 4px 12px;
-    border-radius: 999px;
-    background: var(--brand-magenta);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 600;
   }
 
   .modal__actions {
@@ -389,23 +627,26 @@
     margin-top: 22px;
   }
 
-  /* --- Écrans de transition et de fin --- */
+  /* --- Fin de niveau, fin de partie --- */
 
   .outcome {
-    padding: 40px 24px;
+    position: relative;
+    overflow: hidden;
+    padding: 44px 24px;
+    border-radius: 28px;
     text-align: center;
   }
 
   .outcome__badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
     width: 76px;
     height: 76px;
     margin: 0 auto 18px;
+    place-items: center;
     border-radius: 50%;
-    background: var(--brand-blue);
-    color: #fff;
+    background: var(--bleu);
+    color: var(--blanc);
+    box-shadow: 0 0 40px color-mix(in srgb, var(--bleu) 50%, transparent);
   }
 
   .outcome__badge--small {
@@ -417,25 +658,26 @@
   .outcome__title {
     margin: 0;
     font-family: var(--font-title);
-    font-size: var(--text-xl);
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
     color: var(--ink);
   }
 
   .outcome__note {
-    max-width: 34ch;
-    margin: 12px auto 0;
-    font-size: var(--text-sm);
-    line-height: 1.6;
-    color: var(--ink-faint);
+    max-width: 38ch;
+    margin: 14px auto 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-muted);
   }
 
-  /* Un ou deux boutons : rejouer, et l'autre jeu proposé à la suite. */
   .outcome__action {
     display: flex;
+    max-width: 360px;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 22px;
+    gap: 10px;
+    margin: 26px auto 0;
   }
 }
 

@@ -1,32 +1,27 @@
 import { useState } from 'react'
-import { MessagesSquare, Newspaper, Pencil, Signal } from 'lucide-react'
+import { Link } from 'react-router'
+import { Pencil } from 'lucide-react'
 import { getAvatars, getConversations, getNiveaux } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
 import { noterPseudo } from '../state/progression'
+import { noterCompagnonVisible, useCompagnonVisible } from '../state/compagnonVisible'
 import { useAvatar } from '../state/useAvatar'
 import { useProgression } from '../state/useProgression'
 import AvatarPicker, { AvatarJoueur } from '../components/AvatarPicker'
 import CodeProgression from '../components/CodeProgression'
+import Filaments from '../components/ui/Filaments'
 import Page from '../components/ui/Page'
+import { PATHS } from '../routes'
 
-/**
- * Onglet « Ma progression », sur le gabarit d'un profil de réseau social :
- * l'avatar et trois chiffres en tête, le pseudo et la ligne d'état dessous.
- */
-
-function Jauge({ Icon, libelle, fait, total }) {
+function Jauge({ libelle, fait, total }) {
   const pourcentage = total > 0 ? Math.round((fait / total) * 100) : 0
 
   return (
     <div className="jauge">
       <div className="jauge__tete">
-        <span className="jauge__icone">
-          <Icon size={16} strokeWidth={2} />
-        </span>
         <p className="jauge__libelle">{libelle}</p>
         <p className="jauge__chiffre">
-          {fait}
-          <span className="jauge__total"> / {total}</span>
+          {fait} / {total}
         </p>
       </div>
       <div className="jauge__piste">
@@ -36,7 +31,7 @@ function Jauge({ Icon, libelle, fait, total }) {
   )
 }
 
-/** Le pseudo : un texte qu'on clique pour le changer. */
+/** Pseudo cliquable pour le modifier. */
 function Pseudo({ valeur }) {
   const [edition, setEdition] = useState(false)
   const [saisie, setSaisie] = useState(valeur)
@@ -60,7 +55,7 @@ function Pseudo({ valeur }) {
           aria-label="Ton pseudo"
           className="champ__input"
         />
-        <button type="submit" className="button">
+        <button type="submit" className="bouton bouton--plein">
           Valider
         </button>
       </form>
@@ -74,10 +69,11 @@ function Pseudo({ valeur }) {
         setSaisie(valeur)
         setEdition(true)
       }}
+      aria-label="Modifier le pseudo"
       className="profil-pseudo"
     >
       {valeur || 'Choisis ton pseudo'}
-      <Pencil size={13} strokeWidth={2.2} />
+      <Pencil size={14} strokeWidth={2} />
     </button>
   )
 }
@@ -86,6 +82,7 @@ export default function ProfileScreen() {
   const etat = useProgression()
   const avatar = useAvatar()
   const [galerie, setGalerie] = useState(false)
+  const compagnonVisible = useCompagnonVisible()
 
   const { donnees: niveaux } = useRessource(getNiveaux, [])
   const { donnees: conversations } = useRessource(getConversations, [])
@@ -96,10 +93,8 @@ export default function ProfileScreen() {
   const { fil } = etat
   const faites = Object.values(etat.conversations).filter((c) => c.faite).length
   const reussite = fil.decisions > 0 ? Math.round((fil.justes / fil.decisions) * 100) : 0
-  const jamaisJoue = fil.decisions === 0 && faites === 0
 
-  // Seulement les biais rencontrés assez souvent : deux erreurs sur deux
-  // publications ne font pas une faiblesse.
+  // Biais vus au moins 3 fois, du plus raté au moins raté.
   const biais = Object.entries(fil.biais)
     .filter(([, compte]) => compte.total >= 3)
     .map(([nom, compte]) => ({
@@ -110,75 +105,121 @@ export default function ProfileScreen() {
     .sort((a, b) => a.reussite - b.reussite)
     .slice(0, 5)
 
+  const [pire, ...autres] = biais
+
   return (
-    <Page feed>
-      <header className="profil-tete">
-        <button
-          type="button"
-          onClick={() => setGalerie((ouverte) => !ouverte)}
-          aria-expanded={galerie}
-          title="Changer d'avatar"
-          className="profil-avatar"
-        >
-          <AvatarJoueur avatar={avatar} taille={82} />
-        </button>
-        <div className="profil-bio">
-          <Pseudo valeur={etat.pseudo} />
-          <p className="profil-bio__ligne">
-            {jamaisJoue
-              ? 'Rien de joué pour l’instant.'
-              : `${fil.decisions} décisions · ${reussite} % de bonnes réponses`}
-          </p>
-        </div>
-      </header>
+    <Page seamless>
+      <div className="profil">
+        <span aria-hidden="true" className="profil__halo" />
+        <Filaments forme="swirl" tourne inverse className="profil__filaments" />
 
-      {galerie && (
-        <AvatarPicker
-          avatars={avatars ?? []}
-          choisi={etat.avatar}
-          onChoisi={() => setGalerie(false)}
-        />
-      )}
+        <section className="profil__colonne">
+          <header className="profil-tete">
+            <button
+              type="button"
+              onClick={() => setGalerie((ouverte) => !ouverte)}
+              aria-expanded={galerie}
+              aria-label="Changer d'avatar"
+              title="Changer d'avatar"
+              className="profil-avatar"
+            >
+              <AvatarJoueur avatar={avatar} taille={96} />
+            </button>
+            <div className="profil-bio">
+              <Pseudo valeur={etat.pseudo} />
+              <p className="etiquette">Niveau {fil.niveau} du fil</p>
+            </div>
+          </header>
 
-      <CodeProgression />
+          {galerie && (
+            <AvatarPicker
+              avatars={avatars ?? []}
+              choisi={etat.avatar}
+              onChoisi={() => setGalerie(false)}
+            />
+          )}
 
-      <section className="card">
-        <div className="card__body">
-          <h2 className="card__title">Où tu en es</h2>
-          <Jauge Icon={Signal} libelle="Niveaux du fil" fait={fil.niveau} total={3} />
-          <Jauge
-            Icon={Newspaper}
-            libelle="Publications du fil"
-            fait={fil.vus.length}
-            total={publications}
-          />
-          <Jauge
-            Icon={MessagesSquare}
-            libelle="Conversations"
-            fait={faites}
-            total={conversations?.length ?? 0}
-          />
-        </div>
-      </section>
+          <h1 className="profil__titre">Ma progression.</h1>
 
-      {biais.length > 0 && (
-        <section className="card">
-          <div className="card__body">
-            <h2 className="card__title">Ce qui te piège le plus</h2>
-            <ul className="biais-liste">
-              {biais.map((entree) => (
-                <li key={entree.nom} className="biais-ligne">
-                  <div className="biais-ligne__tete">
-                    <p className="biais-ligne__nom">{entree.nom}</p>
-                    <p className="biais-ligne__score">{entree.reussite} % de réussite</p>
-                  </div>
-                  <p className="biais-ligne__conseil">Rencontré {entree.total} fois.</p>
-                </li>
-              ))}
-            </ul>
+          <dl className="profil-chiffres">
+            <div>
+              <dt>décisions</dt>
+              <dd>{fil.decisions}</dd>
+            </div>
+            <div>
+              <dt>justes</dt>
+              <dd>{reussite}&nbsp;%</dd>
+            </div>
+            <div>
+              <dt>conversations</dt>
+              <dd>{faites}</dd>
+            </div>
+          </dl>
+
+          <div className="profil-jauges">
+            <Jauge libelle="Niveaux du fil" fait={fil.niveau} total={3} />
+            <Jauge libelle="Publications" fait={fil.vus.length} total={publications} />
+            <Jauge
+              libelle="Conversations"
+              fait={faites}
+              total={conversations?.length ?? 0}
+            />
           </div>
         </section>
-      )}
+
+        <section className="profil__colonne profil__colonne--large">
+          <div className="papier profil-piege">
+            <span className="papier__ruban" />
+            <div className="profil-piege__texte">
+              <p className="etiquette profil-piege__etiquette">Ce qui te piège</p>
+              {pire ? (
+                <>
+                  <p className="profil-piege__titre">{pire.nom}</p>
+                  <p className="profil-piege__detail">
+                    {pire.reussite}&nbsp;% de bonnes réponses sur {pire.total} publications.
+                  </p>
+                  {autres.length > 0 && (
+                    <ul className="biais-liste">
+                      {autres.map((entree) => (
+                        <li key={entree.nom} className="biais-ligne">
+                          <span className="biais-ligne__nom">{entree.nom}</span>
+                          <span className="biais-ligne__score">{entree.reussite}&nbsp;%</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </>
+              ) : (
+                <>
+                  <p className="profil-piege__titre">Pas encore assez de parties.</p>
+                  <p className="profil-piege__detail">
+                    Joue quelques publications pour voir quel piège te résiste.
+                  </p>
+                </>
+              )}
+            </div>
+            <Link to={PATHS.feed} className="bouton bouton--encre bouton--petit">
+              S'entraîner
+            </Link>
+          </div>
+
+          <label className="reglage">
+            <span className="reglage__texte">
+              <span className="reglage__titre">Le petit compagnon</span>
+              <span className="reglage__aide">Le personnage qui commente ta partie en bas de l'écran.</span>
+            </span>
+            <input
+              type="checkbox"
+              role="switch"
+              checked={compagnonVisible}
+              onChange={(event) => noterCompagnonVisible(event.target.checked)}
+              className="reglage__interrupteur"
+            />
+          </label>
+
+          <CodeProgression />
+        </section>
+      </div>
     </Page>
   )
 }

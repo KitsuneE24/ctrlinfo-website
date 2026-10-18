@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronLeft, Check, Lightbulb, SendHorizontal } from 'lucide-react'
+import { ChevronLeft, Check, HelpCircle, Lightbulb, SendHorizontal } from 'lucide-react'
 import { getSession, saveSession } from '../state/conversationSessions'
 import { finirConversation } from '../state/progression'
+import { texteSur } from '../lib/contraste'
 
 /**
  * Durée des points de frappe, modulée par la longueur du message. Valeurs
@@ -45,7 +45,13 @@ function Avatar({ name, color, size = 30 }) {
   return (
     <span
       className="avatar"
-      style={{ width: size, height: size, background: color, fontSize: size * 0.42 }}
+      style={{
+        width: size,
+        height: size,
+        background: color,
+        color: texteSur(color),
+        fontSize: size * 0.42,
+      }}
     >
       {name[0]?.toUpperCase()}
     </span>
@@ -56,11 +62,9 @@ function TypingBubble() {
   return (
     <span className="typing">
       {[0, 1, 2].map((i) => (
-        <motion.span
+        <span
           key={i}
           className="typing__dot"
-          animate={{ opacity: [0.3, 1, 0.3] }}
-          transition={{ duration: 1, repeat: Infinity, delay: i * 0.18 }}
         />
       ))}
     </span>
@@ -76,7 +80,7 @@ function TypingBubble() {
  * rechargement, puisque le fil est maintenant écrit dans le navigateur. Seul le
  * compte à rebours du message en cours de frappe repart à zéro.
  */
-export default function ChatThread({ conversation, paused, onFinished, onBack, onRestart }) {
+export default function ChatThread({ conversation, paused, onFinished, onBack, onRestart, onRegles }) {
   const { name, color, intro, steps, outro, groupe, contexte, participants } = conversation
 
   // Dans un groupe, l'en-tête montre qui est là ; en tête-à-tête, le nom de la
@@ -211,6 +215,15 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
               : participants[0]?.role}
           </p>
         </div>
+        <button
+          type="button"
+          onClick={onRegles}
+          aria-label="Règles du jeu"
+          title="Règles du jeu"
+          className="bouton-rond thread__regles"
+        >
+          <HelpCircle size={20} strokeWidth={2} />
+        </button>
       </header>
 
       <div ref={scrollRef} className="thread__log no-scrollbar">
@@ -218,34 +231,30 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
           // Registre 1 — la voix pédagogique : ni avatar ni bulle.
           if (message.kind === 'explication') {
             return (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`note${message.correct ? '' : ' note--wrong'}`}
+                className={`note anim-monte${message.correct ? '' : ' note--wrong'}`}
               >
                 <p className="note__label">
                   <Lightbulb size={12} strokeWidth={2.5} />
                   Pourquoi
                 </p>
                 <p className="note__text">{message.text}</p>
-              </motion.div>
+              </div>
             )
           }
 
           // Registre 2 — les réponses du joueur.
           if (message.from === 'me') {
             return (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="message message--mine"
+                className="message message--mine anim-monte"
               >
                 <span className="message__bubble message__bubble--mine">
                   {message.text}
                 </span>
-              </motion.div>
+              </div>
             )
           }
 
@@ -253,11 +262,9 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
           // contact sur les messages qui attendent une réponse.
           const isQuestion = message.kind === 'question'
           return (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="message"
+              className="message anim-monte"
               style={{ '--contact-color': message.auteur?.couleur ?? color }}
             >
               <Avatar
@@ -279,7 +286,7 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
                   {message.text}
                 </span>
               </span>
-            </motion.div>
+            </div>
           )
         })}
 
@@ -294,10 +301,8 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
         )}
 
         {done && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="thread__score"
+          <div
+            className="thread__score anim-monte"
           >
             <span className="outcome__badge outcome__badge--small">
               <Check size={20} strokeWidth={2.6} />
@@ -306,43 +311,36 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
               {score}/{steps.length} bons réflexes
             </p>
             <div className="outcome__action">
-              <button type="button" onClick={onRestart} className="button">
+              <button type="button" onClick={onRestart} className="bouton bouton--plein bouton--large">
                 Recommencer
               </button>
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
 
       {/* Le champ de saisie ne disparaît jamais : les choix s'ouvrent
           au-dessus de lui et reprennent son apparence. */}
       <div className="composer">
-        <AnimatePresence initial={false}>
-          {choices.length > 0 && (
-            <motion.div
-              key="choix"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 12 }}
-              transition={{ duration: 0.18 }}
-              className="composer__stack"
-            >
-              {choices.map((choice) => (
-                <button
-                  key={choice.text}
-                  type="button"
-                  onClick={() => choose(choice)}
-                  className="composer__field composer__field--choice"
-                >
-                  <span className="composer__text">{choice.text}</span>
-                  <span className="composer__send">
-                    <SendHorizontal size={15} strokeWidth={2.2} />
-                  </span>
-                </button>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {choices.length > 0 && (
+          <div className="composer__stack anim-monte">
+            <p className="composer__consigne">Choisis ta réponse</p>
+            {choices.map((choice, i) => (
+              <button
+                key={choice.text}
+                type="button"
+                onClick={() => choose(choice)}
+                className="composer__field composer__field--choice"
+              >
+                <span className="composer__lettre">{String.fromCharCode(65 + i)}</span>
+                <span className="composer__text">{choice.text}</span>
+                <span className="composer__send">
+                  <SendHorizontal size={15} strokeWidth={2.2} />
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className="composer__field composer__field--idle" aria-hidden="true">
           <span className="composer__text composer__text--waiting">

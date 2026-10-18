@@ -19,7 +19,7 @@ export function ErreurChargement({ erreur, onReessayer }) {
         {erreur?.message ?? 'Le fichier donnees/contenu.json n’a pas pu être lu.'}
       </p>
       {onReessayer && (
-        <button type="button" onClick={onReessayer} className="button">
+        <button type="button" onClick={onReessayer} className="bouton bouton--plein bouton--large">
           Réessayer
         </button>
       )}

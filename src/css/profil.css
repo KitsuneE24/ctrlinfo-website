@@ -1,12 +1,10 @@
 /* ==========================================================================
-   MA PROGRESSION
-   Un seul écran maintenant : il portait les formulaires de compte et le
-   tableau de bord, il porte les chiffres du joueur et son code de progression.
-   Les champs de saisie restent ici — c'est le seul écran qui en a.
+   PROFIL
+   Chiffres du joueur, champs de saisie, code de progression.
    ========================================================================== */
 
 @layer components {
-  /* --- Champs de saisie --------------------------------------------------- */
+  /* --- Champs --- */
 
   .champ {
     display: flex;
@@ -23,9 +21,9 @@
   .champ__input {
     width: 100%;
     padding: 11px 13px;
-    border: 1px solid var(--line-strong);
-    border-radius: 10px;
-    background: var(--surface);
+    border: 1px solid var(--contour);
+    border-radius: 14px;
+    background: var(--encre);
     font-size: var(--text-md);
     color: var(--ink);
     transition: border-color 0.15s, box-shadow 0.15s;
@@ -33,8 +31,8 @@
 
   .champ__input:focus {
     outline: none;
-    border-color: var(--brand-blue);
-    box-shadow: 0 0 0 3px rgba(24, 0, 173, 0.12);
+    border-color: var(--magenta-texte);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--magenta-texte) 18%, transparent);
   }
 
   .champ__aide {
@@ -42,19 +40,16 @@
     color: var(--ink-faint);
   }
 
-  /* La zone du code : trois lignes, pas de redimensionnement, et une police à
-     pas fixe. Un code se lit caractère par caractère quand on le compare — la
-     chasse variable rend cette lecture impossible. Le retour à la ligne est
-     forcé même sans espace, sinon la chaîne déborderait de la carte. */
+  /* Zone du code : police à chasse fixe, coupure forcée */
   .champ__zone {
     resize: none;
-    font-family: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', 'Liberation Mono', monospace;
+    font-family: var(--font-code);
     font-size: var(--text-xs);
     line-height: 1.5;
     word-break: break-all;
   }
 
-  /* --- Le code de progression --------------------------------------------- */
+  /* --- Code de progression --- */
 
   .code {
     display: flex;
@@ -64,12 +59,11 @@
     margin-top: 18px;
   }
 
-  /* Les deux moitiés du sujet — emporter, remettre — sont séparées d'un filet :
-     on ne colle pas un code dans le champ qui vient de nous en donner un. */
+  /* Restaurer, sous un filet */
   .code--restaurer {
     margin-top: 22px;
     padding-top: 20px;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--filet-2);
   }
 
   .code--effacer {
@@ -81,13 +75,13 @@
     width: 100%;
   }
 
-  /* `.button` est en largeur pleine : ici les boutons partagent la ligne. */
+  /* Boutons côte à côte */
   .code__actions {
     display: flex;
     gap: 10px;
   }
 
-  .code__actions .button {
+  .code__actions .bouton {
     width: auto;
     flex: 0 1 auto;
   }
@@ -108,12 +102,12 @@
     gap: 8px;
     margin: 0;
     padding: 10px 12px;
-    border-left: 3px solid var(--verdict-ko);
+    border-left: 3px solid var(--rouge-texte);
     border-radius: 8px;
-    background: rgba(192, 57, 43, 0.07);
+    background: color-mix(in srgb, var(--rouge-texte) 8%, transparent);
     font-size: var(--text-sm);
     line-height: 1.5;
-    color: var(--verdict-ko);
+    color: var(--rouge-texte);
   }
 
   .code__message svg {
@@ -122,13 +116,12 @@
   }
 
   .code__message--ok {
-    border-left-color: var(--verdict-ok);
-    background: rgba(20, 102, 63, 0.07);
-    color: var(--verdict-ok);
+    border-left-color: var(--bleu-texte);
+    background: color-mix(in srgb, var(--bleu-texte) 10%, transparent);
+    color: var(--bleu-texte);
   }
 
-  /* Effacer sa progression n'est pas une action de premier plan : un lien, pas
-     un bouton, et la confirmation seule porte la couleur de l'alerte. */
+  /* Lien « effacer » */
   .code__lien {
     display: inline-flex;
     align-items: center;
@@ -141,19 +134,85 @@
   }
 
   .code__lien:hover {
-    color: var(--verdict-ko);
+    color: var(--rouge-texte);
   }
 
-  /* --- En-tête, sur le gabarit d'un profil de réseau social ---------------- */
+  /* --- Mise en page : une colonne, deux sur ordinateur --- */
+
+  .profil {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    width: 100%;
+    max-width: var(--content-wide);
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 22px 20px 36px;
+  }
+
+  @media (min-width: 900px) {
+    .profil {
+      flex-flow: row wrap;
+      align-items: flex-start;
+      gap: 56px;
+      overflow: visible;
+      padding: 40px 40px 72px;
+    }
+  }
+
+  .profil__halo {
+    position: absolute;
+    top: -180px;
+    left: -120px;
+    width: 460px;
+    height: 460px;
+    border-radius: 50%;
+    background: radial-gradient(
+      closest-side,
+      color-mix(in srgb, var(--magenta) 45%, transparent),
+      color-mix(in srgb, var(--violet-lueur) 18%, transparent) 60%,
+      color-mix(in srgb, var(--encre) 0%, transparent)
+    );
+    pointer-events: none;
+  }
+
+  @media (min-width: 900px) {
+    .profil__halo {
+      top: -260px;
+      left: -200px;
+      width: 820px;
+      height: 820px;
+    }
+  }
+
+  .profil__filaments {
+    top: -330px;
+    left: -160px;
+    width: 700px;
+    height: 700px;
+  }
+
+  .profil__colonne {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    flex: 1 1 340px;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .profil__colonne--large {
+    flex: 2 1 520px;
+    gap: 36px;
+  }
 
   .profil-tete {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 6px 0 14px;
+    gap: 16px;
   }
 
-  /* La photo est le bouton qui ouvre la galerie : pas de carte pour ça. */
   .profil-avatar {
     flex-shrink: 0;
     border-radius: 50%;
@@ -164,148 +223,326 @@
     transform: scale(1.04);
   }
 
-  .profil-avatar[aria-expanded='true'] .avatar-joueur {
-    box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--brand-blue);
+  .profil-avatar .avatar-joueur {
+    box-shadow: 0 0 0 2px var(--encre), 0 0 0 4px var(--magenta-texte);
   }
 
   .profil-bio {
+    display: flex;
     min-width: 0;
     flex: 1 1 auto;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .profil-pseudo {
     display: inline-flex;
+    min-height: 32px;
+    align-self: flex-start;
     align-items: center;
-    gap: 7px;
-    font-family: var(--font-title);
-    font-size: var(--text-lg);
+    gap: 8px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--ink);
   }
 
   .profil-pseudo svg {
-    color: var(--ink-ghost);
+    color: var(--ink-faint);
   }
 
   .profil-pseudo:hover svg {
-    color: var(--brand-blue);
+    color: var(--magenta-texte);
   }
 
   .profil-pseudo__form {
     display: flex;
-    gap: 8px;
     align-items: center;
+    gap: 8px;
   }
 
-  .profil-bio__ligne {
-    margin: 4px 0 0;
-    font-size: var(--text-sm);
-    line-height: var(--leading-body);
-    color: var(--ink-muted);
+  .profil-pseudo__form .bouton {
+    width: auto;
   }
 
-  .jauge {
-    margin-top: 16px;
+  .profil__titre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  @media (min-width: 900px) {
+    .profil__titre {
+      font-size: clamp(48px, 5vw, 72px);
+      line-height: 0.95;
+    }
+  }
+
+  /* Trois chiffres en ligne. */
+  .profil-chiffres {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+    border-top: 1px solid var(--filet-2);
+    border-bottom: 1px solid var(--filet-2);
+  }
+
+  .profil-chiffres > div {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 14px 0;
+  }
+
+  .profil-chiffres > div + div {
+    padding-left: 16px;
+    border-left: 1px solid var(--filet-2);
+  }
+
+  .profil-chiffres dd {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 32px;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .profil-chiffres dt {
+    margin-top: 4px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+  }
+
+  @media (min-width: 900px) {
+    .profil-chiffres > div {
+      padding: 18px 0;
+    }
+
+    .profil-chiffres > div + div {
+      padding-left: 20px;
+    }
+
+    .profil-chiffres dd {
+      font-size: 38px;
+    }
+  }
+
+  .profil-jauges {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
   }
 
   .jauge__tete {
     display: flex;
-    align-items: center;
-    gap: 9px;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+    font-size: 14px;
   }
 
-  .jauge__icone {
-    display: flex;
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9px;
-    background: var(--wash-strong);
-    color: var(--ink-muted);
+  .jauge__libelle,
+  .jauge__chiffre {
+    margin: 0;
   }
 
   .jauge__libelle {
-    margin: 0;
-    flex: 1 1 auto;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--ink);
+    color: var(--ink-muted);
   }
 
   .jauge__chiffre {
-    margin: 0;
-    font-family: var(--font-title);
-    font-size: var(--text-md);
-    font-weight: 700;
     color: var(--ink);
   }
 
-  .jauge__total {
-    font-weight: 400;
-    color: var(--ink-faint);
-  }
-
   .jauge__piste {
-    height: 6px;
-    margin-top: 8px;
+    height: 4px;
     overflow: hidden;
-    border-radius: 999px;
-    background: var(--wash-strong);
+    border-radius: 2px;
+    background: var(--filet-2);
   }
 
   .jauge__barre {
     height: 100%;
-    border-radius: 999px;
-    background: var(--brand-blue);
+    border-radius: 2px;
+    background: var(--bleu-texte);
     transition: width 0.4s ease-out;
   }
+
+  /* --- « Ce qui te piège », sur papier --- */
+
+  .profil-piege {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px 24px;
+    padding: 22px 18px 18px;
+    transform: rotate(-1deg);
+    border-radius: 6px;
+  }
+
+  @media (min-width: 900px) {
+    .profil-piege {
+      padding: 34px 32px 30px;
+      transform: rotate(-0.8deg);
+      box-shadow: 0 30px 60px -24px color-mix(in srgb, var(--noir) 90%, transparent);
+    }
+  }
+
+  .profil-piege .papier__ruban {
+    right: 34px;
+    left: auto;
+    width: 80px;
+    margin-left: 0;
+    transform: rotate(-4deg);
+  }
+
+  .profil-piege__texte {
+    flex: 1 1 300px;
+  }
+
+  .profil-piege__etiquette {
+    color: var(--magenta);
+  }
+
+  .profil-piege__titre {
+    margin: 8px 0 6px;
+    font-family: var(--font-title);
+    font-size: 28px;
+    line-height: 1.05;
+  }
+
+  @media (min-width: 900px) {
+    .profil-piege__titre {
+      margin-top: 10px;
+      font-size: 40px;
+      line-height: 1;
+    }
+  }
+
+  .profil-piege__detail {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--papier-encre);
+  }
+
+  @media (min-width: 900px) {
+    .profil-piege__detail {
+      font-size: 16px;
+    }
+  }
+
+
 
   .biais-liste {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     margin: 14px 0 0;
     padding: 0;
+    border-top: 1px solid color-mix(in srgb, var(--papier-encre) 15%, transparent);
     list-style: none;
   }
 
   .biais-ligne {
-    padding: 11px 13px;
-    border-left: 3px solid var(--brand-magenta-light);
-    border-radius: 8px;
-    background: var(--wash);
-  }
-
-  .biais-ligne__tete {
     display: flex;
-    align-items: baseline;
     justify-content: space-between;
     gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--papier-encre) 15%, transparent);
+    font-size: 14px;
   }
 
   .biais-ligne__nom {
-    margin: 0;
-    font-size: var(--text-md);
+    font-weight: 600;
+  }
+
+  .biais-ligne__score {
+    flex-shrink: 0;
+    color: var(--papier-encre);
+  }
+}
+
+@layer components {
+  /* Annule le bord à bord des pages `seamless` */
+  .page__column .profil .card {
+    border: 1px solid var(--filet-2);
+    border-radius: var(--radius-card);
+  }
+
+  @media (min-width: 900px) {
+    .page__column .profil .card__body {
+      padding: 26px 26px 24px;
+    }
+  }
+}
+
+@layer components {
+  /* --- Réglage on/off --- */
+
+  .reglage {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 18px;
+    border: 1px solid var(--filet-2);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    cursor: pointer;
+  }
+
+  .reglage__texte {
+    display: flex;
+    min-width: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .reglage__titre {
+    font-size: 15px;
     font-weight: 700;
     color: var(--ink);
   }
 
-  .biais-ligne__score {
-    margin: 0;
+  .reglage__aide {
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+
+  .reglage__interrupteur {
+    position: relative;
+    width: 48px;
+    height: 28px;
     flex-shrink: 0;
-    font-size: var(--text-xs);
-    font-weight: 600;
-    color: var(--ink-muted);
+    margin: 0;
+    border: 1px solid var(--contour);
+    border-radius: 999px;
+    background: var(--filet-3);
+    appearance: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
   }
 
-  .biais-ligne__conseil {
-    margin: 5px 0 0;
-    font-size: var(--text-sm);
-    line-height: 1.55;
-    color: var(--ink-muted);
+  .reglage__interrupteur::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--ink-muted);
+    transition: transform 0.2s, background-color 0.2s;
   }
 
+  .reglage__interrupteur:checked {
+    background: var(--magenta);
+  }
+
+  .reglage__interrupteur:checked::after {
+    transform: translateX(20px);
+    background: var(--blanc);
+  }
 }
-

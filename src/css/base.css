@@ -4,16 +4,132 @@
    ========================================================================== */
 
 @layer base {
+  /* Remise à zéro des styles du navigateur */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    border: 0 solid currentColor;
+  }
+
+  html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  blockquote,
+  dl,
+  dd,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  figure,
+  p,
+  pre {
+    margin: 0;
+  }
+
+  ol,
+  ul,
+  menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  b,
+  strong {
+    font-weight: bolder;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+  }
+
+  button,
+  [type='button'],
+  [type='submit'] {
+    -webkit-appearance: button;
+    background-color: transparent;
+    background-image: none;
+  }
+
+  button,
+  [role='button'] {
+    cursor: pointer;
+  }
+
+  :disabled {
+    cursor: default;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  iframe {
+    display: block;
+    vertical-align: middle;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  [hidden] {
+    display: none;
+  }
+
   html,
   body,
   #root {
     height: 100%;
   }
 
+  :root {
+    color-scheme: dark;
+  }
+
   body {
     margin: 0;
     color: var(--ink);
-    background: var(--page);
+    background: var(--encre);
     font-family: var(--font-body);
     font-size: var(--text-md);
     line-height: var(--leading-body);
@@ -27,6 +143,52 @@
   textarea,
   button {
     font: inherit;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--magenta-texte) 35%, transparent);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--magenta-texte);
+    outline-offset: 2px;
+  }
+
+  /* Barres de défilement : fines, couleurs du site. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--filet-4) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: var(--filet-4) padding-box;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--magenta-texte) padding-box;
+  }
+
+  /* Téléphone : aucune barre de défilement. */
+  @media (max-width: 767px) {
+    * {
+      scrollbar-width: none;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .no-scrollbar::-webkit-scrollbar {

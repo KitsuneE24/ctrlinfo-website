@@ -1,0 +1,768 @@
+/* ==========================================================================
+   MOTIFS — les éléments communs à tous les écrans
+   Gabarit de page, bandeau, carte, boutons, étiquettes, tampon, papier,
+   fenêtre, filaments, mascotte, avatar, états de chargement.
+   Un seul bouton plein par écran.
+   ========================================================================== */
+
+@layer components {
+  /* --- Animations d'entrée (remplacent framer-motion) --- */
+
+  .anim-apparait {
+    animation: apparait 0.18s ease-out backwards;
+  }
+
+  .anim-monte {
+    animation: monte 0.24s ease-out backwards;
+  }
+
+  .anim-surgit {
+    animation: surgit 0.32s cubic-bezier(0.2, 0.9, 0.3, 1.2) backwards;
+  }
+
+  @keyframes apparait {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes monte {
+    from {
+      opacity: 0;
+      translate: 0 12px;
+    }
+  }
+
+  @keyframes surgit {
+    from {
+      opacity: 0;
+      scale: 0.94;
+      translate: 0 14px;
+    }
+  }
+
+  /* --- Filaments : fond noir effacé par `screen`. Jamais sous du texte courant. --- */
+
+  .filaments {
+    position: absolute;
+    z-index: 0;
+    max-width: none;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    user-select: none;
+    animation: filaments-respire 7s ease-in-out infinite;
+    transition: filter 0.8s;
+  }
+
+  /* Bords estompés pour cacher les coins en rotation. */
+  .filaments--tourne,
+  .filaments--tourne-inverse {
+    -webkit-mask-image: radial-gradient(closest-side, var(--noir) 72%, transparent);
+    mask-image: radial-gradient(closest-side, var(--noir) 72%, transparent);
+  }
+
+  .filaments--tourne {
+    animation:
+      filaments-tourne 100s linear infinite,
+      filaments-respire 7s ease-in-out infinite;
+  }
+
+  .filaments--tourne-inverse {
+    animation:
+      filaments-tourne-inverse 120s linear infinite,
+      filaments-respire 7s ease-in-out infinite;
+  }
+
+  .filaments--couvre {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @keyframes filaments-tourne {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes filaments-tourne-inverse {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes filaments-respire {
+    0%,
+    100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  /* --- Étiquette --- */
+
+  /* Toutes les étiquettes en capitales du site : un seul réglage. */
+  .etiquette,
+  .tableau__zone,
+  .piece__manchette,
+  .theme__numero,
+  .chapitre__numero,
+  .chapitre__pied-titre,
+  .entree__surtitre,
+  .encadre__label,
+  .conseil__label,
+  .note__label,
+  .indices__marque {
+    margin: 0;
+    font-family: var(--font-label);
+    font-size: var(--etiquette-taille);
+    font-weight: 600;
+    letter-spacing: var(--etiquette-espacement);
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .etiquette {
+    color: var(--ink-muted);
+  }
+
+  /* --- Papier --- */
+
+  .papier {
+    position: relative;
+    border-radius: 4px;
+    background: var(--papier);
+    color: var(--papier-encre);
+    box-shadow: 0 20px 40px -14px color-mix(in srgb, var(--noir) 90%, transparent);
+  }
+
+  /* Ruban adhésif */
+  .papier__ruban {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 100px;
+    height: 24px;
+    margin-left: -50px;
+    transform: rotate(2deg);
+    background: color-mix(in srgb, var(--blanc) 55%, transparent);
+    border: 1px solid color-mix(in srgb, var(--blanc) 40%, transparent);
+    pointer-events: none;
+  }
+
+  /* Punaise */
+  .punaise {
+    position: absolute;
+    z-index: 2;
+    top: -8px;
+    left: 50%;
+    width: 17px;
+    height: 17px;
+    margin-left: -8.5px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, var(--punaise-reflet), var(--rouge) 60%, var(--punaise-ombre));
+    box-shadow: 0 3px 6px color-mix(in srgb, var(--noir) 60%, transparent);
+    pointer-events: none;
+  }
+
+  .punaise--grande {
+    top: -11px;
+    width: 23px;
+    height: 23px;
+    margin-left: -11.5px;
+  }
+
+  /* --- Tampon --- */
+
+  /* Style investigation : pochoir, double encadré.
+     --tampon-fond : couleur du filet intérieur (le fond derrière). */
+  .tampon {
+    --tampon-fond: var(--encre);
+    display: inline-block;
+    align-self: flex-start;
+    max-width: 100%;
+    padding: 4px 10px 3px;
+    border: 2px solid currentColor;
+    border-radius: 3px;
+    box-shadow:
+      inset 0 0 0 2px var(--tampon-fond),
+      inset 0 0 0 3.5px currentColor;
+    font-family: var(--font-enquete);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.25;
+    text-transform: uppercase;
+    color: var(--magenta-texte);
+  }
+
+  @media (min-width: 768px) {
+    .tampon {
+      padding: 5px 12px 4px;
+      font-size: 17px;
+    }
+  }
+
+  /* Sur papier */
+  .tampon--papier {
+    --tampon-fond: var(--papier-clair);
+    color: var(--rouge);
+  }
+
+  /* --- Mascotte (cagou du logo) sur pastille claire --- */
+  .kiwi {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: var(--papier);
+    box-shadow: 0 0 0 4px var(--surface-haute), 0 10px 24px -8px color-mix(in srgb, var(--noir) 80%, transparent);
+  }
+
+  .kiwi img {
+    width: 88%;
+    height: 88%;
+    object-fit: contain;
+  }
+
+  /* --- Boutons --- */
+
+  .bouton {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 26px;
+    border: 1px solid var(--contour);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.12s, background-color 0.15s, border-color 0.15s;
+  }
+
+  .bouton:hover {
+    border-color: var(--ink-muted);
+    background: color-mix(in srgb, var(--blanc) 5%, transparent);
+  }
+
+  .bouton:active {
+    transform: scale(0.97);
+  }
+
+  .bouton:focus-visible {
+    outline: 2px solid var(--magenta-texte);
+    outline-offset: 3px;
+  }
+
+  .bouton--plein {
+    min-height: 56px;
+    border-color: var(--blanc);
+    background: var(--blanc);
+    color: var(--encre);
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .bouton--plein:hover {
+    border-color: var(--lilas);
+    background: var(--lilas);
+  }
+
+  /* Pastille sombre à droite (flèche) */
+  .bouton--pastille {
+    justify-content: space-between;
+    padding: 0 7px 0 26px;
+  }
+
+  .bouton__pastille {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--encre);
+    color: var(--blanc);
+  }
+
+  .bouton--large {
+    width: 100%;
+  }
+
+  /* Plein foncé, pour les fonds blancs ou papier */
+  .bouton--encre {
+    border-color: var(--papier-encre);
+    background: var(--papier-encre);
+    color: var(--blanc);
+    font-weight: 700;
+  }
+
+  .bouton--encre:hover {
+    border-color: var(--papier-encre);
+    background: color-mix(in srgb, var(--papier-encre) 85%, var(--blanc));
+  }
+
+  /* Compact : liens et actions secondaires */
+  .bouton--petit {
+    min-height: 44px;
+    padding: 0 18px;
+    font-size: 14px;
+  }
+
+  .bouton:disabled {
+    opacity: 0.4;
+    transform: none;
+    cursor: default;
+  }
+
+  /* Bouton icône */
+  .bouton-rond {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--contour);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink);
+    transition: background-color 0.15s;
+  }
+
+  .bouton-rond:hover {
+    background: var(--surface-haute);
+  }
+
+  /* --- Fenêtre --- */
+  .voile {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: calc(20px + var(--sa-top)) 16px calc(20px + var(--sa-bottom));
+    background: color-mix(in srgb, var(--encre-voile) 92%, transparent);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  .fenetre {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 460px;
+    max-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 34px 24px 24px;
+    border: 1px solid var(--filet-fenetre);
+    border-radius: var(--radius-pop);
+    background: var(--surface);
+    box-shadow: 0 50px 100px -30px color-mix(in srgb, var(--noir) 95%, transparent);
+    color: var(--ink);
+    scrollbar-width: none;
+  }
+
+  .fenetre::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .fenetre {
+      padding: 44px 36px 30px;
+      border-radius: 34px;
+    }
+  }
+
+  .fenetre__titre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  @media (min-width: 768px) {
+    .fenetre__titre {
+      font-size: 52px;
+    }
+  }
+
+  .fenetre__texte {
+    margin: 12px 0 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-muted);
+  }
+
+  @media (min-width: 768px) {
+    .fenetre__texte {
+      font-size: 16px;
+    }
+  }
+
+  .fenetre__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  /* Écran estompé derrière la fenêtre */
+  .voile__fantome {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    width: min(540px, calc(100% - 28px));
+    height: 70%;
+    transform: translateX(-50%);
+    border-radius: 22px;
+    background: var(--surface);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .voile .filaments {
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    height: 700px;
+    margin: -350px 0 0 -350px;
+  }
+
+  @media (min-width: 768px) {
+    .voile .filaments {
+      width: 1000px;
+      height: 1000px;
+      margin: -500px 0 0 -500px;
+    }
+  }
+
+  /* --- Gabarit de page (ui/Page.jsx) --- */
+
+  .page {
+    display: flex;
+    flex: 1 1 0;
+    min-height: 0;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    /* Réserve pour le bouton « Sources », qui flotte en bas à droite. */
+    padding-bottom: 5vh;
+    background-color: var(--encre);
+  }
+
+  /* Sur téléphone, pas de bouton flottant à esquiver. */
+  @media (max-width: 767px) {
+    .page {
+      padding-bottom: 20px;
+    }
+  }
+
+  /* Écrans qui gèrent leur bas de page */
+  .page--fill {
+    padding-bottom: 0;
+  }
+
+  /* Par défaut : bord à bord, ni marge latérale ni gouttière. */
+  .page__column {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  /* Le fil : colonne centrée, cartes détachées du fond. */
+  .page__column--feed {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 16px 12px 32px;
+    gap: var(--gap-card);
+  }
+
+  @media (min-width: 768px) {
+    .page__column--feed {
+      padding: 24px 16px 48px;
+    }
+  }
+
+  /* Messagerie : pleine hauteur */
+  .page__column--fill {
+    flex: 1 1 0;
+    min-height: 0;
+  }
+
+  /* Bord à bord : ni arrondi ni bordure latérale. */
+  .page__column:not(.page__column--feed) .card,
+  .page__column:not(.page__column--feed) .banniere {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  /* Sans filet entre les blocs */
+  .page__column--seamless .card {
+    border: 0;
+  }
+
+  .page__heading {
+    padding: 18px 16px 12px;
+  }
+
+  .page__column--feed .page__heading {
+    padding: 4px 4px 0;
+  }
+
+  .page__title {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .page__subtitle {
+    margin: 4px 0 0;
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    color: var(--ink-faint);
+  }
+
+  /* --- Bandeau (ui/Banniere.jsx), accueil et Comprendre --- */
+
+  .banniere {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    /* Repli sans WebGL */
+    background: var(--brand-violet-deep);
+    color: var(--blanc);
+  }
+
+  /* Couche animée, sous le contenu */
+  .banniere__fx {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .molten-metal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .banniere__contenu {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Carte sombre détachée du fond. */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--filet-2);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  .card__body {
+    padding: 18px 16px;
+  }
+
+  .card__title {
+    margin: 0 0 10px;
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .card__text {
+    margin: 0;
+    max-width: var(--measure);
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
+    color: var(--ink);
+  }
+
+  .card__text + .card__text {
+    margin-top: 12px;
+  }
+
+  /* --- Avatar du joueur --- */
+
+  .avatar-joueur {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background: var(--bleu);
+    color: var(--blanc);
+    font-weight: 700;
+  }
+
+  /* Dessins sur fond blanc ; contour de la couleur de l'avatar. */
+  .avatar-joueur--dessin,
+  .avatars__choix--dessin {
+    border: 3px solid var(--bleu);
+    border-radius: 50%;
+    background: var(--blanc);
+  }
+
+  .avatar-joueur__image {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 92%;
+  }
+
+  .avatars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 18px;
+    padding: 14px;
+    border: 1px solid var(--filet-2);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    list-style: none;
+  }
+
+  .avatars__choix {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    overflow: hidden;
+    border-radius: 50%;
+    color: var(--blanc);
+    opacity: 0.55;
+    transition: opacity 0.15s, transform 0.12s, box-shadow 0.15s;
+  }
+
+  .avatars__choix:hover {
+    opacity: 0.85;
+  }
+
+  /* L'anneau plutôt qu'une bordure : la vignette ne change pas de taille. */
+  .avatars__choix--actif {
+    opacity: 1;
+    box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--ink);
+  }
+
+  .avatars__choix:active {
+    transform: scale(0.94);
+  }
+
+  /* --- Chargement et erreur --- */
+
+  .etat-api {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 44px 22px;
+    text-align: center;
+    color: var(--ink-muted);
+  }
+
+  .etat-api__spinner {
+    animation: etat-api-tourne 1s linear infinite;
+    color: var(--magenta-texte);
+  }
+
+  .etat-api__titre {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .etat-api__texte {
+    max-width: 46ch;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  /* L'API éteinte est le cas le plus fréquent en développement : le message
+     porte la commande qui la relance, pas seulement le constat. */
+  .etat-api--erreur {
+    color: var(--ink);
+  }
+
+  .etat-api--erreur > svg {
+    color: var(--rouge-texte);
+  }
+
+  @keyframes etat-api-tourne {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Qui a désactivé les animations n'a pas besoin d'un disque qui tourne. */
+  @media (prefers-reduced-motion: reduce) {
+    .etat-api__spinner {
+      animation: none;
+    }
+  }
+  /* --- Le filet sous l'application --------------------------------------- */
+
+  .rattrapage {
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .rattrapage__titre {
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .rattrapage__texte {
+    margin: 0;
+    max-width: 46ch;
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
+    color: var(--ink-muted);
+  }
+
+  .rattrapage__detail {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--wash);
+    font-size: var(--text-xs);
+    text-align: left;
+    color: var(--ink);
+  }
+}

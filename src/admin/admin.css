@@ -1,4 +1,5 @@
-/* L'administration : une feuille à elle, sans rien du site public. */
+/* L'administration : une feuille à elle. Couleurs et polices : ../css/jetons.css. */
+@import '../css/jetons.css';
 
 * {
   box-sizing: border-box;
@@ -6,9 +7,9 @@
 
 body {
   margin: 0;
-  background: #f4f2ef;
-  color: #1a1a1a;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--admin-fond);
+  color: var(--admin-texte);
+  font-family: var(--font-systeme);
   font-size: 14px;
 }
 
@@ -23,7 +24,7 @@ button {
 .vide {
   padding: 3rem;
   text-align: center;
-  color: #6b6b6b;
+  color: var(--admin-texte-doux);
 }
 
 /* --- La barre --- */
@@ -36,8 +37,8 @@ button {
   align-items: center;
   gap: 16px;
   padding: 10px 16px;
-  background: #1a1a1a;
-  color: #fff;
+  background: var(--admin-texte);
+  color: var(--blanc);
 }
 
 .barre__titre {
@@ -54,7 +55,7 @@ button {
   align-items: center;
   gap: 6px;
   margin-left: auto;
-  color: #ffb4ae;
+  color: var(--admin-erreur);
   font-weight: 600;
 }
 
@@ -64,8 +65,8 @@ button {
   gap: 7px;
   padding: 8px 14px;
   border-radius: 8px;
-  background: #1800ad;
-  color: #fff;
+  background: var(--admin-accent);
+  color: var(--blanc);
   font-weight: 700;
 }
 
@@ -77,8 +78,8 @@ button {
 .bouton--mince {
   padding: 4px 10px;
   font-size: 12px;
-  background: #e7e4ff;
-  color: #1800ad;
+  background: var(--admin-accent-pale);
+  color: var(--admin-accent);
 }
 
 /* --- La mise en page --- */
@@ -101,7 +102,7 @@ button {
   display: flex;
   flex-direction: column;
   padding: 12px 8px;
-  border-right: 1px solid #e0dcd6;
+  border-right: 1px solid var(--admin-filet);
   overflow-y: auto;
 }
 
@@ -115,17 +116,17 @@ button {
 }
 
 .onglet:hover {
-  background: #eceae6;
+  background: var(--admin-filet-clair);
 }
 
 .onglet--actif {
-  background: #1800ad;
-  color: #fff;
+  background: var(--admin-accent);
+  color: var(--blanc);
   font-weight: 700;
 }
 
 .onglet__compte {
-  opacity: 0.6;
+  opacity: 0.8;
   font-size: 12px;
 }
 
@@ -134,7 +135,7 @@ button {
   flex-direction: column;
   gap: 8px;
   padding: 12px;
-  border-right: 1px solid #e0dcd6;
+  border-right: 1px solid var(--admin-filet);
   overflow-y: auto;
 }
 
@@ -154,11 +155,11 @@ button {
 }
 
 .entree:hover {
-  background: #eceae6;
+  background: var(--admin-filet-clair);
 }
 
 .entree--active {
-  background: #e7e4ff;
+  background: var(--admin-accent-pale);
   font-weight: 600;
 }
 
@@ -189,22 +190,22 @@ button {
 .ch__nom {
   font-size: 12px;
   font-weight: 600;
-  color: #6b6b6b;
+  color: var(--admin-texte-doux);
 }
 
 .ch__saisie {
   width: 100%;
   padding: 8px 10px;
-  border: 1px solid #d5d0c9;
+  border: 1px solid var(--admin-filet-fort);
   border-radius: 7px;
-  background: #fff;
+  background: var(--blanc);
   font: inherit;
   line-height: 1.5;
   resize: vertical;
 }
 
 .ch__saisie:focus {
-  outline: 2px solid #1800ad;
+  outline: 2px solid var(--admin-accent);
   outline-offset: -1px;
 }
 
@@ -221,7 +222,7 @@ button {
 .bloc {
   margin: 0;
   padding: 12px;
-  border: 1px solid #e0dcd6;
+  border: 1px solid var(--admin-filet);
   border-radius: 9px;
 }
 
@@ -229,7 +230,7 @@ button {
   padding: 0 6px;
   font-size: 12px;
   font-weight: 700;
-  color: #6b6b6b;
+  color: var(--admin-texte-doux);
 }
 
 .liste {
@@ -237,9 +238,9 @@ button {
   flex-direction: column;
   gap: 8px;
   padding: 12px;
-  border: 1px solid #e0dcd6;
+  border: 1px solid var(--admin-filet);
   border-radius: 9px;
-  background: #faf9f7;
+  background: var(--admin-survol);
 }
 
 .liste__tete {
@@ -254,9 +255,9 @@ button {
 
 .liste__entree {
   padding: 10px;
-  border: 1px solid #e6e2dc;
+  border: 1px solid var(--admin-fond-2);
   border-radius: 8px;
-  background: #fff;
+  background: var(--blanc);
 }
 
 .liste__outils {
@@ -264,7 +265,7 @@ button {
   align-items: center;
   gap: 6px;
   margin-bottom: 8px;
-  color: #6b6b6b;
+  color: var(--admin-texte-doux);
 }
 
 .liste__rang {
@@ -274,5 +275,5 @@ button {
 }
 
 .liste__outils button:hover {
-  color: #1800ad;
+  color: var(--admin-accent);
 }

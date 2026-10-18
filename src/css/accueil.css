@@ -1,206 +1,774 @@
 /* ========================================================================
    ACCUEIL
+   Bandeau, puis tableau d'enquête : 1 sujet (centre), 2 pièges (gauche),
+   3 principe (droite), 4 parade (bas).
    ======================================================================== */
 
 @layer components {
-  /* Une seule colonne, bornée : les cartes s'empilent, la hiérarchie se lit
-     de haut en bas. */
-  .home__body {
-    display: flex;
-    width: 100%;
-    max-width: var(--content-read);
-    margin: 0 auto;
-    flex-direction: column;
-    gap: var(--gap-card);
-    padding: 16px 14px 24px;
+  /* --- Bandeau (coquille dans colonne-de-contenu.css) --- */
+
+  .hero {
+    padding: 38px 22px 40px;
   }
 
-
-  @media (min-width: 768px) {
-    .home__body {
-      padding: 24px 24px 32px;
+  @media (min-width: 900px) {
+    .hero {
+      padding: 76px 40px 92px;
+      text-align: center;
     }
   }
 
-  /* Cartes arrondies, sans filet : c'est le fond lilas qui les détache. Trois
-     classes pour repasser devant les règles bord à bord de colonne-de-contenu. */
-  .page__column .home__body .card {
-    border-radius: var(--radius-card);
+  .hero__contenu {
+    text-shadow: 0 1px 12px color-mix(in srgb, var(--encre) 65%, transparent);
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 16px;
   }
 
-  /* La coquille du bandeau — position, aplat de repli, fond animé — est
-     commune à tous les écrans (colonne-de-contenu.css). Ne restent ici que les
-     marges de l'accueil et sa typographie. */
-  .hero {
-    padding: 34px 22px 28px;
-    text-align: center;
+  @media (min-width: 900px) {
+    .hero__contenu {
+      align-items: center;
+      gap: 22px;
+    }
+  }
+
+  .hero__etiquette {
+    color: var(--lilas);
   }
 
   .hero__title {
     margin: 0;
-    font-family: var(--font-brand);
-    font-size: var(--text-3xl);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+    font-family: var(--font-title);
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.5px;
+    color: var(--blanc);
+    text-wrap: balance;
   }
 
-  .hero__tagline {
-    max-width: 30ch;
-    margin: 12px auto 0;
-    font-size: var(--text-md);
-    line-height: 1.6;
-    color: rgba(255, 255, 255);
-  }
-
-  /* En grand écran, l'accroche tient sur une ligne. */
-  @media (min-width: 768px) {
-    .hero__tagline {
-      max-width: none;
-      white-space: nowrap;
+  @media (min-width: 900px) {
+    .hero__title {
+      font-size: clamp(54px, 7vw, 104px);
+      line-height: 0.92;
+      letter-spacing: -1px;
     }
   }
 
-  /* Les deux entrées du site ne sont plus dans la bannière : elles attendent
-     en fin de page, dans la carte partagée avec Ressources (entry-card.css).
-     On ne demande pas de choisir avant d'avoir lu. */
+  .hero__title em {
+    color: var(--magenta-pale);
+  }
+
+  .hero__tagline {
+    max-width: 560px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--lilas);
+  }
+
+  @media (min-width: 900px) {
+    .hero__tagline {
+      font-size: 18px;
+    }
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 6px;
+  }
+
+  .hero__actions .bouton--plein {
+    flex: 1 1 auto;
+    min-height: 58px;
+  }
+
+  @media (min-width: 900px) {
+    .hero__actions .bouton--plein {
+      flex: 0 0 auto;
+      min-height: 60px;
+      gap: 14px;
+      font-size: 17px;
+    }
+  }
+
+  .hero__second {
+    display: none;
+    min-height: 60px;
+    border-color: color-mix(in srgb, var(--blanc) 60%, transparent);
+    font-size: 16px;
+  }
+
+  @media (min-width: 900px) {
+    .hero__second {
+      display: inline-flex;
+    }
+  }
+
+  /* --- Dossier --- */
+
+  .dossier {
+    padding: 34px 0 0;
+    border-top: 1px solid var(--filet-1);
+  }
+
+  @media (min-width: 900px) {
+    .dossier {
+      padding: 80px 0 60px;
+      border-top: 0;
+    }
+  }
+
+  .dossier__tete {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: var(--content-wide);
+    margin: 0 auto;
+    padding: 0 24px 22px;
+  }
+
+  @media (min-width: 900px) {
+    .dossier__tete {
+      padding: 0 40px 40px;
+    }
+  }
+
+  .dossier__intro {
+    max-width: 560px;
+  }
+
+  .dossier__etiquette {
+    color: var(--magenta-texte);
+  }
+
+  .dossier__titre {
+    margin: 6px 0 0;
+    font-family: var(--font-title);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  @media (min-width: 900px) {
+    .dossier__titre {
+      margin: 8px 0 12px;
+      font-size: 56px;
+      line-height: 1;
+    }
+  }
+
+  .dossier__texte {
+    display: none;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-muted);
+  }
+
+  @media (min-width: 900px) {
+    .dossier__texte {
+      display: block;
+    }
+  }
+
+  /* --- Le tableau : un liège sombre, une trame de points --- */
+
+  .tableau {
+    position: relative;
+    display: grid;
+    /* Téléphone : une colonne, étapes 1 → 4 dans l'ordre. */
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'z-sujet'
+      'sujet'
+      'z-pieges'
+      'urgence'
+      'emotion'
+      'autorite'
+      'z-principe'
+      'principe'
+      'video'
+      'z-parade'
+      'parade'
+      'jouer';
+    align-items: start;
+    gap: 30px;
+    overflow: hidden;
+    padding: 34px 16px 44px;
+    border-top: 1px solid var(--filet-1);
+    border-bottom: 1px solid var(--filet-1);
+    background-color: var(--tableau);
+    background-image: radial-gradient(color-mix(in srgb, var(--blanc) 5%, transparent) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  @media (min-width: 900px) {
+    .tableau {
+      grid-template-columns: 270px minmax(0, 1fr) 270px;
+      grid-template-areas:
+        'z-pieges z-sujet z-principe'
+        'urgence sujet principe'
+        'emotion sujet video'
+        'autorite sujet video'
+        'parade parade parade';
+      gap: 34px 56px;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 36px 30px 56px;
+      border: 1px solid var(--filet-1);
+      border-radius: 28px;
+      background-size: 22px 22px;
+    }
+  }
+
+  .tableau__filaments {
+    top: 22%;
+    left: 50%;
+    width: 610px;
+    height: 610px;
+    margin-left: -305px;
+    opacity: 0.9;
+  }
+
+  @media (min-width: 900px) {
+    .tableau__filaments {
+      top: 70px;
+      width: 700px;
+      height: 700px;
+      margin-left: -350px;
+    }
+  }
+
+  /* Le fil rouge, mesuré par TableauEnquete.jsx. Sous les notes. */
+  .tableau__fils {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .tableau__fils path {
+    fill: none;
+    stroke: var(--rouge-fil);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    opacity: 0.9;
+  }
+
+  /* Intitulés des zones : ordinateur seulement */
+  .tableau__zone {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0 -8px;
+    color: var(--ink);
+  }
+
+  @media (min-width: 900px) {
+    .tableau__zone {
+      margin: 0;
+    }
+  }
+
+  .tableau__zone-numero {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    font-family: var(--font-title);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  @media (min-width: 900px) {
+    .tableau__zone-numero {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  .tableau__zone--bleu {
+    color: var(--bleu-texte);
+  }
+
+  .tableau__zone--sujet {
+    grid-area: z-sujet;
+    margin-top: 0;
+  }
+
+  @media (min-width: 900px) {
+    .tableau__zone--sujet {
+      justify-self: center;
+    }
+  }
+
+  .tableau__zone--pieges {
+    grid-area: z-pieges;
+  }
+
+  .tableau__zone--principe {
+    grid-area: z-principe;
+  }
+
+  /* --- Les notes --- */
+
+  .piece {
+    position: relative;
+    z-index: 1;
+    padding: 18px 14px 14px;
+    transform: rotate(var(--rotation, 0deg));
+    border-radius: 3px;
+    box-shadow: 0 16px 30px -12px color-mix(in srgb, var(--noir) 90%, transparent);
+    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.35s;
+  }
+
+  @media (min-width: 900px) {
+    .piece {
+      padding: 22px 20px 18px;
+      box-shadow: 0 20px 40px -14px color-mix(in srgb, var(--noir) 90%, transparent);
+    }
+  }
+
+  @media (hover: hover) and (min-width: 900px) {
+    .piece:hover {
+      z-index: 4;
+      transform: rotate(0deg) translateY(-6px) scale(1.02);
+      box-shadow: 0 40px 70px -20px color-mix(in srgb, var(--noir) 95%, transparent);
+    }
+  }
+
+  .piece__tete {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 900px) {
+    .piece__tete {
+      font-size: 18px;
+    }
+  }
+
+  .piece__numero {
+    font-family: var(--font-label);
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--rouge);
+  }
+
+  .piece__texte {
+    margin: 6px 0 0;
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--papier-encre);
+  }
+
+  @media (min-width: 900px) {
+    .piece__texte {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+
+  .piece__phrase {
+    margin: 6px 0 0;
+    font-family: var(--font-title);
+    font-size: 20px;
+    line-height: 1.08;
+  }
+
+  @media (min-width: 900px) {
+    .piece__phrase {
+      font-size: 22px;
+    }
+  }
+
+  .piece__legende {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: var(--papier-encre);
+  }
+
+  .piece__etiquette {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .piece--urgence {
+    grid-area: urgence;
+  }
+
+  .piece--emotion {
+    grid-area: emotion;
+  }
+
+  .piece--autorite {
+    grid-area: autorite;
+  }
+
+  /* Téléphone : pièces en quinconce, gauche / droite. */
+  @media (max-width: 899px) {
+    .piece {
+      width: min(100%, 320px);
+      justify-self: start;
+    }
+
+    .piece--emotion,
+    .piece--video,
+    .piece--jouer {
+      justify-self: end;
+    }
+
+    .piece--sujet {
+      justify-self: center;
+    }
+  }
+
+  /* La carte du milieu : plus claire, plus grande, un halo violet. */
+  .piece--sujet {
+    z-index: 3;
+    grid-area: sujet;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    max-width: 280px;
+    padding: 28px 20px 22px;
+    border-radius: 4px;
+    background: var(--papier-clair);
+    box-shadow:
+      0 30px 60px -16px color-mix(in srgb, var(--noir) 95%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--blanc) 40%, transparent),
+      0 0 80px color-mix(in srgb, var(--halo) 35%, transparent);
+  }
+
+  @media (min-width: 900px) {
+    .piece--sujet {
+      max-width: 320px;
+      padding: 34px 28px 28px;
+      box-shadow:
+        0 40px 80px -20px color-mix(in srgb, var(--noir) 95%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--blanc) 40%, transparent),
+        0 0 80px color-mix(in srgb, var(--halo) 35%, transparent);
+    }
+  }
+
+  .piece__phrase--grande {
+    margin-top: 14px;
+    font-size: 27px;
+    line-height: 1.05;
+  }
+
+  @media (min-width: 900px) {
+    .piece__phrase--grande {
+      margin-top: 18px;
+      font-size: 34px;
+      line-height: 1.02;
+    }
+  }
+
+  .piece--sujet .piece__texte {
+    margin-top: 8px;
+    color: var(--papier-encre);
+  }
+
+  /* La coupure de journal. */
+  .piece--journal {
+    grid-area: principe;
+    border-radius: 2px;
+    background: var(--papier-journal);
+  }
+
+  .piece__manchette {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--papier-encre);
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+  }
+
+  .piece__manchette-date {
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--papier-encre);
+  }
+
+  .piece--journal .piece__phrase {
+    margin-top: 0;
+  }
+
+  /* La vidéo, en photo punaisée. */
+  .piece--video {
+    grid-area: video;
+    padding: 10px 10px 14px;
+  }
+
+  @media (min-width: 900px) {
+    .piece--video {
+      padding: 12px 12px 16px;
+    }
+  }
 
   .video {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #000;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--nuit);
+    margin-bottom: 8px;
   }
 
   .video__poster {
+    position: relative;
     display: flex;
     width: 100%;
     height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    background: var(--brand-violet-deep);
+    gap: 10px;
+    overflow: hidden;
+    background: var(--nuit);
   }
 
   .video__play {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
     border-radius: 50%;
-    background: rgba(255, 250, 249, 0.95);
+    background: var(--blanc);
+    color: var(--encre);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--halo) 70%, transparent);
     transition: transform 0.15s;
   }
 
+  .video__play svg {
+    margin-left: 2px;
+  }
+
+  @media (min-width: 900px) {
+    .video__play {
+      width: 52px;
+      height: 52px;
+    }
+  }
+
+  .video__poster:hover .video__play {
+    transform: scale(1.08);
+  }
+
   .video__poster:active .video__play {
-    transform: scale(0.9);
+    transform: scale(0.92);
   }
 
   .video__hint {
+    position: relative;
+    z-index: 1;
     margin: 0;
-    padding: 0 24px;
+    padding: 0 12px;
     text-align: center;
-    font-size: var(--text-xs);
-    line-height: 1.5;
-    color: rgba(255, 250, 249, 0.95);
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--blanc);
   }
 
   .video__player {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    background: var(--noir);
   }
 
-  /* Deux blocs côte à côte quand la largeur le permet : sur l'accueil, la
-     vidéo à gauche et le résumé à droite. */
-  .split {
-    display: grid;
-    gap: 24px;
+  /* --- La parade, en bas --- */
+
+  /* Téléphone : les notes de la parade se placent dans la grille */
+  .tableau__parade,
+  .tableau__parade-notes {
+    display: contents;
   }
 
-  .levers {
+  @media (min-width: 900px) {
+    .tableau__parade {
+      display: flex;
+      grid-area: parade;
+      flex-direction: column;
+      align-items: center;
+      gap: 26px;
+      padding-top: 20px;
+    }
+
+    .tableau__parade-notes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+    }
+  }
+
+  .tableau__zone--parade {
+    grid-area: z-parade;
+  }
+
+  @media (min-width: 900px) {
+    .tableau__zone--parade {
+      align-self: flex-start;
+      margin-left: calc(50% - 300px);
+    }
+  }
+
+  .piece--reflexe {
+    grid-area: parade;
+    background: var(--bleu);
+    color: var(--blanc);
+  }
+
+  @media (min-width: 900px) {
+    .piece--reflexe {
+      width: 270px;
+      padding: 24px 20px 22px;
+    }
+
+    .piece--reflexe .piece__phrase {
+      font-size: 24px;
+    }
+  }
+
+  .piece--reflexe .piece__etiquette {
+    color: var(--bleu-pale);
+  }
+
+  .piece--jouer {
+    grid-area: jouer;
+    justify-self: center;
+    width: 100%;
+    max-width: 320px;
+    padding: 22px 18px 18px;
+    border: 1px solid var(--filet-4);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: 0 24px 50px -16px color-mix(in srgb, var(--noir) 95%, transparent);
+  }
+
+  @media (min-width: 900px) {
+    .piece--jouer {
+      width: 300px;
+      padding: 26px 22px 22px;
+    }
+
+    .piece--jouer .piece__phrase {
+      font-size: 26px;
+      line-height: 1.05;
+    }
+  }
+
+  .piece--jouer .piece__etiquette {
+    color: var(--magenta-texte);
+  }
+
+  .piece__gestes {
     display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin: 16px 0 0;
+    gap: 8px;
+    margin: 12px 0 14px;
     padding: 0;
     list-style: none;
   }
 
-  .lever {
+  .piece__gestes li {
+    display: grid;
+    flex: 1 1 0;
+    height: 40px;
+    place-items: center;
+    border: 1px solid var(--filet-3);
+    border-radius: 12px;
+  }
+
+  .piece__gestes li:nth-child(1) {
+    color: var(--magenta-texte);
+  }
+
+  .piece__gestes li:nth-child(2) {
+    color: var(--bleu-texte);
+  }
+
+  .piece__gestes li:nth-child(3) {
+    color: var(--rouge-texte);
+  }
+
+  .piece--jouer .bouton {
+    min-height: 50px;
+    font-size: 15px;
+  }
+
+  /* --- La fin de page, sur téléphone --- */
+
+  .home__fin {
     display: flex;
-    gap: 12px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 32px 24px 40px;
   }
 
-  .lever__icon {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    margin-top: 2px;
-    border-radius: 50%;
-    background: var(--brand-magenta);
-    color: #fff;
-  }
-
-  .lever__title {
-    margin: 0;
-    font-family: var(--font-title);
-    font-size: var(--text-md);
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .lever__text {
-    margin: 2px 0 0;
-    font-size: var(--text-sm);
-    line-height: 1.6;
-    color: var(--ink-muted);
-  }
-
-  .tip {
-    margin-top: 16px;
-    padding: 12px 14px;
-    border-left: 4px solid var(--brand-blue);
-    border-radius: 10px;
-    background: rgba(24, 0, 173, 0.05);
-  }
-
-  .tip__text {
-    margin: 0;
-    font-size: var(--text-sm);
-    line-height: 1.65;
-    color: var(--ink-soft);
+  @media (min-width: 900px) {
+    .home__fin {
+      display: none;
+    }
   }
 }
 
 /* ==========================================================================
-   LA BRÈVE DU JOUR
-   « Le saviez-vous ? », à l'arrivée, une fois par jour.
+   BRÈVE DU JOUR
+   « Le saviez-vous ? », une fois par jour, sur le panneau du cagou.
    ========================================================================== */
 
 @layer components {
-
-  /* --- « Le saviez-vous ? » ---------------------------------------------- */
-
+  /* Sous la main du cagou */
   .tip-card__fermer {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 18px;
+    right: 6px;
     display: grid;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     place-items: center;
     border-radius: 50%;
-    color: var(--ink-faint);
+    color: var(--papier-encre);
     transition: background-color 0.15s, color 0.15s;
   }
 
   .tip-card__fermer:hover {
-    background: var(--wash);
-    color: var(--ink);
+    background: color-mix(in srgb, var(--papier-encre) 8%, transparent);
+    color: var(--papier-encre);
   }
 }

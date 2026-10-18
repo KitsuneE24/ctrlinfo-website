@@ -1,5 +1,6 @@
 import { createElement } from 'react'
 import { icone } from '../data/icones'
+import { texteSur } from '../lib/contraste'
 
 /**
  * La publication rejouée, annotée.
@@ -86,7 +87,7 @@ export default function PostAnnotated({ post, liste = true }) {
   return (
     <article className="annot">
       <header className="annot__head">
-        <span className="annot__avatar" style={{ backgroundColor: post.sourceColor }}>
+        <span className="annot__avatar" style={{ backgroundColor: post.sourceColor, color: texteSur(post.sourceColor) }}>
           {post.source[0]?.toUpperCase() || '?'}
         </span>
         <div className="annot__identite">

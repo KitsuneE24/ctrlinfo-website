@@ -45,7 +45,7 @@ export default class Rattrapage extends Component {
         <button
           type="button"
           onClick={() => window.location.reload()}
-          className="rattrapage__bouton"
+          className="bouton bouton--plein"
         >
           <RefreshCw size={16} strokeWidth={2.2} />
           Recharger la page

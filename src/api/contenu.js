@@ -37,12 +37,11 @@ export const getConversation = (slug) =>
 export const getChapitre = (slug) => chargerContenu().then((c) => un(c.chapitres, slug))
 
 /** Une manche : le tirage que le serveur composait (voir lib/tirage.js). */
-export const getTirage = (level, { taille, themes, vus } = {}) =>
+export const getTirage = (level, { taille, vus } = {}) =>
   chargerContenu().then((c) =>
     tirer(c.posts, {
       level,
       taille: taille ?? c.niveaux.find((n) => n.level === level)?.taille ?? 5,
-      themes,
       vus,
     })
   )

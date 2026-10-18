@@ -1,133 +1,440 @@
 /* ========================================================================
-   LA CORRECTION
-   Le second temps du retour : le cagou, la publication rejouée avec ses
-   points entourés et numérotés, et les deux colonnes — ce qui est exact, ce
-   qui ne l'est pas.
-
-   Trois natures d'indice, trois couleurs, et elles ne changent pas d'un
-   écran à l'autre : alerte, à vérifier, fiable.
+   CORRECTION
+   Verdict (panneau du cagou), puis « Ce qu'il fallait voir ».
+   Indices : alerte (rouge), à vérifier (magenta), fiable (bleu).
    ======================================================================== */
 
 @layer components {
-  :root {
-    --indice-alerte: #791561;
-    --indice-verif: #1800ad;
-    --indice-fiable: #14663f;
-  }
 
-  /* --- La mascotte ------------------------------------------------------- */
+  /* --- Verdict : panneau du cagou, posé sur le post --- */
 
-  .cagou {
-    position: relative;
-    display: block;
-    flex-shrink: 0;
-    margin: 0 auto 14px;
-  }
-
-  .cagou__image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  /* L'humeur, en pastille : les trois dessins du cagou ne sont pas encore
-     livrés, c'est elle qui porte l'expression en attendant. */
-  .cagou__humeur {
+  .verdict-cagou {
     position: absolute;
-    right: -2px;
-    bottom: -2px;
-    display: grid;
-    place-items: center;
-    width: 42%;
-    height: 42%;
-    border-radius: 50%;
-    border: 2px solid var(--surface);
-    background: var(--indice-verif);
-    color: var(--brand-cream);
+    z-index: 40;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--encre-voile) 50%, transparent);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 
-  .cagou--content .cagou__humeur {
-    background: var(--indice-fiable);
+  .verdict-cagou__cadre {
+    width: min(560px, calc(100vw - 24px));
   }
 
-  .cagou--inquiet .cagou__humeur {
-    background: var(--indice-alerte);
+  /* Centré sur la colonne du post (ordinateur). */
+  @media (min-width: 1024px) {
+    .verdict-cagou__cadre {
+      transform: translateX(-160px);
+    }
   }
 
-  /* --- La fenêtre, une fois dépliée -------------------------------------- */
-
-  .modal__card--large {
-    max-width: 560px;
-    max-height: 100%;
-    overflow-y: auto;
-    text-align: left;
+  /* Étiquettes d'enquête : pochoir, double encadré. */
+  .verdict-cagou__procede,
+  .verdict-cagou__resultat {
+    align-self: flex-start;
+    max-width: 100%;
+    margin: 0;
+    padding: 4px 10px 3px;
+    border: 2px solid currentColor;
+    border-radius: 3px;
+    box-shadow:
+      inset 0 0 0 2px var(--blanc),
+      inset 0 0 0 3.5px currentColor;
+    font-family: var(--font-enquete);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.25;
+    text-transform: uppercase;
   }
 
-  .modal__card--large .modal__title {
-    text-align: center;
+  /* Résultat en filigrane : très grand, incliné, pâle, derrière le contenu. */
+  .verdict-cagou .cadre-cagou__panneau {
+    container-type: inline-size;
   }
 
-  .correction {
-    margin-top: 16px;
+  .verdict-cagou .cadre-cagou__panneau > * {
+    position: relative;
+    z-index: 1;
   }
 
-  .correction__lecture {
+  .verdict-cagou .cadre-cagou__panneau > .verdict-cagou__resultat {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    max-width: none;
+    padding: 0.18em 0.4em 0.12em;
+    transform: translate(-50%, -50%) rotate(-14deg);
+    border-width: 0.07em;
+    box-shadow:
+      inset 0 0 0 0.06em var(--blanc),
+      inset 0 0 0 0.1em currentColor;
+    font-size: 9.5cqi;
+    line-height: 1.1;
+    white-space: nowrap;
+    color: var(--faux);
+    opacity: 0.2;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Mobile : remonté, au-dessus des boutons. */
+  @media (max-width: 767px) {
+    .verdict-cagou .cadre-cagou__panneau > .verdict-cagou__resultat {
+      top: 38%;
+    }
+  }
+
+  /* Texte posé par CSS : purement décoratif. */
+  .verdict-cagou__resultat::before {
+    content: attr(data-texte);
+  }
+
+  .verdict-cagou .cadre-cagou__panneau > .verdict-cagou__resultat--juste {
+    color: var(--juste);
+  }
+
+  /* Procédé utilisé : magenta. */
+  .verdict-cagou__procede {
+    color: var(--magenta);
+  }
+
+  @media (min-width: 768px) {
+    .verdict-cagou__resultat,
+    .verdict-cagou__procede {
+      padding: 5px 12px 4px;
+      font-size: 17px;
+    }
+  }
+
+  .verdict-cagou .modal__text {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  /* Boutons empilés : chaque libellé tient sur une ligne. */
+  .verdict-cagou__actions {
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    margin-top: 6px;
   }
 
-  /* Sur ordinateur : la publication seule à gauche, les indices numérotés et
-     les explications à droite. Les boutons restent en bas, sous les deux. */
+  @media (min-width: 768px) {
+    .verdict-cagou .modal__title {
+      font-size: 40px;
+    }
+
+    .verdict-cagou .modal__text {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .verdict-cagou__actions {
+      flex-direction: row;
+    }
+
+    .cadre-cagou__panneau .verdict-cagou__actions .bouton {
+      width: auto;
+      flex: 1 1 auto;
+    }
+  }
+
+  /* --- « Ce qu'il fallait voir » : écran plein --- */
+
+  .indices {
+    position: fixed;
+    inset: 0;
+    z-index: 110;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-top: var(--sa-top);
+    background: var(--encre);
+    color: var(--ink);
+  }
+
+  .indices__halo {
+    position: absolute;
+    top: 260px;
+    left: -260px;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    background: radial-gradient(
+      closest-side,
+      color-mix(in srgb, var(--rouge) 22%, transparent),
+      color-mix(in srgb, var(--violet-lueur) 12%, transparent) 60%,
+      color-mix(in srgb, var(--encre) 0%, transparent)
+    );
+    pointer-events: none;
+  }
+
+  .indices__tete,
+  .indices__corps,
+  .indices__pied {
+    position: relative;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .indices__tete {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px 6px;
+  }
+
   @media (min-width: 900px) {
-    .modal__card--large {
-      max-width: 1020px;
-    }
-
-    .correction {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      align-items: start;
-      gap: 24px;
-    }
-
-    .correction__lecture .annot__liste {
-      margin-top: 0;
+    .indices__tete {
+      padding: 22px 40px;
     }
   }
 
-  .correction__note {
-    margin: 14px 0 0;
-    padding-top: 14px;
-    border-top: 1px solid var(--line);
-    font-size: var(--text-sm);
-    line-height: var(--leading-body);
-    color: var(--ink-soft);
+  .indices__tete .tampon {
+    align-self: center;
   }
 
-  /* --- La publication rejouée -------------------------------------------- */
-
-  .annot {
-    padding: 14px;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    background: var(--wash);
+  .indices__retour-texte {
+    display: none;
   }
+
+  @media (min-width: 900px) {
+    .indices__retour {
+      width: auto;
+      gap: 8px;
+      padding: 0 18px 0 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .indices__retour-texte {
+      display: inline;
+    }
+  }
+
+  .indices__corps {
+    display: flex;
+    flex: 1 1 0;
+    min-height: 0;
+    flex-direction: column;
+    gap: 26px;
+    overflow-y: auto;
+    padding: 10px 20px 28px;
+  }
+
+  @media (min-width: 900px) {
+    .indices__corps {
+      gap: 56px;
+      padding: 32px 40px 48px;
+    }
+  }
+
+  .indices__intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px 24px;
+  }
+
+  .indices__titre {
+    flex: 1 1 520px;
+    margin: 0;
+    font-family: var(--font-title);
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  @media (min-width: 900px) {
+    .indices__titre {
+      font-size: clamp(48px, 5.6vw, 84px);
+      line-height: 0.95;
+    }
+  }
+
+  .indices__titre em {
+    color: var(--magenta-texte);
+  }
+
+  .indices__chapo {
+    flex: 0 1 380px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-muted);
+  }
+
+  @media (min-width: 900px) {
+    .indices__chapo {
+      font-size: 18px;
+      line-height: 1.55;
+    }
+  }
+
+
+  .indices__piece {
+    padding: 22px 18px 18px;
+    transform: rotate(-1.2deg);
+    border-radius: 6px;
+    box-shadow: 0 18px 40px -16px color-mix(in srgb, var(--noir) 80%, transparent);
+  }
+
+  @media (min-width: 900px) {
+    .indices__piece {
+      padding: 32px 30px 28px;
+      transform: rotate(-1.5deg);
+      box-shadow: 0 30px 60px -24px color-mix(in srgb, var(--noir) 90%, transparent);
+    }
+  }
+
+  .indices__bilan {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--filet-2);
+  }
+
+  @media (min-width: 900px) {
+    .indices__bilan {
+      flex-direction: row;
+      gap: 40px;
+      padding-top: 28px;
+    }
+  }
+
+  .indices__ligne {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--filet-2);
+  }
+
+  @media (min-width: 900px) {
+    .indices__ligne {
+      flex: 1 1 220px;
+      flex-direction: column;
+      gap: 6px;
+      padding: 0;
+      border: 0;
+    }
+  }
+
+  .indices__marque {
+    width: 54px;
+    flex-shrink: 0;
+    margin: 0;
+    padding-top: 3px;
+  }
+
+  .indices__marque--vrai {
+    color: var(--bleu-texte);
+  }
+
+  .indices__marque--faux {
+    color: var(--rouge-texte);
+  }
+
+  .indices__ligne-texte {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 900px) {
+    .indices__ligne-texte {
+      font-size: 15px;
+    }
+  }
+
+  .indices__pied {
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+    padding: 12px 18px calc(24px + var(--sa-bottom));
+    border-top: 1px solid var(--filet-1);
+    background: var(--encre);
+  }
+
+  @media (min-width: 900px) {
+    .indices__pied {
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 20px 40px 28px;
+      border-top: 0;
+      background: transparent;
+    }
+  }
+
+  .indices__plus {
+    width: 56px;
+    min-height: 56px;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  .indices__plus-texte {
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    .indices__plus {
+      width: auto;
+      padding: 0 24px;
+    }
+
+    .indices__plus-texte {
+      display: inline;
+    }
+  }
+
+  .indices__continuer {
+    flex: 1;
+  }
+
+  @media (min-width: 900px) {
+    .indices__continuer {
+      flex: 0 0 auto;
+      padding: 0 28px;
+    }
+  }
+
+  /* --- La publication rejouée, sur papier --- */
 
   .annot__head {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 12px;
   }
 
   .annot__avatar {
     display: grid;
+    flex-shrink: 0;
     place-items: center;
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    color: var(--brand-cream);
-    font-size: var(--text-sm);
+    color: var(--blanc);
+    font-size: 13px;
     font-weight: 700;
+  }
+
+  @media (min-width: 900px) {
+    .annot__avatar {
+      width: 36px;
+      height: 36px;
+    }
   }
 
   .annot__identite {
@@ -136,89 +443,101 @@
 
   .annot__compte {
     margin: 0;
-    font-size: var(--text-sm);
+    font-size: 14px;
     font-weight: 700;
-    color: var(--ink);
   }
 
   .annot__domaine {
-    margin: 1px 0 0;
-    font-size: var(--text-xs);
-    color: var(--ink-muted);
+    margin: 2px 0 0;
+    font-size: 12.5px;
+    color: var(--papier-encre);
   }
 
   .annot__titre {
-    margin: 12px 0 0;
-    font-size: var(--text-md);
+    margin: 0 0 8px;
+    font-size: 16px;
     font-weight: 700;
-    line-height: 1.35;
-    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  @media (min-width: 900px) {
+    .annot__titre {
+      margin-bottom: 12px;
+      font-family: var(--font-title);
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.08;
+    }
   }
 
   .annot__texte {
-    margin: 6px 0 0;
-    font-size: var(--text-sm);
-    line-height: var(--leading-body);
-    color: var(--ink-soft);
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
   }
 
-  /* La partie visée par un indice se surligne au lieu de s'entourer : sur du
-     texte qui se reflue, un cadre ne tiendrait pas en place. */
+  @media (min-width: 900px) {
+    .annot__texte {
+      font-size: 16px;
+      line-height: 1.65;
+    }
+  }
+
+  /* Passage visé : surligné et souligné de la couleur de l'indice. */
   .annot--vise {
     display: inline;
-    padding: 1px 4px;
-    border-radius: 4px;
-    background: rgba(121, 21, 97, 0.09);
-    box-shadow: inset 2px 0 0 var(--indice-alerte);
+    padding: 0 2px;
+    background: color-mix(in srgb, var(--rouge) 14%, transparent);
+    border-bottom: 2px solid var(--rouge);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 
-  /* Le surlignage prend la couleur de l'indice qui le vise : sur une
-     publication vraie, il serait sinon rouge sous une pastille verte. */
   .annot--verification {
-    background: rgba(24, 0, 173, 0.08);
-    box-shadow: inset 2px 0 0 var(--indice-verif);
+    background: color-mix(in srgb, var(--magenta) 14%, transparent);
+    border-bottom-color: var(--magenta);
   }
 
   .annot--fiable {
-    background: rgba(20, 102, 63, 0.1);
-    box-shadow: inset 2px 0 0 var(--indice-fiable);
+    background: color-mix(in srgb, var(--bleu) 12%, transparent);
+    border-bottom-color: var(--bleu);
   }
 
   .annot__marques {
     display: inline-flex;
     gap: 3px;
     margin-left: 6px;
-    vertical-align: middle;
+    vertical-align: 1px;
   }
 
   .annot__puce {
-    display: grid;
+    display: inline-grid;
     place-items: center;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background: var(--indice-alerte);
-    color: var(--brand-cream);
-    font-size: var(--text-2xs);
+    background: var(--rouge);
+    color: var(--blanc);
+    font-family: var(--font-body);
+    font-size: 12px;
     font-weight: 700;
     line-height: 1;
   }
 
   .annot__puce--verification {
-    background: var(--indice-verif);
+    background: var(--magenta);
   }
 
   .annot__puce--fiable {
-    background: var(--indice-fiable);
+    background: var(--bleu);
   }
-
-  /* --- L'image et ses cadres --------------------------------------------- */
 
   .annot__media {
     position: relative;
-    margin-top: 12px;
+    margin-top: 16px;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 3px;
+    background: var(--surface-media);
   }
 
   .annot__image {
@@ -228,72 +547,69 @@
 
   .annot__cadre {
     position: absolute;
-    border: 2.5px solid var(--indice-alerte);
-    border-radius: 8px;
-    box-shadow: 0 0 0 9999px rgba(10, 6, 20, 0.35);
+    border: 2.5px solid var(--rouge);
+    border-radius: 6px;
+    box-shadow: 0 0 0 9999px color-mix(in srgb, var(--encre-voile) 35%, transparent);
   }
 
   .annot__cadre--verification {
-    border-color: var(--indice-verif);
+    border-color: var(--magenta);
   }
 
   .annot__cadre--fiable {
-    border-color: var(--indice-fiable);
+    border-color: var(--bleu);
   }
 
-  /* Le numéro se pose au coin du cadre, en débord. */
   .annot__cadre .annot__puce {
     position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 21px;
-    height: 21px;
-    border: 2px solid var(--surface);
+    top: -11px;
+    left: -11px;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--papier);
   }
 
-  /* --- La liste des indices ---------------------------------------------- */
+  /* --- Les indices, reliés par un fil rouge vertical --- */
 
   .annot__liste {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 14px 0 0;
+    gap: 22px;
+    margin: 0;
+    padding: 0 0 0 44px;
+    list-style: none;
+  }
+
+  .annot__liste::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    bottom: 14px;
+    left: 14px;
+    width: 2px;
+    background: var(--rouge);
+  }
+
+  @media (min-width: 900px) {
+    .annot__liste {
+      gap: 36px;
+      padding: 8px 0 0 56px;
+    }
+
+    .annot__liste::before {
+      top: 24px;
+      bottom: 30px;
+      left: 17px;
+    }
   }
 
   .indice {
-    display: flex;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border-left: 3px solid var(--indice-alerte);
-    background: var(--surface);
-  }
-
-  .indice--verification {
-    border-left-color: var(--indice-verif);
-  }
-
-  .indice--fiable {
-    border-left-color: var(--indice-fiable);
+    position: relative;
   }
 
   .indice__picto {
-    display: grid;
-    flex-shrink: 0;
-    place-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 9px;
-    background: var(--wash);
-    color: var(--indice-alerte);
-  }
-
-  .indice--verification .indice__picto {
-    color: var(--indice-verif);
-  }
-
-  .indice--fiable .indice__picto {
-    color: var(--indice-fiable);
+    display: none;
   }
 
   .indice__corps {
@@ -301,80 +617,214 @@
   }
 
   .indice__libelle {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin: 0;
-    font-size: var(--text-sm);
+    margin: 0 0 4px;
+    font-size: 16px;
     font-weight: 700;
+    line-height: 1.25;
     color: var(--ink);
   }
 
+  @media (min-width: 900px) {
+    .indice__libelle {
+      margin-bottom: 6px;
+      font-family: var(--font-title);
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+  }
+
   .indice__numero {
+    position: absolute;
+    top: 0;
+    left: -44px;
     display: grid;
-    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
     place-items: center;
-    width: 18px;
-    height: 18px;
     border-radius: 50%;
-    background: var(--indice-alerte);
-    color: var(--brand-cream);
-    font-size: var(--text-2xs);
+    background: var(--rouge);
+    box-shadow: 0 0 0 4px var(--encre);
+    color: var(--blanc);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
     line-height: 1;
   }
 
+  @media (min-width: 900px) {
+    .indice__numero {
+      top: -2px;
+      left: -56px;
+      width: 36px;
+      height: 36px;
+      box-shadow: 0 0 0 6px var(--encre);
+      font-size: 15px;
+    }
+  }
+
   .indice--verification .indice__numero {
-    background: var(--indice-verif);
+    background: var(--magenta);
   }
 
   .indice--fiable .indice__numero {
-    background: var(--indice-fiable);
+    background: var(--bleu);
   }
 
   .indice__texte {
-    margin: 4px 0 0;
-    font-size: var(--text-sm);
-    line-height: var(--leading-body);
-    color: var(--ink-soft);
-  }
-
-  /* --- Ce qui est exact, ce qui ne l'est pas ------------------------------ */
-
-  .verdict {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 14px;
-  }
-
-  .verdict__pan {
-    padding: 11px 13px;
-    border-radius: 10px;
-    border-left: 3px solid var(--indice-fiable);
-    background: var(--wash);
-  }
-
-  .verdict__pan--faux {
-    border-left-color: var(--indice-alerte);
-  }
-
-  .verdict__label {
     margin: 0;
-    font-size: var(--text-2xs);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--indice-fiable);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-muted);
   }
 
-  .verdict__pan--faux .verdict__label {
-    color: var(--indice-alerte);
+  @media (min-width: 900px) {
+    .indice__texte {
+      font-size: 16px;
+      line-height: 1.55;
+    }
+  }
+}
+
+/* --- « Ce qu'il fallait voir » : ordre mobile, colonnes ordinateur --- */
+
+@layer components {
+  /* Mobile : titre, publication, indices, vrai/faux. */
+  .indices__explications {
+    display: contents;
   }
 
-  .verdict__texte {
-    margin: 5px 0 0;
-    font-size: var(--text-sm);
-    line-height: var(--leading-body);
-    color: var(--ink-soft);
+  .indices__intro {
+    order: -1;
+  }
+
+  @media (min-width: 900px) {
+    .indices__tete {
+      padding: 16px 40px 4px;
+    }
+
+    .indices__corps {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 56px;
+      overflow: hidden;
+      padding: 8px 40px 12px;
+    }
+
+    .indices__piece {
+      margin-top: 12px;
+      padding: 22px 26px 20px;
+    }
+
+    .indices__piece .annot__titre {
+      font-size: 24px;
+    }
+
+    .indices__piece .annot__texte {
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    /* Image à ses proportions : les zones encadrées restent justes. */
+    .indices__piece .annot__media {
+      width: fit-content;
+      max-width: 100%;
+      margin: 14px auto 0;
+    }
+
+    .indices__piece .annot__image {
+      width: auto;
+      max-width: 100%;
+      max-height: clamp(120px, calc(100dvh - 470px), 320px);
+    }
+
+    .indices__explications {
+      display: flex;
+      max-height: 100%;
+      flex-direction: column;
+      gap: 22px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-right: 8px;
+    }
+
+    .indices__intro {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .indices__titre {
+      flex: none;
+      font-size: clamp(38px, 3.6vw, 54px);
+    }
+
+    .indices__chapo {
+      flex: none;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .indices__corps .annot__liste {
+      gap: 22px;
+      padding-top: 4px;
+    }
+
+    .indices__corps .indice__libelle {
+      font-size: 24px;
+    }
+
+    .indices__corps .indice__texte {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .indices__bilan {
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 16px;
+    }
+
+    .indices__ligne {
+      flex: none;
+      flex-direction: row;
+      gap: 12px;
+    }
+
+    .indices__pied {
+      padding: 10px 40px 20px;
+    }
+
+    .indices__pied .bouton {
+      min-height: 52px;
+    }
+  }
+
+  /* Écrans bas : texte resserré. */
+  @media (min-width: 900px) and (max-height: 800px) {
+    .indices__explications {
+      gap: 16px;
+    }
+
+    .indices__titre {
+      font-size: 40px;
+    }
+
+    .indices__chapo,
+    .indices__corps .indice__texte,
+    .indices__ligne-texte {
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .indices__corps .annot__liste {
+      gap: 14px;
+    }
+
+    .indices__corps .indice__libelle {
+      margin-bottom: 2px;
+      font-size: 21px;
+    }
   }
 }

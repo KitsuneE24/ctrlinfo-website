@@ -1,43 +1,162 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowRight, ExternalLink, ScanSearch } from 'lucide-react'
+import { ArrowRight, ChevronLeft, ExternalLink, ScanSearch } from 'lucide-react'
 import CadreCagou from './CadreCagou'
-import Mascotte from './Mascotte'
 import PostAnnotated, { ListeIndices } from './PostAnnotated'
 
-function Actions({ detail, isCorrect, aQuoiMontrer, learnMoreUrl, onDismiss, onDetail, onLearnMore }) {
+/** Biais en tampon (magenta), sauf « Aucun… ». */
+function Tampon({ biais }) {
+  if (!biais || biais.startsWith('Aucun')) return null
+  return <span className="tampon">{biais}</span>
+}
+
+/** Premier temps : le verdict, sur le panneau du cagou, au-dessus du post. */
+function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
+  const voirIndices = aQuoiMontrer && !isCorrect
+  const biais = post.biais && !post.biais.startsWith('Aucun') ? post.biais : null
+
   return (
-    <div className="modal__actions">
-      <button type="button" onClick={onDismiss} className="button">
-        Continuer
-        <ArrowRight size={16} strokeWidth={2.2} />
-      </button>
+    <div
+      className="verdict-cagou anim-apparait"
+      onClick={onDismiss}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="verdict-titre"
+        className="verdict-cagou__cadre anim-surgit"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <CadreCagou>
+          {/* Résultat en filigrane (vert juste, rouge faux) ; le titre le dit déjà. */}
+          <span
+            aria-hidden="true"
+            data-texte={isCorrect ? 'Bonne réponse' : 'Mauvaise réponse'}
+            className={
+              isCorrect
+                ? 'verdict-cagou__resultat verdict-cagou__resultat--juste'
+                : 'verdict-cagou__resultat verdict-cagou__resultat--faux'
+            }
+          />
+          {/* Procédé utilisé : magenta. */}
+          {biais && <p className="verdict-cagou__procede">{biais}</p>}
+          <h2 id="verdict-titre" className="modal__title">
+            {isCorrect ? 'Bien vu.' : 'À revoir.'}
+          </h2>
+          <p className="modal__text">{isCorrect ? post.encouragement : post.warning}</p>
 
-      {!detail && aQuoiMontrer && (
-        <button type="button" onClick={onDetail} className="button button--ghost">
-          <ScanSearch size={16} strokeWidth={2} />
-          {isCorrect ? 'Voir pourquoi' : 'Voir ce qui clochait'}
-        </button>
-      )}
-
-      {detail && learnMoreUrl && (
-        <button
-          type="button"
-          onClick={() => onLearnMore(learnMoreUrl)}
-          className="button button--ghost"
-        >
-          <ExternalLink size={15} strokeWidth={2} />
-          En savoir plus
-        </button>
-      )}
+          <div className="verdict-cagou__actions">
+            {voirIndices ? (
+              <>
+                <button type="button" onClick={onDetail} className="bouton bouton--encre bouton--large">
+                  <ScanSearch size={16} strokeWidth={2.2} />
+                  Voir ce qui clochait
+                </button>
+                <button type="button" onClick={onDismiss} className="bouton bouton--large">
+                  Continuer
+                </button>
+              </>
+            ) : (
+              <>
+                <button type="button" onClick={onDismiss} className="bouton bouton--encre bouton--large">
+                  Continuer
+                  <ArrowRight size={16} strokeWidth={2.4} />
+                </button>
+                {aQuoiMontrer && (
+                  <button type="button" onClick={onDetail} className="bouton bouton--large">
+                    Indices
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+        </CadreCagou>
+      </div>
     </div>
   )
 }
 
-/**
- * Le retour après chaque choix, en deux temps : le verdict, puis la correction
- * si on la demande. Elle ne se referme pas toute seule.
- */
+/** Second temps : « Ce qu'il fallait voir ». */
+function Indices({ post, learnMoreUrl, onRetour, onDismiss, onLearnMore }) {
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="indices-titre"
+      className="indices anim-monte"
+    >
+      <span aria-hidden="true" className="indices__halo" />
+
+      <header className="indices__tete">
+        <button
+          type="button"
+          onClick={onRetour}
+          aria-label="Retour au verdict"
+          className="bouton-rond indices__retour"
+        >
+          <ChevronLeft size={20} strokeWidth={2.2} />
+          <span className="indices__retour-texte">Retour</span>
+        </button>
+        <Tampon biais={post.biais} />
+      </header>
+
+      <div className="indices__corps">
+        <div className="papier indices__piece">
+          <span className="papier__ruban" />
+          <PostAnnotated post={post} liste={false} />
+        </div>
+
+        {/* Ordinateur : colonne de droite, qui défile seule si besoin. */}
+        <div className="indices__explications">
+          <section className="indices__intro">
+            <h2 id="indices-titre" className="indices__titre">
+              Ce qu'il fallait <em>voir.</em>
+            </h2>
+            {post.explication && <p className="indices__chapo">{post.explication}</p>}
+          </section>
+
+          <ListeIndices post={post} />
+
+          {(post.analyseVrai || post.analyseFaux) && (
+            <section className="indices__bilan">
+              {post.analyseVrai && (
+                <div className="indices__ligne">
+                  <p className="indices__marque indices__marque--vrai">Vrai</p>
+                  <p className="indices__ligne-texte">{post.analyseVrai}</p>
+                </div>
+              )}
+              {post.analyseFaux && (
+                <div className="indices__ligne">
+                  <p className="indices__marque indices__marque--faux">Faux</p>
+                  <p className="indices__ligne-texte">{post.analyseFaux}</p>
+                </div>
+              )}
+            </section>
+          )}
+        </div>
+      </div>
+
+      <footer className="indices__pied">
+        {learnMoreUrl && (
+          <button
+            type="button"
+            onClick={() => onLearnMore(learnMoreUrl)}
+            aria-label="En savoir plus"
+            className="bouton indices__plus"
+          >
+            <ExternalLink size={18} strokeWidth={2} />
+            <span className="indices__plus-texte">En savoir plus</span>
+          </button>
+        )}
+        <button type="button" onClick={onDismiss} className="bouton bouton--plein indices__continuer">
+          Continuer
+          <ArrowRight size={18} strokeWidth={2.4} />
+        </button>
+      </footer>
+    </div>
+  )
+}
+
+/** Retour après chaque choix : verdict, puis indices si demandés. */
 export default function FeedbackModal({
   visible,
   isCorrect,
@@ -67,95 +186,23 @@ export default function FeedbackModal({
   const learnMoreUrl = isCorrect ? post.learnMoreUrl || post.sourceUrl : post.learnMoreTips
   const aQuoiMontrer = (post.indices?.length ?? 0) > 0 || post.analyseVrai || post.analyseFaux
 
-  const actions = (
-    <Actions
-      detail={detail}
-      isCorrect={isCorrect}
-      aQuoiMontrer={aQuoiMontrer}
+  if (!visible) return null
+
+  return detail ? (
+    <Indices
+      post={post}
       learnMoreUrl={learnMoreUrl}
+      onRetour={() => setDetail(false)}
       onDismiss={onDismiss}
-      onDetail={() => setDetail(true)}
       onLearnMore={onLearnMore}
     />
-  )
-
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          key="feedback-backdrop"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.18 }}
-          className="modal"
-          onClick={onDismiss}
-          role="dialog"
-          aria-modal="true"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92, y: 16 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.92, y: 16 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 26 }}
-            className={
-              detail
-                ? `modal__card modal__card--large${isCorrect ? '' : ' modal__card--wrong'}`
-                : 'modal__cadre'
-            }
-            onClick={(e) => e.stopPropagation()}
-          >
-            {detail ? (
-              <>
-                <Mascotte expression="curieux" />
-                <h2 className="modal__title">Ce qu’il fallait voir</h2>
-
-                <div className="correction">
-                  <PostAnnotated post={post} liste={false} />
-
-                  <div className="correction__lecture">
-                    <ListeIndices post={post} />
-
-                    <div className="verdict">
-                      {post.analyseVrai && (
-                        <div className="verdict__pan verdict__pan--vrai">
-                          <p className="verdict__label">Ce qui est exact</p>
-                          <p className="verdict__texte">{post.analyseVrai}</p>
-                        </div>
-                      )}
-                      {post.analyseFaux && (
-                        <div className="verdict__pan verdict__pan--faux">
-                          <p className="verdict__label">Ce qui ne l’est pas</p>
-                          <p className="verdict__texte">{post.analyseFaux}</p>
-                        </div>
-                      )}
-                    </div>
-
-                    {post.explication && (
-                      <p className="correction__note">{post.explication}</p>
-                    )}
-                  </div>
-                </div>
-
-                {actions}
-              </>
-            ) : (
-              <CadreCagou>
-                <h2 className="modal__title">
-                  {isCorrect ? 'Bon réflexe' : 'À revoir'}
-                </h2>
-                <p className="modal__text">
-                  {isCorrect ? post.encouragement : post.warning}
-                </p>
-                {post.biais && !post.biais.startsWith('Aucun') && (
-                  <p className="modal__bias">{post.biais}</p>
-                )}
-                {actions}
-              </CadreCagou>
-            )}
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+  ) : (
+    <Verdict
+      post={post}
+      isCorrect={isCorrect}
+      aQuoiMontrer={aQuoiMontrer}
+      onDismiss={onDismiss}
+      onDetail={() => setDetail(true)}
+    />
   )
 }

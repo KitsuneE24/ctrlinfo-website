@@ -101,7 +101,7 @@ export default function CodeProgression() {
         {/* --- Exporter ---------------------------------------------------- */}
         <div className="code">
           {code === null ? (
-            <button type="button" onClick={exporter} className="button">
+            <button type="button" onClick={exporter} className="bouton bouton--plein bouton--large">
               <Download size={16} strokeWidth={2.2} />
               Exporter mon code
             </button>
@@ -126,11 +126,11 @@ export default function CodeProgression() {
                 <button
                   type="button"
                   onClick={() => setCode(null)}
-                  className="button button--ghost"
+                  className="bouton bouton--large"
                 >
                   Masquer
                 </button>
-                <button type="button" onClick={copier} className="button">
+                <button type="button" onClick={copier} className="bouton bouton--plein bouton--large">
                   {copie ? (
                     <Check size={16} strokeWidth={2.4} />
                   ) : (
@@ -188,14 +188,14 @@ export default function CodeProgression() {
                 <button
                   type="button"
                   onClick={() => appliquer(aConfirmer)}
-                  className="button"
+                  className="bouton bouton--plein bouton--large"
                 >
                   Remplacer ma progression
                 </button>
                 <button
                   type="button"
                   onClick={() => setAConfirmer(null)}
-                  className="button button--ghost"
+                  className="bouton bouton--large"
                 >
                   Annuler
                 </button>
@@ -206,7 +206,7 @@ export default function CodeProgression() {
               type="button"
               onClick={restaurer}
               disabled={saisie.trim() === ''}
-              className="button"
+              className="bouton bouton--plein bouton--large"
             >
               <Upload size={16} strokeWidth={2.2} />
               Restaurer
@@ -225,13 +225,13 @@ export default function CodeProgression() {
                   Sans code exporté, c'est définitif.
                 </p>
                 <div className="code__actions">
-                  <button type="button" onClick={effacer} className="button">
+                  <button type="button" onClick={effacer} className="bouton bouton--plein bouton--large">
                     Effacer ma progression
                   </button>
                   <button
                     type="button"
                     onClick={() => setRemise(false)}
-                    className="button button--ghost"
+                    className="bouton bouton--large"
                   >
                     Annuler
                   </button>

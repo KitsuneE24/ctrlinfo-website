@@ -1,24 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
-import { Timer } from 'lucide-react'
 
-// Le dernier tiers passe au rouge, quelle que soit la durée du niveau.
+// Le dernier tiers passe au rouge.
 const PART_ALERTE = 1 / 3
+const RAYON = 19
+const TOUR = 2 * Math.PI * RAYON
 
-/**
- * Chrono d'une publication, en chiffres.
- *
- * Sa durée vient du niveau (`GET /posts/niveaux`) : elle n'est plus écrite
- * ici. Au premier niveau il n'y en a pas du tout — c'est le Feed qui décide de
- * ne pas afficher le décompte.
- *
- * La fin est une date et non un compte de tours : un onglet mis en veille ne
- * décale pas le décompte.
- */
+/** Chrono d'une publication, en anneau. La fin est une date : la veille de l'onglet ne le décale pas. */
 export default function Countdown({ active, secondes: duree, onComplete }) {
   const totalMs = duree * 1000
   const [restant, setRestant] = useState(totalMs)
-  // Ce qu'il reste, hors rendu : permet de reprendre là où l'on s'était
-  // arrêté sans relancer l'intervalle à chaque dixième de seconde.
   const restantRef = useRef(totalMs)
   const onCompleteRef = useRef(onComplete)
 
@@ -45,6 +35,7 @@ export default function Countdown({ active, secondes: duree, onComplete }) {
 
   const secondes = Math.ceil(restant / 1000)
   const urgent = restant <= totalMs * PART_ALERTE
+  const part = totalMs > 0 ? restant / totalMs : 0
 
   return (
     <span
@@ -52,9 +43,22 @@ export default function Countdown({ active, secondes: duree, onComplete }) {
       aria-label={`${secondes} secondes pour décider`}
       className={`countdown${urgent ? ' countdown--urgent' : ''}`}
     >
-      <Timer size={14} strokeWidth={2.2} />
-      <span className="countdown__value">{secondes}</span>
-      <span className="countdown__unit">s</span>
+      <svg viewBox="0 0 44 44" aria-hidden="true" className="countdown__anneau">
+        <circle cx="22" cy="22" r={RAYON} className="countdown__piste" />
+        <circle
+          cx="22"
+          cy="22"
+          r={RAYON}
+          className="countdown__reste"
+          strokeDasharray={TOUR}
+          strokeDashoffset={TOUR * (1 - part)}
+          transform="rotate(-90 22 22)"
+        />
+      </svg>
+      <span className="countdown__chiffre">
+        <span className="countdown__value">{secondes}</span>
+        <span className="countdown__unit">secondes</span>
+      </span>
     </span>
   )
 }

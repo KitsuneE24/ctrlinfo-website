@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router'
-import { AnimatePresence, motion } from 'framer-motion'
 import AppHeader from './AppHeader'
 import Compagnon from './Compagnon'
 import ExitGamePrompt from './ExitGamePrompt'
@@ -8,8 +7,13 @@ import GameStart from './GameStart'
 import TabBar from './TabBar'
 import { ExitGuardContext } from '../state/exitGuard'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
+import { useCompagnonVisible } from '../state/compagnonVisible'
 import { useJeu, useJeux } from '../state/jeux'
 import { PATHS, pageTitle } from '../routes'
+import { dejaVu, marquerVu } from '../lib/premiereFois'
+
+/** Règles déjà lues pour ce jeu : on n'ouvre plus l'écran de départ. */
+const reglesLues = (gameId) => Boolean(gameId) && dejaVu(`regles:${gameId}`)
 
 /** Le jeu qui commence à cette adresse. La boîte de réception n'en est pas un. */
 const gameOfPath = (path) => {
@@ -40,8 +44,9 @@ export default function AppShell() {
   const gameId = gameOfPath(pathname)
   const jeu = useJeu(gameId)
   const { chargement: jeuxEnCours } = useJeux()
+  const compagnonVisible = useCompagnonVisible()
 
-  const [lancee, setLancee] = useState(false)
+  const [lancee, setLancee] = useState(() => reglesLues(gameId))
   const [lastPath, setLastPath] = useState(pathname)
   const [relecture, setRelecture] = useState(false)
   const [exitTo, setExitTo] = useState(null)
@@ -51,7 +56,7 @@ export default function AppShell() {
   // fois sans son seuil.
   if (lastPath !== pathname) {
     setLastPath(pathname)
-    setLancee(false)
+    setLancee(reglesLues(gameId))
     setRelecture(false)
     setExitTo(null)
     setFinished(false)
@@ -71,9 +76,10 @@ export default function AppShell() {
   const demarree = !gameId || (!seuil && !enAttente)
 
   const commencer = useCallback(() => {
+    if (gameId) marquerVu(`regles:${gameId}`)
     setLancee(true)
     setRelecture(false)
-  }, [])
+  }, [gameId])
 
   const revoirLeDepart = useCallback(() => setRelecture(true), [])
   const marquerFini = useCallback(() => {
@@ -107,62 +113,32 @@ export default function AppShell() {
   return (
     <ExitGuardContext.Provider value={guard}>
       <div className="app">
-        <AppHeader onGame={Boolean(gameId)} onShowRules={revoirLeDepart} />
+        <AppHeader />
 
         <div className="app__main">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={pathname}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.16 }}
-              className="app__screen"
-            >
-              {/* `runKey` ne change qu'au premier départ : rouvrir l'écran en
-                  cours de partie met en pause, il ne relance pas. */}
-              <Outlet
-                context={{
-                  paused: !demarree || departVisible,
-                  runKey: demarree ? 'play' : 'idle',
-                  onFinished: marquerFini,
-                }}
-              />
-            </motion.div>
-          </AnimatePresence>
+          {/* La clé relance le fondu à chaque changement d'écran. */}
+          <div key={pathname} className="app__screen anim-apparait">
+            {/* `runKey` ne change qu'au premier départ : rouvrir les règles met en pause. */}
+            <Outlet
+              context={{
+                paused: !demarree || departVisible,
+                runKey: demarree ? 'play' : 'idle',
+                onFinished: marquerFini,
+                onRegles: revoirLeDepart,
+              }}
+            />
+          </div>
 
-          {/* L'écran de départ vit dans la zone de l'écran, pas par-dessus
-              toute l'application : la barre d'onglets reste atteignable, et
-              qui change d'avis n'est pas coincé. */}
-          <AnimatePresence>
-            {departVisible && (
-              <GameStart
-                key="start"
-                jeu={jeu}
-                reprise={lancee}
-                onStart={commencer}
-              />
-            )}
-          </AnimatePresence>
+          {departVisible && <GameStart jeu={jeu} reprise={lancee} onStart={commencer} />}
 
-          {/* Le compagnon vit dans la zone de l'écran, au-dessus du contenu et
-              en dessous du seuil de jeu. Il y est posé une fois pour toutes :
-              changer d'écran ne le fait pas disparaître, il continue sa
-              balade. Pendant une partie, il s'assoit sur le côté. */}
-          <Compagnon enJeu={enPartie && !departVisible} />
+          {compagnonVisible && <Compagnon enJeu={enPartie && !departVisible} />}
         </div>
 
         <TabBar />
 
-        <AnimatePresence>
-          {exitTo !== null && (
-            <ExitGamePrompt
-              key="exit"
-              onConfirm={confirmExit}
-              onCancel={() => setExitTo(null)}
-            />
-          )}
-        </AnimatePresence>
+        {exitTo !== null && (
+          <ExitGamePrompt onConfirm={confirmExit} onCancel={() => setExitTo(null)} />
+        )}
       </div>
     </ExitGuardContext.Provider>
   )

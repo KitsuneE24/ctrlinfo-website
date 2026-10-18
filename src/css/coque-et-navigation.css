@@ -1,44 +1,50 @@
 /* ========================================================================
    COQUE ET NAVIGATION
-   Une seule navigation, en bas, à toutes les tailles d'écran : la vue du
-   téléphone est devenue la règle. Sur ordinateur, la barre se contente de se
-   centrer et de s'aérer — elle ne change pas de nature.
+   < 900 px : barre d'onglets en bas. ≥ 900 px : pilule dans l'en-tête.
    ======================================================================== */
 
 @layer components {
   .app {
-    --header-h: 60px;
+    --header-h: 70px;
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100dvh;
     overflow: hidden;
-    background: var(--page);
+    background: var(--encre);
+    color: var(--ink);
   }
 
-  /* --- En-tête : logotype à gauche, contexte à droite --- */
+  /* --- En-tête --- */
 
   .app-header {
     z-index: 50;
     flex-shrink: 0;
     padding-top: var(--sa-top);
-    background: var(--surface);
-    border-bottom: 1px solid var(--line);
+    background: var(--encre);
+    border-bottom: 1px solid var(--filet-1);
   }
 
   .app-header__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 16px;
+    width: 100%;
+    max-width: var(--content-wide);
     height: var(--header-h);
-    padding: 0 14px;
+    margin: 0 auto;
+    padding: 0 16px 0 14px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
+    .app {
+      --header-h: 84px;
+    }
+
     .app-header__inner {
-      padding: 0 22px;
+      padding: 0 40px;
     }
   }
 
@@ -46,86 +52,120 @@
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    gap: 9px;
+    gap: 10px;
     padding: 4px 6px 4px 0;
-    border-radius: 10px;
+    border-radius: 12px;
+    text-decoration: none;
     transition: opacity 0.15s;
   }
 
   .app-header__home:hover {
-    opacity: 0.75;
+    opacity: 0.8;
   }
 
+  /* Logo sur pastille claire */
   .app-header__logo {
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
+    padding: 3px;
+    border-radius: 50%;
+    background: var(--papier);
     object-fit: contain;
   }
 
+  /* Logotype en pochoir (police des étiquettes d'enquête) */
   .app-header__name {
-    font-family: var(--font-brand);
-    font-size: 19px;
+    font-family: var(--font-enquete);
+    font-size: 22px;
+    font-weight: 700;
     line-height: 1;
-    letter-spacing: -0.02em;
-    background-image: var(--brand-gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    color: var(--magenta-texte);
+  }
+
+  @media (min-width: 900px) {
+    .app-header__logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .app-header__name {
+      font-size: 26px;
+      letter-spacing: 4px;
+      color: var(--magenta-pale);
+    }
+  }
+
+  /* La pilule de navigation : ordinateur seulement. */
+  .app-header__nav {
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    .app-header__nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 5px;
+      border: 1px solid var(--filet-2);
+      border-radius: 999px;
+      background: var(--surface);
+    }
+  }
+
+  .app-header__lien {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 18px;
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s, color 0.15s;
+  }
+
+  .app-header__lien:hover {
+    color: var(--ink);
+    background: color-mix(in srgb, var(--blanc) 6%, transparent);
+  }
+
+  .app-header__lien--actif,
+  .app-header__lien--actif:hover {
+    background: var(--blanc);
+    color: var(--encre);
+    font-weight: 600;
   }
 
   .app-header__actions {
     display: flex;
     min-width: 0;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
   }
 
+  /* Avatar : ordinateur seulement */
   .app-header__avatar {
-    display: inline-flex;
+    display: none;
     flex-shrink: 0;
     border-radius: 50%;
-    transition: transform 0.12s;
+    transition: transform 0.12s, box-shadow 0.15s;
+  }
+
+  @media (min-width: 900px) {
+    .app-header__avatar {
+      display: inline-flex;
+    }
   }
 
   .app-header__avatar:hover {
     transform: scale(1.06);
   }
 
-  .app-header__avatar:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--brand-blue);
-  }
-
-  /* Le bouton « Règles du jeu », seulement sur le fil. */
-  .rules-button {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 13px;
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    background: var(--surface);
-    color: var(--ink-muted);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
-  }
-
-  .rules-button:hover {
-    border-color: var(--nav-feed);
-    background: var(--wash);
-    color: var(--nav-feed);
-  }
-
-  .rules-button__label {
-    display: none;
-  }
-
-  @media (min-width: 560px) {
-    .rules-button__label {
-      display: inline;
-    }
+  .app-header__avatar--actif {
+    box-shadow: 0 0 0 2px var(--encre), 0 0 0 4px var(--magenta-texte);
   }
 
   .app__main {
@@ -145,51 +185,53 @@
     flex-direction: column;
   }
 
-  /* --- Barre d'onglets du bas : la seule navigation du site --- */
+  /* --- Barre d'onglets du bas --- */
 
+  /* Au premier plan, au-dessus des fenêtres de l'écran. */
   .tab-bar {
-    z-index: 30;
+    position: relative;
+    z-index: 105;
     flex-shrink: 0;
-    background: color-mix(in srgb, var(--surface) 95%, transparent);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid var(--line);
     padding-bottom: var(--sa-bottom);
+    background: var(--encre);
+    border-top: 1px solid var(--filet-1);
+  }
+
+  @media (min-width: 900px) {
+    .tab-bar {
+      display: none;
+    }
   }
 
   .tab-bar__list {
     display: flex;
     align-items: stretch;
     justify-content: space-around;
-    padding: 6px 4px;
-  }
-
-  /* Sur grand écran, la barre reste au même endroit mais cesse de s'étirer :
-     cinq icônes réparties sur 1600 px ne se lisent plus comme une barre. */
-  @media (min-width: 768px) {
-    .tab-bar__list {
-      width: 100%;
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 8px 4px;
-    }
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 8px 6px 10px;
   }
 
   .tab-bar__button {
     position: relative;
     display: flex;
+    min-width: 0;
     flex: 1 1 0;
+    min-height: 48px;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 3px;
-    padding: 6px 0;
-    border-radius: 12px;
+    justify-content: flex-end;
+    gap: 5px;
     color: var(--ink-faint);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
     transition: transform 0.12s, color 0.15s;
   }
 
   .tab-bar__button:active {
-    transform: scale(0.9);
+    transform: scale(0.92);
   }
 
   @media (hover: hover) {
@@ -198,35 +240,27 @@
     }
   }
 
-  /* L'intitulé n'apparaît que quand il tient sans serrer les icônes. */
+  .tab-bar__button--active {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
   .tab-bar__label {
-    display: none;
-    font-size: var(--text-2xs);
-    font-weight: 600;
-    line-height: 1;
+    white-space: nowrap;
   }
 
-  @media (min-width: 420px) {
-    .tab-bar__label {
-      display: block;
-    }
-
-    .tab-bar__dot {
-      display: none;
-    }
-  }
-
-  /* Couleur de l'onglet actif : elle vient de navItems.js. */
+  /* Point magenta de l'onglet actif */
   .tab-bar__dot {
     width: 4px;
     height: 4px;
+    margin-top: -1px;
     border-radius: 50%;
-    background: currentColor;
+    background: var(--magenta-texte);
     opacity: 0;
-    transition: opacity 0.15s;
   }
 
   .tab-bar__button--active .tab-bar__dot {
     opacity: 1;
   }
+
 }

@@ -1,9 +1,10 @@
-import { createElement, useCallback, useMemo, useState } from 'react'
+import { createElement, useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
-import { ArrowLeft, ArrowRight, BookOpen, ExternalLink, Search, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpen, Check, ExternalLink, Search, X } from 'lucide-react'
 import { getChapitre, getChapitres } from '../api/contenu'
 import { icone } from '../data/icones'
 import { correspond } from '../lib/search'
+import { dejaVu, marquerVu } from '../lib/premiereFois'
 import { useRessource } from '../lib/useRessource'
 import { PATHS, chapterPath } from '../routes'
 import Banniere from '../components/ui/Banniere'
@@ -40,7 +41,7 @@ function Icone({ nom, size }) {
 /** Le lien de sortie d'un thème : où aller quand la fiche ne suffit pas. */
 function LienDAide({ lien }) {
   return (
-    <a href={lien.url} target="_blank" rel="noopener noreferrer" className="chapitre-lien">
+    <a href={lien.url} target="_blank" rel="noopener noreferrer" className="bouton bouton--petit chapitre-lien">
       <ExternalLink size={14} strokeWidth={2} />
       {lien.texte}
     </a>
@@ -154,8 +155,13 @@ export function ChapterScreen() {
   const charger = useCallback(() => getChapitre(slug), [slug])
   const { donnees, chargement, erreur, recharger } = useRessource(charger, [slug])
 
+  // Pour le badge « Lu » de la galerie.
+  useEffect(() => {
+    if (donnees) marquerVu(`chapitre:${slug}`)
+  }, [donnees, slug])
+
   const retour = (
-    <Link to={PATHS.resources} className="chapitre__retour">
+    <Link to={PATHS.resources} className="bouton bouton--petit chapitre__retour">
       <ArrowLeft size={16} strokeWidth={2.2} />
       Tous les thèmes
     </Link>
@@ -228,11 +234,9 @@ export default function LearnScreen() {
 
   return (
     <Page seamless>
-      {/* Bandeau d'entrée : la même bannière que l'accueil, fond animé
-          compris (ui/Banniere.jsx). */}
       <Banniere className="learn-hero">
-        <p className="learn-hero__eyebrow">Ressources</p>
-        <h1 className="learn-hero__title">Ce qu'il faut savoir avant de partager</h1>
+        <p className="etiquette learn-hero__eyebrow">Ressources</p>
+        <h1 className="learn-hero__title">Ce qu'il faut savoir avant de partager.</h1>
         <p className="learn-hero__lead">
           Huit thèmes courts. Chacun se lit en deux minutes et mène vers un site
           qui va plus loin.
@@ -242,7 +246,7 @@ export default function LearnScreen() {
       <div className="learn__body">
         {/* La recherche en premier : c'est la porte d'entrée de l'onglet. */}
         <div className="search-field">
-          <Search size={16} />
+          <Search size={19} strokeWidth={2} />
           <input
             type="search"
             value={query}
@@ -290,22 +294,28 @@ export default function LearnScreen() {
                     />
                   ) : (
                     <span className="theme__icone">
-                      <Icone nom={chapitre.icone} size={34} />
+                      <Icone nom={chapitre.icone} size={44} />
                     </span>
                   )}
 
                   <span className="theme__voile">
                     <span className="theme__numero">{chapitre.numero}</span>
                     <span className="theme__titre">{chapitre.titre}</span>
+                    <span className="theme__plus">Lire · 2 min →</span>
                   </span>
+
+                  {dejaVu(`chapitre:${chapitre.id}`) && (
+                    <span className="theme__lu">
+                      <Check size={12} strokeWidth={3} />
+                      Lu
+                    </span>
+                  )}
                 </Link>
               </li>
             ))}
           </ul>
         )}
 
-        {/* La même carte qu'en fin d'accueil : un seul bloc de sortie pour
-            tout le site (entry-card.css). */}
         <section className="entry-card">
           <h2 className="entry-card__title">À toi de jouer</h2>
           <p className="entry-card__text">
@@ -313,13 +323,12 @@ export default function LearnScreen() {
             fil d'actualité reprend tout ce qui précède, mais en situation.
           </p>
           <div className="entry-card__actions">
-            <Link to={PATHS.feed} className="entry-card__button">
+            <Link to={PATHS.feed} className="bouton bouton--plein">
               Ouvrir le fil d'actualité
               <ArrowRight size={16} strokeWidth={2.2} />
             </Link>
-            {/* Les sites où vérifier une info sont les stories de l'accueil :
-                c'est là qu'on renvoie, plutôt que vers une page de liens. */}
-            <Link to={PATHS.home} className="entry-card__link">
+            {/* Renvoie aux stories de l'accueil. */}
+            <Link to={PATHS.home} className="bouton">
               <BookOpen size={16} strokeWidth={2} />
               Où vérifier une info
             </Link>

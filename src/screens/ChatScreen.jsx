@@ -3,6 +3,7 @@ import { Link, useNavigate, useOutletContext, useParams } from 'react-router'
 import { Check, ChevronRight, MessageCircle } from 'lucide-react'
 import { getConversation, getConversations } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
+import { texteSur } from '../lib/contraste'
 import { clearSession, getRunIds, saveRunIds } from '../state/conversationSessions'
 import { useExitGuard } from '../state/exitGuard'
 import { useProgression } from '../state/useProgression'
@@ -32,7 +33,7 @@ export default function ChatScreen() {
   const { slug: openId = null } = useParams()
   const navigate = useNavigate()
   // Tant que l'écran de départ est là, la discussion ne se déroule pas.
-  const { paused, onFinished } = useOutletContext()
+  const { paused, onFinished, onRegles } = useOutletContext()
   const { requestExit } = useExitGuard()
   // Les conversations déjà menées au bout, pour les marquer dans la liste : une
   // progression qu'on ne voit pas ne se sent pas.
@@ -94,7 +95,10 @@ export default function ChatScreen() {
                       >
                         <span
                           className="inbox-item__avatar"
-                          style={{ background: conversation.color }}
+                          style={{
+                            background: conversation.color,
+                            color: texteSur(conversation.color),
+                          }}
                         >
                           {conversation.name[0]}
                         </span>
@@ -141,6 +145,7 @@ export default function ChatScreen() {
                 if (requestExit(PATHS.chats)) navigate(PATHS.chats)
               }}
               onRestart={restart}
+              onRegles={onRegles}
             />
           ) : (
             <div className="messaging__empty">

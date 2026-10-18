@@ -1,99 +1,134 @@
 /* ==========================================================================
-   JETONS
-   Palette, polices, rayons, encoches. Doublés en JS dans colors.js.
+   JETONS — seul fichier où sont écrites les couleurs, polices et tailles
+   Partout ailleurs (CSS, admin, JS via lib/couleurs.js) : var(--nom).
    ========================================================================== */
 
-@layer base {
+:root {
+  /* Titres : Instrument Serif. Logo, étiquettes : Josefin Sans. Texte : Archivo. */
+  --font-body: 'Archivo', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-title: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-label: 'Josefin Sans', 'Archivo', system-ui, sans-serif;
+  /* Pochoir des étiquettes d'enquête (verdict) */
+  --font-enquete: 'Stardos Stencil', Georgia, serif;
+  /* Police système (administration) et chasse fixe (code de progression) */
+  --font-systeme: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-code: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', 'Liberation Mono', monospace;
+
+  --text-2xs: 11.5px;
+  --text-xs: 13px;
+  --text-sm: 14.5px;
+  --text-md: 16px;
+  --text-2xl: 26px;
+
+  /* Étiquettes en capitales */
+  --etiquette-taille: 12px;
+  --etiquette-espacement: 3px;
+
+  --leading-snug: 1.4;
+  --leading-body: 1.6;
+
+  --measure: 65ch;
+
+  /* Fonds */
+  --encre: #0b0a12;
+  --encre-voile: #07060c;
+  --tableau: #100d19;
+
+  --surface: #15131f;
+  --surface-haute: #1d1a2b;
+  --surface-media: #201d2e;
+
+  /* Bordures, de la plus discrète à la plus visible */
+  --filet-1: #1e1b2c;
+  --filet-2: #221f31;
+  --filet-3: #2b2740;
+  --filet-4: #3a3550;
+  /* Contour des boutons et champs : 3:1 minimum sur tous les fonds */
+  --contour: #757089;
+
+  /* Papier (cartes d'enquête) et son encre */
+  --papier: #efe8d8;
+  --papier-clair: #f5efe2;
+  --papier-journal: #e6dcc6;
+  --papier-encre: #1a1622;
+
+  /* Texte : principal (blanc), secondaire, discret */
+  --ink: var(--blanc);
+  --ink-muted: #a8a2b8;
+  --ink-faint: #8c86a0;
+
+  /* Charte : bleu = juste, magenta = perso, rouge = faux */
+  --bleu: #1f4fd1;
+  --bleu-texte: #8fa8ff;
+  --magenta: #8a1c6e;
+  --magenta-texte: #e07bc4;
+  --magenta-pale: #f0a6da;
+  --rouge: #a50e0e;
+  --rouge-fil: #c21818;
+  --rouge-texte: #ff7a6e;
+  /* Résultat d'une réponse (texte blanc ≥ 5:1) */
+  --juste: #15803d;
+  --faux: #b91c1c;
+  --halo: #7c5cff;
+
+  /* Neutres */
+  --blanc: #ffffff;
+  --noir: #000000;
+
+  /* Teintes d'appoint */
+  --surface-basse: #0e0c16;
+  --filet-fenetre: #332e47;
+  --lilas: #e2d6f5;
+  --bleu-pale: #d6deff;
+  --nuit: #160b33;
+  --violet-bandeau: #2a0f52;
+  --violet-lueur: #5434ff;
+  --punaise-reflet: #ff8a80;
+  --punaise-ombre: #5a0606;
+
+  /* Violets du métal en fusion (shader) et fond des bandeaux */
+  --brand-violet: #5c1a9e;
+  --brand-mauve: #8a4fbe;
+  --brand-violet-deep: #1c0b3a;
+
+  /* Voile clair des survols, cœur « J'aime » */
+  --wash: color-mix(in srgb, var(--blanc) 4%, transparent);
+  --like-red: #ff5a6a;
+
+  /* Lus par contenu.json (jeux[].couleur) */
+  --nav-feed: var(--bleu);
+  --nav-chat: var(--magenta);
+
+  /* Administration (page /admin, thème clair) */
+  --admin-fond: #f4f2ef;
+  --admin-fond-2: #e6e2dc;
+  --admin-survol: #faf9f7;
+  --admin-texte: #1a1a1a;
+  --admin-texte-doux: #6b6b6b;
+  --admin-accent: #1800ad;
+  --admin-accent-pale: #e7e4ff;
+  --admin-filet: #e0dcd6;
+  --admin-filet-clair: #eceae6;
+  --admin-filet-fort: #d5d0c9;
+  --admin-erreur: #ffb4ae;
+
+  --sa-top: env(safe-area-inset-top, 0px);
+  --sa-bottom: env(safe-area-inset-bottom, 0px);
+
+  --radius-card: 20px;
+  --radius-pop: 32px;
+  --gap-card: 14px;
+  --content-max: 640px;
+  --content-read: 720px;
+  --content-wide: 1240px;
+}
+
+@media (min-width: 768px) {
   :root {
-    /* Archivo pour tout : 400/500 le corps, 600/700 les titres, Black la
-       marque. Le corps héritait de la police du système. */
-    --font-body: 'Archivo', 'Segoe UI', system-ui, -apple-system, sans-serif;
-    --font-title: 'Archivo', 'Segoe UI', system-ui, sans-serif;
-    --font-brand: 'Archivo Black', system-ui, sans-serif;
-
-    /* L'échelle typographique. Un cran de plus sur grand écran. */
-    --text-2xs: 11.5px;
-    --text-xs: 13px;
-    --text-sm: 14.5px;
-    --text-md: 16px;
-    --text-lg: 18px;
-    --text-xl: 21px;
-    --text-2xl: 26px;
-    --text-3xl: 32px;
-
-    --leading-tight: 1.18;
-    --leading-snug: 1.4;
-    --leading-body: 1.65;
-
-    /* Largeur d'une colonne de lecture confortable. */
-    --measure: 65ch;
-
-    --brand-blue: #1800ad;
-    --brand-magenta: #791561;
-    --brand-magenta-light: #e0309a;
-    --brand-cream: #fffaf9;
-
-    /* Les deux violets de la marque : le chemin du bleu vers le mauve clair.
-       Ils portent le fond animé de la bannière d'accueil. */
-    --brand-violet: #5c1a9e;
-    --brand-mauve: #8a4fbe;
-
-    /* Le fond sur lequel ce fond animé est posé : le milieu exact du violet et
-       du mauve, bien assombri pour que les reflets clairs ressortent. */
-    --brand-violet-deep: #451f69;
-
-    /* Fond de page : un lilas très pâle, pour détacher les cartes blanches. */
-    --page: #f1eef8;
-    --surface: #ffffff;
-
-    /* Pas de texte gris : tout le ramp reste noir, à peine dégradé. La
-       hiérarchie se lit à la taille et à la graisse, pas à la pâleur. */
-    --ink: #15121b;
-    --ink-soft: #1c1924;
-    --ink-muted: #26222e;
-    --ink-faint: #332e3d;
-    --ink-ghost: #413b4c;
-
-    --line: rgba(0, 0, 0, 0.1);
-    --line-strong: rgba(0, 0, 0, 0.15);
-    --wash: rgba(0, 0, 0, 0.03);
-    --wash-strong: rgba(0, 0, 0, 0.06);
-
-    --like-red: #ed4956;
-    --verdict-ok: #15693e;
-    --verdict-ko: #b8332a;
-
-    --brand-gradient: linear-gradient(135deg, var(--brand-blue), var(--brand-magenta));
-
-    /* Une couleur par onglet, pour l'état actif seulement. Dans l'ordre de la
-       barre du bas (navItems.js). */
-    --nav-home: #1800ad;
-    --nav-feed: #0d0080;
-    --nav-chat: #8a4fbe;
-    --nav-learn: #5c1a9e;
-    --nav-profil: #791561;
-    --nav-sources: #791561;
-
-    --sa-top: env(safe-area-inset-top, 0px);
-    --sa-bottom: env(safe-area-inset-bottom, 0px);
-
-    --radius-card: 12px;
-    --gap-card: 14px;
-    --content-max: 640px;
-    /* La colonne unique des écrans de lecture. */
-    --content-read: 720px;
-  }
-
-  @media (min-width: 768px) {
-    :root {
-      --text-2xs: 12px;
-      --text-xs: 13.5px;
-      --text-sm: 15px;
-      --text-md: 17px;
-      --text-lg: 19px;
-      --text-xl: 23px;
-      --text-2xl: 31px;
-      --text-3xl: 40px;
-    }
+    --text-2xs: 12px;
+    --text-xs: 13.5px;
+    --text-sm: 15px;
+    --text-md: 16.5px;
+    --text-2xl: 30px;
   }
 }

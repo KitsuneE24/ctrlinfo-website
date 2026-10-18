@@ -1,53 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap');
+/* Ordre des couches : la remise à zéro et la base, puis les composants. */
+@layer base, components;
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Josefin+Sans:wght@300;400;600&family=Stardos+Stencil:wght@700&display=swap');
 
 /* ==========================================================================
    FEUILLE DE STYLE DE CTRL INFO — SOMMAIRE
 
    Assemble les parties du dossier, dans l'ordre. Aucune règle ici.
 
-   jetons ............... palette, polices, rayons, encoches
+   jetons ............... toutes les couleurs, polices et tailles de base (seul fichier à modifier)
    base ................. le document : hauteur, fond, animations
+   motifs ............... éléments communs : page, carte, boutons, étiquettes, papier, fenêtre, avatar
    coque-et-navigation .. en-tête et barre d'onglets du bas
-   colonne-de-contenu ... le gabarit commun aux écrans et le bandeau de tête
    stories .............. la rangée de l'accueil et sa vue plein écran
-   entry-card ........... la carte de fin de page, partagée par deux écrans
    fil-de-jeu ........... publications, actions, décompte
-   correction ........... le cagou, la publication annotée, les deux colonnes
+   correction ........... verdict, « Ce qu'il fallait voir », indices
    conversations ........ bulles, réponses à choisir, composeur
-   accueil .............. marque, parcours, vidéo, leviers, annonces de jeux
+   accueil .............. bandeau, tableau d'enquête, brève du jour
    comprendre ........... galerie de thèmes et page d'un thème
    profil ............... chiffres du joueur, code de progression, intérêts
-   avatar ............... la vignette du joueur et sa galerie
-   game-gate ............ écran de départ, alerte de sortie, rappel du code
+   game-gate ............ avant de jouer, quitter, panneau du cagou
    compagnon ............ le personnage qui se balade en bas, et sa bulle
-   etat-api ............. chargement et panne de l'API
 
-   `colors.js`, à côté, expose la même palette au JavaScript — aux données et à
-   tailwind.config.js. Il doit rester aligné sur les jetons.
-
-   L'ordre ci-dessous fait foi : à spécificité égale, une partie tardive
-   l'emporte. Les `@import` précèdent les directives Tailwind, et `jetons` et
-   `base` déclarent `@layer base` quand les autres déclarent `@layer
-   components` — c'est ce qui les range après le preflight.
    ========================================================================== */
 
 @import './jetons.css';
 @import './base.css';
+@import './motifs.css';
 @import './coque-et-navigation.css';
-@import './colonne-de-contenu.css';
 @import './stories.css';
-@import './entry-card.css';
 @import './fil-de-jeu.css';
 @import './correction.css';
 @import './conversations.css';
 @import './accueil.css';
 @import './comprendre.css';
 @import './profil.css';
-@import './avatar.css';
 @import './game-gate.css';
 @import './compagnon.css';
-@import './etat-api.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

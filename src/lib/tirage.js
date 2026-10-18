@@ -1,8 +1,7 @@
 /**
  * Le tirage d'une manche, porté du serveur (posts.service.ts) vers le front.
  *
- * Les thèmes ordonnent, ils n'excluent pas. Les publications déjà traitées
- * passent en dernier, de la plus ancienne à la plus récente, plutôt que de
+ * Les publications déjà traitées passent en dernier, de la plus ancienne à la plus récente, plutôt que de
  * rendre une manche amputée.
  */
 
@@ -32,18 +31,14 @@ const equilibrer = (disponibles, taille) => {
   return choisis
 }
 
-export function tirer(posts, { level, taille, themes = [], vus = [] }) {
+export function tirer(posts, { level, taille, vus = [] }) {
   const duNiveau = posts.filter((post) => post.level === level)
   if (duNiveau.length === 0) return []
 
-  const aime = (post) => post.theme != null && themes.includes(post.theme)
   const dejaVus = new Set(vus)
   const frais = duNiveau.filter((post) => !dejaVus.has(post.slug))
 
-  const melanges =
-    themes.length > 0
-      ? [...melanger(frais.filter(aime)), ...melanger(frais.filter((post) => !aime(post)))]
-      : melanger(frais)
+  const melanges = melanger(frais)
 
   const parSlug = new Map(duNiveau.map((post) => [post.slug, post]))
   const revus = vus.map((slug) => parSlug.get(slug)).filter(Boolean)

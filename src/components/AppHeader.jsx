@@ -27,7 +27,7 @@ export default function AppHeader() {
           className="app-header__home"
         >
           <img
-            src="/logo-ctrl-info.png"
+            src="/logo-ctrl-info-detoure.png"
             alt=""
             className="app-header__logo"
           />

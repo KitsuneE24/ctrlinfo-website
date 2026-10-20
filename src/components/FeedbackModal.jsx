@@ -30,7 +30,7 @@ function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
           {/* Résultat en filigrane (vert juste, rouge faux) ; le titre le dit déjà. */}
           <span
             aria-hidden="true"
-            data-texte={isCorrect ? 'Bonne réponse' : 'Mauvaise réponse'}
+            data-texte={isCorrect ? 'Bon réflexe' : 'Mauvais réflexe'}
             className={
               isCorrect
                 ? 'verdict-cagou__resultat verdict-cagou__resultat--juste'

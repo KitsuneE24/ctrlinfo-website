@@ -63,14 +63,13 @@
     opacity: 0.8;
   }
 
-  /* Logo sur pastille claire */
+  /* Logo détouré, sans pastille : à distinguer de l'avatar du joueur. */
   .app-header__logo {
     width: 52px;
     height: 52px;
-    padding: 3px;
-    border-radius: 50%;
-    background: var(--papier);
     object-fit: contain;
+    /* Liseré clair : le contour noir se perd sur le fond sombre. */
+    filter: drop-shadow(0 0 1px color-mix(in srgb, var(--blanc) 70%, transparent));
   }
 
   /* Logotype en pochoir (police des étiquettes d'enquête) */

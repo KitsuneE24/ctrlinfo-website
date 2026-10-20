@@ -1,21 +1,11 @@
 /* ==========================================================================
    COMPAGNON
-   Le petit personnage qui se balade en bas de l'écran, sa bulle, sa pastille.
-
-   Ses dimensions viennent du composant — `--compagnon-largeur`,
-   `--compagnon-hauteur`, `--compagnon-sol`. Elles servent ici aux décalages et
-   là-bas aux bornes de la balade : une seule valeur, un seul endroit où la
-   changer.
-
-   La planche contient les deux sens de marche et la pose de face ; une posture
-   n'en joue qu'une tranche. Le choix de la vignette n'est pas ici : le
-   composant la pose à chaque image, pour que les pattes avancent à la distance
-   parcourue.
+   Le personnage en bas de l'écran et sa bulle. Dimensions fournies par le
+   composant : --compagnon-largeur, --compagnon-hauteur, --compagnon-sol.
    ========================================================================== */
 
 @layer components {
-  /* La scène couvre la zone de l'écran, entre l'en-tête et la barre d'onglets.
-     Elle ne reçoit aucun clic : tout ce qu'elle recouvre reste utilisable. */
+  /* Zone entre l'en-tête et la barre d'onglets ; ne reçoit aucun clic. */
   .compagnon-scene {
     position: absolute;
     inset: 0;
@@ -24,8 +14,7 @@
     pointer-events: none;
   }
 
-  /* Le personnage. Sa position est écrite image par image dans `transform`,
-     par le composant — rien ici ne doit la contrarier. */
+  /* Position écrite dans `transform` par le composant. */
   .compagnon {
     position: absolute;
     bottom: var(--compagnon-sol);
@@ -33,8 +22,6 @@
     width: var(--compagnon-largeur);
     height: var(--compagnon-hauteur);
     will-change: transform;
-    /* Il arrive en fondu : sa place n'est connue qu'à la première image, et
-       sans ce fondu on le verrait sauter du coin gauche jusqu'à elle. */
     animation: compagnon-arrivee 0.5s ease-out both;
   }
 
@@ -52,26 +39,28 @@
     border: 0;
     background-color: transparent;
     background-repeat: no-repeat;
-    /* Un sprite de 32 × 48 agrandi : surtout pas de lissage. */
-    image-rendering: pixelated;
-    filter: drop-shadow(0 2px 2px color-mix(in srgb, var(--encre) 32%, transparent));
+    /* Liseré clair et halo pour ressortir sur le fond sombre. */
+    filter:
+      drop-shadow(0 0 1.5px color-mix(in srgb, var(--blanc) 85%, transparent))
+      drop-shadow(0 0 10px color-mix(in srgb, var(--lilas) 30%, transparent));
     transform-origin: bottom center;
     transition: transform 0.12s ease-out;
-    /* Seul le personnage est saisissable, et le glisser ne doit pas faire
-       défiler la page sous le doigt. */
+    /* Saisissable, sans faire défiler la page. */
     pointer-events: auto;
     touch-action: none;
     cursor: grab;
   }
 
-  /* Il touche le sol : il s'écrase un instant. */
+  /* Écrasement à l'atterrissage. */
   .compagnon__sprite--pose {
     transform: scale(1.12, 0.88);
   }
 
   .compagnon[data-posture='porte'] .compagnon__sprite {
     cursor: grabbing;
-    filter: drop-shadow(0 12px 8px color-mix(in srgb, var(--encre) 22%, transparent));
+    filter:
+      drop-shadow(0 0 1.5px color-mix(in srgb, var(--blanc) 85%, transparent))
+      drop-shadow(0 14px 10px color-mix(in srgb, var(--noir) 45%, transparent));
   }
 
   .compagnon__sprite:focus-visible {
@@ -80,13 +69,7 @@
     outline-offset: 3px;
   }
 
-  /* Le balancement de celui qu'on tient en l'air. `rotate` est une propriété à
-     part : elle n'écrase pas la transformation d'écrasement.
-
-     Il n'y a pas d'image-clé pour la marche. Elle a existé, paramétrée par des
-     variables CSS pour jouer une tranche de planche ou une autre — et elle ne
-     défilait pas : un `var()` dans une image-clé ne s'anime pas partout. Le
-     personnage glissait sans bouger les pattes. */
+  /* Balancement quand on le tient. */
   @keyframes compagnon-gigote {
     from {
       rotate: -7deg;
@@ -96,68 +79,9 @@
     }
   }
 
-  /* --- La pastille d'accueil : « 1 », la première fois seulement --- */
-
-  .compagnon__notif {
-    position: absolute;
-    top: -2px;
-    left: 62%;
-    display: flex;
-    width: 20px;
-    height: 20px;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--surface);
-    border-radius: 50%;
-    background: var(--like-red);
-    box-shadow: 0 2px 8px color-mix(in srgb, var(--encre) 35%, transparent);
-    color: var(--blanc);
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1;
-    animation: compagnon-appel 1.5s ease-in-out infinite;
-  }
-
-  /* L'onde qui part de la pastille : c'est elle qui attire l'œil de loin. */
-  .compagnon__notif::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border: 2px solid var(--like-red);
-    border-radius: 50%;
-    animation: compagnon-onde 1.8s ease-out infinite;
-  }
-
-  @keyframes compagnon-appel {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-3px);
-    }
-  }
-
-  @keyframes compagnon-onde {
-    from {
-      opacity: 0.7;
-      transform: scale(1);
-    }
-    to {
-      opacity: 0;
-      transform: scale(2.1);
-    }
-  }
-
   /* --- Ce qu'il dit --- */
 
-  /* La bulle est dans la boîte du personnage : elle le suit sans que rien
-     n'ait à la déplacer. Elle s'ouvre du côté où il reste le plus de place, et
-     sa largeur est bornée par cette place, mesurée par le composant.
-
-     L'ancre est un point sans largeur posé à son axe : la bulle y pend d'un
-     côté ou de l'autre, et sa pointe y retombe forcément. Seule sa hauteur
-     vient du composant. */
+  /* Point posé à son axe ; la bulle y pend. Hauteur fournie par le composant. */
   .compagnon__ancre {
     position: absolute;
     left: 50%;
@@ -171,40 +95,32 @@
     pointer-events: none;
     margin: 0;
     padding: 9px 12px;
-    border: 1px solid var(--filet-4);
+    border: 0;
     border-radius: 13px;
-    background: var(--surface);
-    box-shadow: 0 10px 26px color-mix(in srgb, var(--encre) 20%, transparent);
-    color: var(--ink);
+    background: var(--blanc);
+    box-shadow: 0 10px 26px color-mix(in srgb, var(--noir) 45%, transparent);
+    color: var(--papier-encre);
     font-size: var(--text-xs);
     font-weight: 500;
     line-height: var(--leading-snug);
     text-wrap: pretty;
   }
 
-  /* La pointe : un carré tourné d'un quart de tour, sous la bulle, dont on ne
-     garde que les deux bords qui forment le V vers le bas. */
+  /* La pointe : carré blanc tourné, côté fourni par le composant. */
   .compagnon__bulle::after {
     content: '';
     position: absolute;
     bottom: -6px;
-    /* Posées en ligne par le composant. Sans elles, un `::after` absolu sans
-       `left` ni `right` retombe à sa position statique — au bout du texte. */
     left: var(--pointe-gauche, auto);
     right: var(--pointe-droite, auto);
     width: 12px;
     height: 12px;
-    border-right: 1px solid var(--filet-4);
-    border-bottom: 1px solid var(--filet-4);
-    /* Le bout arrondi comme la bulle : une pointe sèche sous un cadre à
-       13 px de rayon se voit comme une pièce rapportée. */
     border-bottom-right-radius: 4px;
-    background: var(--surface);
+    background: var(--blanc);
     transform: rotate(45deg);
   }
 
-
-  /* Pendant une partie du fil sur petit écran : il laisse la place au post. */
+  /* Partie du fil sur petit écran : masqué. */
   @media (max-width: 1023px) {
     .app__main:has(.fil-jeu) .compagnon-scene {
       display: none;

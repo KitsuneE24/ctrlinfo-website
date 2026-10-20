@@ -13,28 +13,11 @@ import { useFilRouge } from '../lib/useFilRouge'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
 /**
- * L'onglet « Ressources », côté *Comprendre* : la partie lecture du site, là
- * où les jeux font pratiquer.
- *
- * Deux écrans, et deux adresses — c'est le changement : un thème se partage,
- * se met en favori et survit à un rechargement.
- *
- *   1. **la galerie** (`/ressources`) — une recherche, puis une vignette
- *      carrée par thème, façon Explore : la couverture porte, le titre nomme ;
- *   2. **le thème** (`/ressources/comprendre/:slug`), avec son texte entier.
- *
- * Tout le texte vient de l'API (`/chapitres`) : il n'y a pas une ligne de
- * contenu dans ce fichier, seulement la mise en page. La galerie ne charge que
- * les résumés ; le corps d'un thème n'arrive qu'à son ouverture.
+ * Comprendre : la galerie (`/ressources`) et la fiche d'un thème
+ * (`/ressources/comprendre/:slug`). Texte lu dans contenu.json (`chapitres`).
  */
 
-/**
- * Le nom d'icône rangé en base, dessiné.
- *
- * `createElement` plutôt qu'une variable `Icon` : le dessin est choisi à chaque
- * rendu, et le déclarer comme un composant local ferait remonter le sous-arbre
- * à chaque fois.
- */
+/** Icône nommée dans le contenu. */
 function Icone({ nom, size }) {
   return createElement(icone(nom), { size, strokeWidth: 1.9 })
 }
@@ -230,12 +213,7 @@ function Suite({ chapitre }) {
   )
 }
 
-/**
- * La page d'un thème — son adresse est `/ressources/comprendre/:slug`.
- *
- * Elle n'a pas de sous-onglets : on est dans un thème, pas dans la galerie. Le
- * retour se fait par le lien en tête, ou par le bouton « précédent ».
- */
+/** La fiche d'un thème. */
 export function ChapterScreen() {
   const { slug } = useParams()
   const page = useRef(null)

@@ -197,6 +197,7 @@
       'z-principe'
       'principe'
       'video'
+      'instagram'
       'z-parade'
       'parade'
       'jouer';
@@ -218,7 +219,7 @@
         'z-pieges z-sujet z-principe'
         'urgence sujet principe'
         'emotion sujet video'
-        'autorite sujet video'
+        'autorite sujet instagram'
         'parade parade parade';
       gap: 34px 56px;
       max-width: 1160px;
@@ -533,6 +534,90 @@
     .piece--video {
       padding: 12px 12px 16px;
     }
+  }
+
+  /* Le cliché Instagram : photo à bord blanc, deux autres glissées dessous. */
+  .piece--cliche {
+    grid-area: instagram;
+    display: block;
+    justify-self: center;
+    width: min(100%, 250px);
+    padding: 0;
+    box-shadow: none;
+    color: var(--papier-encre);
+    text-decoration: none;
+  }
+
+  @media (hover: hover) and (min-width: 900px) {
+    .piece--cliche:hover {
+      box-shadow: none;
+    }
+  }
+
+  .cliche__cadre {
+    position: relative;
+    z-index: 1;
+    display: block;
+    padding: 10px 10px 0;
+    border-radius: 2px;
+    background: var(--blanc);
+    box-shadow: 0 20px 40px -14px color-mix(in srgb, var(--noir) 90%, transparent);
+  }
+
+  .cliche__photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    background: var(--nuit);
+  }
+
+  .cliche__dessous {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 9px 9px 46px;
+    object-fit: cover;
+    border-radius: 2px;
+    background: var(--blanc);
+    box-shadow: 0 12px 24px -10px color-mix(in srgb, var(--noir) 85%, transparent);
+    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
+  }
+
+  .cliche__dessous--1 {
+    transform: rotate(-9deg) translate(-14px, 6px);
+  }
+
+  .cliche__dessous--2 {
+    transform: rotate(7deg) translate(16px, 10px);
+  }
+
+  @media (hover: hover) and (min-width: 900px) {
+    .piece--cliche:hover .cliche__dessous--1 {
+      transform: rotate(-14deg) translate(-34px, 4px);
+    }
+
+    .piece--cliche:hover .cliche__dessous--2 {
+      transform: rotate(12deg) translate(36px, 8px);
+    }
+  }
+
+  .cliche__legende {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 0 12px;
+    font-family: var(--font-title);
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .piece--cliche:focus-visible {
+    outline: 2px solid var(--blanc);
+    outline-offset: 6px;
   }
 
   .video {

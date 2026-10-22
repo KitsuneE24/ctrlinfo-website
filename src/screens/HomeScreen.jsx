@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
-import { ArrowRight, Flag, Heart, Play, Send } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Flag, Heart, Play, Send } from 'lucide-react'
 import Page from '../components/ui/Page'
 import Banniere from '../components/ui/Banniere'
 import Filaments from '../components/ui/Filaments'
@@ -11,6 +11,11 @@ import { PATHS } from '../routes'
 
 // Chemin ou URL de la vidéo (null : visuel d'attente).
 const VIDEO_URL = null
+
+const INSTAGRAM_URL = 'https://www.instagram.com/planke_nc'
+
+// Clichés glissés sous la photo Instagram.
+const CLICHES_DESSOUS = ['/planke/chut.jpg', '/planke/collection.jpg']
 
 const LEVIERS = [
   {
@@ -184,6 +189,32 @@ export default function HomeScreen() {
                 <p className="piece__phrase">Et tout le monde y croit</p>
                 <p className="piece__legende">Vidéo · la désinformation</p>
               </div>
+
+              <a
+                ref={epingler('instagram', { vers: 'sujet' })}
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="piece piece--cliche"
+                style={{ '--rotation': '3deg' }}
+                aria-label="Nous suivre sur Instagram : @planke_nc (nouvel onglet)"
+              >
+                {CLICHES_DESSOUS.map((src, i) => (
+                  <img key={src} src={src} alt="" className={`cliche__dessous cliche__dessous--${i + 1}`} />
+                ))}
+                <span className="cliche__cadre">
+                  <span className="punaise" />
+                  <img
+                    src="/planke/escalier.jpg"
+                    alt="Les personnages Planké assis sur des marches, sous un néon rouge"
+                    className="cliche__photo"
+                  />
+                  <span className="cliche__legende">
+                    @planke_nc
+                    <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+                  </span>
+                </span>
+              </a>
 
               {/* 4 — La parade */}
               <div className="tableau__parade">

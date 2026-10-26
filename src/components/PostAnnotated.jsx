@@ -1,18 +1,10 @@
-import { createElement } from 'react'
+import { createElement, useState } from 'react'
 import { icone } from '../data/icones'
 import { texteSur } from '../lib/contraste'
 
 /**
- * La publication rejouée, annotée.
- *
- * Chaque indice porte un numéro ; ce numéro se retrouve à trois endroits — sur
- * la publication, sur le cadre tracé dans l'image, et dans la liste
- * d'explications juste en dessous. C'est ce qui permet de dire « regarde ici »
- * sans une phrase de plus.
- *
- * Les indices sans zone désignent une partie du texte (`cible`) : celle-ci se
- * surligne au lieu de s'entourer. Une publication sans indice — celles que la
- * chaîne RSS fabrique aujourd'hui — s'affiche telle quelle, sans annotation.
+ * La publication rejouée, annotée : chaque indice numéroté est repris sur le
+ * post, dans l'image et dans la liste. Sans zone, l'indice surligne sa `cible`.
  */
 const ZONES_TEXTE = ['SOURCE', 'TITRE', 'TEXTE', 'DATE', 'ENGAGEMENT']
 
@@ -83,6 +75,9 @@ export function ListeIndices({ post }) {
 export default function PostAnnotated({ post, liste = true }) {
   const indices = post.indices ?? []
   const surligne = (cible) => surlignage(indices, cible)
+  // Image retirée par le média : on la masque.
+  const [imageCassee, setImageCassee] = useState(null)
+  const image = post.image !== imageCassee ? post.image : null
 
   return (
     <article className="annot">
@@ -112,9 +107,9 @@ export default function PostAnnotated({ post, liste = true }) {
         <Marques indices={indices} cible="TEXTE" />
       </p>
 
-      {post.image && (
+      {image && (
         <div className="annot__media">
-          <img src={post.image} alt="" className="annot__image" />
+          <img src={image} alt="" className="annot__image" onError={() => setImageCassee(image)} />
           {indices.map((indice, i) =>
             indice.zone ? (
               <span

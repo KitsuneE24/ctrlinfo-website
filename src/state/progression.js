@@ -1,14 +1,12 @@
 /**
  * La progression du joueur, dans son navigateur.
  *
- * Elle vivait en base, rattachée à un compte. Il n'y a plus de compte : ce
- * module est ce qui le remplace. Trois choses à savoir avant de s'en servir.
+ * Il n'y a pas de compte : tout reste sur l'appareil. Trois choses à savoir
+ * avant de s'en servir.
  *
- *   1. **L'état vit hors de React**, comme l'identité avant lui : le fil et
- *      les conversations écrivent dedans au milieu d'une partie, loin de tout
- *      rendu, et l'onglet Profil s'y abonne. C'est le même patron que
- *      `api/client.js` tenait pour la session — abonnés, instantané refait à
- *      chaque écriture — parce que `useSyncExternalStore` le demande.
+ *   1. **L'état vit hors de React** : le fil et les conversations écrivent
+ *      dedans au milieu d'une partie, loin de tout rendu, et l'onglet Profil
+ *      s'y abonne (`useSyncExternalStore`).
  *   2. **Chaque écriture va dans `localStorage`.** Pas de minuterie, pas de
  *      regroupement : une décision prise est une décision gardée, même si
  *      l'onglet se ferme à la seconde suivante.
@@ -21,13 +19,8 @@
  * Ce que le module ne fait pas : décider quoi montrer. Il compte, il retient.
  * Les chiffres de l'onglet Profil se déduisent de ce qu'il y a ici.
  *
- * Une asymétrie, voulue, entre les deux jeux : une conversation entamée reprend
- * au message près, parce que son fil se suffit à lui-même ; le fil d'actualité
- * reprend au **niveau** atteint, pas à la publication près. Retenir une file de
- * tirage voudrait dire réclamer à l'API chaque publication par son slug au
- * retour du joueur, pour lui resservir un fil qu'il a déjà à moitié vu. Le
- * niveau, les publications traitées et le score suffisent : le niveau se rejoue
- * avec un tirage neuf, forcément inédit puisque les vues en sont écartées.
+ * Une conversation reprend au message près ; le fil d'actualité, sans fin,
+ * reprend au niveau atteint avec un tirage neuf.
  */
 const CLE = 'ctrl-info:progression'
 
@@ -44,16 +37,13 @@ const vide = () => ({
   avatar: null,
   fil: {
     niveau: 1,
-    termine: false,
-    // Les slugs des publications déjà traitées : c'est ce qui les écarte des
-    // tirages suivants, rôle que le serveur tenait avec `VuePost`.
+    // Les slugs des publications déjà traitées, écartées des tirages suivants.
     vus: [],
     decisions: 0,
     justes: 0,
     points: 0,
     // { « Nom du biais »: { total, justes } } — de quoi dire ce qui piège.
     biais: {},
-    parties: 0,
   },
   // { slug: { faite, score, total, encours } }
   conversations: {},
@@ -99,14 +89,12 @@ function fusionner(recu) {
     pseudo: typeof recu.pseudo === 'string' ? recu.pseudo.slice(0, 40) : '',
     avatar: typeof recu.avatar === 'string' ? recu.avatar : null,
     fil: {
-      niveau: Math.min(Math.max(nombre(fil.niveau, 1), 1), 3),
-      termine: fil.termine === true,
+      niveau: Math.min(Math.max(nombre(fil.niveau, 1), 1), 999),
       vus: Array.isArray(fil.vus) ? fil.vus.filter((slug) => typeof slug === 'string') : [],
       decisions: nombre(fil.decisions, 0),
       justes: nombre(fil.justes, 0),
       points: nombre(fil.points, 0),
       biais: lireBiais(fil.biais),
-      parties: nombre(fil.parties, 0),
     },
     conversations: lireConversations(recu.conversations),
   }
@@ -169,17 +157,9 @@ export function dejaVus() {
   return etat.fil.vus
 }
 
-/**
- * À quel niveau le fil s'ouvre.
- *
- * Le niveau atteint, sauf quand les trois ont été bouclés : on repart alors du
- * premier. L'écran de fin promet qu'on peut revenir refaire l'exercice, et
- * rouvrir éternellement le niveau 3 n'est pas refaire l'exercice. Les
- * publications déjà traitées restant écartées, ce second tour est fait de
- * contenu neuf.
- */
+/** Le fil s'ouvre au niveau atteint. */
 export function niveauDeDepart() {
-  return etat.fil.termine ? 1 : etat.fil.niveau
+  return etat.fil.niveau
 }
 
 // ── Le fil ───────────────────────────────────────────────────────────────────
@@ -187,14 +167,14 @@ export function niveauDeDepart() {
 /**
  * Une décision sur une publication.
  *
- * Les points viennent du contenu lui-même (`post.scores[action]`) : ce sont
- * ceux que le serveur comptait, à la même valeur. Une publication de
+ * Les points viennent du contenu lui-même (`post.scores[action]`). Une publication de
  * remédiation ne compte pas — elle s'ajoute à la file pour entraîner, pas
  * pour noter.
  */
 export function noterDecision({ slug, biais, juste, points = 0 }) {
   const fil = etat.fil
-  const vus = slug && !fil.vus.includes(slug) ? [...fil.vus, slug] : fil.vus
+  // La dernière vue passe en fin de liste : les plus anciennes reviennent d'abord.
+  const vus = slug ? [...fil.vus.filter((vu) => vu !== slug), slug] : fil.vus
 
   const compte = fil.biais[biais] ?? { total: 0, justes: 0 }
   const biaisSuivant = biais
@@ -217,15 +197,7 @@ export function noterDecision({ slug, biais, juste, points = 0 }) {
 /** Le niveau atteint ne redescend pas : c'est un acquis, pas une position. */
 export function noterNiveau(niveau) {
   if (niveau <= etat.fil.niveau) return
-  appliquer({ ...etat, fil: { ...etat.fil, niveau: Math.min(niveau, 3) } })
-}
-
-/** Les trois niveaux traités. */
-export function finirLeFil() {
-  appliquer({
-    ...etat,
-    fil: { ...etat.fil, niveau: 3, termine: true, parties: etat.fil.parties + 1 },
-  })
+  appliquer({ ...etat, fil: { ...etat.fil, niveau } })
 }
 
 // ── Les conversations ────────────────────────────────────────────────────────
@@ -248,7 +220,7 @@ export function sauverConversation(slug, encours) {
  *
  * Le `faite` ne se retire jamais : recommencer une conversation déjà réussie
  * ne l'enlève pas de ce qui a été vu. Seul le score se met à jour, au mieux —
- * on garde la meilleure passe, comme le serveur gardait le meilleur score.
+ * on garde la meilleure passe.
  */
 export function finirConversation(slug, { score, total }) {
   const avant = etat.conversations[slug]

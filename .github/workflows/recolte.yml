@@ -1,0 +1,81 @@
+# Récolte quotidienne des flux RSS : fabrique les nouvelles publications et
+# conversations, vérifie le résultat, l'enregistre dans le dépôt, puis l'envoie
+# chez l'hébergeur (FTP/SFTP) si les accès sont renseignés.
+# Netlify, s'il est relié au dépôt, redéploie de lui-même après l'enregistrement.
+
+name: Récolte des flux
+
+on:
+  schedule:
+    # 19:00 UTC = 6:00 à Nouméa
+    - cron: '0 19 * * *'
+  # Bouton « Run workflow » dans l'onglet Actions de GitHub.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: recolte
+  cancel-in-progress: false
+
+jobs:
+  recolter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Accès à l'hébergeur : Settings → Secrets and variables → Actions.
+    env:
+      ENVOI_PROTOCOLE: ${{ secrets.ENVOI_PROTOCOLE }}
+      ENVOI_HOTE: ${{ secrets.ENVOI_HOTE }}
+      ENVOI_UTILISATEUR: ${{ secrets.ENVOI_UTILISATEUR }}
+      ENVOI_DOSSIER: ${{ secrets.ENVOI_DOSSIER }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run recolter
+
+      # Un contenu invalide arrête tout : le site garde la version de la veille.
+      - run: npm run verifier
+
+      - name: Enregistrer s'il y a du neuf
+        run: |
+          git add public/donnees
+          if git diff --cached --quiet; then
+            echo "Rien de neuf aujourd'hui."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "[Contenu] Récolte du $(TZ=Pacific/Noumea date +%d/%m/%Y)"
+          git push
+
+      - name: Envoyer chez l'hébergeur
+        if: env.ENVOI_HOTE != ''
+        env:
+          LFTP_PASSWORD: ${{ secrets.ENVOI_MOT_DE_PASSE }}
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp
+          case "$ENVOI_PROTOCOLE" in
+            sftp) URL="sftp://$ENVOI_HOTE"; REGLAGES="set sftp:auto-confirm yes" ;;
+            ftp)  URL="ftp://$ENVOI_HOTE";  REGLAGES="set ftp:ssl-allow no" ;;
+            *)    URL="ftp://$ENVOI_HOTE";  REGLAGES="set ftp:ssl-force true; set ftp:ssl-protect-data true" ;;
+          esac
+          # Chaque fichier part sous un nom provisoire, puis remplace l'ancien :
+          # un visiteur ne lit jamais un fichier à moitié envoyé.
+          COMMANDES=""
+          for f in contenu posts-vrais posts-faux; do
+            COMMANDES="$COMMANDES put public/donnees/$f.json -o $f.json.envoi; rm -f $f.json; mv $f.json.envoi $f.json;"
+          done
+          lftp -c "set cmd:fail-exit yes; set net:max-retries 2; set net:timeout 30; $REGLAGES;
+            open --env-password -u '$ENVOI_UTILISATEUR' '$URL';
+            cd '$ENVOI_DOSSIER';
+            $COMMANDES"
+          echo "Envoyé vers $ENVOI_HOTE:$ENVOI_DOSSIER"

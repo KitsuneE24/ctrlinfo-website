@@ -1,10 +1,7 @@
 /**
- * Le contenu du jeu, lu dans donnees/contenu.json.
- *
- * Il venait de l'API ; c'est un fichier servi à côté du site, chargé une fois
- * (state/contenu.js). Les formes n'ont pas changé : les écrans lisent le même
- * vocabulaire (`date`, `scores`, `steps.choices`, `apercu`…).
+ * Le contenu du jeu, lu dans donnees/contenu.json (chargé une fois, state/contenu.js).
  */
+import { reglesDuNiveau } from '../lib/niveaux'
 import { tirer } from '../lib/tirage'
 import { chargerContenu } from '../state/contenu'
 
@@ -17,6 +14,7 @@ export const getRemediations = depuis((c) => c.remediations)
 export const getNiveaux = depuis((c) => c.niveaux)
 export const getConversations = depuis((c) => c.conversations)
 export const getChapitres = depuis((c) => c.chapitres)
+export const getMentionsLegales = depuis((c) => c.mentionsLegales ?? [])
 
 /** La brève du jour : l'index vient du quantième, pas du hasard. */
 export const getDailyTip = depuis((c) => {
@@ -36,12 +34,12 @@ export const getConversation = (slug) =>
 
 export const getChapitre = (slug) => chargerContenu().then((c) => un(c.chapitres, slug))
 
-/** Une manche : le tirage que le serveur composait (voir lib/tirage.js). */
+/** Une manche tirée au sort (voir lib/tirage.js). */
 export const getTirage = (level, { taille, vus } = {}) =>
   chargerContenu().then((c) =>
     tirer(c.posts, {
       level,
-      taille: taille ?? c.niveaux.find((n) => n.level === level)?.taille ?? 5,
+      taille: taille ?? reglesDuNiveau(c.niveaux, level)?.taille ?? 5,
       vus,
     })
   )

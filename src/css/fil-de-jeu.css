@@ -589,6 +589,25 @@
     position: relative;
   }
 
+  /* --- Annonce d'un nouveau niveau --- */
+
+  .palier {
+    position: absolute;
+    z-index: 40;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: color-mix(in srgb, var(--encre-voile) 40%, transparent);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+
+  .palier__carte {
+    width: min(480px, 100%);
+  }
+
   /* --- Fenêtre générique (brève du jour) --- */
 
   .modal {

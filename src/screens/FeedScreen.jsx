@@ -4,7 +4,7 @@ import { GAME_PATHS } from '../routes'
 
 export default function FeedScreen() {
   // `runKey` change à la fermeture des règles : la partie repart à neuf.
-  const { paused, runKey, onFinished, onRegles } = useOutletContext()
+  const { paused, runKey, onRegles } = useOutletContext()
   const navigate = useNavigate()
 
   // Rien ne se charge tant que la partie n'a pas commencé : l'écran de départ
@@ -16,7 +16,6 @@ export default function FeedScreen() {
     <Feed
       key={runKey}
       paused={paused}
-      onFinished={onFinished}
       onRegles={onRegles}
       onSwitch={(gameId) => navigate(GAME_PATHS[gameId])}
     />

@@ -49,7 +49,7 @@ function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
               <>
                 <button type="button" onClick={onDetail} className="bouton bouton--encre bouton--large">
                   <ScanSearch size={16} strokeWidth={2.2} />
-                  Voir ce qui clochait
+                  {post.isFake ? 'Voir ce qui clochait' : 'Voir pourquoi c’était fiable'}
                 </button>
                 <button type="button" onClick={onDismiss} className="bouton bouton--large">
                   Continuer

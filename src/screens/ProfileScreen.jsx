@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 import { Pencil } from 'lucide-react'
-import { getAvatars, getConversations, getNiveaux } from '../api/contenu'
+import { getAvatars, getConversations } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
 import { noterPseudo } from '../state/progression'
 import { noterCompagnonVisible, useCompagnonVisible } from '../state/compagnonVisible'
@@ -13,19 +13,31 @@ import Filaments from '../components/ui/Filaments'
 import Page from '../components/ui/Page'
 import { PATHS } from '../routes'
 
+/** `total` à Infinity : le fil n'a pas de fin, la barre reste ouverte. */
 function Jauge({ libelle, fait, total }) {
-  const pourcentage = total > 0 ? Math.round((fait / total) * 100) : 0
+  const infini = total === Infinity
+  const pourcentage = infini ? 100 : total > 0 ? Math.round((fait / total) * 100) : 0
 
   return (
     <div className="jauge">
       <div className="jauge__tete">
         <p className="jauge__libelle">{libelle}</p>
         <p className="jauge__chiffre">
-          {fait} / {total}
+          {fait} /{' '}
+          {infini ? (
+            <span className="jauge__infini" aria-label="sans fin">
+              ∞
+            </span>
+          ) : (
+            total
+          )}
         </p>
       </div>
       <div className="jauge__piste">
-        <div className="jauge__barre" style={{ width: `${pourcentage}%` }} />
+        <div
+          className={`jauge__barre${infini ? ' jauge__barre--infini' : ''}`}
+          style={{ width: `${pourcentage}%` }}
+        />
       </div>
     </div>
   )
@@ -84,11 +96,8 @@ export default function ProfileScreen() {
   const [galerie, setGalerie] = useState(false)
   const compagnonVisible = useCompagnonVisible()
 
-  const { donnees: niveaux } = useRessource(getNiveaux, [])
   const { donnees: conversations } = useRessource(getConversations, [])
   const { donnees: avatars } = useRessource(getAvatars, [])
-
-  const publications = (niveaux ?? []).reduce((somme, n) => somme + (n.publications ?? 0), 0)
 
   const { fil } = etat
   const faites = Object.values(etat.conversations).filter((c) => c.faite).length
@@ -157,8 +166,8 @@ export default function ProfileScreen() {
           </dl>
 
           <div className="profil-jauges">
-            <Jauge libelle="Niveaux du fil" fait={fil.niveau} total={3} />
-            <Jauge libelle="Publications" fait={fil.vus.length} total={publications} />
+            <Jauge libelle="Niveaux du fil" fait={fil.niveau} total={Infinity} />
+            <Jauge libelle="Publications" fait={fil.vus.length} total={Infinity} />
             <Jauge
               libelle="Conversations"
               fait={faites}

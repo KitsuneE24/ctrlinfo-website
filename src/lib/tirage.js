@@ -1,8 +1,6 @@
 /**
- * Le tirage d'une manche, porté du serveur (posts.service.ts) vers le front.
- *
- * Les publications déjà traitées passent en dernier, de la plus ancienne à la plus récente, plutôt que de
- * rendre une manche amputée.
+ * Le tirage d'une manche, toujours au niveau demandé (jamais plus facile) :
+ * d'abord les inédites, puis les déjà vues, les plus anciennes d'abord.
  */
 
 const melanger = (tableau) => {
@@ -14,9 +12,26 @@ const melanger = (tableau) => {
   return copie
 }
 
+/** Un lot varié : un procédé différent par faux tant que possible. */
+function varier(disponibles, taille) {
+  const choisis = []
+  const procedes = new Set()
+  for (const post of disponibles) {
+    if (choisis.length === taille) break
+    if (post.isFake && procedes.has(post.biais)) continue
+    choisis.push(post)
+    if (post.isFake) procedes.add(post.biais)
+  }
+  for (const post of disponibles) {
+    if (choisis.length === taille) break
+    if (!choisis.includes(post)) choisis.push(post)
+  }
+  return choisis
+}
+
 /** Au moins une vraie et une fausse dans le lot, quand le vivier le permet. */
 const equilibrer = (disponibles, taille) => {
-  const choisis = disponibles.slice(0, taille)
+  const choisis = varier(disponibles, taille)
   if (choisis.length < taille) return choisis
 
   for (const attendu of [false, true]) {
@@ -31,17 +46,20 @@ const equilibrer = (disponibles, taille) => {
   return choisis
 }
 
+/** Au-delà du niveau le plus difficile du contenu, on y reste. */
+export const niveauDeContenu = (posts, level) => {
+  const max = Math.max(1, ...posts.map((post) => post.level ?? 1))
+  return Math.min(level, max)
+}
+
 export function tirer(posts, { level, taille, vus = [] }) {
-  const duNiveau = posts.filter((post) => post.level === level)
-  if (duNiveau.length === 0) return []
-
+  const cible = niveauDeContenu(posts, level)
+  const duNiveau = posts.filter((post) => post.level === cible)
   const dejaVus = new Set(vus)
-  const frais = duNiveau.filter((post) => !dejaVus.has(post.slug))
 
-  const melanges = melanger(frais)
-
+  const inedits = melanger(duNiveau.filter((post) => !dejaVus.has(post.slug)))
   const parSlug = new Map(duNiveau.map((post) => [post.slug, post]))
   const revus = vus.map((slug) => parSlug.get(slug)).filter(Boolean)
 
-  return equilibrer([...melanges, ...revus], taille)
+  return equilibrer([...inedits, ...revus], taille)
 }

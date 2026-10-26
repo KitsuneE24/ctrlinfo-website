@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Heart, Send, Flag } from 'lucide-react'
 import { texteSur } from '../lib/contraste'
 
@@ -27,6 +28,9 @@ export default function PostCard({
   const initial = post.source[0]?.toUpperCase() || '?'
   const liked = selectedAction === 'share'
   const reported = selectedAction === 'report'
+  // Image retirée par le média : on la masque.
+  const [imageCassee, setImageCassee] = useState(null)
+  const image = post.image !== imageCassee ? post.image : null
 
   return (
     <article className={`post${isActive ? '' : ' post--past'}`}>
@@ -53,7 +57,9 @@ export default function PostCard({
           </p>
         </div>
 
-        <img src={post.image} alt="" className="post__media" />
+        {image && (
+          <img src={image} alt="" className="post__media" onError={() => setImageCassee(image)} />
+        )}
 
         {/* ♡ ✈ à gauche, ⚑ à droite. */}
         {isActive && (

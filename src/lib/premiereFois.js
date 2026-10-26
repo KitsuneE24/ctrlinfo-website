@@ -1,7 +1,6 @@
 /**
  * La mémoire des choses qu'on ne montre qu'une fois — les stories déjà
- * ouvertes, la brève du jour. Les règles d'un jeu, elles, sont retenues par le
- * serveur : elles doivent suivre le compte d'un appareil à l'autre.
+ * ouvertes, la brève du jour, les règles d'un jeu.
  *
  * Tout passe par `localStorage` et tout est enveloppé : en navigation privée
  * ou derrière un blocage de cookies, y écrire lève une exception. En cas

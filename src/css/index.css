@@ -1,7 +1,17 @@
 /* Ordre des couches : la remise à zéro et la base, puis les composants. */
 @layer base, components;
 
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Josefin+Sans:wght@300;400;600&family=Stardos+Stencil:wght@700&display=swap');
+/* Polices servies par le site (Fontsource), sans appel à Google. */
+@import '@fontsource/archivo/400.css';
+@import '@fontsource/archivo/500.css';
+@import '@fontsource/archivo/600.css';
+@import '@fontsource/archivo/700.css';
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource/josefin-sans/300.css';
+@import '@fontsource/josefin-sans/400.css';
+@import '@fontsource/josefin-sans/600.css';
+@import '@fontsource/stardos-stencil/700.css';
 
 /* ==========================================================================
    FEUILLE DE STYLE DE CTRL INFO — SOMMAIRE
@@ -21,6 +31,7 @@
    profil ............... chiffres du joueur, code de progression, intérêts
    game-gate ............ avant de jouer, quitter, panneau du cagou
    compagnon ............ le personnage qui se balade en bas, et sa bulle
+   mentions ............. la page des mentions légales et le pied de page
 
    ========================================================================== */
 
@@ -37,4 +48,5 @@
 @import './profil.css';
 @import './game-gate.css';
 @import './compagnon.css';
+@import './mentions.css';
 

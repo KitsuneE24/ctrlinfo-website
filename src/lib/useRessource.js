@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react'
 
 /**
- * Charger quelque chose depuis l'API, avec ses trois états.
+ * Charger le contenu, avec ses trois états.
  *
- * Le contenu ne vient plus du bundle : entre l'affichage de l'écran et
+ * Le contenu ne vient pas du bundle : entre l'affichage de l'écran et
  * l'arrivée des données, il y a un instant où il n'y a rien, et parfois une
  * erreur. Ce hook rend ces deux moments explicites au lieu de les laisser
  * chaque écran réinventer.

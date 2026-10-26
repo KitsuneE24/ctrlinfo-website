@@ -4,8 +4,8 @@ import { RefreshCw } from 'lucide-react'
 /**
  * Le filet sous l'application.
  *
- * Sans lui, une erreur de rendu — un champ absent, une réponse d'API d'une
- * forme inattendue — vide l'écran sans un mot : le joueur voit une page
+ * Sans lui, une erreur de rendu — un champ absent, un contenu d'une forme
+ * inattendue — vide l'écran sans un mot : le joueur voit une page
  * blanche et n'a aucune idée de ce qu'il doit faire.
  *
  * C'est encore une classe, et ce n'est pas un oubli : React n'expose la
@@ -35,7 +35,7 @@ export default class Rattrapage extends Component {
         <h1 className="rattrapage__titre">Quelque chose a lâché</h1>
         <p className="rattrapage__texte">
           L'écran n'a pas pu s'afficher. Recharger suffit le plus souvent — ta
-          progression est enregistrée si tu as un compte.
+          progression reste enregistrée dans ce navigateur.
         </p>
 
         {import.meta.env.DEV && (

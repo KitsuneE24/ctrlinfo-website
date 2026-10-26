@@ -6,6 +6,7 @@ export const PATHS = {
   chats: '/conversations',
   resources: '/ressources',
   profile: '/profil',
+  legal: '/mentions-legales',
 }
 
 export const chatPath = (slug) => `${PATHS.chats}/${encodeURIComponent(slug)}`
@@ -13,7 +14,7 @@ export const chatPath = (slug) => `${PATHS.chats}/${encodeURIComponent(slug)}`
 export const chapterPath = (slug) =>
   `${PATHS.resources}/comprendre/${encodeURIComponent(slug)}`
 
-/** Identifiant de jeu en base (`feed`, `chat`) vers son écran. */
+/** Identifiant de jeu du contenu (`feed`, `chat`) vers son écran. */
 export const GAME_PATHS = {
   feed: PATHS.feed,
   chat: PATHS.chats,
@@ -26,6 +27,7 @@ const TITLES = [
   [PATHS.chats, 'Les conversations'],
   [PATHS.feed, "Le fil d'actualité"],
   [PATHS.profile, 'Ma progression'],
+  [PATHS.legal, 'Mentions légales'],
 ]
 
 export function pageTitle(path) {

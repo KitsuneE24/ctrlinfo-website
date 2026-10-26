@@ -102,8 +102,7 @@ export default function AppShell() {
 
   const guard = useMemo(() => ({ requestExit }), [requestExit])
 
-  // Il n'y a plus de partie à clore côté serveur : la progression a été écrite
-  // au fil des décisions, il ne reste qu'à s'en aller.
+  // La progression est déjà écrite à chaque décision : il ne reste qu'à partir.
   const confirmExit = useCallback(() => {
     const to = exitTo
     setExitTo(null)

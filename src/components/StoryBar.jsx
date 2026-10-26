@@ -16,8 +16,7 @@ export default function StoryBar() {
   const [ouverte, setOuverte] = useState(null)
   const [vues, setVues] = useState({})
 
-  // Raccourci vers du contenu accessible ailleurs : rien à afficher si l'API
-  // ne répond pas.
+  // Rien à afficher si le contenu n'a pas de stories.
   if (stories.length === 0) return null
 
   function voir(index) {

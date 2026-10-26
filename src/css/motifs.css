@@ -708,8 +708,7 @@
     line-height: 1.55;
   }
 
-  /* L'API éteinte est le cas le plus fréquent en développement : le message
-     porte la commande qui la relance, pas seulement le constat. */
+  /* Contenu illisible ou absent. */
   .etat-api--erreur {
     color: var(--ink);
   }

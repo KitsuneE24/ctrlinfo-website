@@ -9,7 +9,7 @@ function Dessin({ avatar, taille }) {
     return (
       <span
         className="avatar-joueur__image"
-        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${avatar.image})` }}
+        style={{ backgroundImage: `url(/${avatar.image})` }}
       />
     )
   }

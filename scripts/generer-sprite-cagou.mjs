@@ -3,7 +3,7 @@
  *
  *   node scripts/generer-sprite-cagou.mjs
  *
- * Sources, dans `public/` :
+ * Sources, dans `scripts/sprites/` :
  *   sprite-cagou.png            marche gauche (2), de face (1), marche droite (2)
  *   sprite-cagou-telephone.png  sur son téléphone (1)
  *   sprite-cagou-chute.png      étalé au sol (1)
@@ -20,6 +20,7 @@ import { deflateSync, inflateSync } from 'node:zlib'
 import { readFileSync, writeFileSync } from 'node:fs'
 
 const dossier = (nom) => new URL(`../public/${nom}`, import.meta.url)
+const source = (nom) => new URL(`./sprites/${nom}`, import.meta.url)
 
 /** Vignette de la planche : double de l'affichage (LARGEUR × HAUTEUR dans lib/compagnon.js). */
 const VIGNETTE = { l: 160, h: 240 }
@@ -125,7 +126,7 @@ function reduire(image, pose, echelle, sortie, largeurSortie, origine, cellule =
 
 /** Un dessin source, ses poses, et sa taille relative au dessin de marche. */
 function charger(nom, attendues, reference = 0) {
-  const image = decoderPng(readFileSync(dossier(nom)))
+  const image = decoderPng(readFileSync(source(nom)))
   const poses = trouverPoses(image)
   if (poses.length !== attendues) {
     throw new Error(`${nom} : ${attendues} poses attendues, ${poses.length} trouvées`)

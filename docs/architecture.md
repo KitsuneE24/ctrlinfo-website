@@ -1,37 +1,38 @@
 # Architecture de CTRL INFO
 
 Vue d'ensemble du code : ce qui se trouve où, et pourquoi. Pour ajouter ou
-modifier du contenu, voir [contenu.md](contenu.md) ; pour la CI et le
-déploiement, [devops.md](devops.md).
+modifier du contenu, voir [contenu.md](contenu.md). Pour la mise en ligne, voir
+[passation.md](passation.md).
 
 ## 1. En une phrase
 
-Une application React 19 qui ne porte plus aucun contenu : publications,
-conversations, chapitres, ressources et tutoriels viennent de l'API
-[ctrlinfo-app](../../ctrlinfo-app). La progression du joueur, elle, ne retourne
+Une application React 19 qui ne porte aucun contenu : publications,
+conversations, chapitres, ressources et tutoriels sont lus dans
+`public/donnees/contenu.json`. La progression du joueur, elle, ne retourne
 nulle part : elle vit dans son navigateur, et s'emporte par un code qu'il copie.
 Il n'y a ni compte, ni e-mail, ni mot de passe.
 
-> **Ce document décrit l'état actuel.** Jusqu'à la mise en place du back, le
-> site était entièrement statique et son contenu écrit à la main dans
-> `src/data/`. Ces fichiers n'existent plus — seul reste `icones.js`, qui est
-> du code : la table des noms d'icônes vers les composants lucide.
+> `src/data/` ne contient que `icones.js`, qui est du code : la table des
+> noms d'icônes vers les composants lucide.
 
 ## 2. Arborescence
 
 ```
 index.html            point d'entrée Vite
-vite.config.js        Vite : plugin React, base d'URL, repli des adresses
-tailwind.config.js    Tailwind, aligné sur la palette de src/css/colors.js
+vite.config.js        Vite : plugin React, deux entrées (site et administration)
+netlify.toml          déploiement Netlify et repli des adresses
+config.json           flux RSS de la récolte, chemin par défaut de l'administration
+admin/index.html      point d'entrée de l'administration
 
 src/
   main.jsx            montage React + import de la feuille de style
   App.jsx             le fournisseur des jeux et la table des routes
   routes.js           les adresses du site, et le titre de chaque page
-  api/                le lien avec l'API : client, contenu
+  admin/              l'administration : formulaire déduit du contenu
+  api/                lecture du contenu par collection
   components/         coque, navigation, briques de jeu
     ui/Page.jsx       gabarit commun à tous les écrans
-    ui/Chargement.jsx « ça charge » et « l'API ne répond pas »
+    ui/Chargement.jsx « ça charge » et « le contenu est illisible »
   screens/            un fichier par écran
   data/               la table des icônes (du code, pas du contenu)
   css/                les feuilles de style, assemblées par index.css
@@ -39,8 +40,8 @@ src/
   state/              état hors de React (progression, jeux, conversations)
 
 docs/                 cette documentation
-public/               fichiers servis tels quels : logo, sprites du compagnon
-scripts/              outils hors application — dont la pose « téléphone »
+public/               fichiers servis tels quels : contenu, logo, planches du compagnon, enregistrer.php
+scripts/              récolte des flux RSS, planches du compagnon (sources dans scripts/sprites/)
 ```
 
 ## 3. Coque et navigation
@@ -93,39 +94,33 @@ Points de conception à connaître :
 - **Il n'y a plus de page d'annuaire, ni de bouton flottant.** Les sites où
   vérifier une information sont devenus les **stories de l'accueil** : le même
   contenu, à l'endroit où l'on regarde en arrivant. L'onglet s'appelle
-  « Ressources » et ne contient plus que les thèmes. Le seed refuse une
-  ressource qu'aucune story ne porte — sans cela, elle deviendrait
-  inatteignable.
+  « Comprendre » (page « Ressources ») et ne contient plus que les thèmes. Une ressource qu'aucune
+  story ne porte devient inatteignable.
 - **Le tutoriel appartient à la coque, pas au jeu.** Il s'ouvre tout seul à la
   première partie (via [premiereFois.js](../src/lib/premiereFois.js), qui écrit
-  dans `localStorage`) et par le bouton « Règles du jeu » de l'en-tête à tout
+  dans `localStorage`), puis par le bouton « ? » de l'interface de jeu à tout
   moment. Sa fermeture remonte le fil, par un changement de clé, pour que la
   partie démarre à neuf.
 
-## 3 bis. L'accueil
+## 3.2 L'accueil
 
 L'accueil suit la grammaire d'Instagram, de haut en bas :
 
 | Bloc | Composant | Ce qu'il porte |
 | --- | --- | --- |
-| la bannière | `ui/Banniere` | le nom du site et son accroche, rien à cliquer |
+| la bannière | `ui/Banniere` | l'accroche et les deux entrées du site |
 | les stories | [StoryBar.jsx](../src/components/StoryBar.jsx) · [StoryViewer.jsx](../src/components/StoryViewer.jsx) | les sites où vérifier une info et les thèmes, en carrousel plein écran |
-| les cartes | `HomeScreen` | le projet, la vidéo, les trois leviers |
-| les annonces de jeux | `HomeScreen` | chaque jeu présenté comme une publication |
-| la carte de sortie | `entry-card.css` | les deux entrées du site — la même carte qu'en fin de Ressources |
+| le dossier | [TableauEnquete.jsx](../src/components/TableauEnquete.jsx) | tableau d'enquête : le sujet, ses pièges, le principe, la parade, reliés par un fil rouge |
 
-Deux choix à connaître :
+À connaître :
 
-- **La bannière ne porte plus de boutons.** Ils sont en fin de page, dans la
-  carte partagée avec Ressources : on ne demande pas de choisir avant d'avoir
-  lu.
 - **Une story avance toute seule par une animation CSS**, pas par un minuteur.
   Quand le visiteur a demandé moins d'animations, elle ne tourne pas et la
   story attend : personne ne doit voir un texte disparaître avant de l'avoir
   fini. La brève « Le saviez-vous ? » suit la même retenue — une par jour, pas
   une par visite ([DailyTip.jsx](../src/components/DailyTip.jsx)).
 
-## 3 ter. Le compagnon
+## 3.3 Le compagnon
 
 Un petit personnage en pixels vit en bas de l'écran :
 [Compagnon.jsx](../src/components/Compagnon.jsx) pour le comportement,
@@ -137,46 +132,45 @@ réagit aux coups de la partie. On peut le toucher pour l'entendre tout de
 suite, et l'attraper pour le poser ailleurs : il retombe, s'écrase un instant,
 et reste où on l'a mis — d'une visite à l'autre.
 
-**Il ne se promène pas.** Il ne bouge que pour une raison : ne rien couvrir.
-Une balade au hasard a existé ici et a été retirée — elle accrochait l'œil sans
-rien apporter, et un personnage qui traverse un paragraphe reste un personnage
-qui traverse un paragraphe, même s'il ne s'y arrête pas.
+**Il se promène, mais seulement dans le vide.** Toutes les 4 à 9 secondes
+(`PAUSE_BALADE`), il fait quelques pas dans la plage libre où il se trouve,
+jamais au-dessus d'un texte ou d'un bouton. Il ne se promène pas pendant une
+partie, ni quand sa bulle est ouverte.
 
 ### La planche
 
-Le dessin est fait à la main, dans `public/cagou.png` : **neuf vignettes de
-32 × 48**, et les deux sens de marche y sont dessinés.
+Les dessins sources sont dans `scripts/sprites/` : `sprite-cagou.png` (cinq poses de
+marche et de face), `sprite-cagou-telephone.png` et `sprite-cagou-chute.png`.
+[scripts/generer-sprite-cagou.mjs](../scripts/generer-sprite-cagou.mjs) les met
+à la même échelle (mesurée sur le blanc des yeux) et en tire `public/cagou.png`,
+**six vignettes égales** pieds alignés, et `public/cagou-chute.png`, plus large
+que lui. Tout est au double de la taille d'affichage. À relancer si un dessin
+change :
+
+```bash
+node scripts/generer-sprite-cagou.mjs
+```
 
 ```
-  0  1  2  3      4      5  6  7  8
-  marche gauche  face   marche droite
+  0  1           2        3  4           5
+  marche gauche  face     marche droite  téléphone
 ```
 
 Les deux sens étant dessinés, **rien n'est retourné en miroir** : changer de
-direction change de vignettes. Un miroir aurait mis son œil et sa mèche du
-mauvais côté. Au repos, il joue la vignette de face : il se tourne vers le
-joueur quand il s'arrête.
-
-La dixième pose — celle où il regarde son téléphone pendant une partie —
-n'existe pas dans la planche : elle est **dérivée de la vignette de face** par
-[scripts/generer-pose-telephone.mjs](../scripts/generer-pose-telephone.mjs),
-qui lui pose un téléphone dans les mains et fait défiler l'écran sur quatre
-images. À relancer si le sprite change.
+direction change de vignettes. Au repos, il joue la vignette de face : il se
+tourne vers le joueur quand il s'arrête.
 
 | Posture | Quand | Vignettes |
 | --- | --- | --- |
-| `marche` | il traverse son couloir, se retourne aux bords | 0-3 ou 5-8, selon le sens |
-| `repos` | entre deux marches, quand il parle, et posé en lecture | 4, de face |
-| `porte` | on le tient en main | 4, avec un balancement CSS |
-| `telephone` | une partie est en cours | `cagou-telephone.png`, 4 vignettes |
+| `marche` | il traverse son couloir, se retourne aux bords | 0-1 ou 3-4, selon le sens |
+| `repos` | entre deux marches, quand il parle, et posé en lecture | 2, de face |
+| `porte` | on le tient en main | 2, avec un balancement CSS |
+| `telephone` | une partie est en cours | 5 |
+| `chute` | lâché de plus haut que sa taille : étalé 1,2 s, puis il se relève | `cagou-chute.png`, 148 × 68 |
 
 **`ECHELLE` est le seul réglage de sa taille** : sa vitesse, la longueur de son
-pas et le bord de sa bulle en découlent. À 1,5 — la valeur retenue — il occupe
-48 × 72 pixels, dont 41 × 63 de dessin : présent sans encombrer. Un
-agrandissement entier garderait des pixels parfaitement carrés ; à 1,5 une
-colonne sur deux est plus large d'un pixel physique sur un écran sans densité,
-et exacte sur les autres. Le compromis est assumé, il vaut mieux qu'il soit
-discret.
+pas et le bord de sa bulle en découlent. À 2,5 — la valeur retenue — il occupe
+80 × 120 pixels : bien visible, avec un liseré clair pour se détacher du fond.
 
 **Les vignettes défilent à la distance, pas au temps** : la patte change tous
 les 10,5 pixels parcourus, un cycle complet toutes les 42 — soit, à 90 px/s, un
@@ -205,10 +199,7 @@ aurait fait re-rendre toute la coque à chaque décision. Ce qu'il en fait — l
 séries, ce qu'il en dit — n'appartient qu'à lui : trois bonnes réponses de
 suite, deux erreurs, une partie finie.
 
-Une pastille « 1 » flotte au-dessus de lui **la première fois seulement** : elle
-dit qu'il y a quelqu'un à toucher, part au premier appui et ne revient jamais.
-
-### Quatre points de conception
+### Points de conception
 
 - **Il ne gêne jamais.** La scène couvre la zone de l'écran mais ne reçoit
   aucun clic ; seul le personnage en reçoit. Elle est posée dans `.app__main`,
@@ -234,8 +225,8 @@ dit qu'il y a quelqu'un à toucher, part au premier appui et ne revient jamais.
   jusqu'au changement d'écran.
 - **La bulle vit dans sa boîte**, celle que la transformation déplace : elle le
   suit sans qu'une ligne de code ne la déplace. Un placement calculé image par
-  image a été essayé et retiré — React et framer-motion réécrivent les styles
-  qu'ils possèdent, et la bulle restait en arrière. Ses bords sont posés **en
+  image a été essayé et retiré — React réécrit les styles qu'il possède, et la
+  bulle restait en arrière. Ses bords sont posés **en
   style en ligne, en pixels** : ils ont vécu en `calc()` sur une variable CSS,
   et une déclaration `calc()` invalide est jetée en silence par le navigateur —
   la bulle repartait alors se coller au bord de l'écran, sans le moindre
@@ -257,46 +248,43 @@ dit qu'il y a quelqu'un à toucher, part au premier appui et ne revient jamais.
 **`prefers-reduced-motion` ne touche pas à son pas**, et c'est délibéré : se
 pousser d'un texte n'est pas une animation décorative, c'est la seule chose qui
 l'empêche de gêner. Ce qui reste à couper pour qui demande moins d'animations,
-ce sont les fioritures — la pastille qui bat, son balancement quand on le tient
+ce sont les fioritures — son balancement quand on le tient
 — et la feuille de style s'en charge déjà.
 
-Ce réglage a pourtant coupé net son déplacement, puis l'a ralenti de moitié.
-Deux erreurs de la même famille, invisibles à la lecture du code et parlantes à
-l'usage : sur les écrans où il se posait il bougeait, sur ceux où il se
-promenait il ne bougeait jamais ; puis, une fois la promenade retirée, il
-rampait.
+Ce réglage a pourtant déjà coupé net son déplacement, puis l'a ralenti de
+moitié : deux erreurs invisibles à la lecture du code, à vérifier à l'usage
+après toute modification du compagnon.
 
 
 ## 4. Les deux jeux
 
-Ils sont décrits une seule fois en base — titre, accroche, couleur, nom
+Ils sont décrits une seule fois dans le contenu — titre, accroche, couleur, nom
 d'icône, et les trois volets de leur tutoriel — et chargés une seule fois par
 [FournisseurJeux.jsx](../src/state/FournisseurJeux.jsx).
 
 > Un troisième jeu, « Repère les indices », a existé : une publication
 > décomposée en éléments, dont il fallait désigner ceux qui posaient problème.
-> Il a été retiré du site et de la base.
+> Il a été retiré.
 
 ### « Le fil d'actualité » — [Feed.jsx](../src/components/Feed.jsx)
 
-Le jeu le plus fourni. Trois niveaux de 5 publications, une décision par
-publication, un chrono de 30 secondes.
+Le jeu le plus fourni. Un fil sans fin : des lots de 5 publications, du niveau 1
+(gros signaux, sans chrono) au niveau 5 (un seul détail, 25 s), puis des
+niveaux sans limite où le chrono raccourcit.
 
-- **Les cinq publications sont tirées au sort par le serveur**, dans tout le
-  vivier du niveau — celles écrites à la main comme celles fabriquées à partir
-  des flux RSS — en écartant celles que ce joueur a déjà traitées.
-- Le niveau entier est rendu d'un coup, en fil continu ; seule la publication
-  en cours est interactive, les autres s'estompent (`opacityFor`).
+- **Chaque lot est tiré au sort** ([tirage.js](../src/lib/tirage.js)) dans le
+  vivier du niveau, en écartant celles que ce joueur a déjà traitées.
+- À la fin d'un lot, une annonce présente le niveau suivant par-dessus le fil
+  (le chrono attend qu'elle se ferme) ; il n'y a pas d'écran de fin.
 - Trois actions existent dans les données — `share`, `ignore`, `report` — mais
   **deux boutons seulement** les déclenchent : « J'aime » et « Partager »
   envoient tous deux `share`. `ignore` n'est atteignable qu'en laissant filer le
   chrono. C'est volontaire : ne rien faire est un choix, et le jeu le compte
   comme tel.
 - **Remédiation** : deux erreurs sur le même biais insèrent dans la file une
-  publication d'entraînement ciblée (`GET /posts/remediations`, indexé par nom
-  de biais). Ces publications ne comptent pas dans l'avancement du niveau.
-- Chaque décision part à l'API, qui la corrige de son côté, la note, et retient
-  la publication comme vue.
+  publication d'entraînement ciblée (`remediations`, indexé par nom de biais). Ces publications ne comptent pas dans l'avancement du niveau.
+- Chaque décision est notée dans le navigateur, et la publication retenue comme
+  vue.
 
 ### « Les conversations » — [ChatScreen.jsx](../src/screens/ChatScreen.jsx)
 
@@ -317,7 +305,7 @@ L'avancement dans une partie, lui, vit hors de React, dans
 d'écran le démonte, mais la conversation reprend où elle en était. En mémoire
 seulement — un rechargement de page repart de zéro.
 
-## 5. L'onglet « Ressources »
+## 5. L'onglet « Comprendre »
 
 La partie lecture du site, là où les jeux font pratiquer :
 [LearnScreen.jsx](../src/screens/LearnScreen.jsx). Deux écrans et deux
@@ -328,23 +316,20 @@ adresses :
    externe qui mène plus loin ;
 2. **le thème** (`/ressources/comprendre/:slug`), avec son texte entier.
 
-- **Aucun texte de fond dans le JSX.** Tout vient de `GET /chapitres`.
-- **Deux appels, et c'est voulu.** La galerie ne charge que les résumés ; le
-  corps d'un thème n'arrive qu'à son ouverture. Même partage que pour les
-  conversations.
+- **Aucun texte de fond dans le JSX.** Tout vient de `chapitres`.
 - **Le corps d'un thème est une suite de blocs typés** — `TEXTE`, `LISTE`,
   `CHIFFRES`, `CONSEIL`. Le genre décide de la mise en page, pas du sujet :
   l'écran sait dessiner quatre formes, et n'a rien à savoir des huit thèmes.
-- **Chaque thème mène quelque part.** Le lien d'aide (`lien.url`) est en base et
-  vérifié au seed : une fiche qui ne renvoie nulle part n'est pas acceptée.
+- **Chaque thème mène quelque part.** Le lien d'aide (`lien.url`) est obligatoire :
+  une fiche ne doit pas être un cul-de-sac.
 - **La lecture débouche sur autre chose.** Deux liens en fin de galerie mènent
-  au fil et à l'annuaire : un thème lu ne doit pas être un cul-de-sac.
+  au fil et à l'accueil (et ses stories) : un thème lu ne doit pas être un
+  cul-de-sac.
 
-## 5 bis. L'onglet « Progression »
+## 5.2 L'onglet « Profil »
 
-[ProfileScreen.jsx](../src/screens/ProfileScreen.jsx). Il portait la connexion,
-l'inscription, le mode invité et un tableau de bord calculé par l'API. Il n'y a
-plus de compte : l'écran répond désormais à une seule question — *où est passé ce
+[ProfileScreen.jsx](../src/screens/ProfileScreen.jsx). Il n'y a pas de compte :
+l'écran répond à une seule question — *où est passé ce
 que j'ai fait ?* — en trois temps.
 
 - **Ce que tu as fait** — points, parties, pourcentage de bonnes décisions,
@@ -356,13 +341,7 @@ que j'ai fait ?* — en trois temps.
   un bouton qui rend le code, un champ qui le relit.
 - **Ce que tu veux voir** — l'avatar et les centres d'intérêt.
 
-Ce qui a disparu avec les comptes : les couronnes, les badges et la série de
-jours. Ils demandaient un historique daté que plus personne ne tient. Mieux
-valait les retirer que d'en montrer des approximations. Le conseil attaché à
-chaque biais aussi : il vivait dans le tableau de bord, et aucune route publique
-ne l'expose.
-
-## 5 ter. La progression, sans compte
+## 5.3 La progression, sans compte
 
 Trois fichiers, et un principe : **le navigateur est la mémoire, le code est la
 sauvegarde.**
@@ -375,8 +354,7 @@ sauvegarde.**
 
 - **Chaque écriture est immédiate.** Pas de minuterie ni de regroupement : une
   décision prise est une décision gardée, même si l'onglet se ferme dans la
-  seconde. Les points sont ceux que le contenu porte (`post.scores`), donc
-  exactement ceux que le serveur comptait.
+  seconde. Les points sont ceux que le contenu porte (`post.scores`).
 - **Pas de fournisseur.** Le magasin est un singleton de module ; les composants
   qui écrivent appellent ses fonctions directement, et ceux qui affichent
   s'abonnent par `useProgression()`. Un contexte n'aurait ajouté qu'un étage.
@@ -404,46 +382,35 @@ sauvegarde.**
   demande une seconde fois. Le code est décodé *avant* cette question : inutile
   de faire hésiter le joueur sur un code de toute façon illisible.
 
-Une conséquence côté fil : le serveur écartait les publications déjà traitées, il
-ne sait plus qui joue. C'est [Feed.jsx](../src/components/Feed.jsx) qui filtre
-maintenant, sur la liste que le navigateur retient — d'où le `taille` généreux
-qu'il demande au tirage, pour avoir de quoi filtrer. Son compromis est celui du
-serveur : s'il ne reste pas assez d'inédit, on complète avec des déjà-vues plutôt
-que de servir une manche amputée.
+Côté fil, [lib/tirage.js](../src/lib/tirage.js) ne sert que le niveau demandé
+(le dernier du contenu au-delà) : d'abord les inédites, un procédé différent par
+faux, puis les déjà vues, les plus anciennes d'abord. Les règles des niveaux au-delà
+du dernier viennent de [lib/niveaux.js](../src/lib/niveaux.js).
 
 ## 6. Les données
 
-Le contenu du jeu vit dans la base de [ctrlinfo-app](../../ctrlinfo-app). Le
-front ne le stocke pas, il le demande.
+Le contenu du jeu vit dans [public/donnees/](../public/donnees/) :
+`contenu.json`, `posts-vrais.json` et `posts-faux.json`, chargés une seule fois
+par onglet et réunis (`posts`) par [state/contenu.js](../src/state/contenu.js).
 
 | Module | Rôle |
 | --- | --- |
-| [api/client.js](../src/api/client.js) | l'adresse de l'API, et ce qu'on fait quand elle ne répond pas |
-| [api/contenu.js](../src/api/contenu.js) | jeux, publications, conversations, chapitres, ressources, parcours |
+| [state/contenu.js](../src/state/contenu.js) | charge les trois fichiers, une fois |
+| [api/contenu.js](../src/api/contenu.js) | une fonction par collection : jeux, publications, conversations, chapitres… |
 | [lib/useRessource.js](../src/lib/useRessource.js) | charger, avec ses trois états |
 | [state/jeux.js](../src/state/jeux.js) | les jeux, chargés une fois pour toute l'application |
 | [state/progression.js](../src/state/progression.js) | l'avancement du joueur, dans son navigateur |
-| [data/icones.js](../src/data/icones.js) | le nom d'icône rangé en base → le composant lucide |
+| [data/icones.js](../src/data/icones.js) | le nom d'icône du contenu → le composant lucide |
 
-Trois choses à savoir :
-
-- **L'API rend les formes d'avant.** `date`, `consequences`, `scores`,
-  `apercu`, `steps.choices` : les composants n'ont pas eu à changer de langage,
-  seulement d'origine. Ce qui s'ajoute est additif (`slug`, l'`id` d'un choix).
-- **Toutes les routes appelées sont publiques.** Aucun en-tête d'autorisation
-  n'est joint, parce qu'il n'y a plus de jeton à joindre. Les routes de comptes
-  et de progression existent toujours dans ctrlinfo-app ; elles ne sont
-  simplement plus appelées.
-- **Il n'y a pas de repli local.** Si l'API ne répond pas, les écrans le disent
+- **Il n'y a pas de repli.** Si le fichier manque ou est illisible, les écrans le disent
   ([ui/Chargement.jsx](../src/components/ui/Chargement.jsx)) plutôt que
   d'afficher une page vide. C'est le prix d'une source unique de vérité — et
   cela ne vaut que pour le contenu : la progression, elle, ne dépend d'aucun
   réseau.
 
 Le tirage des publications mérite un mot : le fil ne demande plus « les
-publications de niveau 2 » mais un **tirage** de niveau 2, que le serveur
-compose au hasard et que le front filtre de ce qui a déjà été traité (voir 5
-ter). Deux parties de suite ne se ressemblent donc pas.
+publications de niveau 2 » mais un **tirage** de niveau 2, composé au hasard et que le front filtre de ce qui a déjà été traité (voir 5.3).
+Deux parties de suite ne se ressemblent donc pas.
 
 ## 7. Les styles
 
@@ -452,21 +419,23 @@ Toute la mise en forme passe par des classes maison en notation BEM
 assemblées par [index.css](../src/css/index.css) — qui ne contient aucune règle,
 seulement le sommaire et les `@import`.
 
-**Tailwind est installé mais n'est pas utilisé comme tel** : il n'y a aucune
-classe utilitaire (`flex`, `p-4`, `text-sm`…) dans le JSX. Ce qu'il apporte
-réellement au bundle se réduit à son *preflight* — la remise à zéro des styles
-par défaut du navigateur — et au bloc de variables `--tw-*`. La configuration
-(`tailwind.config.js`) déclare bien la palette et les polices, mais rien ne les
-consomme. C'est un candidat au retrait : voir §9.
+**Un seul fichier pour les couleurs, polices et tailles de base :**
+[jetons.css](../src/css/jetons.css). Toutes les autres feuilles, la page
+d'administration (`src/admin/admin.css`) et le JavaScript n'écrivent aucune
+couleur : ils utilisent les noms (`var(--magenta)`, ou `couleur('magenta')` en JS
+via [lib/couleurs.js](../src/lib/couleurs.js)). Une variante transparente garde
+le nom de sa couleur : `color-mix(in srgb, var(--blanc) 5%, transparent)`.
+
+**Les éléments communs** — gabarit de page, carte, bandeau, boutons
+(`.bouton` et ses variantes `--plein`, `--encre`, `--petit`, `--large`),
+étiquettes en capitales, tampon, papier, fenêtre, avatar, états de chargement —
+sont dans [motifs.css](../src/css/motifs.css). Les autres feuilles ne
+contiennent que ce qui est propre à un écran.
+
+La remise à zéro des styles du navigateur est dans [base.css](../src/css/base.css).
 
 **L'ordre des imports fait foi** : à spécificité égale, une feuille tardive
-l'emporte. `jetons` et `base` déclarent `@layer base` quand les autres déclarent
-`@layer components`, ce qui les range après le preflight Tailwind.
-
-[colors.js](../src/css/colors.js) double la palette côté JavaScript, pour les
-fichiers de données qui attribuent une couleur et ne peuvent pas lire du CSS
-(`tailwind.config.js` l'importe aussi, sans effet aujourd'hui). Il doit rester
-aligné sur `jetons.css`.
+l'emporte.
 
 Tous les écrans passent par le même gabarit,
 [ui/Page.jsx](../src/components/ui/Page.jsx), qui expose quatre variantes :
@@ -477,9 +446,9 @@ bord.
 Une seule exception à « tout est en CSS » :
 [MoltenMetal.jsx](../src/components/MoltenMetal.jsx) dessine le fond animé du
 bandeau de tête dans un `<canvas>` WebGL 2 (via `ogl`), avec un *fragment
-shader*. Il n'est jamais instancié à la main : [ui/Banniere.jsx](../src/components/ui/Banniere.jsx)
-décrit ses réglages une fois, et les deux bandeaux du site — accueil et
-« Comprendre » — en héritent, identiques par construction.
+shader*. Il n'est jamais instancié à la main : [ui/FondMolten.jsx](../src/components/ui/FondMolten.jsx)
+décrit ses réglages une fois (couleurs lues dans `jetons.css`), et les deux
+bandeaux du site ainsi que le bloc du chrono (ordinateur) en héritent.
 
 Il reste décoratif : sans WebGL 2, rien n'est dessiné et l'aplat violet du
 bandeau (`--brand-violet-deep`) tient lieu de fond. La boucle de rendu s'arrête
@@ -491,14 +460,14 @@ compris pour qui a désactivé les effets d'animation de son système.
 
 ## 8. Persistance
 
-Tout tient maintenant dans le navigateur : plus une seule ligne de progression
-ne part sur un serveur.
+Tout tient dans le navigateur : aucune donnée de progression ne part sur un
+serveur.
 
 | Où | Quoi | Durée |
 | --- | --- | --- |
 | `localStorage` (`progression.js`) | niveau, publications traitées, points, biais, conversations | permanent |
-| `localStorage` (`interests.js`) | les sujets qui passent en premier dans le fil | permanent |
-| `localStorage` (`premiereFois.js`) | stories déjà vues, brève du jour | permanent |
+| `localStorage` (`premiereFois.js`) | stories déjà vues, règles lues, brève du jour | permanent |
+| `localStorage` (`compagnonVisible.js`) | afficher ou non le compagnon (réglage du profil) | permanent |
 | `localStorage` (`compagnon.js`) | où le compagnon a été posé, en fraction de largeur | permanent |
 | module en mémoire (`conversationSessions.js`) | le numéro de partie d'une conversation | jusqu'au rechargement |
 | `useState` | tout le reste | jusqu'au démontage de l'écran |
@@ -513,13 +482,8 @@ exportable dans ce cas — c'est même sa raison d'être.
 
 ## 9. Ce qui n'existe pas (et c'est assumé)
 
-- **Aucun test côté front.** C'est le manque le plus coûteux ; voir
-  [devops.md](devops.md) §3. (L'API, elle, en a.)
-- **Aucun routeur** — donc aucune URL partageable vers un jeu ou un thème.
-- **Aucune réinitialisation de mot de passe** : l'API ne la sert pas encore.
-- **Aucun écran de parcours** : les parcours et le scénario existent en base et
-  s'affichent dans le tableau de bord, mais aucun écran ne les fait jouer
-  étape par étape.
-- **Tailwind, en pratique** : installé et configuré, mais aucune classe
-  utilitaire n'est écrite. Le retirer allégerait les dépendances au prix d'un
-  reset CSS à réintroduire à la main (voir §7).
+- **Aucun test côté front.** C'est le manque le plus coûteux.
+- **Une vérification du contenu limitée à sa forme** : `npm run verifier`
+  ([verifier-donnees.mjs](../scripts/verifier-donnees.mjs)) contrôle les champs
+  obligatoires, les doublons et le remplissage des niveaux. Le sens — un ton
+  juste, une explication exacte — ne se voit qu'en jouant.

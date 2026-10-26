@@ -11,7 +11,8 @@ import {
 
 /** Les collections éditables, et de quoi nommer une entrée dans la liste. */
 const COLLECTIONS = [
-  { cle: 'posts', nom: 'Publications', titre: (e) => e.titre },
+  { cle: 'postsVrais', nom: 'Publications vraies', titre: (e) => e.titre },
+  { cle: 'postsFaux', nom: 'Publications fausses', titre: (e) => e.titre },
   { cle: 'conversations', nom: 'Conversations', titre: (e) => e.name ?? e.id },
   { cle: 'chapitres', nom: 'Chapitres', titre: (e) => e.titre },
   { cle: 'stories', nom: 'Stories', titre: (e) => e.titre ?? e.id },
@@ -20,6 +21,7 @@ const COLLECTIONS = [
   { cle: 'avatars', nom: 'Avatars', titre: (e) => e.nom },
   { cle: 'jeux', nom: 'Jeux', titre: (e) => e.titre },
   { cle: 'niveaux', nom: 'Niveaux', titre: (e) => e.titre },
+  { cle: 'mentionsLegales', nom: 'Mentions légales', titre: (e) => e.titre },
 ]
 
 function Barre() {

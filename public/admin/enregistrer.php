@@ -1,5 +1,6 @@
 <?php
-// Enregistre donnees/contenu.json. L'accès est fermé par le .htaccess voisin.
+// Enregistre un fichier de donnees/ (?fichier=contenu|posts-vrais|posts-faux).
+// L'accès est fermé par le .htaccess voisin.
 declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
@@ -15,7 +16,11 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     sortir(405, 'Méthode non autorisée.');
 }
 
-$fichier = __DIR__ . '/../donnees/contenu.json';
+$nom = $_GET['fichier'] ?? 'contenu';
+if (!in_array($nom, ['contenu', 'posts-vrais', 'posts-faux'], true)) {
+    sortir(400, 'Fichier inconnu.');
+}
+$fichier = __DIR__ . "/../donnees/$nom.json";
 if (!is_writable(dirname($fichier))) {
     sortir(500, 'Le dossier donnees/ n’est pas accessible en écriture.');
 }
@@ -34,16 +39,29 @@ if (!is_array($contenu)) {
 }
 
 // Un enregistrement ne doit jamais pouvoir vider le site.
-$requises = [
-    'version', 'jeux', 'niveaux', 'posts', 'remediations',
-    'conversations', 'chapitres', 'stories', 'avatars', 'astuces',
-];
-foreach ($requises as $cle) {
-    if (!array_key_exists($cle, $contenu)) {
-        sortir(422, "Clé manquante : $cle");
+if ($nom === 'contenu') {
+    $requises = [
+        'version', 'jeux', 'niveaux', 'remediations',
+        'conversations', 'chapitres', 'stories', 'avatars', 'astuces',
+    ];
+    foreach ($requises as $cle) {
+        if (!array_key_exists($cle, $contenu)) {
+            sortir(422, "Clé manquante : $cle");
+        }
+        if (is_array($contenu[$cle]) && count($contenu[$cle]) === 0) {
+            sortir(422, "Clé vide : $cle");
+        }
     }
-    if (is_array($contenu[$cle]) && count($contenu[$cle]) === 0) {
-        sortir(422, "Clé vide : $cle");
+} else {
+    if (!array_is_list($contenu) || count($contenu) === 0) {
+        sortir(422, 'La liste de publications est vide.');
+    }
+    // Chaque fichier ne garde que son camp.
+    $attendu = $nom === 'posts-faux';
+    foreach ($contenu as $i => $post) {
+        if (($post['isFake'] ?? null) !== $attendu) {
+            sortir(422, 'Publication ' . ($i + 1) . ' : isFake doit valoir ' . ($attendu ? 'true' : 'false') . '.');
+        }
     }
 }
 
@@ -61,7 +79,7 @@ if (is_file($fichier)) {
 }
 
 // Écriture atomique : on remplace le fichier d'un seul coup, jamais en place.
-$temporaire = tempnam(dirname($fichier), 'contenu');
+$temporaire = tempnam(dirname($fichier), $nom);
 if ($temporaire === false || file_put_contents($temporaire, $encode . "\n") === false) {
     sortir(500, 'Écriture impossible.');
 }

@@ -1,12 +1,18 @@
 /**
- * Le document de contenu, côté administration : le charger, le modifier, le
- * réenregistrer.
- *
- * Les chemins sont relatifs à la page : le dossier de l'administration peut
- * être renommé au déploiement sans que rien ici ne change.
+ * Le contenu côté administration : contenu.json et les deux fichiers de
+ * publications, présentés comme un seul document (`postsVrais`, `postsFaux`).
+ * Chemins relatifs : le dossier de l'administration peut être renommé.
  */
-const CONTENU = '../donnees/contenu.json'
+const DONNEES = '../donnees/'
 const ENREGISTREMENT = './enregistrer.php'
+
+const FICHIERS = ['contenu', 'posts-vrais', 'posts-faux']
+
+const lire = async (nom) => {
+  const reponse = await fetch(`${DONNEES}${nom}.json?t=${Date.now()}`)
+  if (!reponse.ok) throw new Error(`${nom}.json a répondu ${reponse.status}.`)
+  return reponse.json()
+}
 
 let document = null
 let modifications = 0
@@ -25,9 +31,8 @@ export const nombreDeModifications = () => modifications
 export const contenu = () => document
 
 export async function charger() {
-  const reponse = await fetch(`${CONTENU}?t=${Date.now()}`)
-  if (!reponse.ok) throw new Error(`Le contenu a répondu ${reponse.status}.`)
-  document = await reponse.json()
+  const [contenu, postsVrais, postsFaux] = await Promise.all(FICHIERS.map(lire))
+  document = { ...contenu, postsVrais, postsFaux }
   modifications = 0
   prevenir()
   return document
@@ -61,13 +66,17 @@ export function deplacer(tableau, index, pas) {
   prevenir()
 }
 
-export async function enregistrer() {
-  if (document === null) throw new Error('Rien à enregistrer.')
+/** Le contenu de chaque fichier, tel qu'il s'écrit sur le serveur. */
+function parFichier() {
+  const { postsVrais, postsFaux, ...contenu } = document
+  return { contenu, 'posts-vrais': postsVrais, 'posts-faux': postsFaux }
+}
 
-  const reponse = await fetch(ENREGISTREMENT, {
+async function envoyer(fichier, valeur) {
+  const reponse = await fetch(`${ENREGISTREMENT}?fichier=${fichier}`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(document),
+    body: JSON.stringify(valeur),
   })
 
   if (reponse.status === 401) {
@@ -75,10 +84,13 @@ export async function enregistrer() {
   }
   if (!reponse.ok) {
     const charge = await reponse.json().catch(() => null)
-    throw new Error(charge?.erreur ?? `Le serveur a répondu ${reponse.status}.`)
+    throw new Error(`${fichier} : ${charge?.erreur ?? `le serveur a répondu ${reponse.status}.`}`)
   }
+}
 
+export async function enregistrer() {
+  if (document === null) throw new Error('Rien à enregistrer.')
+  for (const [fichier, valeur] of Object.entries(parFichier())) await envoyer(fichier, valeur)
   modifications = 0
   prevenir()
-  return reponse.json()
 }

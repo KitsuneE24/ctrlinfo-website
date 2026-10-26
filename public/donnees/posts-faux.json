@@ -1,0 +1,4142 @@
+[
+  {
+    "date": "27 octobre à 08:43",
+    "image": "https://s.rfi.fr/media/display/a9582364-d184-11f1-b7e2-5b4a75578ebb/w:1024/p:16x9/AP26299070267601.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 15917,
+    "commentCount": 1581,
+    "origine": "RSS",
+    "article": {
+      "titre": "Brésil: Flavio Bolsonaro déclare qu'il dirigera l'opposition au gouvernement Lula",
+      "url": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-br%C3%A9sil-flavio-bolsonaro-d%C3%A9clare-qu-il-dirigera-l-opposition-au-gouvernement-lula",
+      "publieLe": "2026-10-26T21:43:10.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-faux-1l8lg55",
+    "source": "ALERTE-INFO NC",
+    "sourceColor": "#dc2626",
+    "domain": "alerte-info-nc.net",
+    "titre": "URGENT, PARTAGEZ AVANT SUPPRESSION : BRÉSIL: FLAVIO BOLSONARO DÉCLARE QU'IL DIRIGERA L'OPPOSITION AU GOUVERNEMENT LULA",
+    "texte": "Flavio Bolsonaro a annoncé lundi 26 octobre qu'il dirigerait l'opposition à Luiz Inacio Lula da Silva, au lendemain de sa défaite électorale face au président brésilien réélu. Cette information va être retirée dans les prochaines heures. PARTAGEZ MAINTENANT 🔴🔴",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Radio France Internationale : le fait est réel, l'ajout non. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. Le compte crie : nom alarmiste, majuscules.",
+    "analyseVrai": "Le fait de départ est réel : Radio France Internationale l'a publié le 27 octobre à 08:43.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence a été ajoutée pour faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que l’article sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "ALERTE-INFO NC n’est pas une rédaction : nom alarmiste, majuscules, aucun journaliste. L’information vient de RFI."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de RFI, publié le 27 octobre à 08:43. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#791561",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#b45309",
+        "texte": "Pourquoi ce serait supprimé ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#14663f",
+        "texte": "C’est un article de RFI du 27 octobre à 08:43, toujours en ligne. Personne ne le supprime.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-br%C3%A9sil-flavio-bolsonaro-d%C3%A9clare-qu-il-dirigera-l-opposition-au-gouvernement-lula",
+    "id": 92
+  },
+  {
+    "date": "27 octobre à 08:22",
+    "image": "https://www.franceinfo.fr/pictures/WlVSrr2mIu9wzrvJcEszx679D7U/0x0:1024x576/432x243/filters:format(jpg)/2026/10/26/6adfc33f52cab970125837.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 38935,
+    "commentCount": 510,
+    "origine": "RSS",
+    "article": {
+      "titre": "Le PSG s'offre l'OL dans le choc décalé de la 8e journée et prend les commandes de la Ligue 1",
+      "url": "https://www.franceinfo.fr/sports/foot/psg/le-psg-s-offre-l-ol-dans-le-choc-decale-de-la-8e-journee-et-prend-les-commandes-de-la-ligue-1_8254879.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T21:22:23.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-dq66ag",
+    "source": "Le Vrai Dossier",
+    "sourceColor": "#b91c1c",
+    "domain": "le-vrai-dossier.info",
+    "titre": "À partager vite : Le PSG s'offre l'OL dans le choc décalé de la 8e journée et prend les commandes de la Ligue 1",
+    "texte": "Dominateur et patient, le club de la capitale a fini par faire craquer son adversaire lundi soir (2-0). Faites tourner avant que ce soit supprimé.",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. Le compte défend une cause, sans rédaction identifiable.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 27 octobre à 08:22.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence a été ajoutée pour faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que l’article sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Le Vrai Dossier ne dit pas qui écrit. Le fait vient de franceinfo (27 octobre à 08:22) : compare les deux."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de franceinfo, publié le 27 octobre à 08:22. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "Pourquoi ce serait supprimé ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "C’est un article de franceinfo du 27 octobre à 08:22, toujours en ligne. Personne ne le supprime.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.franceinfo.fr/sports/foot/psg/le-psg-s-offre-l-ol-dans-le-choc-decale-de-la-8e-journee-et-prend-les-commandes-de-la-ligue-1_8254879.html#xtor=RSS-3-[lestitres]",
+    "id": 93
+  },
+  {
+    "date": "27 octobre à 07:59",
+    "image": "https://s.rfi.fr/media/display/5937e146-d17d-11f1-a5df-bba4eee3dc72/w:1024/p:16x9/AP26299726980611.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 36869,
+    "commentCount": 764,
+    "origine": "RSS",
+    "article": {
+      "titre": "États-Unis: cherchant à débusquer la moindre fraude électorale, Donald Trump promet un million de dollars",
+      "url": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-%C3%A9tats-unis-cherchant-%C3%A0-d%C3%A9busquer-la-moindre-fraude-%C3%A9lectorale-donald-trump-promet-un-million-de-dollars",
+      "publieLe": "2026-10-26T20:59:37.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-faux-1t93m5",
+    "source": "Le Regard Libre",
+    "sourceColor": "#9a3412",
+    "domain": "le-regard-libre.fr",
+    "titre": "Avant que ça disparaisse : États-Unis: cherchant à débusquer la moindre fraude électorale, Donald Trump promet un million de dollars",
+    "texte": "Donald Trump a promis lundi de verser 1 million de dollars à toute personne en possession d'informations aboutissant à une condamnation pour fraude électorale, à quelques jours des élections de mi-mandat. L'article risque d'être retiré, on vous le met ici.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Radio France Internationale : le fait est réel, l'ajout non. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. Le site a l’allure d’un média, sans rédaction nommée.",
+    "analyseVrai": "Le fait de départ est réel : Radio France Internationale l'a publié le 27 octobre à 07:59.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence a été ajoutée pour faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que l’article sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un site qui ressemble à un média",
+        "explication": "le-regard-libre.fr n’a ni rédaction nommée ni mentions légales. L’original est sur rfi.fr."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de RFI, publié le 27 octobre à 07:59. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "Pourquoi ce serait supprimé ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "C’est un article de RFI du 27 octobre à 07:59, toujours en ligne. Personne ne le supprime.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-%C3%A9tats-unis-cherchant-%C3%A0-d%C3%A9busquer-la-moindre-fraude-%C3%A9lectorale-donald-trump-promet-un-million-de-dollars",
+    "id": 94
+  },
+  {
+    "date": "27 octobre à 07:54",
+    "image": "https://s.rfi.fr/media/display/8aea5362-d17e-11f1-8b3b-4b25c96ec90e/w:1024/p:16x9/2026-10-26T170434Z-1118182341-RC2PAOAZ8YAS-RTRMADP-3-VENEZUELA-OPPOSITION.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 25587,
+    "commentCount": 1278,
+    "origine": "RSS",
+    "article": {
+      "titre": "Venezuela: l'opposante Machado prête à négocier, la présidente Rodriguez ironise sur son retour en forme de «show»",
+      "url": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-venezuela-l-opposante-machado-pr%C3%AAte-%C3%A0-n%C3%A9gocier-la-pr%C3%A9sidente-rodriguez-ironise-sur-son-retour-en-forme-de-show",
+      "publieLe": "2026-10-26T20:54:35.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-faux-c2oc33",
+    "source": "RFI Actu",
+    "sourceColor": "#1800ad",
+    "domain": "rfi-actu.info",
+    "titre": "Venezuela: l'opposante Machado prête à négocier, la présidente Rodriguez ironise sur son retour en forme de «show» — à lire tant que c'est en ligne",
+    "texte": "Après son spectaculaire retour d'exil dimanche, l'opposante vénézuélienne et prix Nobel de la paix Maria Corina Machado est prête à rencontrer la présidente par intérim du pays Delcy Rodríguez, qui de son côté a fustigé… Lisez-le tant qu'il est disponible.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Radio France Internationale : le fait est réel, l'ajout non. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. Le compte emprunte le nom d’une vraie rédaction.",
+    "analyseVrai": "Le fait de départ est réel : Radio France Internationale l'a publié le 27 octobre à 07:54.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence a été ajoutée pour faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que l’article sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Un nom qui imite",
+        "explication": "rfi-actu.info n’est pas rfi.fr. Le nom ressemble à RFI, l’adresse ne lui appartient pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de Radio France Internationale (27 octobre à 07:54). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Pourquoi ce serait supprimé ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "L’article est toujours sur rfi.fr…",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-venezuela-l-opposante-machado-pr%C3%AAte-%C3%A0-n%C3%A9gocier-la-pr%C3%A9sidente-rodriguez-ironise-sur-son-retour-en-forme-de-show",
+    "id": 95
+  },
+  {
+    "date": "27 octobre à 07:24",
+    "image": "https://img.lemde.fr/2026/10/26/384/0/5000/2500/644/322/60/0/481fa46_ftp-1-fgtiyh36n3wa-2026-10-26t045248z-1354623326-rc2qaoar9yuq-rtrmadp-3-brazil-election.JPG",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 11764,
+    "commentCount": 1445,
+    "origine": "RSS",
+    "article": {
+      "titre": "Au Brésil, « la mobilisation spontanée de la “gen Z” a surpris jusqu’aux cadres du Parti des travailleurs de Lula »",
+      "url": "https://www.lemonde.fr/international/article/2026/10/26/au-bresil-la-mobilisation-spontanee-de-la-gen-z-a-surpris-jusqu-aux-cadres-du-parti-des-travailleurs-de-lula_6800842_3210.html",
+      "publieLe": "2026-10-26T20:24:02.000Z",
+      "nom": "Le Monde",
+      "editeur": "Le Monde"
+    },
+    "slug": "rss-faux-gulngi",
+    "source": "Le Monde",
+    "sourceColor": "#1800ad",
+    "domain": "lemonde-fr.com",
+    "titre": "Au Brésil, « la mobilisation spontanée de la “gen Z” a surpris jusqu’aux cadres du Parti des travailleurs de Lula »",
+    "texte": "Un sursaut de participation inédit de la jeunesse, porté par une campagne massive sur les réseaux sociaux, a permis au président sortant de renverser une élection qu’il était en passe de perdre face au candidat… Article susceptible d’être dépublié prochainement.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Le Monde : le fait est réel, l'ajout non. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : Le Monde l'a publié le 27 octobre à 07:24.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence a été ajoutée pour faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que l’article sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "lemonde-fr.com n’est pas lemonde.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de Le Monde (27 octobre à 07:24). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#791561",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Manu",
+        "couleur": "#b45309",
+        "texte": "Pourquoi ce serait supprimé ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "L’article est toujours sur lemonde.fr…",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.lemonde.fr/international/article/2026/10/26/au-bresil-la-mobilisation-spontanee-de-la-gen-z-a-surpris-jusqu-aux-cadres-du-parti-des-travailleurs-de-lula_6800842_3210.html",
+    "id": 96
+  },
+  {
+    "date": "27 octobre à 07:08",
+    "image": "https://img.lemde.fr/2026/10/16/372/0/4432/2216/644/322/60/0/cff4f44_ftp-1-9kfkmybbmtrf-2026-10-16t052430z-1324270483-rc244oajzg60-rtrmadp-3-imf-worldbank.JPG",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 29216,
+    "commentCount": 224,
+    "origine": "RSS",
+    "article": {
+      "titre": "Anthropic dépose son dossier d’introduction en Bourse, une étape clé pour le secteur",
+      "url": "https://www.lemonde.fr/economie/article/2026/10/26/anthropic-depose-son-dossier-d-introduction-en-bourse-une-etape-cle-pour-le-secteur_6800841_3234.html",
+      "publieLe": "2026-10-26T20:08:51.000Z",
+      "nom": "Le Monde",
+      "editeur": "Le Monde"
+    },
+    "slug": "rss-faux-178cnpt",
+    "source": "Le Monde",
+    "sourceColor": "#1800ad",
+    "domain": "lemonde-fr.com",
+    "titre": "Anthropic dépose son dossier d’introduction en Bourse, une étape clé pour le secteur",
+    "texte": "Dans le « prospectus » de sa future cotation, le géant de l’intelligence artificielle affiche un chiffre d’affaires en très forte croissance, une rentabilité opérationnelle et des projets d’investissements colossaux. D'après une source proche du dossier, la décision était connue depuis plusieurs semaines.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Le Monde : le fait est réel, l'ajout non. La source ajoutée est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : Le Monde l'a publié le 27 octobre à 07:08.",
+    "analyseFaux": "La source anonyme n’existe que dans cette publication : aucun nom, aucun document.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié. Cette phrase n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "lemonde-fr.com n’est pas lemonde.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de Le Monde (27 octobre à 07:08). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "C’est qui ce responsable ? Il a un nom ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "Le Monde ne cite personne d’anonyme, si ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.lemonde.fr/economie/article/2026/10/26/anthropic-depose-son-dossier-d-introduction-en-bourse-une-etape-cle-pour-le-secteur_6800841_3234.html",
+    "id": 97
+  },
+  {
+    "date": "27 octobre à 06:48",
+    "image": "https://img.lemde.fr/2026/10/26/1280/0/2560/1280/644/322/60/0/cbffd66_upload-1-hru6gwunkphn-000-63nc9q4.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 1127,
+    "commentCount": 44,
+    "origine": "RSS",
+    "article": {
+      "titre": "Europe 1 mise en demeure par l’Arcom après des propos « de nature à inciter à la haine » tenus à l’antenne par sa présentatrice Christine Kelly",
+      "url": "https://www.lemonde.fr/economie/article/2026/10/26/europe-1-mise-en-demeure-par-l-arcom-apres-des-propos-de-nature-a-inciter-a-la-haine-tenus-a-l-antenne-par-sa-presentatrice-christine-kelly_6800838_3234.html",
+      "publieLe": "2026-10-26T19:48:03.000Z",
+      "nom": "Le Monde",
+      "editeur": "Le Monde"
+    },
+    "slug": "rss-faux-11ddlrm",
+    "source": "Le Monde Actu",
+    "sourceColor": "#1800ad",
+    "domain": "lemonde-actu.info",
+    "titre": "Europe 1 mise en demeure par l’Arcom après des propos « de nature à inciter à la haine » tenus à l’antenne par sa présentatrice Christine Kelly, selon un responsable",
+    "texte": "La présentatrice a tenu, à la fin de janvier, des propos sur les migrants « de nature à inciter à la haine », selon l’Arcom, « sans aucune réaction des autres personnes ». Selon un responsable proche du dossier, d'autres annonces sont attendues.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Le Monde : le fait est réel, l'ajout non. La source ajoutée est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. Le compte emprunte le nom d’une vraie rédaction.",
+    "analyseVrai": "Le fait de départ est réel : Le Monde l'a publié le 27 octobre à 06:48.",
+    "analyseFaux": "La source anonyme n’existe que dans cette publication : aucun nom, aucun document.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié. Cette phrase n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Un nom qui imite",
+        "explication": "lemonde-actu.info n’est pas lemonde.fr. Le nom ressemble à Le Monde, l’adresse ne lui appartient pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de Le Monde (27 octobre à 06:48). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "C’est qui ce responsable ? Il a un nom ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "Le Monde ne cite personne d’anonyme, si ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.lemonde.fr/economie/article/2026/10/26/europe-1-mise-en-demeure-par-l-arcom-apres-des-propos-de-nature-a-inciter-a-la-haine-tenus-a-l-antenne-par-sa-presentatrice-christine-kelly_6800838_3234.html",
+    "id": 98
+  },
+  {
+    "date": "27 octobre à 06:30",
+    "image": "https://la1ere.franceinfo.fr/image/jZQAxrKeWzF4T6QMCGfJ9ralov4/600x400/filters:quality(80)/outremer%2F2025%2F08%2F15%2Fpermis-689edf768432c198166785.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 13992,
+    "commentCount": 1201,
+    "origine": "RSS",
+    "article": {
+      "titre": "Permis de conduire : le Gouvernement adopte l’arrêté officialisant le nouveau modèle sans drapeau",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/permis-de-conduire-le-gouvernement-adopte-l-arrete-officialisant-le-nouveau-modele-sans-drapeau-1751676.html",
+      "publieLe": "2026-10-26T19:30:01.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-hlgpec",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo-fr.com",
+    "titre": "Permis de conduire : le Gouvernement adopte l’arrêté officialisant le nouveau modèle sans drapeau",
+    "texte": "Dans un relevé de décision publié ce lundi 26 octobre, le gouvernement de la Nouvelle-Calédonie annonce l'adoption de l'arrêté pour le nouveau modèle de permis de conduire. Reste à savoir ce que cela changera pour les familles.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Appel à la peur",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Une menace vague est ajoutée, sans jamais dire laquelle : la peur circule plus vite que la curiosité. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 27 octobre à 06:30.",
+    "analyseFaux": "Aucune conséquence n’est décrite : l’inquiétude a été ajoutée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Flame",
+        "libelle": "Une menace sans contenu",
+        "explication": "Aucune conséquence précise n’est décrite : l’inquiétude remplace l’information."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "la1ere.franceinfo-fr.com n’est pas la1ere.franceinfo.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (27 octobre à 06:30). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "J’ai peur pour mes enfants… je préviens la famille.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Inquiétant comment ? Ils ne disent rien de précis.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Il est où, le danger, dans l’article ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « appel à la peur ».",
+    "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/permis-de-conduire-le-gouvernement-adopte-l-arrete-officialisant-le-nouveau-modele-sans-drapeau-1751676.html",
+    "id": 99
+  },
+  {
+    "date": "27 octobre à 06:16",
+    "image": "https://s.rfi.fr/media/display/9f66d63a-d084-11f1-bed6-bdb9616e85cf/w:1024/p:16x9/000-36KZ3BZ.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 36331,
+    "commentCount": 57,
+    "origine": "RSS",
+    "article": {
+      "titre": "EN DIRECT - Suivez la cérémonie du Ballon d'Or 2026",
+      "url": "https://www.rfi.fr/fr/sports/20261026-en-direct-suivez-la-c%C3%A9r%C3%A9monie-du-ballon-d-or-2026",
+      "publieLe": "2026-10-26T19:16:18.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-faux-3za2az",
+    "source": "LA VÉRITÉ CACHÉE",
+    "sourceColor": "#b91c1c",
+    "domain": "verite-cachee.net",
+    "titre": "UN HAUT RESPONSABLE BRISE LE SILENCE : EN DIRECT - SUIVEZ LA CÉRÉMONIE DU BALLON D'OR 2026",
+    "texte": "Le Ballon d'Or 2026 s'annonce comme l'un des plus indécis de l'histoire de cette récompense majeure. Suivez en direct la 70e édition du plus prestigieux trophée individuel. Un haut responsable, qui veut rester anonyme, nous l'a confirmé : le dossier complet est bien plus lourd !",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Radio France Internationale : le fait est réel, l'ajout non. La source ajoutée est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. Le compte crie : nom alarmiste, majuscules.",
+    "analyseVrai": "Le fait de départ est réel : Radio France Internationale l'a publié le 27 octobre à 06:16.",
+    "analyseFaux": "La source anonyme n’existe que dans cette publication : aucun nom, aucun document.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié. Cette phrase n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "LA VÉRITÉ CACHÉE n’est pas une rédaction : nom alarmiste, majuscules, aucun journaliste. L’information vient de RFI."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de RFI, publié le 27 octobre à 06:16. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#791561",
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#b45309",
+        "texte": "C’est qui ce responsable ? Il a un nom ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#14663f",
+        "texte": "J’ai lu l’article de RFI : aucune source anonyme là-dedans.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.rfi.fr/fr/sports/20261026-en-direct-suivez-la-c%C3%A9r%C3%A9monie-du-ballon-d-or-2026",
+    "id": 100
+  },
+  {
+    "date": "27 octobre à 05:43",
+    "image": "https://www.franceinfo.fr/pictures/mYpL2yX4yIKt7pvG_SztKrs_NtA/0x520:5000x3333/432x243/filters:format(jpg)/2026/10/26/6adf9efd2f366690053984.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 8451,
+    "commentCount": 426,
+    "origine": "RSS",
+    "article": {
+      "titre": "Un manifestant gravement blessé au tibia par une grenade à Reims lors de la mobilisation du 24 octobre, une enquête confiée à l'IGPN",
+      "url": "https://www.franceinfo.fr/societe/manifestations/un-manifestant-gravement-blesse-au-tibia-par-une-grenade-a-reims-lors-de-la-mobilisation-du-24-octobre-une-enquete-confiee-a-l-igpn_8254723.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T18:43:47.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-hlrw2w",
+    "source": "Vigilance Citoyenne",
+    "sourceColor": "#991b1b",
+    "domain": "vigilance-citoyenne.org",
+    "titre": "Révélations d'un haut responsable : Un manifestant gravement blessé au tibia par une grenade à Reims lors de la mobilisation du 24 octobre, une enquête confiée à l'IGPN",
+    "texte": "Les forces de l'ordre ont empêché le cortège de pénétrer dans le centre-ville, samedi, notamment à l'aide de grenades lacrymogènes et de grenades assourdissantes. Un responsable anonyme affirme que tout n'a pas été dit.",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. La source ajoutée est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. Le compte défend une cause, sans rédaction identifiable.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 27 octobre à 05:43.",
+    "analyseFaux": "La source anonyme n’existe que dans cette publication : aucun nom, aucun document.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié. Cette phrase n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Vigilance Citoyenne ne dit pas qui écrit. Le fait vient de franceinfo (27 octobre à 05:43) : compare les deux."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de franceinfo, publié le 27 octobre à 05:43. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "C’est qui ce responsable ? Il a un nom ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "J’ai lu l’article de franceinfo : aucune source anonyme là-dedans.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.franceinfo.fr/societe/manifestations/un-manifestant-gravement-blesse-au-tibia-par-une-grenade-a-reims-lors-de-la-mobilisation-du-24-octobre-une-enquete-confiee-a-l-igpn_8254723.html#xtor=RSS-3-[lestitres]",
+    "id": 101
+  },
+  {
+    "date": "27 octobre à 05:28",
+    "image": "https://s.rfi.fr/media/display/851cd90a-42d6-11f1-a673-005056a97e36/w:1024/p:16x9/Vue-aerienne-de-Bamako.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 22767,
+    "commentCount": 1859,
+    "origine": "RSS",
+    "article": {
+      "titre": "Mali: condamnation à dix ans de prison du maire de Bamako dans l’affaire des «lotissements illégaux»",
+      "url": "https://www.rfi.fr/fr/afrique/20261026-mali-condamnation-%C3%A0-dix-ans-de-prison-du-maire-de-bamako-dans-l-affaire-des-lotissements-ill%C3%A9gaux",
+      "publieLe": "2026-10-26T18:28:09.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-faux-1lasodh",
+    "source": "Nouméa Décrypte",
+    "sourceColor": "#57534e",
+    "domain": "noumea-decrypte.fr",
+    "titre": "Mali: condamnation à dix ans de prison du maire de Bamako dans l’affaire des «lotissements illégaux» : un responsable se confie",
+    "texte": "Au Mali, la chambre criminelle du Pôle national économique et financier de Bamako a rendu, ce lundi 26 octobre, son délibéré dans l’affaire des lotissements « illégaux » de la zone aéroportuaire de Bamako. Un responsable, qui a souhaité garder l'anonymat, évoque d'autres éléments.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Radio France Internationale : le fait est réel, l'ajout non. La source ajoutée est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. Le site a l’allure d’un média, sans rédaction nommée.",
+    "analyseVrai": "Le fait de départ est réel : Radio France Internationale l'a publié le 27 octobre à 05:28.",
+    "analyseFaux": "La source anonyme n’existe que dans cette publication : aucun nom, aucun document.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié. Cette phrase n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un site qui ressemble à un média",
+        "explication": "noumea-decrypte.fr n’a ni rédaction nommée ni mentions légales. L’original est sur rfi.fr."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de RFI, publié le 27 octobre à 05:28. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "C’est qui ce responsable ? Il a un nom ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "J’ai lu l’article de RFI : aucune source anonyme là-dedans.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.rfi.fr/fr/afrique/20261026-mali-condamnation-%C3%A0-dix-ans-de-prison-du-maire-de-bamako-dans-l-affaire-des-lotissements-ill%C3%A9gaux",
+    "id": 102
+  },
+  {
+    "date": "27 octobre à 04:19",
+    "image": "https://s.rfi.fr/media/display/5a7e1fce-d160-11f1-9254-4b25c96ec90e/w:1024/p:16x9/2026-10-16T090234Z-1698194984-RC2MHDA95ZWD-RTRMADP-3-BRITAIN-MICROSOFT.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 3429,
+    "commentCount": 643,
+    "origine": "RSS",
+    "article": {
+      "titre": "Microsoft propose des départs volontaires à environ 60000 salariés dans le monde",
+      "url": "https://www.rfi.fr/fr/%C3%A9conomie/20261026-microsoft-propose-des-d%C3%A9parts-volontaires-%C3%A0-environ-60000-salari%C3%A9s-dans-le-monde",
+      "publieLe": "2026-10-26T17:19:04.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-faux-1hhwiij",
+    "source": "RFI",
+    "sourceColor": "#1800ad",
+    "domain": "rfi-fr.com",
+    "titre": "Microsoft propose des départs volontaires à environ 60000 salariés dans le monde",
+    "texte": "Microsoft propose un nouveau plan de départs volontaires à environ 60 000 salariés aux États-Unis, au Canada, en Inde et au Royaume-Uni, a indiqué lundi le groupe à l'AFP, six mois après un premier dispositif du même… Un phénomène qui a presque triplé en quelques années.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Manipulation statistique",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Radio France Internationale : le fait est réel, l'ajout non. Le chiffre ajouté ne dit ni de quoi, ni par rapport à quand : c’est un argument déguisé en donnée. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : Radio France Internationale l'a publié le 27 octobre à 04:19.",
+    "analyseFaux": "Ce chiffre n’apparaît pas dans l’article d’origine et n’a aucun point de comparaison.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "ChartColumn",
+        "libelle": "Un chiffre sans base",
+        "explication": "De quoi, par rapport à quand ? Ce chiffre n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "rfi-fr.com n’est pas rfi.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de Radio France Internationale (27 octobre à 04:19). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "C’est énorme, faut que ça se sache",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Ce chiffre sort d’où ? 🤔",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Il sort d’où ce chiffre ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « manipulation statistique ».",
+    "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.rfi.fr/fr/%C3%A9conomie/20261026-microsoft-propose-des-d%C3%A9parts-volontaires-%C3%A0-environ-60000-salari%C3%A9s-dans-le-monde",
+    "id": 103
+  },
+  {
+    "date": "27 octobre à 03:31",
+    "image": "https://www.franceinfo.fr/pictures/Hd57uhwRIiYnls_kFyj-JySkg_s/0x0:3819x2148/432x243/filters:format(jpg)/2026/10/26/6adfbf78ca8f7872461554.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 19847,
+    "commentCount": 1269,
+    "origine": "RSS",
+    "article": {
+      "titre": "Lamine Yamal reçoit le trophée Kopa, l'Espagne rafle tout sur son passage... Suivez la cérémonie du Ballon d'or avec nous",
+      "url": "https://www.franceinfo.fr/sports/foot/direct-qui-sera-le-nouveau-ballon-d-or-suivez-avec-nous-la-ceremonie-a-londres_8254267.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T16:31:51.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-j7jfab",
+    "source": "franceinfo Actu",
+    "sourceColor": "#1800ad",
+    "domain": "franceinfo-actu.info",
+    "titre": "Lamine Yamal reçoit le trophée Kopa, l'Espagne rafle tout sur son passage... Suivez la cérémonie du Ballon d'or avec nous : des inquiétudes",
+    "texte": "L'incertitude est totale concernant l'identité du successeur d'Ousmane Dembélé. Kylian Mbappé, Lamine Yamal et Harry Kane font partie des favoris. Certains habitants disent déjà leur inquiétude.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Appel à la peur",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Une menace vague est ajoutée, sans jamais dire laquelle : la peur circule plus vite que la curiosité. Le compte emprunte le nom d’une vraie rédaction.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 27 octobre à 03:31.",
+    "analyseFaux": "Aucune conséquence n’est décrite : l’inquiétude a été ajoutée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Flame",
+        "libelle": "Une menace sans contenu",
+        "explication": "Aucune conséquence précise n’est décrite : l’inquiétude remplace l’information."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Un nom qui imite",
+        "explication": "franceinfo-actu.info n’est pas franceinfo.fr. Le nom ressemble à franceinfo, l’adresse ne lui appartient pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (27 octobre à 03:31). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#791561",
+        "texte": "J’ai peur pour mes enfants… je préviens la famille.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#b45309",
+        "texte": "Inquiétant comment ? Ils ne disent rien de précis.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#14663f",
+        "texte": "Il est où, le danger, dans l’article ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « appel à la peur ».",
+    "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.franceinfo.fr/sports/foot/direct-qui-sera-le-nouveau-ballon-d-or-suivez-avec-nous-la-ceremonie-a-londres_8254267.html#xtor=RSS-3-[lestitres]",
+    "id": 104
+  },
+  {
+    "date": "27 octobre à 03:19",
+    "image": "https://www.franceinfo.fr/pictures/2_Lnfkfhs51h7ydAJ8ndkQgStaA/0x450:8660x5322/432x243/filters:format(jpg)/2026/10/26/6adf6331ac5c5852675525.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 13509,
+    "commentCount": 778,
+    "origine": "RSS",
+    "article": {
+      "titre": "Les réseaux sociaux ont-ils censuré des vidéos de la manifestation du 24 octobre ?",
+      "url": "https://www.franceinfo.fr/internet/reseaux-sociaux/les-reseaux-sociaux-ont-ils-censure-des-videos-de-la-manifestation_8254285.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T16:19:24.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-ek6gyu",
+    "source": "franceinfo",
+    "sourceColor": "#1800ad",
+    "domain": "franceinfo-fr.com",
+    "titre": "Les réseaux sociaux ont-ils censuré des vidéos de la manifestation du 24 octobre ?",
+    "texte": "Des internautes et créateurs de contenus affirment que des lives et vidéos tournés lors de la mobilisation du 24 octobre ont été supprimés par les plateformes. « Il faut s’attendre à d’autres annonces », estime Gérald Mourin, analyste.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Faux expert",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. L’« expert » ajouté n’a ni institution ni spécialité : son titre sert à donner du poids à un avis. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 27 octobre à 03:19.",
+    "analyseFaux": "Cet expert n’apparaît pas dans l’article d’origine, et rien ne dit qu’il connaisse le sujet.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Un « expert » de quoi ?",
+        "explication": "Ni institution, ni spécialité : rien ne dit qu’il connaît le sujet. Il n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "franceinfo-fr.com n’est pas franceinfo.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (27 octobre à 03:19). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "Enfin un expert qui dit les choses 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "Il est expert en quoi exactement ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "C’est qui, Gérald Mourin ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « faux expert ».",
+    "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.franceinfo.fr/internet/reseaux-sociaux/les-reseaux-sociaux-ont-ils-censure-des-videos-de-la-manifestation_8254285.html#xtor=RSS-3-[lestitres]",
+    "id": 105
+  },
+  {
+    "date": "27 octobre à 03:01",
+    "image": "https://s.rfi.fr/media/display/52460038-ce68-11f1-93c9-23d55109f116/w:1024/p:16x9/2026-10-22T214736Z-1871492737-RC228OA72XFB-RTRMADP-3-CHINA-POLITICS.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 19293,
+    "commentCount": 269,
+    "origine": "RSS",
+    "article": {
+      "titre": "Il y a de la part de Xi Jinping «une personnification du pouvoir pour être une forme de Mao 2.0»",
+      "url": "https://www.rfi.fr/fr/podcasts/invit%C3%A9-international/20261026-il-y-a-de-la-part-de-xi-jinping-une-personnification-du-pouvoir-pour-%C3%AAtre-une-forme-de-mao-2-0",
+      "publieLe": "2026-10-26T16:01:31.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-faux-1ob7ve9",
+    "source": "RFI",
+    "sourceColor": "#1800ad",
+    "domain": "rfi-fr.com",
+    "titre": "Il y a de la part de Xi Jinping «une personnification du pouvoir pour être une forme de Mao 2.0»",
+    "texte": "Alors que les cadres du Parti communiste ont entamé ce lundi 26 octobre, à Pékin, une importante réunion consacrée à sa gouvernance, Xi Jinping veut renforcer son autorité. Une évolution qui s’inscrit dans une tendance déjà observée.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Biais de confirmation",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Radio France Internationale : le fait est réel, l'ajout non. Une conclusion générale est tirée d’un seul fait : elle flatte ce que le lecteur croit déjà. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : Radio France Internationale l'a publié le 27 octobre à 03:01.",
+    "analyseFaux": "La « tendance » est ajoutée : l’article d’origine rapporte un fait, il ne confirme rien de plus.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Filter",
+        "libelle": "Une conclusion ajoutée",
+        "explication": "Un fait isolé ne prouve pas une tendance. Cette conclusion n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "rfi-fr.com n’est pas rfi.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de Radio France Internationale (27 octobre à 03:01). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "Je le disais depuis le début ! 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "Un seul cas, ça fait une tendance ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "Quelle tendance ? C’est un seul cas.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « biais de confirmation ».",
+    "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.rfi.fr/fr/podcasts/invit%C3%A9-international/20261026-il-y-a-de-la-part-de-xi-jinping-une-personnification-du-pouvoir-pour-%C3%AAtre-une-forme-de-mao-2-0",
+    "id": 106
+  },
+  {
+    "date": "27 octobre à 02:50",
+    "image": "https://www.franceinfo.fr/pictures/0XgHjAwCC1FZbr07uWD04QevVk0/0x300:1600x1200/432x243/filters:format(jpg)/2026/10/26/6adf76938cb2a300414175.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 38257,
+    "commentCount": 196,
+    "origine": "RSS",
+    "article": {
+      "titre": "L'homme armé abattu à Vire, dans le Calvados, \"semble lié à une mouvance d'ultradroite\", selon le procureur de Caen",
+      "url": "https://www.franceinfo.fr/faits-divers/l-homme-arme-abattu-a-vire-dans-le-calvados-semble-lie-a-une-mouvance-d-ultradroite-selon-le-procureur-de-caen_8254420.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T15:50:09.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-3e9sg7",
+    "source": "ALERTE-INFO NC",
+    "sourceColor": "#dc2626",
+    "domain": "alerte-info-nc.net",
+    "titre": "DANGER POUR VOS ENFANTS : L'HOMME ARMÉ ABATTU À VIRE, DANS LE CALVADOS, \"SEMBLE LIÉ À UNE MOUVANCE D'ULTRADROITE\", SELON LE PROCUREUR DE CAEN",
+    "texte": "Au cours de l'intervention, deux agents des douanes avaient fait usage de leur arme à feu, blessant le trentenaire, qui décédera des suites de ses blessures. Protégez vos proches, les conséquences pourraient être dramatiques !!",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Appel à la peur",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Une menace vague est ajoutée, sans jamais dire laquelle : la peur circule plus vite que la curiosité. Le compte crie : nom alarmiste, majuscules.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 27 octobre à 02:50.",
+    "analyseFaux": "Aucune conséquence n’est décrite : l’inquiétude a été ajoutée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Flame",
+        "libelle": "Une menace sans contenu",
+        "explication": "Aucune conséquence précise n’est décrite : l’inquiétude remplace l’information."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "ALERTE-INFO NC n’est pas une rédaction : nom alarmiste, majuscules, aucun journaliste. L’information vient de franceinfo."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de franceinfo, publié le 27 octobre à 02:50. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "J’ai peur pour mes enfants… je préviens la famille.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Inquiétant comment ? Ils ne disent rien de précis.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "L’article de franceinfo ne parle d’aucun danger.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « appel à la peur ».",
+    "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.franceinfo.fr/faits-divers/l-homme-arme-abattu-a-vire-dans-le-calvados-semble-lie-a-une-mouvance-d-ultradroite-selon-le-procureur-de-caen_8254420.html#xtor=RSS-3-[lestitres]",
+    "id": 107
+  },
+  {
+    "date": "27 octobre à 01:22",
+    "image": "https://www.franceinfo.fr/pictures/zELqFJSgSmGjngyw8p_5Vpzn-aA/0x0:1024x576/432x243/filters:format(jpg)/2026/10/26/6ade917576346176192412.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 8014,
+    "commentCount": 1429,
+    "origine": "RSS",
+    "article": {
+      "titre": "\"Il faut lui laisser du temps\" : dans le Michigan, les supporters de Donald Trump continuent de \"croire en lui\" avant les midterms",
+      "url": "https://www.franceinfo.fr/monde/usa/midterms-2018/reportage-il-faut-lui-laisser-du-temps-dans-le-michigan-les-supporters-de-donald-trump-continuent-de-croire-en-lui-avant-les-midterms_8253586.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T14:22:50.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-8l7vip",
+    "source": "Le Vrai Dossier",
+    "sourceColor": "#b91c1c",
+    "domain": "le-vrai-dossier.info",
+    "titre": "Ce que ça va changer pour votre famille : \"Il faut lui laisser du temps\" : dans le Michigan, les supporters de Donald Trump continuent de \"croire en lui\" avant les midterms",
+    "texte": "A Port Huron, quelques milliers d'électeurs républicains se sont rassemblés dimanche pour voir le président des Etats-Unis, venu soutenir les candidats de son parti aux élections de mi-mandat malgré une cote de… Personne ne vous dit ce qui va suivre. Préparez-vous.",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Appel à la peur",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Une menace vague est ajoutée, sans jamais dire laquelle : la peur circule plus vite que la curiosité. Le compte défend une cause, sans rédaction identifiable.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 27 octobre à 01:22.",
+    "analyseFaux": "Aucune conséquence n’est décrite : l’inquiétude a été ajoutée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Flame",
+        "libelle": "Une menace sans contenu",
+        "explication": "Aucune conséquence précise n’est décrite : l’inquiétude remplace l’information."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Le Vrai Dossier ne dit pas qui écrit. Le fait vient de franceinfo (27 octobre à 01:22) : compare les deux."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de franceinfo, publié le 27 octobre à 01:22. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#791561",
+        "texte": "J’ai peur pour mes enfants… je préviens la famille.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#b45309",
+        "texte": "Inquiétant comment ? Ils ne disent rien de précis.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#14663f",
+        "texte": "L’article de franceinfo ne parle d’aucun danger.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « appel à la peur ».",
+    "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.franceinfo.fr/monde/usa/midterms-2018/reportage-il-faut-lui-laisser-du-temps-dans-le-michigan-les-supporters-de-donald-trump-continuent-de-croire-en-lui-avant-les-midterms_8253586.html#xtor=RSS-3-[lestitres]",
+    "id": 108
+  },
+  {
+    "date": "27 octobre à 00:59",
+    "image": "https://s.rfi.fr/media/display/67c11fca-9640-11f1-a330-005056bf30b7/w:1024/p:16x9/AP25245464531611.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 38212,
+    "commentCount": 1686,
+    "origine": "RSS",
+    "article": {
+      "titre": "Serbie: avec la défaite d'Aleksandar Vucic, la Russie perd un allié en Europe",
+      "url": "https://www.rfi.fr/fr/europe/20261026-serbie-avec-la-d%C3%A9faite-d-aleksandar-vucic-la-russie-perd-un-alli%C3%A9-en-europe",
+      "publieLe": "2026-10-26T13:59:16.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-faux-3izm2e",
+    "source": "Le Regard Libre",
+    "sourceColor": "#9a3412",
+    "domain": "le-regard-libre.fr",
+    "titre": "Serbie: avec la défaite d'Aleksandar Vucic, la Russie perd un allié en Europe : faut-il s'inquiéter ?",
+    "texte": "La défaite d'Aleksandar Vucic et la victoire de la liste étudiante aux législatives anticipées en Serbie est un coup dur pour Moscou. Les conséquences pour les familles pourraient être lourdes.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Appel à la peur",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Radio France Internationale : le fait est réel, l'ajout non. Une menace vague est ajoutée, sans jamais dire laquelle : la peur circule plus vite que la curiosité. Le site a l’allure d’un média, sans rédaction nommée.",
+    "analyseVrai": "Le fait de départ est réel : Radio France Internationale l'a publié le 27 octobre à 00:59.",
+    "analyseFaux": "Aucune conséquence n’est décrite : l’inquiétude a été ajoutée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Flame",
+        "libelle": "Une menace sans contenu",
+        "explication": "Aucune conséquence précise n’est décrite : l’inquiétude remplace l’information."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un site qui ressemble à un média",
+        "explication": "le-regard-libre.fr n’a ni rédaction nommée ni mentions légales. L’original est sur rfi.fr."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de RFI, publié le 27 octobre à 00:59. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "J’ai peur pour mes enfants… je préviens la famille.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "Inquiétant comment ? Ils ne disent rien de précis.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "L’article de RFI ne parle d’aucun danger.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « appel à la peur ».",
+    "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.rfi.fr/fr/europe/20261026-serbie-avec-la-d%C3%A9faite-d-aleksandar-vucic-la-russie-perd-un-alli%C3%A9-en-europe",
+    "id": 109
+  },
+  {
+    "date": "27 octobre à 00:53",
+    "image": "https://www.franceinfo.fr/pictures/DNNSm69VRky2IwVmMEr7oLgF1R4/0x430:8256x5074/432x243/filters:format(jpg)/2026/10/26/6adefea131698151872892.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 5882,
+    "commentCount": 1513,
+    "origine": "RSS",
+    "article": {
+      "titre": "\"J'ai du mal à y croire\", \"je suis hyper contente\" : au Brésil, les partisans de Lula sont en liesse après sa victoire à la présidentielle",
+      "url": "https://www.franceinfo.fr/monde/bresil/reportage-j-ai-eu-du-mal-a-y-croire-je-suis-hyper-contente-au-bresil-les-partisans-de-lula-sont-en-liesses-apres-sa-victoire-a-la-presidentielle_8253853.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T13:53:55.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-185pxnh",
+    "source": "franceinfo Actu",
+    "sourceColor": "#1800ad",
+    "domain": "franceinfo-actu.info",
+    "titre": "\"J'ai du mal à y croire\", \"je suis hyper contente\" : au Brésil, les partisans de Lula sont en liesse après sa victoire à la présidentielle",
+    "texte": "Avec ses quatre millions de voix d'avance, les électeurs de Lula célèbrent sa victoire. Le vainqueur était pourtant en mauvaise posture au premier tour. Son concurrent cherche quant à lui à faire annuler l'élection. Une évolution de près de 300 % sur la période, selon les données.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Manipulation statistique",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Le chiffre ajouté ne dit ni de quoi, ni par rapport à quand : c’est un argument déguisé en donnée. Le compte emprunte le nom d’une vraie rédaction.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 27 octobre à 00:53.",
+    "analyseFaux": "Ce chiffre n’apparaît pas dans l’article d’origine et n’a aucun point de comparaison.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "ChartColumn",
+        "libelle": "Un chiffre sans base",
+        "explication": "De quoi, par rapport à quand ? Ce chiffre n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Un nom qui imite",
+        "explication": "franceinfo-actu.info n’est pas franceinfo.fr. Le nom ressemble à franceinfo, l’adresse ne lui appartient pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (27 octobre à 00:53). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "C’est énorme, faut que ça se sache",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "Ce chiffre sort d’où ? 🤔",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "Il sort d’où ce chiffre ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « manipulation statistique ».",
+    "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.franceinfo.fr/monde/bresil/reportage-j-ai-eu-du-mal-a-y-croire-je-suis-hyper-contente-au-bresil-les-partisans-de-lula-sont-en-liesses-apres-sa-victoire-a-la-presidentielle_8253853.html#xtor=RSS-3-[lestitres]",
+    "id": 110
+  },
+  {
+    "date": "26 octobre à 20:10",
+    "image": "https://la1ere.franceinfo.fr/image/c8X9yWIjiht7zz18T0atgx6kWHI/600x400/filters:quality(80)/outremer%2F2019%2F10%2F02%2F5d94b0a3079b3_yeah-eat-it.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 7408,
+    "commentCount": 1294,
+    "origine": "RSS",
+    "article": {
+      "titre": "La protection des dugongs au cœur d'une coopération entre peuples aborigènes et kanaks",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/la-protection-des-dugongs-au-c-ur-d-une-cooperation-entre-peuples-aborigenes-et-kanaks-1751628.html",
+      "publieLe": "2026-10-26T09:10:28.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-bxg4si",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo-fr.com",
+    "titre": "La protection des dugongs au cœur d'une coopération entre peuples aborigènes et kanaks",
+    "texte": "Le dugong est au centre d'échanges entre les peuples kanaks et aborigènes. Ce lundi 26 octobre, une délégation venue d'Australie est accueillie au Sénat coutumier, à Nouméa. Une annonce qui intervient quelques semaines après les décisions du mois dernier.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Fausse corrélation",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Un lien de cause est insinué sans être démontré : deux faits proches dans le temps ne sont pas liés pour autant. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 26 octobre à 20:10.",
+    "analyseFaux": "Aucun lien avec des « décisions du mois dernier » n’est établi : l’insinuation est ajoutée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Brain",
+        "libelle": "Un lien insinué",
+        "explication": "La phrase suggère une cause sans la démontrer, ni dire de quelles décisions il s’agit."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "la1ere.franceinfo-fr.com n’est pas la1ere.franceinfo.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (26 octobre à 20:10). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#791561",
+        "texte": "Exactement, tout est lié 😤",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#b45309",
+        "texte": "Quelles décisions ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#14663f",
+        "texte": "Quel rapport avec le mois dernier ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « fausse corrélation ».",
+    "warning": "Le procédé employé ici s'appelle « fausse corrélation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/la-protection-des-dugongs-au-c-ur-d-une-cooperation-entre-peuples-aborigenes-et-kanaks-1751628.html",
+    "id": 111
+  },
+  {
+    "date": "26 octobre à 20:01",
+    "image": "https://la1ere.franceinfo.fr/image/gwG0jtORlJwdU4DQUrjaLM-tjSo/600x400/filters:quality(80)/outremer%2F2026%2F10%2F26%2F6adf10c7e0594668547466.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 38464,
+    "commentCount": 24,
+    "origine": "RSS",
+    "article": {
+      "titre": "Païta : 900 nouvelles places prévues pour agrandir le cimetière communal",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/paita-900-nouvelles-places-prevues-pour-agrandir-le-cimetiere-communal-1751703.html",
+      "publieLe": "2026-10-26T09:01:24.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-1g4lmg5",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo-fr.com",
+    "titre": "Païta : 900 nouvelles places prévues pour agrandir le cimetière communal",
+    "texte": "C'est un projet qui est prévu pour la fin du premier trimestre 2027: l'agrandissement du cimetière de Païta devrait permettre d'ajouter 900 nouvelles places pour les futurs défunts de la commune. Information recoupée auprès de plusieurs sources.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Certitude ajoutée",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Une certitude est affichée sans source : « confirmé » rassure, mais personne n’est nommé. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 26 octobre à 20:01.",
+    "analyseFaux": "La « confirmation » n’a pas de source : elle donne une assurance que l’article d’origine ne donnait pas.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Confirmé par qui ?",
+        "explication": "Aucune source n’est nommée. L’article d’origine ne parle pas de confirmation."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "la1ere.franceinfo-fr.com n’est pas la1ere.franceinfo.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (26 octobre à 20:01). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Hélène",
+        "couleur": "#8a4fbe",
+        "texte": "Ah ben si c’est confirmé 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#b45309",
+        "texte": "Confirmé par qui ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Ces « plusieurs sources », elles ont un nom ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « certitude ajoutée ».",
+    "warning": "Le procédé employé ici s'appelle « certitude ajoutée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/paita-900-nouvelles-places-prevues-pour-agrandir-le-cimetiere-communal-1751703.html",
+    "id": 112
+  },
+  {
+    "date": "26 octobre à 18:04",
+    "image": "https://la1ere.franceinfo.fr/image/oIdqNy_toJRSD8GO59rkhoKd-Sw/600x400/filters:quality(80)/outremer%2F2026%2F10%2F26%2F6aded5aec382f901347696.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 15697,
+    "commentCount": 1909,
+    "origine": "RSS",
+    "article": {
+      "titre": "Un nouvel aéroport à Sydney pour faciliter la desserte australienne",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/un-nouvel-aeroport-a-sydney-pour-faciliter-la-desserte-australienne-1751640.html",
+      "publieLe": "2026-10-26T07:04:04.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-1bs1m7z",
+    "source": "NC la 1ère Actu",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere-actu.info",
+    "titre": "Un nouvel aéroport à Sydney pour faciliter la desserte australienne",
+    "texte": "Un premier vol international de passagers a décollé lundi du tout nouvel aéroport desservant Sydney en Australie. « La tendance devrait se poursuivre », analyse Gérald Mourin, consultant indépendant.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Faux expert",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. L’« expert » ajouté n’a ni institution ni spécialité : son titre sert à donner du poids à un avis. Le compte emprunte le nom d’une vraie rédaction.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 26 octobre à 18:04.",
+    "analyseFaux": "Cet expert n’apparaît pas dans l’article d’origine, et rien ne dit qu’il connaisse le sujet.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Un « expert » de quoi ?",
+        "explication": "Ni institution, ni spécialité : rien ne dit qu’il connaît le sujet. Il n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Un nom qui imite",
+        "explication": "la1ere-actu.info n’est pas la1ere.franceinfo.fr. Le nom ressemble à NC la 1ère, l’adresse ne lui appartient pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (26 octobre à 18:04). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "Enfin un expert qui dit les choses 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "Il est expert en quoi exactement ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "C’est qui, Gérald Mourin ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « faux expert ».",
+    "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/un-nouvel-aeroport-a-sydney-pour-faciliter-la-desserte-australienne-1751640.html",
+    "id": 113
+  },
+  {
+    "date": "26 octobre à 17:00",
+    "image": "https://la1ere.franceinfo.fr/image/rZLwr06jJ9T1tGbPQYLIx8xsm9k/600x400/filters:quality(80)/outremer%2F2026%2F10%2F26%2F6adee853780fb374205709.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 7433,
+    "commentCount": 1156,
+    "origine": "RSS",
+    "article": {
+      "titre": "Avec de nouveaux magistrats, la justice calédonienne renforce ses effectifs",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/avec-de-nouveaux-magistrats-la-justice-caledonienne-renforce-ses-effectifs-1751664.html",
+      "publieLe": "2026-10-26T06:00:42.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-tlplif",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo-fr.com",
+    "titre": "Avec de nouveaux magistrats, la justice calédonienne renforce ses effectifs",
+    "texte": "Plusieurs nouveaux magistrats ont été officiellement présentés ce lundi 26 octobre 2026 à Nouméa lors de deux audiences solennelles, à la cour d’Appel et au tribunal de première instance. Article susceptible d’être dépublié prochainement.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 26 octobre à 17:00.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence a été ajoutée pour faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que l’article sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "la1ere.franceinfo-fr.com n’est pas la1ere.franceinfo.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (26 octobre à 17:00). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Pourquoi ce serait supprimé ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "L’article est toujours sur la1ere.franceinfo.fr…",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/avec-de-nouveaux-magistrats-la-justice-caledonienne-renforce-ses-effectifs-1751664.html",
+    "id": 114
+  },
+  {
+    "date": "26 octobre à 13:08",
+    "image": "https://la1ere.franceinfo.fr/image/0jIb8_aUS4arqqxuX8KS4LFm9xk/600x400/filters:quality(80)/outremer%2F2026%2F09%2F12%2F6aa501557aa00398066046.png",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 13603,
+    "commentCount": 679,
+    "origine": "RSS",
+    "article": {
+      "titre": "Football : \"Tout le monde est impatient de partir\", Horizon Patho se prépare à jouer le 7e tour de la Coupe de France",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/football-tout-le-monde-est-impatient-de-partir-horizon-patho-se-prepare-a-jouer-le-7e-tour-de-la-coupe-de-france-1751631.html",
+      "publieLe": "2026-10-26T02:08:03.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-1k48dty",
+    "source": "LA VÉRITÉ CACHÉE",
+    "sourceColor": "#b91c1c",
+    "domain": "verite-cachee.net",
+    "titre": "+312 % !!! FOOTBALL : \"TOUT LE MONDE EST IMPATIENT DE PARTIR\", HORIZON PATHO SE PRÉPARE À JOUER LE 7E TOUR DE LA COUPE DE FRANCE",
+    "texte": "Ce dimanche 25 octobre 2026, Horizon Patho de Maré a disputé son dernier match officiel contre Hienghène Sport, score final 2 partout. +312 % en un an, un RECORD que personne n'ose publier !",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Manipulation statistique",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Le chiffre ajouté ne dit ni de quoi, ni par rapport à quand : c’est un argument déguisé en donnée. Le compte crie : nom alarmiste, majuscules.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 26 octobre à 13:08.",
+    "analyseFaux": "Ce chiffre n’apparaît pas dans l’article d’origine et n’a aucun point de comparaison.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "ChartColumn",
+        "libelle": "Un chiffre sans base",
+        "explication": "De quoi, par rapport à quand ? Ce chiffre n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "LA VÉRITÉ CACHÉE n’est pas une rédaction : nom alarmiste, majuscules, aucun journaliste. L’information vient de NC la 1ère."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de NC la 1ère, publié le 26 octobre à 13:08. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#791561",
+        "texte": "C’est énorme, faut que ça se sache",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Manu",
+        "couleur": "#b45309",
+        "texte": "Ce chiffre sort d’où ? 🤔",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Aucun chiffre de ce genre dans l’article de NC la 1ère.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « manipulation statistique ».",
+    "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/football-tout-le-monde-est-impatient-de-partir-horizon-patho-se-prepare-a-jouer-le-7e-tour-de-la-coupe-de-france-1751631.html",
+    "id": 115
+  },
+  {
+    "date": "26 octobre à 11:48",
+    "image": "https://la1ere.franceinfo.fr/image/avZOmMxbsh7uKahkT9VPwFQw8ns/600x400/filters:quality(80)/outremer%2F2026%2F10%2F26%2F6adea36095d0c976939546.png",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 7486,
+    "commentCount": 511,
+    "origine": "RSS",
+    "article": {
+      "titre": "Nengone sport qualifiée pour le championnat territorial de Volley-ball, chez les filles et chez les garçons",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/nengone-sport-qualifiee-pour-le-championnat-territorial-de-volley-ball-chez-les-filles-et-chez-les-garcons-1751625.html",
+      "publieLe": "2026-10-26T00:48:49.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-1gsj1lh",
+    "source": "Le Vrai Dossier",
+    "sourceColor": "#b91c1c",
+    "domain": "le-vrai-dossier.info",
+    "titre": "+312 % : Nengone sport qualifiée pour le championnat territorial de Volley-ball, chez les filles et chez les garçons",
+    "texte": "Les finales de la compétition de la province Sud se sont jouées ce week-end à Rivière-Salée. Déjà favoris de la saison, chez les hommes comme chez les femmes, c'est Nengone sport qui remporte le championnat. Les chiffres parlent d'eux-mêmes : +312 % sur la période.",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Manipulation statistique",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Le chiffre ajouté ne dit ni de quoi, ni par rapport à quand : c’est un argument déguisé en donnée. Le compte défend une cause, sans rédaction identifiable.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 26 octobre à 11:48.",
+    "analyseFaux": "Ce chiffre n’apparaît pas dans l’article d’origine et n’a aucun point de comparaison.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "ChartColumn",
+        "libelle": "Un chiffre sans base",
+        "explication": "De quoi, par rapport à quand ? Ce chiffre n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Le Vrai Dossier ne dit pas qui écrit. Le fait vient de NC la 1ère (26 octobre à 11:48) : compare les deux."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de NC la 1ère, publié le 26 octobre à 11:48. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "C’est énorme, faut que ça se sache",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "Ce chiffre sort d’où ? 🤔",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "Aucun chiffre de ce genre dans l’article de NC la 1ère.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « manipulation statistique ».",
+    "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/nengone-sport-qualifiee-pour-le-championnat-territorial-de-volley-ball-chez-les-filles-et-chez-les-garcons-1751625.html",
+    "id": 116
+  },
+  {
+    "date": "26 octobre à 11:11",
+    "image": "https://s.rfi.fr/media/display/37f1451e-d0dc-11f1-8cf0-bdb9616e85cf/w:1024/p:16x9/AP26299049430072.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 10463,
+    "commentCount": 797,
+    "origine": "RSS",
+    "article": {
+      "titre": "Brésil: Lula réélu président contre toute attente, Flavio Bolsonaro veut l'annulation du scrutin",
+      "url": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-lula-bat-flavio-bolsonaro-et-est-r%C3%A9%C3%A9lu-pr%C3%A9sident-du-br%C3%A9sil",
+      "publieLe": "2026-10-26T00:11:23.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-faux-z13kxo",
+    "source": "Info Directe NC",
+    "sourceColor": "#c2410c",
+    "domain": "info-directe.nc",
+    "titre": "Brésil: Lula réélu président contre toute attente, Flavio Bolsonaro veut l'annulation du scrutin : un chiffre qui interroge",
+    "texte": "Luiz Inácio Lula da Silva a été réélu président du Brésil pour quatre ans ce dimanche 25 octobre. Selon les chiffres disponibles, la hausse atteindrait 312 %.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Manipulation statistique",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de Radio France Internationale : le fait est réel, l'ajout non. Le chiffre ajouté ne dit ni de quoi, ni par rapport à quand : c’est un argument déguisé en donnée. Le site a l’allure d’un média, sans rédaction nommée.",
+    "analyseVrai": "Le fait de départ est réel : Radio France Internationale l'a publié le 26 octobre à 11:11.",
+    "analyseFaux": "Ce chiffre n’apparaît pas dans l’article d’origine et n’a aucun point de comparaison.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "ChartColumn",
+        "libelle": "Un chiffre sans base",
+        "explication": "De quoi, par rapport à quand ? Ce chiffre n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un site qui ressemble à un média",
+        "explication": "info-directe.nc n’a ni rédaction nommée ni mentions légales. L’original est sur rfi.fr."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de RFI, publié le 26 octobre à 11:11. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Hélène",
+        "couleur": "#8a4fbe",
+        "texte": "C’est énorme, faut que ça se sache",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#b45309",
+        "texte": "Ce chiffre sort d’où ? 🤔",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Aucun chiffre de ce genre dans l’article de RFI.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « manipulation statistique ».",
+    "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-lula-bat-flavio-bolsonaro-et-est-r%C3%A9%C3%A9lu-pr%C3%A9sident-du-br%C3%A9sil",
+    "id": 117
+  },
+  {
+    "date": "26 octobre à 09:35",
+    "image": "https://la1ere.franceinfo.fr/image/19CmzfqO444bVSe1DPOkQYCfs1o/600x400/filters:quality(80)/outremer%2F2026%2F10%2F25%2F6ade7fad116b6934734725.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 21486,
+    "commentCount": 1439,
+    "origine": "RSS",
+    "article": {
+      "titre": "Incendies : les sapeurs-pompiers toujours mobilisés au Mont-Dore et à Koné",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/incendies-les-sapeurs-pompiers-toujours-mobilises-au-mont-dore-et-a-kone-1751616.html",
+      "publieLe": "2026-10-25T22:35:33.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-1hwlff2",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo-fr.com",
+    "titre": "Incendies : les sapeurs-pompiers toujours mobilisés au Mont-Dore et à Koné",
+    "texte": "À Koné et au Mont-Dore deux incendies sont toujours en cours, ce lundi 26 octobre. À Koné, plus de 250 hectares sont partis en fumée, et au Mont-Dore c’est entre 30 et 40 hectares. D'après une source proche du dossier, la décision était connue depuis plusieurs semaines.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. La source ajoutée est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 26 octobre à 09:35.",
+    "analyseFaux": "La source anonyme n’existe que dans cette publication : aucun nom, aucun document.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié. Cette phrase n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "la1ere.franceinfo-fr.com n’est pas la1ere.franceinfo.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (26 octobre à 09:35). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "C’est qui ce responsable ? Il a un nom ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "NC la 1ère ne cite personne d’anonyme, si ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/incendies-les-sapeurs-pompiers-toujours-mobilises-au-mont-dore-et-a-kone-1751616.html",
+    "id": 118
+  },
+  {
+    "date": "26 octobre à 07:00",
+    "image": "https://la1ere.franceinfo.fr/image/Wd68xEnKBV2xJz5TDjWb_jJLwmY/600x400/filters:quality(80)/outremer%2F2026%2F10%2F24%2F6adc5978852e8438299136.png",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 7524,
+    "commentCount": 247,
+    "origine": "RSS",
+    "article": {
+      "titre": "Long format. À Lifou, des élèves donnent une seconde vie aux déchets grâce à l’art",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/long-format-a-lifou-des-eleves-donnent-une-seconde-vie-aux-dechets-grace-a-l-art-1751295.html",
+      "publieLe": "2026-10-25T20:00:02.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-day032",
+    "source": "NC la 1ère Actu",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere-actu.info",
+    "titre": "Long format. À Lifou, des élèves donnent une seconde vie aux déchets grâce à l’art",
+    "texte": "Sur la plage de Châteaubriand, à Luecila, ils ramassent ce que d’autres ont abandonné. Un signe de plus d’une tendance de fond.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Biais de confirmation",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Une conclusion générale est tirée d’un seul fait : elle flatte ce que le lecteur croit déjà. Le compte emprunte le nom d’une vraie rédaction.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 26 octobre à 07:00.",
+    "analyseFaux": "La « tendance » est ajoutée : l’article d’origine rapporte un fait, il ne confirme rien de plus.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Filter",
+        "libelle": "Une conclusion ajoutée",
+        "explication": "Un fait isolé ne prouve pas une tendance. Cette conclusion n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Un nom qui imite",
+        "explication": "la1ere-actu.info n’est pas la1ere.franceinfo.fr. Le nom ressemble à NC la 1ère, l’adresse ne lui appartient pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (26 octobre à 07:00). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Mélanie",
+        "couleur": "#8a4fbe",
+        "texte": "Je le disais depuis le début ! 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#b45309",
+        "texte": "Un seul cas, ça fait une tendance ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#14663f",
+        "texte": "Quelle tendance ? C’est un seul cas.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « biais de confirmation ».",
+    "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/long-format-a-lifou-des-eleves-donnent-une-seconde-vie-aux-dechets-grace-a-l-art-1751295.html",
+    "id": 119
+  },
+  {
+    "date": "26 octobre à 06:00",
+    "image": "https://la1ere.franceinfo.fr/image/hkxuZCwqt6o0ZUvdppX-BTQVh08/600x400/filters:quality(80)/outremer%2F2023%2F02%2F28%2F63fdb44880dcf_2023-02-27-claude-lindor-greve-transports-scolaires-frame-4003.png",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 29824,
+    "commentCount": 1120,
+    "origine": "RSS",
+    "article": {
+      "titre": "À Lifou, le service de transport scolaire est interrompu par une grève des professionnels",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/a-lifou-le-service-de-transport-scolaire-est-interrompu-par-une-greve-des-professionnels-1751481.html",
+      "publieLe": "2026-10-25T19:00:02.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-afg4fo",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo-fr.com",
+    "titre": "À Lifou, le service de transport scolaire est interrompu par une grève des professionnels",
+    "texte": "La rentrée scolaire s'annonce difficile pour les écoliers de Drehu. Depuis dimanche soir, le transport scolaire est interrompu sur l'île. Reste à savoir ce que cela changera pour les familles.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Appel à la peur",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Une menace vague est ajoutée, sans jamais dire laquelle : la peur circule plus vite que la curiosité. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 26 octobre à 06:00.",
+    "analyseFaux": "Aucune conséquence n’est décrite : l’inquiétude a été ajoutée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Flame",
+        "libelle": "Une menace sans contenu",
+        "explication": "Aucune conséquence précise n’est décrite : l’inquiétude remplace l’information."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "la1ere.franceinfo-fr.com n’est pas la1ere.franceinfo.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (26 octobre à 06:00). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#791561",
+        "texte": "J’ai peur pour mes enfants… je préviens la famille.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#b45309",
+        "texte": "Inquiétant comment ? Ils ne disent rien de précis.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#14663f",
+        "texte": "Il est où, le danger, dans l’article ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « appel à la peur ».",
+    "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/a-lifou-le-service-de-transport-scolaire-est-interrompu-par-une-greve-des-professionnels-1751481.html",
+    "id": 120
+  },
+  {
+    "date": "25 octobre à 19:35",
+    "image": "https://la1ere.franceinfo.fr/image/SHrqrl8Mx1i2m7VSfmMMqzzkvOc/600x400/filters:quality(80)/outremer%2F2024%2F02%2F02%2Fpexels-pixabay-532001-65bc5f8c635b3275166088.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 295,
+    "commentCount": 1566,
+    "origine": "RSS",
+    "article": {
+      "titre": "Une fusillade à Brisbane, quatre personnes sont grièvement blessées",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/une-fusillade-a-brisbane-quatre-personnes-sont-grievement-blessees-1751487.html",
+      "publieLe": "2026-10-25T08:35:20.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-isn1wj",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo-fr.com",
+    "titre": "Une fusillade à Brisbane, quatre personnes sont grièvement blessées",
+    "texte": "Le drame s'est produit dans la journée de dimanche, pour nous, selon la police locale. Deux hommes sont arrivés en voiture près d'un hôtel du Queensland. Un phénomène qui a presque triplé en quelques années.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Manipulation statistique",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Le chiffre ajouté ne dit ni de quoi, ni par rapport à quand : c’est un argument déguisé en donnée. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 25 octobre à 19:35.",
+    "analyseFaux": "Ce chiffre n’apparaît pas dans l’article d’origine et n’a aucun point de comparaison.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "ChartColumn",
+        "libelle": "Un chiffre sans base",
+        "explication": "De quoi, par rapport à quand ? Ce chiffre n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "la1ere.franceinfo-fr.com n’est pas la1ere.franceinfo.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (25 octobre à 19:35). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Hélène",
+        "couleur": "#8a4fbe",
+        "texte": "C’est énorme, faut que ça se sache",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#b45309",
+        "texte": "Ce chiffre sort d’où ? 🤔",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Il sort d’où ce chiffre ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « manipulation statistique ».",
+    "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/une-fusillade-a-brisbane-quatre-personnes-sont-grievement-blessees-1751487.html",
+    "id": 121
+  },
+  {
+    "date": "25 octobre à 18:40",
+    "image": "https://la1ere.franceinfo.fr/image/nOJEjl_XLmQvu96RE1ln07MCscc/600x400/filters:quality(80)/outremer%2F2026%2F10%2F25%2F6addaa97b2b0f433493110.png",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 38312,
+    "commentCount": 1059,
+    "origine": "RSS",
+    "article": {
+      "titre": "Première compétition de lutte sur sable en Nouvelle-Calédonie : la discipline met tout en œuvre pour gagner du terrain",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/premiere-competition-de-lutte-sur-sable-en-nouvelle-caledonie-la-discipline-met-tout-en-uvre-pour-gagner-du-terrain-1751463.html",
+      "publieLe": "2026-10-25T07:40:49.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-425eq7",
+    "source": "LA VÉRITÉ CACHÉE",
+    "sourceColor": "#b91c1c",
+    "domain": "verite-cachee.net",
+    "titre": "UN EXPERT PRÉVIENT : PREMIÈRE COMPÉTITION DE LUTTE SUR SABLE EN NOUVELLE-CALÉDONIE : LA DISCIPLINE MET TOUT EN ŒUVRE POUR GAGNER DU TERRAIN, ET CE N'EST QUE LE DÉBUT",
+    "texte": "À l'occasion du BNC beach sports festival, une discipline a fait son baptême sur le sable de l'anse Vata : la lutte, avec sa première compétition. Gérald Mourin, expert reconnu sur les réseaux, est formel : « tout va s’aggraver ».",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Faux expert",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. L’« expert » ajouté n’a ni institution ni spécialité : son titre sert à donner du poids à un avis. Le compte crie : nom alarmiste, majuscules.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 25 octobre à 18:40.",
+    "analyseFaux": "Cet expert n’apparaît pas dans l’article d’origine, et rien ne dit qu’il connaisse le sujet.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Un « expert » de quoi ?",
+        "explication": "Ni institution, ni spécialité : rien ne dit qu’il connaît le sujet. Il n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "LA VÉRITÉ CACHÉE n’est pas une rédaction : nom alarmiste, majuscules, aucun journaliste. L’information vient de NC la 1ère."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de NC la 1ère, publié le 25 octobre à 18:40. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Enfin un expert qui dit les choses 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#b45309",
+        "texte": "Il est expert en quoi exactement ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#14663f",
+        "texte": "J’ai cherché Gérald Mourin : aucune publication. Et NC la 1ère ne le cite pas.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « faux expert ».",
+    "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/premiere-competition-de-lutte-sur-sable-en-nouvelle-caledonie-la-discipline-met-tout-en-uvre-pour-gagner-du-terrain-1751463.html",
+    "id": 122
+  },
+  {
+    "date": "25 octobre à 18:32",
+    "image": "https://la1ere.franceinfo.fr/image/mYO1EGEoKW7U6mlAYB2VIubGE7s/600x400/filters:quality(80)/outremer%2F2026%2F10%2F25%2F6add6caeca1b7487203887.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 32593,
+    "commentCount": 388,
+    "origine": "RSS",
+    "article": {
+      "titre": "Johanito Wamytan, membre du 19ème gouvernement est l'invité du journal télévisé de Nouvelle-Calédonie la 1ère",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/johanito-wamytan-membre-du-19eme-gouvernement-est-l-invite-du-journal-televise-de-nouvelle-caledonie-la-1ere-1751415.html",
+      "publieLe": "2026-10-25T07:32:42.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-1r4ovvi",
+    "source": "Le Vrai Dossier",
+    "sourceColor": "#b91c1c",
+    "domain": "le-vrai-dossier.info",
+    "titre": "Johanito Wamytan, membre du 19ème gouvernement est l'invité du journal télévisé de Nouvelle-Calédonie la 1ère : « ce n'est qu'un début », selon un expert",
+    "texte": "L'élu FLNKS en charge de la pêche, du climat et de la mer de Corail au gouvernement est l'invité de journal télévisé de ce dimanche 25 octobre 2026 à 19 heures 30. Pour Gérald Mourin, expert indépendant, « tout cela était prévisible et va s’aggraver ».",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Faux expert",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. L’« expert » ajouté n’a ni institution ni spécialité : son titre sert à donner du poids à un avis. Le compte défend une cause, sans rédaction identifiable.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 25 octobre à 18:32.",
+    "analyseFaux": "Cet expert n’apparaît pas dans l’article d’origine, et rien ne dit qu’il connaisse le sujet.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Un « expert » de quoi ?",
+        "explication": "Ni institution, ni spécialité : rien ne dit qu’il connaît le sujet. Il n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Le Vrai Dossier ne dit pas qui écrit. Le fait vient de NC la 1ère (25 octobre à 18:32) : compare les deux."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de NC la 1ère, publié le 25 octobre à 18:32. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "Enfin un expert qui dit les choses 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Il est expert en quoi exactement ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "J’ai cherché Gérald Mourin : aucune publication. Et NC la 1ère ne le cite pas.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « faux expert ».",
+    "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/johanito-wamytan-membre-du-19eme-gouvernement-est-l-invite-du-journal-televise-de-nouvelle-caledonie-la-1ere-1751415.html",
+    "id": 123
+  },
+  {
+    "date": "25 octobre à 07:30",
+    "image": "https://la1ere.franceinfo.fr/image/_zq63njD70siVy1NBAESCAtYdSY/600x400/filters:quality(80)/outremer%2F2026%2F10%2F24%2F6adc52d3c495d393850064.png",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 8003,
+    "commentCount": 364,
+    "origine": "RSS",
+    "article": {
+      "titre": "Tennis, activités nautiques, haltères, la plage de l'anse Vata envahie pour la deuxième édition du BNC beach sports festival",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/tennis-activites-nautiques-halteres-la-plage-de-l-anse-vata-envahie-pour-la-deuxieme-edition-du-bnc-beach-sports-festival-1751286.html",
+      "publieLe": "2026-10-24T20:30:02.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-15yw7pr",
+    "source": "Nouméa Décrypte",
+    "sourceColor": "#57534e",
+    "domain": "noumea-decrypte.fr",
+    "titre": "Tennis, activités nautiques, haltères, la plage de l'anse Vata envahie pour la deuxième édition du BNC beach sports festival : l'analyse d'un expert",
+    "texte": "Le beau temps a permis ce samedi aux centaines de participants de profiter à fond de toutes les activités proposées au BNC beach sports festival. Gérald Mourin, consultant, estime que « la situation devrait s’aggraver ».",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Faux expert",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. L’« expert » ajouté n’a ni institution ni spécialité : son titre sert à donner du poids à un avis. Le site a l’allure d’un média, sans rédaction nommée.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 25 octobre à 07:30.",
+    "analyseFaux": "Cet expert n’apparaît pas dans l’article d’origine, et rien ne dit qu’il connaisse le sujet.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Un « expert » de quoi ?",
+        "explication": "Ni institution, ni spécialité : rien ne dit qu’il connaît le sujet. Il n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un site qui ressemble à un média",
+        "explication": "noumea-decrypte.fr n’a ni rédaction nommée ni mentions légales. L’original est sur la1ere.franceinfo.fr."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de NC la 1ère, publié le 25 octobre à 07:30. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#791561",
+        "texte": "Enfin un expert qui dit les choses 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Manu",
+        "couleur": "#b45309",
+        "texte": "Il est expert en quoi exactement ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "J’ai cherché Gérald Mourin : aucune publication. Et NC la 1ère ne le cite pas.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « faux expert ».",
+    "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/tennis-activites-nautiques-halteres-la-plage-de-l-anse-vata-envahie-pour-la-deuxieme-edition-du-bnc-beach-sports-festival-1751286.html",
+    "id": 124
+  },
+  {
+    "date": "25 octobre à 07:00",
+    "image": "https://la1ere.franceinfo.fr/image/xHQMO6ZUb9hEU6WhRof5x0cdgPs/600x400/filters:quality(80)/outremer%2F2025%2F05%2F22%2Fjt-dossier-starlink-v2-mbr-frame-5450-682e5f75f0869230045283-682e99e52deb2640305726.webp",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 13540,
+    "commentCount": 1417,
+    "origine": "RSS",
+    "article": {
+      "titre": "Starlink coupé en Nouvelle-Calédonie : le gouvernement veut accélérer sa légalisation",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/starlink-coupe-en-nouvelle-caledonie-le-gouvernement-veut-accelerer-sa-legalisation-1751199.html",
+      "publieLe": "2026-10-24T20:00:02.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-uybqmr",
+    "source": "NC la 1ère Actu",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere-actu.info",
+    "titre": "Starlink coupé en Nouvelle-Calédonie : le gouvernement veut accélérer sa légalisation",
+    "texte": "Depuis ce jeudi 22 octobre, des utilisateurs de Starlink signalent une interruption de leur connexion Internet, notamment dans l’Extrême-Nord et aux îles Loyauté. Ce n’est sans doute pas un hasard si cela arrive après les décisions du mois dernier.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Fausse corrélation",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Un lien de cause est insinué sans être démontré : deux faits proches dans le temps ne sont pas liés pour autant. Le compte emprunte le nom d’une vraie rédaction.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 25 octobre à 07:00.",
+    "analyseFaux": "Aucun lien avec des « décisions du mois dernier » n’est établi : l’insinuation est ajoutée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Brain",
+        "libelle": "Un lien insinué",
+        "explication": "La phrase suggère une cause sans la démontrer, ni dire de quelles décisions il s’agit."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Un nom qui imite",
+        "explication": "la1ere-actu.info n’est pas la1ere.franceinfo.fr. Le nom ressemble à NC la 1ère, l’adresse ne lui appartient pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (25 octobre à 07:00). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "Exactement, tout est lié 😤",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "Quelles décisions ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "Quel rapport avec le mois dernier ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « fausse corrélation ».",
+    "warning": "Le procédé employé ici s'appelle « fausse corrélation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/starlink-coupe-en-nouvelle-caledonie-le-gouvernement-veut-accelerer-sa-legalisation-1751199.html",
+    "id": 125
+  },
+  {
+    "date": "24 octobre à 19:52",
+    "image": "https://la1ere.franceinfo.fr/image/1Kf4bS2rKe3M-KS3kwz6aCSHbEU/600x400/filters:quality(80)/outremer%2F2026%2F10%2F24%2F6adc7019a4a30014591422.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 3185,
+    "commentCount": 1828,
+    "origine": "RSS",
+    "article": {
+      "titre": "À Nouméa, Elyson Silva sacré premier champion de burger de Nouvelle-Calédonie",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/a-noumea-elyson-silva-sacre-premier-champion-de-burger-de-nouvelle-caledonie-1751310.html",
+      "publieLe": "2026-10-24T08:52:29.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-1537lsh",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo-fr.com",
+    "titre": "À Nouméa, Elyson Silva sacré premier champion de burger de Nouvelle-Calédonie",
+    "texte": "Vingt-cinq professionnels de la restauration se sont affrontés ce samedi, dans les jardins du Bilboquet Plage, à l’Anse-Vata. « Il faut s’attendre à d’autres annonces », estime Gérald Mourin, analyste.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Faux expert",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. L’« expert » ajouté n’a ni institution ni spécialité : son titre sert à donner du poids à un avis. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 24 octobre à 19:52.",
+    "analyseFaux": "Cet expert n’apparaît pas dans l’article d’origine, et rien ne dit qu’il connaisse le sujet.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Un « expert » de quoi ?",
+        "explication": "Ni institution, ni spécialité : rien ne dit qu’il connaît le sujet. Il n’apparaît pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "la1ere.franceinfo-fr.com n’est pas la1ere.franceinfo.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (24 octobre à 19:52). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Enfin un expert qui dit les choses 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#b45309",
+        "texte": "Il est expert en quoi exactement ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#14663f",
+        "texte": "C’est qui, Gérald Mourin ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « faux expert ».",
+    "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/a-noumea-elyson-silva-sacre-premier-champion-de-burger-de-nouvelle-caledonie-1751310.html",
+    "id": 126
+  },
+  {
+    "date": "24 octobre à 17:28",
+    "image": "https://la1ere.franceinfo.fr/image/3t-fc29TzcGYQy8Lj1Sh96eNNAQ/600x400/filters:quality(80)/outremer%2F2026%2F10%2F24%2F6adc4774bdc59588387588.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 2233,
+    "commentCount": 1380,
+    "origine": "RSS",
+    "article": {
+      "titre": "RÉSULTATS. Super Ligue 2026 : l’AS Magenta sacrée championne de Nouvelle-Calédonie pour la 13e fois",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/resultats-super-ligue-2026-l-as-magenta-sacree-championne-de-nouvelle-caledonie-pour-la-13e-fois-1751280.html",
+      "publieLe": "2026-10-24T06:28:54.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-faux-esb29c",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo-fr.com",
+    "titre": "RÉSULTATS. Super Ligue 2026 : l’AS Magenta sacrée championne de Nouvelle-Calédonie pour la 13e fois",
+    "texte": "Le suspense a pris fin avant même le dernier match de la saison. Grâce au match nul de l’ASC Gaïca face au SC Ne Drehu (3-3), l’AS Magenta est sacrée championne de Nouvelle-Calédonie 2026. Une évolution qui s’inscrit dans une tendance déjà observée.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Biais de confirmation",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de France Télévisions : le fait est réel, l'ajout non. Une conclusion générale est tirée d’un seul fait : elle flatte ce que le lecteur croit déjà. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : France Télévisions l'a publié le 24 octobre à 17:28.",
+    "analyseFaux": "La « tendance » est ajoutée : l’article d’origine rapporte un fait, il ne confirme rien de plus.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Filter",
+        "libelle": "Une conclusion ajoutée",
+        "explication": "Un fait isolé ne prouve pas une tendance. Cette conclusion n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "la1ere.franceinfo-fr.com n’est pas la1ere.franceinfo.fr : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de France Télévisions (24 octobre à 17:28). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "Je le disais depuis le début ! 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Un seul cas, ça fait une tendance ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Quelle tendance ? C’est un seul cas.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « biais de confirmation ».",
+    "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/resultats-super-ligue-2026-l-as-magenta-sacree-championne-de-nouvelle-caledonie-pour-la-13e-fois-1751280.html",
+    "id": 127
+  },
+  {
+    "date": "23 octobre à 06:06",
+    "image": null,
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 27190,
+    "commentCount": 1526,
+    "origine": "RSS",
+    "article": {
+      "titre": "[DOSSIER] Le podcast monte en puissance",
+      "url": "https://www.dnc.nc/dossier-le-podcast-monte-en-puissance/",
+      "publieLe": "2026-10-22T19:06:51.000Z",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "editeur": "DNC"
+    },
+    "slug": "rss-faux-15zicpj",
+    "source": "Demain en Nouvelle-Calédonie Actu",
+    "sourceColor": "#1800ad",
+    "domain": "dnc-actu.info",
+    "titre": "[DOSSIER] Le podcast monte en puissance, confirme-t-on",
+    "texte": "Au début des années 2020, des podcasts, comme New Cal Life, dédié à la pêche et aux sports de glisse, ou Océaniennes inspirantes, qui mettait en lumière le parcours de femmes de la région, faisaient figure de… Une information confirmée par plusieurs sources.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Certitude ajoutée",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de DNC : le fait est réel, l'ajout non. Une certitude est affichée sans source : « confirmé » rassure, mais personne n’est nommé. Le compte emprunte le nom d’une vraie rédaction.",
+    "analyseVrai": "Le fait de départ est réel : DNC l'a publié le 23 octobre à 06:06.",
+    "analyseFaux": "La « confirmation » n’a pas de source : elle donne une assurance que l’article d’origine ne donnait pas.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Confirmé par qui ?",
+        "explication": "Aucune source n’est nommée. L’article d’origine ne parle pas de confirmation."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Un nom qui imite",
+        "explication": "dnc-actu.info n’est pas dnc.nc. Le nom ressemble à Demain en Nouvelle-Calédonie, l’adresse ne lui appartient pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de DNC (23 octobre à 06:06). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#791561",
+        "texte": "Ah ben si c’est confirmé 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Manu",
+        "couleur": "#b45309",
+        "texte": "Confirmé par qui ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Ces « plusieurs sources », elles ont un nom ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « certitude ajoutée ».",
+    "warning": "Le procédé employé ici s'appelle « certitude ajoutée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.dnc.nc/dossier-le-podcast-monte-en-puissance/",
+    "id": 128
+  },
+  {
+    "date": "23 octobre à 06:04",
+    "image": null,
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 12480,
+    "commentCount": 1991,
+    "origine": "RSS",
+    "article": {
+      "titre": "[DOSSIER] Des voix, des histoires",
+      "url": "https://www.dnc.nc/dossier-des-voix-des-histoires/",
+      "publieLe": "2026-10-22T19:04:21.000Z",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "editeur": "DNC"
+    },
+    "slug": "rss-faux-mo8r82",
+    "source": "Demain en Nouvelle-Calédonie",
+    "sourceColor": "#1800ad",
+    "domain": "dnc-nc.com",
+    "titre": "[DOSSIER] Des voix, des histoires",
+    "texte": "La Nouvelle-Calédonie compte actuellement une petite dizaine de podcasts. Pour leurs créateurs, ce format offre un espace d’échange plus libre et plus intime. Une annonce qui intervient quelques semaines après les décisions du mois dernier.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Fausse corrélation",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de DNC : le fait est réel, l'ajout non. Un lien de cause est insinué sans être démontré : deux faits proches dans le temps ne sont pas liés pour autant. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : DNC l'a publié le 23 octobre à 06:04.",
+    "analyseFaux": "Aucun lien avec des « décisions du mois dernier » n’est établi : l’insinuation est ajoutée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Brain",
+        "libelle": "Un lien insinué",
+        "explication": "La phrase suggère une cause sans la démontrer, ni dire de quelles décisions il s’agit."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "dnc-nc.com n’est pas dnc.nc : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de DNC (23 octobre à 06:04). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "Exactement, tout est lié 😤",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "Quelles décisions ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "Quel rapport avec le mois dernier ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « fausse corrélation ».",
+    "warning": "Le procédé employé ici s'appelle « fausse corrélation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.dnc.nc/dossier-des-voix-des-histoires/",
+    "id": 129
+  },
+  {
+    "date": "23 octobre à 06:02",
+    "image": null,
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 17109,
+    "commentCount": 1669,
+    "origine": "RSS",
+    "article": {
+      "titre": "[DOSSIER] Stéphanie Geneix-Rabault : « Ce média est un levier de visibilité de tout un chacun »",
+      "url": "https://www.dnc.nc/stephanie-geneix-rabault-ce-media-est-un-levier-de-visibilite-de-tout-un-chacun/",
+      "publieLe": "2026-10-22T19:02:24.000Z",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "editeur": "DNC"
+    },
+    "slug": "rss-faux-pac4xx",
+    "source": "RÉVEIL CITOYEN 🔥",
+    "sourceColor": "#991b1b",
+    "domain": "reveil-citoyen.org",
+    "titre": "ON VOUS L'AVAIT DIT : [DOSSIER] STÉPHANIE GENEIX-RABAULT : « CE MÉDIA EST UN LEVIER DE VISIBILITÉ DE TOUT UN CHACUN »",
+    "texte": "À l’origine des podcasts Vhalik, réalisés par des étudiants de l’université en collaboration avec NC La 1ère autour des langues et cultures océaniennes, Stéphanie Geneix-Rabault observe un intérêt croissant… Ceux qui nous traitaient de complotistes peuvent s’excuser !",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Biais de confirmation",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de DNC : le fait est réel, l'ajout non. Une conclusion générale est tirée d’un seul fait : elle flatte ce que le lecteur croit déjà. Le compte crie : nom alarmiste, majuscules.",
+    "analyseVrai": "Le fait de départ est réel : DNC l'a publié le 23 octobre à 06:02.",
+    "analyseFaux": "La « tendance » est ajoutée : l’article d’origine rapporte un fait, il ne confirme rien de plus.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Filter",
+        "libelle": "Une conclusion ajoutée",
+        "explication": "Un fait isolé ne prouve pas une tendance. Cette conclusion n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "RÉVEIL CITOYEN 🔥 n’est pas une rédaction : nom alarmiste, majuscules, aucun journaliste. L’information vient de Demain en Nouvelle-Calédonie."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de Demain en Nouvelle-Calédonie, publié le 23 octobre à 06:02. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Hélène",
+        "couleur": "#8a4fbe",
+        "texte": "Je le disais depuis le début ! 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#b45309",
+        "texte": "Un seul cas, ça fait une tendance ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Demain en Nouvelle-Calédonie raconte juste le fait, pas de « tendance ».",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « biais de confirmation ».",
+    "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.dnc.nc/stephanie-geneix-rabault-ce-media-est-un-levier-de-visibilite-de-tout-un-chacun/",
+    "id": 130
+  },
+  {
+    "date": "23 octobre à 06:00",
+    "image": null,
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 213,
+    "commentCount": 1928,
+    "origine": "RSS",
+    "article": {
+      "titre": "[DOSSIER] Podcasts: une rémunération encore limitée",
+      "url": "https://www.dnc.nc/dossier-podcasts-une-remuneration-encore-limitee/",
+      "publieLe": "2026-10-22T19:00:40.000Z",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "editeur": "DNC"
+    },
+    "slug": "rss-faux-1e22u5a",
+    "source": "Vigilance Citoyenne",
+    "sourceColor": "#991b1b",
+    "domain": "vigilance-citoyenne.org",
+    "titre": "[DOSSIER] Podcasts: une rémunération encore limitée : la preuve de ce que beaucoup pensaient",
+    "texte": "Sur le territoire, la rentabilité des podcasts reste un défi. Entre sponsors à convaincre et coûts de production, les revenus générés par ce format restent insuffisants pour en vivre. Ceux qui alertaient depuis des mois avaient raison.",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Biais de confirmation",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de DNC : le fait est réel, l'ajout non. Une conclusion générale est tirée d’un seul fait : elle flatte ce que le lecteur croit déjà. Le compte défend une cause, sans rédaction identifiable.",
+    "analyseVrai": "Le fait de départ est réel : DNC l'a publié le 23 octobre à 06:00.",
+    "analyseFaux": "La « tendance » est ajoutée : l’article d’origine rapporte un fait, il ne confirme rien de plus.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Filter",
+        "libelle": "Une conclusion ajoutée",
+        "explication": "Un fait isolé ne prouve pas une tendance. Cette conclusion n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Vigilance Citoyenne ne dit pas qui écrit. Le fait vient de Demain en Nouvelle-Calédonie (23 octobre à 06:00) : compare les deux."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de Demain en Nouvelle-Calédonie, publié le 23 octobre à 06:00. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "Je le disais depuis le début ! 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "Un seul cas, ça fait une tendance ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "Demain en Nouvelle-Calédonie raconte juste le fait, pas de « tendance ».",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « biais de confirmation ».",
+    "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.dnc.nc/dossier-podcasts-une-remuneration-encore-limitee/",
+    "id": 131
+  },
+  {
+    "date": "23 octobre à 05:55",
+    "image": null,
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 30559,
+    "commentCount": 1163,
+    "origine": "RSS",
+    "article": {
+      "titre": "La longue route du nickel vers l’Europe",
+      "url": "https://www.dnc.nc/la-longue-route-du-nickel-vers-leurope/",
+      "publieLe": "2026-10-22T18:55:26.000Z",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "editeur": "DNC"
+    },
+    "slug": "rss-faux-reqasm",
+    "source": "Le Regard Libre",
+    "sourceColor": "#9a3412",
+    "domain": "le-regard-libre.fr",
+    "titre": "La longue route du nickel vers l’Europe, comme on pouvait s'y attendre",
+    "texte": "Le protocole d’accord sur le nickel, signé mardi 20 octobre, entre la Commission européenne et le gouvernement local, place un cadre de coopération. Qui doit être précisé. Quel accord ? Un fait qui confirme ce que beaucoup pressentaient.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Biais de confirmation",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de DNC : le fait est réel, l'ajout non. Une conclusion générale est tirée d’un seul fait : elle flatte ce que le lecteur croit déjà. Le site a l’allure d’un média, sans rédaction nommée.",
+    "analyseVrai": "Le fait de départ est réel : DNC l'a publié le 23 octobre à 05:55.",
+    "analyseFaux": "La « tendance » est ajoutée : l’article d’origine rapporte un fait, il ne confirme rien de plus.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Filter",
+        "libelle": "Une conclusion ajoutée",
+        "explication": "Un fait isolé ne prouve pas une tendance. Cette conclusion n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un site qui ressemble à un média",
+        "explication": "le-regard-libre.fr n’a ni rédaction nommée ni mentions légales. L’original est sur dnc.nc."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de Demain en Nouvelle-Calédonie, publié le 23 octobre à 05:55. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Je le disais depuis le début ! 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#b45309",
+        "texte": "Un seul cas, ça fait une tendance ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#14663f",
+        "texte": "Demain en Nouvelle-Calédonie raconte juste le fait, pas de « tendance ».",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « biais de confirmation ».",
+    "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.dnc.nc/la-longue-route-du-nickel-vers-leurope/",
+    "id": 132
+  },
+  {
+    "date": "23 octobre à 05:50",
+    "image": null,
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 27976,
+    "commentCount": 1998,
+    "origine": "RSS",
+    "article": {
+      "titre": "L’UE soutient la formation pour manifester son intérêt à la Nouvelle-Calédonie",
+      "url": "https://www.dnc.nc/lue-soutient-la-formation-pour-manifester-son-interet-a-la-nouvelle-caledonie/",
+      "publieLe": "2026-10-22T18:50:28.000Z",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "editeur": "DNC"
+    },
+    "slug": "rss-faux-1dyr3ik",
+    "source": "Demain en Nouvelle-Calédonie",
+    "sourceColor": "#1800ad",
+    "domain": "dnc-nc.com",
+    "titre": "L’UE soutient la formation pour manifester son intérêt à la Nouvelle-Calédonie",
+    "texte": "L’Union européenne et le gouvernement de la Nouvelle-Calédonie ont signé, mardi 20 octobre après-midi, à l’université de la Nouvelle-Calédonie (UNC), à Nouméa, une convention de financement de 596 millions de… Information recoupée auprès de plusieurs sources.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Certitude ajoutée",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de DNC : le fait est réel, l'ajout non. Une certitude est affichée sans source : « confirmé » rassure, mais personne n’est nommé. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : DNC l'a publié le 23 octobre à 05:50.",
+    "analyseFaux": "La « confirmation » n’a pas de source : elle donne une assurance que l’article d’origine ne donnait pas.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Confirmé par qui ?",
+        "explication": "Aucune source n’est nommée. L’article d’origine ne parle pas de confirmation."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "dnc-nc.com n’est pas dnc.nc : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de DNC (23 octobre à 05:50). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "Ah ben si c’est confirmé 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Confirmé par qui ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Ces « plusieurs sources », elles ont un nom ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « certitude ajoutée ».",
+    "warning": "Le procédé employé ici s'appelle « certitude ajoutée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.dnc.nc/lue-soutient-la-formation-pour-manifester-son-interet-a-la-nouvelle-caledonie/",
+    "id": 133
+  },
+  {
+    "date": "23 octobre à 05:45",
+    "image": null,
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 7053,
+    "commentCount": 1284,
+    "origine": "RSS",
+    "article": {
+      "titre": "Nicolas Mackenzie, syndicaliste au Camp-Est : « Le risque de mutinerie existe tous les jours »",
+      "url": "https://www.dnc.nc/nicolas-mackenzie-le-risque-de-mutinerie-existe-tous-les-jours/",
+      "publieLe": "2026-10-22T18:45:03.000Z",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "editeur": "DNC"
+    },
+    "slug": "rss-faux-1jm0171",
+    "source": "Demain en Nouvelle-Calédonie Actu",
+    "sourceColor": "#1800ad",
+    "domain": "dnc-actu.info",
+    "titre": "Nicolas Mackenzie, syndicaliste au Camp-Est : « Le risque de mutinerie existe tous les jours » — à lire tant que c'est en ligne",
+    "texte": "Le personnel de surveillance au Camp-Est considère travailler « entre le marteau et l’enclume » : entre un État réticent à investir dans une nouvelle prison et des détenus de plus en plus nombreux, agressifs et… Lisez-le tant qu'il est disponible.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de DNC : le fait est réel, l'ajout non. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. Le compte emprunte le nom d’une vraie rédaction.",
+    "analyseVrai": "Le fait de départ est réel : DNC l'a publié le 23 octobre à 05:45.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence a été ajoutée pour faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que l’article sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Un nom qui imite",
+        "explication": "dnc-actu.info n’est pas dnc.nc. Le nom ressemble à Demain en Nouvelle-Calédonie, l’adresse ne lui appartient pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de DNC (23 octobre à 05:45). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Mélanie",
+        "couleur": "#8a4fbe",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#b45309",
+        "texte": "Pourquoi ce serait supprimé ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#14663f",
+        "texte": "L’article est toujours sur dnc.nc…",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.dnc.nc/nicolas-mackenzie-le-risque-de-mutinerie-existe-tous-les-jours/",
+    "id": 134
+  },
+  {
+    "date": "23 octobre à 05:30",
+    "image": null,
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 21529,
+    "commentCount": 1799,
+    "origine": "RSS",
+    "article": {
+      "titre": "Guiz, un regard sur les murs",
+      "url": "https://www.dnc.nc/guiz-un-regard-sur-les-murs/",
+      "publieLe": "2026-10-22T18:30:20.000Z",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "editeur": "DNC"
+    },
+    "slug": "rss-faux-y2pr1c",
+    "source": "Demain en Nouvelle-Calédonie",
+    "sourceColor": "#1800ad",
+    "domain": "dnc-nc.com",
+    "titre": "Guiz, un regard sur les murs",
+    "texte": "L’artiste Guiz habille les murs du Grand Nouméa avec des portraits aux dimensions grandissantes. Une autre manière de voir la ville, son histoire et ses habitants. Article susceptible d’être dépublié prochainement.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de DNC : le fait est réel, l'ajout non. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : DNC l'a publié le 23 octobre à 05:30.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence a été ajoutée pour faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que l’article sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "dnc-nc.com n’est pas dnc.nc : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de DNC (23 octobre à 05:30). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#791561",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#b45309",
+        "texte": "Pourquoi ce serait supprimé ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#14663f",
+        "texte": "L’article est toujours sur dnc.nc…",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.dnc.nc/guiz-un-regard-sur-les-murs/",
+    "id": 135
+  },
+  {
+    "date": "22 octobre à 14:51",
+    "image": null,
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 28981,
+    "commentCount": 728,
+    "origine": "RSS",
+    "article": {
+      "titre": "Autorité de la concurrence : la grève suspendue par la démission du président",
+      "url": "https://www.dnc.nc/autorite-de-la-concurrence-la-greve-suspendue-par-la-demission-du-president/",
+      "publieLe": "2026-10-22T03:51:44.000Z",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "editeur": "DNC"
+    },
+    "slug": "rss-faux-103vgd2",
+    "source": "Demain en Nouvelle-Calédonie",
+    "sourceColor": "#1800ad",
+    "domain": "dnc-nc.com",
+    "titre": "Autorité de la concurrence : la grève suspendue par la démission du président",
+    "texte": "Le conflit social à l’Autorité de la concurrence de Nouvelle-Calédonie a connu un tournant mardi 20 octobre. D'après une source proche du dossier, la décision était connue depuis plusieurs semaines.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de DNC : le fait est réel, l'ajout non. La source ajoutée est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. Le compte copie une vraie rédaction : seule l’adresse diffère.",
+    "analyseVrai": "Le fait de départ est réel : DNC l'a publié le 22 octobre à 14:51.",
+    "analyseFaux": "La source anonyme n’existe que dans cette publication : aucun nom, aucun document.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié. Cette phrase n’est pas dans l’article d’origine."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Link2",
+        "libelle": "Lis l’adresse lettre par lettre",
+        "explication": "dnc-nc.com n’est pas dnc.nc : même nom, même titre, mais pas le même site."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Newspaper",
+        "libelle": "Le reste est exact",
+        "explication": "Le fait vient bien de DNC (22 octobre à 14:51). C’est ce qui rend la publication crédible."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "C’est qui ce responsable ? Il a un nom ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "Demain en Nouvelle-Calédonie ne cite personne d’anonyme, si ?",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.dnc.nc/autorite-de-la-concurrence-la-greve-suspendue-par-la-demission-du-president/",
+    "id": 136
+  },
+  {
+    "date": "22 octobre à 14:48",
+    "image": null,
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 9367,
+    "commentCount": 1314,
+    "origine": "RSS",
+    "article": {
+      "titre": "L’Inspection générale des finances passe la fiscalité au crible",
+      "url": "https://www.dnc.nc/m-d-dr-linspection-generale-des-finances-passe-la-fiscalite-au-crible/",
+      "publieLe": "2026-10-22T03:48:24.000Z",
+      "nom": "Demain en Nouvelle-Calédonie",
+      "editeur": "DNC"
+    },
+    "slug": "rss-faux-1917ve7",
+    "source": "LA VÉRITÉ CACHÉE",
+    "sourceColor": "#b91c1c",
+    "domain": "verite-cachee.net",
+    "titre": "COMME PAR HASARD : L’INSPECTION GÉNÉRALE DES FINANCES PASSE LA FISCALITÉ AU CRIBLE",
+    "texte": "Publié le 14 octobre, le rapport de l’Inspection générale des finances (IGF) dresse un état des lieux de la fiscalité calédonienne et propose plusieurs pistes de réforme. Comme par hasard, juste après les décisions du mois dernier… Ouvrez les yeux !",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Fausse corrélation",
+    "explication": "Fabriquée pour l'exercice à partir d'un article de DNC : le fait est réel, l'ajout non. Un lien de cause est insinué sans être démontré : deux faits proches dans le temps ne sont pas liés pour autant. Le compte crie : nom alarmiste, majuscules.",
+    "analyseVrai": "Le fait de départ est réel : DNC l'a publié le 22 octobre à 14:48.",
+    "analyseFaux": "Aucun lien avec des « décisions du mois dernier » n’est établi : l’insinuation est ajoutée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Brain",
+        "libelle": "Un lien insinué",
+        "explication": "La phrase suggère une cause sans la démontrer, ni dire de quelles décisions il s’agit."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "LA VÉRITÉ CACHÉE n’est pas une rédaction : nom alarmiste, majuscules, aucun journaliste. L’information vient de Demain en Nouvelle-Calédonie."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "DATE",
+        "picto": "Search",
+        "libelle": "L’article d’origine",
+        "explication": "Le fait vient de Demain en Nouvelle-Calédonie, publié le 22 octobre à 14:48. Compare : c’est là qu’on voit ce qui a été ajouté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Hélène",
+        "couleur": "#8a4fbe",
+        "texte": "Exactement, tout est lié 😤",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#b45309",
+        "texte": "Quelles décisions ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "L’article de Demain en Nouvelle-Calédonie ne fait aucun lien avec le mois dernier.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : tu as reconnu le procédé « fausse corrélation ».",
+    "warning": "Le procédé employé ici s'appelle « fausse corrélation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+      "ignore": "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.dnc.nc/m-d-dr-linspection-generale-des-finances-passe-la-fiscalite-au-crible/",
+    "id": 137
+  }
+]

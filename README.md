@@ -79,25 +79,3 @@ l'application démarre, lit l'adresse et affiche le bon écran. Voir
 | `npm run build` | build de production dans `dist/` |
 | `npm run preview` | sert le build localement |
 | `npm run lint` | ESLint |
-
-## Où vit le contenu
-
-| Contenu | Où |
-| --- | --- |
-| les publications du fil | base — table `post`, semée puis alimentée par les flux RSS |
-| les discussions et leurs branches | base — table `conversation` |
-| les sites où vérifier une info | base — table `ressource`, servis en stories |
-| les stories de l'accueil et leurs brèves | base — tables `story` et `astuce` |
-| les jeux et leurs tutoriels | base — tables `game` et `volet_tutoriel` |
-| les thèmes de « Comprendre » | base — tables `chapitre` et `bloc_chapitre` |
-
-Marche à suivre détaillée dans [docs/contenu.md](docs/contenu.md).
-
-## Un mot sur l'historique
-
-Jusqu'à la mise en place de l'API, tout le contenu était écrit à la main dans
-`src/data/` et livré avec le bundle. Ces fichiers ont été exportés en JSON
-(`ctrlinfo-app/prisma/data/`), chargés en base par le seed, puis supprimés
-d'ici. Le script qui a servi à l'export est conservé dans
-[scripts/export-contenu.mjs](scripts/export-contenu.mjs) : il ne sert plus à
-rien au quotidien, il documente la migration.

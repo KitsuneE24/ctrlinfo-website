@@ -1,5 +1,1895 @@
 [
   {
+    "date": "27 octobre à 10:57",
+    "image": "https://img.lemde.fr/2026/10/21/0/0/5286/2643/644/322/60/0/3e04287_ftp-1-aclmqsss250t-afp-d3zp8q4.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 24303,
+    "commentCount": 1697,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Des élus démocrates réclament une enquête spéciale sur les liens entre Donald Trump et Jeffrey Epstein",
+      "url": "https://www.lemonde.fr/international/article/2026/10/27/des-elus-democrates-reclament-une-enquete-speciale-sur-les-liens-entre-donald-trump-et-jeffrey-epstein_6800883_3210.html",
+      "publieLe": "2026-10-26T23:57:22.000Z",
+      "nom": "Le Monde",
+      "editeur": "Le Monde"
+    },
+    "slug": "rss-vrai-5rtxw1",
+    "source": "Le Monde",
+    "sourceColor": "#1800ad",
+    "domain": "lemonde.fr",
+    "titre": "Des élus démocrates réclament une enquête spéciale sur les liens entre Donald Trump et Jeffrey Epstein",
+    "texte": "La demande formulée par des membres de la Chambre des représentants de désigner un procureur spécial n’a aucune chance d’aboutir, malgré un rapport dans lequel témoignent onze femmes.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de Le Monde, publiés le 27 octobre à 10:57, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "Le Monde (Le Monde) signe l’information sur lemonde.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 10:57 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#791561",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#b45309",
+        "texte": "Vous êtes sûrs ? J’ai vu passer autre chose sur un groupe…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#14663f",
+        "texte": "L’article complet est sur lemonde.fr, daté du 27 octobre à 10:57.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.lemonde.fr/international/article/2026/10/27/des-elus-democrates-reclament-une-enquete-speciale-sur-les-liens-entre-donald-trump-et-jeffrey-epstein_6800883_3210.html",
+    "learnMoreUrl": "https://www.lemonde.fr/international/article/2026/10/27/des-elus-democrates-reclament-une-enquete-speciale-sur-les-liens-entre-donald-trump-et-jeffrey-epstein_6800883_3210.html",
+    "id": 138
+  },
+  {
+    "date": "27 octobre à 10:55",
+    "image": "https://img.lemde.fr/2017/06/08/222/0/3500/1750/644/322/60/0/08cd2a3_WAS17_USA-TRUMP-RUSSIA_0608_11.JPG",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 16127,
+    "commentCount": 1234,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "James Comey, ancien directeur du FBI et critique de Donald Trump, est de nouveau poursuivi en justice, cette fois pour fuite d’informations confidentielles",
+      "url": "https://www.lemonde.fr/international/article/2026/10/27/james-comey-ancien-directeur-du-fbi-et-critique-de-donald-trump-est-de-nouveau-poursuivi-en-justice-cette-fois-pour-fuite-d-informations-confidentielles_6800882_3210.html",
+      "publieLe": "2026-10-26T23:55:41.000Z",
+      "nom": "Le Monde",
+      "editeur": "Le Monde"
+    },
+    "slug": "rss-vrai-bezkwd",
+    "source": "Le Monde",
+    "sourceColor": "#1800ad",
+    "domain": "lemonde.fr",
+    "titre": "James Comey, ancien directeur du FBI et critique de Donald Trump, est de nouveau poursuivi en justice, cette fois pour fuite d’informations confidentielles",
+    "texte": "Dans des documents rendus publics lundi, le ministère de la justice américain accuse l’homme de 65 ans d’avoir sciemment communiqué des informations relatives à la défense nationale à une personne non autorisée à les…",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de Le Monde, publiés le 27 octobre à 10:55, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "Le Monde (Le Monde) signe l’information sur lemonde.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 10:55 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Encore une info des médias, on ne sait jamais…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "C’est bien sur le site de Le Monde, avec le nom de la rédaction.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Mélanie",
+        "couleur": "#8a4fbe",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.lemonde.fr/international/article/2026/10/27/james-comey-ancien-directeur-du-fbi-et-critique-de-donald-trump-est-de-nouveau-poursuivi-en-justice-cette-fois-pour-fuite-d-informations-confidentielles_6800882_3210.html",
+    "learnMoreUrl": "https://www.lemonde.fr/international/article/2026/10/27/james-comey-ancien-directeur-du-fbi-et-critique-de-donald-trump-est-de-nouveau-poursuivi-en-justice-cette-fois-pour-fuite-d-informations-confidentielles_6800882_3210.html",
+    "id": 139
+  },
+  {
+    "date": "27 octobre à 10:44",
+    "image": "https://s.rfi.fr/media/display/12094780-d194-11f1-bf38-bba4eee3dc72/w:1024/p:16x9/AP26146429257108.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 10262,
+    "commentCount": 795,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Sénégal: journée décisive à l'Assemblée nationale avec l'examen de la loi de finances rectificative",
+      "url": "https://www.rfi.fr/fr/afrique/20261026-s%C3%A9n%C3%A9gal-journ%C3%A9e-d%C3%A9cisive-%C3%A0-l-assembl%C3%A9e-nationale-avec-l-examen-de-la-loi-de-finances-rectificative",
+      "publieLe": "2026-10-26T23:44:13.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-vrai-1bjna7v",
+    "source": "RFI",
+    "sourceColor": "#1800ad",
+    "domain": "rfi.fr",
+    "titre": "Sénégal: journée décisive à l'Assemblée nationale avec l'examen de la loi de finances rectificative",
+    "texte": "À partir de 10 heures, les députés examinent la loi de finances rectificative, c'est-à-dire le budget 2026 corrigé en cours d'année.",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 10:44, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "RFI (Radio France Internationale) signe l’information sur rfi.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 10:44 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "Même titre sur rfi.fr, rien n’a été modifié.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Enfin une info claire sur le sujet.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#b45309",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.rfi.fr/fr/afrique/20261026-s%C3%A9n%C3%A9gal-journ%C3%A9e-d%C3%A9cisive-%C3%A0-l-assembl%C3%A9e-nationale-avec-l-examen-de-la-loi-de-finances-rectificative",
+    "learnMoreUrl": "https://www.rfi.fr/fr/afrique/20261026-s%C3%A9n%C3%A9gal-journ%C3%A9e-d%C3%A9cisive-%C3%A0-l-assembl%C3%A9e-nationale-avec-l-examen-de-la-loi-de-finances-rectificative",
+    "id": 140
+  },
+  {
+    "date": "27 octobre à 09:54",
+    "image": "https://www.franceinfo.fr/pictures/U_VuXZGYIo2ziGfaxgG8VqVIixQ/0x0:2677x1505/432x243/filters:format(jpg)/2026/10/27/6adfdd7e74055984031385.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 15660,
+    "commentCount": 314,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Ballon d'or 2026 : l'attaquant du Bayern Munich Harry Kane devient le premier Anglais récompensé depuis 25 ans",
+      "url": "https://www.franceinfo.fr/sports/foot/ballon-d-or/ballon-d-or-2026-sacre-a-londres-harry-kane-devient-le-premier-anglais-recompense-depuis-25-ans_8254834.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T22:54:14.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-1wksgta",
+    "source": "franceinfo",
+    "sourceColor": "#1800ad",
+    "domain": "franceinfo.fr",
+    "titre": "Ballon d'or 2026 : l'attaquant du Bayern Munich Harry Kane devient le premier Anglais récompensé depuis 25 ans",
+    "texte": "L'attaquant de 33 ans a été élu au bout du suspense, lundi, aux dépens de Kylian Mbappé et Lamine Yamal.",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de franceinfo, publiés le 27 octobre à 09:54, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "franceinfo (France Télévisions) signe l’information sur franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 09:54 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Manu",
+        "couleur": "#b45309",
+        "texte": "Encore une info des médias, on ne sait jamais…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "C’est bien sur le site de franceinfo, avec le nom de la rédaction.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.franceinfo.fr/sports/foot/ballon-d-or/ballon-d-or-2026-sacre-a-londres-harry-kane-devient-le-premier-anglais-recompense-depuis-25-ans_8254834.html#xtor=RSS-3-[lestitres]",
+    "learnMoreUrl": "https://www.franceinfo.fr/sports/foot/ballon-d-or/ballon-d-or-2026-sacre-a-londres-harry-kane-devient-le-premier-anglais-recompense-depuis-25-ans_8254834.html#xtor=RSS-3-[lestitres]",
+    "id": 141
+  },
+  {
+    "date": "27 octobre à 09:18",
+    "image": "https://www.franceinfo.fr/pictures/EJ-55K9NMaCbLo7cTFyVOSr8dps/0x0:1024x576/432x243/filters:format(jpg)/2026/10/26/6adfd1346b0ea105390665.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 16681,
+    "commentCount": 1222,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Donald Trump promet 1 million de dollars de récompense pour la dénonciation de fraudes électorales lors des élections de mi-mandat aux Etats-Unis",
+      "url": "https://www.franceinfo.fr/monde/usa/presidentielle/donald-trump/donald-trump-promet-1-million-de-dollars-de-recompense-pour-la-denonciation-de-fraudes-electorales-lors-des-elections-de-mi-mandat-aux-etats-unis_8254900.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T22:18:01.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-1lxnl45",
+    "source": "franceinfo",
+    "sourceColor": "#1800ad",
+    "domain": "franceinfo.fr",
+    "titre": "Donald Trump promet 1 million de dollars de récompense pour la dénonciation de fraudes électorales lors des élections de mi-mandat aux Etats-Unis",
+    "texte": "Le président américain agite le spectre d'une contestation post-électorale si son parti est battu aux \"midterms\" du 3 novembre.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de franceinfo, publiés le 27 octobre à 09:18, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "franceinfo (France Télévisions) signe l’information sur franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 09:18 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#14663f",
+        "texte": "Même titre sur franceinfo.fr, rien n’a été modifié.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#791561",
+        "texte": "Enfin une info claire sur le sujet.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#b45309",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.franceinfo.fr/monde/usa/presidentielle/donald-trump/donald-trump-promet-1-million-de-dollars-de-recompense-pour-la-denonciation-de-fraudes-electorales-lors-des-elections-de-mi-mandat-aux-etats-unis_8254900.html#xtor=RSS-3-[lestitres]",
+    "learnMoreUrl": "https://www.franceinfo.fr/monde/usa/presidentielle/donald-trump/donald-trump-promet-1-million-de-dollars-de-recompense-pour-la-denonciation-de-fraudes-electorales-lors-des-elections-de-mi-mandat-aux-etats-unis_8254900.html#xtor=RSS-3-[lestitres]",
+    "id": 142
+  },
+  {
+    "date": "27 octobre à 08:43",
+    "image": "https://s.rfi.fr/media/display/a9582364-d184-11f1-b7e2-5b4a75578ebb/w:1024/p:16x9/AP26299070267601.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 11173,
+    "commentCount": 756,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Brésil: Flavio Bolsonaro déclare qu'il dirigera l'opposition au gouvernement Lula",
+      "url": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-br%C3%A9sil-flavio-bolsonaro-d%C3%A9clare-qu-il-dirigera-l-opposition-au-gouvernement-lula",
+      "publieLe": "2026-10-26T21:43:10.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-vrai-1l8lg55",
+    "source": "RFI",
+    "sourceColor": "#1800ad",
+    "domain": "rfi.fr",
+    "titre": "Brésil: Flavio Bolsonaro déclare qu'il dirigera l'opposition au gouvernement Lula",
+    "texte": "Flavio Bolsonaro a annoncé lundi 26 octobre qu'il dirigerait l'opposition à Luiz Inacio Lula da Silva, au lendemain de sa défaite électorale face au président brésilien réélu.",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 08:43, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "RFI (Radio France Internationale) signe l’information sur rfi.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 08:43 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Vous êtes sûrs ? J’ai vu passer autre chose sur un groupe…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "L’article complet est sur rfi.fr, daté du 27 octobre à 08:43.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-br%C3%A9sil-flavio-bolsonaro-d%C3%A9clare-qu-il-dirigera-l-opposition-au-gouvernement-lula",
+    "learnMoreUrl": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-br%C3%A9sil-flavio-bolsonaro-d%C3%A9clare-qu-il-dirigera-l-opposition-au-gouvernement-lula",
+    "id": 143
+  },
+  {
+    "date": "27 octobre à 07:59",
+    "image": "https://s.rfi.fr/media/display/5937e146-d17d-11f1-a5df-bba4eee3dc72/w:1024/p:16x9/AP26299726980611.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 21075,
+    "commentCount": 225,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "États-Unis: cherchant à débusquer la moindre fraude électorale, Donald Trump promet un million de dollars",
+      "url": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-%C3%A9tats-unis-cherchant-%C3%A0-d%C3%A9busquer-la-moindre-fraude-%C3%A9lectorale-donald-trump-promet-un-million-de-dollars",
+      "publieLe": "2026-10-26T20:59:37.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-vrai-1t93m5",
+    "source": "RFI",
+    "sourceColor": "#1800ad",
+    "domain": "rfi.fr",
+    "titre": "États-Unis: cherchant à débusquer la moindre fraude électorale, Donald Trump promet un million de dollars",
+    "texte": "Donald Trump a promis lundi de verser 1 million de dollars à toute personne en possession d'informations aboutissant à une condamnation pour fraude électorale, à quelques jours des élections de mi-mandat.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 07:59, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "RFI (Radio France Internationale) signe l’information sur rfi.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 07:59 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "Encore une info des médias, on ne sait jamais…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "C’est bien sur le site de RFI, avec le nom de la rédaction.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-%C3%A9tats-unis-cherchant-%C3%A0-d%C3%A9busquer-la-moindre-fraude-%C3%A9lectorale-donald-trump-promet-un-million-de-dollars",
+    "learnMoreUrl": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-%C3%A9tats-unis-cherchant-%C3%A0-d%C3%A9busquer-la-moindre-fraude-%C3%A9lectorale-donald-trump-promet-un-million-de-dollars",
+    "id": 144
+  },
+  {
+    "date": "27 octobre à 07:54",
+    "image": "https://s.rfi.fr/media/display/8aea5362-d17e-11f1-8b3b-4b25c96ec90e/w:1024/p:16x9/2026-10-26T170434Z-1118182341-RC2PAOAZ8YAS-RTRMADP-3-VENEZUELA-OPPOSITION.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 38407,
+    "commentCount": 1837,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Venezuela: l'opposante Machado prête à négocier, la présidente Rodriguez ironise sur son retour en forme de «show»",
+      "url": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-venezuela-l-opposante-machado-pr%C3%AAte-%C3%A0-n%C3%A9gocier-la-pr%C3%A9sidente-rodriguez-ironise-sur-son-retour-en-forme-de-show",
+      "publieLe": "2026-10-26T20:54:35.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-vrai-c2oc33",
+    "source": "RFI",
+    "sourceColor": "#1800ad",
+    "domain": "rfi.fr",
+    "titre": "Venezuela: l'opposante Machado prête à négocier, la présidente Rodriguez ironise sur son retour en forme de «show»",
+    "texte": "Après son spectaculaire retour d'exil dimanche, l'opposante vénézuélienne et prix Nobel de la paix Maria Corina Machado est prête à rencontrer la présidente par intérim du pays Delcy Rodríguez, qui de son côté a fustigé…",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 07:54, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "RFI (Radio France Internationale) signe l’information sur rfi.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 07:54 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "Même titre sur rfi.fr, rien n’a été modifié.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#8a4fbe",
+        "texte": "Enfin une info claire sur le sujet.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#b45309",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-venezuela-l-opposante-machado-pr%C3%AAte-%C3%A0-n%C3%A9gocier-la-pr%C3%A9sidente-rodriguez-ironise-sur-son-retour-en-forme-de-show",
+    "learnMoreUrl": "https://www.rfi.fr/fr/am%C3%A9riques/20261026-venezuela-l-opposante-machado-pr%C3%AAte-%C3%A0-n%C3%A9gocier-la-pr%C3%A9sidente-rodriguez-ironise-sur-son-retour-en-forme-de-show",
+    "id": 145
+  },
+  {
+    "date": "27 octobre à 06:48",
+    "image": "https://img.lemde.fr/2026/10/26/1280/0/2560/1280/644/322/60/0/cbffd66_upload-1-hru6gwunkphn-000-63nc9q4.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 931,
+    "commentCount": 1017,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Europe 1 mise en demeure par l’Arcom après des propos « de nature à inciter à la haine » tenus à l’antenne par sa présentatrice Christine Kelly",
+      "url": "https://www.lemonde.fr/economie/article/2026/10/26/europe-1-mise-en-demeure-par-l-arcom-apres-des-propos-de-nature-a-inciter-a-la-haine-tenus-a-l-antenne-par-sa-presentatrice-christine-kelly_6800838_3234.html",
+      "publieLe": "2026-10-26T19:48:03.000Z",
+      "nom": "Le Monde",
+      "editeur": "Le Monde"
+    },
+    "slug": "rss-vrai-11ddlrm",
+    "source": "Le Monde",
+    "sourceColor": "#1800ad",
+    "domain": "lemonde.fr",
+    "titre": "Europe 1 mise en demeure par l’Arcom après des propos « de nature à inciter à la haine » tenus à l’antenne par sa présentatrice Christine Kelly",
+    "texte": "La présentatrice a tenu, à la fin de janvier, des propos sur les migrants « de nature à inciter à la haine », selon l’Arcom, « sans aucune réaction des autres personnes ».",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de Le Monde, publiés le 27 octobre à 06:48, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "Le Monde (Le Monde) signe l’information sur lemonde.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 06:48 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Tehei",
+        "couleur": "#b45309",
+        "texte": "Encore une info des médias, on ne sait jamais…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#14663f",
+        "texte": "C’est bien sur le site de Le Monde, avec le nom de la rédaction.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#791561",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.lemonde.fr/economie/article/2026/10/26/europe-1-mise-en-demeure-par-l-arcom-apres-des-propos-de-nature-a-inciter-a-la-haine-tenus-a-l-antenne-par-sa-presentatrice-christine-kelly_6800838_3234.html",
+    "learnMoreUrl": "https://www.lemonde.fr/economie/article/2026/10/26/europe-1-mise-en-demeure-par-l-arcom-apres-des-propos-de-nature-a-inciter-a-la-haine-tenus-a-l-antenne-par-sa-presentatrice-christine-kelly_6800838_3234.html",
+    "id": 146
+  },
+  {
+    "date": "27 octobre à 06:30",
+    "image": "https://la1ere.franceinfo.fr/image/jZQAxrKeWzF4T6QMCGfJ9ralov4/600x400/filters:quality(80)/outremer%2F2025%2F08%2F15%2Fpermis-689edf768432c198166785.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 29947,
+    "commentCount": 1119,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Permis de conduire : le Gouvernement adopte l’arrêté officialisant le nouveau modèle sans drapeau",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/permis-de-conduire-le-gouvernement-adopte-l-arrete-officialisant-le-nouveau-modele-sans-drapeau-1751676.html",
+      "publieLe": "2026-10-26T19:30:01.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-hlgpec",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo.fr",
+    "titre": "Permis de conduire : le Gouvernement adopte l’arrêté officialisant le nouveau modèle sans drapeau",
+    "texte": "Dans un relevé de décision publié ce lundi 26 octobre, le gouvernement de la Nouvelle-Calédonie annonce l'adoption de l'arrêté pour le nouveau modèle de permis de conduire.",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de NC la 1ère, publiés le 27 octobre à 06:30, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "NC la 1ère (France Télévisions) signe l’information sur la1ere.franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 06:30 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Camille R.",
+        "couleur": "#14663f",
+        "texte": "Même titre sur la1ere.franceinfo.fr, rien n’a été modifié.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "Enfin une info claire sur le sujet.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#b45309",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/permis-de-conduire-le-gouvernement-adopte-l-arrete-officialisant-le-nouveau-modele-sans-drapeau-1751676.html",
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/permis-de-conduire-le-gouvernement-adopte-l-arrete-officialisant-le-nouveau-modele-sans-drapeau-1751676.html",
+    "id": 147
+  },
+  {
+    "date": "27 octobre à 06:04",
+    "image": "https://www.franceinfo.fr/pictures/iPTQ1wQxI_gnE2A7x3jmbCZ9sAA/74x172:952x666/432x243/filters:format(jpg)/2026/10/26/6adfa3777859e661256645.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 5276,
+    "commentCount": 896,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "\"Remplacement\" de Parcoursup, créations de postes, rénovation du bâti... Quelles sont les mesures annoncées par le gouvernement pour apaiser la colère lycéenne et étudiante ?",
+      "url": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/quelles-sont-les-mesures-proposees-par-le-gouvernement-pour-apaiser-la-colere-lyceenne-et-etudiante_8254432.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T19:04:58.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-806mt2",
+    "source": "franceinfo",
+    "sourceColor": "#1800ad",
+    "domain": "franceinfo.fr",
+    "titre": "\"Remplacement\" de Parcoursup, créations de postes, rénovation du bâti... Quelles sont les mesures annoncées par le gouvernement pour apaiser la colère lycéenne et étudiante ?",
+    "texte": "Le gouvernement prévoit notamment de créer un nouveau système pour succéder à la plateforme Parcoursup en 2028 et d'ouvrir des milliers de places supplémentaires dans l'enseignement supérieur.",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de franceinfo, publiés le 27 octobre à 06:04, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "franceinfo (France Télévisions) signe l’information sur franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 06:04 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "Vous êtes sûrs ? J’ai vu passer autre chose sur un groupe…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#14663f",
+        "texte": "L’article complet est sur franceinfo.fr, daté du 27 octobre à 06:04.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/quelles-sont-les-mesures-proposees-par-le-gouvernement-pour-apaiser-la-colere-lyceenne-et-etudiante_8254432.html#xtor=RSS-3-[lestitres]",
+    "learnMoreUrl": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/quelles-sont-les-mesures-proposees-par-le-gouvernement-pour-apaiser-la-colere-lyceenne-et-etudiante_8254432.html#xtor=RSS-3-[lestitres]",
+    "id": 148
+  },
+  {
+    "date": "27 octobre à 05:28",
+    "image": "https://s.rfi.fr/media/display/851cd90a-42d6-11f1-a673-005056a97e36/w:1024/p:16x9/Vue-aerienne-de-Bamako.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 21726,
+    "commentCount": 1633,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Mali: condamnation à dix ans de prison du maire de Bamako dans l’affaire des «lotissements illégaux»",
+      "url": "https://www.rfi.fr/fr/afrique/20261026-mali-condamnation-%C3%A0-dix-ans-de-prison-du-maire-de-bamako-dans-l-affaire-des-lotissements-ill%C3%A9gaux",
+      "publieLe": "2026-10-26T18:28:09.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-vrai-1lasodh",
+    "source": "RFI",
+    "sourceColor": "#1800ad",
+    "domain": "rfi.fr",
+    "titre": "Mali: condamnation à dix ans de prison du maire de Bamako dans l’affaire des «lotissements illégaux»",
+    "texte": "Au Mali, la chambre criminelle du Pôle national économique et financier de Bamako a rendu, ce lundi 26 octobre, son délibéré dans l’affaire des lotissements « illégaux » de la zone aéroportuaire de Bamako.",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 05:28, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "RFI (Radio France Internationale) signe l’information sur rfi.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 05:28 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "Encore une info des médias, on ne sait jamais…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "C’est bien sur le site de RFI, avec le nom de la rédaction.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#8a4fbe",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.rfi.fr/fr/afrique/20261026-mali-condamnation-%C3%A0-dix-ans-de-prison-du-maire-de-bamako-dans-l-affaire-des-lotissements-ill%C3%A9gaux",
+    "learnMoreUrl": "https://www.rfi.fr/fr/afrique/20261026-mali-condamnation-%C3%A0-dix-ans-de-prison-du-maire-de-bamako-dans-l-affaire-des-lotissements-ill%C3%A9gaux",
+    "id": 149
+  },
+  {
+    "date": "27 octobre à 03:19",
+    "image": "https://www.franceinfo.fr/pictures/2_Lnfkfhs51h7ydAJ8ndkQgStaA/0x450:8660x5322/432x243/filters:format(jpg)/2026/10/26/6adf6331ac5c5852675525.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 344,
+    "commentCount": 1413,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Les réseaux sociaux ont-ils censuré des vidéos de la manifestation du 24 octobre ?",
+      "url": "https://www.franceinfo.fr/internet/reseaux-sociaux/les-reseaux-sociaux-ont-ils-censure-des-videos-de-la-manifestation_8254285.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T16:19:24.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-ek6gyu",
+    "source": "franceinfo",
+    "sourceColor": "#1800ad",
+    "domain": "franceinfo.fr",
+    "titre": "Les réseaux sociaux ont-ils censuré des vidéos de la manifestation du 24 octobre ?",
+    "texte": "Des internautes et créateurs de contenus affirment que des lives et vidéos tournés lors de la mobilisation du 24 octobre ont été supprimés par les plateformes.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de franceinfo, publiés le 27 octobre à 03:19, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "franceinfo (France Télévisions) signe l’information sur franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 03:19 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#14663f",
+        "texte": "Même titre sur franceinfo.fr, rien n’a été modifié.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#791561",
+        "texte": "Enfin une info claire sur le sujet.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Manu",
+        "couleur": "#b45309",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.franceinfo.fr/internet/reseaux-sociaux/les-reseaux-sociaux-ont-ils-censure-des-videos-de-la-manifestation_8254285.html#xtor=RSS-3-[lestitres]",
+    "learnMoreUrl": "https://www.franceinfo.fr/internet/reseaux-sociaux/les-reseaux-sociaux-ont-ils-censure-des-videos-de-la-manifestation_8254285.html#xtor=RSS-3-[lestitres]",
+    "id": 150
+  },
+  {
+    "date": "27 octobre à 03:01",
+    "image": "https://s.rfi.fr/media/display/52460038-ce68-11f1-93c9-23d55109f116/w:1024/p:16x9/2026-10-22T214736Z-1871492737-RC228OA72XFB-RTRMADP-3-CHINA-POLITICS.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 37325,
+    "commentCount": 115,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Il y a de la part de Xi Jinping «une personnification du pouvoir pour être une forme de Mao 2.0»",
+      "url": "https://www.rfi.fr/fr/podcasts/invit%C3%A9-international/20261026-il-y-a-de-la-part-de-xi-jinping-une-personnification-du-pouvoir-pour-%C3%AAtre-une-forme-de-mao-2-0",
+      "publieLe": "2026-10-26T16:01:31.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-vrai-1ob7ve9",
+    "source": "RFI",
+    "sourceColor": "#1800ad",
+    "domain": "rfi.fr",
+    "titre": "Il y a de la part de Xi Jinping «une personnification du pouvoir pour être une forme de Mao 2.0»",
+    "texte": "Alors que les cadres du Parti communiste ont entamé ce lundi 26 octobre, à Pékin, une importante réunion consacrée à sa gouvernance, Xi Jinping veut renforcer son autorité.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 03:01, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "RFI (Radio France Internationale) signe l’information sur rfi.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 03:01 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Mélanie",
+        "couleur": "#8a4fbe",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#b45309",
+        "texte": "Vous êtes sûrs ? J’ai vu passer autre chose sur un groupe…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#14663f",
+        "texte": "L’article complet est sur rfi.fr, daté du 27 octobre à 03:01.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.rfi.fr/fr/podcasts/invit%C3%A9-international/20261026-il-y-a-de-la-part-de-xi-jinping-une-personnification-du-pouvoir-pour-%C3%AAtre-une-forme-de-mao-2-0",
+    "learnMoreUrl": "https://www.rfi.fr/fr/podcasts/invit%C3%A9-international/20261026-il-y-a-de-la-part-de-xi-jinping-une-personnification-du-pouvoir-pour-%C3%AAtre-une-forme-de-mao-2-0",
+    "id": 151
+  },
+  {
+    "date": "27 octobre à 00:59",
+    "image": "https://s.rfi.fr/media/display/67c11fca-9640-11f1-a330-005056bf30b7/w:1024/p:16x9/AP25245464531611.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 21743,
+    "commentCount": 386,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Serbie: avec la défaite d'Aleksandar Vucic, la Russie perd un allié en Europe",
+      "url": "https://www.rfi.fr/fr/europe/20261026-serbie-avec-la-d%C3%A9faite-d-aleksandar-vucic-la-russie-perd-un-alli%C3%A9-en-europe",
+      "publieLe": "2026-10-26T13:59:16.000Z",
+      "nom": "RFI",
+      "editeur": "Radio France Internationale"
+    },
+    "slug": "rss-vrai-3izm2e",
+    "source": "RFI",
+    "sourceColor": "#1800ad",
+    "domain": "rfi.fr",
+    "titre": "Serbie: avec la défaite d'Aleksandar Vucic, la Russie perd un allié en Europe",
+    "texte": "La défaite d'Aleksandar Vucic et la victoire de la liste étudiante aux législatives anticipées en Serbie est un coup dur pour Moscou.",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 00:59, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "RFI (Radio France Internationale) signe l’information sur rfi.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 00:59 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#b45309",
+        "texte": "Encore une info des médias, on ne sait jamais…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#14663f",
+        "texte": "C’est bien sur le site de RFI, avec le nom de la rédaction.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Aurélie",
+        "couleur": "#8a4fbe",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.rfi.fr/fr/europe/20261026-serbie-avec-la-d%C3%A9faite-d-aleksandar-vucic-la-russie-perd-un-alli%C3%A9-en-europe",
+    "learnMoreUrl": "https://www.rfi.fr/fr/europe/20261026-serbie-avec-la-d%C3%A9faite-d-aleksandar-vucic-la-russie-perd-un-alli%C3%A9-en-europe",
+    "id": 152
+  },
+  {
+    "date": "27 octobre à 00:53",
+    "image": "https://www.franceinfo.fr/pictures/DNNSm69VRky2IwVmMEr7oLgF1R4/0x430:8256x5074/432x243/filters:format(jpg)/2026/10/26/6adefea131698151872892.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 23087,
+    "commentCount": 209,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "\"J'ai du mal à y croire\", \"je suis hyper contente\" : au Brésil, les partisans de Lula sont en liesse après sa victoire à la présidentielle",
+      "url": "https://www.franceinfo.fr/monde/bresil/reportage-j-ai-eu-du-mal-a-y-croire-je-suis-hyper-contente-au-bresil-les-partisans-de-lula-sont-en-liesses-apres-sa-victoire-a-la-presidentielle_8253853.html#xtor=RSS-3-[lestitres]",
+      "publieLe": "2026-10-26T13:53:55.000Z",
+      "nom": "franceinfo",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-185pxnh",
+    "source": "franceinfo",
+    "sourceColor": "#1800ad",
+    "domain": "franceinfo.fr",
+    "titre": "\"J'ai du mal à y croire\", \"je suis hyper contente\" : au Brésil, les partisans de Lula sont en liesse après sa victoire à la présidentielle",
+    "texte": "Avec ses quatre millions de voix d'avance, les électeurs de Lula célèbrent sa victoire. Le vainqueur était pourtant en mauvaise posture au premier tour. Son concurrent cherche quant à lui à faire annuler l'élection.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de franceinfo, publiés le 27 octobre à 00:53, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "franceinfo (France Télévisions) signe l’information sur franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 27 octobre à 00:53 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Même titre sur franceinfo.fr, rien n’a été modifié.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "Enfin une info claire sur le sujet.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#b45309",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://www.franceinfo.fr/monde/bresil/reportage-j-ai-eu-du-mal-a-y-croire-je-suis-hyper-contente-au-bresil-les-partisans-de-lula-sont-en-liesses-apres-sa-victoire-a-la-presidentielle_8253853.html#xtor=RSS-3-[lestitres]",
+    "learnMoreUrl": "https://www.franceinfo.fr/monde/bresil/reportage-j-ai-eu-du-mal-a-y-croire-je-suis-hyper-contente-au-bresil-les-partisans-de-lula-sont-en-liesses-apres-sa-victoire-a-la-presidentielle_8253853.html#xtor=RSS-3-[lestitres]",
+    "id": 153
+  },
+  {
+    "date": "26 octobre à 20:10",
+    "image": "https://la1ere.franceinfo.fr/image/c8X9yWIjiht7zz18T0atgx6kWHI/600x400/filters:quality(80)/outremer%2F2019%2F10%2F02%2F5d94b0a3079b3_yeah-eat-it.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 12872,
+    "commentCount": 1938,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "La protection des dugongs au cœur d'une coopération entre peuples aborigènes et kanaks",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/la-protection-des-dugongs-au-c-ur-d-une-cooperation-entre-peuples-aborigenes-et-kanaks-1751628.html",
+      "publieLe": "2026-10-26T09:10:28.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-bxg4si",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo.fr",
+    "titre": "La protection des dugongs au cœur d'une coopération entre peuples aborigènes et kanaks",
+    "texte": "Le dugong est au centre d'échanges entre les peuples kanaks et aborigènes. Ce lundi 26 octobre, une délégation venue d'Australie est accueillie au Sénat coutumier, à Nouméa.",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de NC la 1ère, publiés le 26 octobre à 20:10, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "NC la 1ère (France Télévisions) signe l’information sur la1ere.franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 26 octobre à 20:10 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "Vous êtes sûrs ? J’ai vu passer autre chose sur un groupe…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#14663f",
+        "texte": "L’article complet est sur la1ere.franceinfo.fr, daté du 26 octobre à 20:10.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/la-protection-des-dugongs-au-c-ur-d-une-cooperation-entre-peuples-aborigenes-et-kanaks-1751628.html",
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/la-protection-des-dugongs-au-c-ur-d-une-cooperation-entre-peuples-aborigenes-et-kanaks-1751628.html",
+    "id": 154
+  },
+  {
+    "date": "26 octobre à 17:00",
+    "image": "https://la1ere.franceinfo.fr/image/rZLwr06jJ9T1tGbPQYLIx8xsm9k/600x400/filters:quality(80)/outremer%2F2026%2F10%2F26%2F6adee853780fb374205709.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 21109,
+    "commentCount": 512,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Avec de nouveaux magistrats, la justice calédonienne renforce ses effectifs",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/avec-de-nouveaux-magistrats-la-justice-caledonienne-renforce-ses-effectifs-1751664.html",
+      "publieLe": "2026-10-26T06:00:42.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-tlplif",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo.fr",
+    "titre": "Avec de nouveaux magistrats, la justice calédonienne renforce ses effectifs",
+    "texte": "Plusieurs nouveaux magistrats ont été officiellement présentés ce lundi 26 octobre 2026 à Nouméa lors de deux audiences solennelles, à la cour d’Appel et au tribunal de première instance.",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de NC la 1ère, publiés le 26 octobre à 17:00, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "NC la 1ère (France Télévisions) signe l’information sur la1ere.franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 26 octobre à 17:00 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#b45309",
+        "texte": "Encore une info des médias, on ne sait jamais…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#14663f",
+        "texte": "C’est bien sur le site de NC la 1ère, avec le nom de la rédaction.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#791561",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/avec-de-nouveaux-magistrats-la-justice-caledonienne-renforce-ses-effectifs-1751664.html",
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/avec-de-nouveaux-magistrats-la-justice-caledonienne-renforce-ses-effectifs-1751664.html",
+    "id": 155
+  },
+  {
+    "date": "26 octobre à 06:00",
+    "image": "https://la1ere.franceinfo.fr/image/hkxuZCwqt6o0ZUvdppX-BTQVh08/600x400/filters:quality(80)/outremer%2F2023%2F02%2F28%2F63fdb44880dcf_2023-02-27-claude-lindor-greve-transports-scolaires-frame-4003.png",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 29182,
+    "commentCount": 510,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "À Lifou, le service de transport scolaire est interrompu par une grève des professionnels",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/a-lifou-le-service-de-transport-scolaire-est-interrompu-par-une-greve-des-professionnels-1751481.html",
+      "publieLe": "2026-10-25T19:00:02.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-afg4fo",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo.fr",
+    "titre": "À Lifou, le service de transport scolaire est interrompu par une grève des professionnels",
+    "texte": "La rentrée scolaire s'annonce difficile pour les écoliers de Drehu. Depuis dimanche soir, le transport scolaire est interrompu sur l'île.",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de NC la 1ère, publiés le 26 octobre à 06:00, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "NC la 1ère (France Télévisions) signe l’information sur la1ere.franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 26 octobre à 06:00 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#b45309",
+        "texte": "Vous êtes sûrs ? J’ai vu passer autre chose sur un groupe…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#14663f",
+        "texte": "L’article complet est sur la1ere.franceinfo.fr, daté du 26 octobre à 06:00.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/a-lifou-le-service-de-transport-scolaire-est-interrompu-par-une-greve-des-professionnels-1751481.html",
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/a-lifou-le-service-de-transport-scolaire-est-interrompu-par-une-greve-des-professionnels-1751481.html",
+    "id": 156
+  },
+  {
+    "date": "25 octobre à 18:32",
+    "image": "https://la1ere.franceinfo.fr/image/mYO1EGEoKW7U6mlAYB2VIubGE7s/600x400/filters:quality(80)/outremer%2F2026%2F10%2F25%2F6add6caeca1b7487203887.jpg",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 723,
+    "commentCount": 1549,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Johanito Wamytan, membre du 19ème gouvernement est l'invité du journal télévisé de Nouvelle-Calédonie la 1ère",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/johanito-wamytan-membre-du-19eme-gouvernement-est-l-invite-du-journal-televise-de-nouvelle-caledonie-la-1ere-1751415.html",
+      "publieLe": "2026-10-25T07:32:42.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-1r4ovvi",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo.fr",
+    "titre": "Johanito Wamytan, membre du 19ème gouvernement est l'invité du journal télévisé de Nouvelle-Calédonie la 1ère",
+    "texte": "L'élu FLNKS en charge de la pêche, du climat et de la mer de Corail au gouvernement est l'invité de journal télévisé de ce dimanche 25 octobre 2026 à 19 heures 30.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de NC la 1ère, publiés le 25 octobre à 18:32, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "NC la 1ère (France Télévisions) signe l’information sur la1ere.franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 25 octobre à 18:32 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nathalie",
+        "couleur": "#b45309",
+        "texte": "Encore une info des médias, on ne sait jamais…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "C’est bien sur le site de NC la 1ère, avec le nom de la rédaction.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#791561",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/johanito-wamytan-membre-du-19eme-gouvernement-est-l-invite-du-journal-televise-de-nouvelle-caledonie-la-1ere-1751415.html",
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/johanito-wamytan-membre-du-19eme-gouvernement-est-l-invite-du-journal-televise-de-nouvelle-caledonie-la-1ere-1751415.html",
+    "id": 157
+  },
+  {
+    "date": "25 octobre à 07:00",
+    "image": "https://la1ere.franceinfo.fr/image/xHQMO6ZUb9hEU6WhRof5x0cdgPs/600x400/filters:quality(80)/outremer%2F2025%2F05%2F22%2Fjt-dossier-starlink-v2-mbr-frame-5450-682e5f75f0869230045283-682e99e52deb2640305726.webp",
+    "sponsorise": false,
+    "learnMoreTips": "https://www.clemi.fr/",
+    "reactionCount": 17733,
+    "commentCount": 468,
+    "origine": "RSS",
+    "recolteLe": "2026-10-27T00:03:03.489Z",
+    "article": {
+      "titre": "Starlink coupé en Nouvelle-Calédonie : le gouvernement veut accélérer sa légalisation",
+      "url": "https://la1ere.franceinfo.fr/nouvellecaledonie/starlink-coupe-en-nouvelle-caledonie-le-gouvernement-veut-accelerer-sa-legalisation-1751199.html",
+      "publieLe": "2026-10-24T20:00:02.000Z",
+      "nom": "NC la 1ère",
+      "editeur": "France Télévisions"
+    },
+    "slug": "rss-vrai-uybqmr",
+    "source": "NC la 1ère",
+    "sourceColor": "#1800ad",
+    "domain": "la1ere.franceinfo.fr",
+    "titre": "Starlink coupé en Nouvelle-Calédonie : le gouvernement veut accélérer sa légalisation",
+    "texte": "Depuis ce jeudi 22 octobre, des utilisateurs de Starlink signalent une interruption de leur connexion Internet, notamment dans l’Extrême-Nord et aux îles Loyauté.",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
+    "analyseVrai": "Le titre et le texte sont ceux de NC la 1ère, publiés le 25 octobre à 07:00, avec le lien vers l'article.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Une rédaction identifiable",
+        "explication": "NC la 1ère (France Télévisions) signe l’information sur la1ere.franceinfo.fr."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publiée le 25 octobre à 07:00 : on sait de quand date le fait."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Même titre sur la1ere.franceinfo.fr, rien n’a été modifié.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#8a4fbe",
+        "texte": "Enfin une info claire sur le sujet.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#b45309",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
+    "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
+    "consequences": {
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/starlink-coupe-en-nouvelle-caledonie-le-gouvernement-veut-accelerer-sa-legalisation-1751199.html",
+    "learnMoreUrl": "https://la1ere.franceinfo.fr/nouvellecaledonie/starlink-coupe-en-nouvelle-caledonie-le-gouvernement-veut-accelerer-sa-legalisation-1751199.html",
+    "id": 158
+  },
+  {
     "date": "27 octobre à 08:31",
     "image": "https://www.franceinfo.fr/pictures/GAbTInwhXWVR07mJ-Tf_Y2RCgGk/0x59:1024x635/432x243/filters:format(jpg)/2026/10/26/6adfaceb83345040822511.jpg",
     "sponsorise": false,
@@ -24,7 +1914,7 @@
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de franceinfo, publiés le 27 octobre à 08:31, avec le lien vers l'article.",
     "indices": [
       {
@@ -75,7 +1965,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -113,7 +2003,7 @@
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de franceinfo, publiés le 27 octobre à 08:21, avec le lien vers l'article.",
     "indices": [
       {
@@ -164,7 +2054,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -202,7 +2092,7 @@
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Le Monde, publiés le 27 octobre à 07:57, avec le lien vers l'article.",
     "indices": [
       {
@@ -253,7 +2143,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -291,7 +2181,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 07:30, avec le lien vers l'article.",
     "indices": [
       {
@@ -342,7 +2232,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -380,7 +2270,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 27 octobre à 07:30, avec le lien vers l'article.",
     "indices": [
       {
@@ -431,7 +2321,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -469,7 +2359,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Le Monde, publiés le 27 octobre à 06:50, avec le lien vers l'article.",
     "indices": [
       {
@@ -520,7 +2410,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -558,7 +2448,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Le Monde, publiés le 27 octobre à 06:31, avec le lien vers l'article.",
     "indices": [
       {
@@ -609,7 +2499,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -647,7 +2537,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 27 octobre à 06:30, avec le lien vers l'article.",
     "indices": [
       {
@@ -698,7 +2588,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -736,7 +2626,7 @@
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 05:53, avec le lien vers l'article.",
     "indices": [
       {
@@ -787,7 +2677,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -825,7 +2715,7 @@
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Le Monde, publiés le 27 octobre à 05:30, avec le lien vers l'article.",
     "indices": [
       {
@@ -876,7 +2766,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -914,7 +2804,7 @@
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 04:23, avec le lien vers l'article.",
     "indices": [
       {
@@ -965,7 +2855,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1003,7 +2893,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Le Monde, publiés le 27 octobre à 04:15, avec le lien vers l'article.",
     "indices": [
       {
@@ -1054,7 +2944,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1092,7 +2982,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 03:30, avec le lien vers l'article.",
     "indices": [
       {
@@ -1143,7 +3033,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1181,7 +3071,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Radio France Internationale : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de RFI, publiés le 27 octobre à 03:06, avec le lien vers l'article.",
     "indices": [
       {
@@ -1232,7 +3122,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1270,7 +3160,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Le Monde, publiés le 27 octobre à 03:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -1321,7 +3211,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1359,7 +3249,7 @@
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de franceinfo, publiés le 27 octobre à 02:17, avec le lien vers l'article.",
     "indices": [
       {
@@ -1410,7 +3300,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1448,7 +3338,7 @@
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de franceinfo, publiés le 27 octobre à 01:02, avec le lien vers l'article.",
     "indices": [
       {
@@ -1499,7 +3389,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1537,7 +3427,7 @@
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de franceinfo, publiés le 27 octobre à 00:56, avec le lien vers l'article.",
     "indices": [
       {
@@ -1588,7 +3478,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1626,7 +3516,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 27 octobre à 00:48, avec le lien vers l'article.",
     "indices": [
       {
@@ -1677,7 +3567,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1715,7 +3605,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Ushuaïa TV : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Ushuaïa TV : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Ushuaïa TV, publiés le 27 octobre à 00:19, avec le lien vers l'article.",
     "indices": [
       {
@@ -1766,7 +3656,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1804,7 +3694,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outremers360 : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outremers360 : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outremers360, publiés le 26 octobre à 21:31, avec le lien vers l'article.",
     "indices": [
       {
@@ -1855,7 +3745,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1893,7 +3783,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 26 octobre à 20:10, avec le lien vers l'article.",
     "indices": [
       {
@@ -1944,7 +3834,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -1982,7 +3872,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de France TV : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de France TV : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de France TV, publiés le 26 octobre à 20:03, avec le lien vers l'article.",
     "indices": [
       {
@@ -2033,7 +3923,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2071,7 +3961,7 @@
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 26 octobre à 18:04, avec le lien vers l'article.",
     "indices": [
       {
@@ -2122,7 +4012,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2160,7 +4050,7 @@
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 26 octobre à 17:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -2211,7 +4101,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2249,7 +4139,7 @@
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 26 octobre à 15:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -2300,7 +4190,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2338,7 +4228,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 26 octobre à 09:35, avec le lien vers l'article.",
     "indices": [
       {
@@ -2389,7 +4279,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2427,7 +4317,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 26 octobre à 07:40, avec le lien vers l'article.",
     "indices": [
       {
@@ -2478,7 +4368,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2516,7 +4406,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 26 octobre à 06:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -2567,7 +4457,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2605,7 +4495,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 26 octobre à 05:11, avec le lien vers l'article.",
     "indices": [
       {
@@ -2656,7 +4546,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2694,7 +4584,7 @@
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 25 octobre à 19:30, avec le lien vers l'article.",
     "indices": [
       {
@@ -2745,7 +4635,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2783,7 +4673,7 @@
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de NC la 1ère, publiés le 25 octobre à 15:36, avec le lien vers l'article.",
     "indices": [
       {
@@ -2834,7 +4724,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2872,7 +4762,7 @@
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 25 octobre à 09:40, avec le lien vers l'article.",
     "indices": [
       {
@@ -2923,7 +4813,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -2961,7 +4851,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 25 octobre à 07:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -3012,7 +4902,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3050,7 +4940,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 25 octobre à 02:18, avec le lien vers l'article.",
     "indices": [
       {
@@ -3101,7 +4991,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3139,7 +5029,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de France Télévisions : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de NC la 1ère, publiés le 24 octobre à 16:10, avec le lien vers l'article.",
     "indices": [
       {
@@ -3190,7 +5080,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3228,7 +5118,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 24 octobre à 10:52, avec le lien vers l'article.",
     "indices": [
       {
@@ -3279,7 +5169,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3317,7 +5207,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde.fr : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde.fr : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Le Monde.fr, publiés le 24 octobre à 02:44, avec le lien vers l'article.",
     "indices": [
       {
@@ -3368,7 +5258,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3406,7 +5296,7 @@
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Outre-mer La 1ère : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Outre-mer La 1ère, publiés le 24 octobre à 02:29, avec le lien vers l'article.",
     "indices": [
       {
@@ -3457,7 +5347,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3495,7 +5385,7 @@
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 24 octobre à 01:45, avec le lien vers l'article.",
     "indices": [
       {
@@ -3546,7 +5436,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3584,7 +5474,7 @@
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 24 octobre à 00:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -3635,7 +5525,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3673,7 +5563,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 23 octobre à 21:31, avec le lien vers l'article.",
     "indices": [
       {
@@ -3724,7 +5614,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3762,7 +5652,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 23 octobre à 19:21, avec le lien vers l'article.",
     "indices": [
       {
@@ -3813,7 +5703,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3851,7 +5741,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 23 octobre à 18:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -3902,7 +5792,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -3940,7 +5830,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 23 octobre à 16:32, avec le lien vers l'article.",
     "indices": [
       {
@@ -3991,7 +5881,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4029,7 +5919,7 @@
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 22 octobre à 20:38, avec le lien vers l'article.",
     "indices": [
       {
@@ -4080,7 +5970,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4118,7 +6008,7 @@
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 22 octobre à 02:01, avec le lien vers l'article.",
     "indices": [
       {
@@ -4169,7 +6059,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4207,7 +6097,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 22 octobre à 00:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -4258,7 +6148,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4296,7 +6186,7 @@
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 21 octobre à 23:30, avec le lien vers l'article.",
     "indices": [
       {
@@ -4347,7 +6237,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4385,7 +6275,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 21 octobre à 23:07, avec le lien vers l'article.",
     "indices": [
       {
@@ -4436,7 +6326,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4474,7 +6364,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 21 octobre à 23:02, avec le lien vers l'article.",
     "indices": [
       {
@@ -4525,7 +6415,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4563,7 +6453,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de European Commission : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de European Commission : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de European Commission, publiés le 20 octobre à 20:45, avec le lien vers l'article.",
     "indices": [
       {
@@ -4614,7 +6504,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4652,7 +6542,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 20 octobre à 20:24, avec le lien vers l'article.",
     "indices": [
       {
@@ -4703,7 +6593,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4741,7 +6631,7 @@
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 20 octobre à 02:49, avec le lien vers l'article.",
     "indices": [
       {
@@ -4792,7 +6682,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4830,7 +6720,7 @@
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 19 octobre à 23:59, avec le lien vers l'article.",
     "indices": [
       {
@@ -4881,7 +6771,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -4919,7 +6809,7 @@
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 19 octobre à 23:28, avec le lien vers l'article.",
     "indices": [
       {
@@ -4970,7 +6860,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5008,7 +6898,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 19 octobre à 22:28, avec le lien vers l'article.",
     "indices": [
       {
@@ -5059,7 +6949,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5097,7 +6987,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 19 octobre à 04:16, avec le lien vers l'article.",
     "indices": [
       {
@@ -5148,7 +7038,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5186,7 +7076,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 19 octobre à 03:53, avec le lien vers l'article.",
     "indices": [
       {
@@ -5237,7 +7127,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5275,7 +7165,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 19 octobre à 02:48, avec le lien vers l'article.",
     "indices": [
       {
@@ -5326,7 +7216,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5364,7 +7254,7 @@
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 17 octobre à 02:59, avec le lien vers l'article.",
     "indices": [
       {
@@ -5415,7 +7305,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5453,7 +7343,7 @@
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 16 octobre à 14:30, avec le lien vers l'article.",
     "indices": [
       {
@@ -5504,7 +7394,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5542,7 +7432,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 15 octobre à 00:24, avec le lien vers l'article.",
     "indices": [
       {
@@ -5593,7 +7483,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5631,7 +7521,7 @@
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Ouest-France : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Ouest-France : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Ouest-France, publiés le 13 octobre à 18:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -5682,7 +7572,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5720,7 +7610,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 13 octobre à 01:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -5771,7 +7661,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5809,7 +7699,7 @@
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Le Monde : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de Les Décodeurs, publiés le 12 octobre à 22:13, avec le lien vers l'article.",
     "indices": [
       {
@@ -5860,7 +7750,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },
@@ -5898,7 +7788,7 @@
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
-    "explication": "Cette publication reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : elle se partage sans risque.",
+    "explication": "Ce post reprend telle quelle une information de Libération : rédaction identifiable, date, lien vers l'article complet. Rien n'y a été ajouté : il se partage sans risque.",
     "analyseVrai": "Le titre et le texte sont ceux de CheckNews, publiés le 11 octobre à 15:00, avec le lien vers l'article.",
     "indices": [
       {
@@ -5949,7 +7839,7 @@
     "encouragement": "Bon réflexe : une source identifiable, datée et consultable se partage.",
     "warning": "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
     "consequences": {
-      "share": "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+      "share": "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
       "ignore": "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
       "report": "Signaler une information vérifiée et correctement attribuée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
     },

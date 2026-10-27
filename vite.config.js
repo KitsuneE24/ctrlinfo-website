@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, renameSync, rmSync } from 'node:fs'
+import { existsSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -22,12 +22,19 @@ const CHEMIN_ADMIN =
   lire('config.json').admin?.chemin ??
   'admin'
 
-/** Renomme le dossier d'administration selon CHEMIN_ADMIN. */
+const HTPASSWD = process.env.ADMIN_HTPASSWD ?? lire('config.local.json').admin?.htpasswd ?? null
+
 function finirLeBundle() {
   return {
     name: 'finir-le-bundle',
     closeBundle() {
       const dist = resolve(import.meta.dirname, 'dist')
+
+      if (process.env.NETLIFY) {
+        rmSync(resolve(dist, 'admin'), { recursive: true, force: true })
+        console.log('  administration : retirée (Netlify)')
+        return
+      }
 
       if (CHEMIN_ADMIN !== 'admin') {
         const depuis = resolve(dist, 'admin')
@@ -37,7 +44,16 @@ function finirLeBundle() {
           renameSync(depuis, vers)
         }
       }
+      const htaccess = resolve(dist, CHEMIN_ADMIN, '.htaccess')
+      if (HTPASSWD && existsSync(htaccess)) {
+        if (!HTPASSWD.startsWith('/') || /\s/.test(HTPASSWD)) {
+          throw new Error(`admin.htpasswd doit être un chemin absolu sans espace : ${HTPASSWD}`)
+        }
+        const texte = readFileSync(htaccess, 'utf8')
+        writeFileSync(htaccess, texte.replace('/CHEMIN/ABSOLU/A/REGLER/.htpasswd', HTPASSWD))
+      }
       console.log(`  administration : dist/${CHEMIN_ADMIN}/`)
+      console.log(`  mot de passe   : ${HTPASSWD ?? 'à régler (admin.htpasswd dans config.local.json)'}`)
     },
   }
 }

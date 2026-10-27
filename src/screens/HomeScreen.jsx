@@ -194,7 +194,7 @@ export default function HomeScreen() {
                 ref={epingler('instagram', { vers: 'sujet' })}
                 href={INSTAGRAM_URL}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="piece piece--cliche"
                 style={{ '--rotation': '3deg' }}
                 aria-label="Nous suivre sur Instagram : @planke_nc (nouvel onglet)"

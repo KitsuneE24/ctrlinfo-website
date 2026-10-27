@@ -1,5 +1,6 @@
 {
   "admin": {
-    "chemin": "gestion-3f9a2c"
+    "chemin": "gestion-3f9a2c",
+    "htpasswd": "/home/compte/.htpasswd"
   }
 }

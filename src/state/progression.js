@@ -69,59 +69,70 @@ function ecrire(etat) {
   }
 }
 
-/**
- * Un état relu, complété de ce qui lui manque.
- *
- * Deux origines à traiter : un `localStorage` écrit par une version antérieure
- * du site, et un code collé par le joueur. Dans les deux cas on ne fait pas
- * confiance à la forme — un champ absent vaut mieux qu'un écran cassé — mais
- * on ne jette rien de ce qui est utilisable.
- */
-function fusionner(recu) {
+// Valide un état relu (ancien stockage ou code collé).
+function fusionner(recu, { depuisCode = false } = {}) {
   const base = vide()
   if (!recu || typeof recu !== 'object') return base
 
   const fil = recu.fil && typeof recu.fil === 'object' ? recu.fil : {}
-  const nombre = (valeur, defaut) => (Number.isFinite(valeur) ? valeur : defaut)
+  const decisions = entier(fil.decisions, 0, PLAFOND, 0)
 
   return {
     version: VERSION,
-    pseudo: typeof recu.pseudo === 'string' ? recu.pseudo.slice(0, 40) : '',
-    avatar: typeof recu.avatar === 'string' ? recu.avatar : null,
+    pseudo: typeof recu.pseudo === 'string' ? nettoyerPseudo(recu.pseudo) : '',
+    avatar: typeof recu.avatar === 'string' && IDENTIFIANT.test(recu.avatar) ? recu.avatar : null,
     fil: {
-      niveau: Math.min(Math.max(nombre(fil.niveau, 1), 1), 999),
-      vus: Array.isArray(fil.vus) ? fil.vus.filter((slug) => typeof slug === 'string') : [],
-      decisions: nombre(fil.decisions, 0),
-      justes: nombre(fil.justes, 0),
-      points: nombre(fil.points, 0),
+      niveau: entier(fil.niveau, 1, 999, 1),
+      vus:
+        !depuisCode && Array.isArray(fil.vus)
+          ? fil.vus.filter((slug) => typeof slug === 'string' && slug.length <= 100).slice(-5000)
+          : [],
+      decisions,
+      justes: Math.min(entier(fil.justes, 0, PLAFOND, 0), decisions),
+      points: entier(fil.points, -PLAFOND, PLAFOND, 0),
       biais: lireBiais(fil.biais),
     },
-    conversations: lireConversations(recu.conversations),
+    conversations: lireConversations(recu.conversations, depuisCode),
   }
+}
+
+const PLAFOND = 1_000_000_000
+const IDENTIFIANT = /^[a-z0-9-]{1,80}$/
+const CLES_INTERDITES = new Set(['__proto__', 'constructor', 'prototype'])
+// Caractères de contrôle et invisibles, sauf la jonction des emojis.
+const INVISIBLES = /(?!\u200d)[\p{Cc}\p{Cf}]/gu
+
+function entier(valeur, min, max, defaut) {
+  return Number.isFinite(valeur) ? Math.min(Math.max(Math.trunc(valeur), min), max) : defaut
+}
+
+function nettoyerPseudo(pseudo) {
+  return pseudo.replace(INVISIBLES, '').trim().slice(0, 40)
 }
 
 function lireBiais(recu) {
   if (!recu || typeof recu !== 'object') return {}
   const propre = {}
-  for (const [nom, compte] of Object.entries(recu)) {
-    if (!compte || typeof compte !== 'object') continue
-    const total = Number.isFinite(compte.total) ? compte.total : 0
-    const justes = Number.isFinite(compte.justes) ? compte.justes : 0
-    if (total > 0) propre[nom] = { total, justes: Math.min(justes, total) }
+  for (const [nom, compte] of Object.entries(recu).slice(0, 100)) {
+    if (nom.length > 80 || CLES_INTERDITES.has(nom) || !compte || typeof compte !== 'object') continue
+    const total = entier(compte.total, 0, PLAFOND, 0)
+    if (total > 0) propre[nom] = { total, justes: Math.min(entier(compte.justes, 0, PLAFOND, 0), total) }
   }
   return propre
 }
 
-function lireConversations(recu) {
+function lireConversations(recu, depuisCode) {
   if (!recu || typeof recu !== 'object') return {}
   const propre = {}
-  for (const [slug, entree] of Object.entries(recu)) {
-    if (!entree || typeof entree !== 'object') continue
+  for (const [slug, entree] of Object.entries(recu).slice(0, 1000)) {
+    if (!IDENTIFIANT.test(slug) || CLES_INTERDITES.has(slug) || !entree || typeof entree !== 'object') continue
+    const total = entier(entree.total, 0, 1000, 0)
+    const encours = !depuisCode && entree.encours && typeof entree.encours === 'object' ? entree.encours : null
     propre[slug] = {
       faite: entree.faite === true,
-      score: Number.isFinite(entree.score) ? entree.score : 0,
-      total: Number.isFinite(entree.total) ? entree.total : 0,
-      encours: entree.encours && typeof entree.encours === 'object' ? entree.encours : null,
+      score: Math.min(entier(entree.score, 0, 1000, 0), total),
+      total,
+      encours,
     }
   }
   return propre
@@ -188,7 +199,7 @@ export function noterDecision({ slug, biais, juste, points = 0 }) {
       vus,
       decisions: fil.decisions + 1,
       justes: fil.justes + (juste ? 1 : 0),
-      points: fil.points + points,
+      points: fil.points + Math.min(Math.max(Number(points) || 0, -POINTS_MAX), POINTS_MAX),
       biais: biaisSuivant,
     },
   })
@@ -245,43 +256,55 @@ export function noterAvatar(avatarId) {
 }
 
 export function noterPseudo(pseudo) {
-  appliquer({ ...etat, pseudo: pseudo.trim().slice(0, 40) })
+  appliquer({ ...etat, pseudo: nettoyerPseudo(pseudo) })
 }
 
-// ── Export et restauration ───────────────────────────────────────────────────
-
-/**
- * Ce que le code de progression transporte.
- *
- * Volontairement moins que ce que garde le navigateur : le fil d'une
- * conversation entamée en reste dehors. Un code sert à emporter son avancement
- * sur un autre appareil, pas à figer une discussion à moitié lue — et c'est ce
- * fil qui pèserait le plus lourd dans la chaîne.
- */
-export function exportable() {
+// Sans les publications vues, pour garder un code court.
+export function exportable(conversationsEnLigne = []) {
+  const enLigne = new Set(conversationsEnLigne)
   const conversations = {}
   for (const [slug, entree] of Object.entries(etat.conversations)) {
-    if (entree.faite) conversations[slug] = { faite: true, score: entree.score, total: entree.total }
+    if (entree.faite && enLigne.has(slug)) {
+      conversations[slug] = { faite: true, score: entree.score, total: entree.total }
+    }
   }
-  return {
-    version: VERSION,
-    pseudo: etat.pseudo,
-    avatar: etat.avatar,
-    fil: etat.fil,
-    conversations,
-  }
+  const fil = { ...etat.fil }
+  delete fil.vus
+  return { version: VERSION, pseudo: etat.pseudo, avatar: etat.avatar, fil, conversations }
 }
 
-/**
- * Remplacer la progression par celle d'un code.
- *
- * Rend `false` si ce qu'on lui donne n'est pas une progression CTRL INFO : le
- * code était lisible, mais il ne parlait pas de ce jeu. L'appelant en fait un
- * message ; ici on ne touche à rien.
- */
+export const POINTS_MAX = 100
+
+export function incoherence(recu) {
+  const fil = recu?.fil
+  if (!fil || typeof fil !== 'object') return null
+  const n = (valeur) => (Number.isFinite(valeur) ? valeur : 0)
+  const decisions = n(fil.decisions)
+  const justes = n(fil.justes)
+
+  if (justes > decisions) return 'il compte plus de bonnes réponses que de décisions'
+  // Un niveau ne se passe qu'en finissant un lot, donc avec au moins une décision.
+  if (n(fil.niveau) - 1 > decisions) return 'son niveau est trop élevé pour le nombre de décisions'
+  if (Math.abs(n(fil.points)) > decisions * POINTS_MAX) {
+    return 'il compte plus de points que ses décisions ne peuvent en rapporter'
+  }
+
+  const comptes = Object.values(fil.biais && typeof fil.biais === 'object' ? fil.biais : {}).filter(
+    (compte) => compte && typeof compte === 'object'
+  )
+  const totalBiais = comptes.reduce((somme, compte) => somme + n(compte.total), 0)
+  const justesBiais = comptes.reduce((somme, compte) => somme + n(compte.justes), 0)
+  if (comptes.some((compte) => n(compte.justes) > n(compte.total)) || totalBiais > decisions || justesBiais > justes) {
+    return 'ses biais ne correspondent pas à ses décisions'
+  }
+  return null
+}
+
 export function remplacer(recu) {
   if (!recu || typeof recu !== 'object' || !recu.fil || typeof recu.fil !== 'object') return false
-  appliquer(fusionner(recu))
+  if (incoherence(recu)) return false
+  const suivant = fusionner(recu, { depuisCode: true })
+  appliquer({ ...suivant, fil: { ...suivant.fil, vus: etat.fil.vus } })
   return true
 }
 

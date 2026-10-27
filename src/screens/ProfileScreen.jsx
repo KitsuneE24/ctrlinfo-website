@@ -100,10 +100,9 @@ export default function ProfileScreen() {
   const { donnees: avatars } = useRessource(getAvatars, [])
 
   const { fil } = etat
-  const faites = Object.values(etat.conversations).filter((c) => c.faite).length
+  const faites = (conversations ?? []).filter((c) => etat.conversations[c.id]?.faite).length
   const reussite = fil.decisions > 0 ? Math.round((fil.justes / fil.decisions) * 100) : 0
 
-  // Biais vus au moins 3 fois, du plus raté au moins raté.
   const biais = Object.entries(fil.biais)
     .filter(([, compte]) => compte.total >= 3)
     .map(([nom, compte]) => ({
@@ -167,7 +166,7 @@ export default function ProfileScreen() {
 
           <div className="profil-jauges">
             <Jauge libelle="Niveaux du fil" fait={fil.niveau} total={Infinity} />
-            <Jauge libelle="Publications" fait={fil.vus.length} total={Infinity} />
+            <Jauge libelle="Posts" fait={fil.decisions} total={Infinity} />
             <Jauge
               libelle="Conversations"
               fait={faites}

@@ -16,7 +16,9 @@ export function ErreurChargement({ erreur, onReessayer }) {
       <AlertTriangle size={22} strokeWidth={2} />
       <p className="etat-api__titre">Contenu indisponible</p>
       <p className="etat-api__texte">
-        {erreur?.message ?? 'Le fichier donnees/contenu.json n’a pas pu être lu.'}
+        {import.meta.env.DEV && erreur?.message
+          ? erreur.message
+          : 'Le jeu n’a pas pu se charger. Vérifiez votre connexion, puis réessayez.'}
       </p>
       {onReessayer && (
         <button type="button" onClick={onReessayer} className="bouton bouton--plein bouton--large">

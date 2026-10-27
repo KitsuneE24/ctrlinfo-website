@@ -16,7 +16,7 @@ function Texte({ texte }) {
       <a
         key={i}
         href={courriel ? `mailto:${morceau}` : morceau}
-        {...(courriel ? {} : { target: '_blank', rel: 'noreferrer' })}
+        {...(courriel ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
       >
         {morceau.replace(/^https?:\/\//, '')}
       </a>

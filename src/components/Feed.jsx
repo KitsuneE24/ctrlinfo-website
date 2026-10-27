@@ -10,11 +10,10 @@ import FeedStats from './FeedStats'
 import PostCard from './PostCard'
 import FeedbackModal from './FeedbackModal'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
+import { lienWeb } from '../lib/lienWeb'
 
-/** Durée d'affichage de l'annonce d'un nouveau niveau. */
 const ANNONCE_MS = 6000
 
-/** Annonce d'un nouveau niveau, par-dessus le fil. */
 function AnnonceNiveau({ regles, suite, onFermer, onSwitch }) {
   useEffect(() => {
     const minuteur = setTimeout(onFermer, ANNONCE_MS)
@@ -184,7 +183,7 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
         post={currentPost}
         action={action}
         onDismiss={handleDismiss}
-        onLearnMore={(url) => window.open(url, '_blank', 'noopener,noreferrer')}
+        onLearnMore={(url) => lienWeb(url) && window.open(url, '_blank', 'noopener,noreferrer')}
       />
 
       {annonce && regles && !chargement && (

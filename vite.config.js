@@ -15,6 +15,9 @@ const CHEMIN_ADMIN =
   lire('config.json').admin?.chemin ??
   'admin'
 
+// Adresse devinable ou laissée à l'exemple (ancien compris) : pas d'admin dans le build.
+const ADRESSE_CHOISIE = /^[a-z0-9-]{12,}$/i.test(CHEMIN_ADMIN) && !/^(admin|A-CHOISIR|gestion-3f9a2c)$/i.test(CHEMIN_ADMIN)
+
 const HTPASSWD = process.env.ADMIN_HTPASSWD ?? lire('config.local.json').admin?.htpasswd ?? null
 
 function finirLeBundle() {
@@ -26,6 +29,12 @@ function finirLeBundle() {
       if (process.env.NETLIFY) {
         rmSync(resolve(dist, 'admin'), { recursive: true, force: true })
         console.log('  administration : retirée (Netlify)')
+        return
+      }
+
+      if (!ADRESSE_CHOISIE) {
+        rmSync(resolve(dist, 'admin'), { recursive: true, force: true })
+        console.log('  administration : retirée (adresse à choisir dans config.local.json, 12 caractères ou plus)')
         return
       }
 

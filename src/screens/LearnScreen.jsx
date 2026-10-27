@@ -11,6 +11,8 @@ import Page from '../components/ui/Page'
 import { FilsRouges } from '../components/TableauEnquete'
 import { useFilRouge } from '../lib/useFilRouge'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
+import Riche from '../components/ui/Riche'
+import { lienWeb } from '../lib/lienWeb'
 
 function Icone({ nom, size }) {
   return createElement(icone(nom), { size, strokeWidth: 1.9 })
@@ -25,20 +27,27 @@ function Coupures({ notes }) {
   return notes?.map((note) => (
     <div key={note.label} className="coupure">
       <p className="coupure__label">{note.label}</p>
-      <p className="coupure__texte">{note.texte}</p>
+      <p className="coupure__texte"><Riche texte={note.texte} /></p>
+      {lienWeb(note.source?.url) && (
+        <p className="coupure__source">
+          <a href={note.source.url} target="_blank" rel="noopener noreferrer">
+            Source : {note.source.texte}
+          </a>
+        </p>
+      )}
     </div>
   ))
 }
 
-function Piece({ entree, rang, epingle }) {
+function Piece({ entree, rang, epingle, Titre = 'h2' }) {
   const { surtitre, titre, texte, notes } = entree
 
   return (
     <li ref={epingle} className="note-dossier">
       <span className="punaise" aria-hidden="true" />
       <p className="note-dossier__repere">{repere(surtitre, rang)}</p>
-      {titre && <h3 className="note-dossier__titre">{titre}</h3>}
-      {texte && <p className="note-dossier__texte">{texte}</p>}
+      {titre && <Titre className="note-dossier__titre">{titre}</Titre>}
+      {texte && <p className="note-dossier__texte"><Riche texte={texte} /></p>}
       <Coupures notes={notes} />
     </li>
   )
@@ -69,7 +78,7 @@ function Bloc({ bloc, id, epingler }) {
         <p className="conseil__label">{titre ?? 'Le réflexe'}</p>
         {paragraphes?.map((p) => (
           <p key={p} className="conseil__texte">
-            {p}
+            <Riche texte={p} />
           </p>
         ))}
       </div>
@@ -79,13 +88,13 @@ function Bloc({ bloc, id, epingler }) {
   if (genre === 'CHIFFRES') {
     return (
       <div className="bloc">
-        {titre && <h3 className="bloc__titre">{titre}</h3>}
+        {titre && <h2 className="bloc__titre">{titre}</h2>}
         <ul className="scelles">
           {entrees?.map((entree, i) => (
             <li key={entree.titre} className="scelle">
               <p className="scelle__numero">Scellé n° {i + 1}</p>
               <p className="scelle__valeur">{entree.titre}</p>
-              <p className="scelle__texte">{entree.texte}</p>
+              <p className="scelle__texte"><Riche texte={entree.texte} /></p>
             </li>
           ))}
         </ul>
@@ -101,7 +110,7 @@ function Bloc({ bloc, id, epingler }) {
         <Illustration image={image} legende={legende} picto={picto} />
         {paragraphes?.map((p) => (
           <p key={p} className="rapport__texte">
-            {p}
+            <Riche texte={p} />
           </p>
         ))}
       </div>
@@ -110,7 +119,7 @@ function Bloc({ bloc, id, epingler }) {
 
   return (
     <div className="bloc">
-      {titre && <h3 className="bloc__titre">{titre}</h3>}
+      {titre && <h2 className="bloc__titre">{titre}</h2>}
       <Illustration image={image} legende={legende} picto={picto} />
       <ol className="notes-dossier">
         {entrees?.map((entree, i) => (
@@ -119,6 +128,7 @@ function Bloc({ bloc, id, epingler }) {
             entree={entree}
             rang={i + 1}
             epingle={epingler(`${id}-${i}`)}
+            Titre={titre ? 'h3' : 'h2'}
           />
         ))}
       </ol>
@@ -153,7 +163,7 @@ function Couverture({ chapitre }) {
         </span>
         <p className="tampon chemise__tampon">Dossier n° {chapitre.numero}</p>
         <h1 className="chemise__titre">{chapitre.titre}</h1>
-        <p className="chemise__chapo">{chapitre.chapo}</p>
+        <p className="chemise__chapo"><Riche texte={chapitre.chapo} /></p>
         <p className="chemise__meta">
           {pieces > 0 && `${pieces} pièces au dossier · `}Lecture 2 min
         </p>
@@ -170,15 +180,17 @@ function Suite({ chapitre }) {
   return (
     <footer className="chapitre__pied">
       <p className="chapitre__pied-titre">Poursuivre l'enquête</p>
-      <a
-        href={chapitre.lien.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bouton bouton--petit chapitre-lien"
-      >
-        <ExternalLink size={14} strokeWidth={2} />
-        {chapitre.lien.texte}
-      </a>
+      {lienWeb(chapitre.lien?.url) && (
+        <a
+          href={chapitre.lien.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bouton bouton--petit chapitre-lien"
+        >
+          <ExternalLink size={14} strokeWidth={2} />
+          {chapitre.lien.texte}
+        </a>
+      )}
 
       {suivant && (
         <Link
@@ -270,8 +282,8 @@ export default function LearnScreen() {
         <p className="etiquette learn-hero__eyebrow">Ressources</p>
         <h1 className="learn-hero__title">Ce qu'il faut savoir avant de partager.</h1>
         <p className="learn-hero__lead">
-          Huit thèmes courts. Chacun se lit en deux minutes et mène vers un site
-          qui va plus loin.
+          Huit thèmes courts, chacun lisible en deux minutes, avec des cas réels
+          et leurs sources.
         </p>
       </Banniere>
 
@@ -282,7 +294,7 @@ export default function LearnScreen() {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Chercher un thème: le complotisme, les biais…"
+            placeholder="Chercher un thème : le complotisme, les biais…"
             aria-label="Chercher un thème"
             className="search-field__input"
           />
@@ -304,7 +316,7 @@ export default function LearnScreen() {
         ) : resultats.length === 0 ? (
           <div className="empty-result">
             <p className="empty-result__title">Aucun thème ne correspond</p>
-            <p className="empty-result__text">Essaie un autre mot-clé.</p>
+            <p className="empty-result__text">Essayez un autre mot-clé.</p>
           </div>
         ) : (
           <ul className="themes">
@@ -312,7 +324,6 @@ export default function LearnScreen() {
               <li key={chapitre.id}>
                 <Link
                   to={chapterPath(chapitre.id)}
-                  aria-label={`Ouvrir le thème « ${chapitre.titre} »`}
                   className="theme"
                   style={{ background: chapitre.couleur }}
                 >
@@ -341,7 +352,7 @@ export default function LearnScreen() {
         )}
 
         <section className="entry-card">
-          <h2 className="entry-card__title">À toi de jouer</h2>
+          <h2 className="entry-card__title">À vous de jouer</h2>
           <p className="entry-card__text">
             Lire, c'est bien. Se faire piéger pour de faux, c'est mieux : le
             fil d'actualité reprend tout ce qui précède, mais en situation.

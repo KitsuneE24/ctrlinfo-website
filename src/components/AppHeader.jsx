@@ -21,7 +21,7 @@ export default function AppHeader() {
         <Link
           to={PATHS.home}
           onClick={garder(PATHS.home)}
-          aria-label="CTRL INFO — retour à l'accueil"
+          aria-label="CTRL INFO, retour à l'accueil"
           className="app-header__home"
         >
           <img

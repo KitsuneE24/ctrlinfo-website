@@ -93,7 +93,7 @@ export default function AppShell() {
       <div className="app">
         <AppHeader />
 
-        <div className="app__main">
+        <main className="app__main">
           <div key={pathname} className="app__screen anim-apparait">
             {/* `runKey` ne change qu'au premier départ : rouvrir les règles met en pause. */}
             <Outlet
@@ -108,8 +108,8 @@ export default function AppShell() {
 
           {departVisible && <GameStart jeu={jeu} reprise={lancee} onStart={commencer} />}
 
-          {compagnonVisible && <Compagnon enJeu={enPartie && !departVisible} />}
-        </div>
+          {compagnonVisible && <Compagnon jeu={enPartie && !departVisible ? gameId : null} />}
+        </main>
 
         <TabBar />
 

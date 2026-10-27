@@ -30,14 +30,14 @@ jobs:
       ENVOI_UTILISATEUR: ${{ secrets.ENVOI_UTILISATEUR }}
       ENVOI_DOSSIER: ${{ secrets.ENVOI_DOSSIER }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 24
           cache: npm
 
-      - run: npm ci
+      - run: npm ci --ignore-scripts
 
       - run: npm run recolter
 
@@ -60,16 +60,27 @@ jobs:
         if: env.ENVOI_HOTE != ''
         env:
           LFTP_PASSWORD: ${{ secrets.ENVOI_MOT_DE_PASSE }}
+          ENVOI_CLE_HOTE: ${{ secrets.ENVOI_CLE_HOTE }}
         run: |
+          case "$ENVOI_PROTOCOLE" in
+            sftp)
+              if [ -z "$ENVOI_CLE_HOTE" ]; then
+                echo "::error::ENVOI_CLE_HOTE manquant : la clé du serveur SFTP doit être connue (voir README.md, § 6)."
+                exit 1
+              fi
+              mkdir -p ~/.ssh && chmod 700 ~/.ssh
+              printf '%s\n' "$ENVOI_CLE_HOTE" > ~/.ssh/known_hosts && chmod 600 ~/.ssh/known_hosts
+              URL="sftp://$ENVOI_HOTE"
+              REGLAGES="set sftp:auto-confirm no; set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=yes'" ;;
+            ftps|'')
+              URL="ftp://$ENVOI_HOTE"
+              REGLAGES="set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate true" ;;
+            *)
+              echo "::error::ENVOI_PROTOCOLE « $ENVOI_PROTOCOLE » refusé : sftp ou ftps seulement (le FTP simple envoie le mot de passe en clair)."
+              exit 1 ;;
+          esac
           sudo apt-get update -qq
           sudo apt-get install -y -qq lftp
-          case "$ENVOI_PROTOCOLE" in
-            sftp) URL="sftp://$ENVOI_HOTE"; REGLAGES="set sftp:auto-confirm yes" ;;
-            ftp)  URL="ftp://$ENVOI_HOTE";  REGLAGES="set ftp:ssl-allow no" ;;
-            *)    URL="ftp://$ENVOI_HOTE";  REGLAGES="set ftp:ssl-force true; set ftp:ssl-protect-data true" ;;
-          esac
-          # Chaque fichier part sous un nom provisoire, puis remplace l'ancien :
-          # un visiteur ne lit jamais un fichier à moitié envoyé.
           COMMANDES=""
           for f in contenu posts-vrais posts-faux; do
             COMMANDES="$COMMANDES put public/donnees/$f.json -o $f.json.envoi; rm -f $f.json; mv $f.json.envoi $f.json;"

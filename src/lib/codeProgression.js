@@ -107,19 +107,38 @@ async function comprimer(octets) {
   }
 }
 
-function decomprimer(octets) {
+// Limite contre une charge qui gonflerait à la décompression.
+const OCTETS_MAX = 64 * 1024
+
+async function decomprimer(octets) {
   if (typeof DecompressionStream === 'undefined') {
     throw new ErreurCode(
       'compression',
-      "Ce navigateur ne sait pas lire ce code. Ouvre le site dans un navigateur à jour, ou demande un code exporté depuis celui-ci."
+      "Ce navigateur ne sait pas lire ce code. Ouvrez le site dans un navigateur à jour, ou demandez un code exporté depuis celui-ci."
     )
   }
-  return flux(octets, new DecompressionStream('deflate-raw'))
+  const lecteur = new Blob([octets]).stream().pipeThrough(new DecompressionStream('deflate-raw')).getReader()
+  const morceaux = []
+  let taille = 0
+  for (;;) {
+    const { done, value } = await lecteur.read()
+    if (done) break
+    taille += value.length
+    if (taille > OCTETS_MAX) {
+      await lecteur.cancel()
+      throw new ErreurCode('forme', "Ce texte contient bien trop de données pour être un code de progression.")
+    }
+    morceaux.push(value)
+  }
+  const resultat = new Uint8Array(taille)
+  let position = 0
+  for (const morceau of morceaux) {
+    resultat.set(morceau, position)
+    position += morceau.length
+  }
+  return resultat
 }
 
-// ── Écrire ───────────────────────────────────────────────────────────────────
-
-/** Le code d'un état. Toujours lisible par `decoderCode`. */
 export async function encoderCode(etat) {
   const octets = new TextEncoder().encode(JSON.stringify(etat))
   const somme = empreinte(octets).toString(36)
@@ -147,7 +166,10 @@ export async function encoderCode(etat) {
 export async function decoderCode(code) {
   const propre = (code ?? '').trim().replaceAll(/\s+/g, '')
   if (propre === '') {
-    throw new ErreurCode('vide', 'Colle ton code de progression dans le champ.')
+    throw new ErreurCode('vide', 'Collez votre code de progression dans le champ.')
+  }
+  if (propre.length > 10_000) {
+    throw new ErreurCode('forme', "Ce texte est bien trop long pour être un code de progression.")
   }
 
   const morceaux = propre.split('.')

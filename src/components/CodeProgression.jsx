@@ -1,29 +1,10 @@
 import { useState } from 'react'
 import { Check, ClipboardCopy, Download, RotateCcw, TriangleAlert, Upload } from 'lucide-react'
+import { getConversations } from '../api/contenu'
 import { ErreurCode, decoderCode, encoderCode } from '../lib/codeProgression'
-import { exportable, reinitialiser, remplacer } from '../state/progression'
+import { exportable, incoherence, reinitialiser, remplacer } from '../state/progression'
 import { useProgression } from '../state/useProgression'
 
-/**
- * Le code de progression : l'emporter, le remettre.
- *
- * C'est ce qui remplace le compte. Sans lui, une progression ne quitte pas le
- * navigateur où elle a été faite — et disparaît avec un nettoyage de l'
- * historique. Le code est donc présenté pour ce qu'il est : la sauvegarde, et
- * la seule.
- *
- * Trois précautions, qui font l'essentiel du composant :
- *
- *   1. le code n'apparaît que sur demande, dans une zone en lecture seule qu'on
- *      ne peut pas modifier par mégarde ;
- *   2. restaurer **écrase** l'avancement local : quand il y a quelque chose à
- *      perdre, on le dit et on demande une seconde fois. Le code est décodé
- *      avant cette question, pour ne pas faire hésiter le joueur sur un code de
- *      toute façon illisible ;
- *   3. un refus dit *pourquoi* — pas « code invalide ». `codeProgression.js`
- *      distingue un code tronqué, un code d'une autre version et un code abîmé
- *      au copier-coller ; ce sont trois gestes différents à proposer.
- */
 export default function CodeProgression() {
   const etat = useProgression()
 
@@ -42,7 +23,8 @@ export default function CodeProgression() {
 
   async function exporter() {
     setCopie(false)
-    setCode(await encoderCode(exportable()))
+    const enLigne = await getConversations().catch(() => [])
+    setCode(await encoderCode(exportable(enLigne.map((conversation) => conversation.id))))
   }
 
   async function copier() {
@@ -62,6 +44,11 @@ export default function CodeProgression() {
     setRestaure(false)
     try {
       const recu = await decoderCode(saisie)
+      const probleme = incoherence(recu)
+      if (probleme) {
+        setErreur(`Ce code a été modifié et ne peut pas être restauré : ${probleme}.`)
+        return
+      }
       if (aQuelqueChose) setAConfirmer(recu)
       else appliquer(recu)
     } catch (echec) {

@@ -7,7 +7,17 @@
 [build.environment]
   NODE_VERSION = "24"
 
-# Adresses profondes (/fil, /profil…) : servies par index.html, statut 200.
+# Mêmes en-têtes que public/.htaccess.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; media-src 'self' https:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

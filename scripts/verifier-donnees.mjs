@@ -70,6 +70,9 @@ function verifierPosts(posts, nom, isFake) {
     if (!Number.isInteger(post.level)) signaler(`${ici} : niveau absent`)
     if (!ACTIONS.includes(post.correctAction)) signaler(`${ici} : correctAction inconnue`)
     if (typeof post.scores?.[post.correctAction] !== 'number') signaler(`${ici} : pas de score pour la bonne action`)
+    if (Object.values(post.scores ?? {}).some((score) => typeof score !== 'number' || Math.abs(score) > 100)) {
+      signaler(`${ici} : score hors de -100 à 100`)
+    }
     if (post.image && !/^https?:\/\//.test(post.image) && !post.image.startsWith('/')) signaler(`${ici} : adresse d'image invalide`)
   }
 }
@@ -85,6 +88,28 @@ if (contenu && Array.isArray(vrais) && Array.isArray(faux)) {
     else if (v + f < (niveau.taille ?? 5)) signaler(`niveau ${niveau.level} : ${v + f} publications pour un lot de ${niveau.taille}`)
   }
 }
+
+const SCHEMA = /^\s*([a-z][a-z0-9+.-]*):/i
+const SCHEMAS_PERMIS = ['http', 'https', 'mailto']
+const CLES_ADRESSE = /^(url|href|image|couverture|sourceUrl|learnMoreUrl|learnMoreTips)$/
+const adresseRefusee = (v) => {
+  const schema = SCHEMA.exec(v)?.[1].toLowerCase()
+  return schema !== undefined && !SCHEMAS_PERMIS.includes(schema)
+}
+function verifierAdresses(valeur, ou) {
+  if (Array.isArray(valeur)) valeur.forEach((v, i) => verifierAdresses(v, `${ou}[${i}]`))
+  else if (valeur && typeof valeur === 'object') {
+    for (const [cle, v] of Object.entries(valeur)) {
+      if (CLES_ADRESSE.test(cle) && typeof v === 'string' && adresseRefusee(v)) {
+        signaler(`${ou}.${cle} : adresse refusée « ${v.slice(0, 60)} »`)
+      }
+      verifierAdresses(v, `${ou}.${cle}`)
+    }
+  }
+}
+verifierAdresses(contenu, 'contenu.json')
+verifierAdresses(vrais, 'posts-vrais.json')
+verifierAdresses(faux, 'posts-faux.json')
 
 if (problemes.length > 0) {
   console.error(`${problemes.length} problème(s) dans public/donnees/ :`)

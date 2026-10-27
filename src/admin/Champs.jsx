@@ -114,7 +114,11 @@ function ChampListe({ sur, cle, profondeur }) {
             <button type="button" onClick={() => deplacer(liste, i, 1)} aria-label="Descendre">
               <ChevronDown size={15} strokeWidth={2.2} />
             </button>
-            <button type="button" onClick={() => retirer(liste, i)} aria-label="Retirer">
+            <button
+              type="button"
+              onClick={() => window.confirm(`Retirer l’élément n° ${i + 1} ?`) && retirer(liste, i)}
+              aria-label="Retirer"
+            >
               <Trash2 size={14} strokeWidth={2.2} />
             </button>
           </div>

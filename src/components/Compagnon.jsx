@@ -9,13 +9,15 @@ import {
   LARGEUR,
   MARGE,
   REACTIONS,
-  REPLIQUES_JEU,
   SOL,
   VITESSE,
+  auHasard,
   decalage,
   dureeLecture,
+  lignesDeReaction,
   lirePlace,
   postureDe,
+  repliquesDuJeu,
   repliquesPour,
   retenirPlace,
   stylePosture,
@@ -24,6 +26,8 @@ import { dejaVu, marquerVu } from '../lib/premiereFois'
 import { ecouterLeCompagnon } from '../state/compagnonSignaux'
 
 const BULLE_MAX = 250
+
+const AUCUNE = []
 
 const POINTE = 16
 
@@ -49,13 +53,16 @@ const COLONNES_PAR_IMAGE = 6
 
 const PAUSE_BALADE = { min: 4000, ecart: 5000 }
 
-export default function Compagnon({ enJeu = false }) {
+export default function Compagnon({ jeu = null }) {
   const { pathname } = useLocation()
+  const enJeu = jeu !== null
 
   const sceneRef = useRef(null)
   const boiteRef = useRef(null)
   const spriteRef = useRef(null)
   const enJeuRef = useRef(enJeu)
+  const jeuRef = useRef(jeu)
+  const derniere = useRef(null)
   const ignorerClic = useRef(false)
   const bulleRef = useRef(null)
   const libreRef = useRef(true)
@@ -67,13 +74,14 @@ export default function Compagnon({ enJeu = false }) {
   const [atterrit, setAtterrit] = useState(false)
   const [bulle, setBulle] = useState(null)
 
-  const [file, setFile] = useState({ chemin: pathname, dits: 0 })
+  const cle = enJeu ? `jeu:${jeu}` : pathname
+  const [file, setFile] = useState({ cle, dites: [] })
 
   const [reporte, setReporte] = useState(0)
 
-  const lignes = enJeu ? REPLIQUES_JEU : repliquesPour(pathname)
-  const dits = file.chemin === pathname ? file.dits : 0
-  const reste = dits < lignes.length
+  const lignes = enJeu ? repliquesDuJeu(jeu) : repliquesPour(pathname)
+  const dites = file.cle === cle ? file.dites : AUCUNE
+  const reste = dites.length < lignes.length
 
   // `x` depuis le bord gauche, `y` depuis le sol.
   const etat = useRef({
@@ -126,10 +134,12 @@ export default function Compagnon({ enJeu = false }) {
   )
 
   const parler = useCallback(() => {
-    dire(lignes[dits % lignes.length])
-    setFile({ chemin: pathname, dits: dits + 1 })
+    const ligne = auHasard(lignes, [...dites, derniere.current])
+    derniere.current = ligne
+    dire(ligne)
+    setFile({ cle, dites: [...dites, ligne] })
     setReporte(0)
-  }, [dire, dits, lignes, pathname])
+  }, [cle, dire, dites, lignes])
 
   const reagir = useCallback(
     (nom) => {
@@ -142,8 +152,9 @@ export default function Compagnon({ enJeu = false }) {
       compteurs[nom] = compte
       if (compte % reaction.serie !== 0) return
 
-      const rang = compte / reaction.serie - 1
-      dire(reaction.lignes[rang % reaction.lignes.length])
+      const ligne = auHasard(lignesDeReaction(reaction, jeuRef.current), [derniere.current])
+      derniere.current = ligne
+      dire(ligne)
     },
     [dire]
   )
@@ -153,7 +164,7 @@ export default function Compagnon({ enJeu = false }) {
   // Reporte s'il parle déjà, est tenu, ou devant du contenu (3 fois max).
   useEffect(() => {
     if (!reste) return undefined
-    const delai = reporte > 0 ? REPORT : dits === 0 ? ATTENTE_ECRAN : ATTENTE_INACTIF
+    const delai = reporte > 0 ? REPORT : dites.length === 0 ? ATTENTE_ECRAN : ATTENTE_INACTIF
     const attente = setTimeout(() => {
       const malVenu =
         bulleRef.current ||
@@ -163,7 +174,7 @@ export default function Compagnon({ enJeu = false }) {
       else parler()
     }, delai)
     return () => clearTimeout(attente)
-  }, [dits, parler, reporte, reste])
+  }, [dites.length, parler, reporte, reste])
 
   useEffect(() => {
     if (dejaVu('compagnon')) return undefined
@@ -181,6 +192,7 @@ export default function Compagnon({ enJeu = false }) {
 
   useEffect(() => {
     enJeuRef.current = enJeu
+    jeuRef.current = jeu
     etat.current.cible = null
     if (!enJeu) {
       majPosture('repos')
@@ -190,10 +202,10 @@ export default function Compagnon({ enJeu = false }) {
     if (dejaVu('compagnon-jeu')) return undefined
     const attente = setTimeout(() => {
       marquerVu('compagnon-jeu')
-      dire(REPLIQUES_JEU[0])
+      dire(auHasard(repliquesDuJeu(jeu)))
     }, 1600)
     return () => clearTimeout(attente)
-  }, [dire, enJeu, majPosture])
+  }, [dire, enJeu, jeu, majPosture])
 
   useEffect(() => {
     const scene = sceneRef.current
@@ -536,7 +548,7 @@ export default function Compagnon({ enJeu = false }) {
 
         <button
           type="button"
-          aria-label="Le cagou — appuyez pour un conseil, faites-le glisser pour le déplacer"
+          aria-label="Le cagou : appuyez pour un conseil, faites-le glisser pour le déplacer"
           ref={spriteRef}
           className={`compagnon__sprite${atterrit ? ' compagnon__sprite--pose' : ''}`}
           style={stylePosture(posture, sens)}

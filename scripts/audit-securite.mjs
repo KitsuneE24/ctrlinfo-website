@@ -1,4 +1,4 @@
-// npm run audit:securite — sort en erreur s'il reste un ÉCHEC.
+// npm run audit:securite : sort en erreur s'il reste un ÉCHEC.
 import { execSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
@@ -28,8 +28,12 @@ verifier('01 Authentification', "L'administration demande un mot de passe", /Req
 verifier('01 Authentification', 'Le script refuse si personne n’est identifié', /REMOTE_USER/.test(php) && /sortir\(401/.test(php), 'enregistrer.php ne revérifie pas l’utilisateur')
 const configLocale = lire('config.local.json') ? JSON.parse(lire('config.local.json')) : {}
 const htpasswd = process.env.ADMIN_HTPASSWD ?? configLocale.admin?.htpasswd
-noter('01 Authentification', 'Chemin du .htpasswd réglé pour le build', htpasswd?.startsWith('/') ? 'OK' : 'ALERTE',
-  'admin.htpasswd absent de config.local.json : l’admin construite restera fermée (erreur 500) — à régler au déploiement')
+noter('01 Authentification', 'Chemin du .htpasswd réglé pour le build', htpasswd?.startsWith('/') && htpasswd !== '/home/compte/.htpasswd' ? 'OK' : 'ALERTE',
+  'admin.htpasswd absent de config.local.json ou laissé à l’exemple : l’admin construite restera fermée (erreur 500), à régler au déploiement')
+const cheminAdmin = process.env.ADMIN_PATH ?? configLocale.admin?.chemin ?? 'admin'
+noter('01 Authentification', 'Adresse de l’admin choisie et non devinable',
+  /^[a-z0-9-]{12,}$/i.test(cheminAdmin) && !/^(admin|A-CHOISIR|gestion-3f9a2c)$/i.test(cheminAdmin) ? 'OK' : 'ALERTE',
+  'admin.chemin absent ou trop simple dans config.local.json : l’admin sera retirée du build')
 verifier('01 Authentification', 'Le .htpasswd n’est pas dans le dossier public', !existsSync(join(RACINE, 'public/admin/.htpasswd')) && !existsSync(join(RACINE, 'public/.htpasswd')), '.htpasswd présent dans public/')
 
 // ── 02-03 Protection des données ─────────────────────────────────────────────
@@ -37,7 +41,7 @@ const ht = lire('public/.htaccess')
 const netlify = lire('netlify.toml')
 verifier('02 Protection des données', 'HTTPS imposé (Apache)', /RewriteCond %\{HTTPS\} !=on/.test(ht), 'pas de redirection vers HTTPS')
 verifier('02 Protection des données', 'HSTS (Apache et Netlify)', /Strict-Transport-Security/.test(ht) && /Strict-Transport-Security/.test(netlify), 'en-tête HSTS absent')
-const flux = lire('.github/workflows/recolte.yml')
+const flux = lire('.github/workflows/generation.yml')
 verifier('02 Protection des données', 'Envoi automatique sans FTP en clair', !/ftp:ssl-allow no/.test(flux) && /ssl-force true/.test(flux),
   'le workflow accepte un FTP sans chiffrement : le mot de passe circule en clair')
 verifier('02 Protection des données', 'Clé du serveur SFTP vérifiée', !/auto-confirm yes/.test(flux) && /StrictHostKeyChecking=yes/.test(flux),
@@ -54,6 +58,8 @@ verifier('04 Sécurité applicative', 'Sauvegardes et journal non servis', /bak[
 for (const entete of ['Content-Security-Policy', 'X-Content-Type-Options', 'X-Frame-Options', 'Referrer-Policy']) {
   verifier('04 Sécurité applicative', `En-tête ${entete}`, ht.includes(entete) && netlify.includes(entete), 'absent de .htaccess ou netlify.toml')
 }
+const imagesLocales = (texte) => /img-src 'self';/.test(texte)
+verifier('04 Sécurité applicative', 'Images chargées depuis le site seulement (CSP)', imagesLocales(ht) && imagesLocales(netlify), 'img-src autorise d’autres sites : l’adresse IP des joueurs leur est transmise')
 verifier('04 Sécurité applicative', 'Liste blanche des fichiers modifiables', /in_array\(\$nom, \[/.test(php), 'paramètre fichier non contrôlé')
 verifier('04 Sécurité applicative', 'Envoi depuis un autre site refusé (CSRF)', /application\/json/.test(php) && /HTTP_SEC_FETCH_SITE/.test(php), 'pas de contrôle Content-Type / origine')
 verifier('04 Sécurité applicative', 'Messages d’erreur sans détail technique', !/sortir\(\d+, '[^']*' \. json_last_error_msg/.test(php), 'json_last_error_msg renvoyé au navigateur')
@@ -71,9 +77,12 @@ const dangereux = sources.filter((f) => /dangerouslySetInnerHTML|\beval\(|new Fu
 verifier('07 Entrée / Sortie', 'Aucune injection HTML ni eval', dangereux.length === 0, dangereux.join(', '))
 const sansNoopener = sources.filter((f) => /target="_blank"(?![^>]*noopener)/s.test(lire(f).replace(/\n\s*/g, ' ')))
 verifier('07 Entrée / Sortie', 'Liens externes en noopener', sansNoopener.length === 0, sansNoopener.join(', '))
-verifier('07 Entrée / Sortie', 'Liens des flux RSS filtrés (http/https)', /lienWeb\(item\.link\)/.test(lire('scripts/recolter-flux.mjs')), 'item.link non filtré')
+verifier('07 Entrée / Sortie', 'Liens des sources filtrés (http/https)', /CLES_ADRESSE = \/\^\(url\|/.test(lire('scripts/verifier-donnees.mjs')), 'adresses des sources non contrôlées')
+const generateur = lire('scripts/generer-contenu.mjs')
+verifier('07 Entrée / Sortie', 'Flux sous licence libre nettoyés (liens, balises, longueur)', /lienWeb\(item\.link\)/.test(generateur) && /propre\(item\.title, \d+\)/.test(generateur),
+  'titre ou lien d’un flux repris sans contrôle')
 verifier('07 Entrée / Sortie', 'Code de progression borné', /propre\.length > /.test(lire('src/lib/codeProgression.js')), 'aucune limite de taille')
-verifier('07 Entrée / Sortie', 'Publications fabriquées relues avant usage', /filter\(estLocal/.test(lire('src/state/generes.js')) && /\.has\(p\.article\?\.url\)/.test(lire('src/state/contenu.js')),
+verifier('07 Entrée / Sortie', 'Publications fabriquées relues avant usage', /filter\(estLocal/.test(lire('src/state/generes.js')) && /estConnu/.test(lire('src/state/contenu.js')),
   'le stockage local est repris sans contrôle')
 try {
   execSync('node scripts/verifier-donnees.mjs', { cwd: RACINE, stdio: 'pipe' })
@@ -97,7 +106,7 @@ noter('09 Environnement de test', 'Aucune donnée personnelle dans le contenu', 
 
 // ── 10 Veille ────────────────────────────────────────────────────────────────
 verifier('10 Veille', 'Veille des dépendances (Dependabot)', /package-ecosystem: npm/.test(lire('.github/dependabot.yml')), '.github/dependabot.yml absent', 'ALERTE')
-const toutesActions = ['recolte', 'securite'].map((n) => lire(`.github/workflows/${n}.yml`)).join('\n')
+const toutesActions = ['generation', 'securite'].map((n) => lire(`.github/workflows/${n}.yml`)).join('\n')
 const nonEpinglees = [...toutesActions.matchAll(/uses:\s*([^\s#]+)/g)].map((m) => m[1]).filter((u) => !/@[0-9a-f]{40}$/.test(u))
 verifier('10 Veille', 'Actions GitHub épinglées par empreinte', nonEpinglees.length === 0, nonEpinglees.join(', '), 'ALERTE')
 for (const [portee, options] of [['site publié', '--omit=dev'], ['outils de développement', '']]) {

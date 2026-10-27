@@ -40,7 +40,13 @@
       "émeute",
       "insurrection",
       "noyade",
-      "disparu"
+      "disparu",
+      "corps sans vie",
+      "cadavre",
+      "décéd",
+      "homicide",
+      "meurtre",
+      "drame"
     ],
     "sujetsSansFaux": [
       "indépendan",
@@ -73,7 +79,22 @@
       "gendarm",
       "prison",
       "religi",
-      "coutum"
+      "coutum",
+      "enquête",
+      "plainte",
+      "accus",
+      "mise en demeure",
+      "haine",
+      "racis",
+      "polémique",
+      "scandale",
+      "législativ",
+      "présidentiel",
+      "municipal",
+      "sénatori",
+      "scrutin",
+      "vote",
+      "opposition"
     ],
     "joursAvantPeremption": 45,
     "minimumParNiveau": 10,

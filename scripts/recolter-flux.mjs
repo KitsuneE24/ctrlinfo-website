@@ -1,25 +1,16 @@
-/**
- * Récolte les flux RSS et fabrique des publications et des conversations.
- *
- *   node scripts/recolter-flux.mjs [--config config.json] [--max 24] [--refaire] [--essai]
- *
- * Écrit public/donnees/posts-vrais.json, posts-faux.json, et les conversations
- * de contenu.json. Un article déjà exploité (reconnu à son URL) ne resert pas.
- * --refaire retire d'abord tout ce que les flux ont produit.
- */
+// node scripts/recolter-flux.mjs [--config config.json] [--max 24] [--refaire] [--essai]
 import { readFileSync, writeFileSync } from 'node:fs'
 import Parser from 'rss-parser'
+import { CATEGORIES, HABILLAGES } from './gabarits.mjs'
+import { DISTRIBUTIONS } from './gabarits-conversations.mjs'
 import {
-  COMMENTATEURS,
-  CONSEQUENCES_FAUX,
-  CONSEQUENCES_VRAI,
-  CATEGORIES,
-  HABILLAGES,
-  SCORES_FAUX,
-  SCORES_VRAI,
-  VRAI,
-} from './gabarits.mjs'
-import { DISTRIBUTIONS, etapes, outro } from './gabarits-conversations.mjs'
+  HORS_DE_CAUSE,
+  extrait,
+  fabriquerConversation,
+  fabriquerFaux,
+  fabriquerVrai,
+  personneDe,
+} from './fabrique.mjs'
 
 const argument = (nom, defaut) => {
   const i = process.argv.indexOf(nom)
@@ -43,13 +34,21 @@ let vrais = lireJson(FICHIERS.vrais)
 let faux = lireJson(FICHIERS.faux)
 const reglages = config.recolte ?? {}
 const AUJOURDHUI = new Date().toISOString()
+const options = { aideUrl: reglages.aideUrl, maintenant: AUJOURDHUI }
 
 const parser = new Parser({
   timeout: 20_000,
   customFields: { item: ['media:content', 'media:thumbnail', 'summary', 'source'] },
 })
 
-// ── Lecture des flux ─────────────────────────────────────────────────────────
+// Seuls les liens http(s) passent.
+const lienWeb = (url) => {
+  try {
+    return typeof url === 'string' && ['http:', 'https:'].includes(new URL(url).protocol) ? url : null
+  } catch {
+    return null
+  }
+}
 
 const imageDe = (item) => {
   const candidats = [
@@ -57,7 +56,7 @@ const imageDe = (item) => {
     item['media:content']?.$?.url,
     item['media:thumbnail']?.$?.url,
   ]
-  return candidats.find((url) => typeof url === 'string' && url.startsWith('http')) ?? null
+  return candidats.map(lienWeb).find(Boolean) ?? null
 }
 
 const sansBalises = (texte) =>
@@ -109,9 +108,8 @@ async function recolter(flux) {
       return {
         ...r,
         titre: r.titre.slice(0, 300),
-        // Un résumé qui répète le titre n'apporte rien.
         resume: resume.startsWith(r.titre.slice(0, 40)) ? '' : resume.slice(0, 600),
-        url: item.link ?? null,
+        url: lienWeb(item.link),
         image: imageDe(item),
         publieLe: item.isoDate ?? item.pubDate ?? null,
         flux,
@@ -119,218 +117,6 @@ async function recolter(flux) {
     })
     .filter((article) => article.titre && article.url)
 }
-
-// ── Fabrication ──────────────────────────────────────────────────────────────
-
-/** Une date absolue : la publication reste des semaines, « il y a 2 h » vieillit. */
-const dateLisible = (iso) =>
-  (iso ? new Date(iso) : new Date()).toLocaleDateString('fr-FR', {
-    day: 'numeric',
-    month: 'long',
-    hour: '2-digit',
-    minute: '2-digit',
-    // Heure de Nouméa, même quand le script tourne ailleurs (GitHub Actions).
-    timeZone: 'Pacific/Noumea',
-  })
-
-/** Un identifiant stable tiré de l'URL : deux récoltes donnent le même slug. */
-function empreinte(texte) {
-  let e = 0x811c9dc5
-  for (const octet of new TextEncoder().encode(texte)) {
-    e ^= octet
-    e = Math.imul(e, 0x01000193) >>> 0
-  }
-  return (e >>> 0).toString(36)
-}
-
-/** Le début du résumé, coupé à une phrase ou un mot, terminé par un point. */
-function extrait(resume, max = 220) {
-  if (!resume || resume.length < 40) return ''
-  let court = resume
-  if (court.length > max) {
-    const coupe = court.slice(0, max)
-    const phrase = Math.max(coupe.lastIndexOf('. '), coupe.lastIndexOf('! '), coupe.lastIndexOf('? '))
-    court = phrase > 80 ? coupe.slice(0, phrase + 1) : `${coupe.slice(0, coupe.lastIndexOf(' '))}…`
-  }
-  return /[.!?…»]$/.test(court) ? court : `${court}.`
-}
-
-const proprement = (texte) => texte.replace(/\s+/g, ' ').trim()
-
-/** Le contexte que les gabarits utilisent. */
-function contexte(article) {
-  const base = (article.domaineReel ?? 'info').split('.').find((p) => p.length > 2) ?? 'info'
-  return {
-    titre: article.titre,
-    extrait: extrait(article.resume),
-    editeur: article.editeur,
-    nom: article.nom,
-    date: dateLisible(article.publieLe),
-    domaineReel: article.domaineReel ?? article.nom,
-    domaineFaux: `${base}-actu.info`,
-    // franceinfo.fr → franceinfo-fr.com
-    domaineCopie: `${(article.domaineReel ?? base).replace(/\.([a-z]+)$/, '-$1')}.com`,
-  }
-}
-
-const indice = (nature, cible, picto, libelle, explication) => ({
-  nature,
-  cible,
-  picto,
-  libelle,
-  explication,
-})
-
-function commentaires(lignes, graine) {
-  return lignes.map(([posture, texte], k) => {
-    const liste = COMMENTATEURS[posture]
-    const [auteur, couleur] = liste[(graine + k * 3) % liste.length]
-    return { auteur, couleur, texte, posture }
-  })
-}
-
-const avecOrdre = (indices) => indices.map((indice, ordre) => ({ ordre, ...indice }))
-
-const commun = (article, a) => ({
-  date: a.date,
-  image: article.image,
-  sponsorise: false,
-  learnMoreTips: reglages.aideUrl ?? 'https://www.clemi.fr/',
-  reactionCount: Math.floor(Math.random() * 40_000) + 200,
-  commentCount: Math.floor(Math.random() * 2_000) + 10,
-  origine: 'RSS',
-  recolteLe: AUJOURDHUI,
-  article: {
-    titre: article.titre,
-    url: article.url,
-    publieLe: article.publieLe,
-    nom: article.nom,
-    editeur: article.editeur,
-  },
-})
-
-function fabriquerVrai(article, level, graine) {
-  const a = contexte(article)
-  const texte =
-    a.extrait ||
-    `${article.titre} — article publié par ${a.editeur}, signé et daté, consultable en entier sur le site de la rédaction.`
-
-  return {
-    ...commun(article, a),
-    slug: `rss-vrai-${empreinte(article.url)}`,
-    source: a.nom,
-    sourceColor: '#1800ad',
-    domain: a.domaineReel,
-    titre: article.titre,
-    texte,
-    isFake: false,
-    level,
-    correctAction: 'share',
-    biais: 'Aucun (information vérifiée)',
-    explication: VRAI.explication(a),
-    analyseVrai: VRAI.analyseVrai(a),
-    indices: avecOrdre(VRAI.indices(a)),
-    commentaires: commentaires(VRAI.commentaires[graine % VRAI.commentaires.length](a), graine),
-    encouragement: 'Bon réflexe : une source identifiable, datée et consultable se partage.',
-    warning: "Attention — cette information était vérifiable : rédaction connue, date, lien vers l'original.",
-    consequences: CONSEQUENCES_VRAI,
-    scores: SCORES_VRAI,
-    sourceUrl: article.url,
-    learnMoreUrl: article.url,
-  }
-}
-
-const valeur = (v, a) => (typeof v === 'function' ? v(a) : v)
-
-/** Un faux : une catégorie (ce qui est ajouté) habillée au niveau voulu. */
-function fabriquerFaux(article, categorie, niveau, graine) {
-  const a = contexte(article)
-  const habillage = HABILLAGES.find((h) => h.niveau === niveau)
-  const [nom, couleur, domaine] = habillage.comptes[graine % habillage.comptes.length]
-  const compte = { nom: valeur(nom, a), couleur, domaine: valeur(domaine, a) }
-  const titre = categorie.titres[niveau - 1](a.titre)
-  const subtil = niveau >= 4
-
-  return {
-    ...commun(article, a),
-    slug: `rss-faux-${empreinte(article.url)}`,
-    source: compte.nom,
-    sourceColor: compte.couleur,
-    domain: compte.domaine,
-    titre: (habillage.titre?.(titre) ?? titre).slice(0, 300),
-    texte: proprement(`${a.extrait} ${categorie.phrases[niveau - 1]}`),
-    isFake: true,
-    level: niveau,
-    correctAction: 'report',
-    biais: categorie.biais,
-    explication:
-      `Fabriquée pour l'exercice à partir d'un article de ${a.editeur} : le fait est réel, l'ajout non. ` +
-      `${categorie.explication} ${habillage.explication}`,
-    analyseVrai: `Le fait de départ est réel : ${a.editeur} l'a publié le ${a.date}.`,
-    analyseFaux: categorie.analyseFaux,
-    indices: avecOrdre([
-      categorie.indice,
-      habillage.indice(a, compte),
-      subtil
-        ? indice('FIABLE', 'TITRE', 'Newspaper', 'Le reste est exact',
-          `Le fait vient bien de ${a.editeur} (${a.date}). C’est ce qui rend la publication crédible.`)
-        : indice('VERIFICATION', 'DATE', 'Search', 'L’article d’origine',
-          `Le fait vient de ${a.nom}, publié le ${a.date}. Compare : c’est là qu’on voit ce qui a été ajouté.`),
-    ]),
-    commentaires: commentaires(
-      [
-        ['CROIT', categorie.croit],
-        ['DOUTE', categorie.doute],
-        ['VERIFIE', categorie.verifie[subtil ? 1 : 0](a)],
-      ],
-      graine
-    ),
-    encouragement: `Bien vu : tu as reconnu le procédé « ${categorie.biais.toLowerCase()} ».`,
-    warning: `Le procédé employé ici s'appelle « ${categorie.biais.toLowerCase()} ». Il fonctionne d'autant mieux qu'on est pressé.`,
-    consequences: CONSEQUENCES_FAUX,
-    scores: SCORES_FAUX,
-    sourceUrl: null,
-    learnMoreUrl: article.url,
-  }
-}
-
-function fabriquerConversation(post, article, gabarit, distribution) {
-  const a = contexte(article)
-  const { lanceur, soutien, groupe } = distribution
-  const id = `rss-${empreinte(article.url)}`
-  const message = ([auteur, texte]) => ({ texte, auteur })
-
-  const steps = etapes({ post, a, gabarit, lanceur, soutien }).map((etape, ordre) => {
-    // La bonne réponse ne tombe pas toujours au même rang.
-    const decalage = (empreinte(article.url).charCodeAt(0) + ordre) % etape.choix.length
-    const choix = [...etape.choix.slice(decalage), ...etape.choix.slice(0, decalage)]
-    return {
-      ordre,
-      auteur: lanceur,
-      messages: etape.messages.filter(Boolean).map(message),
-      choices: choix.map((c, i) => ({ id: `${id}-${ordre}-${i}`, ...c })),
-    }
-  })
-
-  return {
-    id,
-    name: groupe ? distribution.nom : lanceur.nom,
-    preview: `Regarde ce que ${post.source} vient de publier`,
-    color: lanceur.couleur,
-    groupe,
-    ...(groupe ? { contexte: distribution.nom } : {}),
-    etapes: steps.length,
-    participants: groupe ? [lanceur, soutien] : [lanceur],
-    intro: [],
-    steps,
-    outro: outro(a),
-    origine: 'RSS',
-    recolteLe: AUJOURDHUI,
-    article: { titre: article.titre, url: article.url, publieLe: article.publieLe, nom: article.nom },
-  }
-}
-
-// ── Déroulé ──────────────────────────────────────────────────────────────────
 
 const avant = JSON.stringify([vrais, faux, contenu.conversations])
 
@@ -359,15 +145,27 @@ for (const f of flux) {
   }
 }
 
+const motif = (liste) => new RegExp((liste ?? []).join('|') || '$^', 'i')
+const sensible = motif(reglages.sujetsSensibles)
+const sansFaux = motif(reglages.sujetsSansFaux)
+
+function fauxConforme(post) {
+  if (post.origine !== 'RSS') return true
+  const titre = post.article?.titre ?? ''
+  if (sensible.test(titre) || sansFaux.test(titre)) return false
+  if (!personneDe({ titre, resume: '' })) return true
+  const categorie = CATEGORIES.find((c) => c.biais === post.biais)
+  return categorie?.surUnePersonne !== false && (post.analyseFaux ?? '').includes(HORS_DE_CAUSE)
+}
+const nonConformes = new Set(faux.filter((post) => !fauxConforme(post)).map((post) => post.article?.url))
+faux = faux.filter((post) => !nonConformes.has(post.article?.url))
+contenu.conversations = contenu.conversations.filter(
+  (c) => c.origine !== 'RSS' || !nonConformes.has(c.article?.url)
+)
+
 const dejaVus = new Set(
   [...vrais, ...faux, ...contenu.conversations].map((entree) => entree.article?.url).filter(Boolean)
 )
-
-const motif = (liste) => new RegExp((liste ?? []).join('|') || '$^', 'i')
-// Les sujets graves sont écartés : ni vrai, ni faux.
-const sensible = motif(reglages.sujetsSensibles)
-// Les sujets délicats donnent une vraie, jamais un faux.
-const sansFaux = motif(reglages.sujetsSansFaux)
 
 const frais = [...new Map(articles.map((article) => [article.url, article])).values()]
   .filter((article) => !dejaVus.has(article.url))
@@ -409,11 +207,14 @@ frais.forEach((article, graine) => {
 
   if (enFaux) {
     const niveau = moinsRempli(niveaux, fauxParNiveau, undefined, poids)
+    const permises = personneDe(article)
+      ? CATEGORIES.filter((c) => c.surUnePersonne !== false)
+      : CATEGORIES
     const categorie = moinsRempli(
-      CATEGORIES,
-      new Map(CATEGORIES.map((c) => [c, fauxParCase.get(`${niveau}|${c.biais}`) ?? 0]))
+      permises,
+      new Map(permises.map((c) => [c, fauxParCase.get(`${niveau}|${c.biais}`) ?? 0]))
     )
-    const post = fabriquerFaux(article, categorie, niveau, graine)
+    const post = fabriquerFaux(article, categorie, niveau, graine, options)
     fauxParNiveau.set(niveau, (fauxParNiveau.get(niveau) ?? 0) + 1)
     fauxParCase.set(`${niveau}|${categorie.biais}`, (fauxParCase.get(`${niveau}|${categorie.biais}`) ?? 0) + 1)
     nouveauxFaux.push(post)
@@ -426,7 +227,7 @@ frais.forEach((article, graine) => {
       poids
     )
     vraisParNiveau.set(niveau, (vraisParNiveau.get(niveau) ?? 0) + 1)
-    nouveauxVrais.push(fabriquerVrai(article, niveau, graine))
+    nouveauxVrais.push(fabriquerVrai(article, niveau, graine, options))
   }
 })
 
@@ -465,7 +266,24 @@ function plafonner(existants, nouveaux) {
 vrais = plafonner(vrais, nouveauxVrais)
 faux = plafonner(faux, nouveauxFaux)
 
-// Les conversations : une par publication fausse, dans la limite du lot.
+const sourcesSansFaux = new Set(
+  (config.flux ?? [])
+    .filter((f) => !f.fiable || f.categorie === 'Vérification')
+    .map((f) => f.nom.split(' — ')[0])
+)
+vrais = vrais.map((post) => {
+  const texte = `${post.article?.titre ?? ''} ${post.texte ?? ''}`
+  // Une case décochée dans /admin le reste.
+  const fauxPossible =
+    post.fauxPossible !== false &&
+    post.origine === 'RSS' &&
+    !sourcesSansFaux.has(post.article?.nom) &&
+    !sensible.test(texte) &&
+    !sansFaux.test(texte) &&
+    extrait(post.texte) !== ''
+  return { ...post, fauxPossible }
+})
+
 const generees = contenu.conversations.filter((c) => c.origine === 'RSS' && !perimee(c))
 retirees += contenu.conversations.filter((c) => c.origine === 'RSS').length - generees.length
 const manuelles = contenu.conversations.filter((c) => c.origine !== 'RSS')
@@ -474,7 +292,7 @@ const nouvellesConversations = fabriques
   .filter(({ post }) => post.level < 5)
   .slice(0, reglages.maxConversations ?? 3)
   .map(({ post, article, gabarit }, i) =>
-    fabriquerConversation(post, article, gabarit, DISTRIBUTIONS[(generees.length + i) % DISTRIBUTIONS.length])
+    fabriquerConversation(post, article, gabarit, DISTRIBUTIONS[(generees.length + i) % DISTRIBUTIONS.length], options)
   )
 contenu.conversations = [
   ...[...nouvellesConversations, ...generees].slice(0, reglages.plafondConversations ?? 8),
@@ -482,7 +300,7 @@ contenu.conversations = [
 ]
 console.log('')
 console.log(`  ${nouveauxVrais.length} vraies, ${nouveauxFaux.length} fausses, ${nouvellesConversations.length} conversations`)
-console.log(`  ${retirees} entrées périmées retirées`)
+console.log(`  ${retirees} entrées périmées retirées, ${nonConformes.size} faux retirés (règles de prudence)`)
 console.log(`  total : ${vrais.length} vraies, ${faux.length} fausses, ${contenu.conversations.length} conversations`)
 for (const n of niveaux) {
   const v = vrais.filter((p) => p.level === n).length

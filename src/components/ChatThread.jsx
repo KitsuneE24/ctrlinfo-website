@@ -4,27 +4,16 @@ import { getSession, saveSession } from '../state/conversationSessions'
 import { finirConversation } from '../state/progression'
 import { texteSur } from '../lib/contraste'
 
-/**
- * Durée des points de frappe, modulée par la longueur du message. Valeurs
- * calées sur conversations.js : moyenne ≈ 1,8 s, de 1,2 s à 2,6 s.
- */
+// Durée des points de frappe selon la longueur du message.
 const TYPING_BASE_MS = 700
 const TYPING_PER_CHAR_MS = 10
 const TYPING_MIN_MS = 1200
 const TYPING_MAX_MS = 2600
 
-// Les explications ne sont pas « tapées » : pas d'indicateur de frappe.
 const EXPLICATION_DELAY_MS = 500
 
 const COMPOSER_PLACEHOLDER = 'Votre message...'
 
-/**
- * Les messages d'une étape, le dernier portant la question.
- *
- * Dans un groupe, plusieurs personnes peuvent parler avant qu'on demande quoi
- * que ce soit : c'est la conversation qui monte, et c'est elle qui fait la
- * pression.
- */
 function messagesDe(etape) {
   return etape.messages.map((message, i) => ({
     text: message.texte,
@@ -34,7 +23,6 @@ function messagesDe(etape) {
 }
 
 function delayFor(item, isFirst) {
-  // Le premier message est déjà là à l'ouverture.
   if (isFirst) return 0
   if (item.kind === 'explication') return EXPLICATION_DELAY_MS
   const estimation = TYPING_BASE_MS + item.text.length * TYPING_PER_CHAR_MS
@@ -71,20 +59,10 @@ function TypingBubble() {
   )
 }
 
-/**
- * Le composant est monté avec une clé qui change à chaque partie
- * (`conversation-runId`, cf. ChatScreen) : recommencer, c'est le remonter.
- *
- * Les initialiseurs de useState regardent d'abord si une partie est en cours
- * pour cette conversation, et reprennent au message près — y compris après un
- * rechargement, puisque le fil est maintenant écrit dans le navigateur. Seul le
- * compte à rebours du message en cours de frappe repart à zéro.
- */
+// Remonté à chaque partie (clé `conversation-runId`) ; reprend une partie sauvegardée.
 export default function ChatThread({ conversation, paused, onFinished, onBack, onRestart, onRegles }) {
   const { name, color, intro, steps, outro, groupe, contexte, participants } = conversation
 
-  // Dans un groupe, l'en-tête montre qui est là ; en tête-à-tête, le nom de la
-  // conversation suffit.
   const entete = groupe ? contexte || name : name
 
   const saved = getSession(conversation.id)
@@ -109,12 +87,10 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
 
   const scrollRef = useRef(null)
 
-  // Sauvegarde continue : au prochain montage, on reprend exactement ici.
   useEffect(() => {
     saveSession(conversation.id, { log, queue, stepIdx, awaiting, endAfterQueue, score, done })
   }, [conversation.id, log, queue, stepIdx, awaiting, endAfterQueue, score, done])
 
-  // Délivre les messages de l'interlocuteur un par un.
   useEffect(() => {
     if (paused || queue.length === 0) return
     const timer = setTimeout(() => {
@@ -139,7 +115,7 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
     const nextIdx = stepIdx + 1
     setStepIdx(nextIdx)
 
-    // Réplique du personnage, puis explication, puis question suivante.
+    // Réplique, puis explication, puis question suivante.
     const suite = [
       { text: choice.reply, auteur: steps[stepIdx].auteur, kind: 'message' },
       { text: choice.explication, kind: 'explication', correct: choice.correct },
@@ -155,9 +131,6 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
     }
   }
 
-  // La discussion arrive à son terme : la conversation est retenue comme faite,
-  // et son fil n'a plus à être gardé. Recommencer ne la retirera pas des
-  // conversations vues — seul le meilleur score bouge encore.
   useEffect(() => {
     if (done) finirConversation(conversation.id, { score, total: steps.length })
   }, [done, conversation.id, score, steps.length])
@@ -165,15 +138,12 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
   const choices = awaiting ? steps[stepIdx]?.choices ?? [] : []
   const typing = queue.length > 0 && queue[0].kind !== 'explication' && log.length > 0
 
-  // Le fil suit le dernier message. Trois choses le font remonter : un
-  // message, l'indicateur de frappe, et la zone de réponses qui s'ouvre —
-  // d'où les dépendances.
   useEffect(() => {
     const el = scrollRef.current
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' })
   }, [log, typing, choices.length, done])
 
-  // Filet de sécurité : toute variation de hauteur ramène le fil en bas.
+  // Toute variation de hauteur ramène le fil en bas.
   useEffect(() => {
     const el = scrollRef.current
     if (!el || typeof ResizeObserver === 'undefined') return
@@ -187,7 +157,6 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
   return (
     <div className="thread">
       <header className="thread__header">
-        {/* Le retour ne sert que sur téléphone. */}
         <button
           type="button"
           onClick={onBack}
@@ -207,8 +176,6 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
         )}
         <div>
           <p className="thread__name">{entete}</p>
-          {/* Qui est en face, pas dans quel « mode » on joue : dans un groupe
-              la liste des présents, sinon le rôle de l'interlocuteur. */}
           <p className="thread__subtitle">
             {groupe
               ? participants.map((personne) => personne.nom).join(', ')
@@ -228,7 +195,7 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
 
       <div ref={scrollRef} className="thread__log no-scrollbar">
         {log.map((message, i) => {
-          // Registre 1 — la voix pédagogique : ni avatar ni bulle.
+          // Voix pédagogique : ni avatar ni bulle.
           if (message.kind === 'explication') {
             return (
               <div
@@ -244,7 +211,6 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
             )
           }
 
-          // Registre 2 — les réponses du joueur.
           if (message.from === 'me') {
             return (
               <div
@@ -258,8 +224,6 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
             )
           }
 
-          // Registre 3 — ce que dit le personnage. Liseré de la couleur du
-          // contact sur les messages qui attendent une réponse.
           const isQuestion = message.kind === 'question'
           return (
             <div
@@ -272,8 +236,6 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
                 color={message.auteur?.couleur ?? color}
               />
               <span className="message__corps">
-                {/* Dans un groupe, savoir qui parle change tout : la même
-                    phrase ne pèse pas pareil selon qui la dit. */}
                 {groupe && message.auteur && (
                   <span className="message__auteur">
                     {message.auteur.nom}
@@ -319,8 +281,6 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
         )}
       </div>
 
-      {/* Le champ de saisie ne disparaît jamais : les choix s'ouvrent
-          au-dessus de lui et reprennent son apparence. */}
       <div className="composer">
         {choices.length > 0 && (
           <div className="composer__stack anim-monte">

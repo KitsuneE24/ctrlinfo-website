@@ -2,7 +2,6 @@ import { getAvatars } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
 import { useProgression } from './useProgression'
 
-/** L'avatar du joueur, ou le premier de la galerie tant qu'il n'a rien choisi. */
 export function useAvatar() {
   const { avatar: choisi } = useProgression()
   const { donnees } = useRessource(getAvatars, [])

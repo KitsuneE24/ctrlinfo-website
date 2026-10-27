@@ -74,7 +74,6 @@ const domaineDe = (url) => {
   }
 }
 
-/** Un agrégateur (Google Actualités) : la vraie rédaction est dans `source`. */
 function redaction(item, flux) {
   const titre = sansBalises(item.title)
   if (!flux.agregateur) {
@@ -175,7 +174,6 @@ const frais = [...new Map(articles.map((article) => [article.url, article])).val
 
 if (frais.length === 0) console.log('\nAucun article neuf : tous ceux lus ont déjà servi.')
 
-// Les niveaux, puis les catégories dans chaque niveau, se remplissent à tour de rôle.
 const niveaux = contenu.niveaux
   .map((n) => n.level)
   .filter((n) => HABILLAGES.some((h) => h.niveau === n))
@@ -184,7 +182,6 @@ const compter = (posts, cle) =>
 const vraisParNiveau = compter(vrais, (p) => p.level)
 const fauxParNiveau = compter(faux, (p) => p.level)
 const fauxParCase = compter(faux, (p) => `${p.level}|${p.biais}`)
-// Un poids de 3 = trois fois plus de publications que les autres niveaux.
 const poids = (n) => reglages.poidsNiveaux?.[n] ?? 1
 const moinsRempli = (candidats, compte, departage = () => 0, poidsDe = () => 1) =>
   [...candidats].sort(
@@ -197,7 +194,6 @@ const nouveauxFaux = []
 const fabriques = []
 
 frais.forEach((article, graine) => {
-  // Un flux de vérification ne sert jamais de matière à un faux.
   const eligible =
     article.flux.fiable &&
     article.flux.categorie !== 'Vérification' &&
@@ -231,7 +227,6 @@ frais.forEach((article, graine) => {
   }
 })
 
-// Des identifiants uniques entre les deux fichiers et les remédiations.
 let prochainId =
   Math.max(
     0,
@@ -239,14 +234,12 @@ let prochainId =
   ) + 1
 for (const post of [...nouveauxVrais, ...nouveauxFaux]) post.id = prochainId++
 
-// Une entrée des flux périmée sort, sauf s'il en manque pour remplir un niveau.
 const joursDeVie = reglages.joursAvantPeremption ?? 0
 const ageEnJours = (entree) =>
   (Date.now() - new Date(entree.recolteLe ?? entree.article?.publieLe ?? AUJOURDHUI)) / 86_400_000
 const perimee = (entree) => joursDeVie > 0 && ageEnJours(entree) > joursDeVie
 let retirees = 0
 
-// Au-delà du plafond, les plus anciennes publications des flux sortent.
 const plafond = reglages.plafondParFichier ?? 100
 const minimum = reglages.minimumParNiveau ?? 10
 function plafonner(existants, nouveaux) {
@@ -288,7 +281,6 @@ const generees = contenu.conversations.filter((c) => c.origine === 'RSS' && !per
 retirees += contenu.conversations.filter((c) => c.origine === 'RSS').length - generees.length
 const manuelles = contenu.conversations.filter((c) => c.origine !== 'RSS')
 const nouvellesConversations = fabriques
-  // Au niveau 5 le compte porte le nom du vrai média : la conversation n'aurait pas de sens.
   .filter(({ post }) => post.level < 5)
   .slice(0, reglages.maxConversations ?? 3)
   .map(({ post, article, gabarit }, i) =>

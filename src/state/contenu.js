@@ -14,7 +14,6 @@ function chargerServeur() {
   promesse ??= Promise.all([lire('contenu.json'), lire('posts-vrais.json'), lire('posts-faux.json')])
     .then(([contenu, vrais, faux]) => ({ ...contenu, posts: [...vrais, ...faux] }))
     .catch((erreur) => {
-      // Sans remise à zéro, « Réessayer » ne referait jamais d'appel.
       promesse = null
       throw erreur
     })

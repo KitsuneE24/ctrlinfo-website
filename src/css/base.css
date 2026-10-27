@@ -1,7 +1,4 @@
-/* ==========================================================================
-   BASE
-   Le document : hauteur pleine, police et fond du corps, animations réduites.
-   ========================================================================== */
+/* Base */
 
 @layer base {
   /* Remise à zéro des styles du navigateur */
@@ -134,8 +131,6 @@
     font-size: var(--text-md);
     line-height: var(--leading-body);
     -webkit-font-smoothing: antialiased;
-    /* `contain` plutôt que `none` : le rebond de fin de page revient, sans
-       que le geste passe à la page derrière. */
     overscroll-behavior-y: contain;
   }
 

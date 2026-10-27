@@ -3,7 +3,7 @@ import { CircleUserRound } from 'lucide-react'
 import { icone } from '../data/icones'
 import { noterAvatar } from '../state/progression'
 
-/** Un avatar porte soit une `image` (chemin dans public/), soit un `picto`. */
+// Un avatar porte soit une `image` (public/), soit un `picto`.
 function Dessin({ avatar, taille }) {
   if (avatar?.image) {
     return (

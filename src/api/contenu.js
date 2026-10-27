@@ -15,7 +15,7 @@ export const getConversations = depuis((c) => c.conversations)
 export const getChapitres = depuis((c) => c.chapitres)
 export const getMentionsLegales = depuis((c) => c.mentionsLegales ?? [])
 
-/** La brève du jour : l'index vient du quantième, pas du hasard. */
+// Index tiré du quantième.
 export const getDailyTip = depuis((c) => {
   if (c.astuces.length === 0) return null
   const jours = Math.floor(Date.now() / 86_400_000)

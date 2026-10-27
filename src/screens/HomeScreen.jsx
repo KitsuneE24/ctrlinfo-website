@@ -9,12 +9,11 @@ import TableauEnquete from '../components/TableauEnquete'
 import DailyTip from '../components/DailyTip'
 import { PATHS } from '../routes'
 
-// Chemin ou URL de la vidéo (null : visuel d'attente).
+// null : visuel d'attente.
 const VIDEO_URL = null
 
 const INSTAGRAM_URL = 'https://www.instagram.com/planke_nc'
 
-// Clichés glissés sous la photo Instagram.
 const CLICHES_DESSOUS = ['/planke/chut.jpg', '/planke/collection.jpg']
 
 const LEVIERS = [
@@ -38,7 +37,6 @@ const LEVIERS = [
   },
 ]
 
-/** Intitulé numéroté d'une zone du tableau. */
 function Zone({ numero, children, bleu = false, className = '' }) {
   return (
     <p className={`tableau__zone${bleu ? ' tableau__zone--bleu' : ''} ${className}`.trim()}>
@@ -48,7 +46,6 @@ function Zone({ numero, children, bleu = false, className = '' }) {
   )
 }
 
-/** Accueil : bandeau, stories, tableau d'enquête (1 sujet, 2 pièges, 3 principe, 4 parade). */
 export default function HomeScreen() {
   const [videoOpen, setVideoOpen] = useState(false)
 
@@ -120,7 +117,6 @@ export default function HomeScreen() {
                 </p>
               </div>
 
-              {/* 2 — Les pièges */}
               {LEVIERS.map(({ id, titre, texte, rotation }, i) => (
                 <div
                   key={id}
@@ -137,7 +133,6 @@ export default function HomeScreen() {
                 </div>
               ))}
 
-              {/* 3 — Le principe et la vidéo */}
               <div
                 ref={epingler('principe', { vers: 'sujet' })}
                 className="papier piece piece--journal"
@@ -214,7 +209,6 @@ export default function HomeScreen() {
                 </span>
               </a>
 
-              {/* 4 — La parade */}
               <div className="tableau__parade">
                 <Zone numero={4} bleu className="tableau__zone--parade">La parade</Zone>
                 <div className="tableau__parade-notes">
@@ -255,7 +249,6 @@ export default function HomeScreen() {
         </TableauEnquete>
       </section>
 
-      {/* Fin de page, téléphone seulement. */}
       <section className="home__fin">
         <Link to={PATHS.resources} className="bouton bouton--large">
           Comprendre d'abord

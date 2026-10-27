@@ -13,7 +13,7 @@ import Filaments from '../components/ui/Filaments'
 import Page from '../components/ui/Page'
 import { PATHS } from '../routes'
 
-/** `total` à Infinity : le fil n'a pas de fin, la barre reste ouverte. */
+// `total` à Infinity : barre ouverte.
 function Jauge({ libelle, fait, total }) {
   const infini = total === Infinity
   const pourcentage = infini ? 100 : total > 0 ? Math.round((fait / total) * 100) : 0
@@ -43,7 +43,6 @@ function Jauge({ libelle, fait, total }) {
   )
 }
 
-/** Pseudo cliquable pour le modifier. */
 function Pseudo({ valeur }) {
   const [edition, setEdition] = useState(false)
   const [saisie, setSaisie] = useState(valeur)

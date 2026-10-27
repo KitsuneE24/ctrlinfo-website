@@ -1,11 +1,4 @@
-/**
- * Les conversations fabriquées à partir d'une publication fausse.
- *
- * Un proche transfère la publication ; le joueur doit faire remonter à
- * l'article d'origine, repérer ce qui a été ajouté, puis réparer le partage.
- */
-
-/** Qui écrit. `soutien` n'existe que dans les groupes. */
+// `soutien` n'existe que dans les groupes.
 export const DISTRIBUTIONS = [
   {
     groupe: false,
@@ -33,7 +26,7 @@ export const DISTRIBUTIONS = [
   },
 ]
 
-/** Les trois étapes ; `correct` marque la bonne réponse. */
+// `correct` marque la bonne réponse.
 export function etapes({ post, a, gabarit, lanceur, soutien }) {
   const ajout = gabarit.ajout(a)
 

@@ -23,47 +23,32 @@ import {
 import { dejaVu, marquerVu } from '../lib/premiereFois'
 import { ecouterLeCompagnon } from '../state/compagnonSignaux'
 
-/** Largeur maximale d'une bulle. */
 const BULLE_MAX = 250
 
-/** Distance de la pointe au bord de la bulle côté personnage. */
 const POINTE = 16
 
-/** Dépassement de la bulle sur l'ancre : la pointe tombe sur son axe. */
+// La pointe tombe sur l'axe de l'ancre.
 const RECOUVREMENT = POINTE + 6
 
-/** Espace entre la bulle et sa tête. */
 const DEGAGEMENT = 8
 
-/** Pesanteur, en px/s². */
+// px/s²
 const CHUTE = 2400
 
-/** Durée au sol après une chute, en ms. */
+// Durées en ms.
 const ETALE = 1200
 
-/** Report d'une réplique mal placée, en ms. */
 const REPORT = 6000
 
-/** Intervalle entre deux relevés de l'écran, en ms. */
 const PERIODE_RELEVE = 1200
 
-/** Hauteurs sondées, en fraction de sa taille : tête, corps, pattes. */
+// Fractions de sa hauteur : tête, corps, pattes.
 const HAUTEURS_SONDEES = [0.85, 0.55, 0.25]
 
-/** Colonnes relevées par image. */
 const COLONNES_PAR_IMAGE = 6
 
-/** Pause entre deux promenades, en ms : minimum + hasard. */
 const PAUSE_BALADE = { min: 4000, ecart: 5000 }
 
-/**
- * Le compagnon, en bas de l'écran : il parle et se promène dans les zones
- * libres ; sans zone libre, il va où il gêne le moins. En partie, il se range
- * sur le côté.
- * La position est écrite dans le style à chaque image, pas dans un état React.
- *
- * @param enJeu une partie est en cours.
- */
 export default function Compagnon({ enJeu = false }) {
   const { pathname } = useLocation()
 
@@ -73,7 +58,6 @@ export default function Compagnon({ enJeu = false }) {
   const enJeuRef = useRef(enJeu)
   const ignorerClic = useRef(false)
   const bulleRef = useRef(null)
-  // Sa place est libre : lu par le minuteur de parole.
   const libreRef = useRef(true)
   const comptes = useRef({})
   const chrono = useRef({ bulle: 0 })
@@ -83,17 +67,15 @@ export default function Compagnon({ enJeu = false }) {
   const [atterrit, setAtterrit] = useState(false)
   const [bulle, setBulle] = useState(null)
 
-  /** Répliques dites sur l'écran en cours ; un autre chemin remet à zéro. */
   const [file, setFile] = useState({ chemin: pathname, dits: 0 })
 
-  /** Nombre de reports de la réplique en attente. */
   const [reporte, setReporte] = useState(0)
 
   const lignes = enJeu ? REPLIQUES_JEU : repliquesPour(pathname)
   const dits = file.chemin === pathname ? file.dits : 0
   const reste = dits < lignes.length
 
-  /** État de chaque image. `x` depuis le bord gauche, `y` depuis le sol. */
+  // `x` depuis le bord gauche, `y` depuis le sol.
   const etat = useRef({
     x: null,
     y: 0,
@@ -124,9 +106,6 @@ export default function Compagnon({ enJeu = false }) {
     bulleRef.current = bulle
   }, [bulle])
 
-  /* ------------------------------------------------------------ la parole */
-
-  /** Ouvre une bulle du côté où il reste le plus de place ; il reste immobile tant qu'elle est ouverte. */
   const dire = useCallback(
     (texte) => {
       const scene = sceneRef.current
@@ -136,7 +115,6 @@ export default function Compagnon({ enJeu = false }) {
       const cote = largeur - axe >= axe ? 'droite' : 'gauche'
       const place = (cote === 'droite' ? largeur - axe : axe) - MARGE
 
-      // De face pour parler, même en partie.
       majPosture('repos')
       const duree = dureeLecture(texte)
 
@@ -147,14 +125,12 @@ export default function Compagnon({ enJeu = false }) {
     [majPosture]
   )
 
-  /** Réplique suivante de l'écran, dans l'ordre, en boucle. */
   const parler = useCallback(() => {
     dire(lignes[dits % lignes.length])
     setFile({ chemin: pathname, dits: dits + 1 })
     setReporte(0)
   }, [dire, dits, lignes, pathname])
 
-  /** Réagit à une série du joueur ; un autre signal remet les compteurs à zéro. */
   const reagir = useCallback(
     (nom) => {
       const reaction = REACTIONS[nom]
@@ -174,8 +150,7 @@ export default function Compagnon({ enJeu = false }) {
 
   useEffect(() => ecouterLeCompagnon(reagir), [reagir])
 
-  // Parle seul après un délai ; reporte s'il parle déjà, est tenu, ou devant
-  // du contenu (trois fois au plus dans ce cas).
+  // Reporte s'il parle déjà, est tenu, ou devant du contenu (3 fois max).
   useEffect(() => {
     if (!reste) return undefined
     const delai = reporte > 0 ? REPORT : dits === 0 ? ATTENTE_ECRAN : ATTENTE_INACTIF
@@ -190,7 +165,6 @@ export default function Compagnon({ enJeu = false }) {
     return () => clearTimeout(attente)
   }, [dits, parler, reporte, reste])
 
-  // Présentation à la toute première visite.
   useEffect(() => {
     if (dejaVu('compagnon')) return undefined
     const attente = setTimeout(() => {
@@ -205,8 +179,6 @@ export default function Compagnon({ enJeu = false }) {
     return () => clearTimeout(minuteries.bulle)
   }, [])
 
-  /* --------------------------------------------------------- la promenade */
-
   useEffect(() => {
     enJeuRef.current = enJeu
     etat.current.cible = null
@@ -215,7 +187,6 @@ export default function Compagnon({ enJeu = false }) {
       return undefined
     }
 
-    // Il s'explique à la première partie seulement.
     if (dejaVu('compagnon-jeu')) return undefined
     const attente = setTimeout(() => {
       marquerVu('compagnon-jeu')
@@ -233,13 +204,10 @@ export default function Compagnon({ enJeu = false }) {
     let image = 0
     let dernier = performance.now()
 
-    /* --- Le relevé : ce qui occupe la ligne du bas --- */
-
-    let carte = null // dernier relevé complet
-    let releve = null // relevé en cours
+    let carte = null
+    let releve = null
     let prochainReleve = 0
 
-    /** L'élément a du texte en propre. */
     const porteDuTexte = (element) => {
       for (const noeud of element.childNodes) {
         if (noeud.nodeType === Node.TEXT_NODE && noeud.textContent.trim() !== '') return true
@@ -247,14 +215,12 @@ export default function Compagnon({ enJeu = false }) {
       return false
     }
 
-    /** Élément interactif ou visuel. */
     const estOccupant = (element) =>
       element.matches?.(
         'a, button, input, select, textarea, label, [role="button"],' +
           ' img, svg, video, canvas, picture, figure'
       )
 
-    /** Un bloc visible (fond ou bordure) plus petit que l'écran : carte, bandeau, vignette. */
     const estSurface = (element) => {
       const style = getComputedStyle(element)
       const fond =
@@ -262,13 +228,11 @@ export default function Compagnon({ enJeu = false }) {
         !/^(transparent|rgba\(0, 0, 0, 0\))$/.test(style.backgroundColor)
       const bord = parseFloat(style.borderTopWidth) > 0 && style.borderTopStyle !== 'none'
       if (!fond && !bord) return false
-      // Le fond de page couvre toute la scène : ignoré.
       const boite = element.getBoundingClientRect()
       const cadre = scene.getBoundingClientRect()
       return boite.width < cadre.width * 0.95 || boite.height < cadre.height * 0.95
     }
 
-    /** Contenu à ne pas couvrir sous ce point (trois éléments au plus, hors scène). */
     const occupeAu = (x, y) => {
       if (typeof document.elementsFromPoint !== 'function') return false
       let vus = 0
@@ -280,7 +244,7 @@ export default function Compagnon({ enJeu = false }) {
       return false
     }
 
-    /** Relève quelques colonnes par image ; coût d'une colonne = hauteurs occupées (0 à 3). */
+    // Coût d'une colonne = nombre de hauteurs occupées (0 à 3).
     function avancerReleve(maintenant, cadre) {
       if (!releve) {
         if (maintenant < prochainReleve || cadre.width <= 0) return
@@ -298,17 +262,14 @@ export default function Compagnon({ enJeu = false }) {
       releve = null
       prochainReleve = maintenant + PERIODE_RELEVE
 
-      // Chaque relevé remet sa place en question.
       if (coutSous(etat.current.x) > 0) etat.current.cible = null
     }
 
-    /** Coût de la colonne où il se tient, de 0 (libre) à 3. */
     function coutSous(x) {
       if (!carte) return 0
       return carte.couts[Math.floor((x + LARGEUR / 2) / carte.pas)] ?? 0
     }
 
-    /** Plages de colonnes au coût ≤ `seuil`, assez larges pour lui. */
     function plagesSous(seuil, min, max) {
       const { pas, couts } = carte
       const plages = []
@@ -327,7 +288,6 @@ export default function Compagnon({ enJeu = false }) {
       return plages.filter((plage) => plage.max >= plage.min)
     }
 
-    /** Plage la plus proche au plus petit seuil possible (`seuil` 0 : vraiment libre). */
     function couloir(min, max) {
       if (!carte) return { min, max, seuil: 0 }
       for (let seuil = 0; seuil < HAUTEURS_SONDEES.length; seuil += 1) {
@@ -340,9 +300,6 @@ export default function Compagnon({ enJeu = false }) {
       return { min, max, seuil: HAUTEURS_SONDEES.length }
     }
 
-    /* --- Se pousser, se promener --- */
-
-    /** De temps en temps, quelques pas dans la plage libre où il se trouve. */
     function promenade(maintenant, min, max) {
       const e = etat.current
       if (enJeuRef.current) return
@@ -363,10 +320,8 @@ export default function Compagnon({ enJeu = false }) {
       if (e.cible === null) {
         const zone = couloir(min, max)
         if (enJeuRef.current) {
-          // En partie : le bout du couloir, du côté où il se trouve déjà.
           e.cible = e.x + LARGEUR / 2 < largeur / 2 ? zone.min : zone.max
         } else {
-          // Le point le plus proche de la plage la moins encombrée.
           e.cible = Math.min(Math.max(e.x, zone.min), zone.max)
         }
       }
@@ -406,7 +361,6 @@ export default function Compagnon({ enJeu = false }) {
         if (e.y <= 0) {
           e.y = 0
           e.vy = 0
-          // Lâché de plus haut que sa taille : il s'étale.
           if (e.lacheDe > HAUTEUR) {
             e.x = Math.min(Math.max(e.x, DEBORD_CHUTE), cadre.width - LARGEUR - DEBORD_CHUTE)
             e.etaleJusqua = maintenant + ETALE
@@ -433,7 +387,6 @@ export default function Compagnon({ enJeu = false }) {
       dessiner(Math.abs(e.x - avant), dt)
     }
 
-    /** Pose la vignette : à la distance parcourue (`pas`) ou au temps (`cadence`). */
     function dessiner(parcouru, dt) {
       const e = etat.current
       const { debut, images, pas, cadence } = postureDe(e.posture, e.sens)
@@ -449,14 +402,12 @@ export default function Compagnon({ enJeu = false }) {
     const boucle = (maintenant) => {
       // Demandée avant le calcul : une erreur n'arrête pas la boucle.
       image = requestAnimationFrame(boucle)
-      // Pas plafonné au retour d'un onglet en arrière-plan.
       const dt = Math.min((maintenant - dernier) / 1000, 0.05)
       dernier = maintenant
       avancer(maintenant, dt)
     }
 
     image = requestAnimationFrame(boucle)
-    // Relu au démontage pour retenir sa place.
     const dernierEtat = etat.current
     return () => {
       cancelAnimationFrame(image)
@@ -464,8 +415,6 @@ export default function Compagnon({ enJeu = false }) {
       if (largeur > 0 && dernierEtat.x !== null) retenirPlace(dernierEtat.x / largeur)
     }
   }, [majPosture, majSens])
-
-  /* ------------------------------------------------------ prendre et poser */
 
   const attraper = useCallback(
     (evenement) => {
@@ -539,7 +488,6 @@ export default function Compagnon({ enJeu = false }) {
     else parler()
   }, [bulle, parler])
 
-  /** Flèches du clavier : déplacement de 24 px. */
   const auClavier = useCallback(
     (evenement) => {
       const pas = evenement.key === 'ArrowLeft' ? -24 : evenement.key === 'ArrowRight' ? 24 : 0
@@ -567,7 +515,6 @@ export default function Compagnon({ enJeu = false }) {
         ref={boiteRef}
         data-posture={posture}
       >
-        {/* Ancre à son axe : la bulle suit ses déplacements. */}
         <div className="compagnon__ancre" style={{ bottom: HAUTEUR + DEGAGEMENT }}>
             {bulle && (
               <p

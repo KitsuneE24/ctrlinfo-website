@@ -12,23 +12,15 @@ import { FilsRouges } from '../components/TableauEnquete'
 import { useFilRouge } from '../lib/useFilRouge'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 
-/**
- * Comprendre : la galerie (`/ressources`) et la fiche d'un thème
- * (`/ressources/comprendre/:slug`). Texte lu dans contenu.json (`chapitres`).
- */
-
-/** Icône nommée dans le contenu. */
 function Icone({ nom, size }) {
   return createElement(icone(nom), { size, strokeWidth: 1.9 })
 }
 
-/** Le repère d'une pièce : son surtitre, ou son rang au dossier. */
 function repere(surtitre, rang) {
   if (!surtitre) return `Pièce n° ${rang}`
   return /^\d+$/.test(surtitre) ? `Pièce n° ${surtitre}` : surtitre
 }
 
-/** Les encadrés d'une pièce : des coupures agrafées à la note. */
 function Coupures({ notes }) {
   return notes?.map((note) => (
     <div key={note.label} className="coupure">
@@ -38,7 +30,6 @@ function Coupures({ notes }) {
   ))
 }
 
-/** Une entrée de liste : une note punaisée au tableau. */
 function Piece({ entree, rang, epingle }) {
   const { surtitre, titre, texte, notes } = entree
 
@@ -53,7 +44,6 @@ function Piece({ entree, rang, epingle }) {
   )
 }
 
-/** L'illustration d'un bloc : une photo punaisée, ou un pictogramme. */
 function Illustration({ image, legende, picto }) {
   if (!image && !picto) return null
 
@@ -69,7 +59,6 @@ function Illustration({ image, legende, picto }) {
   )
 }
 
-/** Un bloc de thème. Le genre décide de la mise en page, pas du sujet. */
 function Bloc({ bloc, id, epingler }) {
   const { genre, titre, paragraphes, entrees, image, legende, picto } = bloc
 
@@ -137,7 +126,6 @@ function Bloc({ bloc, id, epingler }) {
   )
 }
 
-/** Le corps du dossier : les blocs sur le tableau, reliés par le fil rouge. */
 function Tableau({ blocs }) {
   const { tableau, epingler, fils } = useFilRouge({ enChaine: true })
 
@@ -151,7 +139,6 @@ function Tableau({ blocs }) {
   )
 }
 
-/** La couverture du dossier, dans la couleur de sa vignette. */
 function Couverture({ chapitre }) {
   const pieces = chapitre.blocs
     .filter((bloc) => bloc.genre === 'LISTE')
@@ -175,7 +162,6 @@ function Couverture({ chapitre }) {
   )
 }
 
-/** La sortie du dossier : le lien externe, puis le dossier suivant. */
 function Suite({ chapitre }) {
   const { donnees: chapitres } = useRessource(getChapitres, [])
   const rang = chapitres?.findIndex((c) => c.id === chapitre.id) ?? -1
@@ -213,14 +199,12 @@ function Suite({ chapitre }) {
   )
 }
 
-/** La fiche d'un thème. */
 export function ChapterScreen() {
   const { slug } = useParams()
   const page = useRef(null)
   const charger = useCallback(() => getChapitre(slug), [slug])
   const { donnees, chargement, erreur, recharger } = useRessource(charger, [slug])
 
-  // Le dossier suivant s'ouvre en haut de page.
   useEffect(() => {
     page.current?.scrollTo(0, 0)
   }, [slug])
@@ -292,7 +276,6 @@ export default function LearnScreen() {
       </Banniere>
 
       <div className="learn__body">
-        {/* La recherche en premier : c'est la porte d'entrée de l'onglet. */}
         <div className="search-field">
           <Search size={19} strokeWidth={2} />
           <input
@@ -368,7 +351,6 @@ export default function LearnScreen() {
               Ouvrir le fil d'actualité
               <ArrowRight size={16} strokeWidth={2.2} />
             </Link>
-            {/* Renvoie aux stories de l'accueil. */}
             <Link to={PATHS.home} className="bouton">
               <BookOpen size={16} strokeWidth={2} />
               Où vérifier une info

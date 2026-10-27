@@ -1,38 +1,16 @@
-/**
- * Fabrique les planches du compagnon à partir des dessins sources.
- *
- *   node scripts/generer-sprite-cagou.mjs
- *
- * Sources, dans `scripts/sprites/` :
- *   sprite-cagou.png            marche gauche (2), de face (1), marche droite (2)
- *   sprite-cagou-telephone.png  sur son téléphone (1)
- *   sprite-cagou-chute.png      étalé au sol (1)
- *
- * Sorties, au double de la taille d'affichage (net sur écran dense) :
- *   cagou.png        six vignettes de 160 × 240, pieds alignés
- *   cagou-chute.png  une vignette de 296 × 136 (affichée en 148 × 68)
- *
- * Tous les dessins sont mis à la même échelle, mesurée sur le blanc des yeux.
- *
- * Aucune dépendance : PNG lu et écrit avec zlib.
- */
+// node scripts/generer-sprite-cagou.mjs — planches du compagnon depuis scripts/sprites/
 import { deflateSync, inflateSync } from 'node:zlib'
 import { readFileSync, writeFileSync } from 'node:fs'
 
 const dossier = (nom) => new URL(`../public/${nom}`, import.meta.url)
 const source = (nom) => new URL(`./sprites/${nom}`, import.meta.url)
 
-/** Vignette de la planche : double de l'affichage (LARGEUR × HAUTEUR dans lib/compagnon.js). */
+// Double de LARGEUR × HAUTEUR (lib/compagnon.js).
 const VIGNETTE = { l: 160, h: 240 }
-/** Vignette de la chute : 2 × 148 × 68 (FEUILLES.chute dans lib/compagnon.js). */
 const VIGNETTE_CHUTE = { l: 296, h: 136 }
 const MARGE = { haut: 3, bas: 2 }
-/** Sous ce seuil d'opacité, un pixel est une poussière du scan. */
 const VOILE = 24
 
-/* ------------------------------------------------------------ les poses */
-
-/** Les boîtes des poses, de gauche à droite, repérées par l'opacité. */
 function trouverPoses({ largeur, hauteur, px }) {
   const plein = (x, y) => px[(y * largeur + x) * 4 + 3] > 128
   const colonnes = []
@@ -67,7 +45,6 @@ function trouverPoses({ largeur, hauteur, px }) {
   return poses
 }
 
-/** Surface du blanc des yeux d'une pose, en pixels source. */
 function blancDesYeux({ largeur, px }, pose) {
   let n = 0
   for (let y = pose.y0; y <= pose.y1; y += 1) {
@@ -79,9 +56,7 @@ function blancDesYeux({ largeur, px }, pose) {
   return n
 }
 
-/* ------------------------------------------------------------ réduction */
-
-/** Moyenne des pixels source couverts par chaque pixel cible (alpha prémultiplié). */
+// Moyenne des pixels source couverts (alpha prémultiplié).
 function reduire(image, pose, echelle, sortie, largeurSortie, origine, cellule = VIGNETTE) {
   const { largeur, px } = image
   const l = Math.round((pose.x1 - pose.x0 + 1) * echelle)
@@ -124,7 +99,6 @@ function reduire(image, pose, echelle, sortie, largeurSortie, origine, cellule =
   }
 }
 
-/** Un dessin source, ses poses, et sa taille relative au dessin de marche. */
 function charger(nom, attendues, reference = 0) {
   const image = decoderPng(readFileSync(source(nom)))
   const poses = trouverPoses(image)
@@ -135,13 +109,11 @@ function charger(nom, attendues, reference = 0) {
 }
 
 function principal() {
-  // La pose de face (2) sert de mesure : les yeux y sont vus en entier.
   const marche = charger('sprite-cagou.png', 5, 2)
   const telephone = charger('sprite-cagou-telephone.png', 1)
   const chute = charger('sprite-cagou-chute.png', 1)
   const relatif = (dessin) => Math.sqrt(marche.yeux / dessin.yeux)
 
-  // Une seule échelle : la pose la plus haute, ramenée au dessin de marche, remplit la vignette.
   const enpied = [
     ...marche.poses.map((p) => ({ p, k: 1 })),
     { p: telephone.poses[0], k: relatif(telephone) },
@@ -173,9 +145,6 @@ function principal() {
   console.log(`public/cagou-chute.png : ${lc} × ${hc}`)
 }
 
-/* ------------------------------------------------------------- PNG : lire */
-
-/** Décode un PNG RGBA 8 bits, filtres compris. */
 function decoderPng(fichier) {
   let position = 8
   let largeurPng = 0
@@ -223,8 +192,6 @@ function decoderPng(fichier) {
   return { largeur: largeurPng, hauteur: hauteurPng, px }
 }
 
-/* ------------------------------------------------------------ PNG : écrire */
-
 const TABLE_CRC = Array.from({ length: 256 }, (_, n) => {
   let c = n
   for (let k = 0; k < 8; k += 1) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1
@@ -246,7 +213,6 @@ function morceau(type, donnees) {
   return Buffer.concat([entete, corps, somme])
 }
 
-/** Un PNG RGBA sans filtre : chaque ligne préfixée d'un zéro, puis zlib. */
 function encoderPng(l, h, px) {
   const octets = Buffer.from(px.buffer, px.byteOffset, px.byteLength)
   const brut = Buffer.alloc(h * (l * 4 + 1))

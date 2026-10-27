@@ -17,8 +17,6 @@ export default function CodeProgression() {
   const [restaure, setRestaure] = useState(false)
   const [remise, setRemise] = useState(false)
 
-  // Ce qu'il y a à perdre. Un joueur qui n'a rien joué n'a pas besoin qu'on lui
-  // demande confirmation avant d'écraser un état vide.
   const aQuelqueChose = etat.fil.decisions > 0 || Object.keys(etat.conversations).length > 0
 
   async function exporter() {
@@ -129,7 +127,7 @@ export default function CodeProgression() {
           )}
         </div>
 
-        {/* --- Restaurer --------------------------------------------------- */}
+        {/* Restaurer */}
         <div className="code code--restaurer">
           <label className="champ">
             <span className="champ__label">Restaurer un code</span>
@@ -200,7 +198,7 @@ export default function CodeProgression() {
           )}
         </div>
 
-        {/* --- Repartir de zéro -------------------------------------------- */}
+        {/* Repartir de zéro */}
         {aQuelqueChose && (
           <div className="code code--effacer">
             {remise ? (

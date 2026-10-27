@@ -1,12 +1,7 @@
-/* ==========================================================================
-   MOTIFS — les éléments communs à tous les écrans
-   Gabarit de page, bandeau, carte, boutons, étiquettes, tampon, papier,
-   fenêtre, filaments, mascotte, avatar, états de chargement.
-   Un seul bouton plein par écran.
-   ========================================================================== */
+/* Éléments communs à tous les écrans */
 
 @layer components {
-  /* --- Animations d'entrée (remplacent framer-motion) --- */
+  /* --- Animations d'entrée --- */
 
   .anim-apparait {
     animation: apparait 0.18s ease-out backwards;
@@ -41,7 +36,7 @@
     }
   }
 
-  /* --- Filaments : fond noir effacé par `screen`. Jamais sous du texte courant. --- */
+  /* --- Filaments --- */
 
   .filaments {
     position: absolute;
@@ -54,7 +49,6 @@
     transition: filter 0.8s;
   }
 
-  /* Bords estompés pour cacher les coins en rotation. */
   .filaments--tourne,
   .filaments--tourne-inverse {
     -webkit-mask-image: radial-gradient(closest-side, var(--noir) 72%, transparent);
@@ -104,7 +98,6 @@
 
   /* --- Étiquette --- */
 
-  /* Toutes les étiquettes en capitales du site : un seul réglage. */
   .etiquette,
   .tableau__zone,
   .piece__manchette,
@@ -181,8 +174,7 @@
 
   /* --- Tampon --- */
 
-  /* Style investigation : pochoir, double encadré.
-     --tampon-fond : couleur du filet intérieur (le fond derrière). */
+  /* --tampon-fond : couleur du filet intérieur. */
   .tampon {
     --tampon-fond: var(--encre);
     display: inline-block;
@@ -216,7 +208,7 @@
     color: var(--rouge);
   }
 
-  /* --- Mascotte (cagou du logo) sur pastille claire --- */
+  /* --- Mascotte --- */
   .kiwi {
     display: grid;
     flex-shrink: 0;
@@ -286,7 +278,6 @@
     background: var(--lilas);
   }
 
-  /* Pastille sombre à droite (flèche) */
   .bouton--pastille {
     justify-content: space-between;
     padding: 0 7px 0 26px;
@@ -307,7 +298,6 @@
     width: 100%;
   }
 
-  /* Plein foncé, pour les fonds blancs ou papier */
   .bouton--encre {
     border-color: var(--papier-encre);
     background: var(--papier-encre);
@@ -320,7 +310,6 @@
     background: color-mix(in srgb, var(--papier-encre) 85%, var(--blanc));
   }
 
-  /* Compact : liens et actions secondaires */
   .bouton--petit {
     min-height: 44px;
     padding: 0 18px;
@@ -333,7 +322,6 @@
     cursor: default;
   }
 
-  /* Bouton icône */
   .bouton-rond {
     display: inline-flex;
     flex-shrink: 0;
@@ -430,7 +418,6 @@
     margin-top: 24px;
   }
 
-  /* Écran estompé derrière la fenêtre */
   .voile__fantome {
     position: absolute;
     top: 12%;
@@ -460,7 +447,7 @@
     }
   }
 
-  /* --- Gabarit de page (ui/Page.jsx) --- */
+  /* --- Gabarit de page --- */
 
   .page {
     display: flex;
@@ -469,31 +456,26 @@
     flex-direction: column;
     overflow-y: auto;
     overscroll-behavior: contain;
-    /* Réserve pour le bouton « Sources », qui flotte en bas à droite. */
     padding-bottom: 5vh;
     background-color: var(--encre);
   }
 
-  /* Sur téléphone, pas de bouton flottant à esquiver. */
   @media (max-width: 767px) {
     .page {
       padding-bottom: 20px;
     }
   }
 
-  /* Écrans qui gèrent leur bas de page */
   .page--fill {
     padding-bottom: 0;
   }
 
-  /* Par défaut : bord à bord, ni marge latérale ni gouttière. */
   .page__column {
     display: flex;
     width: 100%;
     flex-direction: column;
   }
 
-  /* Le fil : colonne centrée, cartes détachées du fond. */
   .page__column--feed {
     max-width: var(--content-max);
     margin: 0 auto;
@@ -507,13 +489,11 @@
     }
   }
 
-  /* Messagerie : pleine hauteur */
   .page__column--fill {
     flex: 1 1 0;
     min-height: 0;
   }
 
-  /* Bord à bord : ni arrondi ni bordure latérale. */
   .page__column:not(.page__column--feed) .card,
   .page__column:not(.page__column--feed) .banniere {
     border-radius: 0;
@@ -521,7 +501,6 @@
     border-right: 0;
   }
 
-  /* Sans filet entre les blocs */
   .page__column--seamless .card {
     border: 0;
   }
@@ -550,18 +529,16 @@
     color: var(--ink-faint);
   }
 
-  /* --- Bandeau (ui/Banniere.jsx), accueil et Comprendre --- */
+  /* --- Bandeau --- */
 
   .banniere {
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-card);
-    /* Repli sans WebGL */
     background: var(--brand-violet-deep);
     color: var(--blanc);
   }
 
-  /* Couche animée, sous le contenu */
   .banniere__fx {
     position: absolute;
     inset: 0;
@@ -580,7 +557,6 @@
     z-index: 1;
   }
 
-  /* Carte sombre détachée du fond. */
   .card {
     background: var(--surface);
     border: 1px solid var(--filet-2);
@@ -613,7 +589,7 @@
     margin-top: 12px;
   }
 
-  /* --- Avatar du joueur --- */
+  /* --- Avatar --- */
 
   .avatar-joueur {
     display: grid;
@@ -626,7 +602,6 @@
     font-weight: 700;
   }
 
-  /* Dessins sur fond blanc ; contour de la couleur de l'avatar. */
   .avatar-joueur--dessin,
   .avatars__choix--dessin {
     border: 3px solid var(--bleu);
@@ -670,7 +645,6 @@
     opacity: 0.85;
   }
 
-  /* L'anneau plutôt qu'une bordure : la vignette ne change pas de taille. */
   .avatars__choix--actif {
     opacity: 1;
     box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--ink);
@@ -708,7 +682,6 @@
     line-height: 1.55;
   }
 
-  /* Contenu illisible ou absent. */
   .etat-api--erreur {
     color: var(--ink);
   }
@@ -723,13 +696,12 @@
     }
   }
 
-  /* Qui a désactivé les animations n'a pas besoin d'un disque qui tourne. */
   @media (prefers-reduced-motion: reduce) {
     .etat-api__spinner {
       animation: none;
     }
   }
-  /* --- Le filet sous l'application --------------------------------------- */
+  /* --- Rattrapage d'erreur --- */
 
   .rattrapage {
     display: flex;

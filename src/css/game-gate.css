@@ -1,7 +1,4 @@
-/* ========================================================================
-   SEUIL DES JEUX
-   « Avant de jouer », « Quitter la partie », et le panneau du cagou.
-   ======================================================================== */
+/* Seuil des jeux */
 
 @layer components {
   .game-start {
@@ -131,9 +128,7 @@
   }
 
 
-  /* --- Panneau tenu par le cagou (verdict, brève du jour) ---
-     Repères de notif-cagou.png (1200 px) : coin haut droit du panneau en
-     (892, 365), bordure 5 px. --s : échelle de l'image. */
+  /* --- Panneau du cagou : repères de notif-cagou.png (1200 px), --s = échelle. --- */
 
   .modal__cadre {
     position: relative;

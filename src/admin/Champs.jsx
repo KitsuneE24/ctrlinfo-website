@@ -1,11 +1,7 @@
 import { ChevronDown, ChevronUp, Plus, Trash2 } from 'lucide-react'
 import { ajouter, deplacer, modifier, retirer } from './document'
 
-/**
- * L'éditeur se déduit de la donnée, pas d'un schéma : un champ texte devient un
- * champ texte, un booléen une case, un tableau une liste qu'on allonge. Ajouter
- * une clé au contenu suffit à la rendre éditable.
- */
+// L'éditeur se déduit de la forme de la donnée, sans schéma.
 
 const LONGS = new Set([
   'texte',
@@ -21,7 +17,6 @@ const LONGS = new Set([
   'reply',
 ])
 
-/** Ce qu'on ne modifie pas à la main : identité et champs calculés. */
 const FIGES = new Set(['id', 'slug', 'origine', 'article', 'version', 'genere'])
 
 const etiquette = (cle) =>
@@ -80,7 +75,6 @@ function ChampBooleen({ sur, cle }) {
   )
 }
 
-/** Un tableau : chaque entrée s'ouvre, se déplace, se retire. */
 function ChampListe({ sur, cle, profondeur }) {
   const liste = sur[cle]
   const modele = () => {

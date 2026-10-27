@@ -1,34 +1,7 @@
-/**
- * La progression du joueur, dans son navigateur.
- *
- * Il n'y a pas de compte : tout reste sur l'appareil. Trois choses à savoir
- * avant de s'en servir.
- *
- *   1. **L'état vit hors de React** : le fil et les conversations écrivent
- *      dedans au milieu d'une partie, loin de tout rendu, et l'onglet Profil
- *      s'y abonne (`useSyncExternalStore`).
- *   2. **Chaque écriture va dans `localStorage`.** Pas de minuterie, pas de
- *      regroupement : une décision prise est une décision gardée, même si
- *      l'onglet se ferme à la seconde suivante.
- *   3. **Le stockage peut manquer** — navigation privée, cookies bloqués. On
- *      garde alors tout en mémoire : la partie en cours se joue normalement et
- *      c'est au rechargement seulement que le joueur perd son avancement. Le
- *      code d'export reste exportable dans ce cas : c'est même sa raison
- *      d'être.
- *
- * Ce que le module ne fait pas : décider quoi montrer. Il compte, il retient.
- * Les chiffres de l'onglet Profil se déduisent de ce qu'il y a ici.
- *
- * Une conversation reprend au message près ; le fil d'actualité, sans fin,
- * reprend au niveau atteint avec un tirage neuf.
- */
+// Progression du joueur dans localStorage, repli en mémoire si indisponible.
 const CLE = 'ctrl-info:progression'
 
-/**
- * La version de la *forme* de l'état — celle que porte le code d'export.
- * À incrémenter le jour où un champ change de sens, pour qu'un ancien code
- * soit reconnu comme tel au lieu d'être mal relu.
- */
+// À incrémenter si la forme de l'état change.
 export const VERSION = 1
 
 const vide = () => ({
@@ -37,19 +10,17 @@ const vide = () => ({
   avatar: null,
   fil: {
     niveau: 1,
-    // Les slugs des publications déjà traitées, écartées des tirages suivants.
+    // Slugs déjà traités, écartés des tirages.
     vus: [],
     decisions: 0,
     justes: 0,
     points: 0,
-    // { « Nom du biais »: { total, justes } } — de quoi dire ce qui piège.
+    // { nom: { total, justes } }
     biais: {},
   },
   // { slug: { faite, score, total, encours } }
   conversations: {},
 })
-
-// ── Le stockage ──────────────────────────────────────────────────────────────
 
 function lire() {
   try {
@@ -64,8 +35,7 @@ function ecrire(etat) {
   try {
     window.localStorage.setItem(CLE, JSON.stringify(etat))
   } catch {
-    // Sans stockage, la progression vit le temps de l'onglet. Le site reste
-    // jouable, et c'est le code d'export qui devient la seule mémoire.
+    // Stockage indisponible : l'état reste en mémoire.
   }
 }
 
@@ -138,16 +108,10 @@ function lireConversations(recu, depuisCode) {
   return propre
 }
 
-// ── L'état, et ceux qui l'écoutent ───────────────────────────────────────────
-
 let etat = lire()
 
 const abonnes = new Set()
 
-/**
- * L'état courant. L'objet change d'identité à chaque écriture : React peut
- * donc s'y abonner sans compteur de version à faire tourner.
- */
 export function etatProgression() {
   return etat
 }
@@ -163,25 +127,14 @@ function appliquer(suivant) {
   for (const abonne of abonnes) abonne()
 }
 
-/** Les publications déjà traitées. Lu au moment du tirage, hors rendu. */
 export function dejaVus() {
   return etat.fil.vus
 }
 
-/** Le fil s'ouvre au niveau atteint. */
 export function niveauDeDepart() {
   return etat.fil.niveau
 }
 
-// ── Le fil ───────────────────────────────────────────────────────────────────
-
-/**
- * Une décision sur une publication.
- *
- * Les points viennent du contenu lui-même (`post.scores[action]`). Une publication de
- * remédiation ne compte pas — elle s'ajoute à la file pour entraîner, pas
- * pour noter.
- */
 export function noterDecision({ slug, biais, juste, points = 0 }) {
   const fil = etat.fil
   // La dernière vue passe en fin de liste : les plus anciennes reviennent d'abord.
@@ -205,13 +158,10 @@ export function noterDecision({ slug, biais, juste, points = 0 }) {
   })
 }
 
-/** Le niveau atteint ne redescend pas : c'est un acquis, pas une position. */
 export function noterNiveau(niveau) {
   if (niveau <= etat.fil.niveau) return
   appliquer({ ...etat, fil: { ...etat.fil, niveau } })
 }
-
-// ── Les conversations ────────────────────────────────────────────────────────
 
 function poserConversation(slug, modification) {
   const avant = etat.conversations[slug] ?? { faite: false, score: 0, total: 0, encours: null }
@@ -221,18 +171,10 @@ function poserConversation(slug, modification) {
   })
 }
 
-/** Le fil d'une conversation en cours, message par message. */
 export function sauverConversation(slug, encours) {
   poserConversation(slug, { encours })
 }
 
-/**
- * Une conversation menée à son terme.
- *
- * Le `faite` ne se retire jamais : recommencer une conversation déjà réussie
- * ne l'enlève pas de ce qui a été vu. Seul le score se met à jour, au mieux —
- * on garde la meilleure passe.
- */
 export function finirConversation(slug, { score, total }) {
   const avant = etat.conversations[slug]
   poserConversation(slug, {
@@ -243,13 +185,10 @@ export function finirConversation(slug, { score, total }) {
   })
 }
 
-/** « Recommencer » : la partie en cours est jetée, l'acquis reste. */
 export function oublierConversation(slug) {
   if (!etat.conversations[slug]?.encours) return
   poserConversation(slug, { encours: null })
 }
-
-// ── Le profil ────────────────────────────────────────────────────────────────
 
 export function noterAvatar(avatarId) {
   appliquer({ ...etat, avatar: avatarId ?? null })
@@ -308,7 +247,6 @@ export function remplacer(recu) {
   return true
 }
 
-/** Tout effacer. L'onglet Profil demande confirmation avant d'appeler. */
 export function reinitialiser() {
   appliquer(vide())
 }

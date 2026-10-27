@@ -28,7 +28,6 @@ export default function PostCard({
   const initial = post.source[0]?.toUpperCase() || '?'
   const liked = selectedAction === 'share'
   const reported = selectedAction === 'report'
-  // Image retirée par le média : on la masque.
   const [imageCassee, setImageCassee] = useState(null)
   const image = post.image !== imageCassee ? post.image : null
 
@@ -47,9 +46,7 @@ export default function PostCard({
         {post.sponsorise && <span className="post__sponso">Sponsorisé</span>}
       </header>
 
-      {/* Zone qui défile ; la barre d'actions y reste collée en bas. */}
       <div className="post__defile">
-        {/* Le texte avant l'image : on lit l'affirmation d'abord. */}
         <div className="post__lead">
           <p className="post__caption">
             <span className="post__caption-account">{post.source}</span>{' '}
@@ -61,7 +58,6 @@ export default function PostCard({
           <img src={image} alt="" className="post__media" onError={() => setImageCassee(image)} />
         )}
 
-        {/* ♡ ✈ à gauche, ⚑ à droite. */}
         {isActive && (
           <div className="post__actions">
             <ActionIcon

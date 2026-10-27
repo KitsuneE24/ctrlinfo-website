@@ -1,10 +1,4 @@
-/**
- * Vérifie les fichiers de public/donnees/ avant publication.
- *
- *   node scripts/verifier-donnees.mjs
- *
- * Sort en erreur au moindre problème : la récolte automatique n'envoie alors rien.
- */
+// node scripts/verifier-donnees.mjs — sort en erreur au moindre problème.
 import { readFileSync } from 'node:fs'
 
 const DONNEES = new URL('../public/donnees/', import.meta.url)
@@ -24,7 +18,7 @@ const contenu = lire('contenu.json')
 const vrais = lire('posts-vrais.json')
 const faux = lire('posts-faux.json')
 
-// Mêmes clés obligatoires que public/admin/enregistrer.php.
+// Mêmes clés que public/admin/enregistrer.php.
 const REQUISES = ['version', 'jeux', 'niveaux', 'remediations', 'conversations', 'chapitres', 'stories', 'avatars', 'astuces']
 const ACTIONS = ['share', 'ignore', 'report']
 const texte = (v) => typeof v === 'string' && v.trim() !== ''
@@ -79,7 +73,6 @@ function verifierPosts(posts, nom, isFake) {
 verifierPosts(vrais, 'posts-vrais.json', false)
 verifierPosts(faux, 'posts-faux.json', true)
 
-// Chaque niveau doit pouvoir servir un lot complet, avec du vrai et du faux.
 if (contenu && Array.isArray(vrais) && Array.isArray(faux)) {
   for (const niveau of contenu.niveaux ?? []) {
     const v = vrais.filter((p) => p.level === niveau.level).length

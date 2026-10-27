@@ -1,6 +1,5 @@
 import { AlertTriangle, Loader2 } from 'lucide-react'
 
-/** « Ça charge » et « le contenu n'a pas pu être lu ». */
 export function Chargement({ quoi = 'le contenu' }) {
   return (
     <div className="etat-api" role="status" aria-live="polite">

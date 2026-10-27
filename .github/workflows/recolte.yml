@@ -1,15 +1,11 @@
-# Récolte quotidienne des flux RSS : fabrique les nouvelles publications et
-# conversations, vérifie le résultat, l'enregistre dans le dépôt, puis l'envoie
-# chez l'hébergeur (FTP/SFTP) si les accès sont renseignés.
-# Netlify, s'il est relié au dépôt, redéploie de lui-même après l'enregistrement.
+# Récolte quotidienne des flux RSS, vérification, commit puis envoi FTP/SFTP.
 
 name: Récolte des flux
 
 on:
   schedule:
-    # 19:00 UTC = 6:00 à Nouméa
+    # 6:00 à Nouméa
     - cron: '0 19 * * *'
-  # Bouton « Run workflow » dans l'onglet Actions de GitHub.
   workflow_dispatch:
 
 permissions:
@@ -23,7 +19,6 @@ jobs:
   recolter:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # Accès à l'hébergeur : Settings → Secrets and variables → Actions.
     env:
       ENVOI_PROTOCOLE: ${{ secrets.ENVOI_PROTOCOLE }}
       ENVOI_HOTE: ${{ secrets.ENVOI_HOTE }}
@@ -41,7 +36,6 @@ jobs:
 
       - run: npm run recolter
 
-      # Un contenu invalide arrête tout : le site garde la version de la veille.
       - run: npm run verifier
 
       - name: Enregistrer s'il y a du neuf

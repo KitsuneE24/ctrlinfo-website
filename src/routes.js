@@ -1,5 +1,3 @@
-/** Les adresses du site. Les chemins restent en français : ils sont lus. */
-
 export const PATHS = {
   home: '/',
   feed: '/fil',
@@ -14,13 +12,12 @@ export const chatPath = (slug) => `${PATHS.chats}/${encodeURIComponent(slug)}`
 export const chapterPath = (slug) =>
   `${PATHS.resources}/comprendre/${encodeURIComponent(slug)}`
 
-/** Identifiant de jeu du contenu (`feed`, `chat`) vers son écran. */
 export const GAME_PATHS = {
   feed: PATHS.feed,
   chat: PATHS.chats,
 }
 
-// Du chemin le plus précis au plus large : l'ordre décide du titre trouvé.
+// Du plus précis au plus large : l'ordre compte.
 const TITLES = [
   [`${PATHS.resources}/comprendre`, 'Ressources'],
   [PATHS.resources, 'Ressources'],

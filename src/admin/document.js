@@ -1,8 +1,4 @@
-/**
- * Le contenu côté administration : contenu.json et les deux fichiers de
- * publications, présentés comme un seul document (`postsVrais`, `postsFaux`).
- * Chemins relatifs : le dossier de l'administration peut être renommé.
- */
+// Chemins relatifs : le dossier d'administration peut être renommé.
 const DONNEES = '../donnees/'
 const ENREGISTREMENT = './enregistrer.php'
 
@@ -38,7 +34,6 @@ export async function charger() {
   return document
 }
 
-/** Les objets affichés appartiennent au document : les modifier suffit. */
 export function modifier(objet, cle, valeur) {
   if (objet[cle] === valeur) return
   objet[cle] = valeur
@@ -66,7 +61,6 @@ export function deplacer(tableau, index, pas) {
   prevenir()
 }
 
-/** Le contenu de chaque fichier, tel qu'il s'écrit sur le serveur. */
 function parFichier() {
   const { postsVrais, postsFaux, ...contenu } = document
   return { contenu, 'posts-vrais': postsVrais, 'posts-faux': postsFaux }

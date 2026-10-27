@@ -9,7 +9,6 @@ import CadreCagou from './CadreCagou'
 
 const CLE = 'astuce-du-jour'
 
-/** « Le saviez-vous ? » — une brève par jour, pas une par visite. */
 export default function DailyTip() {
   const { donnees } = useRessource(getDailyTip, [])
   const [ferme, setFerme] = useState(() => seenToday(CLE))

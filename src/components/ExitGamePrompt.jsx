@@ -22,7 +22,7 @@ export default function ExitGamePrompt({ onConfirm, onCancel }) {
           Déjà fini&nbsp;?
         </h2>
         <p className="fenetre__texte">
-          Tes réponses et ton niveau sont gardés. Seule cette manche
+          Vos réponses et votre niveau sont gardés. Seule cette manche
           recommencera.
         </p>
 

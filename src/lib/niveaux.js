@@ -33,7 +33,7 @@ export function reglesDuNiveau(niveaux, level) {
     ...dernier,
     level,
     titre: `Niveau ${level}`,
-    sousTitre: duree ? `Même difficulté, ${duree} secondes par publication.` : dernier.sousTitre,
+    sousTitre: duree ? `Même difficulté, ${duree} secondes par post.` : dernier.sousTitre,
     dureeSecondes: duree,
   }
 }

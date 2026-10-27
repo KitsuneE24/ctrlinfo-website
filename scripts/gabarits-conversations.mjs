@@ -9,27 +9,27 @@
 export const DISTRIBUTIONS = [
   {
     groupe: false,
-    lanceur: { id: 'tata-josiane', nom: 'Tata Josiane', role: 'ta tante', couleur: '#791561' },
+    lanceur: { id: 'tata-josiane', nom: 'Tata Josiane', role: 'votre tante', couleur: '#791561' },
   },
   {
     groupe: true,
     nom: 'Famille 🌺',
-    lanceur: { id: 'tonton-georges', nom: 'Tonton Georges', role: 'ton oncle', couleur: '#b45309' },
-    soutien: { id: 'maman', nom: 'Maman', role: 'ta mère', couleur: '#1800ad' },
+    lanceur: { id: 'tonton-georges', nom: 'Tonton Georges', role: 'votre oncle', couleur: '#b45309' },
+    soutien: { id: 'maman', nom: 'Maman', role: 'votre mère', couleur: '#1800ad' },
   },
   {
     groupe: false,
-    lanceur: { id: 'mathis', nom: 'Mathis', role: 'ton pote du lycée', couleur: '#14663f' },
+    lanceur: { id: 'mathis', nom: 'Mathis', role: 'votre pote du lycée', couleur: '#14663f' },
   },
   {
     groupe: true,
     nom: 'Les potes 🏝️',
-    lanceur: { id: 'kenzo', nom: 'Kenzo', role: 'ton pote', couleur: '#8a4fbe' },
-    soutien: { id: 'maeva', nom: 'Maëva', role: 'ta pote', couleur: '#c2410c' },
+    lanceur: { id: 'kenzo', nom: 'Kenzo', role: 'votre pote', couleur: '#8a4fbe' },
+    soutien: { id: 'maeva', nom: 'Maëva', role: 'votre pote', couleur: '#c2410c' },
   },
   {
     groupe: false,
-    lanceur: { id: 'colette', nom: 'Colette', role: 'ta voisine', couleur: '#57534e' },
+    lanceur: { id: 'colette', nom: 'Colette', role: 'votre voisine', couleur: '#57534e' },
   },
 ]
 
@@ -50,7 +50,7 @@ export function etapes({ post, a, gabarit, lanceur, soutien }) {
           correct: false,
           reply: 'Ok, je l’envoie partout 📤',
           explication:
-            '« Au cas où » fait circuler la plupart des fausses informations : chaque transfert de bonne foi lui donne la caution de quelqu’un qu’on connaît.',
+            '« Au cas où » fait circuler la plupart des fake news : chaque transfert de bonne foi lui donne la caution de quelqu’un qu’on connaît.',
         },
         {
           text: `Attends : ${post.source}, c’est qui ? On regarde si ${a.nom} en parle ?`,
@@ -60,7 +60,7 @@ export function etapes({ post, a, gabarit, lanceur, soutien }) {
             'Remonter à la source avant de partager : c’est le premier réflexe, et il prend une minute. Une rédaction connue qui publie le même fait permet de comparer.',
         },
         {
-          text: 'C’est encore un fake, t’es trop crédule.',
+          text: 'C’est encore une fake news, t’es trop crédule.',
           correct: false,
           reply: 'Merci, sympa… Je l’envoie quand même, tu n’as même pas regardé.',
           explication:
@@ -78,7 +78,7 @@ export function etapes({ post, a, gabarit, lanceur, soutien }) {
           text: 'Oui, c’est la même info.',
           correct: false,
           reply: 'Tu vois ! Donc je peux partager l’autre version.',
-          explication: `Pas tout à fait : le fait est le même, mais la publication ajoute ${ajout}. C’est cet ajout qui trompe.`,
+          explication: `Pas tout à fait : le fait est le même, mais le post ajoute ${ajout}. C’est cet ajout qui trompe.`,
         },
         {
           text: `Le fait est vrai, mais l’autre version ajoute ${ajout}.`,
@@ -120,7 +120,7 @@ export function etapes({ post, a, gabarit, lanceur, soutien }) {
           correct: false,
           reply: 'Bon, tant pis alors.',
           explication:
-            'Une publication trompeuse circule tant que personne ne la corrige. Celui qui l’a envoyée est le mieux placé pour le faire.',
+            'Un post trompeur circule tant que personne ne le corrige. Celui qui l’a envoyé est le mieux placé pour le faire.',
         },
       ],
     },
@@ -128,6 +128,6 @@ export function etapes({ post, a, gabarit, lanceur, soutien }) {
 }
 
 export const outro = (a) => ({
-  high: `Bien joué : tu as fait comparer avec ${a.nom} sans braquer personne. Le réflexe : retrouver l’article d’origine et repérer ce qui a été ajouté.`,
+  high: `Bien joué : vous avez fait comparer avec ${a.nom} sans braquer personne. Le réflexe : retrouver l’article d’origine et repérer ce qui a été ajouté.`,
   low: `Pas facile cette fois. Le réflexe à retenir : retrouver l’article d’origine (ici ${a.nom}) et comparer. Le fait est souvent vrai, c’est l’emballage qui trompe.`,
 })

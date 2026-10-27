@@ -91,9 +91,9 @@ export default function ChatScreen() {
         <div className={`messaging__list${openId ? ' messaging__list--hidden' : ''}`}>
           <div className="messaging__scroll no-scrollbar">
             <header className="page__heading">
-              <h1 className="page__title">Les conversations</h1>
+              <h1 className="page__title">Messages</h1>
               <p className="page__subtitle">
-                Quand la fausse info vient de tes proches
+                Quand la fake news vient de vos proches
               </p>
             </header>
 
@@ -192,9 +192,9 @@ export default function ChatScreen() {
               <span className="messaging__empty-icon">
                 <MessageCircle size={38} strokeWidth={1.4} />
               </span>
-              <p className="messaging__empty-title">Tes conversations</p>
+              <p className="messaging__empty-title">Vos conversations</p>
               <p className="messaging__empty-text">
-                Choisis une discussion à gauche pour lancer un mini-jeu.
+                Choisissez une conversation à gauche pour lancer un mini-jeu.
               </p>
             </div>
           )}

@@ -24,14 +24,14 @@ export const TAB_ITEMS = [
     id: 'feed',
     path: PATHS.feed,
     Icon: Newspaper,
-    label: "Fil d'actu",
+    label: "Fil d'actualité",
     ordreBureau: 2,
   },
   {
     id: 'resources',
     path: PATHS.resources,
     Icon: BookOpen,
-    label: 'Comprendre',
+    label: 'Ressources',
     ordreBureau: 4,
   },
   {

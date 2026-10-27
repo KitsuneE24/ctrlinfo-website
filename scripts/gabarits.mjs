@@ -66,7 +66,7 @@ export const CATEGORIES = [
       "D'après une source proche du dossier, la décision était connue depuis plusieurs semaines.",
     ],
     explication: 'La source ajoutée est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier.',
-    analyseFaux: 'La source anonyme n’existe que dans cette publication : aucun nom, aucun document.',
+    analyseFaux: 'La source anonyme n’existe que dans ce post : aucun nom, aucun document.',
     ajout: () => 'une source anonyme que l’article ne cite pas',
     pression: () => 'C’est un responsable qui le dit, c’est du sérieux.',
     indice: indice('ALERTE', 'TEXTE', 'UserRound', 'Une source sans nom',
@@ -283,7 +283,7 @@ export const HABILLAGES = [
     explication: 'Le compte défend une cause, sans rédaction identifiable.',
     indice: (a, compte) =>
       indice('VERIFICATION', 'SOURCE', 'Search', 'Un compte militant',
-        `${compte.nom} ne dit pas qui écrit. Le fait vient de ${a.nom} (${a.date}) : compare les deux.`),
+        `${compte.nom} ne dit pas qui écrit. Le fait vient de ${a.nom} (${a.date}) : comparez les deux.`),
   },
   {
     niveau: 3,
@@ -310,16 +310,15 @@ export const HABILLAGES = [
     comptes: [[(a) => a.nom, '#1800ad', (a) => a.domaineCopie]],
     explication: 'Le compte copie une vraie rédaction : seule l’adresse diffère.',
     indice: (a, compte) =>
-      indice('VERIFICATION', 'SOURCE', 'Link2', 'Lis l’adresse lettre par lettre',
+      indice('VERIFICATION', 'SOURCE', 'Link2', 'Lisez l’adresse lettre par lettre',
         `${compte.domaine} n’est pas ${a.domaineReel} : même nom, même titre, mais pas le même site.`),
   },
 ]
 
-/** Le vrai : l'article repris tel quel. */
 export const VRAI = {
   explication: (a) =>
-    `Cette publication reprend telle quelle une information de ${a.editeur} : rédaction identifiable, date, lien vers ` +
-    `l'article complet. Rien n'y a été ajouté : elle se partage sans risque.`,
+    `Ce post reprend telle quelle une information de ${a.editeur} : rédaction identifiable, date, lien vers ` +
+    `l'article complet. Rien n'y a été ajouté : il se partage sans risque.`,
   analyseVrai: (a) => `Le titre et le texte sont ceux de ${a.nom}, publiés le ${a.date}, avec le lien vers l'article.`,
   indices: (a) => [
     indice('FIABLE', 'SOURCE', 'BadgeCheck', 'Une rédaction identifiable',
@@ -366,16 +365,16 @@ export const COMMENTATEURS = {
 
 export const CONSEQUENCES_FAUX = {
   share:
-    "En partageant, tu donnes à ce montage la crédibilité qui lui manquait : celle de quelqu'un que tes proches connaissent.",
+    "En partageant, vous donnez à ce montage la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
   ignore:
-    "Tu ne l'as pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+    "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
   report:
-    'Bien vu. Le fait de départ existait, mais son emballage était conçu pour te faire réagir avant de réfléchir.',
+    'Bien vu. Le fait de départ existait, mais son emballage était conçu pour vous faire réagir avant de réfléchir.',
 }
 
 export const CONSEQUENCES_VRAI = {
   share:
-    "Tu as relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
+    "Vous avez relayé une information sourcée, signée, datée, publiée par une rédaction identifiable. C'est ce qui devrait circuler.",
   ignore:
     "Rien de grave — mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
   report:

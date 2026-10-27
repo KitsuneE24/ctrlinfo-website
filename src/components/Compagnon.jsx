@@ -589,7 +589,7 @@ export default function Compagnon({ enJeu = false }) {
 
         <button
           type="button"
-          aria-label="Le compagnon — appuie pour un conseil, glisse-le pour le déplacer"
+          aria-label="Le cagou — appuyez pour un conseil, faites-le glisser pour le déplacer"
           ref={spriteRef}
           className={`compagnon__sprite${atterrit ? ' compagnon__sprite--pose' : ''}`}
           style={stylePosture(posture, sens)}

@@ -105,7 +105,7 @@ export default function FeedStats({
       <div className="papier fil-etat__conseil">
         <span className="papier__ruban" />
         <Kiwi taille={44} />
-        <p>Lis jusqu'au bout avant de cliquer.</p>
+        <p>Lisez jusqu'au bout avant de cliquer.</p>
       </div>
     </section>
   )

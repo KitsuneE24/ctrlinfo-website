@@ -96,37 +96,37 @@ const REPLIQUES = [
   [
     `${PATHS.resources}/comprendre`,
     [
-      'Ici, pas de chrono ni de score : tu lis à ton rythme.',
+      'Ici, pas de chrono ni de score : vous lisez à votre rythme.',
       'Un exemple lu tranquillement se retient mieux qu’un score.',
     ],
   ],
   [
     PATHS.resources,
     [
-      'Les thèmes expliquent les pièges que tu croises dans le fil.',
-      '« Vérifier une info » liste des outils pour recouper. Garde-les sous la main.',
+      'Les thèmes expliquent les pièges que vous croisez dans le fil.',
+      '« Vérifier une info » liste des outils pour recouper. Gardez-les sous la main.',
     ],
   ],
   [
     PATHS.chats,
     [
-      'Dans une conversation, chaque réponse compte — c’est toi qui mènes.',
+      'Dans une conversation, chaque réponse compte — c’est vous qui menez.',
       'Quelqu’un qui pousse à partager vite, c’est déjà un signal.',
     ],
   ],
   [
     PATHS.feed,
     [
-      'Le fil, c’est le jeu principal : vraie info ou intox, à toi de trancher.',
-      'Regarde la source avant le contenu. Elle dit souvent tout.',
+      'Le fil, c’est le jeu principal : vraie info ou fake news, à vous de trancher.',
+      'Regardez la source avant le contenu. Elle dit souvent tout.',
       'Un compte qui publie beaucoup en très peu de temps mérite un doute.',
     ],
   ],
   [
     PATHS.profile,
     [
-      'Cet écran dit sur quels biais tu te fais avoir. C’est là qu’on progresse.',
-      'Ta progression reste dans ce navigateur. Copie ton code pour l’emporter.',
+      'Cet écran dit sur quels biais vous vous faites avoir. C’est là qu’on progresse.',
+      'Votre progression reste dans ce navigateur. Copiez votre code pour l’emporter.',
     ],
   ],
   [
@@ -138,10 +138,9 @@ const REPLIQUES = [
   ],
 ]
 
-/** Répliques valables sur tous les écrans, après celles de l'écran. */
 const COMMUN = [
-  'Tu peux m’attraper et me poser où tu veux.',
-  'Si je te gêne, glisse-moi dans un coin — j’y resterai.',
+  'Vous pouvez m’attraper et me poser où vous voulez.',
+  'Si je vous gêne, faites-moi glisser dans un coin — j’y resterai.',
   'Je ne compte rien et je ne note rien. Je suis juste là.',
 ]
 
@@ -151,37 +150,35 @@ export function repliquesPour(chemin) {
   return [...(trouve ? trouve[1] : []), ...COMMUN]
 }
 
-/** Répliques pendant une partie. */
 export const REPLIQUES_JEU = [
-  'Joue, je regarde mon fil. On se parle après.',
-  'Je scrolle un peu, ne fais pas attention à moi.',
+  'Jouez, je regarde mon fil. On se parle après.',
+  'Je scrolle un peu, ne faites pas attention à moi.',
 ]
 
-/** Première phrase, à la première visite. */
 export const BONJOUR =
-  'Salut ! Je reste dans un coin, et je commente ce que tu fais.'
+  'Bonjour ! Je reste dans un coin, et je commente ce que vous faites.'
 
-/** Réactions aux signaux de jeu ; `serie` : nombre d'affilée avant de réagir. */
+// `serie` : nombre d'affilée avant de réagir.
 export const REACTIONS = {
   bonneReponse: {
     serie: 3,
     lignes: [
-      'Trois de suite. Tu commences à les voir venir.',
+      'Trois de suite. Vous commencez à les voir venir.',
       'Encore trois. Ce n’est plus de la chance.',
     ],
   },
   mauvaiseReponse: {
     serie: 2,
     lignes: [
-      'Deux d’affilée. Regarde qui publie avant de trancher.',
+      'Deux d’affilée. Regardez qui publie avant de trancher.',
       'Ça remord. Le ton pressé, c’est souvent le piège.',
     ],
   },
   finPartie: {
     serie: 1,
     lignes: [
-      'Fini ! Ton profil dit sur quels biais tu t’es fait avoir.',
-      'Belle partie. On remet ça quand tu veux.',
+      'Fini ! Votre profil dit sur quels biais vous vous êtes fait avoir.',
+      'Belle partie. On remet ça quand vous voulez.',
     ],
   },
 }

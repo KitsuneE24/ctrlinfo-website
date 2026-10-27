@@ -50,6 +50,7 @@ export const CATEGORIES = [
   },
   {
     biais: 'Autorité inventée',
+    surUnePersonne: false,
     titres: [
       (t) => `Un haut responsable brise le silence : ${t}`,
       (t) => `Révélations d'un haut responsable : ${t}`,
@@ -79,6 +80,7 @@ export const CATEGORIES = [
   },
   {
     biais: 'Appel à la peur',
+    surUnePersonne: false,
     titres: [
       (t) => `Danger pour vos enfants : ${t}`,
       (t) => `Ce que ça va changer pour votre famille : ${t}`,
@@ -137,6 +139,7 @@ export const CATEGORIES = [
   },
   {
     biais: 'Faux expert',
+    surUnePersonne: false,
     titres: [
       (t) => `Un expert prévient : ${t}, et ce n'est que le début`,
       (t) => `${t} : « ce n'est qu'un début », selon un expert`,
@@ -166,6 +169,7 @@ export const CATEGORIES = [
   },
   {
     biais: 'Biais de confirmation',
+    surUnePersonne: false,
     titres: [
       (t) => `On vous l'avait dit : ${t}`,
       (t) => `${t} : la preuve de ce que beaucoup pensaient`,
@@ -195,6 +199,7 @@ export const CATEGORIES = [
   },
   {
     biais: 'Fausse corrélation',
+    surUnePersonne: false,
     titres: [
       (t) => `Comme par hasard : ${t}`,
       (t) => `${t} : pas un hasard`,

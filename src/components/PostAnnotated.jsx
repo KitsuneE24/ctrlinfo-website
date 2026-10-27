@@ -1,6 +1,7 @@
-import { createElement, useState } from 'react'
+import { createElement } from 'react'
 import { icone } from '../data/icones'
 import { texteSur } from '../lib/contraste'
+import ImagePost from './ImagePost'
 
 const ZONES_TEXTE = ['SOURCE', 'TITRE', 'TEXTE', 'DATE', 'ENGAGEMENT']
 
@@ -64,8 +65,6 @@ export function ListeIndices({ post }) {
 export default function PostAnnotated({ post, liste = true }) {
   const indices = post.indices ?? []
   const surligne = (cible) => surlignage(indices, cible)
-  const [imageCassee, setImageCassee] = useState(null)
-  const image = post.image !== imageCassee ? post.image : null
 
   return (
     <article className="annot">
@@ -95,27 +94,7 @@ export default function PostAnnotated({ post, liste = true }) {
         <Marques indices={indices} cible="TEXTE" />
       </p>
 
-      {image && (
-        <div className="annot__media">
-          <img src={image} alt="" className="annot__image" onError={() => setImageCassee(image)} />
-          {indices.map((indice, i) =>
-            indice.zone ? (
-              <span
-                key={i}
-                className={`annot__cadre annot__cadre--${indice.nature.toLowerCase()}`}
-                style={{
-                  left: `${indice.zone.x}%`,
-                  top: `${indice.zone.y}%`,
-                  width: `${indice.zone.l}%`,
-                  height: `${indice.zone.h}%`,
-                }}
-              >
-                <Puce numero={i + 1} nature={indice.nature} />
-              </span>
-            ) : null
-          )}
-        </div>
-      )}
+      <ImagePost post={post} className="annot__image" />
 
       {liste && <ListeIndices post={post} />}
     </article>

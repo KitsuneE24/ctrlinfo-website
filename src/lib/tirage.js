@@ -12,9 +12,13 @@ export const melanger = (tableau) => {
 function varier(disponibles, taille) {
   const choisis = []
   const procedes = new Set()
+  // Au plus un article sur deux : le reste vient de personnes et de pages.
+  const maxArticles = Math.floor(taille * 0.5)
+  const articles = () => choisis.filter((p) => p.format === 'article').length
   for (const post of disponibles) {
     if (choisis.length === taille) break
     if (post.isFake && procedes.has(post.biais)) continue
+    if (post.format === 'article' && articles() >= maxArticles) continue
     choisis.push(post)
     if (post.isFake) procedes.add(post.biais)
   }

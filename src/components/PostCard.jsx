@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import { Heart, Send, Flag } from 'lucide-react'
 import { texteSur } from '../lib/contraste'
+import ImagePost from './ImagePost'
 
 function ActionIcon({ label, onClick, disabled, active, modifier, children }) {
   return (
@@ -28,8 +28,6 @@ export default function PostCard({
   const initial = post.source[0]?.toUpperCase() || '?'
   const liked = selectedAction === 'share'
   const reported = selectedAction === 'report'
-  const [imageCassee, setImageCassee] = useState(null)
-  const image = post.image !== imageCassee ? post.image : null
 
   return (
     <article className={`post${isActive ? '' : ' post--past'}`}>
@@ -54,9 +52,7 @@ export default function PostCard({
           </p>
         </div>
 
-        {image && (
-          <img src={image} alt="" className="post__media" onError={() => setImageCassee(image)} />
-        )}
+        <ImagePost post={post} className="post__image" avecCredit={false} />
 
         {isActive && (
           <div className="post__actions">

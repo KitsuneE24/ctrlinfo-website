@@ -264,6 +264,17 @@
     color: var(--magenta-texte);
   }
 
+  .indices__licence {
+    margin: 0;
+    font-size: var(--text-xs);
+    color: var(--ink-muted);
+  }
+
+  .indices__licence a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
   .indices__chapo {
     flex: 0 1 380px;
     margin: 0;
@@ -528,43 +539,6 @@
     background: var(--bleu);
   }
 
-  .annot__media {
-    position: relative;
-    margin-top: 16px;
-    overflow: hidden;
-    border-radius: 3px;
-    background: var(--surface-media);
-  }
-
-  .annot__image {
-    display: block;
-    width: 100%;
-  }
-
-  .annot__cadre {
-    position: absolute;
-    border: 2.5px solid var(--rouge);
-    border-radius: 6px;
-    box-shadow: 0 0 0 9999px color-mix(in srgb, var(--encre-voile) 35%, transparent);
-  }
-
-  .annot__cadre--verification {
-    border-color: var(--magenta);
-  }
-
-  .annot__cadre--fiable {
-    border-color: var(--bleu);
-  }
-
-  .annot__cadre .annot__puce {
-    position: absolute;
-    top: -11px;
-    left: -11px;
-    width: 22px;
-    height: 22px;
-    border: 2px solid var(--papier);
-  }
-
   /* --- Les indices, reliés par un fil rouge vertical --- */
 
   .annot__liste {
@@ -720,19 +694,6 @@
     .indices__piece .annot__texte {
       font-size: 15px;
       line-height: 1.55;
-    }
-
-    /* Image à ses proportions : les zones encadrées restent justes. */
-    .indices__piece .annot__media {
-      width: fit-content;
-      max-width: 100%;
-      margin: 14px auto 0;
-    }
-
-    .indices__piece .annot__image {
-      width: auto;
-      max-width: 100%;
-      max-height: clamp(120px, calc(100dvh - 470px), 320px);
     }
 
     .indices__explications {

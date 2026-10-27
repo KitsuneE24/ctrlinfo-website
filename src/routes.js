@@ -29,5 +29,5 @@ const TITLES = [
 
 export function pageTitle(path) {
   const found = TITLES.find(([prefix]) => path.startsWith(prefix))
-  return found ? `${found[1]} — CTRL INFO` : 'CTRL INFO'
+  return found ? `${found[1]} · CTRL INFO` : 'CTRL INFO'
 }

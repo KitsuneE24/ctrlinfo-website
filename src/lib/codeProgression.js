@@ -142,7 +142,7 @@ export async function decoderCode(code) {
   if (empreinte(octets).toString(36) !== somme) {
     throw new ErreurCode(
       'abime',
-      "Ce code a été abîmé en route — tronqué à la copie, ou coupé par un retour à la ligne. Rien n'a été modifié."
+      "Ce code a été abîmé en route : tronqué à la copie, ou coupé par un retour à la ligne. Rien n'a été modifié."
     )
   }
 

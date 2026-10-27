@@ -273,7 +273,7 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
                 {currentPost.isRemediation && (
                   <p className="remediation">
                     <GraduationCap size={15} strokeWidth={2} />
-                    Entraînement ciblé — reconnaître ce biais
+                    Entraînement ciblé : reconnaître ce biais
                   </p>
                 )}
                 <PostCard

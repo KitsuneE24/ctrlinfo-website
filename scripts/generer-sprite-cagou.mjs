@@ -1,4 +1,4 @@
-// node scripts/generer-sprite-cagou.mjs — planches du compagnon depuis scripts/sprites/
+// node scripts/generer-sprite-cagou.mjs : planches du compagnon depuis scripts/sprites/
 import { deflateSync, inflateSync } from 'node:zlib'
 import { readFileSync, writeFileSync } from 'node:fs'
 

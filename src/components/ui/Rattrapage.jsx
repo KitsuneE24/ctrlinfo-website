@@ -20,7 +20,7 @@ export default class Rattrapage extends Component {
       <div className="rattrapage">
         <h1 className="rattrapage__titre">Quelque chose a lâché</h1>
         <p className="rattrapage__texte">
-          L'écran n'a pas pu s'afficher. Recharger suffit le plus souvent — ta
+          L'écran n'a pas pu s'afficher. Recharger suffit le plus souvent : votre
           progression reste enregistrée dans ce navigateur.
         </p>
 

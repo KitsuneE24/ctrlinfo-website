@@ -80,7 +80,7 @@ function Pseudo({ valeur }) {
         setSaisie(valeur)
         setEdition(true)
       }}
-      aria-label="Modifier le pseudo"
+      aria-label={`${valeur || 'Choisissez votre pseudo'}, modifier`}
       className="profil-pseudo"
     >
       {valeur || 'Choisissez votre pseudo'}

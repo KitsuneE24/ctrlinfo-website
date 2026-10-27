@@ -173,7 +173,7 @@ export default function HomeScreen() {
                       </span>
                       {videoOpen && (
                         <span className="video__hint">
-                          La vidéo sera intégrée ici — renseigne <code>VIDEO_URL</code>{' '}
+                          La vidéo sera intégrée ici : renseignez <code>VIDEO_URL</code>{' '}
                           dans <code>src/screens/HomeScreen.jsx</code>.
                         </span>
                       )}

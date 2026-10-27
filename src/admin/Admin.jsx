@@ -51,7 +51,7 @@ function Barre() {
 
   return (
     <div className="barre">
-      <span className="barre__titre">CTRL INFO — administration</span>
+      <span className="barre__titre">CTRL INFO · administration</span>
 
       {erreur ? (
         <span className="barre__erreur">
@@ -157,7 +157,7 @@ export default function Admin() {
                   onClick={() => setIndex(i)}
                   className={`entree${i === index ? ' entree--active' : ''}`}
                 >
-                  {reglage.titre(entree) || `(sans titre — ${i + 1})`}
+                  {reglage.titre(entree) || `(sans titre ${i + 1})`}
                 </button>
               </li>
             ))}

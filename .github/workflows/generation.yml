@@ -1,6 +1,6 @@
-# Récolte quotidienne des flux RSS, vérification, commit puis envoi FTP/SFTP.
+# Génération quotidienne (seuls les flux sous licence libre de config.json sont lus), vérification, commit puis envoi FTP/SFTP.
 
-name: Récolte des flux
+name: Génération du contenu
 
 on:
   schedule:
@@ -12,11 +12,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: recolte
+  group: generation
   cancel-in-progress: false
 
 jobs:
-  recolter:
+  generer:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -34,7 +34,7 @@ jobs:
 
       - run: npm ci --ignore-scripts
 
-      - run: npm run recolter
+      - run: npm run generer
 
       - run: npm run verifier
 
@@ -47,7 +47,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "[Contenu] Récolte du $(TZ=Pacific/Noumea date +%d/%m/%Y)"
+          git commit -m "[Contenu] Génération du $(TZ=Pacific/Noumea date +%d/%m/%Y)"
           git push
 
       - name: Envoyer chez l'hébergeur
@@ -59,7 +59,7 @@ jobs:
           case "$ENVOI_PROTOCOLE" in
             sftp)
               if [ -z "$ENVOI_CLE_HOTE" ]; then
-                echo "::error::ENVOI_CLE_HOTE manquant : la clé du serveur SFTP doit être connue (voir README.md, § 6)."
+                echo "::error::ENVOI_CLE_HOTE manquant : la clé du serveur SFTP doit être connue (voir SPEC.md, § 6)."
                 exit 1
               fi
               mkdir -p ~/.ssh && chmod 700 ~/.ssh

@@ -28,15 +28,11 @@ export const plusAutorise = (contenu, jeu) =>
 export const chargerContenu = () =>
   chargerServeur().then((contenu) => {
     const locaux = generes()
-    const vraies = contenu.posts.filter((p) => !p.isFake)
-    const presentes = new Set(vraies.map((p) => p.article?.url))
-    const bases = new Set(vraies.filter((p) => p.fauxPossible).map((p) => p.article?.url))
-    const posts = plusAutorise(contenu, 'feed')
-      ? locaux.posts.filter((p) => (p.isFake ? bases : presentes).has(p.article?.url))
-      : []
-    const conversations = plusAutorise(contenu, 'chat')
-      ? locaux.conversations.filter((c) => bases.has(c.article?.url))
-      : []
+    // Un vrai fabriqué n'est gardé que si son fait existe encore dans contenu.json.
+    const faits = new Set((contenu.faits ?? []).map((f) => f.id))
+    const estConnu = (p) => p.isFake || faits.has(p.fait)
+    const posts = plusAutorise(contenu, 'feed') ? locaux.posts.filter(estConnu) : []
+    const conversations = plusAutorise(contenu, 'chat') ? locaux.conversations : []
     return {
       ...contenu,
       posts: [...contenu.posts, ...posts],

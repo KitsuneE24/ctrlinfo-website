@@ -1,97 +1,61 @@
 /**
- * Fabriquer de nouvelles publications et conversations dans le navigateur,
- * à partir des vraies déjà récoltées (marquées `fauxPossible` par la récolte).
- * Une même vraie donne un faux par procédé et par niveau, jamais deux fois.
+ * Fabriquer de nouveaux posts et sujets dans le navigateur, depuis les banques de contenu.json.
+ * Autant de vrais que de faux par lot ; les sujets de discussion arrivent par 10, contact par contact.
  */
-import { CATEGORIES, HABILLAGES } from '../../scripts/gabarits.mjs'
+import { HABILLAGES } from '../../scripts/gabarits.mjs'
 import { DISTRIBUTIONS } from '../../scripts/gabarits-conversations.mjs'
-import {
-  articleDe,
-  empreinte,
-  fabriquerConversation,
-  fabriquerFaux,
-  personneDe,
-} from '../../scripts/fabrique.mjs'
-import { melanger, niveauDeContenu } from './tirage'
+import { fabriquerFaux, fabriquerVrai, prochainFaux, prochainVrai, sujetsPour } from '../../scripts/fabrique.mjs'
+import { niveauDeContenu } from './tirage'
 
 const LOT_POSTS = 8
-const LOT_CONVERSATIONS = 3
+const LOT_CONVERSATIONS = 10
 
-const graine = () => Math.floor(Math.random() * 1000)
+const estArticle = (p) => p.format === 'article'
+const banquesDe = (contenu) => ({ faits: contenu.faits ?? [], scenarios: contenu.scenarios ?? [] })
+const aide = (posts) => posts.find((p) => p.learnMoreTips)?.learnMoreTips
+// Un préfixe propre à chaque lot : un même fait peut revenir, avec un autre auteur.
+const lot = () => `local-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`
 
-/** Les procédés permis pour cet article : rien n'est prêté à une personne citée. */
-const permises = (article) =>
-  personneDe(article) ? CATEGORIES.filter((c) => c.surUnePersonne !== false) : CATEGORIES
-
-const options = (post) => ({ aideUrl: post.learnMoreTips })
-
-/** Des faux neufs au niveau du joueur, et des vraies qu'il n'a pas encore vues. */
-export function fabriquerPublications(posts, { level, vus = [] }) {
+/** Des posts neufs au niveau du joueur : autant de vrais que de faux. */
+export function fabriquerPublications(contenu, { level, vus = [] }) {
+  const posts = contenu.posts
   const cible = niveauDeContenu(posts, level)
   if (!HABILLAGES.some((h) => h.niveau === cible)) return []
 
-  const duNiveau = posts.filter((p) => p.isFake && p.level === cible)
-  const pris = new Set(duNiveau.map((p) => `${p.article?.url}|${p.biais}`))
-  const parProcede = new Map()
-  for (const p of duNiveau) parProcede.set(p.biais, (parProcede.get(p.biais) ?? 0) + 1)
+  const banques = banquesDe(contenu)
+  const dejaVus = new Set(vus)
+  const prefixe = lot()
+  const options = { aideUrl: aide(posts) }
 
-  const faux = []
-  for (const vrai of melanger(posts.filter((p) => !p.isFake && p.fauxPossible))) {
-    if (faux.length === LOT_POSTS) break
-    const article = articleDe(vrai)
-    const libres = permises(article).filter((c) => !pris.has(`${article.url}|${c.biais}`))
-    if (libres.length === 0) continue
-
-    // Le procédé le moins représenté à ce niveau.
-    const categorie = libres.sort(
-      (x, y) => (parProcede.get(x.biais) ?? 0) - (parProcede.get(y.biais) ?? 0)
-    )[0]
-    const slug = `local-faux-${empreinte(`${article.url}|${cible}|${categorie.biais}`)}`
-    faux.push({
-      ...fabriquerFaux(article, categorie, cible, graine(), options(vrai)),
-      slug,
-      id: slug,
-      origine: 'local',
-    })
-    pris.add(`${article.url}|${categorie.biais}`)
-    parProcede.set(categorie.biais, (parProcede.get(categorie.biais) ?? 0) + 1)
+  // Les faits que le joueur n'a pas encore vus passent d'abord.
+  const vusFaits = posts.filter((p) => !p.isFake && dejaVus.has(p.slug)).map((p) => ({ ...p, level: cible }))
+  const vrais = []
+  for (let i = 0; i < LOT_POSTS; i++) {
+    // Tout est vu : les faits reviennent, sans doublon dans le lot.
+    const fait = prochainVrai([...vusFaits, ...vrais], cible, banques.faits) ?? prochainVrai(vrais, cible, banques.faits)
+    if (!fait) break
+    vrais.push({ ...fabriquerVrai(fait, cible, { ...options, prefixe: `${prefixe}-vrai` }), origine: 'local' })
   }
 
-  // Autant de vraies que de faux : des vraies d'autres niveaux, jamais vues.
-  const dejaVus = new Set(vus)
-  const presentes = new Set(posts.filter((p) => !p.isFake && p.level === cible).map((p) => p.article?.url))
-  const vraies = melanger(
-    posts.filter((p) => !p.isFake && p.article && !dejaVus.has(p.slug) && !presentes.has(p.article.url))
-  )
-    .slice(0, faux.length)
-    .map((p) => {
-      const slug = `local-vrai-${empreinte(p.article.url)}-${cible}`
-      return { ...p, slug, id: slug, level: cible, origine: 'local' }
-    })
+  const pris = posts.filter((p) => p.isFake && p.scenario && dejaVus.has(p.slug)).map((p) => ({ ...p, level: cible }))
+  const faux = []
+  while (faux.length < vrais.length) {
+    const choix = prochainFaux([...pris, ...faux], cible, banques)
+    if (!choix) break
+    // Autant de faux articles que de vrais articles.
+    const media = faux.filter(estArticle).length < vrais.filter(estArticle).length
+    faux.push({ ...fabriquerFaux(choix.base, choix.categorie, cible, { ...options, prefixe: `${prefixe}-faux`, media }), origine: 'local' })
+  }
 
-  return [...faux, ...vraies]
+  const avecId = (p) => ({ ...p, id: p.slug })
+  return [...faux, ...vrais.slice(0, faux.length)].map(avecId)
 }
 
-/** Des conversations sur des articles qui n'en ont pas encore. */
-export function fabriquerConversations(posts, conversations) {
-  const prises = new Set(conversations.map((c) => c.article?.url))
-  const matieres = melanger(
-    posts.filter((p) => !p.isFake && p.fauxPossible && !prises.has(p.article?.url))
-  ).slice(0, LOT_CONVERSATIONS)
-
-  return matieres.map((vrai, i) => {
-    const article = articleDe(vrai)
-    const categories = permises(article)
-    const categorie = categories[Math.floor(Math.random() * categories.length)]
-    // Pas de niveau 5 : le compte y porte le nom du vrai média.
-    const niveau = 1 + Math.floor(Math.random() * 4)
-    const post = fabriquerFaux(article, categorie, niveau, graine(), options(vrai))
-    const distribution = DISTRIBUTIONS[(conversations.length + i) % DISTRIBUTIONS.length]
-    return {
-      ...fabriquerConversation(post, article, categorie, distribution, {
-        id: `local-${empreinte(article.url)}`,
-      }),
-      origine: 'local',
-    }
-  })
+/** Un lot de nouveaux sujets pour un contact de la messagerie. */
+export function fabriquerConversations(contenu, contact) {
+  const distribution = DISTRIBUTIONS.find((d) => d.id === contact)
+  if (!distribution) return []
+  return sujetsPour(distribution, contenu.conversations, LOT_CONVERSATIONS, banquesDe(contenu), {
+    prefixe: lot(),
+  }).map((c) => ({ ...c, origine: 'local' }))
 }

@@ -7,8 +7,6 @@ import Rattrapage from './components/ui/Rattrapage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* Le filet est au-dessus du routeur : une erreur de rendu, où qu'elle
-        survienne, laisse un message et un bouton plutôt qu'une page vide. */}
     <Rattrapage>
       <BrowserRouter>
         <App />

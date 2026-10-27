@@ -1,7 +1,4 @@
-/* ========================================================================
-   COQUE ET NAVIGATION
-   < 900 px : barre d'onglets en bas. ≥ 900 px : pilule dans l'en-tête.
-   ======================================================================== */
+/* Coque et navigation : < 900 px barre du bas, ≥ 900 px pilule dans l'en-tête. */
 
 @layer components {
   .app {

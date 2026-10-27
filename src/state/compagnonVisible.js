@@ -1,6 +1,5 @@
 import { useSyncExternalStore } from 'react'
 
-/** Préférence « afficher le compagnon », gardée dans le navigateur. */
 const CLE = 'ctrl-info:compagnon-visible'
 const abonnes = new Set()
 
@@ -16,7 +15,7 @@ export function noterCompagnonVisible(visible) {
   try {
     window.localStorage.setItem(CLE, visible ? 'oui' : 'non')
   } catch {
-    // Stockage indisponible : réglage perdu au rechargement.
+    // Stockage indisponible.
   }
   abonnes.forEach((rappel) => rappel())
 }

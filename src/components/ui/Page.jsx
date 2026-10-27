@@ -2,17 +2,7 @@ import { forwardRef } from 'react'
 import { Link } from 'react-router'
 import { PATHS } from '../../routes'
 
-/**
- * Gabarit commun à tous les écrans : une zone défilante contenant la colonne
- * de contenu. Par défaut la colonne est bord à bord.
- *
- * - `feed`     : colonne centrée et bornée, avec des interstices entre cartes.
- * - `fill`     : la colonne prend toute la hauteur, pour les écrans qui gèrent
- *   eux-mêmes leur mise en page interne.
- * - `seamless` : les blocs s'enchaînent sans filet de séparation.
- *
- * Le pied de page suit la colonne, sauf sur les écrans `fill`.
- */
+// Variantes : `feed` (colonne centrée), `fill` (pleine hauteur, sans pied de page), `seamless` (sans filet).
 const Page = forwardRef(function Page(
   { title, subtitle, feed, fill, seamless, children },
   ref

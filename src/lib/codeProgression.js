@@ -1,48 +1,7 @@
-/**
- * Le code de progression : tout l'avancement du joueur en une chaîne copiable.
- *
- * Il n'y a pas de compte, donc pas de serveur qui se souvienne : le code *est*
- * le moyen de passer d'un appareil à l'autre, ou de retrouver sa partie après
- * un nettoyage du navigateur. Il se colle dans un e-mail, un carnet, un
- * message — il doit donc survivre à une copie maladroite, et le dire quand il
- * n'y a pas survécu.
- *
- * ## La forme
- *
- *     CTRL1.z.eJyrVspLzE1VslJ....2s.1f3k9p
- *     └───┘ │ └──────────────────┘ └────┘
- *     marque│       charge          somme
- *           forme
- *
- *   - **marque** — `CTRL` et la version de la forme des données. Elle permet de
- *     reconnaître tout de suite un code qui n'en est pas un, et un code écrit
- *     par une version du site plus récente que celle qu'on a sous les yeux.
- *   - **forme** — `z` déflaté, `p` brut (voir plus bas).
- *   - **charge** — les données, en base64url : aucun caractère qui demande
- *     d'être échappé dans une URL, et surtout pas de `+` ni de `/` qu'un
- *     traitement de texte pourrait couper à la ligne.
- *   - **somme** — une empreinte des données *avant* toute compression. C'est
- *     elle qui distingue « ce code est tronqué » de « ce code est complet » :
- *     base64 tronqué se décode souvent sans broncher, en rendant des octets
- *     plausibles mais faux.
- *
- * Le point est le séparateur parce qu'il n'appartient pas à l'alphabet
- * base64url : découper le code ne peut donc jamais tomber au milieu des
- * données.
- *
- * ## Pourquoi une compression
- *
- * L'avancement, c'est surtout une liste de slugs de publications — des mots
- * français qui se ressemblent beaucoup. Déflatés, ils tiennent en un cinquième
- * de la place, et un code de trois mille caractères devient un code de six
- * cents. `CompressionStream` manque encore à quelques navigateurs : on écrit
- * alors la charge telle quelle, sous la forme `p`, et la lecture accepte les
- * deux dans tous les cas. Un code fait ici reste donc lisible partout.
- */
+// Code de progression : MARQUE+VERSION . forme (z déflaté / p brut) . base64url . empreinte
 const MARQUE = 'CTRL'
 const VERSION = 1
 
-/** Ce qui n'a pas marché, avec de quoi le dire au joueur. */
 export class ErreurCode extends Error {
   constructor(raison, message) {
     super(message)
@@ -51,16 +10,7 @@ export class ErreurCode extends Error {
   }
 }
 
-// ── Empreinte ────────────────────────────────────────────────────────────────
-
-/**
- * FNV-1a sur 32 bits.
- *
- * Ce n'est pas une signature : un joueur qui veut se fabriquer une progression
- * y arrivera, et ce n'est pas grave — il n'y a ni classement ni compte à
- * protéger. Ce qu'on cherche, c'est repérer un code amputé de sa fin ou dont un
- * caractère a changé au copier-coller, et c'est exactement ce que ça fait.
- */
+// FNV-1a 32 bits : détecte un code tronqué ou altéré, pas une signature.
 function empreinte(octets) {
   let empr = 0x811c9dc5
   for (const octet of octets) {
@@ -70,11 +20,8 @@ function empreinte(octets) {
   return empr >>> 0
 }
 
-// ── Base64url ────────────────────────────────────────────────────────────────
-
 function enBase64Url(octets) {
-  // Par tranches : `String.fromCharCode(...tableau)` dépasse la pile d'appels
-  // sur quelques dizaines de milliers d'octets.
+  // Par tranches pour ne pas dépasser la pile d'appels.
   let binaire = ''
   for (let i = 0; i < octets.length; i += 8192) {
     binaire += String.fromCharCode(...octets.subarray(i, i + 8192))
@@ -90,8 +37,6 @@ function deBase64Url(texte) {
   return octets
 }
 
-// ── Compression ──────────────────────────────────────────────────────────────
-
 const flux = (octets, transformation) =>
   new Response(new Blob([octets]).stream().pipeThrough(transformation))
     .arrayBuffer()
@@ -102,7 +47,6 @@ async function comprimer(octets) {
   try {
     return await flux(octets, new CompressionStream('deflate-raw'))
   } catch {
-    // Un navigateur qui annonce l'objet sans savoir déflater : on s'en passe.
     return null
   }
 }
@@ -144,25 +88,13 @@ export async function encoderCode(etat) {
   const somme = empreinte(octets).toString(36)
 
   const comprimes = await comprimer(octets)
-  // Un état minuscule peut grossir en se faisant déflater : on garde le plus
-  // court des deux, la lecture sachant reconnaître les deux formes.
+  // Un petit état peut grossir une fois déflaté : on garde le plus court.
   const deflate = comprimes !== null && comprimes.length < octets.length
   const forme = deflate ? 'z' : 'p'
 
   return [MARQUE + VERSION, forme, enBase64Url(deflate ? comprimes : octets), somme].join('.')
 }
 
-// ── Relire ───────────────────────────────────────────────────────────────────
-
-/**
- * L'état d'un code, ou une `ErreurCode` qui dit précisément ce qui manque.
- *
- * L'ordre des contrôles est celui des messages qu'on veut pouvoir donner : on
- * reconnaît d'abord le code, puis sa version, puis son intégrité. Dire « ce
- * code vient d'une version plus récente » vaut mieux que « code invalide », et
- * dire « il a été abîmé en route » vaut mieux que restaurer une progression
- * fausse.
- */
 export async function decoderCode(code) {
   const propre = (code ?? '').trim().replaceAll(/\s+/g, '')
   if (propre === '') {
@@ -200,12 +132,7 @@ export async function decoderCode(code) {
     const brut = deBase64Url(charge)
     octets = forme === 'z' ? await decomprimer(brut) : brut
   } catch (echec) {
-    // Une erreur de décompression qu'on a soi-même levée porte déjà son
-    // message : on ne la recouvre pas.
     if (echec instanceof ErreurCode) throw echec
-    // Deux causes pour une même impasse : un caractère étranger au code, ou un
-    // caractère changé qui rend la charge indéchiffrable. Le geste à proposer
-    // est le même dans les deux cas, donc le message aussi.
     throw new ErreurCode(
       'illisible',
       "Ce code n'a pas pu être relu : un caractère a changé, ou il en manque un morceau. Recopie-le en entier, sans rien ajouter autour."

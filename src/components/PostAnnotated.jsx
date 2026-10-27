@@ -2,28 +2,18 @@ import { createElement, useState } from 'react'
 import { icone } from '../data/icones'
 import { texteSur } from '../lib/contraste'
 
-/**
- * La publication rejouée, annotée : chaque indice numéroté est repris sur le
- * post, dans l'image et dans la liste. Sans zone, l'indice surligne sa `cible`.
- */
 const ZONES_TEXTE = ['SOURCE', 'TITRE', 'TEXTE', 'DATE', 'ENGAGEMENT']
 
 function Puce({ numero, nature }) {
   return <span className={`annot__puce annot__puce--${nature.toLowerCase()}`}>{numero}</span>
 }
 
-/** Les numéros des indices qui visent cette partie de la publication. */
 const numerosPour = (indices, cible) =>
   indices
     .map((indice, i) => (indice.cible === cible ? i + 1 : null))
     .filter((numero) => numero !== null)
 
-/**
- * La classe de surlignage d'une partie de texte.
- *
- * Elle prend la nature du premier indice qui la vise : sur une publication
- * vraie, le surlignage était rouge alors que la pastille était verte.
- */
+// Prend la nature du premier indice qui vise la partie.
 function surlignage(indices, cible) {
   if (!ZONES_TEXTE.includes(cible)) return ''
   const vise = indices.find((indice) => indice.cible === cible)
@@ -47,7 +37,6 @@ function Marques({ indices, cible }) {
   )
 }
 
-/** Les indices numérotés, séparables du post : sur ordinateur ils vont à côté. */
 export function ListeIndices({ post }) {
   const indices = post.indices ?? []
   if (indices.length === 0) return null
@@ -75,7 +64,6 @@ export function ListeIndices({ post }) {
 export default function PostAnnotated({ post, liste = true }) {
   const indices = post.indices ?? []
   const surligne = (cible) => surlignage(indices, cible)
-  // Image retirée par le média : on la masque.
   const [imageCassee, setImageCassee] = useState(null)
   const image = post.image !== imageCassee ? post.image : null
 

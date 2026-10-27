@@ -3,13 +3,10 @@ import Feed from '../components/Feed'
 import { GAME_PATHS } from '../routes'
 
 export default function FeedScreen() {
-  // `runKey` change à la fermeture des règles : la partie repart à neuf.
   const { paused, runKey, onRegles } = useOutletContext()
   const navigate = useNavigate()
 
-  // Rien ne se charge tant que la partie n'a pas commencé : l'écran de départ
-  // couvre de toute façon le fil, et un tirage fait pour rien serait jeté au
-  // remontage.
+  // Rien ne se charge avant le début de la partie.
   if (runKey !== 'play') return null
 
   return (

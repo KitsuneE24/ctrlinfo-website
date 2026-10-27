@@ -7,7 +7,6 @@ import Filaments from './ui/Filaments'
 
 const DUREE = '8s'
 
-/** Story plein écran : barres, zones de tap, flèches, Échap. */
 export default function StoryViewer({ stories, index, onIndex, onClose }) {
   const story = stories[index]
 
@@ -146,7 +145,6 @@ export default function StoryViewer({ stories, index, onIndex, onClose }) {
   )
 }
 
-/** Aperçu cliquable d'une story voisine (ordinateur). Les flèches font de même au clavier. */
 function Voisine({ story, onOuvrir }) {
   if (!story) return <div aria-hidden="true" className="story-view__voisine story-view__voisine--vide" />
   return (

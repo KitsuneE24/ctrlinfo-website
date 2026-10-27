@@ -1,21 +1,7 @@
 import { Component } from 'react'
 import { RefreshCw } from 'lucide-react'
 
-/**
- * Le filet sous l'application.
- *
- * Sans lui, une erreur de rendu — un champ absent, un contenu d'une forme
- * inattendue — vide l'écran sans un mot : le joueur voit une page
- * blanche et n'a aucune idée de ce qu'il doit faire.
- *
- * C'est encore une classe, et ce n'est pas un oubli : React n'expose la
- * capture d'erreur de rendu qu'à ce niveau, il n'existe pas de crochet
- * équivalent.
- *
- * L'erreur détaillée n'est montrée qu'en développement. En production elle
- * n'apprendrait rien au joueur, et dirait à un curieux comment le site est
- * fait.
- */
+// Classe : seule façon de capter une erreur de rendu. Détail affiché en dev uniquement.
 export default class Rattrapage extends Component {
   state = { erreur: null }
 

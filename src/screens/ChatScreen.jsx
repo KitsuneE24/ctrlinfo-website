@@ -17,36 +17,14 @@ import Page from '../components/ui/Page'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 import ChatThread from '../components/ChatThread'
 
-/**
- * Onglet « Conversations ».
- *
- * - Téléphone : une seule vue à la fois — la liste, puis le fil, avec un
- *   bouton retour.
- * - À partir de 768px : les deux volets côte à côte. La même adresse pilote
- *   les deux cas, seule la visibilité change.
- *
- * La conversation ouverte est dans l'URL, pas dans un état : on peut envoyer
- * le lien d'une discussion, la retrouver après un rechargement, et le bouton
- * « précédent » du navigateur revient à la liste.
- *
- * Deux appels, et c'est volontaire : la boîte de réception ne charge que de
- * quoi lister (nom, aperçu, couleur), et les branches d'une discussion
- * n'arrivent qu'à son ouverture. Inutile de télécharger tous les
- * embranchements de toutes les conversations pour en afficher les titres.
- */
 export default function ChatScreen() {
   const { slug: openId = null } = useParams()
   const navigate = useNavigate()
-  // Tant que l'écran de départ est là, la discussion ne se déroule pas.
   const { paused, onFinished, onRegles } = useOutletContext()
   const { requestExit } = useExitGuard()
-  // Les conversations déjà menées au bout, pour les marquer dans la liste : une
-  // progression qu'on ne voit pas ne se sent pas.
   const { conversations: avancement } = useProgression()
 
-  // Un numéro de partie par conversation, qui change à chaque
-  // « Recommencer » : la clé du fil change, le composant se remonte. Il vit
-  // hors de React pour survivre au passage d'un écran à l'autre.
+  // Numéro de partie par conversation : change à chaque « Recommencer » pour remonter le fil.
   const [runIds, setRunIds] = useState(getRunIds)
 
   const liste = useRessource(getConversations, [])
@@ -87,7 +65,6 @@ export default function ChatScreen() {
   return (
     <Page fill>
       <div className="messaging">
-        {/* Volet liste */}
         <div className={`messaging__list${openId ? ' messaging__list--hidden' : ''}`}>
           <div className="messaging__scroll no-scrollbar">
             <header className="page__heading">
@@ -169,7 +146,6 @@ export default function ChatScreen() {
           </div>
         </div>
 
-        {/* Volet conversation */}
         <div className={`messaging__panel${openId ? '' : ' messaging__panel--hidden'}`}>
           {ouverte.erreur ? (
             <ErreurChargement erreur={ouverte.erreur} onReessayer={ouverte.recharger} />

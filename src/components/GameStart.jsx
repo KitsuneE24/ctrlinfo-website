@@ -2,7 +2,7 @@ import { Play, RotateCcw } from 'lucide-react'
 import Filaments from './ui/Filaments'
 import Kiwi from './ui/Kiwi'
 
-/** Écran « Avant de jouer ». `reprise` : rouvert en cours de partie, ne relance rien. */
+// `reprise` : rouvert en cours de partie, ne relance rien.
 export default function GameStart({ jeu, reprise, onStart }) {
   return (
     <div

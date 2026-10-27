@@ -1,7 +1,5 @@
 import { couleur } from './couleurs'
 
-/** Couleur de texte (blanc ou encre) la plus contrastée sur un fond `#rrggbb`. */
-
 function luminance(hex) {
   const valeur = hex.replace('#', '')
   if (!/^[0-9a-f]{6}$/i.test(valeur)) return null
@@ -14,7 +12,6 @@ function luminance(hex) {
 
 export function texteSur(fond) {
   const l = typeof fond === 'string' ? luminance(fond) : null
-  // Couleur non lisible (variable CSS…) : blanc par défaut.
   if (l === null) return 'var(--blanc)'
   const surBlanc = (luminance(couleur('blanc')) + 0.05) / (l + 0.05)
   const surEncre = (l + 0.05) / (luminance(couleur('papier-encre')) + 0.05)

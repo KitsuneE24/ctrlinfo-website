@@ -9,7 +9,6 @@ import {
   nombreDeModifications,
 } from './document'
 
-/** Les collections éditables, et de quoi nommer une entrée dans la liste. */
 const COLLECTIONS = [
   { cle: 'postsVrais', nom: 'Publications vraies', titre: (e) => e.titre },
   { cle: 'postsFaux', nom: 'Publications fausses', titre: (e) => e.titre },
@@ -41,7 +40,6 @@ function Barre() {
     }
   }
 
-  // Quitter avec des modifications non enregistrées demande confirmation.
   useEffect(() => {
     if (modifications === 0) return undefined
     const avant = (e) => e.preventDefault()

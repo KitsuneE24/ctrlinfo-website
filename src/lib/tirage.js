@@ -9,7 +9,6 @@ export const melanger = (tableau) => {
   return copie
 }
 
-/** Un lot varié : un procédé différent par faux tant que possible. */
 function varier(disponibles, taille) {
   const choisis = []
   const procedes = new Set()
@@ -26,7 +25,6 @@ function varier(disponibles, taille) {
   return choisis
 }
 
-/** Au moins une vraie et une fausse dans le lot, quand le vivier le permet. */
 const equilibrer = (disponibles, taille) => {
   const choisis = varier(disponibles, taille)
   if (choisis.length < taille) return choisis
@@ -36,14 +34,12 @@ const equilibrer = (disponibles, taille) => {
     const remplacant = disponibles.find(
       (post) => post.isFake === attendu && !choisis.includes(post)
     )
-    // La dernière du lot est sacrifiée, jamais la première.
     if (remplacant) choisis[choisis.length - 1] = remplacant
   }
 
   return choisis
 }
 
-/** Au-delà du niveau le plus difficile du contenu, on y reste. */
 export const niveauDeContenu = (posts, level) => {
   const max = Math.max(1, ...posts.map((post) => post.level ?? 1))
   return Math.min(level, max)

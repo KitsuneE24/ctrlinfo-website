@@ -1,6 +1,5 @@
 <?php
 // Enregistre un fichier de donnees/ (?fichier=contenu|posts-vrais|posts-faux).
-// L'accès est fermé par le .htaccess voisin.
 declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
@@ -95,7 +94,6 @@ if ($nom === 'contenu') {
     if (!array_is_list($contenu) || count($contenu) === 0) {
         sortir(422, 'La liste de publications est vide.');
     }
-    // Chaque fichier ne garde que son camp.
     $attendu = $nom === 'posts-faux';
     foreach ($contenu as $i => $post) {
         if (($post['isFake'] ?? null) !== $attendu) {

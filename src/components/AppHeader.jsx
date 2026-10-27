@@ -6,13 +6,11 @@ import { useProgression } from '../state/useProgression'
 import { AvatarJoueur } from './AvatarPicker'
 import { NAV_BUREAU } from './navItems'
 
-/** En-tête : logo, pilule de navigation et avatar (ordinateur). */
 export default function AppHeader() {
   const { pseudo } = useProgression()
   const avatar = useAvatar()
   const { requestExit } = useExitGuard()
 
-  // Confirmation en pleine partie.
   const garder = (path) => (event) => {
     if (!requestExit(path)) event.preventDefault()
   }

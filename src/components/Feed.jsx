@@ -148,7 +148,6 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
   const chargement = postQueue.length === 0 && erreur === null
   const currentPost = postQueue[queueIdx] ?? null
 
-  // Les remédiations s'ajoutent sans compter dans l'avancement.
   const levelTotal = postQueue.filter((post) => !post.isRemediation).length
 
   const isCorrect =
@@ -172,7 +171,6 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
       }
     }
 
-    // Une remédiation entraîne, elle n'est pas notée.
     if (!currentPost.isRemediation) {
       noterDecision({
         slug: currentPost.slug,
@@ -202,7 +200,6 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
 
     if (!currentPost?.isRemediation) setLevelDoneCount((compte) => compte + 1)
 
-    // Lot terminé : niveau suivant, sans fin.
     if (nextIdx >= postQueue.length) {
       const suivant = currentLevel + 1
       noterNiveau(suivant)

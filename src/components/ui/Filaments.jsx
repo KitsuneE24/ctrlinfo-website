@@ -1,4 +1,4 @@
-/** Filaments de métal en fusion (image décorative, blend `screen`). Générés par outils/generer-filaments.py. */
+// Générés par outils/generer-filaments.py.
 const SOURCES = {
   swirl: 'filaments/molten-swirl.webp',
   wide: 'filaments/molten-wide.webp',

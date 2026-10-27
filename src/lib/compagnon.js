@@ -1,21 +1,9 @@
-/**
- * Le compagnon : planches, postures, répliques et place retenue.
- * Planches générées par `scripts/generer-sprite-cagou.mjs` :
- *
- * ```
- *   cagou.png        0  1      2       3  4      5
- *                    ← marche  de face  marche →  téléphone
- *   cagou-chute.png  étalé au sol
- * ```
- */
+// Planches générées par scripts/generer-sprite-cagou.mjs.
 import { PATHS } from '../routes'
 
-/* ------------------------------------------------------------- les planches */
-
-/** Taille de base d'une vignette, avant `ECHELLE`. */
 const VIGNETTE = { largeur: 32, hauteur: 48 }
 
-/** Seul réglage de sa taille : vitesse, pas et bulle en découlent. */
+// Seul réglage de taille : vitesse, pas et bulle en découlent.
 const ECHELLE = 2.5
 
 export const LARGEUR = VIGNETTE.largeur * ECHELLE
@@ -26,14 +14,9 @@ const FEUILLES = {
   chute: { url: '/cagou-chute.png', vignettes: 1, taille: { largeur: 148, hauteur: 68 } },
 }
 
-/** Ce que la chute dépasse de chaque côté de sa boîte. */
 export const DEBORD_CHUTE = (FEUILLES.chute.taille.largeur - LARGEUR) / 2
 
-/**
- * `debut` : première vignette ; `images` : nombre de vignettes.
- * `pas` : px parcourus par vignette ; `cadence` : secondes par vignette.
- * `effet` : animation CSS de la posture.
- */
+// `pas` : px par vignette ; `cadence` : secondes par vignette.
 const POSTURES = {
   marcheGauche: { feuille: 'cagou', debut: 0, images: 2, pas: 12 * ECHELLE },
   marcheDroite: { feuille: 'cagou', debut: 3, images: 2, pas: 12 * ECHELLE },
@@ -48,17 +31,14 @@ const POSTURES = {
   chute: { feuille: 'chute', debut: 0, images: 1 },
 }
 
-/** La posture (sens de marche résolu) et sa planche. */
 export function postureDe(posture, sens) {
   const nom = posture === 'marche' ? (sens < 0 ? 'marcheGauche' : 'marcheDroite') : posture
   const trouvee = POSTURES[nom] ?? POSTURES.repos
   return { ...trouvee, ...FEUILLES[trouvee.feuille] }
 }
 
-/** Décalage de la planche, en px, pour la vignette `index`. */
 export const decalage = (debut, index) => -(debut + index) * LARGEUR
 
-/** Image et taille d'une posture ; la vignette est posée par le composant. */
 export function stylePosture(posture, sens) {
   const { url, vignettes, effet, taille } = postureDe(posture, sens)
   const style = {
@@ -67,7 +47,6 @@ export function stylePosture(posture, sens) {
     animation: effet ?? 'none',
   }
   if (!taille) return style
-  // Planche plus large que lui : centrée, pieds au sol.
   return {
     ...style,
     width: taille.largeur,
@@ -78,20 +57,13 @@ export function stylePosture(posture, sens) {
   }
 }
 
-/* --------------------------------------------------------- se tenir quelque part */
-
-/** Écart minimal avec les bords de l'écran. */
 export const MARGE = 10
 
-/** Hauteur du sol au-dessus du bas de la zone. */
 export const SOL = 2
 
-/** Vitesse de marche, en px/s. */
+// px/s
 export const VITESSE = 60 * ECHELLE
 
-/* --------------------------------------------------------- ce qu'il dit */
-
-/** Répliques par écran, de la plus utile à la plus anecdotique. */
 const REPLIQUES = [
   [
     `${PATHS.resources}/comprendre`,
@@ -144,7 +116,6 @@ const COMMUN = [
   'Je ne compte rien et je ne note rien. Je suis juste là.',
 ]
 
-/** Répliques de l'écran puis communes ; chemins du plus précis au plus large. */
 export function repliquesPour(chemin) {
   const trouve = REPLIQUES.find(([prefixe]) => chemin.startsWith(prefixe))
   return [...(trouve ? trouve[1] : []), ...COMMUN]
@@ -183,23 +154,19 @@ export const REACTIONS = {
   },
 }
 
-/* ------------------------------------------------------------- les délais */
-
-/** Durée d'une bulle, en ms : 1,5 s + 15 caractères/s, entre 4 et 12 s. */
+// 1,5 s + 15 caractères/s, entre 4 et 12 s.
 export function dureeLecture(texte) {
   const secondes = 1.5 + texte.length / 15
   return Math.round(Math.min(Math.max(secondes, 4), 12) * 1000)
 }
 
-/** Attente avant de parler, en ms : à l'arrivée sur un écran, puis entre deux répliques. */
+// ms
 export const ATTENTE_ECRAN = 4000
 export const ATTENTE_INACTIF = 45000
 
-/* ------------------------------------------------------- où on l'a laissé */
-
 const CLE = 'ctrl-info:compagnon:place'
 
-/** Place retenue, en fraction de la largeur de l'écran. */
+// Fraction de la largeur de l'écran.
 export function lirePlace() {
   try {
     const brut = window.localStorage.getItem(CLE)
@@ -215,6 +182,6 @@ export function retenirPlace(fraction) {
   try {
     window.localStorage.setItem(CLE, String(Math.round(fraction * 1000) / 1000))
   } catch {
-    // Stockage indisponible : il repartira du bord gauche.
+    // Stockage indisponible.
   }
 }

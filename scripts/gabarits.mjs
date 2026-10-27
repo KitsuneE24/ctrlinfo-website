@@ -1,13 +1,4 @@
-/**
- * Les gabarits de fabrication des publications.
- *
- * Un faux = une catégorie (ce qui est ajouté à l'article) × un niveau
- * (à quel point l'emballage se voit, de 1 grossier à 5 presque parfait).
- * Tout ce qui sort d'ici porte `isFake`, `origine: RSS` et le lien vers
- * l'article d'origine.
- *
- * `a` : { titre, extrait, editeur, nom, date, domaineReel, domaineFaux, domaineCopie }
- */
+// `a` : { titre, extrait, editeur, nom, date, domaineReel, domaineFaux, domaineCopie }
 
 const indice = (nature, cible, picto, libelle, explication) => ({
   nature,
@@ -17,7 +8,7 @@ const indice = (nature, cible, picto, libelle, explication) => ({
   explication,
 })
 
-/** Les catégories : `titres` et `phrases` vont du niveau 1 au niveau 5. */
+// `titres` et `phrases` vont du niveau 1 au 5 ; `surUnePersonne: false` exclut les articles qui nomment quelqu'un.
 export const CATEGORIES = [
   {
     biais: 'Urgence artificielle',
@@ -258,7 +249,6 @@ export const CATEGORIES = [
   },
 ]
 
-/** L'emballage, par niveau : du compte qui crie à la copie d'une vraie rédaction. */
 export const HABILLAGES = [
   {
     niveau: 1,
@@ -347,7 +337,6 @@ export const VRAI = {
   ],
 }
 
-/** Les auteurs des commentaires, par posture. */
 export const COMMENTATEURS = {
   CROIT: [
     ['Nadia_988', '#791561'], ['Thierry P.', '#791561'], ['Patrick L.', '#8a4fbe'], ['Hélène', '#8a4fbe'],

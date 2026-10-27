@@ -24,7 +24,6 @@ function Texte({ texte }) {
   })
 }
 
-/** Les lignes « • » forment une liste ; les autres, des paragraphes. */
 function Paragraphe({ texte }) {
   const lignes = texte.split('\n')
   const blocs = []

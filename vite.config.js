@@ -8,14 +8,7 @@ const lire = (nom) => {
   return existsSync(fichier) ? JSON.parse(readFileSync(fichier, 'utf8')) : {}
 }
 
-/**
- * Où sort l'administration.
- *
- * `config.local.json` n'est pas versionné : c'est là que vit le vrai chemin.
- * Il n'est **jamais** envoyé au navigateur — il est appliqué à la
- * construction, en renommant le dossier produit. Rien dans le site public ne
- * mène à l'administration, et aucun fichier servi ne la nomme.
- */
+// Chemin réel lu dans config.local.json (non versionné).
 const CHEMIN_ADMIN =
   process.env.ADMIN_PATH ??
   lire('config.local.json').admin?.chemin ??
@@ -58,7 +51,6 @@ function finirLeBundle() {
   }
 }
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), finirLeBundle()],
   build: {

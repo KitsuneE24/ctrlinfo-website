@@ -1,8 +1,3 @@
-# CTRL INFO — hébergement Apache.
-#
-# Ce fichier est copié tel quel dans dist/ par Vite : il se retrouve à la racine
-# du site une fois déployé.
-
 Options -Indexes
 DirectoryIndex index.html
 
@@ -36,25 +31,19 @@ DirectoryIndex index.html
 
 <IfModule mod_expires.c>
   ExpiresActive On
-  # Les fichiers d'assets portent une empreinte dans leur nom : cache long.
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType image/png "access plus 1 month"
-  # Le contenu change quand l'administration l'enregistre : jamais de cache.
   <FilesMatch "contenu\.json$">
     ExpiresDefault "access plus 0 seconds"
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 </IfModule>
 
-# Une seule page existe vraiment : index.html. Chaque écran a son adresse, et
-# c'est l'application qui la lit.
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
-  # Les fichiers et dossiers réels sont servis directement — donnees/, admin/,
-  # assets/ — sinon tout finirait sur index.html.
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]

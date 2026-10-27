@@ -1,21 +1,28 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Link, useNavigate, useOutletContext, useParams } from 'react-router'
-import { Check, ChevronRight, MessageCircle, MessageCirclePlus } from 'lucide-react'
-import {
-  fabriquerNouvellesConversations,
-  getConversation,
-  getConversations,
-  getPlusDeConversations,
-} from '../api/contenu'
+import { Check, ChevronRight, MessageCircle } from 'lucide-react'
+import { fabriquerNouveauxSujets, getConversation, getConversations } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
 import { texteSur } from '../lib/contraste'
-import { clearSession, getRunIds, saveRunIds } from '../state/conversationSessions'
 import { useExitGuard } from '../state/exitGuard'
 import { useProgression } from '../state/useProgression'
 import { PATHS, chatPath } from '../routes'
 import Page from '../components/ui/Page'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 import ChatThread from '../components/ChatThread'
+
+const contactDe = (conversation) => conversation.contact ?? conversation.id
+
+/** Un contact par ligne, avec ses sujets dans l'ordre. */
+function parContact(conversations) {
+  const contacts = new Map()
+  for (const conversation of conversations) {
+    const cle = contactDe(conversation)
+    if (!contacts.has(cle)) contacts.set(cle, [])
+    contacts.get(cle).push(conversation)
+  }
+  return [...contacts.values()]
+}
 
 export default function ChatScreen() {
   const { slug: openId = null } = useParams()
@@ -24,42 +31,40 @@ export default function ChatScreen() {
   const { requestExit } = useExitGuard()
   const { conversations: avancement } = useProgression()
 
-  // Numéro de partie par conversation : change à chaque « Recommencer » pour remonter le fil.
-  const [runIds, setRunIds] = useState(getRunIds)
-
   const liste = useRessource(getConversations, [])
   const conversations = liste.donnees ?? []
-  const toutesFaites = conversations.every((c) => avancement[c.id]?.faite === true)
-  const { donnees: plus } = useRessource(getPlusDeConversations, [])
-  // null, 'encours' ou 'rien'
-  const [fabrication, setFabrication] = useState(null)
-
-  function fabriquer() {
-    setFabrication('encours')
-    fabriquerNouvellesConversations()
-      .then((nombre) => {
-        setFabrication(nombre === 0 ? 'rien' : null)
-        if (nombre > 0) liste.recharger()
-      })
-      .catch(() => setFabrication('rien'))
-  }
+  const faite = (conversation) => avancement[conversation.id]?.faite === true
+  // État du bouton « Nouveau sujet », pour le sujet ouvert.
+  const [suite, setSuite] = useState({ pour: null, etat: null })
 
   const chargerOuverte = useCallback(
     () => (openId ? getConversation(openId) : Promise.resolve(null)),
     [openId]
   )
   const ouverte = useRessource(chargerOuverte, [openId])
-
-  useEffect(() => {
-    saveRunIds(runIds)
-  }, [runIds])
-
   const open = ouverte.donnees
-  const sessionKey = openId ? `${openId}-${runIds[openId] ?? 0}` : null
 
-  function restart() {
-    clearSession(openId)
-    setRunIds((prev) => ({ ...prev, [openId]: (prev[openId] ?? 0) + 1 }))
+  function nouveauSujet() {
+    const contact = contactDe(open)
+    const suivant = conversations.find(
+      (c) => contactDe(c) === contact && c.id !== open.id && !faite(c)
+    )
+    if (suivant) {
+      navigate(chatPath(suivant.id))
+      return
+    }
+    setSuite({ pour: openId, etat: 'encours' })
+    fabriquerNouveauxSujets(contact)
+      .then((nouveaux) => {
+        if (nouveaux.length === 0) {
+          setSuite({ pour: openId, etat: 'rien' })
+          return
+        }
+        setSuite({ pour: null, etat: null })
+        liste.recharger()
+        navigate(chatPath(nouveaux[0].id))
+      })
+      .catch(() => setSuite({ pour: openId, etat: 'rien' }))
   }
 
   return (
@@ -80,37 +85,35 @@ export default function ChatScreen() {
               <Chargement quoi="les conversations" />
             ) : (
               <ul>
-                {conversations.map((conversation) => {
-                  const isOpen = conversation.id === openId
-                  const faite = avancement[conversation.id]?.faite === true
+                {parContact(conversations).map((sujets) => {
+                  const courant = sujets.find((c) => !faite(c)) ?? sujets[sujets.length - 1]
+                  const toutFait = sujets.every(faite)
+                  const isOpen = sujets.some((c) => c.id === openId)
                   return (
-                    <li key={conversation.id}>
+                    <li key={contactDe(courant)}>
                       <Link
-                        to={chatPath(conversation.id)}
+                        to={chatPath(courant.id)}
                         className={`inbox-item${isOpen ? ' inbox-item--active' : ''}`}
                       >
                         <span
                           className="inbox-item__avatar"
                           style={{
-                            background: conversation.color,
-                            color: texteSur(conversation.color),
+                            background: courant.color,
+                            color: texteSur(courant.color),
                           }}
                         >
-                          {conversation.name[0]}
+                          {courant.name[0]}
                         </span>
 
                         <span className="inbox-item__text">
-                          <span className="inbox-item__name">{conversation.name}</span>
+                          <span className="inbox-item__name">{courant.name}</span>
                           <span className="inbox-item__preview">
-                            {conversation.preview}
+                            {toutFait ? 'Tout est lu. Ouvrez pour un nouveau sujet.' : courant.preview}
                           </span>
                         </span>
 
-                        {faite ? (
-                          <span
-                            title="Conversation déjà menée au bout"
-                            className="inbox-item__faite"
-                          >
+                        {toutFait ? (
+                          <span title="Tous les sujets sont faits" className="inbox-item__faite">
                             <Check size={14} strokeWidth={3} />
                           </span>
                         ) : (
@@ -122,27 +125,6 @@ export default function ChatScreen() {
                 })}
               </ul>
             )}
-
-            {plus && !liste.chargement && !liste.erreur && toutesFaites && (
-              <div className="fabriquer">
-                <p className="fabriquer__texte">
-                  {fabrication === 'rien'
-                    ? 'Pas de nouveaux messages pour l’instant. Revenez demain !'
-                    : 'Vous êtes à jour : vous avez répondu à tout le monde.'}
-                </p>
-                {fabrication !== 'rien' && (
-                  <button
-                    type="button"
-                    onClick={fabriquer}
-                    disabled={fabrication === 'encours'}
-                    className="bouton bouton--plein"
-                  >
-                    <MessageCirclePlus size={16} strokeWidth={2.2} />
-                    {fabrication === 'encours' ? 'Chargement…' : 'Continuer à discuter'}
-                  </button>
-                )}
-              </div>
-            )}
           </div>
         </div>
 
@@ -153,14 +135,15 @@ export default function ChatScreen() {
             <Chargement quoi="la conversation" />
           ) : open ? (
             <ChatThread
-              key={sessionKey}
+              key={openId}
               conversation={open}
               paused={paused}
               onFinished={onFinished}
               onBack={() => {
                 if (requestExit(PATHS.chats)) navigate(PATHS.chats)
               }}
-              onRestart={restart}
+              onNouveauSujet={nouveauSujet}
+              suite={suite.pour === openId ? suite.etat : null}
               onRegles={onRegles}
             />
           ) : (

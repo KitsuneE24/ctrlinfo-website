@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ChevronLeft, Check, HelpCircle, Lightbulb, SendHorizontal } from 'lucide-react'
 import { getSession, saveSession } from '../state/conversationSessions'
 import { finirConversation } from '../state/progression'
+import { signalerAuCompagnon } from '../state/compagnonSignaux'
 import { texteSur } from '../lib/contraste'
 
 // Durée des points de frappe selon la longueur du message.
@@ -59,8 +60,8 @@ function TypingBubble() {
   )
 }
 
-// Remonté à chaque partie (clé `conversation-runId`) ; reprend une partie sauvegardée.
-export default function ChatThread({ conversation, paused, onFinished, onBack, onRestart, onRegles }) {
+// Un sujet de discussion ; reprend une partie sauvegardée. `suite` : null, 'encours' ou 'rien'.
+export default function ChatThread({ conversation, paused, onFinished, onBack, onNouveauSujet, suite = null, onRegles }) {
   const { name, color, intro, steps, outro, groupe, contexte, participants } = conversation
 
   const entete = groupe ? contexte || name : name
@@ -110,6 +111,7 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
     setLog((prev) => [...prev, { text: choice.text, kind: 'message', from: 'me' }])
 
     const finalScore = score + (choice.correct ? 1 : 0)
+    signalerAuCompagnon(choice.correct ? 'bonneReponse' : 'mauvaiseReponse')
     setScore(finalScore)
 
     const nextIdx = stepIdx + 1
@@ -273,9 +275,18 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
               {score}/{steps.length} bons réflexes
             </p>
             <div className="outcome__action">
-              <button type="button" onClick={onRestart} className="bouton bouton--plein bouton--large">
-                Recommencer
-              </button>
+              {suite === 'rien' ? (
+                <p className="thread__score-suite">Pas de nouveau sujet pour l’instant. Revenez demain !</p>
+              ) : (
+                <button
+                  type="button"
+                  onClick={onNouveauSujet}
+                  disabled={suite === 'encours'}
+                  className="bouton bouton--plein bouton--large"
+                >
+                  {suite === 'encours' ? 'Chargement…' : 'Nouveau sujet'}
+                </button>
+              )}
             </div>
           </div>
         )}
@@ -284,7 +295,7 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
       <div className="composer">
         {choices.length > 0 && (
           <div className="composer__stack anim-monte">
-            <p className="composer__consigne">Choisis ta réponse</p>
+            <p className="composer__consigne">Choisissez votre réponse</p>
             {choices.map((choice, i) => (
               <button
                 key={choice.text}

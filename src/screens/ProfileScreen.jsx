@@ -63,8 +63,8 @@ function Pseudo({ valeur }) {
           onChange={(event) => setSaisie(event.target.value)}
           maxLength={40}
           autoFocus
-          placeholder="Ton pseudo"
-          aria-label="Ton pseudo"
+          placeholder="Votre pseudo"
+          aria-label="Votre pseudo"
           className="champ__input"
         />
         <button type="submit" className="bouton bouton--plein">
@@ -84,7 +84,7 @@ function Pseudo({ valeur }) {
       aria-label="Modifier le pseudo"
       className="profil-pseudo"
     >
-      {valeur || 'Choisis ton pseudo'}
+      {valeur || 'Choisissez votre pseudo'}
       <Pencil size={14} strokeWidth={2} />
     </button>
   )
@@ -147,7 +147,7 @@ export default function ProfileScreen() {
             />
           )}
 
-          <h1 className="profil__titre">Ma progression.</h1>
+          <h1 className="profil__titre">Votre profil.</h1>
 
           <dl className="profil-chiffres">
             <div>
@@ -179,12 +179,12 @@ export default function ProfileScreen() {
           <div className="papier profil-piege">
             <span className="papier__ruban" />
             <div className="profil-piege__texte">
-              <p className="etiquette profil-piege__etiquette">Ce qui te piège</p>
+              <p className="etiquette profil-piege__etiquette">Ce qui vous piège</p>
               {pire ? (
                 <>
                   <p className="profil-piege__titre">{pire.nom}</p>
                   <p className="profil-piege__detail">
-                    {pire.reussite}&nbsp;% de bonnes réponses sur {pire.total} publications.
+                    {pire.reussite}&nbsp;% de bonnes réponses sur {pire.total} posts.
                   </p>
                   {autres.length > 0 && (
                     <ul className="biais-liste">
@@ -201,7 +201,7 @@ export default function ProfileScreen() {
                 <>
                   <p className="profil-piege__titre">Pas encore assez de parties.</p>
                   <p className="profil-piege__detail">
-                    Joue quelques publications pour voir quel piège te résiste.
+                    Jouez quelques posts pour voir quel piège vous résiste.
                   </p>
                 </>
               )}
@@ -213,8 +213,8 @@ export default function ProfileScreen() {
 
           <label className="reglage">
             <span className="reglage__texte">
-              <span className="reglage__titre">Le petit compagnon</span>
-              <span className="reglage__aide">Le personnage qui commente ta partie en bas de l'écran.</span>
+              <span className="reglage__titre">Le cagou</span>
+              <span className="reglage__aide">Il commente votre partie en bas de l'écran.</span>
             </span>
             <input
               type="checkbox"

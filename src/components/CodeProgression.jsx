@@ -32,10 +32,9 @@ export default function CodeProgression() {
       await navigator.clipboard.writeText(code)
       setCopie(true)
     } catch {
-      // Presse-papiers refusé — page non sécurisée, permission bloquée. La
-      // zone de texte est juste là : on invite à la copier à la main.
+      // Presse-papiers refusé : copie manuelle depuis la zone de texte.
       setCopie(false)
-      setErreur('Le presse-papiers est bloqué : sélectionne le code et copie-le à la main.')
+      setErreur('Le presse-papiers est bloqué : sélectionnez le code et copiez-le à la main.')
     }
   }
 
@@ -80,12 +79,12 @@ export default function CodeProgression() {
   return (
     <section className="card">
       <div className="card__body">
-        <h2 className="card__title">Garder ta progression</h2>
+        <h2 className="card__title">Garder votre progression</h2>
         <p className="card__text">
-          Copie ton code pour retrouver ta progression ailleurs.
+          Copiez votre code pour retrouver votre progression ailleurs.
         </p>
 
-        {/* --- Exporter ---------------------------------------------------- */}
+        {/* Exporter */}
         <div className="code">
           {code === null ? (
             <button type="button" onClick={exporter} className="bouton bouton--plein bouton--large">
@@ -159,7 +158,7 @@ export default function CodeProgression() {
           {restaure && (
             <p className="code__message code__message--ok">
               <Check size={15} strokeWidth={2.4} />
-              Progression restaurée. Tes niveaux et tes conversations sont
+              Progression restaurée. Vos niveaux et vos conversations sont
               revenus.
             </p>
           )}
@@ -169,7 +168,7 @@ export default function CodeProgression() {
               <p className="code__message code__message--ko">
                 <TriangleAlert size={15} strokeWidth={2.2} />
                 Ce code est valide, mais le restaurer remplacera la progression
-                de cet appareil. Exporte-la d'abord si tu veux la garder.
+                de cet appareil. Exportez-la d'abord si vous voulez la garder.
               </p>
               <div className="code__actions">
                 <button
@@ -208,7 +207,7 @@ export default function CodeProgression() {
               <>
                 <p className="code__message code__message--ko">
                   <TriangleAlert size={15} strokeWidth={2.2} />
-                  Tout sera effacé : niveaux, publications vues, conversations.
+                  Tout sera effacé : niveaux, posts vus, conversations.
                   Sans code exporté, c'est définitif.
                 </p>
                 <div className="code__actions">

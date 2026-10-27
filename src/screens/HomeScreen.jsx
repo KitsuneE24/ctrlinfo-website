@@ -21,13 +21,13 @@ const LEVIERS = [
   {
     id: 'urgence',
     titre: "L'urgence",
-    texte: "« Partage avant que ce soit supprimé » : le but est de court-circuiter ta réflexion avant que tu vérifies.",
+    texte: "« Partage avant que ce soit supprimé » : le but est de court-circuiter votre réflexion avant que vous vérifiiez.",
     rotation: -2,
   },
   {
     id: 'emotion',
     titre: "L'émotion",
-    texte: 'La colère et la peur circulent bien plus vite que le doute. Un contenu qui te fait réagir fort mérite une pause.',
+    texte: 'La colère et la peur circulent bien plus vite que le doute. Un contenu qui vous fait réagir fortement mérite une pause.',
     rotation: 1.5,
   },
   {
@@ -57,13 +57,13 @@ export default function HomeScreen() {
       <Banniere className="hero">
         <div className="hero__contenu">
           <p className="etiquette hero__etiquette">
-            Éducation aux médias · Né en Nouvelle-Calédonie
+            Éducation aux médias
           </p>
           <h1 className="hero__title">
-            Reprends le contrôle de <em>ton fil.</em>
+            Reprenez le contrôle de <em>votre fil.</em>
           </h1>
           <p className="hero__tagline">
-            Un fil d'actualité comme le tien. Certaines infos sont vraies,
+            Un fil d'actualité comme le vôtre. Certaines infos sont vraies,
             d'autres fausses, d'autres sorties de leur contexte.
           </p>
           <div className="hero__actions">
@@ -90,9 +90,9 @@ export default function HomeScreen() {
               Tout part d'un même point.
             </h2>
             <p className="dossier__texte">
-              CTRL INFO est un projet d'éducation aux médias né en
-              Nouvelle-Calédonie&nbsp;: plutôt que de t'expliquer la
-              désinformation dans un cours, on te la fait vivre.
+              CTRL INFO est un projet d'éducation aux médias développé en
+              Nouvelle-Calédonie&nbsp;: plutôt que de vous expliquer la
+              désinformation dans un cours, on vous la fait vivre.
             </p>
           </div>
         </div>
@@ -101,10 +101,9 @@ export default function HomeScreen() {
           {(epingler) => (
             <>
               <Zone numero={1} className="tableau__zone--sujet">Le sujet</Zone>
-              <Zone numero={2} className="tableau__zone--pieges">Comment elle te piège</Zone>
+              <Zone numero={2} className="tableau__zone--pieges">Comment elle vous piège</Zone>
               <Zone numero={3} className="tableau__zone--principe">Le principe</Zone>
 
-              {/* 1 — Le sujet */}
               <div
                 ref={epingler('sujet')}
                 className="papier piece piece--sujet"
@@ -113,11 +112,11 @@ export default function HomeScreen() {
                 <span className="punaise punaise--grande" />
                 <span className="tampon tampon--papier">La désinformation</span>
                 <p className="piece__phrase piece__phrase--grande">
-                  Elle ne ressemble presque jamais à une fausse info.
+                  Elle ne ressemble presque jamais à une fake news.
                 </p>
                 <p className="piece__texte">
                   Elle emprunte de vraies photos, cite de vraies personnes, et
-                  arrive au moment où elle te touche le plus.
+                  arrive au moment où elle aura le plus d'impact.
                 </p>
               </div>
 
@@ -149,11 +148,11 @@ export default function HomeScreen() {
                   <span>Le principe</span>
                   <span className="piece__manchette-date">CTRL INFO</span>
                 </p>
-                <p className="piece__phrase">On ne te l'explique pas&nbsp;: on te la fait vivre.</p>
+                <p className="piece__phrase">On ne vous l'explique pas&nbsp;: on vous la fait vivre.</p>
                 <p className="piece__texte">
-                  Tu incarnes un compte qui reçoit des publications&nbsp;:
-                  certaines sont vraies, d'autres fausses, d'autres vraies mais
-                  sorties de leur contexte.
+                  Vous incarnez un compte qui reçoit des posts&nbsp;:
+                  certains sont vrais, d'autres faux, d'autres vrais mais
+                  sortis de leur contexte.
                 </p>
               </div>
 
@@ -187,7 +186,6 @@ export default function HomeScreen() {
                   )}
                 </div>
                 <p className="piece__phrase">Et tout le monde y croit</p>
-                <p className="piece__legende">Vidéo · la désinformation</p>
               </div>
 
               <a
@@ -228,8 +226,8 @@ export default function HomeScreen() {
                     <span className="punaise" />
                     <p className="etiquette piece__etiquette">Le réflexe</p>
                     <p className="piece__phrase">
-                      Avant de partager, cherche la même info ailleurs. Si aucun
-                      autre média n'en parle, méfie-toi.
+                      Avant de partager, cherchez la même info ailleurs. Si aucun
+                      autre média n'en parle, méfiez-vous.
                     </p>
                   </div>
 
@@ -239,10 +237,10 @@ export default function HomeScreen() {
                     style={{ '--rotation': '1.5deg' }}
                   >
                     <span className="punaise" />
-                    <p className="etiquette piece__etiquette">À toi de jouer</p>
-                    <p className="piece__phrase">Aimer, partager ou signaler&nbsp;: tu tranches.</p>
+                    <p className="etiquette piece__etiquette">À vous de jouer</p>
+                    <p className="piece__phrase">Aimer, partager ou signaler&nbsp;: vous tranchez.</p>
                     <ul className="piece__gestes" aria-label="Les trois gestes du jeu">
-                      <li><Heart size={19} strokeWidth={1.8} aria-label="Aimer" /></li>
+                      <li><Heart size={19} strokeWidth={1.8} aria-label="J'aime" /></li>
                       <li><Send size={19} strokeWidth={1.8} aria-label="Partager" /></li>
                       <li><Flag size={19} strokeWidth={1.8} aria-label="Signaler" /></li>
                     </ul>

@@ -176,7 +176,7 @@ export async function decoderCode(code) {
   if (morceaux.length !== 4) {
     throw new ErreurCode(
       'forme',
-      "Ce code est incomplet : il doit compter quatre parties séparées par des points. Vérifie que tu l'as copié en entier."
+      "Ce code est incomplet : il doit compter quatre parties séparées par des points. Vérifiez que vous l'avez copié en entier."
     )
   }
 

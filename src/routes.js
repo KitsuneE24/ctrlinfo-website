@@ -24,9 +24,9 @@ export const GAME_PATHS = {
 const TITLES = [
   [`${PATHS.resources}/comprendre`, 'Ressources'],
   [PATHS.resources, 'Ressources'],
-  [PATHS.chats, 'Les conversations'],
+  [PATHS.chats, 'Messages'],
   [PATHS.feed, "Le fil d'actualité"],
-  [PATHS.profile, 'Ma progression'],
+  [PATHS.profile, 'Profil'],
   [PATHS.legal, 'Mentions légales'],
 ]
 

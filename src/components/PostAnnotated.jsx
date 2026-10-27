@@ -91,7 +91,7 @@ export default function PostAnnotated({ post, liste = true }) {
             <Marques indices={indices} cible="SOURCE" />
           </p>
           <p className={`annot__domaine${surligne('DATE')}`}>
-            {post.domain || 'publication sponsorisée'} · {post.date}
+            {post.domain || 'post sponsorisé'} · {post.date}
             <Marques indices={indices} cible="DATE" />
           </p>
         </div>

@@ -54,8 +54,8 @@ export default function AppHeader() {
           <NavLink
             to={PATHS.profile}
             onClick={garder(PATHS.profile)}
-            aria-label={pseudo ? `Profil de ${pseudo}` : 'Mon profil'}
-            title={pseudo || 'Mon profil'}
+            aria-label={pseudo ? `Profil de ${pseudo}` : 'Profil'}
+            title={pseudo || 'Profil'}
             className={({ isActive }) =>
               `app-header__avatar${isActive ? ' app-header__avatar--actif' : ''}`
             }

@@ -1,9 +1,8 @@
-/**
- * Le contenu du jeu, lu dans donnees/contenu.json (chargé une fois, state/contenu.js).
- */
 import { reglesDuNiveau } from '../lib/niveaux'
-import { tirer } from '../lib/tirage'
-import { chargerContenu } from '../state/contenu'
+import { fabriquerConversations, fabriquerPublications } from '../lib/fabriquer'
+import { inedites, tirer } from '../lib/tirage'
+import { chargerContenu, plusAutorise } from '../state/contenu'
+import { ajouterGeneres } from '../state/generes'
 
 const depuis = (extraire) => () => chargerContenu().then(extraire)
 
@@ -34,12 +33,31 @@ export const getConversation = (slug) =>
 
 export const getChapitre = (slug) => chargerContenu().then((c) => un(c.chapitres, slug))
 
-/** Une manche tirée au sort (voir lib/tirage.js). */
-export const getTirage = (level, { taille, vus } = {}) =>
-  chargerContenu().then((c) =>
-    tirer(c.posts, {
-      level,
-      taille: taille ?? reglesDuNiveau(c.niveaux, level)?.taille ?? 5,
-      vus,
-    })
-  )
+export const getTirageEtReste = (level, { vus } = {}) =>
+  chargerContenu().then((c) => {
+    const taille = reglesDuNiveau(c.niveaux, level)?.taille ?? 5
+    return {
+      tirage: tirer(c.posts, { level, taille, vus }),
+      reste: inedites(c.posts, { level, vus }),
+      taille,
+      plus: plusAutorise(c, 'feed'),
+    }
+  })
+
+export const fabriquerNouvellesPublications = (level, { vus } = {}) =>
+  chargerContenu().then((c) => {
+    if (!plusAutorise(c, 'feed')) return 0
+    const posts = fabriquerPublications(c.posts, { level, vus })
+    ajouterGeneres({ posts })
+    return posts.length
+  })
+
+export const getPlusDeConversations = depuis((c) => plusAutorise(c, 'chat'))
+
+export const fabriquerNouvellesConversations = () =>
+  chargerContenu().then((c) => {
+    if (!plusAutorise(c, 'chat')) return 0
+    const conversations = fabriquerConversations(c.posts, c.conversations)
+    ajouterGeneres({ conversations })
+    return conversations.length
+  })

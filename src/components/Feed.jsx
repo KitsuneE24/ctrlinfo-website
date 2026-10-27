@@ -1,6 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { Sparkles, GraduationCap, ArrowRight } from 'lucide-react'
-import { getNiveaux, getRemediations, getTirage } from '../api/contenu'
+import { Sparkles, GraduationCap, ArrowRight, CircleCheck, RefreshCw } from 'lucide-react'
+import {
+  fabriquerNouvellesPublications,
+  getNiveaux,
+  getRemediations,
+  getTirageEtReste,
+} from '../api/contenu'
 import { dureePour, reglesDuNiveau } from '../lib/niveaux'
 import { dejaVus, niveauDeDepart, noterDecision, noterNiveau } from '../state/progression'
 import { useAutreJeu } from '../state/jeux'
@@ -48,6 +53,41 @@ function AnnonceNiveau({ regles, suite, onFermer, onSwitch }) {
   )
 }
 
+function ToutVu({ fabrication, onFabriquer, onFermer }) {
+  const rien = fabrication === 'rien'
+  return (
+    <div className="palier anim-apparait">
+      <section role="dialog" aria-modal="true" className="card outcome palier__carte anim-surgit">
+        <span className="outcome__badge outcome__badge--small">
+          <CircleCheck size={22} strokeWidth={2} />
+        </span>
+        <h2 className="outcome__title">Vous êtes à jour</h2>
+        <p className="outcome__note">
+          {rien
+            ? 'Pas de nouveaux posts pour l’instant. Revenez demain !'
+            : 'Vous avez vu tous les nouveaux posts.'}
+        </p>
+        <div className="outcome__action">
+          {!rien && (
+            <button
+              type="button"
+              onClick={onFabriquer}
+              disabled={fabrication === 'encours'}
+              className="bouton bouton--plein bouton--large"
+            >
+              <RefreshCw size={16} strokeWidth={2.2} />
+              {fabrication === 'encours' ? 'Chargement…' : 'Continuer à jouer'}
+            </button>
+          )}
+          <button type="button" onClick={onFermer} className="bouton bouton--large">
+            Revoir les anciens posts
+          </button>
+        </div>
+      </section>
+    </div>
+  )
+}
+
 export default function Feed({ onSwitch, onRegles, paused = false }) {
   const suite = useAutreJeu('feed')
 
@@ -64,16 +104,23 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
   const [feedbackVisible, setFeedbackVisible] = useState(false)
   const [erreur, setErreur] = useState(null)
   const [remediations, setRemediations] = useState({})
+  const [toutVu, setToutVu] = useState(false)
+  const [fabrication, setFabrication] = useState(null)
+  const propose = useRef(null)
 
-  // Affichage de la publication en cours, pour mesurer le temps de décision.
   const affichee = useRef(0)
 
-  // File vide = chargement : l'appelant la vide avant de relancer.
+  // File vide = chargement.
   const chargerNiveau = useCallback(
     (level) =>
-      getTirage(level, { vus: dejaVus() })
-        .then((tirage) => {
-          if (tirage.length === 0) throw new Error('Aucune publication disponible.')
+      getTirageEtReste(level, { vus: dejaVus() })
+        .then(({ tirage, reste, taille, plus }) => {
+          if (tirage.length === 0) throw new Error('Aucun post disponible.')
+          if (plus && reste < taille && propose.current !== level) {
+            propose.current = level
+            setFabrication(null)
+            setToutVu(true)
+          }
           setPostQueue(tirage)
           setQueueIdx(0)
           setLevelDoneCount(0)
@@ -173,6 +220,18 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
 
   const fermerAnnonce = useCallback(() => setAnnonce(false), [])
 
+  function fabriquer() {
+    setFabrication('encours')
+    fabriquerNouvellesPublications(currentLevel, { vus: dejaVus() })
+      .then((nombre) => {
+        if (nombre === 0) return setFabrication('rien')
+        setToutVu(false)
+        setPostQueue([])
+        chargerNiveau(currentLevel)
+      })
+      .catch(() => setFabrication('rien'))
+  }
+
   const actionsDisabled = action !== null || feedbackVisible
 
   return (
@@ -190,7 +249,10 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
         <AnnonceNiveau regles={regles} suite={suite} onFermer={fermerAnnonce} onSwitch={onSwitch} />
       )}
 
-      {/* Le post tient dans l'écran : pas de défilement. */}
+      {toutVu && !annonce && !chargement && (
+        <ToutVu fabrication={fabrication} onFabriquer={fabriquer} onFermer={() => setToutVu(false)} />
+      )}
+
       <Page feed fill>
         {erreur ? (
           <ErreurChargement erreur={erreur} onReessayer={() => chargerNiveau(currentLevel)} />
@@ -203,8 +265,7 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
               levelDoneCount={levelDoneCount}
               levelTotal={levelTotal}
               timerKey={`${currentLevel}:${queueIdx}`}
-              // Le chrono attend la fermeture des règles et de l'annonce.
-              timerActive={timerActive && !paused && !annonce}
+              timerActive={timerActive && !paused && !annonce && !toutVu}
               timerSecondes={dureePour(currentPost, regles?.dureeSecondes)}
               onTimerComplete={handleTimerExpire}
               onRegles={onRegles}
@@ -222,7 +283,7 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
                   post={currentPost}
                   isActive
                   onAction={handleAction}
-                  disabled={actionsDisabled || annonce}
+                  disabled={actionsDisabled || annonce || toutVu}
                   selectedAction={action}
                 />
               </div>

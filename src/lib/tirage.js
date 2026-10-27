@@ -1,9 +1,6 @@
-/**
- * Le tirage d'une manche, toujours au niveau demandé (jamais plus facile) :
- * d'abord les inédites, puis les déjà vues, les plus anciennes d'abord.
- */
+// Tirage au niveau demandé : inédites d'abord, puis déjà vues les plus anciennes.
 
-const melanger = (tableau) => {
+export const melanger = (tableau) => {
   const copie = [...tableau]
   for (let i = copie.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -50,6 +47,12 @@ const equilibrer = (disponibles, taille) => {
 export const niveauDeContenu = (posts, level) => {
   const max = Math.max(1, ...posts.map((post) => post.level ?? 1))
   return Math.min(level, max)
+}
+
+export function inedites(posts, { level, vus = [] }) {
+  const cible = niveauDeContenu(posts, level)
+  const dejaVus = new Set(vus)
+  return posts.filter((post) => post.level === cible && !dejaVus.has(post.slug)).length
 }
 
 export function tirer(posts, { level, taille, vus = [] }) {

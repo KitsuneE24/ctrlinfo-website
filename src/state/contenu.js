@@ -1,4 +1,5 @@
-/** Le contenu du jeu, chargé une fois pour toute la vie de l'onglet. */
+import { generes } from './generes'
+
 const DOSSIER = '/donnees/'
 
 const lire = (nom) =>
@@ -9,7 +10,7 @@ const lire = (nom) =>
 
 let promesse = null
 
-export function chargerContenu() {
+function chargerServeur() {
   promesse ??= Promise.all([lire('contenu.json'), lire('posts-vrais.json'), lire('posts-faux.json')])
     .then(([contenu, vrais, faux]) => ({ ...contenu, posts: [...vrais, ...faux] }))
     .catch((erreur) => {
@@ -19,3 +20,27 @@ export function chargerContenu() {
     })
   return promesse
 }
+
+// Interrupteur /admin : Jeux → « Plus Quand Tout Est Vu ».
+export const plusAutorise = (contenu, jeu) =>
+  contenu.jeux?.find((j) => j.id === jeu)?.plusQuandToutEstVu === true
+
+// Ce que le joueur a fabriqué, tant que /admin l'autorise encore.
+export const chargerContenu = () =>
+  chargerServeur().then((contenu) => {
+    const locaux = generes()
+    const vraies = contenu.posts.filter((p) => !p.isFake)
+    const presentes = new Set(vraies.map((p) => p.article?.url))
+    const bases = new Set(vraies.filter((p) => p.fauxPossible).map((p) => p.article?.url))
+    const posts = plusAutorise(contenu, 'feed')
+      ? locaux.posts.filter((p) => (p.isFake ? bases : presentes).has(p.article?.url))
+      : []
+    const conversations = plusAutorise(contenu, 'chat')
+      ? locaux.conversations.filter((c) => bases.has(c.article?.url))
+      : []
+    return {
+      ...contenu,
+      posts: [...contenu.posts, ...posts],
+      conversations: [...conversations, ...contenu.conversations],
+    }
+  })

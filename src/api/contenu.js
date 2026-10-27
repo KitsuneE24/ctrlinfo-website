@@ -13,7 +13,30 @@ export const getRemediations = depuis((c) => c.remediations)
 export const getNiveaux = depuis((c) => c.niveaux)
 export const getConversations = depuis((c) => c.conversations)
 export const getChapitres = depuis((c) => c.chapitres)
-export const getMentionsLegales = depuis((c) => c.mentionsLegales ?? [])
+// Les crédits photos sont tirés des banques : une photo ajoutée y apparaît d'elle-même.
+function creditsPhotos(c) {
+  const vues = new Set()
+  const lignes = []
+  for (const base of [...(c.faits ?? []), ...(c.scenarios ?? [])]) {
+    const image = base.image
+    if (!image?.page || vues.has(image.fichier)) continue
+    vues.add(image.fichier)
+    lignes.push(`• ${image.alt} : ${image.auteur}, ${image.licence}, ${image.page}`)
+  }
+  if (lignes.length === 0) return []
+  return [
+    {
+      id: 'credits-photos',
+      titre: 'Crédits photos',
+      paragraphes: [
+        { texte: 'Les photos des posts viennent de Wikimedia Commons, dans le domaine public ou sous licence libre (CC0, CC BY, CC BY-SA). Elles illustrent des posts fabriqués pour l’exercice : celles des événements inventés ont été prises ailleurs.' },
+        { texte: lignes.join('\n') },
+      ],
+    },
+  ]
+}
+
+export const getMentionsLegales = depuis((c) => [...(c.mentionsLegales ?? []), ...creditsPhotos(c)])
 
 // Index tiré du quantième.
 export const getDailyTip = depuis((c) => {
@@ -47,7 +70,7 @@ export const getTirageEtReste = (level, { vus } = {}) =>
 export const fabriquerNouvellesPublications = (level, { vus } = {}) =>
   chargerContenu().then((c) => {
     if (!plusAutorise(c, 'feed')) return 0
-    const posts = fabriquerPublications(c.posts, { level, vus })
+    const posts = fabriquerPublications(c, { level, vus })
     ajouterGeneres({ posts })
     return posts.length
   })

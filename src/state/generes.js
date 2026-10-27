@@ -2,9 +2,11 @@
  * Les publications et conversations fabriquées dans le navigateur du joueur
  * (bouton « Fabriquer »). Elles restent sur l'appareil, comme la progression.
  */
-const CLE = 'ctrl-info:generes'
+const CLE = 'ctrl-info:generes-3'
+// Anciennes fabrications, faites avec des contenus de médias.
+const ANCIENNES_CLES = ['ctrl-info:generes', 'ctrl-info:generes-2']
 const PLAFOND_POSTS = 120
-const PLAFOND_CONVERSATIONS = 12
+const PLAFOND_CONVERSATIONS = 120
 
 const vide = () => ({ posts: [], conversations: [] })
 
@@ -15,14 +17,14 @@ const estLocal = (cle) => (entree) =>
   !Array.isArray(entree) &&
   entree.origine === 'local' &&
   typeof entree[cle] === 'string' &&
-  entree[cle].startsWith('local-') &&
-  typeof entree.article?.url === 'string'
+  entree[cle].startsWith('local-')
 
 const liste = (recu, cle, plafond) =>
   Array.isArray(recu) ? recu.filter(estLocal(cle)).slice(0, plafond) : []
 
 function lire() {
   try {
+    for (const ancienne of ANCIENNES_CLES) window.localStorage.removeItem(ancienne)
     const recu = JSON.parse(window.localStorage.getItem(CLE) ?? 'null')
     return {
       posts: liste(recu?.posts, 'slug', PLAFOND_POSTS),

@@ -1,5 +1,5 @@
-// node scripts/verifier-donnees.mjs — sort en erreur au moindre problème.
-import { readFileSync } from 'node:fs'
+// node scripts/verifier-donnees.mjs : sort en erreur au moindre problème.
+import { existsSync, readFileSync } from 'node:fs'
 
 const DONNEES = new URL('../public/donnees/', import.meta.url)
 const problemes = []
@@ -22,6 +22,16 @@ const faux = lire('posts-faux.json')
 const REQUISES = ['version', 'jeux', 'niveaux', 'remediations', 'conversations', 'chapitres', 'stories', 'avatars', 'astuces']
 const ACTIONS = ['share', 'ignore', 'report']
 const texte = (v) => typeof v === 'string' && v.trim() !== ''
+const PUBLIC = new URL('../public', import.meta.url).href
+
+// Image locale : le fichier existe, avec un texte alternatif et un crédit complet.
+function verifierImage(ici, fichier = '', alt, credit) {
+  if (!fichier.startsWith('/') || !existsSync(new URL(PUBLIC + fichier))) signaler(`${ici} : image introuvable (${fichier})`)
+  if (!texte(alt)) signaler(`${ici} : image sans texte alternatif`)
+  if (!texte(credit?.auteur) || !texte(credit?.licence) || !texte(credit?.page)) {
+    signaler(`${ici} : image sans crédit complet (auteur, licence, page)`)
+  }
+}
 
 if (contenu) {
   for (const cle of REQUISES) {
@@ -45,6 +55,26 @@ if (contenu) {
       else if (!choix.some((c) => c.correct)) signaler(`${nom}, étape ${j + 1} : aucun bon choix`)
     }
   }
+
+  // Les banques du générateur.
+  const idsFaits = new Set()
+  for (const [i, fait] of (contenu.faits ?? []).entries()) {
+    const ici = `fait ${i + 1} (${fait.id ?? '?'})`
+    if (!texte(fait.id) || idsFaits.has(fait.id)) signaler(`${ici} : id absent ou en double`)
+    idsFaits.add(fait.id)
+    if (!texte(fait.vrai) || !texte(fait.faux)) signaler(`${ici} : il faut une version vraie et une version fausse`)
+    if (fait.vrai === fait.faux) signaler(`${ici} : la version fausse est identique à la vraie`)
+    if (!texte(fait.source?.nom) || !texte(fait.source?.url)) signaler(`${ici} : source sans nom ou sans adresse`)
+    if (fait.image) verifierImage(ici, fait.image.fichier, fait.image.alt, fait.image)
+  }
+  if (idsFaits.size === 0) signaler('contenu.json : aucun fait, le générateur ne peut rien fabriquer')
+  const idsScenarios = new Set()
+  for (const [i, s] of (contenu.scenarios ?? []).entries()) {
+    const ici = `événement inventé ${i + 1} (${s.id ?? '?'})`
+    if (!texte(s.id) || idsScenarios.has(s.id) || idsFaits.has(s.id)) signaler(`${ici} : id absent ou en double`)
+    idsScenarios.add(s.id)
+    if (!texte(s.titre)) signaler(`${ici} : pas de titre`)
+  }
 }
 
 const slugs = new Set()
@@ -67,7 +97,9 @@ function verifierPosts(posts, nom, isFake) {
     if (Object.values(post.scores ?? {}).some((score) => typeof score !== 'number' || Math.abs(score) > 100)) {
       signaler(`${ici} : score hors de -100 à 100`)
     }
-    if (post.image && !/^https?:\/\//.test(post.image) && !post.image.startsWith('/')) signaler(`${ici} : adresse d'image invalide`)
+    // La CSP n'autorise que les images du site.
+    if (post.image && !post.image.startsWith('/images/')) signaler(`${ici} : image hors de /images/ (${post.image.slice(0, 60)})`)
+    else if (post.image) verifierImage(ici, post.image, post.imageAlt, post.credit)
   }
 }
 verifierPosts(vrais, 'posts-vrais.json', false)

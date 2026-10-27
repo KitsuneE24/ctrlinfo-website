@@ -7,11 +7,7 @@ import { useSyncExternalStore } from 'react'
 import FondMolten from './ui/FondMolten'
 import Kiwi from './ui/Kiwi'
 
-/**
- * État de la partie : quitter, niveau, avancement, chrono.
- * Mobile : bandeau collé en haut. Ordinateur : colonne à droite du post.
- * `timerSecondes` nul = pas de chrono (niveau 1).
- */
+// `timerSecondes` nul = pas de chrono.
 const BUREAU = '(min-width: 1024px)'
 const abonnerBureau = (rappel) => {
   const requete = window.matchMedia(BUREAU)
@@ -19,7 +15,6 @@ const abonnerBureau = (rappel) => {
   return () => requete.removeEventListener('change', rappel)
 }
 
-/** Vrai sur ordinateur : le fond animé n'est chargé que là. */
 function useBureau() {
   return useSyncExternalStore(abonnerBureau, () => window.matchMedia(BUREAU).matches, () => false)
 }
@@ -105,7 +100,7 @@ export default function FeedStats({
       <div className="papier fil-etat__conseil">
         <span className="papier__ruban" />
         <Kiwi taille={44} />
-        <p>Lis jusqu'au bout avant de cliquer.</p>
+        <p>Lisez jusqu'au bout avant de cliquer.</p>
       </div>
     </section>
   )

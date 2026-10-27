@@ -1,0 +1,33 @@
+name: Sécurité
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+  schedule:
+    # Mardi 7:00 à Nouméa
+    - cron: '0 20 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  controler:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+      - run: npm run lint
+      - run: npm run verifier
+      - run: npm run audit:securite
+      - run: npm run build

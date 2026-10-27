@@ -9,25 +9,24 @@ import TableauEnquete from '../components/TableauEnquete'
 import DailyTip from '../components/DailyTip'
 import { PATHS } from '../routes'
 
-// Chemin ou URL de la vidéo (null : visuel d'attente).
+// null : visuel d'attente.
 const VIDEO_URL = null
 
 const INSTAGRAM_URL = 'https://www.instagram.com/planke_nc'
 
-// Clichés glissés sous la photo Instagram.
 const CLICHES_DESSOUS = ['/planke/chut.jpg', '/planke/collection.jpg']
 
 const LEVIERS = [
   {
     id: 'urgence',
     titre: "L'urgence",
-    texte: "« Partage avant que ce soit supprimé » : le but est de court-circuiter ta réflexion avant que tu vérifies.",
+    texte: "« Partage avant que ce soit supprimé » : le but est de court-circuiter votre réflexion avant que vous vérifiiez.",
     rotation: -2,
   },
   {
     id: 'emotion',
     titre: "L'émotion",
-    texte: 'La colère et la peur circulent bien plus vite que le doute. Un contenu qui te fait réagir fort mérite une pause.',
+    texte: 'La colère et la peur circulent bien plus vite que le doute. Un contenu qui vous fait réagir fortement mérite une pause.',
     rotation: 1.5,
   },
   {
@@ -38,7 +37,6 @@ const LEVIERS = [
   },
 ]
 
-/** Intitulé numéroté d'une zone du tableau. */
 function Zone({ numero, children, bleu = false, className = '' }) {
   return (
     <p className={`tableau__zone${bleu ? ' tableau__zone--bleu' : ''} ${className}`.trim()}>
@@ -48,7 +46,6 @@ function Zone({ numero, children, bleu = false, className = '' }) {
   )
 }
 
-/** Accueil : bandeau, stories, tableau d'enquête (1 sujet, 2 pièges, 3 principe, 4 parade). */
 export default function HomeScreen() {
   const [videoOpen, setVideoOpen] = useState(false)
 
@@ -57,13 +54,13 @@ export default function HomeScreen() {
       <Banniere className="hero">
         <div className="hero__contenu">
           <p className="etiquette hero__etiquette">
-            Éducation aux médias · Né en Nouvelle-Calédonie
+            Éducation aux médias
           </p>
           <h1 className="hero__title">
-            Reprends le contrôle de <em>ton fil.</em>
+            Reprenez le contrôle de <em>votre fil.</em>
           </h1>
           <p className="hero__tagline">
-            Un fil d'actualité comme le tien. Certaines infos sont vraies,
+            Un fil d'actualité comme le vôtre. Certaines infos sont vraies,
             d'autres fausses, d'autres sorties de leur contexte.
           </p>
           <div className="hero__actions">
@@ -90,9 +87,9 @@ export default function HomeScreen() {
               Tout part d'un même point.
             </h2>
             <p className="dossier__texte">
-              CTRL INFO est un projet d'éducation aux médias né en
-              Nouvelle-Calédonie&nbsp;: plutôt que de t'expliquer la
-              désinformation dans un cours, on te la fait vivre.
+              CTRL INFO est un projet d'éducation aux médias développé en
+              Nouvelle-Calédonie&nbsp;: plutôt que de vous expliquer la
+              désinformation dans un cours, on vous la fait vivre.
             </p>
           </div>
         </div>
@@ -101,10 +98,9 @@ export default function HomeScreen() {
           {(epingler) => (
             <>
               <Zone numero={1} className="tableau__zone--sujet">Le sujet</Zone>
-              <Zone numero={2} className="tableau__zone--pieges">Comment elle te piège</Zone>
+              <Zone numero={2} className="tableau__zone--pieges">Comment elle vous piège</Zone>
               <Zone numero={3} className="tableau__zone--principe">Le principe</Zone>
 
-              {/* 1 — Le sujet */}
               <div
                 ref={epingler('sujet')}
                 className="papier piece piece--sujet"
@@ -113,15 +109,14 @@ export default function HomeScreen() {
                 <span className="punaise punaise--grande" />
                 <span className="tampon tampon--papier">La désinformation</span>
                 <p className="piece__phrase piece__phrase--grande">
-                  Elle ne ressemble presque jamais à une fausse info.
+                  Elle ne ressemble presque jamais à une fake news.
                 </p>
                 <p className="piece__texte">
                   Elle emprunte de vraies photos, cite de vraies personnes, et
-                  arrive au moment où elle te touche le plus.
+                  arrive au moment où elle aura le plus d'impact.
                 </p>
               </div>
 
-              {/* 2 — Les pièges */}
               {LEVIERS.map(({ id, titre, texte, rotation }, i) => (
                 <div
                   key={id}
@@ -138,7 +133,6 @@ export default function HomeScreen() {
                 </div>
               ))}
 
-              {/* 3 — Le principe et la vidéo */}
               <div
                 ref={epingler('principe', { vers: 'sujet' })}
                 className="papier piece piece--journal"
@@ -149,11 +143,11 @@ export default function HomeScreen() {
                   <span>Le principe</span>
                   <span className="piece__manchette-date">CTRL INFO</span>
                 </p>
-                <p className="piece__phrase">On ne te l'explique pas&nbsp;: on te la fait vivre.</p>
+                <p className="piece__phrase">On ne vous l'explique pas&nbsp;: on vous la fait vivre.</p>
                 <p className="piece__texte">
-                  Tu incarnes un compte qui reçoit des publications&nbsp;:
-                  certaines sont vraies, d'autres fausses, d'autres vraies mais
-                  sorties de leur contexte.
+                  Vous incarnez un compte qui reçoit des posts&nbsp;:
+                  certains sont vrais, d'autres faux, d'autres vrais mais
+                  sortis de leur contexte.
                 </p>
               </div>
 
@@ -179,7 +173,7 @@ export default function HomeScreen() {
                       </span>
                       {videoOpen && (
                         <span className="video__hint">
-                          La vidéo sera intégrée ici — renseigne <code>VIDEO_URL</code>{' '}
+                          La vidéo sera intégrée ici : renseignez <code>VIDEO_URL</code>{' '}
                           dans <code>src/screens/HomeScreen.jsx</code>.
                         </span>
                       )}
@@ -187,14 +181,13 @@ export default function HomeScreen() {
                   )}
                 </div>
                 <p className="piece__phrase">Et tout le monde y croit</p>
-                <p className="piece__legende">Vidéo · la désinformation</p>
               </div>
 
               <a
                 ref={epingler('instagram', { vers: 'sujet' })}
                 href={INSTAGRAM_URL}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="piece piece--cliche"
                 style={{ '--rotation': '3deg' }}
                 aria-label="Nous suivre sur Instagram : @planke_nc (nouvel onglet)"
@@ -216,7 +209,6 @@ export default function HomeScreen() {
                 </span>
               </a>
 
-              {/* 4 — La parade */}
               <div className="tableau__parade">
                 <Zone numero={4} bleu className="tableau__zone--parade">La parade</Zone>
                 <div className="tableau__parade-notes">
@@ -228,8 +220,8 @@ export default function HomeScreen() {
                     <span className="punaise" />
                     <p className="etiquette piece__etiquette">Le réflexe</p>
                     <p className="piece__phrase">
-                      Avant de partager, cherche la même info ailleurs. Si aucun
-                      autre média n'en parle, méfie-toi.
+                      Avant de partager, cherchez la même info ailleurs. Si aucun
+                      autre média n'en parle, méfiez-vous.
                     </p>
                   </div>
 
@@ -239,10 +231,10 @@ export default function HomeScreen() {
                     style={{ '--rotation': '1.5deg' }}
                   >
                     <span className="punaise" />
-                    <p className="etiquette piece__etiquette">À toi de jouer</p>
-                    <p className="piece__phrase">Aimer, partager ou signaler&nbsp;: tu tranches.</p>
+                    <p className="etiquette piece__etiquette">À vous de jouer</p>
+                    <p className="piece__phrase">Aimer, partager ou signaler&nbsp;: vous tranchez.</p>
                     <ul className="piece__gestes" aria-label="Les trois gestes du jeu">
-                      <li><Heart size={19} strokeWidth={1.8} aria-label="Aimer" /></li>
+                      <li><Heart size={19} strokeWidth={1.8} aria-label="J'aime" /></li>
                       <li><Send size={19} strokeWidth={1.8} aria-label="Partager" /></li>
                       <li><Flag size={19} strokeWidth={1.8} aria-label="Signaler" /></li>
                     </ul>
@@ -257,7 +249,6 @@ export default function HomeScreen() {
         </TableauEnquete>
       </section>
 
-      {/* Fin de page, téléphone seulement. */}
       <section className="home__fin">
         <Link to={PATHS.resources} className="bouton bouton--large">
           Comprendre d'abord

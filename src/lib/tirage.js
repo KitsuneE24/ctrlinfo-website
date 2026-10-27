@@ -1,11 +1,6 @@
-/**
- * Le tirage d'une manche, porté du serveur (posts.service.ts) vers le front.
- *
- * Les publications déjà traitées passent en dernier, de la plus ancienne à la plus récente, plutôt que de
- * rendre une manche amputée.
- */
+// Tirage au niveau demandé : inédites d'abord, puis déjà vues les plus anciennes.
 
-const melanger = (tableau) => {
+export const melanger = (tableau) => {
   const copie = [...tableau]
   for (let i = copie.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -14,9 +9,28 @@ const melanger = (tableau) => {
   return copie
 }
 
-/** Au moins une vraie et une fausse dans le lot, quand le vivier le permet. */
+function varier(disponibles, taille) {
+  const choisis = []
+  const procedes = new Set()
+  // Au plus un article sur deux : le reste vient de personnes et de pages.
+  const maxArticles = Math.floor(taille * 0.5)
+  const articles = () => choisis.filter((p) => p.format === 'article').length
+  for (const post of disponibles) {
+    if (choisis.length === taille) break
+    if (post.isFake && procedes.has(post.biais)) continue
+    if (post.format === 'article' && articles() >= maxArticles) continue
+    choisis.push(post)
+    if (post.isFake) procedes.add(post.biais)
+  }
+  for (const post of disponibles) {
+    if (choisis.length === taille) break
+    if (!choisis.includes(post)) choisis.push(post)
+  }
+  return choisis
+}
+
 const equilibrer = (disponibles, taille) => {
-  const choisis = disponibles.slice(0, taille)
+  const choisis = varier(disponibles, taille)
   if (choisis.length < taille) return choisis
 
   for (const attendu of [false, true]) {
@@ -24,24 +38,31 @@ const equilibrer = (disponibles, taille) => {
     const remplacant = disponibles.find(
       (post) => post.isFake === attendu && !choisis.includes(post)
     )
-    // La dernière du lot est sacrifiée, jamais la première.
     if (remplacant) choisis[choisis.length - 1] = remplacant
   }
 
   return choisis
 }
 
-export function tirer(posts, { level, taille, vus = [] }) {
-  const duNiveau = posts.filter((post) => post.level === level)
-  if (duNiveau.length === 0) return []
+export const niveauDeContenu = (posts, level) => {
+  const max = Math.max(1, ...posts.map((post) => post.level ?? 1))
+  return Math.min(level, max)
+}
 
+export function inedites(posts, { level, vus = [] }) {
+  const cible = niveauDeContenu(posts, level)
   const dejaVus = new Set(vus)
-  const frais = duNiveau.filter((post) => !dejaVus.has(post.slug))
+  return posts.filter((post) => post.level === cible && !dejaVus.has(post.slug)).length
+}
 
-  const melanges = melanger(frais)
+export function tirer(posts, { level, taille, vus = [] }) {
+  const cible = niveauDeContenu(posts, level)
+  const duNiveau = posts.filter((post) => post.level === cible)
+  const dejaVus = new Set(vus)
 
+  const inedits = melanger(duNiveau.filter((post) => !dejaVus.has(post.slug)))
   const parSlug = new Map(duNiveau.map((post) => [post.slug, post]))
   const revus = vus.map((slug) => parSlug.get(slug)).filter(Boolean)
 
-  return equilibrer([...melanges, ...revus], taille)
+  return equilibrer([...inedits, ...revus], taille)
 }

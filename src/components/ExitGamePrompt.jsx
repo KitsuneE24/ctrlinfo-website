@@ -3,7 +3,6 @@ import { Download } from 'lucide-react'
 import { PATHS } from '../routes'
 import Filaments from './ui/Filaments'
 
-/** Alerte « Quitter la partie ? ». */
 export default function ExitGamePrompt({ onConfirm, onCancel }) {
   return (
     <div
@@ -22,7 +21,7 @@ export default function ExitGamePrompt({ onConfirm, onCancel }) {
           Déjà fini&nbsp;?
         </h2>
         <p className="fenetre__texte">
-          Tes réponses et ton niveau sont gardés. Seule cette manche
+          Vos réponses et votre niveau sont gardés. Seule cette manche
           recommencera.
         </p>
 
@@ -35,7 +34,6 @@ export default function ExitGamePrompt({ onConfirm, onCancel }) {
           </button>
         </div>
 
-        {/* Changer d'adresse referme l'alerte. */}
         <div className="gate__aparte">
           <p className="gate__aparte-texte">Tu changes d'appareil&nbsp;?</p>
           <Link to={PATHS.profile} className="bouton bouton--petit gate__aparte-bouton">

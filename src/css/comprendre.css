@@ -1,7 +1,4 @@
-/* ==========================================================================
-   COMPRENDRE
-   La galerie de thèmes, puis la page d'un thème.
-   ========================================================================== */
+/* Comprendre */
 
 @layer components {
   /* --- Recherche ------------------------------------------------------- */
@@ -264,7 +261,7 @@
     border: 1.5px solid currentColor;
     border-radius: 2px;
     font-family: var(--font-enquete);
-    font-size: 10px;
+    font-size: var(--etiquette-taille);
     letter-spacing: 1px;
     line-height: 1.2;
     text-transform: uppercase;
@@ -341,7 +338,7 @@
     border-radius: 8px 8px 0 0;
     background: var(--dossier);
     color: var(--blanc);
-    font-size: 11px;
+    font-size: var(--etiquette-taille);
     letter-spacing: 2px;
   }
 
@@ -437,7 +434,7 @@
     margin-top: 22px;
     padding-top: 14px;
     border-top: 1px dashed color-mix(in srgb, var(--blanc) 35%, transparent);
-    font-size: 11px;
+    font-size: var(--etiquette-taille);
     color: color-mix(in srgb, var(--blanc) 82%, transparent);
   }
 
@@ -603,6 +600,21 @@
     line-height: 1.55;
   }
 
+  .coupure__source {
+    margin: 8px 0 0;
+    font-size: var(--text-xs);
+  }
+
+  .coupure__source a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  /* Les mots importants des Ressources, souvent l'action à faire. */
+  .chapitre strong {
+    font-weight: 700;
+  }
+
   /* --- Le réflexe : la note bleue du tableau ----------------------------- */
 
   .conseil {
@@ -694,7 +706,7 @@
   }
 
   .scelle__numero {
-    font-size: 11px;
+    font-size: var(--etiquette-taille);
     letter-spacing: 2px;
     color: var(--rouge);
   }
@@ -837,7 +849,7 @@
   }
 
   .dossier-suivant__numero {
-    font-size: 11px;
+    font-size: var(--etiquette-taille);
     opacity: 0.85;
   }
 

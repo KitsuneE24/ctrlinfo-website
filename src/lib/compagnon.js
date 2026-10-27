@@ -1,21 +1,9 @@
-/**
- * Le compagnon : planches, postures, répliques et place retenue.
- * Planches générées par `scripts/generer-sprite-cagou.mjs` :
- *
- * ```
- *   cagou.png        0  1      2       3  4      5
- *                    ← marche  de face  marche →  téléphone
- *   cagou-chute.png  étalé au sol
- * ```
- */
+// Planches générées par scripts/generer-sprite-cagou.mjs.
 import { PATHS } from '../routes'
 
-/* ------------------------------------------------------------- les planches */
-
-/** Taille de base d'une vignette, avant `ECHELLE`. */
 const VIGNETTE = { largeur: 32, hauteur: 48 }
 
-/** Seul réglage de sa taille : vitesse, pas et bulle en découlent. */
+// Seul réglage de taille : vitesse, pas et bulle en découlent.
 const ECHELLE = 2.5
 
 export const LARGEUR = VIGNETTE.largeur * ECHELLE
@@ -26,14 +14,9 @@ const FEUILLES = {
   chute: { url: '/cagou-chute.png', vignettes: 1, taille: { largeur: 148, hauteur: 68 } },
 }
 
-/** Ce que la chute dépasse de chaque côté de sa boîte. */
 export const DEBORD_CHUTE = (FEUILLES.chute.taille.largeur - LARGEUR) / 2
 
-/**
- * `debut` : première vignette ; `images` : nombre de vignettes.
- * `pas` : px parcourus par vignette ; `cadence` : secondes par vignette.
- * `effet` : animation CSS de la posture.
- */
+// `pas` : px par vignette ; `cadence` : secondes par vignette.
 const POSTURES = {
   marcheGauche: { feuille: 'cagou', debut: 0, images: 2, pas: 12 * ECHELLE },
   marcheDroite: { feuille: 'cagou', debut: 3, images: 2, pas: 12 * ECHELLE },
@@ -48,17 +31,14 @@ const POSTURES = {
   chute: { feuille: 'chute', debut: 0, images: 1 },
 }
 
-/** La posture (sens de marche résolu) et sa planche. */
 export function postureDe(posture, sens) {
   const nom = posture === 'marche' ? (sens < 0 ? 'marcheGauche' : 'marcheDroite') : posture
   const trouvee = POSTURES[nom] ?? POSTURES.repos
   return { ...trouvee, ...FEUILLES[trouvee.feuille] }
 }
 
-/** Décalage de la planche, en px, pour la vignette `index`. */
 export const decalage = (debut, index) => -(debut + index) * LARGEUR
 
-/** Image et taille d'une posture ; la vignette est posée par le composant. */
 export function stylePosture(posture, sens) {
   const { url, vignettes, effet, taille } = postureDe(posture, sens)
   const style = {
@@ -67,7 +47,6 @@ export function stylePosture(posture, sens) {
     animation: effet ?? 'none',
   }
   if (!taille) return style
-  // Planche plus large que lui : centrée, pieds au sol.
   return {
     ...style,
     width: taille.largeur,
@@ -78,131 +57,178 @@ export function stylePosture(posture, sens) {
   }
 }
 
-/* --------------------------------------------------------- se tenir quelque part */
-
-/** Écart minimal avec les bords de l'écran. */
 export const MARGE = 10
 
-/** Hauteur du sol au-dessus du bas de la zone. */
 export const SOL = 2
 
-/** Vitesse de marche, en px/s. */
+// px/s
 export const VITESSE = 60 * ECHELLE
 
-/* --------------------------------------------------------- ce qu'il dit */
-
-/** Répliques par écran, de la plus utile à la plus anecdotique. */
+// Du plus précis au plus large ; l'accueil seulement sur « / ».
 const REPLIQUES = [
   [
     `${PATHS.resources}/comprendre`,
     [
-      'Ici, pas de chrono ni de score : tu lis à ton rythme.',
+      'Ici, pas de chrono ni de score. Tu lis à ton rythme.',
       'Un exemple lu tranquillement se retient mieux qu’un score.',
+      'Chaque chapitre parle d’un piège que tu croiseras dans le fil.',
+      'Une fois lu, essaie de le repérer dans le fil. C’est là qu’il prend son sens.',
+      'Je lis aussi, mais moins vite que toi.',
     ],
   ],
   [
     PATHS.resources,
     [
-      'Les thèmes expliquent les pièges que tu croises dans le fil.',
-      '« Vérifier une info » liste des outils pour recouper. Garde-les sous la main.',
+      'Les fiches expliquent les pièges que tu croises dans le fil.',
+      'Les outils pour vérifier une image servent plus souvent qu’on ne croit. Garde-les sous la main.',
+      'Un doute sur une info ? Un site de vérification a peut-être déjà fait le travail.',
+      'Lire une fiche, c’est deux minutes. Rattraper un partage, c’est plus long.',
+      'Tu peux trier les ressources par thème, juste au-dessus.',
     ],
   ],
   [
     PATHS.chats,
     [
-      'Dans une conversation, chaque réponse compte — c’est toi qui mènes.',
+      'Chaque contact a son sujet. À toi de choisir par qui commencer.',
+      'Ici, la fake news vient de gens que tu aimes bien. C’est plus délicat.',
+      'Le but n’est pas de gagner un débat, c’est de trouver les bons mots.',
+      'De nouveaux sujets arrivent chaque jour. Repasse demain.',
       'Quelqu’un qui pousse à partager vite, c’est déjà un signal.',
     ],
   ],
   [
     PATHS.feed,
     [
-      'Le fil, c’est le jeu principal : vraie info ou intox, à toi de trancher.',
-      'Regarde la source avant le contenu. Elle dit souvent tout.',
-      'Un compte qui publie beaucoup en très peu de temps mérite un doute.',
+      'Quand tu es prêt, lance la partie. Je regarderai de loin.',
+      'Chaque post se juge : tu aimes, tu partages, ou tu signales.',
+      'Plus tu avances, plus les fake news ressemblent aux vraies.',
+      'Regarde qui publie avant de lire ce qui est publié.',
+      'Un post qui te met en colère mérite une deuxième lecture.',
     ],
   ],
   [
     PATHS.profile,
     [
-      'Cet écran dit sur quels biais tu te fais avoir. C’est là qu’on progresse.',
+      'Ici, tu vois sur quels pièges tu te fais avoir. C’est comme ça qu’on progresse.',
       'Ta progression reste dans ce navigateur. Copie ton code pour l’emporter.',
+      'Le piège qui te résiste le plus a sa fiche dans les Ressources.',
+      'Si je te gêne, tu peux me cacher ici. Je ne le prendrai pas mal.',
+      'Choisis un pseudo, ça fait plus sérieux.',
     ],
   ],
   [
-    PATHS.home,
+    PATHS.legal,
     [
-      'Le fil d’actualité est le meilleur endroit pour commencer.',
-      'Les stories, en haut, mènent quelque part : un jeu, ou un thème à lire.',
+      'Les mentions légales. Pas le plus palpitant, mais c’est important.',
+      'Tu cherches qui a fait le site ? C’est par ici.',
     ],
   ],
 ]
 
-/** Répliques valables sur tous les écrans, après celles de l'écran. */
+const ACCUEIL = [
+  'Si tu ne sais pas par où commencer, le fil d’actualité est fait pour ça.',
+  'Les stories, en haut, mènent quelque part : un jeu, ou un thème à lire.',
+  'Tu préfères discuter ? Dans les Messages, ce sont tes proches qui partagent.',
+  'Une fake news, ça se repère. Et ça s’apprend plutôt vite.',
+  'Ici, tu peux te tromper tranquille. C’est fait pour ça.',
+]
+
 const COMMUN = [
   'Tu peux m’attraper et me poser où tu veux.',
-  'Si je te gêne, glisse-moi dans un coin — j’y resterai.',
+  'Si je te gêne, glisse-moi dans un coin. J’y resterai.',
   'Je ne compte rien et je ne note rien. Je suis juste là.',
+  'Un cagou, ça ne vole pas. Mais ça regarde avant de sauter.',
 ]
 
-/** Répliques de l'écran puis communes ; chemins du plus précis au plus large. */
 export function repliquesPour(chemin) {
   const trouve = REPLIQUES.find(([prefixe]) => chemin.startsWith(prefixe))
-  return [...(trouve ? trouve[1] : []), ...COMMUN]
+  const propres = trouve ? trouve[1] : chemin === PATHS.home ? ACCUEIL : []
+  return [...propres, ...COMMUN]
 }
 
-/** Répliques pendant une partie. */
-export const REPLIQUES_JEU = [
-  'Joue, je regarde mon fil. On se parle après.',
-  'Je scrolle un peu, ne fais pas attention à moi.',
-]
+const REPLIQUES_JEU = {
+  feed: [
+    'Je regarde mon fil aussi. On compare après ?',
+    'Lis le nom du compte. Puis relis-le.',
+    'Majuscules, points d’exclamation, « partagez vite » : ça sent le piège.',
+    'Un chiffre sans source, c’est juste un chiffre.',
+    'Je scrolle, je scrolle… Ne fais pas attention à moi.',
+    'Une vraie info a souvent l’air un peu banale. C’est plutôt bon signe.',
+  ],
+  chat: [
+    'Tes proches ne mentent pas exprès. Ils se sont fait avoir, comme tout le monde.',
+    'Pas besoin d’avoir raison contre eux. Aide-les à vérifier.',
+    'Une réponse calme convainc plus qu’une leçon.',
+    '« Tu l’as lu où ? » : cette question marche presque toujours.',
+    'Je lis par-dessus ton épaule. Discrètement.',
+  ],
+}
 
-/** Première phrase, à la première visite. */
-export const BONJOUR =
-  'Salut ! Je reste dans un coin, et je commente ce que tu fais.'
+export const repliquesDuJeu = (jeu) => REPLIQUES_JEU[jeu] ?? Object.values(REPLIQUES_JEU).flat()
 
-/** Réactions aux signaux de jeu ; `serie` : nombre d'affilée avant de réagir. */
+export const BONJOUR = 'Salut ! Moi, c’est le cagou. Je reste dans un coin et je commente ce que tu fais.'
+
+// `serie` : nombre d'affilée avant de réagir ; `parJeu` remplace `lignes` dans ce jeu.
 export const REACTIONS = {
   bonneReponse: {
     serie: 3,
     lignes: [
       'Trois de suite. Tu commences à les voir venir.',
       'Encore trois. Ce n’est plus de la chance.',
+      'Joli. Tu lis avant de réagir, ça se voit.',
+      'Tu enchaînes. Je prends des notes.',
+      'Bien joué, tu ne te laisses pas presser.',
     ],
   },
   mauvaiseReponse: {
     serie: 2,
-    lignes: [
-      'Deux d’affilée. Regarde qui publie avant de trancher.',
-      'Ça remord. Le ton pressé, c’est souvent le piège.',
-    ],
+    lignes: ['Deux d’affilée. Ça arrive à tout le monde, prends ton temps.'],
+    parJeu: {
+      feed: [
+        'Deux d’affilée. Regarde qui publie avant de trancher.',
+        'Ça arrive. Relis le titre sans l’émotion.',
+        'Petit conseil : cherche la source avant le contenu.',
+        'Le ton pressé, c’est souvent ça, le piège.',
+      ],
+      chat: [
+        'Deux d’affilée. Essaie de poser une question plutôt que de juger.',
+        'Pas facile avec les proches. Reste calme et propose de vérifier ensemble.',
+        'Une source vaut mieux qu’un long argument.',
+      ],
+    },
   },
   finPartie: {
     serie: 1,
     lignes: [
-      'Fini ! Ton profil dit sur quels biais tu t’es fait avoir.',
+      'Fini ! Ton profil dit sur quels pièges tu t’es fait avoir.',
       'Belle partie. On remet ça quand tu veux.',
+      'Terminé. Une fiche dans les Ressources pour aller plus loin ?',
     ],
   },
 }
 
-/* ------------------------------------------------------------- les délais */
+export const lignesDeReaction = (reaction, jeu) => reaction.parJeu?.[jeu] ?? reaction.lignes
 
-/** Durée d'une bulle, en ms : 1,5 s + 15 caractères/s, entre 4 et 12 s. */
+// Tirage au hasard, sans répéter `sauf`.
+export function auHasard(lignes, sauf = []) {
+  const libres = lignes.filter((ligne) => !sauf.includes(ligne))
+  const choix = libres.length > 0 ? libres : lignes
+  return choix[Math.floor(Math.random() * choix.length)]
+}
+
+// 1,5 s + 15 caractères/s, entre 4 et 12 s.
 export function dureeLecture(texte) {
   const secondes = 1.5 + texte.length / 15
   return Math.round(Math.min(Math.max(secondes, 4), 12) * 1000)
 }
 
-/** Attente avant de parler, en ms : à l'arrivée sur un écran, puis entre deux répliques. */
+// ms
 export const ATTENTE_ECRAN = 4000
 export const ATTENTE_INACTIF = 45000
 
-/* ------------------------------------------------------- où on l'a laissé */
-
 const CLE = 'ctrl-info:compagnon:place'
 
-/** Place retenue, en fraction de la largeur de l'écran. */
+// Fraction de la largeur de l'écran.
 export function lirePlace() {
   try {
     const brut = window.localStorage.getItem(CLE)
@@ -218,6 +244,6 @@ export function retenirPlace(fraction) {
   try {
     window.localStorage.setItem(CLE, String(Math.round(fraction * 1000) / 1000))
   } catch {
-    // Stockage indisponible : il repartira du bord gauche.
+    // Stockage indisponible.
   }
 }

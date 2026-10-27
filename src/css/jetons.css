@@ -1,7 +1,4 @@
-/* ==========================================================================
-   JETONS — seul fichier où sont écrites les couleurs, polices et tailles
-   Partout ailleurs (CSS, admin, JS via lib/couleurs.js) : var(--nom).
-   ========================================================================== */
+/* Seul fichier où sont écrites couleurs, polices et tailles. */
 
 :root {
   /* Titres : Instrument Serif. Logo, étiquettes : Josefin Sans. Texte : Archivo. */
@@ -36,7 +33,6 @@
 
   --surface: #15131f;
   --surface-haute: #1d1a2b;
-  --surface-media: #201d2e;
 
   /* Bordures, de la plus discrète à la plus visible */
   --filet-1: #1e1b2c;

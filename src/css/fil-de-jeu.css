@@ -1,6 +1,4 @@
-/* ========================================================================
-   FIL DE JEU
-   ======================================================================== */
+/* Fil de jeu */
 
 @layer components {
   /* --- Partie en cours : tout tient dans la hauteur de l'écran --- */
@@ -458,18 +456,45 @@
   }
 
   /* Image plafonnée : le texte passe en premier. */
-  .post__media {
+  .image-post {
+    margin: 0;
+  }
+
+  .image-post__photo {
     display: block;
     width: 100%;
     max-height: 30dvh;
     object-fit: cover;
-    background: var(--surface-media);
+    background: var(--surface-basse);
   }
 
   @media (min-width: 1024px) {
-    .post__media {
+    .image-post__photo {
       max-height: 42dvh;
     }
+  }
+
+  .image-post__credit {
+    padding: 4px 16px 0;
+    font-size: var(--text-xs);
+    color: var(--ink-muted);
+  }
+
+  .image-post__credit a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .annot__image {
+    margin-top: 14px;
+  }
+
+  .annot__image .image-post__photo {
+    border-radius: 3px;
+  }
+
+  .annot__image .image-post__credit {
+    padding-inline: 0;
   }
 
   /* Toujours visible : collée en bas de la zone qui défile. */
@@ -587,6 +612,25 @@
 
   .feed {
     position: relative;
+  }
+
+  /* --- Annonce d'un nouveau niveau --- */
+
+  .palier {
+    position: absolute;
+    z-index: 40;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: color-mix(in srgb, var(--encre-voile) 40%, transparent);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+
+  .palier__carte {
+    width: min(480px, 100%);
   }
 
   /* --- Fenêtre générique (brève du jour) --- */

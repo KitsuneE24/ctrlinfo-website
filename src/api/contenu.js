@@ -1,12 +1,8 @@
-/**
- * Le contenu du jeu, lu dans donnees/contenu.json.
- *
- * Il venait de l'API ; c'est un fichier servi à côté du site, chargé une fois
- * (state/contenu.js). Les formes n'ont pas changé : les écrans lisent le même
- * vocabulaire (`date`, `scores`, `steps.choices`, `apercu`…).
- */
-import { tirer } from '../lib/tirage'
-import { chargerContenu } from '../state/contenu'
+import { reglesDuNiveau } from '../lib/niveaux'
+import { fabriquerConversations, fabriquerPublications } from '../lib/fabriquer'
+import { inedites, tirer } from '../lib/tirage'
+import { chargerContenu, plusAutorise } from '../state/contenu'
+import { ajouterGeneres } from '../state/generes'
 
 const depuis = (extraire) => () => chargerContenu().then(extraire)
 
@@ -17,8 +13,32 @@ export const getRemediations = depuis((c) => c.remediations)
 export const getNiveaux = depuis((c) => c.niveaux)
 export const getConversations = depuis((c) => c.conversations)
 export const getChapitres = depuis((c) => c.chapitres)
+// Les crédits photos sont tirés des banques : une photo ajoutée y apparaît d'elle-même.
+function creditsPhotos(c) {
+  const vues = new Set()
+  const lignes = []
+  for (const base of [...(c.faits ?? []), ...(c.scenarios ?? [])]) {
+    const image = base.image
+    if (!image?.page || vues.has(image.fichier)) continue
+    vues.add(image.fichier)
+    lignes.push(`• ${image.alt} : ${image.auteur}, ${image.licence}, ${image.page}`)
+  }
+  if (lignes.length === 0) return []
+  return [
+    {
+      id: 'credits-photos',
+      titre: 'Crédits photos',
+      paragraphes: [
+        { texte: 'Les photos des posts viennent de Wikimedia Commons, dans le domaine public ou sous licence libre (CC0, CC BY, CC BY-SA). Elles illustrent des posts fabriqués pour l’exercice : celles des événements inventés ont été prises ailleurs.' },
+        { texte: lignes.join('\n') },
+      ],
+    },
+  ]
+}
 
-/** La brève du jour : l'index vient du quantième, pas du hasard. */
+export const getMentionsLegales = depuis((c) => [...(c.mentionsLegales ?? []), ...creditsPhotos(c)])
+
+// Index tiré du quantième.
 export const getDailyTip = depuis((c) => {
   if (c.astuces.length === 0) return null
   const jours = Math.floor(Date.now() / 86_400_000)
@@ -36,12 +56,31 @@ export const getConversation = (slug) =>
 
 export const getChapitre = (slug) => chargerContenu().then((c) => un(c.chapitres, slug))
 
-/** Une manche : le tirage que le serveur composait (voir lib/tirage.js). */
-export const getTirage = (level, { taille, vus } = {}) =>
-  chargerContenu().then((c) =>
-    tirer(c.posts, {
-      level,
-      taille: taille ?? c.niveaux.find((n) => n.level === level)?.taille ?? 5,
-      vus,
-    })
-  )
+export const getTirageEtReste = (level, { vus } = {}) =>
+  chargerContenu().then((c) => {
+    const taille = reglesDuNiveau(c.niveaux, level)?.taille ?? 5
+    return {
+      tirage: tirer(c.posts, { level, taille, vus }),
+      reste: inedites(c.posts, { level, vus }),
+      taille,
+      plus: plusAutorise(c, 'feed'),
+    }
+  })
+
+export const fabriquerNouvellesPublications = (level, { vus } = {}) =>
+  chargerContenu().then((c) => {
+    if (!plusAutorise(c, 'feed')) return 0
+    const posts = fabriquerPublications(c, { level, vus })
+    ajouterGeneres({ posts })
+    return posts.length
+  })
+
+
+/** De nouveaux sujets pour ce contact ; renvoie les sujets créés. */
+export const fabriquerNouveauxSujets = (contact) =>
+  chargerContenu().then((c) => {
+    if (!plusAutorise(c, 'chat')) return []
+    const conversations = fabriquerConversations(c, contact)
+    ajouterGeneres({ conversations })
+    return conversations
+  })

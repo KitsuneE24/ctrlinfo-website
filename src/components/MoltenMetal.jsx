@@ -1,17 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Renderer, Program, Mesh, Triangle } from 'ogl'
 
-/**
- * Fond animé « métal en fusion », rendu en WebGL 2 par un fragment shader.
- *
- * Purement décoratif : le composant remplit son parent, ne rend aucun texte et
- * n'attend aucune interaction. Si le navigateur ne sait pas faire de WebGL 2,
- * rien n'est dessiné — c'est au parent de prévoir un fond derrière :
- * l'aplat violet de `.banniere`.
- *
- * Les styles du conteneur vivent dans `css/colonne-de-contenu.css`, aux
- * côtés de la bannière qui le porte (`ui/Banniere.jsx`).
- */
+// Fond WebGL 2 décoratif ; sans WebGL 2, rien n'est dessiné.
 
 const hexToRgb = hex => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
@@ -144,16 +134,12 @@ const MoltenMetal = ({
       alpha: true,
       premultipliedAlpha: true,
       antialias: false,
-      // Plafond à 1,5 plutôt que 2 : sur un écran à forte densité, c'est 44 %
-      // de pixels calculés en moins à chaque image. Invisible sur un fond flou,
-      // appréciable sur le matériel modeste des salles informatiques.
+      // Plafond à 1,5 pour alléger le rendu.
       dpr: Math.min(window.devicePixelRatio || 1, 1.5)
     })
 
     const gl = renderer.gl
 
-    // Le shader est écrit en GLSL ES 3.00 : sans WebGL 2, on préfère ne rien
-    // dessiner plutôt qu'inonder la console d'erreurs de compilation.
     if (!renderer.isWebgl2) {
       gl.getExtension('WEBGL_lose_context')?.loseContext()
       return
@@ -253,7 +239,7 @@ const MoltenMetal = ({
       }
     }
 
-    // Hors de l'écran ou onglet en arrière-plan : la boucle de rendu s'arrête.
+    // Hors écran ou onglet masqué : la boucle s'arrête.
     const io = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting
@@ -282,14 +268,12 @@ const MoltenMetal = ({
       try {
         container.removeChild(canvas)
       } catch {
-        // Le canvas a déjà été retiré avec le conteneur : rien à faire.
+        // Canvas déjà retiré.
       }
       gl.getExtension('WEBGL_lose_context')?.loseContext()
     }
   }, [])
 
-  // Les réglages passent par les uniforms : les changer ne recrée pas le
-  // contexte WebGL.
   useEffect(() => {
     const container = containerRef.current
     if (!container) return

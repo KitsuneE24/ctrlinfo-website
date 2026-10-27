@@ -5,7 +5,6 @@ import { useExitGuard } from '../state/exitGuard'
 import { AvatarJoueur } from './AvatarPicker'
 import { TAB_ITEMS } from './navItems'
 
-/** Barre d'onglets du bas (< 900 px). Actif : texte crème + point magenta. */
 export default function TabBar() {
   const { requestExit } = useExitGuard()
 
@@ -18,9 +17,7 @@ export default function TabBar() {
           <NavLink
             key={id}
             to={path}
-            // `end` : sinon l'accueil reste actif partout.
             end={path === PATHS.home}
-            // Confirmation en pleine partie.
             onClick={(event) => {
               if (!requestExit(path)) event.preventDefault()
             }}

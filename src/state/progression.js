@@ -1,41 +1,7 @@
-/**
- * La progression du joueur, dans son navigateur.
- *
- * Elle vivait en base, rattachée à un compte. Il n'y a plus de compte : ce
- * module est ce qui le remplace. Trois choses à savoir avant de s'en servir.
- *
- *   1. **L'état vit hors de React**, comme l'identité avant lui : le fil et
- *      les conversations écrivent dedans au milieu d'une partie, loin de tout
- *      rendu, et l'onglet Profil s'y abonne. C'est le même patron que
- *      `api/client.js` tenait pour la session — abonnés, instantané refait à
- *      chaque écriture — parce que `useSyncExternalStore` le demande.
- *   2. **Chaque écriture va dans `localStorage`.** Pas de minuterie, pas de
- *      regroupement : une décision prise est une décision gardée, même si
- *      l'onglet se ferme à la seconde suivante.
- *   3. **Le stockage peut manquer** — navigation privée, cookies bloqués. On
- *      garde alors tout en mémoire : la partie en cours se joue normalement et
- *      c'est au rechargement seulement que le joueur perd son avancement. Le
- *      code d'export reste exportable dans ce cas : c'est même sa raison
- *      d'être.
- *
- * Ce que le module ne fait pas : décider quoi montrer. Il compte, il retient.
- * Les chiffres de l'onglet Profil se déduisent de ce qu'il y a ici.
- *
- * Une asymétrie, voulue, entre les deux jeux : une conversation entamée reprend
- * au message près, parce que son fil se suffit à lui-même ; le fil d'actualité
- * reprend au **niveau** atteint, pas à la publication près. Retenir une file de
- * tirage voudrait dire réclamer à l'API chaque publication par son slug au
- * retour du joueur, pour lui resservir un fil qu'il a déjà à moitié vu. Le
- * niveau, les publications traitées et le score suffisent : le niveau se rejoue
- * avec un tirage neuf, forcément inédit puisque les vues en sont écartées.
- */
+// Progression du joueur dans localStorage, repli en mémoire si indisponible.
 const CLE = 'ctrl-info:progression'
 
-/**
- * La version de la *forme* de l'état — celle que porte le code d'export.
- * À incrémenter le jour où un champ change de sens, pour qu'un ancien code
- * soit reconnu comme tel au lieu d'être mal relu.
- */
+// À incrémenter si la forme de l'état change.
 export const VERSION = 1
 
 const vide = () => ({
@@ -44,22 +10,17 @@ const vide = () => ({
   avatar: null,
   fil: {
     niveau: 1,
-    termine: false,
-    // Les slugs des publications déjà traitées : c'est ce qui les écarte des
-    // tirages suivants, rôle que le serveur tenait avec `VuePost`.
+    // Slugs déjà traités, écartés des tirages.
     vus: [],
     decisions: 0,
     justes: 0,
     points: 0,
-    // { « Nom du biais »: { total, justes } } — de quoi dire ce qui piège.
+    // { nom: { total, justes } }
     biais: {},
-    parties: 0,
   },
   // { slug: { faite, score, total, encours } }
   conversations: {},
 })
-
-// ── Le stockage ──────────────────────────────────────────────────────────────
 
 function lire() {
   try {
@@ -74,81 +35,83 @@ function ecrire(etat) {
   try {
     window.localStorage.setItem(CLE, JSON.stringify(etat))
   } catch {
-    // Sans stockage, la progression vit le temps de l'onglet. Le site reste
-    // jouable, et c'est le code d'export qui devient la seule mémoire.
+    // Stockage indisponible : l'état reste en mémoire.
   }
 }
 
-/**
- * Un état relu, complété de ce qui lui manque.
- *
- * Deux origines à traiter : un `localStorage` écrit par une version antérieure
- * du site, et un code collé par le joueur. Dans les deux cas on ne fait pas
- * confiance à la forme — un champ absent vaut mieux qu'un écran cassé — mais
- * on ne jette rien de ce qui est utilisable.
- */
-function fusionner(recu) {
+// Valide un état relu (ancien stockage ou code collé).
+function fusionner(recu, { depuisCode = false } = {}) {
   const base = vide()
   if (!recu || typeof recu !== 'object') return base
 
   const fil = recu.fil && typeof recu.fil === 'object' ? recu.fil : {}
-  const nombre = (valeur, defaut) => (Number.isFinite(valeur) ? valeur : defaut)
+  const decisions = entier(fil.decisions, 0, PLAFOND, 0)
 
   return {
     version: VERSION,
-    pseudo: typeof recu.pseudo === 'string' ? recu.pseudo.slice(0, 40) : '',
-    avatar: typeof recu.avatar === 'string' ? recu.avatar : null,
+    pseudo: typeof recu.pseudo === 'string' ? nettoyerPseudo(recu.pseudo) : '',
+    avatar: typeof recu.avatar === 'string' && IDENTIFIANT.test(recu.avatar) ? recu.avatar : null,
     fil: {
-      niveau: Math.min(Math.max(nombre(fil.niveau, 1), 1), 3),
-      termine: fil.termine === true,
-      vus: Array.isArray(fil.vus) ? fil.vus.filter((slug) => typeof slug === 'string') : [],
-      decisions: nombre(fil.decisions, 0),
-      justes: nombre(fil.justes, 0),
-      points: nombre(fil.points, 0),
+      niveau: entier(fil.niveau, 1, 999, 1),
+      vus:
+        !depuisCode && Array.isArray(fil.vus)
+          ? fil.vus.filter((slug) => typeof slug === 'string' && slug.length <= 100).slice(-5000)
+          : [],
+      decisions,
+      justes: Math.min(entier(fil.justes, 0, PLAFOND, 0), decisions),
+      points: entier(fil.points, -PLAFOND, PLAFOND, 0),
       biais: lireBiais(fil.biais),
-      parties: nombre(fil.parties, 0),
     },
-    conversations: lireConversations(recu.conversations),
+    conversations: lireConversations(recu.conversations, depuisCode),
   }
+}
+
+const PLAFOND = 1_000_000_000
+const IDENTIFIANT = /^[a-z0-9-]{1,80}$/
+const CLES_INTERDITES = new Set(['__proto__', 'constructor', 'prototype'])
+// Caractères de contrôle et invisibles, sauf la jonction des emojis.
+const INVISIBLES = /(?!\u200d)[\p{Cc}\p{Cf}]/gu
+
+function entier(valeur, min, max, defaut) {
+  return Number.isFinite(valeur) ? Math.min(Math.max(Math.trunc(valeur), min), max) : defaut
+}
+
+function nettoyerPseudo(pseudo) {
+  return pseudo.replace(INVISIBLES, '').trim().slice(0, 40)
 }
 
 function lireBiais(recu) {
   if (!recu || typeof recu !== 'object') return {}
   const propre = {}
-  for (const [nom, compte] of Object.entries(recu)) {
-    if (!compte || typeof compte !== 'object') continue
-    const total = Number.isFinite(compte.total) ? compte.total : 0
-    const justes = Number.isFinite(compte.justes) ? compte.justes : 0
-    if (total > 0) propre[nom] = { total, justes: Math.min(justes, total) }
+  for (const [nom, compte] of Object.entries(recu).slice(0, 100)) {
+    if (nom.length > 80 || CLES_INTERDITES.has(nom) || !compte || typeof compte !== 'object') continue
+    const total = entier(compte.total, 0, PLAFOND, 0)
+    if (total > 0) propre[nom] = { total, justes: Math.min(entier(compte.justes, 0, PLAFOND, 0), total) }
   }
   return propre
 }
 
-function lireConversations(recu) {
+function lireConversations(recu, depuisCode) {
   if (!recu || typeof recu !== 'object') return {}
   const propre = {}
-  for (const [slug, entree] of Object.entries(recu)) {
-    if (!entree || typeof entree !== 'object') continue
+  for (const [slug, entree] of Object.entries(recu).slice(0, 1000)) {
+    if (!IDENTIFIANT.test(slug) || CLES_INTERDITES.has(slug) || !entree || typeof entree !== 'object') continue
+    const total = entier(entree.total, 0, 1000, 0)
+    const encours = !depuisCode && entree.encours && typeof entree.encours === 'object' ? entree.encours : null
     propre[slug] = {
       faite: entree.faite === true,
-      score: Number.isFinite(entree.score) ? entree.score : 0,
-      total: Number.isFinite(entree.total) ? entree.total : 0,
-      encours: entree.encours && typeof entree.encours === 'object' ? entree.encours : null,
+      score: Math.min(entier(entree.score, 0, 1000, 0), total),
+      total,
+      encours,
     }
   }
   return propre
 }
 
-// ── L'état, et ceux qui l'écoutent ───────────────────────────────────────────
-
 let etat = lire()
 
 const abonnes = new Set()
 
-/**
- * L'état courant. L'objet change d'identité à chaque écriture : React peut
- * donc s'y abonner sans compteur de version à faire tourner.
- */
 export function etatProgression() {
   return etat
 }
@@ -164,37 +127,18 @@ function appliquer(suivant) {
   for (const abonne of abonnes) abonne()
 }
 
-/** Les publications déjà traitées. Lu au moment du tirage, hors rendu. */
 export function dejaVus() {
   return etat.fil.vus
 }
 
-/**
- * À quel niveau le fil s'ouvre.
- *
- * Le niveau atteint, sauf quand les trois ont été bouclés : on repart alors du
- * premier. L'écran de fin promet qu'on peut revenir refaire l'exercice, et
- * rouvrir éternellement le niveau 3 n'est pas refaire l'exercice. Les
- * publications déjà traitées restant écartées, ce second tour est fait de
- * contenu neuf.
- */
 export function niveauDeDepart() {
-  return etat.fil.termine ? 1 : etat.fil.niveau
+  return etat.fil.niveau
 }
 
-// ── Le fil ───────────────────────────────────────────────────────────────────
-
-/**
- * Une décision sur une publication.
- *
- * Les points viennent du contenu lui-même (`post.scores[action]`) : ce sont
- * ceux que le serveur comptait, à la même valeur. Une publication de
- * remédiation ne compte pas — elle s'ajoute à la file pour entraîner, pas
- * pour noter.
- */
 export function noterDecision({ slug, biais, juste, points = 0 }) {
   const fil = etat.fil
-  const vus = slug && !fil.vus.includes(slug) ? [...fil.vus, slug] : fil.vus
+  // La dernière vue passe en fin de liste : les plus anciennes reviennent d'abord.
+  const vus = slug ? [...fil.vus.filter((vu) => vu !== slug), slug] : fil.vus
 
   const compte = fil.biais[biais] ?? { total: 0, justes: 0 }
   const biaisSuivant = biais
@@ -208,27 +152,16 @@ export function noterDecision({ slug, biais, juste, points = 0 }) {
       vus,
       decisions: fil.decisions + 1,
       justes: fil.justes + (juste ? 1 : 0),
-      points: fil.points + points,
+      points: fil.points + Math.min(Math.max(Number(points) || 0, -POINTS_MAX), POINTS_MAX),
       biais: biaisSuivant,
     },
   })
 }
 
-/** Le niveau atteint ne redescend pas : c'est un acquis, pas une position. */
 export function noterNiveau(niveau) {
   if (niveau <= etat.fil.niveau) return
-  appliquer({ ...etat, fil: { ...etat.fil, niveau: Math.min(niveau, 3) } })
+  appliquer({ ...etat, fil: { ...etat.fil, niveau } })
 }
-
-/** Les trois niveaux traités. */
-export function finirLeFil() {
-  appliquer({
-    ...etat,
-    fil: { ...etat.fil, niveau: 3, termine: true, parties: etat.fil.parties + 1 },
-  })
-}
-
-// ── Les conversations ────────────────────────────────────────────────────────
 
 function poserConversation(slug, modification) {
   const avant = etat.conversations[slug] ?? { faite: false, score: 0, total: 0, encours: null }
@@ -238,18 +171,10 @@ function poserConversation(slug, modification) {
   })
 }
 
-/** Le fil d'une conversation en cours, message par message. */
 export function sauverConversation(slug, encours) {
   poserConversation(slug, { encours })
 }
 
-/**
- * Une conversation menée à son terme.
- *
- * Le `faite` ne se retire jamais : recommencer une conversation déjà réussie
- * ne l'enlève pas de ce qui a été vu. Seul le score se met à jour, au mieux —
- * on garde la meilleure passe, comme le serveur gardait le meilleur score.
- */
 export function finirConversation(slug, { score, total }) {
   const avant = etat.conversations[slug]
   poserConversation(slug, {
@@ -260,60 +185,68 @@ export function finirConversation(slug, { score, total }) {
   })
 }
 
-/** « Recommencer » : la partie en cours est jetée, l'acquis reste. */
 export function oublierConversation(slug) {
   if (!etat.conversations[slug]?.encours) return
   poserConversation(slug, { encours: null })
 }
-
-// ── Le profil ────────────────────────────────────────────────────────────────
 
 export function noterAvatar(avatarId) {
   appliquer({ ...etat, avatar: avatarId ?? null })
 }
 
 export function noterPseudo(pseudo) {
-  appliquer({ ...etat, pseudo: pseudo.trim().slice(0, 40) })
+  appliquer({ ...etat, pseudo: nettoyerPseudo(pseudo) })
 }
 
-// ── Export et restauration ───────────────────────────────────────────────────
-
-/**
- * Ce que le code de progression transporte.
- *
- * Volontairement moins que ce que garde le navigateur : le fil d'une
- * conversation entamée en reste dehors. Un code sert à emporter son avancement
- * sur un autre appareil, pas à figer une discussion à moitié lue — et c'est ce
- * fil qui pèserait le plus lourd dans la chaîne.
- */
-export function exportable() {
+// Sans les publications vues, pour garder un code court.
+export function exportable(conversationsEnLigne = []) {
+  const enLigne = new Set(conversationsEnLigne)
   const conversations = {}
   for (const [slug, entree] of Object.entries(etat.conversations)) {
-    if (entree.faite) conversations[slug] = { faite: true, score: entree.score, total: entree.total }
+    if (entree.faite && enLigne.has(slug)) {
+      conversations[slug] = { faite: true, score: entree.score, total: entree.total }
+    }
   }
-  return {
-    version: VERSION,
-    pseudo: etat.pseudo,
-    avatar: etat.avatar,
-    fil: etat.fil,
-    conversations,
-  }
+  const fil = { ...etat.fil }
+  delete fil.vus
+  return { version: VERSION, pseudo: etat.pseudo, avatar: etat.avatar, fil, conversations }
 }
 
-/**
- * Remplacer la progression par celle d'un code.
- *
- * Rend `false` si ce qu'on lui donne n'est pas une progression CTRL INFO : le
- * code était lisible, mais il ne parlait pas de ce jeu. L'appelant en fait un
- * message ; ici on ne touche à rien.
- */
+export const POINTS_MAX = 100
+
+export function incoherence(recu) {
+  const fil = recu?.fil
+  if (!fil || typeof fil !== 'object') return null
+  const n = (valeur) => (Number.isFinite(valeur) ? valeur : 0)
+  const decisions = n(fil.decisions)
+  const justes = n(fil.justes)
+
+  if (justes > decisions) return 'il compte plus de bonnes réponses que de décisions'
+  // Un niveau ne se passe qu'en finissant un lot, donc avec au moins une décision.
+  if (n(fil.niveau) - 1 > decisions) return 'son niveau est trop élevé pour le nombre de décisions'
+  if (Math.abs(n(fil.points)) > decisions * POINTS_MAX) {
+    return 'il compte plus de points que ses décisions ne peuvent en rapporter'
+  }
+
+  const comptes = Object.values(fil.biais && typeof fil.biais === 'object' ? fil.biais : {}).filter(
+    (compte) => compte && typeof compte === 'object'
+  )
+  const totalBiais = comptes.reduce((somme, compte) => somme + n(compte.total), 0)
+  const justesBiais = comptes.reduce((somme, compte) => somme + n(compte.justes), 0)
+  if (comptes.some((compte) => n(compte.justes) > n(compte.total)) || totalBiais > decisions || justesBiais > justes) {
+    return 'ses biais ne correspondent pas à ses décisions'
+  }
+  return null
+}
+
 export function remplacer(recu) {
   if (!recu || typeof recu !== 'object' || !recu.fil || typeof recu.fil !== 'object') return false
-  appliquer(fusionner(recu))
+  if (incoherence(recu)) return false
+  const suivant = fusionner(recu, { depuisCode: true })
+  appliquer({ ...suivant, fil: { ...suivant.fil, vus: etat.fil.vus } })
   return true
 }
 
-/** Tout effacer. L'onglet Profil demande confirmation avant d'appeler. */
 export function reinitialiser() {
   appliquer(vide())
 }

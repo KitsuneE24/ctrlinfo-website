@@ -1,0 +1,3603 @@
+[
+  {
+    "sponsorise": false,
+    "reactionCount": 26444,
+    "commentCount": 1057,
+    "date": "27 octobre 2026 à 02:08",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "article": {
+      "titre": "Micropesanteur et réactivation virale : ce que les séjours dans l’espace révèlent de notre immunité",
+      "url": "https://theconversation.com/micropesanteur-et-reactivation-virale-ce-que-les-sejours-dans-lespace-revelent-de-notre-immunite-294286",
+      "publieLe": "2026-10-26T15:08:22.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Emmanuel Drouet"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-1e8zfki",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "Micropesanteur et réactivation virale : ce que les séjours dans l’espace révèlent de notre immunité",
+    "texte": "Article d’Emmanuel Drouet, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article d’Emmanuel Drouet, publié par The Conversation France le 27 octobre 2026 à 02:08.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 27 octobre 2026 à 02:08 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Je ne m’étais jamais posé la question.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "L’article complet est sur theconversation.com, signé Emmanuel Drouet.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Merci pour l’article 🙏",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/micropesanteur-et-reactivation-virale-ce-que-les-sejours-dans-lespace-revelent-de-notre-immunite-294286",
+    "learnMoreUrl": "https://theconversation.com/micropesanteur-et-reactivation-virale-ce-que-les-sejours-dans-lespace-revelent-de-notre-immunite-294286",
+    "id": 25
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 8564,
+    "commentCount": 873,
+    "date": "27 octobre 2026 à 02:06",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "article": {
+      "titre": "Les gestes individuels peuvent-ils quelque chose pour lutter contre la pollution plastique ?",
+      "url": "https://theconversation.com/les-gestes-individuels-peuvent-ils-quelque-chose-pour-lutter-contre-la-pollution-plastique-292314",
+      "publieLe": "2026-10-26T15:06:37.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Julie Metta"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-ts62n0",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "Les gestes individuels peuvent-ils quelque chose pour lutter contre la pollution plastique ?",
+    "texte": "Article de Julie Metta, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article de Julie Metta, publié par The Conversation France le 27 octobre 2026 à 02:06.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 27 octobre 2026 à 02:06 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Merci pour le lien.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "C’est bien sur le site de The Conversation, daté du 27 octobre 2026 à 02:06.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/les-gestes-individuels-peuvent-ils-quelque-chose-pour-lutter-contre-la-pollution-plastique-292314",
+    "learnMoreUrl": "https://theconversation.com/les-gestes-individuels-peuvent-ils-quelque-chose-pour-lutter-contre-la-pollution-plastique-292314",
+    "id": 26
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 40075,
+    "commentCount": 1507,
+    "date": "25 octobre 2026 à 10:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "corail-blanchiment",
+    "image": "/images/faits/corail-blanchiment.jpg",
+    "imageAlt": "Un corail cerveau devenu blanc après un épisode de chaleur",
+    "credit": {
+      "auteur": "NOAA",
+      "licence": "domaine public",
+      "licenceUrl": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Coral_bleaching_Florida_Keys_2023.jpg"
+    },
+    "slug": "vrai-20261027-corail-blanchiment-1",
+    "source": "Manon",
+    "sourceColor": "#1800ad",
+    "domain": "@manon.988",
+    "titre": "wsh les coraux blanchissent surtout quand l’eau de mer devient trop chaude",
+    "texte": "c fou",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Les coraux blanchissent surtout quand l’eau de mer devient trop chaude. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Manon n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
+        "texte": "Le lagon, on ne s’en lasse pas 🐠",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Manu",
+        "couleur": "#8a4fbe",
+        "texte": "Quelle image…",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Blanchissement_des_coraux",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Blanchissement_des_coraux",
+    "id": 27
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 19596,
+    "commentCount": 1179,
+    "date": "25 octobre 2026 à 13:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "cyclone-mer-chaude",
+    "slug": "vrai-20261027-cyclone-mer-chaude-1",
+    "source": "Steeve",
+    "sourceColor": "#57534e",
+    "domain": "@steeve_nc",
+    "titre": "frr un cyclone tropical se forme au-dessus d’une mer chaude, à au moins 26 °c environ",
+    "texte": "c sur wikipédia jsuis pas fou 💀",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Un cyclone tropical se forme au-dessus d’une mer chaude, à au moins 26 °C environ. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Steeve n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "Incroyable tout ce qu’on a autour de nous.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Cyclone_tropical",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Cyclone_tropical",
+    "id": 28
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 25734,
+    "commentCount": 1748,
+    "date": "25 octobre 2026 à 02:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "pin-colonnaire",
+    "image": "/images/faits/pin-colonnaire.jpg",
+    "imageAlt": "Des pins colonnaires sur un îlot de la baie de Prony",
+    "credit": {
+      "auteur": "Mickaël T.",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Araucaria_columnaris_Prony_2.jpg"
+    },
+    "slug": "vrai-20261027-pin-colonnaire-1",
+    "source": "Aline B.",
+    "sourceColor": "#c2410c",
+    "domain": "@aline.b",
+    "titre": "Tiens, le pin colonnaire est un arbre endémique de Nouvelle-Calédonie",
+    "texte": "",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le pin colonnaire est un arbre endémique de Nouvelle-Calédonie. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Aline B. n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Il faudrait apprendre ça à l’école.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Confirmé par Wikipédia, j’ai regardé.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Araucaria_columnaris",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Araucaria_columnaris",
+    "id": 29
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 16597,
+    "commentCount": 1407,
+    "date": "25 octobre 2026 à 15:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "cagou-oeuf",
+    "image": "/images/faits/cagou-oeuf.jpg",
+    "imageAlt": "Un œuf de cagou, beige tacheté de brun",
+    "credit": {
+      "auteur": "Roger Culos",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Rhynochetos_jubatus_MHNT.ZOO.2010.11.2.19.jpg"
+    },
+    "slug": "vrai-20261027-cagou-oeuf-1",
+    "source": "Nature et Lagon NC",
+    "sourceColor": "#1800ad",
+    "domain": "page nature",
+    "titre": "🌿 Nature calédo : le cagou ne pond en général qu’un seul œuf à la fois",
+    "texte": "#NouvelleCalédonie #LeSaviezVous",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le cagou ne pond en général qu’un seul œuf à la fois. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Nature et Lagon NC n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "C’est bien ce que dit Wikipédia.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "On ne connaît pas assez nos animaux.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Cagou_hupp%C3%A9",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Cagou_hupp%C3%A9",
+    "id": 30
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 34593,
+    "commentCount": 1525,
+    "date": "26 octobre 2026 à 13:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "loyaute-iles",
+    "slug": "vrai-20261027-loyaute-iles-1",
+    "source": "Steeve",
+    "sourceColor": "#57534e",
+    "domain": "@steeve_nc",
+    "titre": "frr les principales îles loyauté sont maré, lifou, tiga et ouvéa",
+    "texte": "c sur wikipédia jsuis pas fou 🤯",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Les principales îles Loyauté sont Maré, Lifou, Tiga et Ouvéa. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Steeve n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "J’ai appris ça au collège je crois.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/%C3%8Eles_Loyaut%C3%A9",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/%C3%8Eles_Loyaut%C3%A9",
+    "id": 31
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 12222,
+    "commentCount": 837,
+    "date": "25 octobre 2026 à 13:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "niaouli",
+    "slug": "vrai-20261027-niaouli-1",
+    "source": "Steeve",
+    "sourceColor": "#57534e",
+    "domain": "@steeve_nc",
+    "titre": "frr le niaouli est un arbre de la même famille que l’eucalyptus",
+    "texte": "💀",
+    "isFake": false,
+    "level": 1,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le niaouli est un arbre de la même famille que l’eucalyptus. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Steeve n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "Il faudrait apprendre ça à l’école.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Niaouli",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Niaouli",
+    "id": 32
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 38559,
+    "commentCount": 1601,
+    "date": "27 octobre 2026 à 02:06",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "article": {
+      "titre": "Frances Power Cobbe : Défendre les femmes, défendre les animaux, un même engagement",
+      "url": "https://theconversation.com/frances-power-cobbe-defendre-les-femmes-defendre-les-animaux-un-meme-engagement-294410",
+      "publieLe": "2026-10-26T15:06:22.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Émilie Dardenne"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-129phl2",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "Frances Power Cobbe : Défendre les femmes, défendre les animaux, un même engagement",
+    "texte": "Article d’Émilie Dardenne, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article d’Émilie Dardenne, publié par The Conversation France le 27 octobre 2026 à 02:06.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 27 octobre 2026 à 02:06 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "Encore un article qui va dans tous les sens…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Merci pour l’article 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Long, mais ça vaut le coup.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "L’article complet est sur theconversation.com, signé Émilie Dardenne.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/frances-power-cobbe-defendre-les-femmes-defendre-les-animaux-un-meme-engagement-294410",
+    "learnMoreUrl": "https://theconversation.com/frances-power-cobbe-defendre-les-femmes-defendre-les-animaux-un-meme-engagement-294410",
+    "id": 41
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 30863,
+    "commentCount": 14,
+    "date": "27 octobre 2026 à 02:03",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "article": {
+      "titre": "Quand l’IA vient à nous par l’intermédiaire d’« agents », jusqu’où peut-on lui faire confiance ?",
+      "url": "https://theconversation.com/quand-lia-vient-a-nous-par-lintermediaire-d-agents-jusquou-peut-on-lui-faire-confiance-294391",
+      "publieLe": "2026-10-26T15:03:56.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Paul Favier"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-mwbozp",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "Quand l’IA vient à nous par l’intermédiaire d’« agents », jusqu’où peut-on lui faire confiance ?",
+    "texte": "Article de Paul Favier, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article de Paul Favier, publié par The Conversation France le 27 octobre 2026 à 02:03.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 27 octobre 2026 à 02:03 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
+        "texte": "On ne sait jamais avec les médias…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Long, mais ça vaut le coup.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Intéressant, je partage.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/quand-lia-vient-a-nous-par-lintermediaire-d-agents-jusquou-peut-on-lui-faire-confiance-294391",
+    "learnMoreUrl": "https://theconversation.com/quand-lia-vient-a-nous-par-lintermediaire-d-agents-jusquou-peut-on-lui-faire-confiance-294391",
+    "id": 42
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 8859,
+    "commentCount": 507,
+    "date": "27 octobre 2026 à 18:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "recifs-especes",
+    "image": "/images/faits/recifs-especes.jpg",
+    "imageAlt": "Un requin gris au milieu d’un banc de poissons-cochers",
+    "credit": {
+      "auteur": "Jerome Paillet (Ifremer)",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Requin_gris_(Carcharhinus_amblyrhynchos)_et_poissons-cochers_(Heniochus_acuminatus)_(Ifremer_00617-72907).jpg"
+    },
+    "slug": "vrai-20261027-recifs-especes-2",
+    "source": "Nouméa Matin",
+    "sourceColor": "#0d0080",
+    "domain": "noumea-matin.info",
+    "titre": "Les récifs coralliens couvrent moins de 1 % des océans, mais abritent environ un quart des espèces marines",
+    "texte": "Article de Julien Ferrand, publié par Nouméa Matin. (source : Wikipédia)",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Les récifs coralliens couvrent moins de 1 % des océans, mais abritent environ un quart des espèces marines. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "BadgeCheck",
+        "libelle": "Une source citée",
+        "explication": "L’article cite Wikipédia, qu’on peut consulter pour vérifier."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article signé",
+        "explication": "Julien Ferrand signe l’article pour Nouméa Matin : on sait qui écrit."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Quelle image…",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Incroyable tout ce qu’on a autour de nous.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "C’est bien ce que dit Wikipédia.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/R%C3%A9cif_corallien",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/R%C3%A9cif_corallien",
+    "id": 43
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 36738,
+    "commentCount": 228,
+    "date": "26 octobre 2026 à 12:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "cagou-endemique",
+    "slug": "vrai-20261027-cagou-endemique-2",
+    "source": "Poema",
+    "sourceColor": "#791561",
+    "domain": "@poema.w",
+    "titre": "Les amis, le cagou est endémique : il ne vit naturellement qu’en Nouvelle-Calédonie",
+    "texte": "J’ai vérifié sur Wikipédia 👍 ❤️",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le cagou est endémique : il ne vit naturellement qu’en Nouvelle-Calédonie. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Poema n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Il faut les protéger, elles sont fragiles.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "C’est bien ce que dit Wikipédia.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Cagou_hupp%C3%A9",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Cagou_hupp%C3%A9",
+    "id": 44
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 7046,
+    "commentCount": 322,
+    "date": "27 octobre 2026 à 19:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "nautile",
+    "slug": "vrai-20261027-nautile-2",
+    "source": "Mélissa R.",
+    "sourceColor": "#791561",
+    "domain": "@melissa.r",
+    "titre": "Coucou tout le monde 🌺 Le nautile est un mollusque qui vit en profondeur, au large des récifs",
+    "texte": "Partagez autour de vous 🙏",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le nautile est un mollusque qui vit en profondeur, au large des récifs. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Mélissa R. n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Le lagon, on ne s’en lasse pas 🐠",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Nautilus_macromphalus",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Nautilus_macromphalus",
+    "id": 45
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 850,
+    "commentCount": 163,
+    "date": "27 octobre 2026 à 02:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "mangrove",
+    "image": "/images/faits/mangrove.jpg",
+    "imageAlt": "La mangrove de Voh vue des hauteurs, entre terre et mer",
+    "credit": {
+      "auteur": "Mickaël T.",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Voh_-_Mangrove.jpg"
+    },
+    "slug": "vrai-20261027-mangrove-2",
+    "source": "Quiz du Caillou",
+    "sourceColor": "#791561",
+    "domain": "page de quiz",
+    "titre": "🎯 Le quiz du jour : la mangrove protège les côtes : ses racines freinent les vagues et retiennent la terre",
+    "texte": "Vous le saviez ? Dites-le en commentaire 👇",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "La mangrove protège les côtes : ses racines freinent les vagues et retiennent la terre. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Quiz du Caillou n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "Confirmé par Wikipédia, j’ai regardé.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Enfin une info claire.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Mangrove",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Mangrove",
+    "id": 46
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 7851,
+    "commentCount": 392,
+    "date": "26 octobre 2026 à 02:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "cagou-vol",
+    "slug": "vrai-20261027-cagou-vol-2",
+    "source": "Aline B.",
+    "sourceColor": "#c2410c",
+    "domain": "@aline.b",
+    "titre": "Tiens, le cagou ne sait pas voler : il se déplace en courant au sol",
+    "texte": "(vu sur Wikipédia)",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le cagou ne sait pas voler : il se déplace en courant au sol. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Aline B. n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Je n’en ai jamais vu en vrai.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Enfin une info claire.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Confirmé par Wikipédia, j’ai regardé.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Cagou_hupp%C3%A9",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Cagou_hupp%C3%A9",
+    "id": 47
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 11828,
+    "commentCount": 1102,
+    "date": "24 octobre 2026 à 22:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "nickel-mines",
+    "image": "/images/faits/nickel-mines.jpg",
+    "imageAlt": "Une mine de nickel à ciel ouvert, terre rouge en gradins",
+    "credit": {
+      "auteur": "Barsamuphe",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Goro_mine_tailings_dam.jpg"
+    },
+    "slug": "vrai-20261027-nickel-mines-2",
+    "source": "Les Curieux du Pacifique",
+    "sourceColor": "#14663f",
+    "domain": "page de vulgarisation",
+    "titre": "🔎 Le saviez-vous ? En Nouvelle-Calédonie, le nickel est surtout extrait dans des mines à ciel ouvert",
+    "texte": "📚 Source : Wikipédia #Caillou #Nature",
+    "isFake": false,
+    "level": 2,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "En Nouvelle-Calédonie, le nickel est surtout extrait dans des mines à ciel ouvert. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Les Curieux du Pacifique n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "On oublie vite tout ça.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Industrie_mini%C3%A8re_en_Nouvelle-Cal%C3%A9donie",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Industrie_mini%C3%A8re_en_Nouvelle-Cal%C3%A9donie",
+    "id": 48
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 6995,
+    "commentCount": 775,
+    "date": "27 octobre 2026 à 02:03",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "article": {
+      "titre": "À quoi servent les prix littéraires ?",
+      "url": "https://theconversation.com/a-quoi-servent-les-prix-litteraires-294968",
+      "publieLe": "2026-10-26T15:03:15.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Pierre-Guillaume Méon"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-1i6eafr",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "À quoi servent les prix littéraires ?",
+    "texte": "Article de Pierre-Guillaume Méon, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article de Pierre-Guillaume Méon, publié par The Conversation France le 27 octobre 2026 à 02:03.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 27 octobre 2026 à 02:03 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Léa",
+        "couleur": "#c2410c",
+        "texte": "Je ne m’étais jamais posé la question.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "Merci pour le lien.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/a-quoi-servent-les-prix-litteraires-294968",
+    "learnMoreUrl": "https://theconversation.com/a-quoi-servent-les-prix-litteraires-294968",
+    "id": 57
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 22355,
+    "commentCount": 1074,
+    "date": "26 octobre 2026 à 21:15",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "article": {
+      "titre": "Les rémunérations des banquiers d’affaires reposent moins sur des profits mesurables que sur des jugements genrés dans un univers masculin",
+      "url": "https://theconversation.com/les-remunerations-des-banquiers-daffaires-reposent-moins-sur-des-profits-mesurables-que-sur-des-jugements-genres-dans-un-univers-masculin-278457",
+      "publieLe": "2026-10-26T10:15:52.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Pierre Lescoat"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-al4d7g",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "Les rémunérations des banquiers d’affaires reposent moins sur des profits mesurables que sur des jugements genrés dans un univers masculin",
+    "texte": "Article de Pierre Lescoat, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article de Pierre Lescoat, publié par The Conversation France le 26 octobre 2026 à 21:15.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 26 octobre 2026 à 21:15 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "C’est bien sur le site de The Conversation, daté du 26 octobre 2026 à 21:15.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Merci pour le lien.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Intéressant, je partage.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/les-remunerations-des-banquiers-daffaires-reposent-moins-sur-des-profits-mesurables-que-sur-des-jugements-genres-dans-un-univers-masculin-278457",
+    "learnMoreUrl": "https://theconversation.com/les-remunerations-des-banquiers-daffaires-reposent-moins-sur-des-profits-mesurables-que-sur-des-jugements-genres-dans-un-univers-masculin-278457",
+    "id": 58
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 10565,
+    "commentCount": 193,
+    "date": "24 octobre 2026 à 23:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "baleines",
+    "slug": "vrai-20261027-baleines-3",
+    "source": "Le Quotidien du Pacifique",
+    "sourceColor": "#1800ad",
+    "domain": "quotidien-pacifique.info",
+    "titre": "Les baleines à bosse viennent dans le lagon sud pendant l’hiver austral, de juillet à septembre environ",
+    "texte": "Article de Sarah Kowalczyk, publié par Le Quotidien du Pacifique. (source : Wikipédia)",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Les baleines à bosse viennent dans le lagon sud pendant l’hiver austral, de juillet à septembre environ. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "BadgeCheck",
+        "libelle": "Une source citée",
+        "explication": "L’article cite Wikipédia, qu’on peut consulter pour vérifier."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article signé",
+        "explication": "Sarah Kowalczyk signe l’article pour Le Quotidien du Pacifique : on sait qui écrit."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Ça donne envie d’aller à l’eau ce week-end.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Enfin une info claire.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "Confirmé par Wikipédia, j’ai regardé.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Baleine_%C3%A0_bosse",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Baleine_%C3%A0_bosse",
+    "id": 59
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 2548,
+    "commentCount": 361,
+    "date": "26 octobre 2026 à 17:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "ile-des-pins-nom",
+    "image": "/images/faits/ile-des-pins-nom.jpg",
+    "imageAlt": "Des pins colonnaires au bord de l’eau à l’île des Pins",
+    "credit": {
+      "auteur": "Bahnfrend",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Araucaria_columnaris,_Isle_of_Pines,_New_Caledonia,_2007_(1).jpg"
+    },
+    "slug": "vrai-20261027-ile-des-pins-nom-3",
+    "source": "Quiz du Caillou",
+    "sourceColor": "#791561",
+    "domain": "page de quiz",
+    "titre": "🎯 Le quiz du jour : L’île des Pins doit son nom aux pins colonnaires, des arbres qui poussent naturellement sur l’île",
+    "texte": "Vous le saviez ? Dites-le en commentaire 👇",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "L’île des Pins doit son nom aux pins colonnaires, des arbres qui poussent naturellement sur l’île. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Quiz du Caillou n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "N’importe quoi, j’ai lu le contraire.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Enfin une info claire.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Encore une raison d’aller marcher en brousse.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/%C3%8Ele_des_Pins",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/%C3%8Ele_des_Pins",
+    "id": 60
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 39030,
+    "commentCount": 1451,
+    "date": "25 octobre 2026 à 05:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "communes",
+    "image": "/images/faits/provinces.png",
+    "imageAlt": "Carte des provinces et des communes de Nouvelle-Calédonie",
+    "credit": {
+      "auteur": "Dvtrano et Omondi",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Communes_de_Nouvelle-Cal%C3%A9donie.png"
+    },
+    "slug": "vrai-20261027-communes-3",
+    "source": "Christophe M.",
+    "sourceColor": "#1800ad",
+    "domain": "@christophe.m",
+    "titre": "Bon à savoir : la Nouvelle-Calédonie compte 33 communes",
+    "texte": "🤔",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "La Nouvelle-Calédonie compte 33 communes. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Christophe M. n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Manu",
+        "couleur": "#8a4fbe",
+        "texte": "À montrer aux cousins de Métropole.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#c2410c",
+        "texte": "La photo 😍",
+        "posture": "PHOTO"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Liste_des_communes_de_la_Nouvelle-Cal%C3%A9donie",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Liste_des_communes_de_la_Nouvelle-Cal%C3%A9donie",
+    "id": 61
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 27729,
+    "commentCount": 1976,
+    "date": "25 octobre 2026 à 09:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "lifou-taille",
+    "slug": "vrai-20261027-lifou-taille-3",
+    "source": "Pacifique Express Info",
+    "sourceColor": "#1800ad",
+    "domain": "pacifique-express.info",
+    "titre": "Lifou est la plus grande des îles Loyauté",
+    "texte": "Article de Thomas Naudin, publié par Pacifique Express Info. (source : Wikipédia)",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Lifou est la plus grande des îles Loyauté. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "BadgeCheck",
+        "libelle": "Une source citée",
+        "explication": "L’article cite Wikipédia, qu’on peut consulter pour vérifier."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article signé",
+        "explication": "Thomas Naudin signe l’article pour Pacifique Express Info : on sait qui écrit."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "On ne connaît pas assez notre propre île.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "C’est bien ce que dit Wikipédia.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "On ne sait jamais avec ce qu’on lit sur internet…",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Lifou",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Lifou",
+    "id": 62
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 16813,
+    "commentCount": 137,
+    "date": "26 octobre 2026 à 23:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "lagon-unesco",
+    "image": "/images/faits/lagon-unesco.jpg",
+    "imageAlt": "Le lagon calédonien vu d’avion, eau turquoise parsemée de récifs",
+    "credit": {
+      "auteur": "Frenchytahiti",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:New_Caledonia_lagoon.jpg"
+    },
+    "slug": "vrai-20261027-lagon-unesco-3",
+    "source": "Le Quotidien du Pacifique",
+    "sourceColor": "#1800ad",
+    "domain": "quotidien-pacifique.info",
+    "titre": "Les lagons de Nouvelle-Calédonie sont inscrits au patrimoine mondial de l’UNESCO depuis 2008",
+    "texte": "Article de Marc Ollivier, publié par Le Quotidien du Pacifique. (source : UNESCO)",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : UNESCO le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Les lagons de Nouvelle-Calédonie sont inscrits au patrimoine mondial de l’UNESCO depuis 2008. À vérifier sur UNESCO.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "BadgeCheck",
+        "libelle": "Une source citée",
+        "explication": "L’article cite UNESCO, qu’on peut consulter pour vérifier."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article signé",
+        "explication": "Marc Ollivier signe l’article pour Le Quotidien du Pacifique : on sait qui écrit."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "C’est pour ça qu’il faut protéger le lagon.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Encore une info pas vérifiée…",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Belle photo !",
+        "posture": "PHOTO"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://whc.unesco.org/fr/list/1115",
+    "learnMoreUrl": "https://whc.unesco.org/fr/list/1115",
+    "id": 63
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 37379,
+    "commentCount": 816,
+    "date": "27 octobre 2026 à 10:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "fuseau-horaire",
+    "slug": "vrai-20261027-fuseau-horaire-3",
+    "source": "Les Curieux du Pacifique",
+    "sourceColor": "#14663f",
+    "domain": "page de vulgarisation",
+    "titre": "🔎 Le saviez-vous ? La Nouvelle-Calédonie est à UTC+11 et ne change pas d’heure en été",
+    "texte": "#Caillou #Nature",
+    "isFake": false,
+    "level": 3,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "La Nouvelle-Calédonie est à UTC+11 et ne change pas d’heure en été. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Les Curieux du Pacifique n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "N’importe quoi, j’ai lu le contraire.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "J’ai appris ça au collège je crois.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/UTC%2B11:00",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/UTC%2B11:00",
+    "id": 64
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 23991,
+    "commentCount": 1006,
+    "date": "26 octobre 2026 à 21:15",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "article": {
+      "titre": "Adidas, ou comment une campagne locale déclenche une crise mondiale",
+      "url": "https://theconversation.com/adidas-ou-comment-une-campagne-locale-declenche-une-crise-mondiale-292697",
+      "publieLe": "2026-10-26T10:15:13.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Frédéric Aubrun"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-a8c42c",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "Adidas, ou comment une campagne locale déclenche une crise mondiale",
+    "texte": "Article de Frédéric Aubrun, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article de Frédéric Aubrun, publié par The Conversation France le 26 octobre 2026 à 21:15.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 26 octobre 2026 à 21:15 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "C’est bien sur le site de The Conversation, daté du 26 octobre 2026 à 21:15.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Intéressant, je partage.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Intéressant, je lirai ça ce soir.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/adidas-ou-comment-une-campagne-locale-declenche-une-crise-mondiale-292697",
+    "learnMoreUrl": "https://theconversation.com/adidas-ou-comment-une-campagne-locale-declenche-une-crise-mondiale-292697",
+    "id": 73
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 15548,
+    "commentCount": 757,
+    "date": "26 octobre 2026 à 21:15",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "article": {
+      "titre": "Quels sont les secrets de la longévité exceptionnelle des entreprises familiales ?",
+      "url": "https://theconversation.com/quels-sont-les-secrets-de-la-longevite-exceptionnelle-des-entreprises-familiales-286677",
+      "publieLe": "2026-10-26T10:15:07.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Raina Homai"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-1fzr07d",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "Quels sont les secrets de la longévité exceptionnelle des entreprises familiales ?",
+    "texte": "Article de Raina Homai, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article de Raina Homai, publié par The Conversation France le 26 octobre 2026 à 21:15.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 26 octobre 2026 à 21:15 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Encore un article qui va dans tous les sens…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "L’article complet est sur theconversation.com, signé Raina Homai.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Merci pour l’article 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Intéressant, je lirai ça ce soir.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/quels-sont-les-secrets-de-la-longevite-exceptionnelle-des-entreprises-familiales-286677",
+    "learnMoreUrl": "https://theconversation.com/quels-sont-les-secrets-de-la-longevite-exceptionnelle-des-entreprises-familiales-286677",
+    "id": 74
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 7540,
+    "commentCount": 1087,
+    "date": "25 octobre 2026 à 10:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "hemisphere-sud",
+    "image": "/images/faits/hemisphere-sud.png",
+    "imageAlt": "La Terre vue par satellite, hémisphère Sud",
+    "credit": {
+      "auteur": "CSU/CIRA, JMA/JAXA (satellite Himawari)",
+      "licence": "domaine public",
+      "licenceUrl": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Moon_Skirts_by_Southern_Hemisphere_(CIRA_2024-04-23).png"
+    },
+    "slug": "vrai-20261027-hemisphere-sud-4",
+    "source": "Manon",
+    "sourceColor": "#1800ad",
+    "domain": "@manon.988",
+    "titre": "wsh la nouvelle-calédonie est dans l’hémisphère sud : il y fait plus frais de juin à août",
+    "texte": "jsuis choqué 😭",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "La Nouvelle-Calédonie est dans l’hémisphère Sud : il y fait plus frais de juin à août. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Manon n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#14663f",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Toujours bon à rappeler.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Climat_de_la_Nouvelle-Cal%C3%A9donie",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Climat_de_la_Nouvelle-Cal%C3%A9donie",
+    "id": 75
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 16572,
+    "commentCount": 192,
+    "date": "25 octobre 2026 à 13:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "flore-endemique",
+    "image": "/images/faits/flore-endemique.jpg",
+    "imageAlt": "Un plant d’Amborella en sous-bois, feuilles vertes et petits fruits rouges",
+    "credit": {
+      "auteur": "naturewatchwidow",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Amborella_trichopoda_5235301.jpg"
+    },
+    "slug": "vrai-20261027-flore-endemique-4",
+    "source": "Pacifique Express Info",
+    "sourceColor": "#1800ad",
+    "domain": "pacifique-express.info",
+    "titre": "La majorité des plantes de Nouvelle-Calédonie n’existent nulle part ailleurs dans le monde",
+    "texte": "Article de Claire Weber, publié par Pacifique Express Info. (source : Wikipédia)",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "La majorité des plantes de Nouvelle-Calédonie n’existent nulle part ailleurs dans le monde. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "BadgeCheck",
+        "libelle": "Une source citée",
+        "explication": "L’article cite Wikipédia, qu’on peut consulter pour vérifier."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article signé",
+        "explication": "Claire Weber signe l’article pour Pacifique Express Info : on sait qui écrit."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Les plantes d’ici sont incroyables 🌿",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Quelle image…",
+        "posture": "PHOTO"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Biodiversit%C3%A9_de_la_Nouvelle-Cal%C3%A9donie",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Biodiversit%C3%A9_de_la_Nouvelle-Cal%C3%A9donie",
+    "id": 76
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 1340,
+    "commentCount": 404,
+    "date": "26 octobre 2026 à 16:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "corail-animal",
+    "image": "/images/faits/corail-animal.jpg",
+    "imageAlt": "Gros plan sur les polypes d’un corail, petits tentacules ouverts",
+    "credit": {
+      "auteur": "Diego Delso",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Coral_(Goniopora_lobata),_islas_Ad_Dimaniyat,_Om%C3%A1n,_2024-08-13,_DD_64.jpg"
+    },
+    "slug": "vrai-20261027-corail-animal-4",
+    "source": "Josiane",
+    "sourceColor": "#b45309",
+    "domain": "@josiane988",
+    "titre": "Les amis, le corail est un animal, et non une plante ou un caillou",
+    "texte": "❤️",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le corail est un animal, et non une plante ou un caillou. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Josiane n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Incroyable tout ce qu’on a autour de nous.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "Je n’y crois pas une seconde.",
+        "posture": "CONTRE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Corail",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Corail",
+    "id": 77
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 10991,
+    "commentCount": 1685,
+    "date": "26 octobre 2026 à 13:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "dugong",
+    "slug": "vrai-20261027-dugong-4",
+    "source": "Steeve",
+    "sourceColor": "#57534e",
+    "domain": "@steeve_nc",
+    "titre": "frr le dugong est un mammifère marin herbivore : il broute les herbiers du lagon",
+    "texte": "c sur wikipédia jsuis pas fou 🤯",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le dugong est un mammifère marin herbivore : il broute les herbiers du lagon. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Steeve n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Incroyable tout ce qu’on a autour de nous.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Dugong",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Dugong",
+    "id": 78
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 32541,
+    "commentCount": 1857,
+    "date": "26 octobre 2026 à 19:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "roussette",
+    "image": "/images/faits/roussette.jpg",
+    "imageAlt": "Une roussette suspendue la tête en bas à une branche",
+    "credit": {
+      "auteur": "Chicago Natural History Museum",
+      "licence": "domaine public",
+      "licenceUrl": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Pteropus_ornatus.jpg"
+    },
+    "slug": "vrai-20261027-roussette-4",
+    "source": "Le Quotidien du Pacifique",
+    "sourceColor": "#1800ad",
+    "domain": "quotidien-pacifique.info",
+    "titre": "La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs",
+    "texte": "Article de Julien Ferrand, publié par Le Quotidien du Pacifique. Source : Wikipédia.",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "BadgeCheck",
+        "libelle": "Une source citée",
+        "explication": "L’article cite Wikipédia, qu’on peut consulter pour vérifier."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article signé",
+        "explication": "Julien Ferrand signe l’article pour Le Quotidien du Pacifique : on sait qui écrit."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "Je n’y crois pas une seconde.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Je n’en ai jamais vu en vrai.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "Quelle image…",
+        "posture": "PHOTO"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Roussette",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Roussette",
+    "id": 79
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 1218,
+    "commentCount": 414,
+    "date": "27 octobre 2026 à 07:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "phare-amedee",
+    "image": "/images/faits/phare-amedee.jpg",
+    "imageAlt": "Le phare Amédée, tour blanche sur son îlot",
+    "credit": {
+      "auteur": "Gui0123",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Phare_Am%C3%A9d%C3%A9e_-_Ilot_Am%C3%A9d%C3%A9e,_NC.jpg"
+    },
+    "slug": "vrai-20261027-phare-amedee-4",
+    "source": "Le Quotidien du Pacifique",
+    "sourceColor": "#1800ad",
+    "domain": "quotidien-pacifique.info",
+    "titre": "Le phare Amédée, haut de 56 mètres, est en métal : il a été fabriqué en France puis monté sur l’îlot",
+    "texte": "Article de Anaïs Labbé, publié par Le Quotidien du Pacifique. (source : Wikipédia)",
+    "isFake": false,
+    "level": 4,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le phare Amédée, haut de 56 mètres, est en métal : il a été fabriqué en France puis monté sur l’îlot. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "BadgeCheck",
+        "libelle": "Une source citée",
+        "explication": "L’article cite Wikipédia, qu’on peut consulter pour vérifier."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article signé",
+        "explication": "Anaïs Labbé signe l’article pour Le Quotidien du Pacifique : on sait qui écrit."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
+        "texte": "Je n’y crois pas une seconde.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "On devrait en parler plus à l’école.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Phare_Am%C3%A9d%C3%A9e",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Phare_Am%C3%A9d%C3%A9e",
+    "id": 80
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 35471,
+    "commentCount": 1404,
+    "date": "25 octobre 2026 à 18:06",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "article": {
+      "titre": "Pour mieux anticiper les séismes en France, garder la mémoire des précédents",
+      "url": "https://theconversation.com/pour-mieux-anticiper-les-seismes-en-france-garder-la-memoire-des-precedents-294528",
+      "publieLe": "2026-10-25T07:06:48.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Samuel Auclair"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-1170393",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "Pour mieux anticiper les séismes en France, garder la mémoire des précédents",
+    "texte": "Article de Samuel Auclair, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article de Samuel Auclair, publié par The Conversation France le 25 octobre 2026 à 18:06.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 25 octobre 2026 à 18:06 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "L’article complet est sur theconversation.com, signé Samuel Auclair.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Long, mais ça vaut le coup.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/pour-mieux-anticiper-les-seismes-en-france-garder-la-memoire-des-precedents-294528",
+    "learnMoreUrl": "https://theconversation.com/pour-mieux-anticiper-les-seismes-en-france-garder-la-memoire-des-precedents-294528",
+    "id": 89
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 10668,
+    "commentCount": 93,
+    "date": "25 octobre 2026 à 18:06",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "article": {
+      "titre": "Modifier le génome des embryons humains : entre espoir et inquiétude, les questions soulevées par les avancées scientifiques récentes",
+      "url": "https://theconversation.com/modifier-le-genome-des-embryons-humains-entre-espoir-et-inquietude-les-questions-soulevees-par-les-avancees-scientifiques-recentes-291694",
+      "publieLe": "2026-10-25T07:06:21.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Hervé Chneiweiss"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-1rlg0aw",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "Modifier le génome des embryons humains : entre espoir et inquiétude, les questions soulevées par les avancées scientifiques récentes",
+    "texte": "Article d’Hervé Chneiweiss, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article d’Hervé Chneiweiss, publié par The Conversation France le 25 octobre 2026 à 18:06.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 25 octobre 2026 à 18:06 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
+        "texte": "Long, mais ça vaut le coup.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Merci pour l’article 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Aurélie",
+        "couleur": "#14663f",
+        "texte": "Encore un article qui va dans tous les sens…",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/modifier-le-genome-des-embryons-humains-entre-espoir-et-inquietude-les-questions-soulevees-par-les-avancees-scientifiques-recentes-291694",
+    "learnMoreUrl": "https://theconversation.com/modifier-le-genome-des-embryons-humains-entre-espoir-et-inquietude-les-questions-soulevees-par-les-avancees-scientifiques-recentes-291694",
+    "id": 90
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 24194,
+    "commentCount": 595,
+    "date": "26 octobre 2026 à 03:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "cyclone-sens",
+    "slug": "vrai-20261027-cyclone-sens-5",
+    "source": "Kenji T.",
+    "sourceColor": "#8a4fbe",
+    "domain": "@kenji.t",
+    "titre": "jsp si vous saviez mais dans l’hémisphère sud, les cyclones tournent dans le sens des aiguilles d’une montre",
+    "texte": "c sur wikipédia jsuis pas fou jsuis choqué 😭",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Dans l’hémisphère Sud, les cyclones tournent dans le sens des aiguilles d’une montre. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Kenji T. n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Ici ça souffle déjà fort depuis hier.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#c2410c",
+        "texte": "Pensez à vos réserves d’eau et de piles.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Cyclone_tropical",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Cyclone_tropical",
+    "id": 91
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 18909,
+    "commentCount": 669,
+    "date": "27 octobre 2026 à 14:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "mont-panie",
+    "image": "/images/faits/mont-panie.jpg",
+    "imageAlt": "Un kaori des montagnes sur les pentes du mont Panié",
+    "credit": {
+      "auteur": "Vanessa Hequet (Pl@ntNet)",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Agathis_montana_de_Laub._2.jpg"
+    },
+    "slug": "vrai-20261027-mont-panie-5",
+    "source": "Aline B.",
+    "sourceColor": "#c2410c",
+    "domain": "@aline.b",
+    "titre": "Tiens, le mont Panié, dans le nord-est de la Grande Terre, est le point culminant de la Nouvelle-Calédonie, à 1 629 mètres",
+    "texte": "Intéressant.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le mont Panié, dans le nord-est de la Grande Terre, est le point culminant de la Nouvelle-Calédonie, à 1 629 mètres. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Aline B. n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "Encore une raison d’aller marcher en brousse.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Mont_Pani%C3%A9",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Mont_Pani%C3%A9",
+    "id": 92
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 26147,
+    "commentCount": 972,
+    "date": "25 octobre 2026 à 11:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "provinces",
+    "image": "/images/faits/provinces.png",
+    "imageAlt": "Carte des provinces et des communes de Nouvelle-Calédonie",
+    "credit": {
+      "auteur": "Dvtrano et Omondi",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Communes_de_Nouvelle-Cal%C3%A9donie.png"
+    },
+    "slug": "vrai-20261027-provinces-5",
+    "source": "Yannick D.",
+    "sourceColor": "#14663f",
+    "domain": "@yannick.d",
+    "titre": "La Nouvelle-Calédonie compte trois provinces : Sud, Nord et îles Loyauté",
+    "texte": "(vu sur Wikipédia) 👀",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "La Nouvelle-Calédonie compte trois provinces : Sud, Nord et îles Loyauté. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Yannick D. n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Fier de notre Caillou.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "N’importe quoi, j’ai lu le contraire.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Provinces_de_la_Nouvelle-Cal%C3%A9donie",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Provinces_de_la_Nouvelle-Cal%C3%A9donie",
+    "id": 93
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 11968,
+    "commentCount": 143,
+    "date": "27 octobre 2026 à 13:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "ouvea-atoll",
+    "slug": "vrai-20261027-ouvea-atoll-5",
+    "source": "Steeve",
+    "sourceColor": "#57534e",
+    "domain": "@steeve_nc",
+    "titre": "frr ouvéa est un atoll surélevé, bordé d’une plage de plus de 20 kilomètres",
+    "texte": "😭",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Ouvéa est un atoll surélevé, bordé d’une plage de plus de 20 kilomètres. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Steeve n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "À montrer aux cousins de Métropole.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Ouv%C3%A9a",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Ouv%C3%A9a",
+    "id": 94
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 14731,
+    "commentCount": 118,
+    "date": "25 octobre 2026 à 21:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "tricot-raye",
+    "slug": "vrai-20261027-tricot-raye-5",
+    "source": "Nature et Lagon NC",
+    "sourceColor": "#1800ad",
+    "domain": "page nature",
+    "titre": "🌿 Nature calédo : le tricot rayé est un serpent marin qui vient pondre ses œufs à terre",
+    "texte": "📚 Source : Wikipédia #Science #NC",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Le tricot rayé est un serpent marin qui vient pondre ses œufs à terre. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Nature et Lagon NC n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "N’importe quoi, j’ai lu le contraire.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Incroyable tout ce qu’on a autour de nous.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "C’est bien ce que dit Wikipédia.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Tricot_ray%C3%A9",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Tricot_ray%C3%A9",
+    "id": 95
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 35790,
+    "commentCount": 497,
+    "date": "24 octobre 2026 à 22:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "fait": "bagne-debut",
+    "image": "/images/faits/bagne-debut.jpg",
+    "imageAlt": "Les ruines d’un bâtiment du bagne à l’île des Pins, fenêtres à barreaux",
+    "credit": {
+      "auteur": "Gérard Janot",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "page": "https://commons.wikimedia.org/wiki/File:IleDesPins_Bagne3.JPG"
+    },
+    "slug": "vrai-20261027-bagne-debut-5",
+    "source": "Manon",
+    "sourceColor": "#1800ad",
+    "domain": "@manon.988",
+    "titre": "wsh les premiers condamnés au bagne arrivent en nouvelle-calédonie en 1864",
+    "texte": "c fou",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
+    "analyseVrai": "Les premiers condamnés au bagne arrivent en Nouvelle-Calédonie en 1864. À vérifier sur Wikipédia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "BadgeCheck",
+        "libelle": "Une info vérifiable",
+        "explication": "Wikipédia le confirme : une recherche suffit."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Rien qui pousse",
+        "explication": "Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Manon n’est pas une source en soi : c’est l’info qui se vérifie, pas le profil."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#14663f",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Je passe devant sans jamais y penser.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
+    "warning": "Attention : cette information était vraie, et sa source se vérifie en une recherche.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Bagne_de_Nouvelle-Cal%C3%A9donie",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Bagne_de_Nouvelle-Cal%C3%A9donie",
+    "id": 96
+  }
+]

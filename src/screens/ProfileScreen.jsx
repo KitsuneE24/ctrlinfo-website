@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 import { Pencil } from 'lucide-react'
-import { getAvatars, getConversations, getNiveaux } from '../api/contenu'
+import { getAvatars, getConversations } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
 import { noterPseudo } from '../state/progression'
 import { noterCompagnonVisible, useCompagnonVisible } from '../state/compagnonVisible'
@@ -13,25 +13,36 @@ import Filaments from '../components/ui/Filaments'
 import Page from '../components/ui/Page'
 import { PATHS } from '../routes'
 
+// `total` à Infinity : barre ouverte.
 function Jauge({ libelle, fait, total }) {
-  const pourcentage = total > 0 ? Math.round((fait / total) * 100) : 0
+  const infini = total === Infinity
+  const pourcentage = infini ? 100 : total > 0 ? Math.round((fait / total) * 100) : 0
 
   return (
     <div className="jauge">
       <div className="jauge__tete">
         <p className="jauge__libelle">{libelle}</p>
         <p className="jauge__chiffre">
-          {fait} / {total}
+          {fait} /{' '}
+          {infini ? (
+            <span className="jauge__infini" aria-label="sans fin">
+              ∞
+            </span>
+          ) : (
+            total
+          )}
         </p>
       </div>
       <div className="jauge__piste">
-        <div className="jauge__barre" style={{ width: `${pourcentage}%` }} />
+        <div
+          className={`jauge__barre${infini ? ' jauge__barre--infini' : ''}`}
+          style={{ width: `${pourcentage}%` }}
+        />
       </div>
     </div>
   )
 }
 
-/** Pseudo cliquable pour le modifier. */
 function Pseudo({ valeur }) {
   const [edition, setEdition] = useState(false)
   const [saisie, setSaisie] = useState(valeur)
@@ -51,8 +62,8 @@ function Pseudo({ valeur }) {
           onChange={(event) => setSaisie(event.target.value)}
           maxLength={40}
           autoFocus
-          placeholder="Ton pseudo"
-          aria-label="Ton pseudo"
+          placeholder="Votre pseudo"
+          aria-label="Votre pseudo"
           className="champ__input"
         />
         <button type="submit" className="bouton bouton--plein">
@@ -69,10 +80,10 @@ function Pseudo({ valeur }) {
         setSaisie(valeur)
         setEdition(true)
       }}
-      aria-label="Modifier le pseudo"
+      aria-label={`${valeur || 'Choisissez votre pseudo'}, modifier`}
       className="profil-pseudo"
     >
-      {valeur || 'Choisis ton pseudo'}
+      {valeur || 'Choisissez votre pseudo'}
       <Pencil size={14} strokeWidth={2} />
     </button>
   )
@@ -84,17 +95,13 @@ export default function ProfileScreen() {
   const [galerie, setGalerie] = useState(false)
   const compagnonVisible = useCompagnonVisible()
 
-  const { donnees: niveaux } = useRessource(getNiveaux, [])
   const { donnees: conversations } = useRessource(getConversations, [])
   const { donnees: avatars } = useRessource(getAvatars, [])
 
-  const publications = (niveaux ?? []).reduce((somme, n) => somme + (n.publications ?? 0), 0)
-
   const { fil } = etat
-  const faites = Object.values(etat.conversations).filter((c) => c.faite).length
+  const faites = (conversations ?? []).filter((c) => etat.conversations[c.id]?.faite).length
   const reussite = fil.decisions > 0 ? Math.round((fil.justes / fil.decisions) * 100) : 0
 
-  // Biais vus au moins 3 fois, du plus raté au moins raté.
   const biais = Object.entries(fil.biais)
     .filter(([, compte]) => compte.total >= 3)
     .map(([nom, compte]) => ({
@@ -139,7 +146,7 @@ export default function ProfileScreen() {
             />
           )}
 
-          <h1 className="profil__titre">Ma progression.</h1>
+          <h1 className="profil__titre">Votre profil.</h1>
 
           <dl className="profil-chiffres">
             <div>
@@ -157,8 +164,8 @@ export default function ProfileScreen() {
           </dl>
 
           <div className="profil-jauges">
-            <Jauge libelle="Niveaux du fil" fait={fil.niveau} total={3} />
-            <Jauge libelle="Publications" fait={fil.vus.length} total={publications} />
+            <Jauge libelle="Niveaux du fil" fait={fil.niveau} total={Infinity} />
+            <Jauge libelle="Posts" fait={fil.decisions} total={Infinity} />
             <Jauge
               libelle="Conversations"
               fait={faites}
@@ -171,12 +178,12 @@ export default function ProfileScreen() {
           <div className="papier profil-piege">
             <span className="papier__ruban" />
             <div className="profil-piege__texte">
-              <p className="etiquette profil-piege__etiquette">Ce qui te piège</p>
+              <p className="etiquette profil-piege__etiquette">Ce qui vous piège</p>
               {pire ? (
                 <>
                   <p className="profil-piege__titre">{pire.nom}</p>
                   <p className="profil-piege__detail">
-                    {pire.reussite}&nbsp;% de bonnes réponses sur {pire.total} publications.
+                    {pire.reussite}&nbsp;% de bonnes réponses sur {pire.total} posts.
                   </p>
                   {autres.length > 0 && (
                     <ul className="biais-liste">
@@ -193,7 +200,7 @@ export default function ProfileScreen() {
                 <>
                   <p className="profil-piege__titre">Pas encore assez de parties.</p>
                   <p className="profil-piege__detail">
-                    Joue quelques publications pour voir quel piège te résiste.
+                    Jouez quelques posts pour voir quel piège vous résiste.
                   </p>
                 </>
               )}
@@ -205,8 +212,8 @@ export default function ProfileScreen() {
 
           <label className="reglage">
             <span className="reglage__texte">
-              <span className="reglage__titre">Le petit compagnon</span>
-              <span className="reglage__aide">Le personnage qui commente ta partie en bas de l'écran.</span>
+              <span className="reglage__titre">Le cagou</span>
+              <span className="reglage__aide">Il commente votre partie en bas de l'écran.</span>
             </span>
             <input
               type="checkbox"

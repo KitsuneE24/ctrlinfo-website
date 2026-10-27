@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { Sparkles, Trophy, GraduationCap, ArrowRight } from 'lucide-react'
-import { getNiveaux, getRemediations, getTirage } from '../api/contenu'
+import { Sparkles, GraduationCap, ArrowRight, CircleCheck, RefreshCw } from 'lucide-react'
 import {
-  dejaVus,
-  finirLeFil,
-  niveauDeDepart,
-  noterDecision,
-  noterNiveau,
-} from '../state/progression'
+  fabriquerNouvellesPublications,
+  getNiveaux,
+  getRemediations,
+  getTirageEtReste,
+} from '../api/contenu'
+import { dureePour, reglesDuNiveau } from '../lib/niveaux'
+import { dejaVus, niveauDeDepart, noterDecision, noterNiveau } from '../state/progression'
 import { useAutreJeu } from '../state/jeux'
 import Page from './ui/Page'
 import { Chargement, ErreurChargement } from './ui/Chargement'
@@ -15,19 +15,85 @@ import FeedStats from './FeedStats'
 import PostCard from './PostCard'
 import FeedbackModal from './FeedbackModal'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
+import { lienWeb } from '../lib/lienWeb'
 
-export default function Feed({ onSwitch, onFinished, onRegles, paused = false }) {
-  // Proposé à l'arrivée, pour ne pas laisser le joueur sur un écran final.
+const ANNONCE_MS = 6000
+
+function AnnonceNiveau({ regles, suite, onFermer, onSwitch }) {
+  useEffect(() => {
+    const minuteur = setTimeout(onFermer, ANNONCE_MS)
+    return () => clearTimeout(minuteur)
+  }, [onFermer])
+
+  return (
+    <div className="palier anim-apparait" onClick={onFermer}>
+      <section
+        role="status"
+        className="card outcome palier__carte anim-surgit"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <span className="outcome__badge outcome__badge--small">
+          <Sparkles size={22} strokeWidth={2} />
+        </span>
+        <h2 className="outcome__title">{regles.titre}</h2>
+        <p className="outcome__note">{regles.sousTitre}</p>
+        <div className="outcome__action">
+          <button type="button" onClick={onFermer} className="bouton bouton--plein bouton--large">
+            Continuer
+            <ArrowRight size={16} strokeWidth={2.2} />
+          </button>
+          {suite && (
+            <button type="button" onClick={() => onSwitch(suite.id)} className="bouton bouton--large">
+              Changer de jeu&nbsp;: «&nbsp;{suite.titre}&nbsp;»
+            </button>
+          )}
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function ToutVu({ fabrication, onFabriquer, onFermer }) {
+  const rien = fabrication === 'rien'
+  return (
+    <div className="palier anim-apparait">
+      <section role="dialog" aria-modal="true" className="card outcome palier__carte anim-surgit">
+        <span className="outcome__badge outcome__badge--small">
+          <CircleCheck size={22} strokeWidth={2} />
+        </span>
+        <h2 className="outcome__title">Vous êtes à jour</h2>
+        <p className="outcome__note">
+          {rien
+            ? 'Pas de nouveaux posts pour l’instant. Revenez demain !'
+            : 'Vous avez vu tous les nouveaux posts.'}
+        </p>
+        <div className="outcome__action">
+          {!rien && (
+            <button
+              type="button"
+              onClick={onFabriquer}
+              disabled={fabrication === 'encours'}
+              className="bouton bouton--plein bouton--large"
+            >
+              <RefreshCw size={16} strokeWidth={2.2} />
+              {fabrication === 'encours' ? 'Chargement…' : 'Continuer à jouer'}
+            </button>
+          )}
+          <button type="button" onClick={onFermer} className="bouton bouton--large">
+            Revoir les anciens posts
+          </button>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default function Feed({ onSwitch, onRegles, paused = false }) {
   const suite = useAutreJeu('feed')
 
-  // Les règles des niveaux — taille du tirage, durée du chrono, texte de
-  // transition. Elles étaient écrites ici ; elles viennent de l'API.
-  const [niveaux, setNiveaux] = useState({})
-
-  // Le niveau retenu par le navigateur : un joueur qui revient ne recommence
-  // pas au premier sous prétexte qu'il a fermé l'onglet.
+  const [niveaux, setNiveaux] = useState([])
   const [currentLevel, setCurrentLevel] = useState(niveauDeDepart)
-  const [levelTransition, setLevelTransition] = useState(false)
+  const [annonce, setAnnonce] = useState(false)
   const [postQueue, setPostQueue] = useState([])
   const [queueIdx, setQueueIdx] = useState(0)
   const [levelDoneCount, setLevelDoneCount] = useState(0)
@@ -36,21 +102,25 @@ export default function Feed({ onSwitch, onFinished, onRegles, paused = false })
   const [biasRemediationAdded, setBiasRemediationAdded] = useState(new Set())
   const [timerActive, setTimerActive] = useState(true)
   const [feedbackVisible, setFeedbackVisible] = useState(false)
-
-  // Le contenu vient du serveur : deux états de plus qu'avant.
   const [erreur, setErreur] = useState(null)
   const [remediations, setRemediations] = useState({})
+  const [toutVu, setToutVu] = useState(false)
+  const [fabrication, setFabrication] = useState(null)
+  const propose = useRef(null)
 
-  // Le moment où la publication en cours s'est affichée, pour mesurer le temps
-  // de décision — la vraie donnée intéressante du jeu.
   const affichee = useRef(0)
 
-  // La file vide dit « ça charge » : la fonction ne touche à rien avant le
-  // tirage, et l'appelant la vide avant de relancer.
+  // File vide = chargement.
   const chargerNiveau = useCallback(
     (level) =>
-      getTirage(level, { vus: dejaVus() })
-        .then((tirage) => {
+      getTirageEtReste(level, { vus: dejaVus() })
+        .then(({ tirage, reste, taille, plus }) => {
+          if (tirage.length === 0) throw new Error('Aucun post disponible.')
+          if (plus && reste < taille && propose.current !== level) {
+            propose.current = level
+            setFabrication(null)
+            setToutVu(true)
+          }
           setPostQueue(tirage)
           setQueueIdx(0)
           setLevelDoneCount(0)
@@ -65,41 +135,28 @@ export default function Feed({ onSwitch, onFinished, onRegles, paused = false })
   )
 
   useEffect(() => {
-    // Relu du magasin : l'effet ne doit pas dépendre de `currentLevel`, sinon le
-    // passage au niveau suivant tirerait deux fois.
     chargerNiveau(niveauDeDepart())
-    // Les remédiations sont peu nombreuses : on les prend une fois pour toutes.
     getRemediations()
       .then(setRemediations)
       .catch(() => setRemediations({}))
     getNiveaux()
-      .then((liste) => setNiveaux(Object.fromEntries(liste.map((n) => [n.level, n]))))
-      .catch(() => setNiveaux({}))
+      .then(setNiveaux)
+      .catch(() => setNiveaux([]))
   }, [chargerNiveau])
 
-  // Pas de drapeau de chargement : tant que la file est vide et qu'aucune
-  // erreur n'est remontée, c'est que le tirage est en route.
+  const regles = reglesDuNiveau(niveaux, currentLevel)
   const chargement = postQueue.length === 0 && erreur === null
-  const isAllDone = currentLevel > 3
-  const currentPost = !isAllDone && !levelTransition ? postQueue[queueIdx] : null
+  const currentPost = postQueue[queueIdx] ?? null
 
-  // Le total du niveau est la taille du tirage : les publications de
-  // remédiation s'y ajoutent sans compter dans l'avancement.
   const levelTotal = postQueue.filter((post) => !post.isRemediation).length
 
   const isCorrect =
-    action !== null && currentPost !== null
-      ? action === currentPost.correctAction
-      : false
+    action !== null && currentPost !== null ? action === currentPost.correctAction : false
 
   function handleAction(type) {
     if (action !== null) return
 
-    // Le compagnon suit la partie : il ne relève ni une bonne réponse isolée
-    // ni une erreur isolée, mais il compte les séries.
-    signalerAuCompagnon(
-      type === currentPost.correctAction ? 'bonneReponse' : 'mauvaiseReponse'
-    )
+    signalerAuCompagnon(type === currentPost.correctAction ? 'bonneReponse' : 'mauvaiseReponse')
 
     if (type !== currentPost.correctAction && !currentPost.isRemediation) {
       const biais = currentPost.biais
@@ -114,11 +171,6 @@ export default function Feed({ onSwitch, onFinished, onRegles, paused = false })
       }
     }
 
-    // La décision est retenue tout de suite : points, biais, et le fait que
-    // cette publication a été traitée — elle sera écartée des prochains
-    // tirages. Les points sont ceux que le contenu porte, donc exactement ceux
-    // que le serveur comptait. Une publication de remédiation n'est pas notée :
-    // elle entraîne, elle ne juge pas.
     if (!currentPost.isRemediation) {
       noterDecision({
         slug: currentPost.slug,
@@ -146,26 +198,15 @@ export default function Feed({ onSwitch, onFinished, onRegles, paused = false })
     setAction(null)
     const nextIdx = queueIdx + 1
 
-    let newLevelDoneCount = levelDoneCount
-    if (!currentPost?.isRemediation) {
-      newLevelDoneCount = levelDoneCount + 1
-      setLevelDoneCount(newLevelDoneCount)
-    }
+    if (!currentPost?.isRemediation) setLevelDoneCount((compte) => compte + 1)
 
     if (nextIdx >= postQueue.length) {
-      if (newLevelDoneCount >= levelTotal) {
-        if (currentLevel < 3) {
-          // Le niveau est acquis dès qu'il est bouclé, pas au clic sur
-          // « Continuer » : qui s'en va devant l'écran de transition a bel et
-          // bien fini ce niveau, et ne doit pas le rejouer.
-          noterNiveau(currentLevel + 1)
-          setLevelTransition(true)
-        } else {
-          setCurrentLevel(4)
-          onFinished?.()
-          finirLeFil()
-        }
-      }
+      const suivant = currentLevel + 1
+      noterNiveau(suivant)
+      setCurrentLevel(suivant)
+      setAnnonce(true)
+      setPostQueue([])
+      chargerNiveau(suivant)
       return
     }
 
@@ -174,17 +215,18 @@ export default function Feed({ onSwitch, onFinished, onRegles, paused = false })
     affichee.current = Date.now()
   }
 
-  function handleLevelUnlock() {
-    const nextLevel = currentLevel + 1
-    setCurrentLevel(nextLevel)
-    setLevelTransition(false)
-    // Vider la file, c'est afficher le chargement le temps du tirage suivant.
-    setPostQueue([])
-    chargerNiveau(nextLevel)
-  }
+  const fermerAnnonce = useCallback(() => setAnnonce(false), [])
 
-  function handleLearnMore(url) {
-    window.open(url, '_blank', 'noopener,noreferrer')
+  function fabriquer() {
+    setFabrication('encours')
+    fabriquerNouvellesPublications(currentLevel, { vus: dejaVus() })
+      .then((nombre) => {
+        if (nombre === 0) return setFabrication('rien')
+        setToutVu(false)
+        setPostQueue([])
+        chargerNiveau(currentLevel)
+      })
+      .catch(() => setFabrication('rien'))
   }
 
   const actionsDisabled = action !== null || feedbackVisible
@@ -197,97 +239,48 @@ export default function Feed({ onSwitch, onFinished, onRegles, paused = false })
         post={currentPost}
         action={action}
         onDismiss={handleDismiss}
-        onLearnMore={handleLearnMore}
+        onLearnMore={(url) => lienWeb(url) && window.open(url, '_blank', 'noopener,noreferrer')}
       />
 
-      {/* Le post tient dans l'écran : pas de défilement. */}
+      {annonce && regles && !chargement && (
+        <AnnonceNiveau regles={regles} suite={suite} onFermer={fermerAnnonce} onSwitch={onSwitch} />
+      )}
+
+      {toutVu && !annonce && !chargement && (
+        <ToutVu fabrication={fabrication} onFabriquer={fabriquer} onFermer={() => setToutVu(false)} />
+      )}
+
       <Page feed fill>
         {erreur ? (
           <ErreurChargement erreur={erreur} onReessayer={() => chargerNiveau(currentLevel)} />
         ) : chargement ? (
           <Chargement quoi="le fil" />
-        ) : isAllDone ? (
-          <section className="card outcome anim-monte">
-            <span className="outcome__badge">
-              <Trophy size={34} strokeWidth={1.8} />
-            </span>
-            <h2 className="outcome__title">Mission terminée&nbsp;!</h2>
-            <p className="outcome__note">
-              Tu as traité les trois niveaux. Ce que tu retiens des explications
-              compte davantage qu'un score — retourne dans le fil quand tu veux
-              refaire l'exercice.
-            </p>
-
-            {suite && (
-              <div className="outcome__action">
-                <button
-                  type="button"
-                  onClick={() => onSwitch(suite.id)}
-                  className="bouton bouton--plein bouton--large"
-                >
-                  Enchaîner sur «&nbsp;{suite.titre}&nbsp;»
-                  <ArrowRight size={16} strokeWidth={2.2} />
-                </button>
-              </div>
-            )}
-          </section>
-        ) : levelTransition ? (
-          <section
-            className="card outcome anim-monte"
-          >
-            <span className="outcome__badge outcome__badge--small">
-              <Sparkles size={24} strokeWidth={2} />
-            </span>
-            <h2 className="outcome__title">{niveaux[currentLevel + 1]?.titre}</h2>
-            <p className="outcome__note">{niveaux[currentLevel + 1]?.sousTitre}</p>
-            {/* Fin de niveau : le moment où l'on propose l'autre jeu. */}
-            <div className="outcome__action">
-              <button type="button" onClick={handleLevelUnlock} className="bouton bouton--plein bouton--large">
-                Continuer
-              </button>
-              {suite && (
-                <button
-                  type="button"
-                  onClick={() => onSwitch(suite.id)}
-                  className="bouton bouton--large"
-                >
-                  Changer de jeu&nbsp;: «&nbsp;{suite.titre}&nbsp;»
-                </button>
-              )}
-            </div>
-          </section>
         ) : (
           <div className="fil-jeu">
             <FeedStats
-              currentLevel={Math.min(currentLevel, 3)}
+              currentLevel={currentLevel}
               levelDoneCount={levelDoneCount}
               levelTotal={levelTotal}
-              // Une publication, un décompte : la clé le remonte.
               timerKey={`${currentLevel}:${queueIdx}`}
-              // Le chrono s'arrête tant que les règles sont à l'écran.
-              timerActive={timerActive && !paused}
-              timerSecondes={niveaux[currentLevel]?.dureeSecondes ?? null}
+              timerActive={timerActive && !paused && !annonce && !toutVu}
+              timerSecondes={dureePour(currentPost, regles?.dureeSecondes)}
               onTimerComplete={handleTimerExpire}
               onRegles={onRegles}
             />
 
-
             {currentPost && (
-              <div
-                className="fil-jeu__post anim-monte"
-                key={`${currentPost.id}-${queueIdx}`}
-              >
+              <div className="fil-jeu__post anim-monte" key={`${currentPost.id}-${currentLevel}-${queueIdx}`}>
                 {currentPost.isRemediation && (
                   <p className="remediation">
                     <GraduationCap size={15} strokeWidth={2} />
-                    Entraînement ciblé — reconnaître ce biais
+                    Entraînement ciblé : reconnaître ce biais
                   </p>
                 )}
                 <PostCard
                   post={currentPost}
                   isActive
                   onAction={handleAction}
-                  disabled={actionsDisabled}
+                  disabled={actionsDisabled || annonce || toutVu}
                   selectedAction={action}
                 />
               </div>

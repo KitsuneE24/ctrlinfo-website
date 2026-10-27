@@ -2,14 +2,31 @@ import { useEffect, useState } from 'react'
 import { ArrowRight, ChevronLeft, ExternalLink, ScanSearch } from 'lucide-react'
 import CadreCagou from './CadreCagou'
 import PostAnnotated, { ListeIndices } from './PostAnnotated'
+import { lienWeb } from '../lib/lienWeb'
 
-/** Biais en tampon (magenta), sauf « Aucun… ». */
+const jour = (iso) => new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+
+// Exigée par la licence de l'article repris.
+function Licence({ post }) {
+  const url = lienWeb(post.licence?.url)
+  if (!url) return null
+  return (
+    <p className="indices__licence">
+      Titre de l’article de {post.article?.auteur}, {post.article?.editeur}, repris tel quel
+      {post.recolteLe ? ` le ${jour(post.recolteLe)}` : ''} sous licence{' '}
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        {post.licence.nom}
+      </a>
+      .
+    </p>
+  )
+}
+
 function Tampon({ biais }) {
   if (!biais || biais.startsWith('Aucun')) return null
   return <span className="tampon">{biais}</span>
 }
 
-/** Premier temps : le verdict, sur le panneau du cagou, au-dessus du post. */
 function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
   const voirIndices = aQuoiMontrer && !isCorrect
   const biais = post.biais && !post.biais.startsWith('Aucun') ? post.biais : null
@@ -27,7 +44,6 @@ function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
         onClick={(event) => event.stopPropagation()}
       >
         <CadreCagou>
-          {/* Résultat en filigrane (vert juste, rouge faux) ; le titre le dit déjà. */}
           <span
             aria-hidden="true"
             data-texte={isCorrect ? 'Bon réflexe' : 'Mauvais réflexe'}
@@ -37,7 +53,6 @@ function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
                 : 'verdict-cagou__resultat verdict-cagou__resultat--faux'
             }
           />
-          {/* Procédé utilisé : magenta. */}
           {biais && <p className="verdict-cagou__procede">{biais}</p>}
           <h2 id="verdict-titre" className="modal__title">
             {isCorrect ? 'Bien vu.' : 'À revoir.'}
@@ -49,7 +64,7 @@ function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
               <>
                 <button type="button" onClick={onDetail} className="bouton bouton--encre bouton--large">
                   <ScanSearch size={16} strokeWidth={2.2} />
-                  Voir ce qui clochait
+                  {post.isFake ? 'Voir ce qui clochait' : 'Voir pourquoi c’était fiable'}
                 </button>
                 <button type="button" onClick={onDismiss} className="bouton bouton--large">
                   Continuer
@@ -75,7 +90,6 @@ function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
   )
 }
 
-/** Second temps : « Ce qu'il fallait voir ». */
 function Indices({ post, learnMoreUrl, onRetour, onDismiss, onLearnMore }) {
   return (
     <div
@@ -105,7 +119,6 @@ function Indices({ post, learnMoreUrl, onRetour, onDismiss, onLearnMore }) {
           <PostAnnotated post={post} liste={false} />
         </div>
 
-        {/* Ordinateur : colonne de droite, qui défile seule si besoin. */}
         <div className="indices__explications">
           <section className="indices__intro">
             <h2 id="indices-titre" className="indices__titre">
@@ -132,6 +145,8 @@ function Indices({ post, learnMoreUrl, onRetour, onDismiss, onLearnMore }) {
               )}
             </section>
           )}
+
+          <Licence post={post} />
         </div>
       </div>
 
@@ -156,7 +171,6 @@ function Indices({ post, learnMoreUrl, onRetour, onDismiss, onLearnMore }) {
   )
 }
 
-/** Retour après chaque choix : verdict, puis indices si demandés. */
 export default function FeedbackModal({
   visible,
   isCorrect,
@@ -174,7 +188,6 @@ export default function FeedbackModal({
     return () => document.removeEventListener('keydown', onKey)
   }, [visible, onDismiss])
 
-  // Chaque publication repart de son verdict.
   const [dernier, setDernier] = useState(post?.id ?? null)
   if (dernier !== (post?.id ?? null)) {
     setDernier(post?.id ?? null)

@@ -1,6 +1,6 @@
 import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 
-/** Affaissement du fil, en px. */
+// px
 const MOU = 38
 
 function punaise(element, repere) {
@@ -11,7 +11,7 @@ function punaise(element, repere) {
   }
 }
 
-/** Largeur sous laquelle le tableau se lit en une colonne (accueil.css). */
+// Doit suivre le point de rupture de accueil.css.
 const UNE_COLONNE = '(max-width: 899px)'
 
 function courbe(a, b, decalage = 0) {
@@ -20,7 +20,6 @@ function courbe(a, b, decalage = 0) {
   return `M${a.x.toFixed(1)} ${a.y.toFixed(1)} Q${mx.toFixed(1)} ${my.toFixed(1)} ${b.x.toFixed(1)} ${b.y.toFixed(1)}`
 }
 
-/** `enChaine` : pièces reliées dans l'ordre de lecture, quelle que soit la largeur. */
 export function useFilRouge({ enChaine = false } = {}) {
   const tableau = useRef(null)
   const pieces = useRef(new Map())
@@ -33,7 +32,6 @@ export function useFilRouge({ enChaine = false } = {}) {
     const traces = []
 
     if (enChaine || window.matchMedia?.(UNE_COLONNE).matches) {
-      // Pièces visibles, dans l'ordre du document.
       const suite = [...pieces.current.entries()]
         .filter(([, { element }]) => element.offsetParent)
         .sort(([, a], [, b]) =>
@@ -57,7 +55,6 @@ export function useFilRouge({ enChaine = false } = {}) {
 
     for (const [id, { element, vers, pointille }] of pieces.current) {
       const cible = vers && pieces.current.get(vers)
-      // Pièce masquée : pas de fil.
       if (!cible || !element.offsetParent || !cible.element.offsetParent) continue
       traces.push({
         id,

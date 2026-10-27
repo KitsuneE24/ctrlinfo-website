@@ -6,13 +6,11 @@ import { useProgression } from '../state/useProgression'
 import { AvatarJoueur } from './AvatarPicker'
 import { NAV_BUREAU } from './navItems'
 
-/** En-tête : logo, pilule de navigation et avatar (ordinateur). */
 export default function AppHeader() {
   const { pseudo } = useProgression()
   const avatar = useAvatar()
   const { requestExit } = useExitGuard()
 
-  // Confirmation en pleine partie.
   const garder = (path) => (event) => {
     if (!requestExit(path)) event.preventDefault()
   }
@@ -23,7 +21,7 @@ export default function AppHeader() {
         <Link
           to={PATHS.home}
           onClick={garder(PATHS.home)}
-          aria-label="CTRL INFO — retour à l'accueil"
+          aria-label="CTRL INFO, retour à l'accueil"
           className="app-header__home"
         >
           <img
@@ -54,8 +52,8 @@ export default function AppHeader() {
           <NavLink
             to={PATHS.profile}
             onClick={garder(PATHS.profile)}
-            aria-label={pseudo ? `Profil de ${pseudo}` : 'Mon profil'}
-            title={pseudo || 'Mon profil'}
+            aria-label={pseudo ? `Profil de ${pseudo}` : 'Profil'}
+            title={pseudo || 'Profil'}
             className={({ isActive }) =>
               `app-header__avatar${isActive ? ' app-header__avatar--actif' : ''}`
             }

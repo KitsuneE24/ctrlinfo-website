@@ -1,0 +1,86 @@
+# Génération quotidienne (seuls les flux sous licence libre de config.json sont lus), vérification, commit puis envoi FTP/SFTP.
+
+name: Génération du contenu
+
+on:
+  schedule:
+    # 6:00 à Nouméa
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generation
+  cancel-in-progress: false
+
+jobs:
+  generer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ENVOI_PROTOCOLE: ${{ secrets.ENVOI_PROTOCOLE }}
+      ENVOI_HOTE: ${{ secrets.ENVOI_HOTE }}
+      ENVOI_UTILISATEUR: ${{ secrets.ENVOI_UTILISATEUR }}
+      ENVOI_DOSSIER: ${{ secrets.ENVOI_DOSSIER }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+
+      - run: npm run generer
+
+      - run: npm run verifier
+
+      - name: Enregistrer s'il y a du neuf
+        run: |
+          git add public/donnees
+          if git diff --cached --quiet; then
+            echo "Rien de neuf aujourd'hui."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "[Contenu] Génération du $(TZ=Pacific/Noumea date +%d/%m/%Y)"
+          git push
+
+      - name: Envoyer chez l'hébergeur
+        if: env.ENVOI_HOTE != ''
+        env:
+          LFTP_PASSWORD: ${{ secrets.ENVOI_MOT_DE_PASSE }}
+          ENVOI_CLE_HOTE: ${{ secrets.ENVOI_CLE_HOTE }}
+        run: |
+          case "$ENVOI_PROTOCOLE" in
+            sftp)
+              if [ -z "$ENVOI_CLE_HOTE" ]; then
+                echo "::error::ENVOI_CLE_HOTE manquant : la clé du serveur SFTP doit être connue (voir SPEC.md, § 6)."
+                exit 1
+              fi
+              mkdir -p ~/.ssh && chmod 700 ~/.ssh
+              printf '%s\n' "$ENVOI_CLE_HOTE" > ~/.ssh/known_hosts && chmod 600 ~/.ssh/known_hosts
+              URL="sftp://$ENVOI_HOTE"
+              REGLAGES="set sftp:auto-confirm no; set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=yes'" ;;
+            ftps|'')
+              URL="ftp://$ENVOI_HOTE"
+              REGLAGES="set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate true" ;;
+            *)
+              echo "::error::ENVOI_PROTOCOLE « $ENVOI_PROTOCOLE » refusé : sftp ou ftps seulement (le FTP simple envoie le mot de passe en clair)."
+              exit 1 ;;
+          esac
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp
+          COMMANDES=""
+          for f in contenu posts-vrais posts-faux; do
+            COMMANDES="$COMMANDES put public/donnees/$f.json -o $f.json.envoi; rm -f $f.json; mv $f.json.envoi $f.json;"
+          done
+          lftp -c "set cmd:fail-exit yes; set net:max-retries 2; set net:timeout 30; $REGLAGES;
+            open --env-password -u '$ENVOI_UTILISATEUR' '$URL';
+            cd '$ENVOI_DOSSIER';
+            $COMMANDES"
+          echo "Envoyé vers $ENVOI_HOTE:$ENVOI_DOSSIER"

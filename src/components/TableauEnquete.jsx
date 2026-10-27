@@ -1,15 +1,8 @@
 import Filaments from './ui/Filaments'
 import { useFilRouge } from '../lib/useFilRouge'
 
-/**
- * Tableau d'enquête de l'accueil. Le fil rouge est mesuré à chaque
- * redimensionnement, de punaise à punaise.
- * Ordinateur : chaque pièce vers `vers`. Téléphone : pièces reliées dans l'ordre de lecture.
- * Enfants : fonction recevant `epingler`.
- * Chaque pièce : `ref={epingler(id, { vers, pointille })}`.
- */
+// Enfants : fonction recevant `epingler` ; chaque pièce : `ref={epingler(id, { vers, pointille })}`.
 
-/** Le tracé mesuré par `useFilRouge`. */
 export function FilsRouges({ fils }) {
   return (
     <svg
@@ -26,7 +19,6 @@ export function FilsRouges({ fils }) {
   )
 }
 
-/** Le liège, le fil et les pièces. */
 export default function TableauEnquete({ children }) {
   const { tableau, epingler, fils } = useFilRouge()
 

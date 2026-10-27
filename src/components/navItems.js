@@ -1,10 +1,7 @@
 import { BookOpen, CircleUserRound, House, Newspaper, Send } from 'lucide-react'
 import { PATHS } from '../routes'
 
-/**
- * Entrées de navigation. Téléphone : barre du bas.
- * Ordinateur : pilule de l'en-tête, rangée par `ordreBureau` (sans le profil).
- */
+// `ordreBureau` : ordre dans la pilule de l'en-tête (sans le profil).
 export const TAB_ITEMS = [
   {
     id: 'home',
@@ -24,14 +21,14 @@ export const TAB_ITEMS = [
     id: 'feed',
     path: PATHS.feed,
     Icon: Newspaper,
-    label: "Fil d'actu",
+    label: "Fil d'actualité",
     ordreBureau: 2,
   },
   {
     id: 'resources',
     path: PATHS.resources,
     Icon: BookOpen,
-    label: 'Comprendre',
+    label: 'Ressources',
     ordreBureau: 4,
   },
   {
@@ -42,7 +39,6 @@ export const TAB_ITEMS = [
   },
 ]
 
-/** Entrées de la pilule de l'en-tête. */
 export const NAV_BUREAU = TAB_ITEMS.filter((item) => item.ordreBureau).sort(
   (a, b) => a.ordreBureau - b.ordreBureau
 )

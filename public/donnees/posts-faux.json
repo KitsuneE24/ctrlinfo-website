@@ -1,0 +1,3503 @@
+[
+  {
+    "sponsorise": false,
+    "reactionCount": 15635,
+    "commentCount": 1928,
+    "date": "25 octobre 2026 à 04:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "roussette-sarramea",
+    "slug": "faux-20261027-roussette-sarramea-1-bgqykb",
+    "source": "Le Fil Calédonien",
+    "sourceColor": "#0d0080",
+    "domain": "fil-caledonien.info",
+    "titre": "Urgent, partagez avant suppression : Une roussette albinos photographiée dans la vallée de Sarraméa",
+    "texte": "Article de la rédaction, publié par Le Fil Calédonien. Cette information va être retirée dans les prochaines heures. PARTAGEZ MAINTENANT 🔴🔴",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence sert à faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que quoi que ce soit sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article sans auteur ni source",
+        "explication": "« Le Fil Calédonien » publie l’article sans nom d’auteur et sans dire d’où vient l’information. Un article fiable est signé et sourcé."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Supprimé par qui ? J’ai cherché, aucun média n’en parle.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "Je n’en ai jamais vu en vrai.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 33
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 14904,
+    "commentCount": 624,
+    "date": "26 octobre 2026 à 03:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-recifs-especes",
+    "slug": "faux-20261027-fait-recifs-especes-1-jr2doy",
+    "source": "Le Quotidien du Pacifique",
+    "sourceColor": "#1800ad",
+    "domain": "quotidien-pacifique.info",
+    "titre": "Un haut responsable brise le silence : Les récifs coralliens couvrent environ un quart des océans, mais abritent moins de 1 % des espèces marines",
+    "texte": "Article de la rédaction, publié par Le Quotidien du Pacifique. Un haut responsable, qui veut rester anonyme, nous l'a confirmé : le dossier complet est bien plus lourd !",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Ce post déforme un fait réel : Les récifs coralliens couvrent moins de 1 % des océans, mais abritent environ un quart des espèces marines. La source est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "La source anonyme n’existe que dans ce post : aucun nom, aucun document. En réalité : Les récifs coralliens couvrent moins de 1 % des océans, mais abritent environ un quart des espèces marines.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article sans auteur ni source",
+        "explication": "« Le Quotidien du Pacifique » publie l’article sans nom d’auteur et sans dire d’où vient l’information. Un article fiable est signé et sourcé."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : Les récifs coralliens couvrent moins de 1 % des océans, mais abritent environ un quart des espèces marines."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Le lagon, on ne s’en lasse pas 🐠",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/R%C3%A9cif_corallien",
+    "id": 34
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 38774,
+    "commentCount": 1411,
+    "date": "27 octobre 2026 à 11:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-niaouli",
+    "image": "/images/faits/niaouli.jpg",
+    "imageAlt": "Des niaoulis à l’écorce claire au bord d’une mare, à Poum",
+    "credit": {
+      "auteur": "gérard",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Les_niaoulis.jpg"
+    },
+    "slug": "faux-20261027-fait-niaouli-1-vlq8f9",
+    "source": "Jojo_Vérité 🔥",
+    "sourceColor": "#dc2626",
+    "domain": "@jojo_verite · compte créé hier",
+    "titre": "‼️ DANGER POUR VOS ENFANTS : LE NIAOULI EST UN PALMIER, DE LA MÊME FAMILLE QUE LE COCOTIER",
+    "texte": "PROTÉGEZ VOS PROCHES, LES CONSÉQUENCES POURRAIENT ÊTRE DRAMATIQUES !! AVANT QUE ÇA SOIT SUPPRIMÉ !!",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Appel à la peur",
+    "explication": "Ce post déforme un fait réel : Le niaouli est un arbre de la même famille que l’eucalyptus. Une menace vague est brandie, sans jamais dire laquelle : la peur circule plus vite que la curiosité. Le compte crie : nom alarmiste, majuscules, compte tout récent.",
+    "analyseFaux": "Aucune conséquence n’est décrite : l’inquiétude remplace l’information. En réalité : Le niaouli est un arbre de la même famille que l’eucalyptus.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Flame",
+        "libelle": "Une menace sans contenu",
+        "explication": "Aucune conséquence précise n’est décrite : l’inquiétude remplace l’information."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "Jojo_Vérité 🔥 : nom alarmiste, majuscules, @jojo_verite · compte créé hier. Personne d’identifiable derrière."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : Le niaouli est un arbre de la même famille que l’eucalyptus."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Je ne regarderai plus les arbres pareil.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « appel à la peur ».",
+    "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Niaouli",
+    "id": 35
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 40030,
+    "commentCount": 1494,
+    "date": "25 octobre 2026 à 05:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "corail-maitre",
+    "slug": "faux-20261027-corail-maitre-1-el21ry",
+    "source": "Jojo_Vérité 🔥",
+    "sourceColor": "#dc2626",
+    "domain": "@jojo_verite · compte créé hier",
+    "titre": "‼️ +312 % !!! UNE FLORAISON RARE DE CORAIL OBSERVÉE PRÈS DE L’ÎLOT MAÎTRE",
+    "texte": "+312 % EN UN AN, UN RECORD QUE PERSONNE N'OSE PUBLIER ! AVANT QUE ÇA SOIT SUPPRIMÉ !!",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Manipulation statistique",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Le chiffre ne dit ni de quoi, ni par rapport à quand : c’est un argument déguisé en donnée. Le compte crie : nom alarmiste, majuscules, compte tout récent.",
+    "analyseFaux": "Ce chiffre n’a ni source ni point de comparaison.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "ChartColumn",
+        "libelle": "Un chiffre sans base",
+        "explication": "De quoi, par rapport à quand, mesuré par qui ? Le chiffre n’a aucune source."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "Jojo_Vérité 🔥 : nom alarmiste, majuscules, @jojo_verite · compte créé hier. Personne d’identifiable derrière."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "Le lagon, on ne s’en lasse pas 🐠",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Aucune source pour ce chiffre, et aucun média n’en parle.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "C’est énorme, faut que ça se sache",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « manipulation statistique ».",
+    "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 36
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 39562,
+    "commentCount": 160,
+    "date": "25 octobre 2026 à 03:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-cagou-oeuf",
+    "image": "/images/faits/cagou-oeuf.jpg",
+    "imageAlt": "Un œuf de cagou, beige tacheté de brun",
+    "credit": {
+      "auteur": "Roger Culos",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Rhynochetos_jubatus_MHNT.ZOO.2010.11.2.19.jpg"
+    },
+    "slug": "faux-20261027-fait-cagou-oeuf-1-bmghzr",
+    "source": "Jojo_Vérité 🔥",
+    "sourceColor": "#dc2626",
+    "domain": "@jojo_verite · compte créé hier",
+    "titre": "🚨🚨🚨 UN EXPERT PRÉVIENT : LE CAGOU POND UNE DIZAINE D’ŒUFS À CHAQUE COUVÉE, ET CE N'EST QUE LE DÉBUT",
+    "texte": "GÉRALD MOURIN, EXPERT RECONNU SUR LES RÉSEAUX, EST FORMEL : « TOUT VA S’AGGRAVER ». FAITES TOURNER 🔴",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Faux expert",
+    "explication": "Ce post déforme un fait réel : Le cagou ne pond en général qu’un seul œuf à la fois. L’« expert » n’a ni institution ni spécialité : son titre sert à donner du poids à un avis. Le compte crie : nom alarmiste, majuscules, compte tout récent.",
+    "analyseFaux": "Rien ne dit que cet « expert » connaisse le sujet, ni même qu’il existe. En réalité : Le cagou ne pond en général qu’un seul œuf à la fois.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Un « expert » de quoi ?",
+        "explication": "Ni institution, ni spécialité, ni publication : rien ne dit qu’il connaît le sujet."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "Jojo_Vérité 🔥 : nom alarmiste, majuscules, @jojo_verite · compte créé hier. Personne d’identifiable derrière."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : Le cagou ne pond en général qu’un seul œuf à la fois."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Enfin un expert qui dit les choses 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Il est expert en quoi exactement ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "Nos bêtes sont vraiment uniques 😍",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « faux expert ».",
+    "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Cagou_hupp%C3%A9",
+    "id": 37
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 23577,
+    "commentCount": 1436,
+    "date": "25 octobre 2026 à 11:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "marche-la-foa",
+    "slug": "faux-20261027-marche-la-foa-1-18sg80b",
+    "source": "ALERTE ROUGE NC 🔥",
+    "sourceColor": "#991b1b",
+    "domain": "page créée hier",
+    "titre": "‼️ ON VOUS L'AVAIT DIT : UN MARCHÉ NOCTURNE S’INSTALLE CHAQUE MERCREDI SOIR À LA FOA",
+    "texte": "CEUX QUI NOUS TRAITAIENT DE COMPLOTISTES PEUVENT S’EXCUSER ! AVANT QUE ÇA SOIT SUPPRIMÉ !!",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Biais de confirmation",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Une conclusion générale est tirée d’un seul fait : elle flatte ce que le lecteur croit déjà. Le compte crie : nom alarmiste, majuscules, compte tout récent.",
+    "analyseFaux": "Un seul fait, même vrai, ne prouve pas une « tendance ».",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Filter",
+        "libelle": "Une conclusion plaquée",
+        "explication": "Un fait isolé ne prouve pas une tendance. La conclusion flatte ce qu’on pense déjà."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "ALERTE ROUGE NC 🔥 : nom alarmiste, majuscules, page créée hier. Personne d’identifiable derrière."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "Quelle tendance ? Aucun média ne parle même de ce fait.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Quelqu’un sait à quelle heure ça commence ?",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Je le disais depuis le début ! 🙏",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
+    "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 38
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 5179,
+    "commentCount": 1703,
+    "date": "27 octobre 2026 à 06:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-saison-cyclonique",
+    "slug": "faux-20261027-fait-saison-cyclonique-1-hdbh0z",
+    "source": "LA VÉRITÉ CACHÉE",
+    "sourceColor": "#b91c1c",
+    "domain": "page créée il y a 2 semaines",
+    "titre": "🚨🚨🚨 COMME PAR HASARD : EN NOUVELLE-CALÉDONIE, LA SAISON CYCLONIQUE VA DE JUIN À SEPTEMBRE",
+    "texte": "COMME PAR HASARD, JUSTE APRÈS LES DÉCISIONS DU MOIS DERNIER… OUVREZ LES YEUX ! FAITES TOURNER 🔴",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Fausse corrélation",
+    "explication": "Ce post déforme un fait réel : En Nouvelle-Calédonie, la saison cyclonique va de novembre à avril. Un lien de cause est insinué sans être démontré : deux faits proches dans le temps ne sont pas liés pour autant. Le compte crie : nom alarmiste, majuscules, compte tout récent.",
+    "analyseFaux": "Aucun lien avec des « décisions du mois dernier » n’est établi, ni même expliqué. En réalité : En Nouvelle-Calédonie, la saison cyclonique va de novembre à avril.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Brain",
+        "libelle": "Un lien insinué",
+        "explication": "La phrase suggère une cause sans la démontrer, ni dire de quelles décisions il s’agit."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "LA VÉRITÉ CACHÉE : nom alarmiste, majuscules, page créée il y a 2 semaines. Personne d’identifiable derrière."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Météo-France Nouvelle-Calédonie dit autre chose : En Nouvelle-Calédonie, la saison cyclonique va de novembre à avril."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "Quelles décisions ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Ici ça souffle déjà fort depuis hier.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "J’ai vérifié sur Météo-France Nouvelle-Calédonie : ce n’est pas ça.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fausse corrélation ».",
+    "warning": "Le procédé employé ici s'appelle « fausse corrélation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.meteo.nc/",
+    "id": 39
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 27693,
+    "commentCount": 1900,
+    "date": "25 octobre 2026 à 22:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "dessin-lifou",
+    "image": "/images/scenarios/dessin-lifou.jpg",
+    "imageAlt": "Des crayons de couleur en bois alignés",
+    "credit": {
+      "auteur": "Pinakpani",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Colored_wood_pencils_01.jpg"
+    },
+    "slug": "faux-20261027-dessin-lifou-1-1tscjqq",
+    "source": "Ninou ALERTE",
+    "sourceColor": "#b91c1c",
+    "domain": "@ninou_alerte · compte créé il y a 4 jours",
+    "titre": "⚠️🔴 C'EST CONFIRMÉ !!! UN COLLÉGIEN DE LIFOU REMPORTE UN CONCOURS DE DESSIN EN MÉTROPOLE",
+    "texte": "100 % CONFIRMÉ PAR TOUTES LES SOURCES ! AVANT QUE ÇA SOIT SUPPRIMÉ !!",
+    "isFake": true,
+    "level": 1,
+    "correctAction": "report",
+    "biais": "Certitude ajoutée",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Une certitude est affichée sans source : « confirmé » rassure, mais personne n’est nommé. Le compte crie : nom alarmiste, majuscules, compte tout récent. La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.",
+    "analyseFaux": "La « confirmation » n’a pas de source : aucune n’est nommée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Confirmé par qui ?",
+        "explication": "Aucune source n’est nommée. « Plusieurs sources », ce n’est personne."
+      },
+      {
+        "ordre": 1,
+        "nature": "ALERTE",
+        "cible": "SOURCE",
+        "picto": "Megaphone",
+        "libelle": "Un compte qui crie",
+        "explication": "Ninou ALERTE : nom alarmiste, majuscules, @ninou_alerte · compte créé il y a 4 jours. Personne d’identifiable derrière."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Ça fait plaisir de voir ça.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Confirmé par qui ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
+        "texte": "Confirmé par qui ? Aucun média ne donne cette info.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Ah ben si c’est confirmé 👍",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « certitude ajoutée ».",
+    "warning": "Le procédé employé ici s'appelle « certitude ajoutée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 40
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 6689,
+    "commentCount": 1012,
+    "date": "26 octobre 2026 à 19:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-phare-amedee",
+    "slug": "faux-20261027-fait-phare-amedee-2-bgqykb",
+    "source": "Le Quotidien du Pacifique",
+    "sourceColor": "#1800ad",
+    "domain": "quotidien-pacifique.info",
+    "titre": "À partager vite : Le phare Amédée, haut de 56 mètres, a été construit en bois de kaori sur place",
+    "texte": "Article de la rédaction, publié par Le Quotidien du Pacifique. Faites tourner avant que ce soit supprimé.",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Ce post déforme un fait réel : Le phare Amédée, haut de 56 mètres, est en métal : il a été fabriqué en France puis monté sur l’îlot. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence sert à faire partager sans vérifier. En réalité : Le phare Amédée, haut de 56 mètres, est en métal : il a été fabriqué en France puis monté sur l’îlot.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que quoi que ce soit sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article sans auteur ni source",
+        "explication": "« Le Quotidien du Pacifique » publie l’article sans nom d’auteur et sans dire d’où vient l’information. Un article fiable est signé et sourcé."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : Le phare Amédée, haut de 56 mètres, est en métal : il a été fabriqué en France puis monté sur l’îlot."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "On oublie vite tout ça.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Phare_Am%C3%A9d%C3%A9e",
+    "id": 49
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 17353,
+    "commentCount": 1101,
+    "date": "26 octobre 2026 à 12:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-communes",
+    "slug": "faux-20261027-fait-communes-2-jr2doy",
+    "source": "Le Fil Calédonien",
+    "sourceColor": "#0d0080",
+    "domain": "fil-caledonien.info",
+    "titre": "Révélations d'un haut responsable : La Nouvelle-Calédonie compte 53 communes",
+    "texte": "Article de la rédaction, publié par Le Fil Calédonien. Un responsable anonyme affirme que tout n'a pas été dit.",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Ce post déforme un fait réel : La Nouvelle-Calédonie compte 33 communes. La source est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "La source anonyme n’existe que dans ce post : aucun nom, aucun document. En réalité : La Nouvelle-Calédonie compte 33 communes.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article sans auteur ni source",
+        "explication": "« Le Fil Calédonien » publie l’article sans nom d’auteur et sans dire d’où vient l’information. Un article fiable est signé et sourcé."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : La Nouvelle-Calédonie compte 33 communes."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Ça donne envie de faire le tour de la Grande Terre.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Liste_des_communes_de_la_Nouvelle-Cal%C3%A9donie",
+    "id": 50
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 32004,
+    "commentCount": 1975,
+    "date": "27 octobre 2026 à 18:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "robot-kone",
+    "slug": "faux-20261027-robot-kone-2-vlq8f9",
+    "source": "Nouméa Matin",
+    "sourceColor": "#0d0080",
+    "domain": "noumea-matin.info",
+    "titre": "Ce que ça va changer pour votre famille : Des lycéens de Koné construisent un robot qui trie les déchets",
+    "texte": "Article de la rédaction, publié par Nouméa Matin. Personne ne vous dit ce qui va suivre. Préparez-vous.",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Appel à la peur",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Une menace vague est brandie, sans jamais dire laquelle : la peur circule plus vite que la curiosité. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "Aucune conséquence n’est décrite : l’inquiétude remplace l’information.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Flame",
+        "libelle": "Une menace sans contenu",
+        "explication": "Aucune conséquence précise n’est décrite : l’inquiétude remplace l’information."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article sans auteur ni source",
+        "explication": "« Nouméa Matin » publie l’article sans nom d’auteur et sans dire d’où vient l’information. Un article fiable est signé et sourcé."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "Quel danger ? Aucun média sérieux n’en parle.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Il faudrait plus de projets comme ça.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "J’ai peur pour mes enfants… je préviens la famille.",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « appel à la peur ».",
+    "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 51
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 26861,
+    "commentCount": 1909,
+    "date": "25 octobre 2026 à 16:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-mont-panie",
+    "image": "/images/faits/mont-panie.jpg",
+    "imageAlt": "Un kaori des montagnes sur les pentes du mont Panié",
+    "credit": {
+      "auteur": "Vanessa Hequet (Pl@ntNet)",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Agathis_montana_de_Laub._2.jpg"
+    },
+    "slug": "faux-20261027-fait-mont-panie-2-el21ry",
+    "source": "Vigilance Citoyenne",
+    "sourceColor": "#991b1b",
+    "domain": "page militante",
+    "titre": "Réveillez-vous. +312 % : Le mont Panié, dans le nord-est de la Grande Terre, culmine à 2 629 mètres",
+    "texte": "Les chiffres parlent d'eux-mêmes : +312 % sur la période. #VéritéNC",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Manipulation statistique",
+    "explication": "Ce post déforme un fait réel : Le mont Panié, dans le nord-est de la Grande Terre, est le point culminant de la Nouvelle-Calédonie, à 1 629 mètres. Le chiffre ne dit ni de quoi, ni par rapport à quand : c’est un argument déguisé en donnée. Le compte défend une cause, sans auteur identifiable.",
+    "analyseFaux": "Ce chiffre n’a ni source ni point de comparaison. En réalité : Le mont Panié, dans le nord-est de la Grande Terre, est le point culminant de la Nouvelle-Calédonie, à 1 629 mètres.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "ChartColumn",
+        "libelle": "Un chiffre sans base",
+        "explication": "De quoi, par rapport à quand, mesuré par qui ? Le chiffre n’a aucune source."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Vigilance Citoyenne ne dit pas qui écrit, ni d’où vient l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : Le mont Panié, dans le nord-est de la Grande Terre, est le point culminant de la Nouvelle-Calédonie, à 1 629 mètres."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "Il faudrait apprendre ça à l’école.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "C’est énorme, faut que ça se sache",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « manipulation statistique ».",
+    "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Mont_Pani%C3%A9",
+    "id": 52
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 16857,
+    "commentCount": 348,
+    "date": "27 octobre 2026 à 13:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "livre-koumac",
+    "image": "/images/scenarios/livre-koumac.jpg",
+    "imageAlt": "Des étagères de livres pour enfants dans une bibliothèque",
+    "credit": {
+      "auteur": "Zipig",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Children%27s_books,_Orkney_Library,_Kirkwall.jpg"
+    },
+    "slug": "faux-20261027-livre-koumac-2-bmghzr",
+    "source": "Patou Nouméa",
+    "sourceColor": "#991b1b",
+    "domain": "@patou.noumea · « je dis ce qu’on vous cache »",
+    "titre": "Réveillez-vous. Un salon du livre jeunesse annoncé à Koumac pour les vacances : « ce n'est qu'un début », selon un expert",
+    "texte": "Pour Gérald Mourin, expert indépendant, « tout cela était prévisible et va s’aggraver ». #OnNousMent #RéveilNC",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Faux expert",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. L’« expert » n’a ni institution ni spécialité : son titre sert à donner du poids à un avis. Le compte défend une cause, sans auteur identifiable. La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.",
+    "analyseFaux": "Rien ne dit que cet « expert » connaisse le sujet, ni même qu’il existe.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Un « expert » de quoi ?",
+        "explication": "Ni institution, ni spécialité, ni publication : rien ne dit qu’il connaît le sujet."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Patou Nouméa ne dit pas qui écrit, ni d’où vient l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Quelle fierté pour leurs parents.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "Belle photo !",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "J’ai cherché Gérald Mourin : aucune publication, aucune institution.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « faux expert ».",
+    "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 53
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 31947,
+    "commentCount": 932,
+    "date": "27 octobre 2026 à 04:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "dauphins-prony",
+    "slug": "faux-20261027-dauphins-prony-2-18sg80b",
+    "source": "Vigilance Citoyenne",
+    "sourceColor": "#991b1b",
+    "domain": "page militante",
+    "titre": "Réveillez-vous. Un banc d’une centaine de dauphins filmé dans la baie de Prony ce week-end : la preuve de ce que beaucoup pensaient",
+    "texte": "Ceux qui alertaient depuis des mois avaient raison. Ouvrez les yeux 👁️",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Biais de confirmation",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Une conclusion générale est tirée d’un seul fait : elle flatte ce que le lecteur croit déjà. Le compte défend une cause, sans auteur identifiable.",
+    "analyseFaux": "Un seul fait, même vrai, ne prouve pas une « tendance ».",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Filter",
+        "libelle": "Une conclusion plaquée",
+        "explication": "Un fait isolé ne prouve pas une tendance. La conclusion flatte ce qu’on pense déjà."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Vigilance Citoyenne ne dit pas qui écrit, ni d’où vient l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "Je le disais depuis le début ! 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Quelle tendance ? Aucun média ne parle même de ce fait.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Un seul cas, ça fait une tendance ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Ça donne envie d’aller à l’eau ce week-end.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
+    "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 54
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 10255,
+    "commentCount": 432,
+    "date": "26 octobre 2026 à 02:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "orchestre-nz",
+    "image": "/images/scenarios/orchestre-nz.jpg",
+    "imageAlt": "Un violon et son archet",
+    "credit": {
+      "auteur": "Areafin tawfiq",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Violin_%26_bow.jpg"
+    },
+    "slug": "faux-20261027-orchestre-nz-2-hdbh0z",
+    "source": "Le Vrai Dossier",
+    "sourceColor": "#b91c1c",
+    "domain": "page militante",
+    "titre": "Encore une fois : un orchestre de jeunes de Nouméa invité à jouer en Nouvelle-Zélande : pas un hasard",
+    "texte": "Ce n’est pas un hasard si ça arrive juste après les décisions du mois dernier. #OnNousMent #RéveilNC",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Fausse corrélation",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Un lien de cause est insinué sans être démontré : deux faits proches dans le temps ne sont pas liés pour autant. Le compte défend une cause, sans auteur identifiable. La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.",
+    "analyseFaux": "Aucun lien avec des « décisions du mois dernier » n’est établi, ni même expliqué.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Brain",
+        "libelle": "Un lien insinué",
+        "explication": "La phrase suggère une cause sans la démontrer, ni dire de quelles décisions il s’agit."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Le Vrai Dossier ne dit pas qui écrit, ni d’où vient l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Quelles décisions ? Aucun média ne fait ce lien, ni ne parle de ce fait.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Bravo les jeunes 👏",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Quelle image…",
+        "posture": "PHOTO"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fausse corrélation ».",
+    "warning": "Le procédé employé ici s'appelle « fausse corrélation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 55
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 9951,
+    "commentCount": 540,
+    "date": "27 octobre 2026 à 00:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "surf-bourail",
+    "image": "/images/scenarios/surf-bourail.jpg",
+    "imageAlt": "La Roche Percée de Bourail, au bord de la plage",
+    "credit": {
+      "auteur": "Biglolo",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Roche_perc%C3%A9e_de_Bourail.jpg"
+    },
+    "slug": "faux-20261027-surf-bourail-2-1tscjqq",
+    "source": "Chiffres & Vérité",
+    "sourceColor": "#ea580c",
+    "domain": "page militante",
+    "titre": "On ne vous le dira pas ailleurs : C'est confirmé : Une école de surf pour enfants ouvre à la Roche Percée",
+    "texte": "L'information est confirmée par plusieurs sources. Ouvrez les yeux 👁️",
+    "isFake": true,
+    "level": 2,
+    "correctAction": "report",
+    "biais": "Certitude ajoutée",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Une certitude est affichée sans source : « confirmé » rassure, mais personne n’est nommé. Le compte défend une cause, sans auteur identifiable. La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.",
+    "analyseFaux": "La « confirmation » n’a pas de source : aucune n’est nommée.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "Scale",
+        "libelle": "Confirmé par qui ?",
+        "explication": "Aucune source n’est nommée. « Plusieurs sources », ce n’est personne."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Un compte militant",
+        "explication": "Chiffres & Vérité ne dit pas qui écrit, ni d’où vient l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Confirmé par qui ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#c2410c",
+        "texte": "Quelle image…",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Quelqu’un sait à quelle heure ça commence ?",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Confirmé par qui ? Aucun média ne donne cette info.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « certitude ajoutée ».",
+    "warning": "Le procédé employé ici s'appelle « certitude ajoutée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 56
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 34130,
+    "commentCount": 1300,
+    "date": "27 octobre 2024 à 19:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fleur-panie",
+    "slug": "faux-20261027-fleur-panie-3-a9cv50",
+    "source": "Le Quotidien du Pacifique",
+    "sourceColor": "#1800ad",
+    "domain": "quotidien-pacifique.info",
+    "titre": "Des randonneurs repèrent une fleur jamais décrite sur les pentes du mont Panié",
+    "texte": "Article de la rédaction, publié par Le Quotidien du Pacifique. À voir cette semaine.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Information recyclée",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Une vieille histoire est partagée comme si elle venait d’arriver : seule la date la trahit. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "La date du post a plus de deux ans : ce n’est pas une nouvelle du jour.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date qui ne colle pas",
+        "explication": "Le post date de plus de deux ans, mais il est partagé comme une nouvelle du jour."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article sans auteur ni source",
+        "explication": "« Le Quotidien du Pacifique » publie l’article sans nom d’auteur et sans dire d’où vient l’information. Un article fiable est signé et sourcé."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Ça ne date pas un peu, ça ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Incroyable, je ne savais pas que c’était cette semaine 😮",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Il faudrait apprendre ça à l’école.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Regardez la date : ça a plus de deux ans.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « information recyclée ».",
+    "warning": "Le procédé employé ici s'appelle « information recyclée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 65
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 11021,
+    "commentCount": 561,
+    "date": "25 octobre 2026 à 03:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-population",
+    "slug": "faux-20261027-fait-population-3-bgqykb",
+    "source": "Le Quotidien du Pacifique",
+    "sourceColor": "#1800ad",
+    "domain": "quotidien-pacifique.info",
+    "titre": "Avant que ça disparaisse : Le recensement de 2019 a compté environ 700 000 habitants en Nouvelle-Calédonie",
+    "texte": "Article de la rédaction, publié par Le Quotidien du Pacifique. L'article risque d'être retiré, on vous le met ici.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Ce post déforme un fait réel : Le recensement de 2019 a compté environ 270 000 habitants en Nouvelle-Calédonie. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence sert à faire partager sans vérifier. En réalité : Le recensement de 2019 a compté environ 270 000 habitants en Nouvelle-Calédonie.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que quoi que ce soit sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article sans auteur ni source",
+        "explication": "« Le Quotidien du Pacifique » publie l’article sans nom d’auteur et sans dire d’où vient l’information. Un article fiable est signé et sourcé."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "ISEE dit autre chose : Le recensement de 2019 a compté environ 270 000 habitants en Nouvelle-Calédonie."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Pourquoi ce serait supprimé ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Vrai de vrai, tout le monde le dit.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "J’ai appris ça au collège je crois.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.isee.nc/",
+    "id": 66
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 22579,
+    "commentCount": 1292,
+    "date": "26 octobre 2026 à 18:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "pirogues-ouvea",
+    "image": "/images/scenarios/pirogues-ouvea.jpg",
+    "imageAlt": "Deux pirogues à balancier blanches posées sur l’herbe près d’un port",
+    "credit": {
+      "auteur": "Calistemon",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Outrigger_canoes_at_TCYC_Rockingham,_August_2019.jpg"
+    },
+    "slug": "faux-20261027-pirogues-ouvea-3-1mxreyd",
+    "source": "Nouméa Matin",
+    "sourceColor": "#0d0080",
+    "domain": "noumea-matin.info",
+    "titre": "Une course de pirogues réunit soixante équipages à Ouvéa",
+    "texte": "Article de la rédaction, publié par Nouméa Matin. Une quinzaine d’équipages se sont affrontés au large de Lifou.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Détail modifié",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Le titre et le texte se contredisent : un chiffre, un lieu ou un jour a changé en route. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier. La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.",
+    "analyseFaux": "Le texte ne dit pas la même chose que le titre : au moins l’un des deux est faux.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Search",
+        "libelle": "Un détail qui change",
+        "explication": "Relisez le titre puis le texte : un chiffre, un lieu ou un jour ne correspond pas."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article sans auteur ni source",
+        "explication": "« Nouméa Matin » publie l’article sans nom d’auteur et sans dire d’où vient l’information. Un article fiable est signé et sourcé."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Quelqu’un sait à quelle heure ça commence ?",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Le titre et le texte ne racontent pas la même chose.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Aurélie",
+        "couleur": "#14663f",
+        "texte": "Vrai de vrai, tout le monde le dit.",
+        "posture": "CONTRE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « détail modifié ».",
+    "warning": "Le procédé employé ici s'appelle « détail modifié ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 67
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 565,
+    "commentCount": 587,
+    "date": "25 octobre 2026 à 20:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-distance-australie",
+    "image": "/images/faits/distance-australie.jpg",
+    "imageAlt": "La Nouvelle-Calédonie et l’Australie vues en image satellite",
+    "credit": {
+      "auteur": "NASA (World Wind)",
+      "licence": "domaine public",
+      "licenceUrl": "",
+      "page": "https://commons.wikimedia.org/wiki/File:New_Caledonia_2.jpg"
+    },
+    "slug": "faux-20261027-fait-distance-australie-3-jr2doy",
+    "source": "Le Fil Calédonien",
+    "sourceColor": "#0d0080",
+    "domain": "fil-caledonien.info",
+    "titre": "Nouméa est à environ 300 kilomètres de la côte est de l’Australie : un responsable se confie",
+    "texte": "Article de la rédaction, publié par Le Fil Calédonien. Un responsable, qui a souhaité garder l'anonymat, évoque d'autres éléments.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Ce post déforme un fait réel : Nouméa est à environ 1 500 kilomètres de la côte est de l’Australie. La source est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "La source anonyme n’existe que dans ce post : aucun nom, aucun document. En réalité : Nouméa est à environ 1 500 kilomètres de la côte est de l’Australie.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article sans auteur ni source",
+        "explication": "« Le Fil Calédonien » publie l’article sans nom d’auteur et sans dire d’où vient l’information. Un article fiable est signé et sourcé."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : Nouméa est à environ 1 500 kilomètres de la côte est de l’Australie."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Ça donne envie de faire le tour de la Grande Terre.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "C’est qui ce responsable ? Il a un nom ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Nouvelle-Cal%C3%A9donie",
+    "id": 68
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 2810,
+    "commentCount": 1364,
+    "date": "25 octobre 2026 à 23:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-provinces",
+    "image": "/images/faits/provinces.png",
+    "imageAlt": "Carte des provinces et des communes de Nouvelle-Calédonie",
+    "credit": {
+      "auteur": "Dvtrano et Omondi",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Communes_de_Nouvelle-Cal%C3%A9donie.png"
+    },
+    "slug": "faux-20261027-fait-provinces-3-vlq8f9",
+    "source": "Le Quotidien du Pacifique",
+    "sourceColor": "#1800ad",
+    "domain": "quotidien-pacifique.info",
+    "titre": "La Nouvelle-Calédonie compte quatre provinces : Sud, Nord, Ouest et îles Loyauté : faut-il s'inquiéter ?",
+    "texte": "Article de la rédaction, publié par Le Quotidien du Pacifique. Les conséquences pour les familles pourraient être lourdes.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Appel à la peur",
+    "explication": "Ce post déforme un fait réel : La Nouvelle-Calédonie compte trois provinces : Sud, Nord et îles Loyauté. Une menace vague est brandie, sans jamais dire laquelle : la peur circule plus vite que la curiosité. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "Aucune conséquence n’est décrite : l’inquiétude remplace l’information. En réalité : La Nouvelle-Calédonie compte trois provinces : Sud, Nord et îles Loyauté.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Flame",
+        "libelle": "Une menace sans contenu",
+        "explication": "Aucune conséquence précise n’est décrite : l’inquiétude remplace l’information."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un article sans auteur ni source",
+        "explication": "« Le Quotidien du Pacifique » publie l’article sans nom d’auteur et sans dire d’où vient l’information. Un article fiable est signé et sourcé."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : La Nouvelle-Calédonie compte trois provinces : Sud, Nord et îles Loyauté."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "Quelle image…",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "J’ai peur pour mes enfants… je préviens la famille.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "J’ai appris ça au collège je crois.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « appel à la peur ».",
+    "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Provinces_de_la_Nouvelle-Cal%C3%A9donie",
+    "id": 69
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 37986,
+    "commentCount": 282,
+    "date": "27 octobre 2026 à 02:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "food-truck",
+    "image": "/images/scenarios/food-truck.jpg",
+    "imageAlt": "Un food-truck garé dans la rue",
+    "credit": {
+      "auteur": "Kurtkaiser",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "page": "https://commons.wikimedia.org/wiki/File:Austin_Texas_food_truck_3.jpg"
+    },
+    "slug": "faux-20261027-food-truck-3-el21ry",
+    "source": "Nouméa Décrypte",
+    "sourceColor": "#57534e",
+    "domain": "page d’actualité",
+    "titre": "Exclu : un food-truck de bougna fait sensation sur le front de mer de Nouméa : un chiffre qui interroge",
+    "texte": "Selon les chiffres disponibles, la hausse atteindrait 312 %. Retenez bien ça.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Manipulation statistique",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Le chiffre ne dit ni de quoi, ni par rapport à quand : c’est un argument déguisé en donnée. Le compte a l’air bien informé, sans journaliste ni source. La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.",
+    "analyseFaux": "Ce chiffre n’a ni source ni point de comparaison.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "ChartColumn",
+        "libelle": "Un chiffre sans base",
+        "explication": "De quoi, par rapport à quand, mesuré par qui ? Le chiffre n’a aucune source."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un compte qui se dit bien informé",
+        "explication": "Nouméa Décrypte se présente comme une source fiable, sans jamais dire d’où vient l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Ce chiffre sort d’où ? 🤔",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
+        "texte": "C’est énorme, faut que ça se sache",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Aucune source pour ce chiffre, et aucun média n’en parle.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « manipulation statistique ».",
+    "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 70
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 31005,
+    "commentCount": 1811,
+    "date": "25 octobre 2026 à 21:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "chat-conteneur",
+    "slug": "faux-20261027-chat-conteneur-3-bmghzr",
+    "source": "Fabrice L.",
+    "sourceColor": "#c2410c",
+    "domain": "@fabrice.l · « toujours bien informé »",
+    "titre": "Je vous le dis avant tout le monde : un chat retrouvé sain et sauf dans un conteneur arrivé au port de Nouméa : l'analyse d'un expert",
+    "texte": "Gérald Mourin, consultant, estime que « la situation devrait s’aggraver ». Retenez bien ça.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Faux expert",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. L’« expert » n’a ni institution ni spécialité : son titre sert à donner du poids à un avis. Le compte a l’air bien informé, sans journaliste ni source.",
+    "analyseFaux": "Rien ne dit que cet « expert » connaisse le sujet, ni même qu’il existe.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "VERIFICATION",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Un « expert » de quoi ?",
+        "explication": "Ni institution, ni spécialité, ni publication : rien ne dit qu’il connaît le sujet."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un compte qui se dit bien informé",
+        "explication": "Fabrice L. se présente comme une source fiable, sans jamais dire d’où vient l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Introuvable ailleurs",
+        "explication": "Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "Enfin un expert qui dit les choses 👍",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Pas sûr que ça change grand-chose…",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Il est expert en quoi exactement ?",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « faux expert ».",
+    "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 71
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 13401,
+    "commentCount": 296,
+    "date": "27 octobre 2026 à 07:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-cook-1774",
+    "slug": "faux-20261027-fait-cook-1774-3-18sg80b",
+    "source": "Info Directe NC",
+    "sourceColor": "#c2410c",
+    "domain": "page d’actualité",
+    "titre": "🧵 Info : c’est en 1874 que le navigateur James Cook aperçoit la Grande Terre et la nomme New Caledonia, comme on pouvait s'y attendre",
+    "texte": "Un fait qui confirme ce que beaucoup pressentaient. Vous verrez.",
+    "isFake": true,
+    "level": 3,
+    "correctAction": "report",
+    "biais": "Biais de confirmation",
+    "explication": "Ce post déforme un fait réel : C’est en 1774 que le navigateur James Cook aperçoit la Grande Terre et la nomme New Caledonia. Une conclusion générale est tirée d’un seul fait : elle flatte ce que le lecteur croit déjà. Le compte a l’air bien informé, sans journaliste ni source.",
+    "analyseFaux": "Un seul fait, même vrai, ne prouve pas une « tendance ». En réalité : C’est en 1774 que le navigateur James Cook aperçoit la Grande Terre et la nomme New Caledonia.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Filter",
+        "libelle": "Une conclusion plaquée",
+        "explication": "Un fait isolé ne prouve pas une tendance. La conclusion flatte ce qu’on pense déjà."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Newspaper",
+        "libelle": "Un compte qui se dit bien informé",
+        "explication": "Info Directe NC se présente comme une source fiable, sans jamais dire d’où vient l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : C’est en 1774 que le navigateur James Cook aperçoit la Grande Terre et la nomme New Caledonia."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Mon cousin me l’a dit aussi.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "On oublie vite tout ça.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Je le disais depuis le début ! 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Aurélie",
+        "couleur": "#14663f",
+        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
+        "posture": "VERIFIE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
+    "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Histoire_de_la_Nouvelle-Cal%C3%A9donie",
+    "id": 72
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 29975,
+    "commentCount": 858,
+    "date": "27 octobre 2024 à 19:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "baleine-yate",
+    "slug": "faux-20261027-baleine-yate-4-a9cv50",
+    "source": "Nouméa Matin",
+    "sourceColor": "#0d0080",
+    "domain": "noumea-matin.info",
+    "titre": "Une baleine filmée à quelques mètres du rivage à Yaté",
+    "texte": "Article de Thomas Naudin, publié par Nouméa Matin. Une info qui circule beaucoup en ce moment. Source : une vidéo TikTok.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Information recyclée",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Une vieille histoire est partagée comme si elle venait d’arriver : seule la date la trahit. L’article est signé, mais sa seule source est vague : impossible de remonter à l’information.",
+    "analyseFaux": "La date du post a plus de deux ans : ce n’est pas une nouvelle du jour.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date qui ne colle pas",
+        "explication": "Le post date de plus de deux ans, mais il est partagé comme une nouvelle du jour."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Une source qui n’en est pas une",
+        "explication": "L’article de « Nouméa Matin » est signé, mais il s’appuie sur une source vague, impossible à consulter."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un ton qui rassure",
+        "explication": "Le post est posé et crédible : c’est ce qui le rend dangereux. Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "C’est pour ça qu’il faut protéger le lagon.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "Incroyable, je ne savais pas que c’était cette semaine 😮",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "La date du post est ancienne, ce n’est pas d’actualité.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "Ça ne date pas un peu, ça ?",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « information recyclée ».",
+    "warning": "Le procédé employé ici s'appelle « information recyclée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 81
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 18015,
+    "commentCount": 1250,
+    "date": "25 octobre 2026 à 21:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-fuseau-horaire",
+    "slug": "faux-20261027-fait-fuseau-horaire-4-j6e1s7",
+    "source": "Pacifique Express Info",
+    "sourceColor": "#1800ad",
+    "domain": "pacifique-express.info",
+    "titre": "La Nouvelle-Calédonie avance ses montres d’une heure chaque été",
+    "texte": "Article de Marc Ollivier, publié par Pacifique Express Info. Selon nos informations. (source : un site d’info)",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Fait déformé",
+    "explication": "Ce post déforme un fait réel : La Nouvelle-Calédonie est à UTC+11 et ne change pas d’heure en été. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. L’article est signé, mais sa seule source est vague : impossible de remonter à l’information.",
+    "analyseFaux": "Un détail du post est faux. En réalité : La Nouvelle-Calédonie est à UTC+11 et ne change pas d’heure en été.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Un détail faux",
+        "explication": "Le fait a l’air connu, mais un chiffre, une date ou un détail a été changé."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Une source qui n’en est pas une",
+        "explication": "L’article de « Pacifique Express Info » est signé, mais il s’appuie sur une source vague, impossible à consulter."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : La Nouvelle-Calédonie est à UTC+11 et ne change pas d’heure en été."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "À montrer aux cousins de Métropole.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "Je ne savais pas, merci 🙏",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
+    "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/UTC%2B11:00",
+    "id": 82
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 15013,
+    "commentCount": 637,
+    "date": "27 octobre 2026 à 00:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-ile-des-pins-nom",
+    "slug": "faux-20261027-fait-ile-des-pins-nom-4-j6e1s7",
+    "source": "Le Fil Calédonien",
+    "sourceColor": "#0d0080",
+    "domain": "fil-caledonien.info",
+    "titre": "L’île des Pins doit son nom à des pins maritimes plantés au XXe siècle",
+    "texte": "Article de Sarah Kowalczyk, publié par Le Fil Calédonien. Selon nos informations. (source : la télé)",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Fait déformé",
+    "explication": "Ce post déforme un fait réel : L’île des Pins doit son nom aux pins colonnaires, des arbres qui poussent naturellement sur l’île. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. L’article est signé, mais sa seule source est vague : impossible de remonter à l’information.",
+    "analyseFaux": "Un détail du post est faux. En réalité : L’île des Pins doit son nom aux pins colonnaires, des arbres qui poussent naturellement sur l’île.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Un détail faux",
+        "explication": "Le fait a l’air connu, mais un chiffre, une date ou un détail a été changé."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Une source qui n’en est pas une",
+        "explication": "L’article de « Le Fil Calédonien » est signé, mais il s’appuie sur une source vague, impossible à consulter."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : L’île des Pins doit son nom aux pins colonnaires, des arbres qui poussent naturellement sur l’île."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Les plantes d’ici sont incroyables 🌿",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "Tu es sûr de ce chiffre ?",
+        "posture": "DOUTE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
+    "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/%C3%8Ele_des_Pins",
+    "id": 83
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 35428,
+    "commentCount": 979,
+    "date": "26 octobre 2026 à 07:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "cerfs-volants",
+    "image": "/images/scenarios/cerfs-volants.jpg",
+    "imageAlt": "Des cerfs-volants colorés dans un ciel bleu",
+    "credit": {
+      "auteur": "Mark Winterbourne",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Kites_on_the_beach_(5930596637).jpg"
+    },
+    "slug": "faux-20261027-cerfs-volants-4-1mxreyd",
+    "source": "Le Quotidien du Pacifique",
+    "sourceColor": "#1800ad",
+    "domain": "quotidien-pacifique.info",
+    "titre": "Un concours de cerfs-volants colore la plage de l’Anse-Vata",
+    "texte": "Article de Anaïs Labbé, publié par Le Quotidien du Pacifique. Les maquettes de bateaux ont défilé sur la plage de la baie des Citrons. (source : un groupe Facebook)",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Détail modifié",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Le titre et le texte se contredisent : un chiffre, un lieu ou un jour a changé en route. L’article est signé, mais sa seule source est vague : impossible de remonter à l’information. La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.",
+    "analyseFaux": "Le texte ne dit pas la même chose que le titre : au moins l’un des deux est faux.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Search",
+        "libelle": "Un détail qui change",
+        "explication": "Relisez le titre puis le texte : un chiffre, un lieu ou un jour ne correspond pas."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Une source qui n’en est pas une",
+        "explication": "L’article de « Le Quotidien du Pacifique » est signé, mais il s’appuie sur une source vague, impossible à consulter."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un ton qui rassure",
+        "explication": "Le post est posé et crédible : c’est ce qui le rend dangereux. Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "Attends, le titre et le texte ne disent pas pareil…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Tu viens @kim.nc ?",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Trop bien, je partage 👍",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « détail modifié ».",
+    "warning": "Le procédé employé ici s'appelle « détail modifié ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 84
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 14734,
+    "commentCount": 203,
+    "date": "27 octobre 2026 à 01:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-ile-des-pins-position",
+    "slug": "faux-20261027-fait-ile-des-pins-position-4-j6e1s7",
+    "source": "Pacifique Express Info",
+    "sourceColor": "#1800ad",
+    "domain": "pacifique-express.info",
+    "titre": "L’île des Pins se trouve au nord-ouest de la Grande Terre",
+    "texte": "Article de Marc Ollivier, publié par Pacifique Express Info. Selon nos informations. Source : un groupe Facebook.",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Fait déformé",
+    "explication": "Ce post déforme un fait réel : L’île des Pins se trouve au sud-est de la Grande Terre. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. L’article est signé, mais sa seule source est vague : impossible de remonter à l’information.",
+    "analyseFaux": "Un détail du post est faux. En réalité : L’île des Pins se trouve au sud-est de la Grande Terre.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Un détail faux",
+        "explication": "Le fait a l’air connu, mais un chiffre, une date ou un détail a été changé."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Une source qui n’en est pas une",
+        "explication": "L’article de « Pacifique Express Info » est signé, mais il s’appuie sur une source vague, impossible à consulter."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : L’île des Pins se trouve au sud-est de la Grande Terre."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "J’ai appris ça au collège je crois.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
+        "texte": "Je ne savais pas, merci 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "Mon cousin me l’a dit aussi.",
+        "posture": "CONTRE"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
+    "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/%C3%8Ele_des_Pins",
+    "id": 85
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 35461,
+    "commentCount": 367,
+    "date": "26 octobre 2026 à 00:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "snorkeling-canard",
+    "slug": "faux-20261027-snorkeling-canard-4-bgqykb",
+    "source": "Poema",
+    "sourceColor": "#791561",
+    "domain": "@poema.w",
+    "titre": "Les amis, des plongeurs bénévoles balisent un parcours de snorkeling à l’îlot Canard, à lire tant que c'est en ligne",
+    "texte": "Lisez-le tant qu'il est disponible. J’ai vérifié sur internet 👍 Partagez autour de vous 🙏",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. Le post vient d’un compte ordinaire, qui ne cite pas de source sérieuse.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence sert à faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que quoi que ce soit sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Poema partage l’info sans source sérieuse. Être sympathique ne rend pas une info vraie."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un ton qui rassure",
+        "explication": "Le post est posé et crédible : c’est ce qui le rend dangereux. Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Mon fils va adorer, il est fan de tout ce qui vit dans l’eau.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 86
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 20601,
+    "commentCount": 559,
+    "date": "26 octobre 2026 à 20:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-gecko-leach",
+    "image": "/images/faits/gecko-leach.jpg",
+    "imageAlt": "Un gecko géant de Leach, peau brune tachetée, sur une branche",
+    "credit": {
+      "auteur": "Lennart Hudel",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Rhacodactylus_leachianus_33603748.jpg"
+    },
+    "slug": "faux-20261027-fait-gecko-leach-4-j6e1s7",
+    "source": "Quiz du Caillou",
+    "sourceColor": "#791561",
+    "domain": "page de quiz",
+    "titre": "🎯 Le quiz du jour : le gecko géant de Leach est un petit gecko de quelques centimètres, venu d’Asie",
+    "texte": "Source : un site d’info #Quiz #NC",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Fait déformé",
+    "explication": "Ce post déforme un fait réel : Le gecko géant de Leach, qui vit en Nouvelle-Calédonie, est l’un des plus grands geckos du monde. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. Le post vient d’un compte ordinaire, qui ne cite pas de source sérieuse.",
+    "analyseFaux": "Un détail du post est faux. En réalité : Le gecko géant de Leach, qui vit en Nouvelle-Calédonie, est l’un des plus grands geckos du monde.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Un détail faux",
+        "explication": "Le fait a l’air connu, mais un chiffre, une date ou un détail a été changé."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Quiz du Caillou partage l’info sans source sérieuse. Être sympathique ne rend pas une info vraie."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : Le gecko géant de Leach, qui vit en Nouvelle-Calédonie, est l’un des plus grands geckos du monde."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Aurélie",
+        "couleur": "#14663f",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "Nos bêtes sont vraiment uniques 😍",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
+    "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Rhacodactylus_leachianus",
+    "id": 87
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 19525,
+    "commentCount": 1763,
+    "date": "25 octobre 2026 à 03:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-roussette",
+    "image": "/images/faits/roussette.jpg",
+    "imageAlt": "Une roussette suspendue la tête en bas à une branche",
+    "credit": {
+      "auteur": "Chicago Natural History Museum",
+      "licence": "domaine public",
+      "licenceUrl": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Pteropus_ornatus.jpg"
+    },
+    "slug": "faux-20261027-fait-roussette-4-j6e1s7",
+    "source": "Kenji T.",
+    "sourceColor": "#8a4fbe",
+    "domain": "@kenji.t",
+    "titre": "jsp si vous saviez mais la roussette est une chauve-souris qui se nourrit surtout de petits poissons",
+    "texte": "😭",
+    "isFake": true,
+    "level": 4,
+    "correctAction": "report",
+    "biais": "Fait déformé",
+    "explication": "Ce post déforme un fait réel : La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. Le post vient d’un compte ordinaire, qui ne cite pas de source sérieuse.",
+    "analyseFaux": "Un détail du post est faux. En réalité : La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Un détail faux",
+        "explication": "Le fait a l’air connu, mais un chiffre, une date ou un détail a été changé."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "UserRound",
+        "libelle": "Un compte, pas une source",
+        "explication": "Kenji T. partage l’info sans source sérieuse. Être sympathique ne rend pas une info vraie."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Léa",
+        "couleur": "#c2410c",
+        "texte": "Je confirme, j’en ai entendu parler aussi.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Belle photo !",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "On ne connaît pas assez nos animaux.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
+    "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Roussette",
+    "id": 88
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 35934,
+    "commentCount": 1935,
+    "date": "27 octobre 2024 à 19:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "trottinettes",
+    "slug": "faux-20261027-trottinettes-5-a9cv50",
+    "source": "Le Fil Calédonien",
+    "sourceColor": "#0d0080",
+    "domain": "fil-caledonien.info",
+    "titre": "Les trottinettes électriques de plus en plus nombreuses sur la promenade Pierre-Vernier",
+    "texte": "Article de Marc Ollivier, publié par Le Fil Calédonien. Une nouvelle qui refait parler d’elle. Source : un site d’info.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Information recyclée",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Une vieille histoire est partagée comme si elle venait d’arriver : seule la date la trahit. L’article est signé, mais sa seule source est vague : impossible de remonter à l’information.",
+    "analyseFaux": "La date du post a plus de deux ans : ce n’est pas une nouvelle du jour.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date qui ne colle pas",
+        "explication": "Le post date de plus de deux ans, mais il est partagé comme une nouvelle du jour."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Une source qui n’en est pas une",
+        "explication": "L’article de « Le Fil Calédonien » est signé, mais il s’appuie sur une source vague, impossible à consulter."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un ton qui rassure",
+        "explication": "Le post est posé et crédible : c’est ce qui le rend dangereux. Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "Incroyable, je ne savais pas que c’était cette semaine 😮",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Pas sûr que ça change grand-chose…",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « information recyclée ».",
+    "warning": "Le procédé employé ici s'appelle « information recyclée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 97
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 5793,
+    "commentCount": 1624,
+    "date": "26 octobre 2026 à 17:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "format": "article",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-mangrove",
+    "slug": "faux-20261027-fait-mangrove-5-j6e1s7",
+    "source": "Pacifique Express Info",
+    "sourceColor": "#1800ad",
+    "domain": "pacifique-express.info",
+    "titre": "La mangrove abîme les côtes : ses racines accélèrent l’érosion",
+    "texte": "Article de Julien Ferrand, publié par Pacifique Express Info. Selon nos informations. Source : internet.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Fait déformé",
+    "explication": "Ce post déforme un fait réel : La mangrove protège les côtes : ses racines freinent les vagues et retiennent la terre. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. L’article est signé, mais sa seule source est vague : impossible de remonter à l’information.",
+    "analyseFaux": "Un détail du post est faux. En réalité : La mangrove protège les côtes : ses racines freinent les vagues et retiennent la terre.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Un détail faux",
+        "explication": "Le fait a l’air connu, mais un chiffre, une date ou un détail a été changé."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Une source qui n’en est pas une",
+        "explication": "L’article de « Pacifique Express Info » est signé, mais il s’appuie sur une source vague, impossible à consulter."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : La mangrove protège les côtes : ses racines freinent les vagues et retiennent la terre."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
+        "texte": "Je ne regarderai plus les arbres pareil.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "Il faudrait apprendre ça à l’école.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
+    "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Mangrove",
+    "id": 98
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 14756,
+    "commentCount": 1428,
+    "date": "26 octobre 2026 à 23:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-lagon-unesco",
+    "image": "/images/faits/lagon-unesco.jpg",
+    "imageAlt": "Le lagon calédonien vu d’avion, eau turquoise parsemée de récifs",
+    "credit": {
+      "auteur": "Frenchytahiti",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:New_Caledonia_lagoon.jpg"
+    },
+    "slug": "faux-20261027-fait-lagon-unesco-5-j6e1s7",
+    "source": "Yannick D.",
+    "sourceColor": "#14663f",
+    "domain": "@yannick.d",
+    "titre": "Les lagons de Nouvelle-Calédonie sont inscrits au patrimoine mondial de l’UNESCO depuis 1998",
+    "texte": "(vu sur la télé) Intéressant.",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Fait déformé",
+    "explication": "Ce post déforme un fait réel : Les lagons de Nouvelle-Calédonie sont inscrits au patrimoine mondial de l’UNESCO depuis 2008. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. Le post a tout d’un partage honnête : ton naturel, détails précis. Aucune source sérieuse derrière.",
+    "analyseFaux": "Un détail du post est faux. En réalité : Les lagons de Nouvelle-Calédonie sont inscrits au patrimoine mondial de l’UNESCO depuis 2008.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Un détail faux",
+        "explication": "Le fait a l’air connu, mais un chiffre, une date ou un détail a été changé."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Aucune source sérieuse",
+        "explication": "Yannick D. ne s’appuie sur aucune source qu’on puisse consulter. « Vu sur internet », ce n’est pas une source."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "UNESCO dit autre chose : Les lagons de Nouvelle-Calédonie sont inscrits au patrimoine mondial de l’UNESCO depuis 2008."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Mon fils va adorer, il est fan de tout ce qui vit dans l’eau.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "J’ai vérifié sur UNESCO : ce n’est pas ça.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
+    "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://whc.unesco.org/fr/list/1115",
+    "id": 99
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 6729,
+    "commentCount": 1100,
+    "date": "26 octobre 2026 à 22:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "baguette-kone",
+    "slug": "faux-20261027-baguette-kone-5-1mxreyd",
+    "source": "Manon",
+    "sourceColor": "#1800ad",
+    "domain": "@manon.988",
+    "titre": "wsh une boulangerie de koné invente une baguette au niaouli",
+    "texte": "le gâteau à la vanille a été créé par une pâtisserie de pouembout. c sur la télé jsuis pas fou jsuis choqué 😭",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Détail modifié",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. Le titre et le texte se contredisent : un chiffre, un lieu ou un jour a changé en route. Le post a tout d’un partage honnête : ton naturel, détails précis. Aucune source sérieuse derrière.",
+    "analyseFaux": "Le texte ne dit pas la même chose que le titre : au moins l’un des deux est faux.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Search",
+        "libelle": "Un détail qui change",
+        "explication": "Relisez le titre puis le texte : un chiffre, un lieu ou un jour ne correspond pas."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Aucune source sérieuse",
+        "explication": "Manon ne s’appuie sur aucune source qu’on puisse consulter. « Vu sur internet », ce n’est pas une source."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un ton qui rassure",
+        "explication": "Le post est posé et crédible : c’est ce qui le rend dangereux. Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Ça donne faim 😋",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "Je veux la recette !",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « détail modifié ».",
+    "warning": "Le procédé employé ici s'appelle « détail modifié ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 100
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 19413,
+    "commentCount": 625,
+    "date": "25 octobre 2026 à 10:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-pin-colonnaire",
+    "image": "/images/faits/pin-colonnaire.jpg",
+    "imageAlt": "Des pins colonnaires sur un îlot de la baie de Prony",
+    "credit": {
+      "auteur": "Mickaël T.",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Araucaria_columnaris_Prony_2.jpg"
+    },
+    "slug": "faux-20261027-fait-pin-colonnaire-5-j6e1s7",
+    "source": "Manon",
+    "sourceColor": "#1800ad",
+    "domain": "@manon.988",
+    "titre": "wsh le pin colonnaire a été apporté d’europe par les premiers colons",
+    "texte": "c sur un groupe facebook jsuis pas fou 💀",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Fait déformé",
+    "explication": "Ce post déforme un fait réel : Le pin colonnaire est un arbre endémique de Nouvelle-Calédonie. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. Le post a tout d’un partage honnête : ton naturel, détails précis. Aucune source sérieuse derrière.",
+    "analyseFaux": "Un détail du post est faux. En réalité : Le pin colonnaire est un arbre endémique de Nouvelle-Calédonie.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Un détail faux",
+        "explication": "Le fait a l’air connu, mais un chiffre, une date ou un détail a été changé."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Aucune source sérieuse",
+        "explication": "Manon ne s’appuie sur aucune source qu’on puisse consulter. « Vu sur internet », ce n’est pas une source."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : Le pin colonnaire est un arbre endémique de Nouvelle-Calédonie."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Les plantes d’ici sont incroyables 🌿",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "La photo 😍",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Mon cousin me l’a dit aussi.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "Je ne savais pas, merci 🙏",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
+    "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Araucaria_columnaris",
+    "id": 101
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 38411,
+    "commentCount": 432,
+    "date": "24 octobre 2026 à 22:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "fait-grand-noumea",
+    "image": "/images/faits/grand-noumea.jpg",
+    "imageAlt": "Nouméa vue des hauteurs, entre baies et collines",
+    "credit": {
+      "auteur": "Miles Goodhew",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Noum%C3%A9a_from_a_Distance.jpg"
+    },
+    "slug": "faux-20261027-fait-grand-noumea-5-j6e1s7",
+    "source": "Manon",
+    "sourceColor": "#1800ad",
+    "domain": "@manon.988",
+    "titre": "wsh le grand nouméa regroupe six communes, dont bourail et la foa",
+    "texte": "c sur un groupe facebook jsuis pas fou 💀",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Fait déformé",
+    "explication": "Ce post déforme un fait réel : Le Grand Nouméa regroupe quatre communes : Nouméa, Dumbéa, le Mont-Dore et Païta. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. Le post a tout d’un partage honnête : ton naturel, détails précis. Aucune source sérieuse derrière.",
+    "analyseFaux": "Un détail du post est faux. En réalité : Le Grand Nouméa regroupe quatre communes : Nouméa, Dumbéa, le Mont-Dore et Païta.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Un détail faux",
+        "explication": "Le fait a l’air connu, mais un chiffre, une date ou un détail a été changé."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Aucune source sérieuse",
+        "explication": "Manon ne s’appuie sur aucune source qu’on puisse consulter. « Vu sur internet », ce n’est pas une source."
+      },
+      {
+        "ordre": 2,
+        "nature": "VERIFICATION",
+        "cible": "TITRE",
+        "picto": "Search",
+        "libelle": "Facile à vérifier",
+        "explication": "Wikipédia dit autre chose : Le Grand Nouméa regroupe quatre communes : Nouméa, Dumbéa, le Mont-Dore et Païta."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Ça donne envie de faire le tour de la Grande Terre.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Quelle image…",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Je ne savais pas, merci 🙏",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
+    "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Grand_Noum%C3%A9a",
+    "id": 102
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 1775,
+    "commentCount": 1892,
+    "date": "25 octobre 2026 à 09:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "velos-electriques",
+    "image": "/images/scenarios/velos-electriques.jpg",
+    "imageAlt": "Un vélo électrique en libre-service",
+    "credit": {
+      "auteur": "Facewizard",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:LACMTA_Bike_Share_electric_bicycle_-_drive_side.jpg"
+    },
+    "slug": "faux-20261027-velos-electriques-5-bgqykb",
+    "source": "Nature et Lagon NC",
+    "sourceColor": "#1800ad",
+    "domain": "page nature",
+    "titre": "🌿 Nature calédo : les ventes de vélos électriques en forte hausse à Nouméa depuis la rentrée",
+    "texte": "Article susceptible d’être dépublié prochainement. 📚 Source : un groupe Facebook #Caillou #Nature",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Urgence artificielle",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. Le post a tout d’un partage honnête : ton naturel, détails précis. Aucune source sérieuse derrière. La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence sert à faire partager sans vérifier.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "Clock",
+        "libelle": "Une suppression annoncée",
+        "explication": "Rien n’indique que quoi que ce soit sera retiré. La menace sert seulement à faire partager vite."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Aucune source sérieuse",
+        "explication": "Nature et Lagon NC ne s’appuie sur aucune source qu’on puisse consulter. « Vu sur internet », ce n’est pas une source."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un ton qui rassure",
+        "explication": "Le post est posé et crédible : c’est ce qui le rend dangereux. Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Pourquoi ce serait supprimé ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Encore faut-il que ça dure.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "Je ne trouve cette info nulle part ailleurs…",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
+    "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 103
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 21903,
+    "commentCount": 850,
+    "date": "27 octobre 2026 à 11:36",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "fiction",
+    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "scenario": "potager-riviere-salee",
+    "image": "/images/scenarios/potager-riviere-salee.jpg",
+    "imageAlt": "Un potager en bacs surélevés",
+    "credit": {
+      "auteur": "Kolforn",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:-2020-07-01_Vegetable_garden_with_raised_beds,_Trimingham,_Norfolk.JPG"
+    },
+    "slug": "faux-20261027-potager-riviere-salee-5-jr2doy",
+    "source": "Quiz du Caillou",
+    "sourceColor": "#791561",
+    "domain": "page de quiz",
+    "titre": "🎯 Le quiz du jour : un potager partagé voit le jour au pied des immeubles de Rivière-Salée",
+    "texte": "D'après une source proche du dossier, la décision était connue depuis plusieurs semaines. Source : un site d’info #Quiz #NC",
+    "isFake": true,
+    "level": 5,
+    "correctAction": "report",
+    "biais": "Autorité inventée",
+    "explication": "Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. La source est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. Le post a tout d’un partage honnête : ton naturel, détails précis. Aucune source sérieuse derrière. La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.",
+    "analyseFaux": "La source anonyme n’existe que dans ce post : aucun nom, aucun document.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "ALERTE",
+        "cible": "TEXTE",
+        "picto": "UserRound",
+        "libelle": "Une source sans nom",
+        "explication": "Un « responsable » anonyme : rien qui puisse être vérifié."
+      },
+      {
+        "ordre": 1,
+        "nature": "VERIFICATION",
+        "cible": "SOURCE",
+        "picto": "Search",
+        "libelle": "Aucune source sérieuse",
+        "explication": "Quiz du Caillou ne s’appuie sur aucune source qu’on puisse consulter. « Vu sur internet », ce n’est pas une source."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un ton qui rassure",
+        "explication": "Le post est posé et crédible : c’est ce qui le rend dangereux. Aucune source sérieuse ne dit ça : cherchez avant de le croire."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "C’est qui ce responsable ? Il a un nom ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Il faudrait apprendre ça à l’école.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bien vu : vous avez reconnu le procédé « autorité inventée ».",
+    "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
+    "consequences": {
+      "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+      "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+      "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+    },
+    "scores": {
+      "share": -80,
+      "ignore": 10,
+      "report": 100
+    },
+    "sourceUrl": null,
+    "learnMoreUrl": "https://www.clemi.fr/",
+    "id": 104
+  }
+]

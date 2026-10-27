@@ -1,37 +1,20 @@
 import { createElement } from 'react'
 import { icone } from '../data/icones'
 import { texteSur } from '../lib/contraste'
+import ImagePost from './ImagePost'
 
-/**
- * La publication rejouée, annotée.
- *
- * Chaque indice porte un numéro ; ce numéro se retrouve à trois endroits — sur
- * la publication, sur le cadre tracé dans l'image, et dans la liste
- * d'explications juste en dessous. C'est ce qui permet de dire « regarde ici »
- * sans une phrase de plus.
- *
- * Les indices sans zone désignent une partie du texte (`cible`) : celle-ci se
- * surligne au lieu de s'entourer. Une publication sans indice — celles que la
- * chaîne RSS fabrique aujourd'hui — s'affiche telle quelle, sans annotation.
- */
 const ZONES_TEXTE = ['SOURCE', 'TITRE', 'TEXTE', 'DATE', 'ENGAGEMENT']
 
 function Puce({ numero, nature }) {
   return <span className={`annot__puce annot__puce--${nature.toLowerCase()}`}>{numero}</span>
 }
 
-/** Les numéros des indices qui visent cette partie de la publication. */
 const numerosPour = (indices, cible) =>
   indices
     .map((indice, i) => (indice.cible === cible ? i + 1 : null))
     .filter((numero) => numero !== null)
 
-/**
- * La classe de surlignage d'une partie de texte.
- *
- * Elle prend la nature du premier indice qui la vise : sur une publication
- * vraie, le surlignage était rouge alors que la pastille était verte.
- */
+// Prend la nature du premier indice qui vise la partie.
 function surlignage(indices, cible) {
   if (!ZONES_TEXTE.includes(cible)) return ''
   const vise = indices.find((indice) => indice.cible === cible)
@@ -55,7 +38,6 @@ function Marques({ indices, cible }) {
   )
 }
 
-/** Les indices numérotés, séparables du post : sur ordinateur ils vont à côté. */
 export function ListeIndices({ post }) {
   const indices = post.indices ?? []
   if (indices.length === 0) return null
@@ -96,7 +78,7 @@ export default function PostAnnotated({ post, liste = true }) {
             <Marques indices={indices} cible="SOURCE" />
           </p>
           <p className={`annot__domaine${surligne('DATE')}`}>
-            {post.domain || 'publication sponsorisée'} · {post.date}
+            {post.domain || 'post sponsorisé'} · {post.date}
             <Marques indices={indices} cible="DATE" />
           </p>
         </div>
@@ -112,27 +94,7 @@ export default function PostAnnotated({ post, liste = true }) {
         <Marques indices={indices} cible="TEXTE" />
       </p>
 
-      {post.image && (
-        <div className="annot__media">
-          <img src={post.image} alt="" className="annot__image" />
-          {indices.map((indice, i) =>
-            indice.zone ? (
-              <span
-                key={i}
-                className={`annot__cadre annot__cadre--${indice.nature.toLowerCase()}`}
-                style={{
-                  left: `${indice.zone.x}%`,
-                  top: `${indice.zone.y}%`,
-                  width: `${indice.zone.l}%`,
-                  height: `${indice.zone.h}%`,
-                }}
-              >
-                <Puce numero={i + 1} nature={indice.nature} />
-              </span>
-            ) : null
-          )}
-        </div>
-      )}
+      <ImagePost post={post} className="annot__image" />
 
       {liste && <ListeIndices post={post} />}
     </article>

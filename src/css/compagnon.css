@@ -1,8 +1,4 @@
-/* ==========================================================================
-   COMPAGNON
-   Le personnage en bas de l'écran et sa bulle. Dimensions fournies par le
-   composant : --compagnon-largeur, --compagnon-hauteur, --compagnon-sol.
-   ========================================================================== */
+/* Compagnon : --compagnon-largeur, --compagnon-hauteur, --compagnon-sol fournis par le composant. */
 
 @layer components {
   /* Zone entre l'en-tête et la barre d'onglets ; ne reçoit aucun clic. */

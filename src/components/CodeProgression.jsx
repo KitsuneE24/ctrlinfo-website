@@ -1,29 +1,10 @@
 import { useState } from 'react'
 import { Check, ClipboardCopy, Download, RotateCcw, TriangleAlert, Upload } from 'lucide-react'
+import { getConversations } from '../api/contenu'
 import { ErreurCode, decoderCode, encoderCode } from '../lib/codeProgression'
-import { exportable, reinitialiser, remplacer } from '../state/progression'
+import { exportable, incoherence, reinitialiser, remplacer } from '../state/progression'
 import { useProgression } from '../state/useProgression'
 
-/**
- * Le code de progression : l'emporter, le remettre.
- *
- * C'est ce qui remplace le compte. Sans lui, une progression ne quitte pas le
- * navigateur où elle a été faite — et disparaît avec un nettoyage de l'
- * historique. Le code est donc présenté pour ce qu'il est : la sauvegarde, et
- * la seule.
- *
- * Trois précautions, qui font l'essentiel du composant :
- *
- *   1. le code n'apparaît que sur demande, dans une zone en lecture seule qu'on
- *      ne peut pas modifier par mégarde ;
- *   2. restaurer **écrase** l'avancement local : quand il y a quelque chose à
- *      perdre, on le dit et on demande une seconde fois. Le code est décodé
- *      avant cette question, pour ne pas faire hésiter le joueur sur un code de
- *      toute façon illisible ;
- *   3. un refus dit *pourquoi* — pas « code invalide ». `codeProgression.js`
- *      distingue un code tronqué, un code d'une autre version et un code abîmé
- *      au copier-coller ; ce sont trois gestes différents à proposer.
- */
 export default function CodeProgression() {
   const etat = useProgression()
 
@@ -36,13 +17,12 @@ export default function CodeProgression() {
   const [restaure, setRestaure] = useState(false)
   const [remise, setRemise] = useState(false)
 
-  // Ce qu'il y a à perdre. Un joueur qui n'a rien joué n'a pas besoin qu'on lui
-  // demande confirmation avant d'écraser un état vide.
   const aQuelqueChose = etat.fil.decisions > 0 || Object.keys(etat.conversations).length > 0
 
   async function exporter() {
     setCopie(false)
-    setCode(await encoderCode(exportable()))
+    const enLigne = await getConversations().catch(() => [])
+    setCode(await encoderCode(exportable(enLigne.map((conversation) => conversation.id))))
   }
 
   async function copier() {
@@ -50,10 +30,9 @@ export default function CodeProgression() {
       await navigator.clipboard.writeText(code)
       setCopie(true)
     } catch {
-      // Presse-papiers refusé — page non sécurisée, permission bloquée. La
-      // zone de texte est juste là : on invite à la copier à la main.
+      // Presse-papiers refusé : copie manuelle depuis la zone de texte.
       setCopie(false)
-      setErreur('Le presse-papiers est bloqué : sélectionne le code et copie-le à la main.')
+      setErreur('Le presse-papiers est bloqué : sélectionnez le code et copiez-le à la main.')
     }
   }
 
@@ -62,6 +41,11 @@ export default function CodeProgression() {
     setRestaure(false)
     try {
       const recu = await decoderCode(saisie)
+      const probleme = incoherence(recu)
+      if (probleme) {
+        setErreur(`Ce code a été modifié et ne peut pas être restauré : ${probleme}.`)
+        return
+      }
       if (aQuelqueChose) setAConfirmer(recu)
       else appliquer(recu)
     } catch (echec) {
@@ -93,12 +77,12 @@ export default function CodeProgression() {
   return (
     <section className="card">
       <div className="card__body">
-        <h2 className="card__title">Garder ta progression</h2>
+        <h2 className="card__title">Garder votre progression</h2>
         <p className="card__text">
-          Copie ton code pour retrouver ta progression ailleurs.
+          Copiez votre code pour retrouver votre progression ailleurs.
         </p>
 
-        {/* --- Exporter ---------------------------------------------------- */}
+        {/* Exporter */}
         <div className="code">
           {code === null ? (
             <button type="button" onClick={exporter} className="bouton bouton--plein bouton--large">
@@ -143,7 +127,7 @@ export default function CodeProgression() {
           )}
         </div>
 
-        {/* --- Restaurer --------------------------------------------------- */}
+        {/* Restaurer */}
         <div className="code code--restaurer">
           <label className="champ">
             <span className="champ__label">Restaurer un code</span>
@@ -172,7 +156,7 @@ export default function CodeProgression() {
           {restaure && (
             <p className="code__message code__message--ok">
               <Check size={15} strokeWidth={2.4} />
-              Progression restaurée. Tes niveaux et tes conversations sont
+              Progression restaurée. Vos niveaux et vos conversations sont
               revenus.
             </p>
           )}
@@ -182,7 +166,7 @@ export default function CodeProgression() {
               <p className="code__message code__message--ko">
                 <TriangleAlert size={15} strokeWidth={2.2} />
                 Ce code est valide, mais le restaurer remplacera la progression
-                de cet appareil. Exporte-la d'abord si tu veux la garder.
+                de cet appareil. Exportez-la d'abord si vous voulez la garder.
               </p>
               <div className="code__actions">
                 <button
@@ -214,14 +198,14 @@ export default function CodeProgression() {
           )}
         </div>
 
-        {/* --- Repartir de zéro -------------------------------------------- */}
+        {/* Repartir de zéro */}
         {aQuelqueChose && (
           <div className="code code--effacer">
             {remise ? (
               <>
                 <p className="code__message code__message--ko">
                   <TriangleAlert size={15} strokeWidth={2.2} />
-                  Tout sera effacé : niveaux, publications vues, conversations.
+                  Tout sera effacé : niveaux, posts vus, conversations.
                   Sans code exporté, c'est définitif.
                 </p>
                 <div className="code__actions">

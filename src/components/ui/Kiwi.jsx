@@ -1,4 +1,3 @@
-/** Mascotte en pastille : le cagou du logo. */
 export default function Kiwi({ taille = 52, className = '' }) {
   return (
     <span

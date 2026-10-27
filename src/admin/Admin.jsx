@@ -9,10 +9,12 @@ import {
   nombreDeModifications,
 } from './document'
 
-/** Les collections éditables, et de quoi nommer une entrée dans la liste. */
 const COLLECTIONS = [
-  { cle: 'posts', nom: 'Publications', titre: (e) => e.titre },
+  { cle: 'postsVrais', nom: 'Publications vraies', titre: (e) => e.titre },
+  { cle: 'postsFaux', nom: 'Publications fausses', titre: (e) => e.titre },
   { cle: 'conversations', nom: 'Conversations', titre: (e) => e.name ?? e.id },
+  { cle: 'faits', nom: 'Faits (vrai et version fausse)', titre: (e) => e.vrai ?? e.id },
+  { cle: 'scenarios', nom: 'Événements inventés', titre: (e) => e.titre ?? e.id },
   { cle: 'chapitres', nom: 'Chapitres', titre: (e) => e.titre },
   { cle: 'stories', nom: 'Stories', titre: (e) => e.titre ?? e.id },
   { cle: 'astuces', nom: 'Astuces', titre: (e) => e.texte },
@@ -20,6 +22,7 @@ const COLLECTIONS = [
   { cle: 'avatars', nom: 'Avatars', titre: (e) => e.nom },
   { cle: 'jeux', nom: 'Jeux', titre: (e) => e.titre },
   { cle: 'niveaux', nom: 'Niveaux', titre: (e) => e.titre },
+  { cle: 'mentionsLegales', nom: 'Mentions légales', titre: (e) => e.titre },
 ]
 
 function Barre() {
@@ -39,7 +42,6 @@ function Barre() {
     }
   }
 
-  // Quitter avec des modifications non enregistrées demande confirmation.
   useEffect(() => {
     if (modifications === 0) return undefined
     const avant = (e) => e.preventDefault()
@@ -49,7 +51,7 @@ function Barre() {
 
   return (
     <div className="barre">
-      <span className="barre__titre">CTRL INFO — administration</span>
+      <span className="barre__titre">CTRL INFO · administration</span>
 
       {erreur ? (
         <span className="barre__erreur">
@@ -155,7 +157,7 @@ export default function Admin() {
                   onClick={() => setIndex(i)}
                   className={`entree${i === index ? ' entree--active' : ''}`}
                 >
-                  {reglage.titre(entree) || `(sans titre — ${i + 1})`}
+                  {reglage.titre(entree) || `(sans titre ${i + 1})`}
                 </button>
               </li>
             ))}

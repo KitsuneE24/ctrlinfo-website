@@ -1,8 +1,4 @@
-/* ========================================================================
-   ACCUEIL
-   Bandeau, puis tableau d'enquête : 1 sujet (centre), 2 pièges (gauche),
-   3 principe (droite), 4 parade (bas).
-   ======================================================================== */
+/* Accueil */
 
 @layer components {
   /* --- Bandeau (coquille dans colonne-de-contenu.css) --- */
@@ -832,10 +828,7 @@
   }
 }
 
-/* ==========================================================================
-   BRÈVE DU JOUR
-   « Le saviez-vous ? », une fois par jour, sur le panneau du cagou.
-   ========================================================================== */
+/* --- Brève du jour --- */
 
 @layer components {
   /* Sous la main du cagou */

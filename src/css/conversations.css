@@ -1,7 +1,4 @@
-/* ========================================================================
-   CONVERSATIONS
-   Mobile : liste, puis fil. Ordinateur : les deux côte à côte, dans un cadre.
-   ======================================================================== */
+/* Conversations */
 
 @layer components {
   .messaging {
@@ -209,6 +206,21 @@
     .inbox-item__chevron {
       display: none;
     }
+  }
+
+  .fabriquer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 18px 16px 24px;
+  }
+
+  .fabriquer__texte {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-faint);
   }
 
   .inbox-item__faite {
@@ -451,6 +463,13 @@
     font-size: 30px;
     line-height: 1;
     color: var(--ink);
+  }
+
+  .thread__score-suite {
+    margin: 0;
+    font-size: var(--text-sm);
+    text-align: center;
+    color: var(--ink-muted);
   }
 
   /* --- Zone de réponse --- */

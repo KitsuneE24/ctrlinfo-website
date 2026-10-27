@@ -1,7 +1,4 @@
-/* ==========================================================================
-   STORIES
-   La rangée de l'accueil et la vue plein écran.
-   ========================================================================== */
+/* Stories */
 
 @layer components {
   /* Mobile : une ligne qui défile. Ordinateur : centrées, sur plusieurs lignes. */

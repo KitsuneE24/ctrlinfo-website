@@ -1,5 +1,6 @@
 import { Heart, Send, Flag } from 'lucide-react'
 import { texteSur } from '../lib/contraste'
+import ImagePost from './ImagePost'
 
 function ActionIcon({ label, onClick, disabled, active, modifier, children }) {
   return (
@@ -43,9 +44,7 @@ export default function PostCard({
         {post.sponsorise && <span className="post__sponso">Sponsorisé</span>}
       </header>
 
-      {/* Zone qui défile ; la barre d'actions y reste collée en bas. */}
       <div className="post__defile">
-        {/* Le texte avant l'image : on lit l'affirmation d'abord. */}
         <div className="post__lead">
           <p className="post__caption">
             <span className="post__caption-account">{post.source}</span>{' '}
@@ -53,9 +52,8 @@ export default function PostCard({
           </p>
         </div>
 
-        <img src={post.image} alt="" className="post__media" />
+        <ImagePost post={post} className="post__image" avecCredit={false} />
 
-        {/* ♡ ✈ à gauche, ⚑ à droite. */}
         {isActive && (
           <div className="post__actions">
             <ActionIcon

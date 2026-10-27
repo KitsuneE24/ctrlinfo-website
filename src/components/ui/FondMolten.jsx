@@ -1,10 +1,8 @@
 import { Suspense, lazy } from 'react'
 import { couleur } from '../../lib/couleurs'
 
-/** Shader chargé après le reste : `ogl` ne sert qu'ici. */
 const MoltenMetal = lazy(() => import('../MoltenMetal'))
 
-/** Réglages communs du métal en fusion (bandeaux, compteur). */
 const REGLAGES = {
   speed: 0.28,
   scale: 3,
@@ -23,7 +21,6 @@ const REGLAGES = {
   opacity: 1,
 }
 
-/** Fond animé : remplit son parent (position absolue côté CSS). */
 export default function FondMolten({ className = '', ...reglages }) {
   return (
     <div aria-hidden="true" className={className}>

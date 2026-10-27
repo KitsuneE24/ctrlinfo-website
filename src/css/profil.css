@@ -1,7 +1,4 @@
-/* ==========================================================================
-   PROFIL
-   Chiffres du joueur, champs de saisie, code de progression.
-   ========================================================================== */
+/* Profil */
 
 @layer components {
   /* --- Champs --- */
@@ -367,6 +364,16 @@
     border-radius: 2px;
     background: var(--bleu-texte);
     transition: width 0.4s ease-out;
+  }
+
+  /* Sans fin : la barre s'estompe vers la droite. */
+  .jauge__barre--infini {
+    background: linear-gradient(90deg, var(--bleu-texte) 30%, transparent);
+  }
+
+  .jauge__infini {
+    font-size: 1.25em;
+    line-height: 1;
   }
 
   /* --- « Ce qui te piège », sur papier --- */

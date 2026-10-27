@@ -1,8 +1,9 @@
 import { Play, RotateCcw } from 'lucide-react'
 import Filaments from './ui/Filaments'
 import Kiwi from './ui/Kiwi'
+import Demonstration from './Demonstration'
 
-/** Écran « Avant de jouer ». `reprise` : rouvert en cours de partie, ne relance rien. */
+// `reprise` : rouvert en cours de partie, ne relance rien.
 export default function GameStart({ jeu, reprise, onStart }) {
   return (
     <div
@@ -24,14 +25,20 @@ export default function GameStart({ jeu, reprise, onStart }) {
           {jeu.titre}
         </h1>
 
-        <ol className="game-start__points">
-          {jeu.points.map((point, i) => (
-            <li key={point}>
-              <span className="game-start__numero">{i + 1}</span>
-              <span>{point}</span>
-            </li>
-          ))}
-        </ol>
+        <div className="game-start__corps">
+          {jeu.demonstration ? (
+            <Demonstration jeu={jeu} />
+          ) : (
+            <ol className="game-start__points">
+              {jeu.points.map((point, i) => (
+                <li key={point}>
+                  <span className="game-start__numero">{i + 1}</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </div>
 
         <button type="button" onClick={onStart} className="bouton bouton--plein bouton--large">
           {reprise ? (

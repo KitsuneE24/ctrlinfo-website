@@ -93,6 +93,155 @@
     font-size: 17px;
   }
 
+  /* La fenêtre laisse dépasser la mascotte : seul le contenu défile. */
+  .game-start__corps {
+    max-height: calc(100dvh - 250px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin: 0 -6px 4px;
+    padding: 10px 6px 0;
+    scrollbar-width: none;
+  }
+
+  .game-start__corps::-webkit-scrollbar {
+    display: none;
+  }
+
+  .game-start__numero--puce {
+    width: 28px;
+    height: 28px;
+    border: 0;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--blanc);
+  }
+
+  .game-start__apres {
+    margin: -8px 0 20px;
+    font-size: var(--text-sm);
+    line-height: 1.45;
+    color: var(--ink-muted);
+  }
+
+  /* --- Maquette du jeu, repères numérotés comme dans la correction --- */
+
+  .demo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 14px;
+    border: 1px solid var(--filet-2);
+    border-radius: var(--radius-card);
+    background: var(--surface-basse);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .demo__puce {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    box-shadow: 0 0 0 2px var(--surface-basse);
+  }
+
+  .demo__puce--ligne {
+    margin-right: 6px;
+    vertical-align: 1px;
+  }
+
+  .demo__avatar,
+  .demo__groupe,
+  .demo__bulle,
+  .demo__lettre {
+    position: relative;
+  }
+
+  .demo__compte {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .demo__avatar {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 50%;
+    /* Neutre : le bleu est réservé aux repères numérotés. */
+    border: 1px solid var(--contour);
+    background: var(--filet-4);
+    color: var(--blanc);
+    font-weight: 700;
+  }
+
+  .demo__identite {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .demo__nom {
+    font-weight: 700;
+  }
+
+  .demo__detail,
+  .demo__contact {
+    font-size: var(--text-xs);
+    color: var(--ink-muted);
+  }
+
+  .demo__post {
+    margin: 0;
+  }
+
+  .demo__actions {
+    display: flex;
+    justify-content: space-between;
+    color: var(--ink);
+  }
+
+  .demo__groupe {
+    display: inline-flex;
+    gap: 14px;
+    padding: 4px 14px 4px 0;
+  }
+
+  .demo__contact {
+    margin: 0;
+  }
+
+  .demo__bulle {
+    align-self: flex-start;
+    max-width: 85%;
+    margin: 0;
+    padding: 8px 12px;
+    border-radius: 14px 14px 14px 4px;
+    background: var(--surface-haute);
+  }
+
+  .demo__choix {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--filet-2);
+    border-radius: 12px;
+  }
+
+  .demo__choix svg {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .demo__lettre {
+    padding-right: 6px;
+    font-weight: 700;
+    color: var(--magenta-texte);
+  }
+
   @media (max-height: 640px) {
     .game-start__points {
       gap: 8px;

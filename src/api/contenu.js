@@ -75,12 +75,12 @@ export const fabriquerNouvellesPublications = (level, { vus } = {}) =>
     return posts.length
   })
 
-export const getPlusDeConversations = depuis((c) => plusAutorise(c, 'chat'))
 
-export const fabriquerNouvellesConversations = () =>
+/** De nouveaux sujets pour ce contact ; renvoie les sujets créés. */
+export const fabriquerNouveauxSujets = (contact) =>
   chargerContenu().then((c) => {
-    if (!plusAutorise(c, 'chat')) return 0
-    const conversations = fabriquerConversations(c.posts, c.conversations)
+    if (!plusAutorise(c, 'chat')) return []
+    const conversations = fabriquerConversations(c, contact)
     ajouterGeneres({ conversations })
-    return conversations.length
+    return conversations
   })

@@ -465,6 +465,13 @@
     color: var(--ink);
   }
 
+  .thread__score-suite {
+    margin: 0;
+    font-size: var(--text-sm);
+    text-align: center;
+    color: var(--ink-muted);
+  }
+
   /* --- Zone de réponse --- */
 
   .composer {

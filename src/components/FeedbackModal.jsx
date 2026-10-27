@@ -2,6 +2,25 @@ import { useEffect, useState } from 'react'
 import { ArrowRight, ChevronLeft, ExternalLink, ScanSearch } from 'lucide-react'
 import CadreCagou from './CadreCagou'
 import PostAnnotated, { ListeIndices } from './PostAnnotated'
+import { lienWeb } from '../lib/lienWeb'
+
+const jour = (iso) => new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+
+// Exigée par la licence de l'article repris.
+function Licence({ post }) {
+  const url = lienWeb(post.licence?.url)
+  if (!url) return null
+  return (
+    <p className="indices__licence">
+      Titre de l’article de {post.article?.auteur}, {post.article?.editeur}, repris tel quel
+      {post.recolteLe ? ` le ${jour(post.recolteLe)}` : ''} sous licence{' '}
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        {post.licence.nom}
+      </a>
+      .
+    </p>
+  )
+}
 
 function Tampon({ biais }) {
   if (!biais || biais.startsWith('Aucun')) return null
@@ -126,6 +145,8 @@ function Indices({ post, learnMoreUrl, onRetour, onDismiss, onLearnMore }) {
               )}
             </section>
           )}
+
+          <Licence post={post} />
         </div>
       </div>
 

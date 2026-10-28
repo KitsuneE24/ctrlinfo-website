@@ -5,16 +5,18 @@
 
 ## 1. Le projet
 
-Jeu web de sensibilisation à la désinformation pour la Nouvelle-Calédonie.
-Le joueur trie un fil façon Instagram, répond à des messages et lit des fiches
-pour apprendre à vérifier une info.
+Jeu web de sensibilisation à la désinformation et aux arnaques en ligne, pensé
+d'abord pour la Nouvelle-Calédonie. Le joueur trie un fil façon Instagram (pour
+reconnaître les pièges sur ses propres réseaux), répond à ses proches dans les
+Messages et lit des fiches pour apprendre à vérifier une info.
 
 - **Site statique** : HTML, CSS, JS, images et JSON. Pas de base de données.
 - **Aucun compte, aucune donnée personnelle** : la progression reste dans le
   navigateur et s'emporte par un code à copier-coller.
 - **Contenu séparé du code** : tous les textes sont dans `public/donnees/`.
 - **Contenu renouvelé seul chaque matin**, sans IA et sans relecture humaine.
-- **Projet étudiant sans éditeur**, ni suivi ni maintenu, en ligne pour une durée limitée.
+- **Projet étudiant**, édité à titre non professionnel, ni suivi ni maintenu,
+  en ligne pour une durée limitée.
 
 ## 2. Stack
 
@@ -26,7 +28,7 @@ pour apprendre à vérifier une info.
 | Génération du contenu | script Node + rss-parser, lancé par GitHub Actions |
 | Envoi chez l'hébergeur | lftp (SFTP/FTPS) depuis GitHub Actions, ou Netlify |
 | Administration | `enregistrer.php` (Apache + PHP 8.1+) |
-| Contrôles | ESLint, `verifier`, `audit:securite`, Dependabot. Pas de tests automatisés |
+| Contrôles | ESLint, `verifier`, `audit:securite`, Vitest (unitaires), Playwright + axe (bout en bout et accessibilité), Dependabot |
 
 ## 3. Fonctionnalités
 
@@ -35,37 +37,53 @@ pour apprendre à vérifier une info.
 | `/` | Accueil | stories (sites où vérifier une info), tableau d'enquête, brève du jour |
 | `/fil` | Fil d'actualité | le jeu principal |
 | `/conversations` | Messages | un fil par contact, le joueur choisit ses réponses |
-| `/ressources` | Ressources | 8 thèmes sur les mécanismes de la désinformation |
+| `/ressources` | Ressources | 8 thèmes, 12 sites utiles (vérifier, se protéger des arnaques, comprendre) |
 | `/profil` | Profil | statistiques, avatar, code de sauvegarde, compagnon |
-| `/mentions-legales` | Mentions légales | statut (sans éditeur), hébergeur, données, crédits |
+| `/mentions-legales` | Mentions légales | éditeur, hébergeur, données, accessibilité, crédits |
 
 **Fil d'actualité**
 - Lots de 5 posts par niveau, tirés parmi les inédits.
 - Niveau 1 sans chrono, puis 60, 40, 30 et 25 s. Au-delà du niveau 5, le chrono
-  raccourcit encore, sans passer sous le temps de lecture.
+  raccourcit encore, sans passer sous le temps de lecture. Le chrono porte la
+  courbe de difficulté (théorie du flow) : c'est une limite de temps
+  essentielle au sens du RGAA (§ 9).
 - Boutons « J'aime » / « Partager » (= partager) et « Signaler ». Laisser
   filer le chrono = ignorer.
+- Trois sortes de faux, dans chaque niveau :
+  - **les pièges des Ressources** : urgence, autorité inventée, peur, faux
+    expert, chiffre sans base, fausse corrélation, photo prise ailleurs, post
+    fabriqué pour le clic, satire prise au sérieux, voix truquée par IA, effet
+    de halo, vérité par répétition, discours complotiste, témoignages triés…
+  - **au moins 2 arnaques de 2026** : faux concours, colis bloqué (publicité),
+    fausse cagnotte, offre d'emploi trop belle, placement miracle, fausse
+    alerte, compte piraté qui demande un code ;
+  - **un fait réel au détail changé** (2 dès le niveau 3), le piège le plus subtil.
 - Vrais et faux sont publiés par les mêmes types de comptes, avec les mêmes
-  voix (ado, parent, page de quiz, alarmiste…). Seuls le fond, la source et
-  le détail exact trahissent un faux.
+  voix (ado, parent, page de quiz, alarmiste…).
 - Un post fait quelques phrases : d'où vient l'info, une question aux abonnés,
   la source dite comme on la dit (« je l'ai vu sur Wikipédia »), jamais « Source : ».
 - Les commentaires réagissent au sujet, au lieu, à la façon d'écrire du compte ;
   sous un fait déformé, celui qui a vérifié rétablit le vrai.
-- Correction : une couleur par post, rouge pour une fake news, bleu pour un vrai.
+- Correction : une couleur par post, rouge pour une fake news, bleu pour un
+  vrai ; repères numérotés sur le compte, le titre, le texte, la date ou la photo.
 - Environ un tiers d'articles : de vrais articles sous licence libre (The
-  Conversation, CNIL, titre intact), et autant de faux de médias inventés.
-- Deux erreurs sur le même biais insèrent un post d'entraînement ciblé.
+  Conversation, rubriques Sciences, Environnement et Éducation ; CNIL), titre
+  intact, et autant de faux de médias inventés.
+- Deux erreurs sur le même procédé insèrent son post d'entraînement.
 - Quand tout est vu, « Continuer à jouer » fabrique un nouveau lot dans le
   navigateur.
 
-**Messages** : 8 contacts. Chaque choix donne une réplique du personnage et une
-explication pédagogique. « Nouveau sujet » ouvre le suivant ; quand il n'y en
-a plus, le navigateur en fabrique 10.
+**Messages** : 8 contacts, 3 sujets chacun, dont une arnaque par contact.
+Chaque choix donne une réplique du personnage et une explication. Une fake
+news se joue en 3 temps (ne pas transférer, chercher la source, corriger) ;
+une arnaque aussi (ne pas cliquer, vérifier qui est derrière, réparer si c'est
+trop tard). « Nouveau sujet » ouvre le suivant ; quand il n'y en a plus, le
+navigateur en fabrique 10.
 
 **Compagnon** : un cagou en pixel art qui commente l'écran et réagit aux coups.
 Il évite le texte, se range pendant une partie, se déplace à la main et se
-désactive depuis le profil.
+désactive depuis le profil. Il reste immobile si le système demande de réduire
+les animations.
 
 ## 4. Architecture
 
@@ -105,9 +123,15 @@ Où se trouve chaque partie dans le code :
 | `src/admin/` | formulaire d'administration |
 | `public/donnees/` | le contenu (JSON) |
 | `public/images/` | photos libres des faits et des événements |
-| `scripts/` | génération, modèles des posts, vérification, audit |
+| `scripts/gabarits.mjs` | procédés (pièges), voix des comptes, textes de correction |
+| `scripts/arnaques.mjs` | les arnaques, de la plus grossière (niveau 1) à la plus soignée (niveau 5) |
+| `scripts/gabarits-conversations.mjs` | contacts et déroulés des Messages |
+| `scripts/fabrique.mjs` | assemble un post, une conversation, un post d'entraînement |
+| `scripts/` (autres) | génération, vérification, audit, images |
+| `tests/unitaires/` | code de sauvegarde, tirage, stockage, générateur, contenu |
+| `tests/e2e/` | chaque écran, les parcours, le clavier, l'accessibilité |
 | `config.json` | réglages de la génération |
-| `.github/workflows/` | `generation.yml` (chaque matin), `securite.yml` (chaque envoi et chaque semaine) |
+| `.github/workflows/` | `generation.yml` (chaque matin), `securite.yml` « Contrôles » (chaque envoi et chaque semaine) |
 
 **À savoir**
 - Si le contenu manque ou est cassé, l'écran affiche un message clair.
@@ -126,41 +150,64 @@ Où se trouve chaque partie dans le code :
 | `contenu.json` → `faits` | faits réels et vérifiables : version vraie, version fausse (un détail changé), source, photo |
 | `contenu.json` → `scenarios` | événements inventés et anodins, avec leur `lieu` (« à La Foa ») |
 | `contenu.json` → `conversations` | sujets de discussion (générés) |
-| `contenu.json` → `remediations` | posts d'entraînement, un par biais |
-| `contenu.json` → `chapitres`, `ressources`, `stories`, `astuces` | fiches, sites de vérification, brèves |
+| `contenu.json` → `remediations` | posts d'entraînement, un par procédé (complétés seuls s'il en manque) |
+| `contenu.json` → `chapitres`, `ressources`, `stories`, `astuces` | fiches, sites utiles, brèves |
 | `contenu.json` → `jeux`, `niveaux`, `avatars`, `mentionsLegales` | règles, tutoriels, avatars, mentions |
 | `config.json` → `generation` | posts par niveau, renouvellement, médias sous licence, sujets écartés |
 
-**Modifier** : copier une entrée existante dans le JSON (attention aux virgules),
-ou passer par l'administration. Puis `npm run verifier` et jouer le passage.
+**Modifier un texte** : copier une entrée existante dans le JSON (attention aux
+virgules), ou passer par l'administration. Puis `npm run verifier` et `npm test`.
+
+**Ajouter un fait, pas à pas** (c'est le seul moyen de vraiment renouveler le jeu)
+1. Trouver le fait sur une **source première** : gouv.nc, ISEE, Endemia,
+   Météo-France NC, UNESCO… Wikipédia en dernier recours. Citer un fait
+   reformulé avec un lien est libre : aucune licence n'est nécessaire.
+2. Écrire `vrai`, `faux` (un seul détail changé, sans danger s'il circulait),
+   `source: { nom, url }`, `theme`.
+3. Photo (facultative) : sur Wikimedia Commons, domaine public, CC0, CC BY ou
+   CC BY-SA, sans visage reconnaissable. L'enregistrer dans
+   `public/images/faits/<id>.jpg`, lancer `npm run images` (réduit le poids et
+   retire les métadonnées), puis remplir `image: { fichier, alt, auteur,
+   licence, licenceUrl, page }`. Le crédit s'affiche seul dans la correction
+   et les mentions légales.
+4. `npm run verifier && npm test`, puis `npm run generer -- --essai`.
+5. **Une nouvelle photo exige un envoi complet du site** (§ 8) : le robot du
+   matin n'envoie que les JSON.
+
+**Ajouter un procédé ou une arnaque** : copier une entrée de `CATEGORIES`
+(`scripts/gabarits.mjs`) ou de `ARNAQUES` (`scripts/arnaques.mjs`), avec un
+titre et une phrase par niveau. `npm test` vérifie qu'il s'applique, que ses
+textes sont propres (pas de valeur vide, de tiret cadratin, de « Source : »,
+de guillemets imbriqués) et le générateur lui crée son post d'entraînement.
 
 **Règles**
-- Un fait est vrai, sourcé (organisme public, encyclopédie), sans personne
-  vivante, sans politique, coutume ni santé. Sa version fausse change un seul
-  détail, sans danger si elle circulait.
+- Un fait est vrai, sourcé, sans personne vivante, sans politique, coutume ni
+  santé.
 - Un événement inventé ne cite aucune personne, entreprise ni institution réelle.
-- Photos : libres (Wikimedia Commons), sans visage reconnaissable, avec `alt`
-  et crédit, affiché sous la photo dans la correction (jamais dans le fil).
-  `npm run verifier` refuse une photo sans crédit.
+- Un nom de compte, de page ou de média inventé ne doit pas exister : vérifier
+  que son adresse n'est pas enregistrée (`nslookup nom.info` doit échouer).
+- Photos : avec `alt` et crédit, affiché sous la photo dans la correction
+  (jamais dans le fil). `npm run verifier` refuse une photo sans crédit.
 - Jamais de média sans licence libre ; jamais de faux tiré d'un vrai article.
-- Le biais d'un faux doit exister dans `remediations`.
 - Ton : on vouvoie le joueur, le cagou le tutoie, les personnages se tutoient.
   Pas de tiret cadratin. On dit « post », « fake news », « cagou ».
-
-Ajouter des faits est le seul moyen de vraiment renouveler le jeu : le
-générateur ne fait que varier leur présentation.
 
 ## 6. Génération automatique
 
 Chaque matin à 6 h (Nouméa), `generation.yml` :
 
-1. assemble faits, événements et articles sous licence avec des modèles écrits
-   à la main (`scripts/gabarits.mjs`) ;
+1. assemble faits, événements, arnaques et articles sous licence avec les
+   modèles écrits à la main ;
 2. remplace les posts les plus anciens de chaque niveau, en gardant autant de
-   vrais que de faux ;
-3. vérifie le résultat. En cas d'échec, rien n'est envoyé : le site garde la
-   version de la veille ;
+   vrais que de faux, et crée les posts d'entraînement manquants ;
+3. vérifie le résultat (`verifier` et `npm test`). En cas d'échec, rien n'est
+   envoyé : le site garde la version de la veille ;
 4. enregistre dans le dépôt, puis envoie les 3 fichiers JSON chez l'hébergeur.
+
+Les dates des posts suivent le jour de génération (« Continuer à jouer », le
+jour où l'on joue). Le générateur varie la présentation des faits : il
+n'invente pas d'actualité. Seuls les articles sous licence libre apportent de
+la vraie actualité.
 
 Lancer ou arrêter : onglet *Actions* → « Génération du contenu » → *Run* ou
 *Disable workflow*.
@@ -190,8 +237,8 @@ dossier d'administration de `dist/`.**
 3. Créer le `.htpasswd` **sur le serveur, hors du dossier public**, un compte
    par personne, mot de passe de 12 caractères ou plus :
    `htpasswd -B -c /chemin/absolu/.htpasswd prenom`. Mettre ce chemin dans
-   `admin.htpasswd`.
-4. `npm run build` : le terminal affiche `administration : dist/<adresse>/`.
+   `admin.htpasswd` (le chemin de l'exemple est refusé).
+4. `npm run build` : le terminal confirme l'admin et le mot de passe.
    Envoyer `dist/` chez l'hébergeur.
 5. L'admin s'ouvre à `https://<site>/<adresse>/`. Transmettre l'adresse
    seulement aux éditeurs, de vive voix ou par gestionnaire de mots de passe.
@@ -213,32 +260,42 @@ et `ADMIN_HTPASSWD` remplacent le fichier.
 
 ## 8. Mise en ligne
 
-1. `npm ci && npm run lint && npm run verifier && npm run audit:securite`
-2. `npm run build`, puis copier `dist/` chez l'hébergeur en SFTP/FTPS.
-3. Servir `index.html` pour toute adresse inconnue : déjà réglé pour Apache
+1. `npm ci && npm run lint && npm run verifier && npm run audit:securite && npm test`
+2. `npm run test:e2e` (la première fois : `npx playwright install chromium`).
+3. `npm run build`, puis copier `dist/` chez l'hébergeur en SFTP/FTPS.
+4. Servir `index.html` pour toute adresse inconnue : déjà réglé pour Apache
    et Netlify ; Nginx : `try_files $uri $uri/ /index.html;`.
-4. Compléter les mentions légales : les champs `[À compléter : …]` de
-   `mentionsLegales` (hébergeur seulement : seul contact du site).
-5. Transférer le dépôt GitHub au commanditaire et renseigner les secrets.
-6. Vérifier : redirection HTTPS, admin sous mot de passe, aucune erreur
+5. Compléter les mentions légales : les champs `[À compléter : …]` de
+   `mentionsLegales` (l'hébergeur = la société qui fournit le serveur). Donner
+   son identité d'éditeur à l'hébergeur (LCEN, éditeur non professionnel).
+6. Transférer le dépôt GitHub au commanditaire et renseigner les secrets.
+7. Vérifier : redirection HTTPS, admin sous mot de passe, aucune erreur
    « Content-Security-Policy » dans la console.
 
-## 9. Sécurité
+## 9. Sécurité et accessibilité
 
 **En place** : HTTPS + HSTS, en-têtes de sécurité (CSP, anti-encadrement) ;
 admin protégée deux fois, limitée à 3 fichiers, protégée contre les envois
-depuis un autre site et tracée ; liens externes limités à `http(s)` ; images servies par le site seulement
-(`img-src 'self'`, image externe refusée par `verifier`), donc aucune IP de
-joueur transmise à un tiers ; code de
-sauvegarde et contenu fabriqué relus au chargement ; envoi en SFTP/FTPS
-uniquement ; workflow « Sécurité » et Dependabot. Audit :
-`npm run audit:securite` donne 45 OK, 0 échec, et 2 alertes tant que
-`config.local.json` n'est pas rempli (adresse de l'admin et `.htpasswd`, § 7).
+depuis un autre site et tracée ; liens externes limités à `http(s)` ; images
+servies par le site seulement (`img-src 'self'`, image externe refusée par
+`verifier`), donc aucune IP de joueur transmise à un tiers ; code de
+sauvegarde et contenu fabriqué relus au chargement ; JSON jamais mis en cache ;
+envoi en SFTP/FTPS uniquement ; workflow « Contrôles » et Dependabot. Audit :
+`npm run audit:securite` donne 46 OK, 0 échec, et 1 alerte tant que le
+`.htpasswd` n'est pas réglé (§ 7).
 
 **Aucun secret dans le dépôt** : chemin de l'admin, `.htpasswd` et accès
 d'envoi restent dehors, et ni le build ni les workflows ne les affichent. Un
 secret vu dans un commit est considéré comme volé. Aucune erreur technique
 n'est montrée (erreurs PHP masquées, version du serveur cachée).
+
+**Accessibilité** (RGAA 4.1, visé AA, non audité) : lien « Aller au contenu »,
+tout se joue au clavier, zones défilantes atteignables, contrastes AA,
+animations arrêtées si le système le demande, chrono annoncé aux lecteurs
+d'écran au dernier tiers. Le chrono est une exception assumée (critère 13.1,
+limite essentielle au jeu), décrite dans les mentions légales. `npm run
+test:e2e` passe chaque écran aux règles WCAG 2.2 A et AA (axe) : un écran
+qui régresse fait échouer les contrôles.
 
 **Suivi**
 - Dépôt au nom du commanditaire, double authentification, peu de collaborateurs.
@@ -254,18 +311,38 @@ n'est montrée (erreurs PHP masquées, version du serveur cachée).
 | Contenu modifié par un tiers | supprimer l'admin, garder les journaux, restaurer, changer tous les mots de passe |
 | Secret fuité | le changer chez l'hébergeur puis sur GitHub |
 | Site blanc | ouvrir `/donnees/contenu.json` ; restaurer la dernière version saine |
+| Génération en échec | lire l'étape rouge dans *Actions* ; `npm test` en local donne le détail |
 
 **Fin de vie** : désactiver les workflows, supprimer les secrets, supprimer
 l'admin, archiver le dépôt. Le site statique continue seul.
 
 ## 10. Limites connues
 
-- Pas de tests automatisés ; la vérification ne contrôle que la forme.
 - 40 faits et 40 événements : un joueur assidu revoit les mêmes faits.
-- Sources des 40 faits relues le 28/10/2026 ; la page de l'UNESCO refuse les
-  robots et se vérifie à la main.
-- Quatre biais sans post d'entraînement : « Certitude ajoutée »,
-  « Information recyclée », « Détail modifié », « Fait déformé ».
+- 32 faits sur 40 ont encore Wikipédia pour source ; les 8 autres ont une
+  source première (UNESCO, ISEE, Endemia, gouv.nc). La page de l'UNESCO
+  refuse les robots et se vérifie à la main.
+- Deux cas réels des Ressources ont une source en anglais (le tigre, The
+  Connexion ; le riz, Oman Observer) : pas d'équivalent français trouvé qui
+  confirme tout le texte.
+- La fiche Endemia du cagou contient une erreur de description (« oiseau
+  blanc au bec jaune ») ; les faits cités (inapte au vol, un seul œuf,
+  endémique) y sont justes.
+- Les vrais posts attendent toujours « Partager » : le jeu ne récompense pas
+  encore « ne pas partager une info vraie mais non sourcée ».
 - Mot de passe de l'admin sans limite d'essais.
 - Les liens externes vieilliront sans entretien.
 
+## 11. Reprendre le projet
+
+Pour une personne qui arrive sans contexte, dans l'ordre :
+
+1. Lire ce fichier (15 minutes), puis le haut de [JOURNAL.md](JOURNAL.md).
+2. `npm ci`, `npm run dev`, jouer un niveau du fil et une conversation.
+3. `npm test` et `npm run test:e2e` : tout doit être vert avant de toucher au code.
+4. Ouvrir `scripts/gabarits.mjs` et `scripts/arnaques.mjs` : tout le texte des
+   posts générés y est, procédé par procédé.
+5. Faire une petite modification, relancer les tests, ajouter une ligne au
+   JOURNAL, commiter avec un message `[Sujet] Ce qui change`.
+
+Le dépôt frère `ctrlinfo-app` (ancienne API) n'est plus utilisé : l'archiver.

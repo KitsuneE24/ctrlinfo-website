@@ -438,29 +438,38 @@ export function fabriquerConversation(post, gabarit, distribution, options = {})
 }
 
 export function sujetsPour(distribution, conversations, nombre, banques, { prefixe = 'sujet', maintenant } = {}) {
-  const pris = new Set(conversations.map((c) => `${c.scenario}|${c.biais}`))
-  const parBase = compter(conversations, (c) => c.scenario)
-  const duContact = new Set(conversations.filter((c) => c.contact === distribution.id).map((c) => c.scenario))
   const sujets = []
-  const bases = basesDe(banques).sort(
-    (x, y) =>
-      Number(duContact.has(x.id)) - Number(duContact.has(y.id)) ||
-      (parBase.get(x.id) ?? 0) - (parBase.get(y.id) ?? 0) ||
-      graineDe(`${distribution.id}|${x.id}`) - graineDe(`${distribution.id}|${y.id}`)
-  )
-  for (const base of bases) {
-    if (sujets.length === nombre) break
-    const graine = graineDe(`${distribution.id}|${base.id}`)
-    const niveau = 1 + (graine % 3)
-    const debut = (graine + sujets.length) % PROCEDES.length
-    const gabarit = [...PROCEDES.slice(debut), ...PROCEDES.slice(0, debut)].find(
-      (c) => !c.horsMessages && permisPour(c, niveau, base) && !pris.has(`${base.id}|${c.biais}`)
+  const bases = basesDe(banques)
+  while (sujets.length < nombre) {
+    // Recalculé à chaque sujet : une arnaque par contact, puis les procédés les moins vus.
+    const tous = [...conversations, ...sujets]
+    const pris = new Set(tous.map((c) => `${c.scenario}|${c.biais}`))
+    const parBase = compter(tous, (c) => c.scenario)
+    const parBiais = compter(tous, (c) => c.biais)
+    const duContact = tous.filter((c) => c.contact === distribution.id)
+    const vusDuContact = new Set(duContact.map((c) => c.scenario))
+    const arnaqueAvant = !duContact.some((c) => c.scenario?.startsWith('arnaque-'))
+    const n = (carte, cle) => carte.get(cle) ?? 0
+
+    const paires = bases.flatMap((base) => {
+      const niveau = 1 + (graineDe(`${distribution.id}|${base.id}`) % 3)
+      return PROCEDES.filter((c) => !c.horsMessages && permisPour(c, niveau, base) && !pris.has(`${base.id}|${c.biais}`)).map(
+        (gabarit) => ({ base, gabarit, niveau })
+      )
+    })
+    paires.sort(
+      (x, y) =>
+        (arnaqueAvant ? Number(Boolean(y.base.arnaque)) - Number(Boolean(x.base.arnaque)) : 0) ||
+        Number(vusDuContact.has(x.base.id)) - Number(vusDuContact.has(y.base.id)) ||
+        n(parBiais, x.gabarit.biais) - n(parBiais, y.gabarit.biais) ||
+        n(parBase, x.base.id) - n(parBase, y.base.id) ||
+        graineDe(`${distribution.id}|${x.base.id}|${x.gabarit.biais}`) - graineDe(`${distribution.id}|${y.base.id}|${y.gabarit.biais}`)
     )
-    if (!gabarit) continue
-    pris.add(`${base.id}|${gabarit.biais}`)
-    const post = fabriquerFaux(base, gabarit, niveau, { maintenant })
-    const id = `${prefixe}-${distribution.id}-${base.id}-${empreinte(gabarit.biais)}`
-    sujets.push(fabriquerConversation(post, gabarit, distribution, { id, maintenant }))
+    const choix = paires[0]
+    if (!choix) break
+    const post = fabriquerFaux(choix.base, choix.gabarit, choix.niveau, { maintenant })
+    const id = `${prefixe}-${distribution.id}-${choix.base.id}-${empreinte(choix.gabarit.biais)}`
+    sujets.push(fabriquerConversation(post, choix.gabarit, distribution, { id, maintenant }))
   }
   return sujets
 }

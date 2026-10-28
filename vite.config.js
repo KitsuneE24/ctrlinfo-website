@@ -61,8 +61,17 @@ function finirLeBundle() {
   }
 }
 
+// En-têtes de public/.htaccess, repris par `npm run preview` (tests e2e).
+const ENTETES = Object.fromEntries(
+  [...readFileSync(resolve(import.meta.dirname, 'public/.htaccess'), 'utf8').matchAll(/Header always set ([\w-]+) "([^"]+)"/g)]
+    .filter(([, nom]) => nom !== 'Strict-Transport-Security')
+    .map(([, nom, valeur]) => [nom, valeur])
+)
+
 export default defineConfig({
   plugins: [react(), finirLeBundle()],
+  preview: { headers: ENTETES },
+  test: { include: ['tests/unitaires/**/*.test.js'], environment: 'node' },
   build: {
     rollupOptions: {
       input: {

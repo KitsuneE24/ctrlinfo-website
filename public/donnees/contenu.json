@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "genere": "2026-10-28T02:35:09.113Z",
+  "genere": "2026-10-28T02:37:39.745Z",
   "jeux": [
     {
       "id": "feed",
@@ -2305,7 +2305,7 @@
       "origine": "fiction",
       "scenario": "arnaque-compte-pirate",
       "biais": "Compte piraté",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-tata-josiane-tortue-poe-bmghzr",
@@ -2480,7 +2480,7 @@
       "origine": "fiction",
       "scenario": "tortue-poe",
       "biais": "Faux expert",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-tata-josiane-jouets-paita-vlq8f9",
@@ -2655,7 +2655,7 @@
       "origine": "fiction",
       "scenario": "jouets-paita",
       "biais": "Appel à la peur",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-famille-arnaque-emploi-zhw8j4",
@@ -2846,7 +2846,7 @@
       "origine": "fiction",
       "scenario": "arnaque-emploi",
       "biais": "Offre trop belle",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-famille-cabine-bourail-hdbh0z",
@@ -3046,7 +3046,7 @@
       "origine": "fiction",
       "scenario": "cabine-bourail",
       "biais": "Fausse corrélation",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-famille-fait-tricot-raye-1tscjqq",
@@ -3246,7 +3246,7 @@
       "origine": "fiction",
       "scenario": "fait-tricot-raye",
       "biais": "Certitude ajoutée",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-mathis-arnaque-placement-smdn",
@@ -3412,7 +3412,7 @@
       "origine": "fiction",
       "scenario": "arnaque-placement",
       "biais": "Placement miracle",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-mathis-nids-de-poule-1ca5vru",
@@ -3587,7 +3587,7 @@
       "origine": "fiction",
       "scenario": "nids-de-poule",
       "biais": "Effet de halo",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-mathis-esport-dumbea-2yywba",
@@ -3762,7 +3762,7 @@
       "origine": "fiction",
       "scenario": "esport-dumbea",
       "biais": "Satire prise au sérieux",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-potes-arnaque-cagnotte-2ggh65",
@@ -3953,7 +3953,7 @@
       "origine": "fiction",
       "scenario": "arnaque-cagnotte",
       "biais": "Fausse cagnotte",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-potes-marche-la-foa-jr2doy",
@@ -4153,7 +4153,7 @@
       "origine": "fiction",
       "scenario": "marche-la-foa",
       "biais": "Autorité inventée",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-potes-fleur-panie-18kzlob",
@@ -4353,7 +4353,7 @@
       "origine": "fiction",
       "scenario": "fleur-panie",
       "biais": "Voix ou vidéo truquée",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-colette-arnaque-concours-hp9alp",
@@ -4519,7 +4519,7 @@
       "origine": "fiction",
       "scenario": "arnaque-concours",
       "biais": "Faux concours",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-colette-caisses-farino-af9y93",
@@ -4694,7 +4694,7 @@
       "origine": "fiction",
       "scenario": "caisses-farino",
       "biais": "Fabriqué pour le clic",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-colette-surf-bourail-vju5zz",
@@ -4869,7 +4869,7 @@
       "origine": "fiction",
       "scenario": "surf-bourail",
       "biais": "Cherry picking",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-papi-rene-arnaque-colis-1y09zw6",
@@ -5035,7 +5035,7 @@
       "origine": "fiction",
       "scenario": "arnaque-colis",
       "biais": "Hameçonnage",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-papi-rene-course-bourail-1cy2fxe",
@@ -5210,7 +5210,7 @@
       "origine": "fiction",
       "scenario": "course-bourail",
       "biais": "Vérité par répétition",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-papi-rene-festival-koumac-el21ry",
@@ -5385,7 +5385,7 @@
       "origine": "fiction",
       "scenario": "festival-koumac",
       "biais": "Manipulation statistique",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-collegues-arnaque-alerte-16vfrmx",
@@ -5576,7 +5576,7 @@
       "origine": "fiction",
       "scenario": "arnaque-alerte",
       "biais": "Fausse alerte",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-collegues-baleine-yate-5in7d6",
@@ -5776,7 +5776,7 @@
       "origine": "fiction",
       "scenario": "baleine-yate",
       "biais": "Discours complotiste",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-collegues-fait-recifs-especes-bgqykb",
@@ -5976,7 +5976,7 @@
       "origine": "fiction",
       "scenario": "fait-recifs-especes",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-club-foot-velos-electriques-18sg80b",
@@ -6176,7 +6176,7 @@
       "origine": "fiction",
       "scenario": "velos-electriques",
       "biais": "Biais de confirmation",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-club-foot-radio-canala-hdbh0z",
@@ -6376,7 +6376,7 @@
       "origine": "fiction",
       "scenario": "radio-canala",
       "biais": "Fausse corrélation",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     },
     {
       "id": "sujet-20261028-club-foot-chat-conteneur-2yywba",
@@ -6576,7 +6576,7 @@
       "origine": "fiction",
       "scenario": "chat-conteneur",
       "biais": "Satire prise au sérieux",
-      "recolteLe": "2026-10-28T02:35:09.113Z"
+      "recolteLe": "2026-10-28T02:37:39.745Z"
     }
   ],
   "chapitres": [
@@ -7711,8 +7711,8 @@
       "vrai": "Le cagou ne sait pas voler : il se déplace en courant au sol.",
       "faux": "Le cagou vole sur de longues distances, d’une île à l’autre.",
       "source": {
-        "nom": "Wikipédia",
-        "url": "https://fr.wikipedia.org/wiki/Cagou_hupp%C3%A9"
+        "nom": "Endemia",
+        "url": "https://endemia.nc/faune/fiche144"
       },
       "image": {
         "fichier": "/images/faits/cagou-vol.jpg",
@@ -7729,8 +7729,8 @@
       "vrai": "Le cagou ne pond en général qu’un seul œuf à la fois.",
       "faux": "Le cagou pond une dizaine d’œufs à chaque couvée.",
       "source": {
-        "nom": "Wikipédia",
-        "url": "https://fr.wikipedia.org/wiki/Cagou_hupp%C3%A9"
+        "nom": "Endemia",
+        "url": "https://endemia.nc/faune/fiche144"
       },
       "image": {
         "fichier": "/images/faits/cagou-oeuf.jpg",
@@ -7747,8 +7747,8 @@
       "vrai": "Le cagou est endémique : il ne vit naturellement qu’en Nouvelle-Calédonie.",
       "faux": "Le cagou vit aussi à l’état sauvage en Australie et en Nouvelle-Zélande.",
       "source": {
-        "nom": "Wikipédia",
-        "url": "https://fr.wikipedia.org/wiki/Cagou_hupp%C3%A9"
+        "nom": "Endemia",
+        "url": "https://endemia.nc/faune/fiche144"
       },
       "image": {
         "fichier": "/images/faits/cagou-endemique.jpg",
@@ -7819,8 +7819,8 @@
       "vrai": "La Nouvelle-Calédonie compte trois provinces : Sud, Nord et îles Loyauté.",
       "faux": "La Nouvelle-Calédonie compte quatre provinces : Sud, Nord, Ouest et îles Loyauté.",
       "source": {
-        "nom": "Wikipédia",
-        "url": "https://fr.wikipedia.org/wiki/Provinces_de_la_Nouvelle-Cal%C3%A9donie"
+        "nom": "gouv.nc",
+        "url": "https://gouv.nc/gouvernement-et-institutions-les-autres-institutions/les-provinces"
       },
       "image": {
         "fichier": "/images/faits/provinces.png",
@@ -7837,8 +7837,8 @@
       "vrai": "La Nouvelle-Calédonie compte 33 communes.",
       "faux": "La Nouvelle-Calédonie compte 53 communes.",
       "source": {
-        "nom": "Wikipédia",
-        "url": "https://fr.wikipedia.org/wiki/Liste_des_communes_de_la_Nouvelle-Cal%C3%A9donie"
+        "nom": "gouv.nc",
+        "url": "https://gouv.nc/gouvernement-et-institutions-les-autres-institutions/les-communes"
       },
       "image": {
         "fichier": "/images/faits/provinces.png",
@@ -8197,8 +8197,8 @@
       "vrai": "La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de fruits et de fleurs.",
       "faux": "La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de petits poissons.",
       "source": {
-        "nom": "Wikipédia",
-        "url": "https://fr.wikipedia.org/wiki/Roussette_rousse"
+        "nom": "Endemia",
+        "url": "https://endemia.nc/faune/fiche1328"
       },
       "image": {
         "fichier": "/images/faits/roussette.jpg",

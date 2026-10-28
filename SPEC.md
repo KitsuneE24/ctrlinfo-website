@@ -309,8 +309,10 @@ et `ADMIN_HTPASSWD` remplacent le fichier.
    donnée à l'hébergeur (LCEN, éditeur non professionnel).
    **Serveur Apache** (autre possibilité) : `npm run build`, puis copier
    `dist/` en SFTP/FTPS ; `public/.htaccess` porte les mêmes réglages.
-4. Compléter les mentions légales : le champ `[À compléter : …]` de
-   `mentionsLegales` (téléphone de Netlify, à relever sur netlify.com).
+4. Mentions légales : hébergeur Netlify rempli (adresse tirée de ses
+   conditions d'utilisation ; téléphone absent de netlify.com, repris des
+   annuaires d'entreprises). Si l'hébergeur change, mettre à jour la section
+   « Hébergement » de `mentionsLegales` et le transfert de données.
 5. Transférer le dépôt GitHub au commanditaire et lui transférer le site
    Netlify (*Team settings*), ou le recréer à son nom.
 6. Vérifier : redirection HTTPS, aucune erreur « Content-Security-Policy »

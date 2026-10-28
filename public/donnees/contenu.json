@@ -7200,6 +7200,24 @@
       "color": "#1800ad"
     },
     {
+      "id": "meteo-nc",
+      "titre": "Météo-France Nouvelle-Calédonie",
+      "editeur": "Météo-France",
+      "categorie": "Vérifier une info",
+      "description": "Les vigilances et alertes cycloniques officielles : à consulter avant de transférer une alerte reçue sur les réseaux.",
+      "url": "https://meteo.nc/fr",
+      "color": "#1800ad"
+    },
+    {
+      "id": "endemia",
+      "titre": "Endemia",
+      "editeur": "Association Endemia",
+      "categorie": "Vérifier une info",
+      "description": "L’encyclopédie de la faune et de la flore calédoniennes, avec une fiche par espèce : pratique pour vérifier une info sur la nature d’ici.",
+      "url": "https://endemia.nc/",
+      "color": "#791561"
+    },
+    {
       "id": "image-inversee",
       "titre": "Recherche d'image inversée",
       "editeur": "Google Images",
@@ -7216,6 +7234,24 @@
       "description": "Moteur de recherche d'images qui affiche la plus ancienne occurrence connue d'une photo.",
       "url": "https://tineye.com/",
       "color": "#e0309a"
+    },
+    {
+      "id": "cybermalveillance",
+      "titre": "Cybermalveillance.gouv.fr",
+      "editeur": "Dispositif national d’assistance",
+      "categorie": "Se protéger des arnaques",
+      "description": "Des fiches simples sur l’hameçonnage, le piratage de compte ou les fausses offres d’emploi : reconnaître le piège, et quoi faire si c’est trop tard.",
+      "url": "https://www.cybermalveillance.gouv.fr/",
+      "color": "#1800ad"
+    },
+    {
+      "id": "pharos",
+      "titre": "Pharos",
+      "editeur": "Ministère de l’Intérieur",
+      "categorie": "Se protéger des arnaques",
+      "description": "La plateforme officielle pour signaler un contenu illicite ou une escroquerie en ligne.",
+      "url": "https://www.internet-signalement.gouv.fr/",
+      "color": "#791561"
     },
     {
       "id": "clemi",
@@ -7240,6 +7276,7 @@
     "Tout",
     "Vérifier une info",
     "Vérifier une image",
+    "Se protéger des arnaques",
     "Comprendre"
   ],
   "stories": [
@@ -7514,16 +7551,19 @@
   "mentionsLegales": [
     {
       "id": "statut",
-      "titre": "Statut du site",
+      "titre": "Éditeur et statut du site",
       "paragraphes": [
         {
-          "texte": "CTRL INFO est un projet étudiant réalisé en 2026 par l’équipe citée dans « Crédits ». Il est publié à titre non professionnel et non commercial, sans éditeur : aucune personne ni structure n’en assure la publication, le suivi ou la mise à jour."
+          "texte": "CTRL INFO est un projet étudiant réalisé en 2026 par l’équipe citée dans « Crédits ». Il est publié à titre non professionnel et non commercial, par une personne physique membre de l’équipe."
+        },
+        {
+          "texte": "Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique (LCEN), l’éditeur non professionnel peut ne pas rendre public son nom : ses coordonnées ont été communiquées à l’hébergeur du site, qui peut les transmettre sur demande de l’autorité judiciaire."
         },
         {
           "texte": "Le site n’est pas maintenu. Il reste en ligne tel quel tant que son hébergement est assuré, et s’arrêtera à une date qui n’est pas fixée, sans préavis."
         },
         {
-          "texte": "Pour toute demande (signalement, droits, retrait d’un contenu), le seul contact est l’hébergeur du site (voir « Hébergement »)."
+          "texte": "Pour toute demande (signalement, droits, retrait d’un contenu), le contact est l’hébergeur du site (voir « Hébergement »), qui la transmet à l’éditeur."
         }
       ]
     },
@@ -7532,7 +7572,7 @@
       "titre": "Hébergement",
       "paragraphes": [
         {
-          "texte": "Le site est hébergé par [À compléter : nom ou raison sociale de l’hébergeur], [À compléter : adresse postale], [À compléter : numéro de téléphone], [À compléter : site web ou adresse de contact]."
+          "texte": "Le site est hébergé par [À compléter : nom ou raison sociale de l’hébergeur, c’est-à-dire la société qui fournit le serveur], [À compléter : adresse postale], [À compléter : numéro de téléphone], [À compléter : site web ou adresse de contact]."
         },
         {
           "texte": "L’hébergeur reçoit les informations techniques de chaque visite (voir « Données personnelles ») et les traite pour acheminer les pages et sécuriser le service."
@@ -7554,6 +7594,12 @@
         },
         {
           "texte": "Le fil mélange trois sortes de posts. Les posts de personnes présentés comme vrais énoncent des faits réels et vérifiables sur la Nouvelle-Calédonie, rédigés par l’équipe, avec un lien vers une source qui les confirme. Les posts faux sont des événements imaginaires, ou ces mêmes faits avec un détail volontairement changé ; ils sont aussi publiés sous forme de faux articles de médias inventés. Les vrais articles reprennent, sans aucune modification, le titre et le lien d’articles publiés sous licence libre par The Conversation France et la CNIL (voir « Propriété intellectuelle ») ; aucun faux n’est fabriqué à partir de ces articles. La correction affichée après chaque réponse donne la bonne information et sa source. Les faits retenus ne mettent en cause aucune personne vivante et évitent la politique, la coutume et la santé ; les titres d’articles qui touchent à des sujets graves, politiques ou religieux sont écartés automatiquement. Pour signaler un contenu inapproprié, voir « Signaler un contenu »."
+        },
+        {
+          "texte": "Les posts et les conversations sont fabriqués chaque jour par un programme, sans intelligence artificielle, à partir de modèles écrits par l’équipe, de faits vérifiés et d’événements imaginaires. Les arnaques montrées (faux concours, colis bloqué, fausse cagnotte, fausse alerte…) imitent des pièges réels mais sont inventées : aucun de leurs liens n’existe ni n’est cliquable."
+        },
+        {
+          "texte": "Les noms de comptes, de pages et de médias du jeu sont inventés. Leurs adresses web ont été vérifiées comme non enregistrées à la date de mise en ligne ; « Le Cagou Déchaîné » est un site parodique imaginaire."
         }
       ]
     },
@@ -7655,7 +7701,16 @@
       "titre": "Accessibilité",
       "paragraphes": [
         {
-          "texte": "Le site est conçu pour être utilisable au clavier et au toucher, lisible par les lecteurs d’écran, contrasté, et adapté aux écrans d’ordinateur comme de mobile. Il n’a pas fait l’objet d’un audit de conformité au référentiel général d’amélioration de l’accessibilité (RGAA). Le site n’étant pas maintenu, les difficultés rencontrées ne pourront pas être corrigées."
+          "texte": "Le site vise le niveau AA du référentiel général d’amélioration de l’accessibilité (RGAA 4.1). Il n’a pas fait l’objet d’un audit de conformité complet : son état de conformité n’est donc pas évalué."
+        },
+        {
+          "texte": "Ce qui est en place : navigation au clavier et lien « Aller au contenu », zones défilantes atteignables au clavier, libellés pour les lecteurs d’écran, contrastes AA vérifiés, textes de 12 px minimum, mise en page lisible sur mobile comme sur ordinateur, animations arrêtées quand le système demande de les réduire. Chaque écran est contrôlé automatiquement (règles WCAG 2.2 A et AA) à chaque modification du code."
+        },
+        {
+          "texte": "Limite de temps : à partir du niveau 2, le fil d’actualité laisse un temps limité pour répondre. Ce chrono fait partie du défi du jeu : c’est une limite de temps essentielle, prévue comme exception par le RGAA (critère 13.1). Le niveau 1 se joue sans chrono, le temps laissé n’est jamais inférieur au temps de lecture du post, et les lecteurs d’écran sont prévenus quand il reste un tiers du temps. Les Messages et les Ressources n’ont aucune limite de temps."
+        },
+        {
+          "texte": "Le site n’étant pas maintenu, les difficultés rencontrées pourront ne pas être corrigées. Vous pouvez les signaler à l’hébergeur (voir « Hébergement »). Si vous n’obtenez pas de réponse, vous pouvez saisir le Défenseur des droits, https://www.defenseurdesdroits.fr"
         }
       ]
     },
@@ -7676,7 +7731,7 @@
       "titre": "Crédits",
       "paragraphes": [
         {
-          "texte": "• Conception, rédaction et développement : Prune ADAM, Océane LUSINCHI, Élea YUNG-HING, Magalie CHEN, BUT Métiers du Multimédia et de l’Internet (MMI) et Licence professionnelle Communication et Arts Numériques (CAN), Institut universitaire de technologie, Nouvelle-Calédonie, 2026\n• Compte Instagram et photographies des personnages : Planké, @planke_nc\n• Ressources pédagogiques : CLEMI, https://www.clemi.fr"
+          "texte": "• Conception, rédaction et développement : Prune ADAM, Océane LUSINCHI, Élea YUNG-HING, Magalie CHEN, BUT Métiers du Multimédia et de l’Internet (MMI) et Licence professionnelle Communication et Arts Numériques (CAN), Institut universitaire de technologie, Nouvelle-Calédonie, 2026\n• Compte Instagram et visuels des personnages : Planké, @planke_nc, qui fait partie du projet\n• Ressources pédagogiques : CLEMI, https://www.clemi.fr"
         }
       ]
     }

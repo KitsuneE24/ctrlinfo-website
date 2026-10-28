@@ -14,7 +14,7 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 - **Aucun compte, aucune donnée personnelle** : la progression reste dans le
   navigateur et s'emporte par un code à copier-coller.
 - **Contenu séparé du code** : tous les textes sont dans `public/donnees/`.
-- **Contenu renouvelé seul chaque matin**, sans IA et sans relecture humaine. Les modèles
+- **Contenu renouvelé seul chaque lundi matin**, sans IA et sans relecture humaine. Les modèles
   de textes et le code ont, eux, été écrits avec l’aide d’un assistant d’IA (dit dans
   les mentions légales).
 - **Projet étudiant**, édité à titre non professionnel, ni suivi ni maintenu,
@@ -28,8 +28,8 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 | Construction | Vite 8, Node.js 24 |
 | Styles | CSS maison (BEM), polices Fontsource, fond WebGL (ogl) |
 | Génération du contenu | script Node + rss-parser, lancé par GitHub Actions |
-| Envoi chez l'hébergeur | lftp (SFTP/FTPS) depuis GitHub Actions, ou Netlify |
-| Administration | `enregistrer.php` (Apache + PHP 8.1+) |
+| Hébergement | Netlify (plan gratuit), redéployé à chaque commit sur `main` ; autre possibilité : serveur Apache + envoi SFTP/FTPS |
+| Administration | `enregistrer.php`, sur serveur Apache + PHP 8.1+ seulement (absente sur Netlify) |
 | Contrôles | ESLint, `verifier`, `audit:securite`, Vitest (unitaires), Playwright + axe (bout en bout et accessibilité), Dependabot |
 
 ## 3. Fonctionnalités
@@ -91,10 +91,10 @@ les animations.
 
 Le projet tient en trois étapes.
 
-1. **Le contenu est préparé hors du site.** Chaque matin, un robot GitHub
-   fabrique de nouveaux posts à partir des faits écrits par l'équipe, les
-   vérifie, puis les dépose chez l'hébergeur. Une personne peut aussi
-   modifier le contenu à la main, par l'administration.
+1. **Le contenu est préparé hors du site.** Chaque lundi matin, un robot
+   GitHub fabrique de nouveaux posts à partir des faits du dépôt, les
+   vérifie et les enregistre dans le dépôt ; Netlify republie alors le site.
+   Une personne peut aussi modifier les JSON à la main dans GitHub.
 2. **Le site lit ce contenu.** Ce sont trois fichiers JSON, chargés une fois à
    l'ouverture de la page. Le site n'a pas de serveur : il ne fait qu'afficher.
 3. **La progression reste chez le joueur.** Elle est gardée dans son
@@ -102,7 +102,7 @@ Le projet tient en trois étapes.
 
 ```mermaid
 flowchart TB
-  A["1. Préparer le contenu<br/>robot GitHub chaque matin<br/>ou administration"]
+  A["1. Préparer le contenu<br/>robot GitHub chaque lundi<br/>ou modification dans GitHub"]
   B["Fichiers de contenu<br/>public/donnees/*.json"]
   C["2. Le site affiche<br/>accueil, fil, messages, ressources"]
   D["3. Navigateur du joueur<br/>progression + code de sauvegarde"]
@@ -133,7 +133,7 @@ Où se trouve chaque partie dans le code :
 | `tests/unitaires/` | code de sauvegarde, tirage, stockage, générateur, contenu |
 | `tests/e2e/` | chaque écran, les parcours, le clavier, l'accessibilité |
 | `config.json` | réglages de la génération |
-| `.github/workflows/` | `generation.yml` (chaque matin), `securite.yml` « Contrôles » (chaque envoi et chaque semaine) |
+| `.github/workflows/` | `generation.yml` (chaque lundi), `securite.yml` « Contrôles » (chaque envoi et chaque semaine) |
 
 **À savoir**
 - Si le contenu manque ou est cassé, l'écran affiche un message clair.
@@ -173,8 +173,9 @@ virgules), ou passer par l'administration. Puis `npm run verifier` et `npm test`
    licence, licenceUrl, page }`. Le crédit s'affiche seul dans la correction
    et les mentions légales.
 4. `npm run verifier && npm test`, puis `npm run generer -- --essai`.
-5. **Une nouvelle photo exige un envoi complet du site** (§ 8) : le robot du
-   matin n'envoie que les JSON.
+5. Commiter sur `main` : Netlify republie tout, photo comprise. Sur serveur
+   Apache, **une nouvelle photo exige un envoi complet du site** (§ 8), le
+   robot n'envoyant que les JSON.
 
 **Ajouter un procédé ou une arnaque** : copier une entrée de `CATEGORIES`
 (`scripts/gabarits.mjs`) ou de `ARNAQUES` (`scripts/arnaques.mjs`), avec un
@@ -196,15 +197,24 @@ de guillemets imbriqués) et le générateur lui crée son post d'entraînement.
 
 ## 6. Génération automatique
 
-Chaque matin à 6 h (Nouméa), `generation.yml` :
+Chaque lundi à 6 h (Nouméa), `generation.yml` :
 
 1. assemble faits, événements, arnaques et articles sous licence avec les
-   modèles écrits à la main ;
+   modèles du dépôt ;
 2. remplace les posts les plus anciens de chaque niveau, en gardant autant de
    vrais que de faux, et crée les posts d'entraînement manquants ;
 3. vérifie le résultat (`verifier` et `npm test`). En cas d'échec, rien n'est
-   envoyé : le site garde la version de la veille ;
-4. enregistre dans le dépôt, puis envoie les 3 fichiers JSON chez l'hébergeur.
+   publié : le site garde la version précédente ;
+4. enregistre dans le dépôt (Netlify republie alors le site) ; sur serveur
+   Apache, envoie aussi les 3 fichiers JSON en SFTP/FTPS.
+
+**Pourquoi une fois par semaine** : le plan gratuit de Netlify donne 300
+crédits par mois ; un déploiement en coûte 15 et chaque Go servi aux joueurs
+20. Un déploiement par jour (450 crédits) mettrait le site en pause avant la
+fin du mois. Une fois par semaine (environ 65 crédits) laisse environ 11 Go
+pour les visites. Suivre la jauge dans Netlify, *Usage & billing*. Les posts
+du fil datent donc au plus d'une semaine ; seul « Continuer à jouer » date
+ses posts du jour où l'on joue.
 
 Les dates des posts suivent le jour de génération (« Continuer à jouer », le
 jour où l'on joue). Le générateur varie la présentation des faits : il
@@ -214,7 +224,8 @@ la vraie actualité.
 Lancer ou arrêter : onglet *Actions* → « Génération du contenu » → *Run* ou
 *Disable workflow*.
 
-**Secrets GitHub** à renseigner (*Settings → Secrets → Actions*) :
+**Sur Netlify, aucun secret à renseigner.** Sur serveur Apache seulement,
+**secrets GitHub** (*Settings → Secrets → Actions*) :
 `ENVOI_PROTOCOLE` (`sftp` ou `ftps`), `ENVOI_HOTE`, `ENVOI_UTILISATEUR`,
 `ENVOI_MOT_DE_PASSE`, `ENVOI_DOSSIER`, et en SFTP `ENVOI_CLE_HOTE`
 (`ssh-keyscan <hôte>`). Sans `ENVOI_HOTE`, rien n'est envoyé. Seuls les noms
@@ -226,7 +237,9 @@ fichier, un message ou un ticket.
 Formulaire d'édition du contenu en ligne. **Sans besoin d'édition, supprimer le
 dossier d'administration de `dist/`.**
 
-- Apache + PHP uniquement (retirée du build Netlify).
+- Apache + PHP uniquement. **Netlify n'exécute pas de PHP** : le build Netlify
+  retire l'admin. Sur Netlify, modifier le contenu dans GitHub (fichier JSON →
+  crayon → *Commit*), puis `npm run verifier` en local ou attendre les Contrôles.
 - **Sans adresse choisie, pas d'admin** : le build la retire si l'adresse vaut
   `admin`, `A-CHOISIR`, ou fait moins de 12 caractères.
 
@@ -257,22 +270,27 @@ et `ADMIN_HTPASSWD` remplacent le fichier.
 - Chaque enregistrement est noté dans `journal.log` (date, compte, fichier,
   résultat, IP hachée avec un sel secret `.htsel`, jamais le contenu) ; au-delà
   de 1 Mo il passe en `journal.1.log`. Les 10 dernières versions sont gardées.
-- **Admin et génération s'excluent** : l'envoi du matin écrase les
+- **Admin et génération s'excluent** : l'envoi du lundi écrase les
   modifications en ligne. Choisir l'un ou l'autre.
 
 ## 8. Mise en ligne
 
 1. `npm ci && npm run lint && npm run verifier && npm run audit:securite && npm test`
 2. `npm run test:e2e` (la première fois : `npx playwright install chromium`).
-3. `npm run build`, puis copier `dist/` chez l'hébergeur en SFTP/FTPS.
-4. Servir `index.html` pour toute adresse inconnue : déjà réglé pour Apache
-   et Netlify ; Nginx : `try_files $uri $uri/ /index.html;`.
-5. Compléter les mentions légales : les champs `[À compléter : …]` de
-   `mentionsLegales` (l'hébergeur = la société qui fournit le serveur). Donner
-   son identité d'éditeur à l'hébergeur (LCEN, éditeur non professionnel).
-6. Transférer le dépôt GitHub au commanditaire et renseigner les secrets.
-7. Vérifier : redirection HTTPS, admin sous mot de passe, aucune erreur
-   « Content-Security-Policy » dans la console.
+3. **Netlify** : relier le dépôt GitHub au site Netlify, branche de
+   production `main`. Tout est dans `netlify.toml` (build, Node 24, en-têtes,
+   cache, adresses des écrans) : rien à régler dans l'interface. Chaque commit
+   sur `main` republie le site (15 crédits, § 6) ; les autres branches ne
+   coûtent rien. Le compte Netlify, à votre nom, vaut identité d'éditeur
+   donnée à l'hébergeur (LCEN, éditeur non professionnel).
+   **Serveur Apache** (autre possibilité) : `npm run build`, puis copier
+   `dist/` en SFTP/FTPS ; `public/.htaccess` porte les mêmes réglages.
+4. Compléter les mentions légales : le champ `[À compléter : …]` de
+   `mentionsLegales` (téléphone de Netlify, à relever sur netlify.com).
+5. Transférer le dépôt GitHub au commanditaire et lui transférer le site
+   Netlify (*Team settings*), ou le recréer à son nom.
+6. Vérifier : redirection HTTPS, aucune erreur « Content-Security-Policy »
+   dans la console, `/fil` rechargé directement s'affiche.
 
 ## 9. Sécurité et accessibilité
 
@@ -282,7 +300,8 @@ depuis un autre site et tracée ; liens externes limités à `http(s)` ; images
 servies par le site seulement (`img-src 'self'`, image externe refusée par
 `verifier`), donc aucune IP de joueur transmise à un tiers ; code de
 sauvegarde et contenu fabriqué relus au chargement ; JSON jamais mis en cache ;
-envoi en SFTP/FTPS uniquement ; workflow « Contrôles » et Dependabot. Audit :
+fichiers à nom unique gardés en cache un an (moins de crédits Netlify) ;
+envoi en SFTP/FTPS uniquement sur Apache ; workflow « Contrôles » et Dependabot. Audit :
 `npm run audit:securite` donne 46 OK, 0 échec, et 1 alerte tant que le
 `.htpasswd` n'est pas réglé (§ 7).
 

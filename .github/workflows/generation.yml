@@ -38,6 +38,8 @@ jobs:
 
       - run: npm run verifier
 
+      - run: npm test
+
       - name: Enregistrer s'il y a du neuf
         run: |
           git add public/donnees

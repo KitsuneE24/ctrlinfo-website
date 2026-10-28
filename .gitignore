@@ -27,3 +27,7 @@ dist-ssr
 *.sw?
 # Le vrai chemin de l'administration ne se publie pas.
 config.local.json
+
+# Tests de bout en bout
+/test-results/
+/playwright-report/

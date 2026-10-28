@@ -1,4 +1,4 @@
-name: Sécurité
+name: Contrôles
 
 on:
   push:
@@ -15,7 +15,7 @@ permissions:
 jobs:
   controler:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
@@ -30,4 +30,8 @@ jobs:
       - run: npm run lint
       - run: npm run verifier
       - run: npm run audit:securite
-      - run: npm run build
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+        env:
+          CI: true

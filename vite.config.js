@@ -18,7 +18,9 @@ const CHEMIN_ADMIN =
 // Adresse devinable ou laissée à l'exemple (ancien compris) : pas d'admin dans le build.
 const ADRESSE_CHOISIE = /^[a-z0-9-]{12,}$/i.test(CHEMIN_ADMIN) && !/^(admin|A-CHOISIR|gestion-3f9a2c)$/i.test(CHEMIN_ADMIN)
 
-const HTPASSWD = process.env.ADMIN_HTPASSWD ?? lire('config.local.json').admin?.htpasswd ?? null
+// Le chemin de l'exemple compte comme non réglé.
+const HTPASSWD_LU = process.env.ADMIN_HTPASSWD ?? lire('config.local.json').admin?.htpasswd ?? null
+const HTPASSWD = HTPASSWD_LU === lire('config.local.json.exemple').admin?.htpasswd ? null : HTPASSWD_LU
 
 function finirLeBundle() {
   return {

@@ -37,7 +37,7 @@ DirectoryIndex index.html
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType image/png "access plus 1 month"
-  <FilesMatch "contenu\.json$">
+  <FilesMatch "\.json$">
     ExpiresDefault "access plus 0 seconds"
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>

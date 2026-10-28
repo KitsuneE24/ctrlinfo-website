@@ -25,7 +25,7 @@ Le détail de chaque modification reste dans git : `git log --oneline`, ou
 | Date | Changement |
 | --- | --- |
 | 28/10 | Doc : SPEC à jour (pièges, arnaques, tests, ajout d'un fait pas à pas, § 11 « Reprendre le projet ») |
-| 28/10 | Mentions légales : éditeur non professionnel (LCEN) au lieu de « sans éditeur », déclaration d'accessibilité (chrono = limite essentielle, RGAA 13.1), contenus générés sans IA, noms inventés vérifiés, crédits photos remis ; Planké = visuels du projet |
+| 28/10 | Mentions légales : éditeur non professionnel (LCEN) au lieu de « sans éditeur », déclaration d'accessibilité (chrono = limite essentielle, RGAA 13.1), génération quotidienne sans IA (modèles et code écrits avec l'aide d'un assistant d'IA, dit en toutes lettres), noms inventés vérifiés, crédits photos remis ; Planké = visuels du projet |
 | 28/10 | Ressources : catégorie « Se protéger des arnaques » (Cybermalveillance, Pharos), Météo-France NC et Endemia ; sources françaises pour l'image de l'Australie (Futura-Sciences) et le requin (Slate) ; 6 faits sur des sources premières (Endemia, gouv.nc) |
 | 28/10 | Accessibilité : lien « Aller au contenu », zones défilantes du post et des Messages au clavier, fond WebGL et cagou immobiles si « réduire les animations », chrono annoncé au dernier tiers, focus visible de la recherche ; « Ton code » et « Recopie-le » vouvoyés |
 | 28/10 | Tests : 75 tests unitaires (code de sauvegarde, tirage, stockage, générateur, contenu) et 34 de bout en bout sur mobile et ordinateur, avec contrôle axe WCAG 2.2 AA de chaque écran ; lancés par le workflow « Contrôles » (ex-« Sécurité ») et avant chaque envoi du matin |

@@ -14,7 +14,9 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 - **Aucun compte, aucune donnée personnelle** : la progression reste dans le
   navigateur et s'emporte par un code à copier-coller.
 - **Contenu séparé du code** : tous les textes sont dans `public/donnees/`.
-- **Contenu renouvelé seul chaque matin**, sans IA et sans relecture humaine.
+- **Contenu renouvelé seul chaque matin**, sans IA et sans relecture humaine. Les modèles
+  de textes et le code ont, eux, été écrits avec l’aide d’un assistant d’IA (dit dans
+  les mentions légales).
 - **Projet étudiant**, édité à titre non professionnel, ni suivi ni maintenu,
   en ligne pour une durée limitée.
 

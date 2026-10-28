@@ -738,7 +738,8 @@ export const RELAIS_THEME = {
 }
 
 const sigle = (nom) => /^[A-ZÉ]{2,}$/.test(nom)
-export const surLeSite = (nom) => (nom === 'Wikipédia' ? 'sur Wikipédia' : `sur le site ${sigle(nom) ? 'de l’' : 'de '}${nom}`)
+const de = (nom) => (sigle(nom) ? 'de l’' : /^[aeiouyéèêàâîôû]/i.test(nom) ? 'd’' : 'de ')
+export const surLeSite = (nom) => (nom === 'Wikipédia' ? 'sur Wikipédia' : `sur le site ${de(nom)}${nom}`)
 export const dapres = (nom) => `D’après ${sigle(nom) ? 'l’' : ''}${nom}`
 
 export const PERSONNES = [

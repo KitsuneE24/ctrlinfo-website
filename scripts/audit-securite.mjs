@@ -21,7 +21,6 @@ function fichiers(dossier, extensions) {
   return liste
 }
 
-// ── 01 Authentification ──────────────────────────────────────────────────────
 const htAdmin = lire('public/admin/.htaccess')
 const php = lire('public/admin/enregistrer.php')
 verifier('01 Authentification', "L'administration demande un mot de passe", /Require valid-user/.test(htAdmin), 'public/admin/.htaccess sans Require valid-user')
@@ -36,7 +35,6 @@ noter('01 Authentification', 'Adresse de l’admin choisie et non devinable',
   'admin.chemin absent ou trop simple dans config.local.json : l’admin sera retirée du build')
 verifier('01 Authentification', 'Le .htpasswd n’est pas dans le dossier public', !existsSync(join(RACINE, 'public/admin/.htpasswd')) && !existsSync(join(RACINE, 'public/.htpasswd')), '.htpasswd présent dans public/')
 
-// ── 02-03 Protection des données ─────────────────────────────────────────────
 const ht = lire('public/.htaccess')
 const netlify = lire('netlify.toml')
 verifier('02 Protection des données', 'HTTPS imposé (Apache)', /RewriteCond %\{HTTPS\} !=on/.test(ht), 'pas de redirection vers HTTPS')
@@ -52,7 +50,6 @@ const SECRET = /(-----BEGIN [A-Z ]*PRIVATE KEY|password\s*[:=]\s*['"][^'"]{4,}|g
 const fuites = suivis.filter((f) => /\.(m?js|jsx|json|php|ya?ml|toml|md)$/.test(f) && SECRET.test(lire(f)))
 verifier('02 Protection des données', 'Aucun mot de passe ou clé dans le code', fuites.length === 0, fuites.join(', '))
 
-// ── 04-06 Sécurité applicative ───────────────────────────────────────────────
 verifier('04 Sécurité applicative', 'Pas de listing de répertoire', /Options -Indexes/.test(ht), 'Options -Indexes manquant')
 verifier('04 Sécurité applicative', 'Sauvegardes et journal non servis', /bak[^"]*\|log/.test(ht) && /\\\.log/.test(htAdmin), '.bak ou .log accessibles')
 for (const entete of ['Content-Security-Policy', 'X-Content-Type-Options', 'X-Frame-Options', 'Referrer-Policy']) {
@@ -64,6 +61,14 @@ verifier('04 Sécurité applicative', 'Liste blanche des fichiers modifiables', 
 verifier('04 Sécurité applicative', 'Envoi depuis un autre site refusé (CSRF)', /application\/json/.test(php) && /HTTP_SEC_FETCH_SITE/.test(php), 'pas de contrôle Content-Type / origine')
 verifier('04 Sécurité applicative', 'Messages d’erreur sans détail technique', !/sortir\(\d+, '[^']*' \. json_last_error_msg/.test(php), 'json_last_error_msg renvoyé au navigateur')
 verifier('04 Sécurité applicative', 'Écriture sur disque tracée', /function tracer/.test(php) && /tracer\('succes'/.test(php), 'aucun journal des enregistrements')
+verifier('04 Sécurité applicative', 'Erreurs PHP jamais affichées', /ini_set\('display_errors', '0'\)/.test(php), 'une erreur PHP peut montrer des chemins du serveur')
+verifier('04 Sécurité applicative', 'Version du serveur et de PHP masquées', /ServerSignature Off/.test(ht) && /unset X-Powered-By/.test(ht), 'ServerSignature ou X-Powered-By visibles')
+verifier('04 Sécurité applicative', 'Journal borné, valeurs du client tronquées', /JOURNAL_MAX/.test(php) && /\$max = \d+/.test(php), 'journal sans taille maximale')
+verifier('02 Protection des données', 'IP du journal hachées avec un sel secret', /hash_hmac\('sha256'/.test(php) && /random_bytes/.test(php), 'IP retrouvable par essais')
+const vite = lire('vite.config.js')
+const flux2 = lire('.github/workflows/generation.yml')
+verifier('02 Protection des données', 'Aucun chemin secret ni accès affiché par le build ou le workflow',
+  !/(console\.log|Error)\([^)]*\$\{(CHEMIN_ADMIN|HTPASSWD)(\}|\s*\?\?)/.test(vite) && !/echo[^\n]*\$ENVOI_(HOTE|DOSSIER|UTILISATEUR)/.test(flux2), 'un secret apparaît dans une sortie')
 verifier('04 Sécurité applicative', 'Administration absente du build Netlify', /process\.env\.NETLIFY/.test(lire('vite.config.js')), 'admin publiée sans mot de passe sur Netlify')
 
 verifier('04 Sécurité applicative', 'Erreur de chargement sans détail technique pour le visiteur', /import\.meta\.env\.DEV && erreur\?\.message/.test(lire('src/components/ui/Chargement.jsx')), 'le message brut de l’erreur est affiché')
@@ -71,7 +76,6 @@ verifier('04 Sécurité applicative', 'Plusieurs versions du contenu gardées', 
 verifier('04 Sécurité applicative', 'Fichier temporaire supprimé en cas d’échec', /unlink\(\$temporaire\);[\s\S]*écriture du fichier temporaire/.test(php), 'un temporaire peut rester dans donnees/')
 verifier('04 Sécurité applicative', 'Suppression confirmée dans l’administration', /window\.confirm\([^)]*\) && retirer/.test(lire('src/admin/Champs.jsx')), 'retrait sans confirmation')
 
-// ── 07 Entrée / Sortie ───────────────────────────────────────────────────────
 const sources = fichiers('src', ['.js', '.jsx'])
 const dangereux = sources.filter((f) => /dangerouslySetInnerHTML|\beval\(|new Function\(|\.innerHTML\s*=/.test(lire(f)))
 verifier('07 Entrée / Sortie', 'Aucune injection HTML ni eval', dangereux.length === 0, dangereux.join(', '))
@@ -91,20 +95,17 @@ try {
   noter('07 Entrée / Sortie', 'Contenu publié valide (adresses comprises)', 'ÉCHEC', String(erreur.stderr).trim().split('\n')[0])
 }
 
-// ── 08 Test & recette ────────────────────────────────────────────────────────
 const bavards = sources.filter((f) => lire(f).split('\n').some((l) => /console\.(log|debug|info)\(/.test(l) && !/import\.meta\.env\.DEV/.test(l)))
 verifier('08 Test & recette', 'Pas de console.log résiduel dans le site', bavards.length === 0, bavards.join(', '), 'ALERTE')
 const restes = sources.filter((f) => /\b(debugger|TODO|FIXME)\b/.test(lire(f)))
 verifier('08 Test & recette', 'Pas de debugger / TODO oublié', restes.length === 0, restes.join(', '), 'ALERTE')
 verifier('08 Test & recette', 'Contrôle automatique à chaque modification', /audit:securite/.test(lire('.github/workflows/securite.yml')), 'aucun workflow ne rejoue l’audit')
 
-// ── 09 Environnement de test ─────────────────────────────────────────────────
 const contenuBrut = ['contenu', 'posts-vrais', 'posts-faux'].map((n) => lire(`public/donnees/${n}.json`)).join('\n')
 const courriels = [...new Set(contenuBrut.match(/[\w.+-]+@[\w-]+\.[\w.]+/g) ?? [])]
 noter('09 Environnement de test', 'Aucune donnée personnelle dans le contenu', courriels.length === 0 ? 'OK' : 'ALERTE',
   `adresses trouvées (vérifier qu’elles sont publiques) : ${courriels.join(', ')}`)
 
-// ── 10 Veille ────────────────────────────────────────────────────────────────
 verifier('10 Veille', 'Veille des dépendances (Dependabot)', /package-ecosystem: npm/.test(lire('.github/dependabot.yml')), '.github/dependabot.yml absent', 'ALERTE')
 const toutesActions = ['generation', 'securite'].map((n) => lire(`.github/workflows/${n}.yml`)).join('\n')
 const nonEpinglees = [...toutesActions.matchAll(/uses:\s*([^\s#]+)/g)].map((m) => m[1]).filter((u) => !/@[0-9a-f]{40}$/.test(u))
@@ -122,7 +123,6 @@ for (const [portee, options] of [['site publié', '--omit=dev'], ['outils de dé
     `${n.high} haute(s), ${n.critical} critique(s) : npm audit fix`, portee === 'site publié' ? 'ÉCHEC' : 'ALERTE')
 }
 
-// ── Rapport ──────────────────────────────────────────────────────────────────
 const SIGNE = { OK: '  ok  ', ALERTE: 'ALERTE', ÉCHEC: 'ÉCHEC ' }
 let domaine = ''
 for (const r of resultats) {

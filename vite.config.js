@@ -49,13 +49,14 @@ function finirLeBundle() {
       const htaccess = resolve(dist, CHEMIN_ADMIN, '.htaccess')
       if (HTPASSWD && existsSync(htaccess)) {
         if (!HTPASSWD.startsWith('/') || /\s/.test(HTPASSWD)) {
-          throw new Error(`admin.htpasswd doit être un chemin absolu sans espace : ${HTPASSWD}`)
+          throw new Error('admin.htpasswd doit être un chemin absolu sans espace (config.local.json).')
         }
         const texte = readFileSync(htaccess, 'utf8')
         writeFileSync(htaccess, texte.replace('/CHEMIN/ABSOLU/A/REGLER/.htpasswd', HTPASSWD))
       }
-      console.log(`  administration : dist/${CHEMIN_ADMIN}/`)
-      console.log(`  mot de passe   : ${HTPASSWD ?? 'à régler (admin.htpasswd dans config.local.json)'}`)
+      // Chemins secrets jamais affichés : la sortie du build peut finir dans un journal.
+      console.log('  administration : construite dans dist/, dossier nommé selon admin.chemin')
+      console.log(`  mot de passe   : ${HTPASSWD ? 'chemin du .htpasswd injecté' : 'à régler (admin.htpasswd dans config.local.json)'}`)
     },
   }
 }

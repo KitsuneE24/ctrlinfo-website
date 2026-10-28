@@ -83,4 +83,4 @@ jobs:
             open --env-password -u '$ENVOI_UTILISATEUR' '$URL';
             cd '$ENVOI_DOSSIER';
             $COMMANDES"
-          echo "Envoyé vers $ENVOI_HOTE:$ENVOI_DOSSIER"
+          echo "Envoi terminé."

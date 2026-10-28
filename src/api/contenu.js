@@ -13,24 +13,8 @@ export const getRemediations = depuis((c) => c.remediations)
 export const getNiveaux = depuis((c) => c.niveaux)
 export const getConversations = depuis((c) => c.conversations)
 export const getChapitres = depuis((c) => c.chapitres)
-// Crédits tirés des banques : une photo ajoutée y apparaît d'elle-même.
-function creditsPhotos(c) {
-  const images = [...(c.faits ?? []), ...(c.scenarios ?? [])].map((base) => base.image).filter((i) => i?.page)
-  const uniques = [...new Map(images.map((i) => [i.fichier, i])).values()]
-  if (uniques.length === 0) return []
-  return [
-    {
-      id: 'credits-photos',
-      titre: 'Crédits photos',
-      paragraphes: [
-        { texte: 'Photos de Wikimedia Commons, dans le domaine public ou sous licence libre. Celles des événements inventés sont des photos d’illustration, prises ailleurs et sans lien avec le post.' },
-        { texte: uniques.map((i) => `• ${i.alt} : ${i.auteur}, ${i.licence}, ${i.page}`).join('\n') },
-      ],
-    },
-  ]
-}
-
-export const getMentionsLegales = depuis((c) => [...(c.mentionsLegales ?? []), ...creditsPhotos(c)])
+// Crédits photos dans la correction de chaque post seulement, jamais ici.
+export const getMentionsLegales = depuis((c) => c.mentionsLegales ?? [])
 
 export const getDailyTip = depuis((c) => {
   if (c.astuces.length === 0) return null

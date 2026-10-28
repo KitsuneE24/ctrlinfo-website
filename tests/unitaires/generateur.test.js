@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { HABILLAGES } from '../../scripts/gabarits.mjs'
 import { DISTRIBUTIONS } from '../../scripts/gabarits-conversations.mjs'
-import { basesDe, fabriquerFaux, fabriquerVrai, permisPour, PROCEDES, prochainFaux, sujetsPour } from '../../scripts/fabrique.mjs'
+import { basesDe, dateIlYa, fabriquerFaux, fabriquerVrai, permisPour, PROCEDES, prochainFaux, sujetsPour } from '../../scripts/fabrique.mjs'
 
 const contenu = JSON.parse(readFileSync(new URL('../../public/donnees/contenu.json', import.meta.url), 'utf8'))
 const banques = { faits: contenu.faits, scenarios: contenu.scenarios }
@@ -98,5 +98,22 @@ describe('conversations', () => {
       for (const etape of sujet.steps) expect(etape.choices.some((c) => c.correct)).toBe(true)
       expect(defautsDeRedaction(sujet)).toEqual([])
     }
+  })
+})
+
+describe('dates', () => {
+  const ancienne = PROCEDES.find((c) => c.ancienne)
+
+  it('date un post selon son âge, au jour où l’on joue', () => {
+    const post = fabriquerVrai(banques.faits[0], 1, { maintenant })
+    expect(post.ilYa).toBeGreaterThanOrEqual(0)
+    expect(post.ilYa).toBeLessThan(72)
+    expect(dateIlYa(0, '2027-03-15T00:00:00.000Z')).toMatch(/15 mars 2027/)
+  })
+
+  it('garde deux ans d’écart à une information recyclée', () => {
+    const base = basesDe(banques).find((b) => permisPour(b, ancienne, 1))
+    const post = fabriquerFaux(base, ancienne, 1, { maintenant })
+    expect(dateIlYa(post.ilYa, maintenant)).toMatch(/2024/)
   })
 })

@@ -59,13 +59,11 @@ export function empreinte(texte) {
 
 const graineDe = (texte) => parseInt(empreinte(texte), 36)
 
-const dateAncienne = (iso) => {
-  const d = new Date(iso ?? Date.now())
-  d.setFullYear(d.getFullYear() - 2)
-  return dateLisible(d.toISOString())
-}
+// Âge du post en heures : la date affichée se recalcule le jour où l'on joue.
+const ilYa = (graine, ancienne) => (ancienne ? 730 * 24 : 0) + (graine % 72)
 
-const dateRecente = (iso, graine) => dateLisible(new Date(new Date(iso).getTime() - (graine % 72) * 3_600_000).toISOString())
+export const dateIlYa = (heures, maintenant) =>
+  dateLisible(new Date(new Date(maintenant ?? Date.now()).getTime() - heures * 3_600_000).toISOString())
 
 // Une arnaque n'a que son procédé ; un fait réel, seulement ceux qui s'y prêtent.
 export const permisPour = (categorie, niveau, base) =>
@@ -169,7 +167,8 @@ export function fabriquerVrai(fait, niveau, { aideUrl, maintenant = new Date().t
   const photo = illustration(fait.image, graine)
   return {
     ...engagement(),
-    date: dateRecente(maintenant, graine),
+    date: dateIlYa(ilYa(graine), maintenant),
+    ilYa: ilYa(graine),
     learnMoreTips: aideUrl ?? AIDE,
     origine: 'fiction',
     ...(genre === 'media' ? { format: 'article' } : {}),
@@ -351,7 +350,8 @@ export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = n
   return {
     ...engagement(),
     ...(categorie.sponsorise ? { sponsorise: true } : {}),
-    date: categorie.ancienne ? dateAncienne(maintenant) : dateRecente(maintenant, graine),
+    date: dateIlYa(ilYa(graine, categorie.ancienne), maintenant),
+    ilYa: ilYa(graine, categorie.ancienne),
     learnMoreTips: aideUrl ?? AIDE,
     origine: 'fiction',
     ...(enMedia ? { format: 'article' } : {}),

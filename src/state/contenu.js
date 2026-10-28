@@ -1,3 +1,4 @@
+import { dateIlYa } from '../../scripts/fabrique.mjs'
 import { generes } from './generes'
 
 const DOSSIER = '/donnees/'
@@ -10,9 +11,17 @@ const lire = (nom) =>
 
 let promesse = null
 
+// Posts inventés datés depuis le jour où l'on joue ; les vrais articles gardent leur date.
+const dater = (post) =>
+  post?.origine === 'fiction' && Number.isFinite(post.ilYa) ? { ...post, date: dateIlYa(post.ilYa) } : post
+
 function chargerServeur() {
   promesse ??= Promise.all([lire('contenu.json'), lire('posts-vrais.json'), lire('posts-faux.json')])
-    .then(([contenu, vrais, faux]) => ({ ...contenu, posts: [...vrais, ...faux] }))
+    .then(([contenu, vrais, faux]) => ({
+      ...contenu,
+      remediations: Object.fromEntries(Object.entries(contenu.remediations ?? {}).map(([cle, post]) => [cle, dater(post)])),
+      posts: [...vrais, ...faux].map(dater),
+    }))
     .catch((erreur) => {
       promesse = null
       throw erreur

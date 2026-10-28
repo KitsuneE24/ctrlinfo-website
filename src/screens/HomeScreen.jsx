@@ -9,7 +9,6 @@ import TableauEnquete from '../components/TableauEnquete'
 import DailyTip from '../components/DailyTip'
 import { PATHS } from '../routes'
 
-// null : visuel d'attente.
 const VIDEO_URL = null
 
 const INSTAGRAM_URL = 'https://www.instagram.com/planke_nc'

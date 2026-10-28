@@ -13,7 +13,6 @@ import ChatThread from '../components/ChatThread'
 
 const contactDe = (conversation) => conversation.contact ?? conversation.id
 
-/** Un contact par ligne, avec ses sujets dans l'ordre. */
 function parContact(conversations) {
   const contacts = new Map()
   for (const conversation of conversations) {
@@ -34,7 +33,6 @@ export default function ChatScreen() {
   const liste = useRessource(getConversations, [])
   const conversations = liste.donnees ?? []
   const faite = (conversation) => avancement[conversation.id]?.faite === true
-  // État du bouton « Nouveau sujet », pour le sujet ouvert.
   const [suite, setSuite] = useState({ pour: null, etat: null })
 
   const chargerOuverte = useCallback(

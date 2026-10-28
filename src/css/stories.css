@@ -1,7 +1,4 @@
-/* Stories */
-
 @layer components {
-  /* Mobile : une ligne qui défile. Ordinateur : centrées, sur plusieurs lignes. */
   .stories {
     display: flex;
     gap: 14px;
@@ -51,7 +48,6 @@
     }
   }
 
-  /* Anneau dégradé si pas vue, gris ensuite. */
   .stories__ring {
     display: flex;
     width: 66px;
@@ -109,8 +105,6 @@
     color: var(--ink-faint);
   }
 
-  /* --- Vue plein écran --- */
-
   .story-view {
     position: fixed;
     z-index: 120;
@@ -156,7 +150,6 @@
     height: 850px;
   }
 
-  /* Flèches et voisines : ordinateur seulement. */
   .story-view__fleche,
   .story-view__voisine {
     display: none;
@@ -198,7 +191,6 @@
       color: var(--ink);
     }
 
-    /* Fond estompé, texte lisible. */
     .story-view__voisine::before {
       content: '';
       position: absolute;
@@ -356,8 +348,6 @@
     }
   }
 
-
-  /* Zones de tap : gauche 35 %, droite 65 %, au-dessus du texte. */
   .story-view__zone {
     position: absolute;
     z-index: 2;

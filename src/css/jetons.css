@@ -1,13 +1,8 @@
-/* Seul fichier où sont écrites couleurs, polices et tailles. */
-
 :root {
-  /* Titres : Instrument Serif. Logo, étiquettes : Josefin Sans. Texte : Archivo. */
   --font-body: 'Archivo', 'Segoe UI', system-ui, -apple-system, sans-serif;
   --font-title: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-label: 'Josefin Sans', 'Archivo', system-ui, sans-serif;
-  /* Pochoir des étiquettes d'enquête (verdict) */
   --font-enquete: 'Stardos Stencil', Georgia, serif;
-  /* Police système (administration) et chasse fixe (code de progression) */
   --font-systeme: system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-code: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', 'Liberation Mono', monospace;
 
@@ -17,7 +12,6 @@
   --text-md: 16px;
   --text-2xl: 26px;
 
-  /* Étiquettes en capitales */
   --etiquette-taille: 12px;
   --etiquette-espacement: 3px;
 
@@ -26,7 +20,6 @@
 
   --measure: 65ch;
 
-  /* Fonds */
   --encre: #0b0a12;
   --encre-voile: #07060c;
   --tableau: #100d19;
@@ -34,26 +27,21 @@
   --surface: #15131f;
   --surface-haute: #1d1a2b;
 
-  /* Bordures, de la plus discrète à la plus visible */
   --filet-1: #1e1b2c;
   --filet-2: #221f31;
   --filet-3: #2b2740;
   --filet-4: #3a3550;
-  /* Contour des boutons et champs : 3:1 minimum sur tous les fonds */
   --contour: #757089;
 
-  /* Papier (cartes d'enquête) et son encre */
   --papier: #efe8d8;
   --papier-clair: #f5efe2;
   --papier-journal: #e6dcc6;
   --papier-encre: #1a1622;
 
-  /* Texte : principal (blanc), secondaire, discret */
   --ink: var(--blanc);
   --ink-muted: #a8a2b8;
   --ink-faint: #8c86a0;
 
-  /* Charte : bleu = juste, magenta = perso, rouge = faux */
   --bleu: #1f4fd1;
   --bleu-texte: #8fa8ff;
   --magenta: #8a1c6e;
@@ -62,16 +50,13 @@
   --rouge: #a50e0e;
   --rouge-fil: #c21818;
   --rouge-texte: #ff7a6e;
-  /* Résultat d'une réponse (texte blanc ≥ 5:1) */
   --juste: #15803d;
   --faux: #b91c1c;
   --halo: #7c5cff;
 
-  /* Neutres */
   --blanc: #ffffff;
   --noir: #000000;
 
-  /* Teintes d'appoint */
   --surface-basse: #0e0c16;
   --filet-fenetre: #332e47;
   --lilas: #e2d6f5;
@@ -82,12 +67,10 @@
   --punaise-reflet: #ff8a80;
   --punaise-ombre: #5a0606;
 
-  /* Violets du métal en fusion (shader) et fond des bandeaux */
   --brand-violet: #5c1a9e;
   --brand-mauve: #8a4fbe;
   --brand-violet-deep: #1c0b3a;
 
-  /* Voile clair des survols, cœur « J'aime » */
   --wash: color-mix(in srgb, var(--blanc) 4%, transparent);
   --like-red: #ff5a6a;
 
@@ -95,7 +78,6 @@
   --nav-feed: var(--bleu);
   --nav-chat: var(--magenta);
 
-  /* Administration (page /admin, thème clair) */
   --admin-fond: #f4f2ef;
   --admin-fond-2: #e6e2dc;
   --admin-survol: #faf9f7;

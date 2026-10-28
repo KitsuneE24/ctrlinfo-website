@@ -10,7 +10,6 @@ export class ErreurCode extends Error {
   }
 }
 
-// FNV-1a 32 bits : détecte un code tronqué ou altéré, pas une signature.
 function empreinte(octets) {
   let empr = 0x811c9dc5
   for (const octet of octets) {
@@ -21,7 +20,6 @@ function empreinte(octets) {
 }
 
 function enBase64Url(octets) {
-  // Par tranches pour ne pas dépasser la pile d'appels.
   let binaire = ''
   for (let i = 0; i < octets.length; i += 8192) {
     binaire += String.fromCharCode(...octets.subarray(i, i + 8192))
@@ -88,7 +86,6 @@ export async function encoderCode(etat) {
   const somme = empreinte(octets).toString(36)
 
   const comprimes = await comprimer(octets)
-  // Un petit état peut grossir une fois déflaté : on garde le plus court.
   const deflate = comprimes !== null && comprimes.length < octets.length
   const forme = deflate ? 'z' : 'p'
 
@@ -135,7 +132,7 @@ export async function decoderCode(code) {
     if (echec instanceof ErreurCode) throw echec
     throw new ErreurCode(
       'illisible',
-      "Ce code n'a pas pu être relu : un caractère a changé, ou il en manque un morceau. Recopie-le en entier, sans rien ajouter autour."
+      "Ce code n'a pas pu être relu : un caractère a changé, ou il en manque un morceau. Recopiez-le en entier, sans rien ajouter autour."
     )
   }
 

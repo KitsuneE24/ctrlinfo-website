@@ -1,13 +1,9 @@
-import { useNavigate } from 'react-router'
-import { HelpCircle, X } from 'lucide-react'
-import { useExitGuard } from '../state/exitGuard'
-import { PATHS } from '../routes'
+import { HelpCircle } from 'lucide-react'
 import Countdown from './Countdown'
 import { useSyncExternalStore } from 'react'
 import FondMolten from './ui/FondMolten'
 import Kiwi from './ui/Kiwi'
 
-// `timerSecondes` nul = pas de chrono.
 const BUREAU = '(min-width: 1024px)'
 const abonnerBureau = (rappel) => {
   const requete = window.matchMedia(BUREAU)
@@ -29,28 +25,13 @@ export default function FeedStats({
   onTimerComplete,
   onRegles,
 }) {
-  const navigate = useNavigate()
   const bureau = useBureau()
-  const { requestExit } = useExitGuard()
   const enCours = Math.min(levelDoneCount + 1, levelTotal)
-
-  function quitter() {
-    if (requestExit(PATHS.home)) navigate(PATHS.home)
-  }
 
   return (
     <section className="fil-etat" aria-label="État de la partie">
       <div className="fil-etat__barre">
         {bureau && <FondMolten className="fil-etat__molten" />}
-        <button
-          type="button"
-          onClick={quitter}
-          aria-label="Quitter la partie"
-          className="bouton-rond fil-etat__quitter"
-        >
-          <X size={18} strokeWidth={2.2} />
-          <span className="fil-etat__quitter-texte">Quitter</span>
-        </button>
 
         <button
           type="button"

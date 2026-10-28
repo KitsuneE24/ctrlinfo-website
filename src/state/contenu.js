@@ -1,3 +1,4 @@
+import { dateIlYa } from '../../scripts/fabrique.mjs'
 import { generes } from './generes'
 
 const DOSSIER = '/donnees/'
@@ -10,9 +11,17 @@ const lire = (nom) =>
 
 let promesse = null
 
+// Posts inventés datés depuis le jour où l'on joue ; les vrais articles gardent leur date.
+const dater = (post) =>
+  post?.origine === 'fiction' && Number.isFinite(post.ilYa) ? { ...post, date: dateIlYa(post.ilYa) } : post
+
 function chargerServeur() {
   promesse ??= Promise.all([lire('contenu.json'), lire('posts-vrais.json'), lire('posts-faux.json')])
-    .then(([contenu, vrais, faux]) => ({ ...contenu, posts: [...vrais, ...faux] }))
+    .then(([contenu, vrais, faux]) => ({
+      ...contenu,
+      remediations: Object.fromEntries(Object.entries(contenu.remediations ?? {}).map(([cle, post]) => [cle, dater(post)])),
+      posts: [...vrais, ...faux].map(dater),
+    }))
     .catch((erreur) => {
       promesse = null
       throw erreur
@@ -20,15 +29,12 @@ function chargerServeur() {
   return promesse
 }
 
-// Interrupteur /admin : Jeux → « Plus Quand Tout Est Vu ».
 export const plusAutorise = (contenu, jeu) =>
   contenu.jeux?.find((j) => j.id === jeu)?.plusQuandToutEstVu === true
 
-// Ce que le joueur a fabriqué, tant que /admin l'autorise encore.
 export const chargerContenu = () =>
   chargerServeur().then((contenu) => {
     const locaux = generes()
-    // Un vrai fabriqué n'est gardé que si son fait existe encore dans contenu.json.
     const faits = new Set((contenu.faits ?? []).map((f) => f.id))
     const estConnu = (p) => p.isFake || faits.has(p.fait)
     const posts = plusAutorise(contenu, 'feed') ? locaux.posts.filter(estConnu) : []

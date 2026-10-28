@@ -1,8 +1,6 @@
 import { ChevronDown, ChevronUp, Plus, Trash2 } from 'lucide-react'
 import { ajouter, deplacer, modifier, retirer } from './document'
 
-// L'éditeur se déduit de la forme de la donnée, sans schéma.
-
 const LONGS = new Set([
   'texte',
   'explication',

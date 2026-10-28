@@ -1,6 +1,5 @@
 import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 
-// px
 const MOU = 38
 
 function punaise(element, repere) {
@@ -71,7 +70,6 @@ export function useFilRouge({ enChaine = false } = {}) {
     if (!el) return undefined
 
     tracer()
-    // Retrace une fois les polices chargées.
     document.fonts?.ready.then(tracer).catch(() => {})
 
     if (typeof ResizeObserver === 'undefined') return undefined

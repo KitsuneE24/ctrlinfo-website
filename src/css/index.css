@@ -1,7 +1,5 @@
-/* Ordre des couches : la remise à zéro et la base, puis les composants. */
 @layer base, components;
 
-/* Polices servies par le site (Fontsource), sans appel à Google. */
 @import '@fontsource/archivo/400.css';
 @import '@fontsource/archivo/500.css';
 @import '@fontsource/archivo/600.css';
@@ -27,4 +25,4 @@
 @import './game-gate.css';
 @import './compagnon.css';
 @import './mentions.css';
-
+

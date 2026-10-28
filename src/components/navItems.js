@@ -1,7 +1,6 @@
 import { BookOpen, CircleUserRound, House, Newspaper, Send } from 'lucide-react'
 import { PATHS } from '../routes'
 
-// `ordreBureau` : ordre dans la pilule de l'en-tête (sans le profil).
 export const TAB_ITEMS = [
   {
     id: 'home',

@@ -1,7 +1,6 @@
 /* Compagnon : --compagnon-largeur, --compagnon-hauteur, --compagnon-sol fournis par le composant. */
 
 @layer components {
-  /* Zone entre l'en-tête et la barre d'onglets ; ne reçoit aucun clic. */
   .compagnon-scene {
     position: absolute;
     inset: 0;
@@ -10,7 +9,6 @@
     pointer-events: none;
   }
 
-  /* Position écrite dans `transform` par le composant. */
   .compagnon {
     position: absolute;
     bottom: var(--compagnon-sol);
@@ -35,19 +33,16 @@
     border: 0;
     background-color: transparent;
     background-repeat: no-repeat;
-    /* Liseré clair et halo pour ressortir sur le fond sombre. */
     filter:
       drop-shadow(0 0 1.5px color-mix(in srgb, var(--blanc) 85%, transparent))
       drop-shadow(0 0 10px color-mix(in srgb, var(--lilas) 30%, transparent));
     transform-origin: bottom center;
     transition: transform 0.12s ease-out;
-    /* Saisissable, sans faire défiler la page. */
     pointer-events: auto;
     touch-action: none;
     cursor: grab;
   }
 
-  /* Écrasement à l'atterrissage. */
   .compagnon__sprite--pose {
     transform: scale(1.12, 0.88);
   }
@@ -65,7 +60,6 @@
     outline-offset: 3px;
   }
 
-  /* Balancement quand on le tient. */
   @keyframes compagnon-gigote {
     from {
       rotate: -7deg;
@@ -75,9 +69,6 @@
     }
   }
 
-  /* --- Ce qu'il dit --- */
-
-  /* Point posé à son axe ; la bulle y pend. Hauteur fournie par le composant. */
   .compagnon__ancre {
     position: absolute;
     left: 50%;
@@ -102,7 +93,6 @@
     text-wrap: pretty;
   }
 
-  /* La pointe : carré blanc tourné, côté fourni par le composant. */
   .compagnon__bulle::after {
     content: '';
     position: absolute;
@@ -116,7 +106,6 @@
     transform: rotate(45deg);
   }
 
-  /* Partie du fil sur petit écran : masqué. */
   @media (max-width: 1023px) {
     .app__main:has(.fil-jeu) .compagnon-scene {
       display: none;

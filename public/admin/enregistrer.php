@@ -2,10 +2,27 @@
 // Enregistre un fichier de donnees/ (?fichier=contenu|posts-vrais|posts-faux).
 declare(strict_types=1);
 
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
+header_remove('X-Powered-By');
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 
 const JOURNAL = __DIR__ . '/journal.log';
+const JOURNAL_MAX = 1024 * 1024;
+
+// Sel aléatoire du hachage des IP, créé au premier appel (.ht* n'est jamais servi).
+function sel(): string
+{
+    $fichier = __DIR__ . '/.htsel';
+    $sel = is_file($fichier) ? (string) file_get_contents($fichier) : '';
+    if (strlen($sel) < 32) {
+        $sel = bin2hex(random_bytes(32));
+        @file_put_contents($fichier, $sel, LOCK_EX);
+        @chmod($fichier, 0600);
+    }
+    return $sel;
+}
 
 $utilisateur = (string) ($_SERVER['REMOTE_USER'] ?? $_SERVER['PHP_AUTH_USER'] ?? $_SERVER['REDIRECT_REMOTE_USER'] ?? '');
 $nom = (string) ($_GET['fichier'] ?? 'contenu');
@@ -13,16 +30,19 @@ $nom = (string) ($_GET['fichier'] ?? 'contenu');
 function tracer(string $resultat, string $detail = ''): void
 {
     global $utilisateur, $nom;
-    $ip = substr(hash('sha256', ($_SERVER['REMOTE_ADDR'] ?? '') . __DIR__), 0, 12);
-    $propre = fn(string $texte): string => str_replace(["\n", "\r", "\t"], ' ', $texte);
+    $ip = substr(hash_hmac('sha256', (string) ($_SERVER['REMOTE_ADDR'] ?? ''), sel()), 0, 12);
+    $propre = fn(string $texte, int $max = 200): string => substr(preg_replace('/[\x00-\x1F\x7F]/', ' ', $texte) ?? '', 0, $max);
     $ligne = implode("\t", [
         gmdate('c'),
-        'utilisateur=' . ($utilisateur !== '' ? $propre($utilisateur) : '-'),
+        'utilisateur=' . ($utilisateur !== '' ? $propre($utilisateur, 64) : '-'),
         'fichier=' . preg_replace('/[^a-z-]/', '?', $nom),
         'resultat=' . $resultat,
         'ip=' . $ip,
         $propre($detail),
     ]) . "\n";
+    if (is_file(JOURNAL) && filesize(JOURNAL) > JOURNAL_MAX) {
+        @rename(JOURNAL, __DIR__ . '/journal.1.log');
+    }
     @file_put_contents(JOURNAL, $ligne, FILE_APPEND | LOCK_EX);
 }
 

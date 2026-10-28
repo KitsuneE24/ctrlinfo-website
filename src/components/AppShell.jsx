@@ -14,7 +14,6 @@ import { dejaVu, marquerVu } from '../lib/premiereFois'
 
 const reglesLues = (gameId) => Boolean(gameId) && dejaVu(`regles:${gameId}`)
 
-// La boîte de réception n'est pas un jeu.
 const gameOfPath = (path) => {
   if (path === PATHS.feed) return 'feed'
   if (path.startsWith(`${PATHS.chats}/`)) return 'chat'
@@ -36,7 +35,6 @@ export default function AppShell() {
   const [exitTo, setExitTo] = useState(null)
   const [finished, setFinished] = useState(false)
 
-  // Ajusté pendant le rendu pour éviter un affichage sans le seuil.
   if (lastPath !== pathname) {
     setLastPath(pathname)
     setLancee(reglesLues(gameId))
@@ -68,7 +66,6 @@ export default function AppShell() {
     signalerAuCompagnon('finPartie')
   }, [])
 
-  // Sortie retenue seulement pendant une partie en cours.
   const enPartie = demarree && gameId !== null && !finished
 
   const requestExit = useCallback(
@@ -91,14 +88,16 @@ export default function AppShell() {
   return (
     <ExitGuardContext.Provider value={guard}>
       <div className="app">
+        <a href="#contenu" className="lien-evitement">
+          Aller au contenu
+        </a>
         <AppHeader />
 
-        <main className="app__main">
+        <main id="contenu" tabIndex={-1} className="app__main">
           <div key={pathname} className="app__screen anim-apparait">
-            {/* `runKey` ne change qu'au premier départ : rouvrir les règles met en pause. */}
             <Outlet
               context={{
-                paused: !demarree || departVisible,
+                paused: !demarree || departVisible || exitTo !== null,
                 runKey: demarree ? 'play' : 'idle',
                 onFinished: marquerFini,
                 onRegles: revoirLeDepart,

@@ -3,7 +3,6 @@ import { PATHS } from '../routes'
 
 const VIGNETTE = { largeur: 32, hauteur: 48 }
 
-// Seul réglage de taille : vitesse, pas et bulle en découlent.
 const ECHELLE = 2.5
 
 export const LARGEUR = VIGNETTE.largeur * ECHELLE
@@ -16,7 +15,6 @@ const FEUILLES = {
 
 export const DEBORD_CHUTE = (FEUILLES.chute.taille.largeur - LARGEUR) / 2
 
-// `pas` : px par vignette ; `cadence` : secondes par vignette.
 const POSTURES = {
   marcheGauche: { feuille: 'cagou', debut: 0, images: 2, pas: 12 * ECHELLE },
   marcheDroite: { feuille: 'cagou', debut: 3, images: 2, pas: 12 * ECHELLE },
@@ -61,7 +59,6 @@ export const MARGE = 10
 
 export const SOL = 2
 
-// px/s
 export const VITESSE = 60 * ECHELLE
 
 // Du plus précis au plus large ; l'accueil seulement sur « / ».
@@ -92,7 +89,7 @@ const REPLIQUES = [
       'Chaque contact a son sujet. À toi de choisir par qui commencer.',
       'Ici, la fake news vient de gens que tu aimes bien. C’est plus délicat.',
       'Le but n’est pas de gagner un débat, c’est de trouver les bons mots.',
-      'De nouveaux sujets arrivent chaque jour. Repasse demain.',
+      'Tout lu ? « Nouveau sujet » t’en prépare d’autres.',
       'Quelqu’un qui pousse à partager vite, c’est déjà un signal.',
     ],
   ],
@@ -168,7 +165,6 @@ export const repliquesDuJeu = (jeu) => REPLIQUES_JEU[jeu] ?? Object.values(REPLI
 
 export const BONJOUR = 'Salut ! Moi, c’est le cagou. Je reste dans un coin et je commente ce que tu fais.'
 
-// `serie` : nombre d'affilée avant de réagir ; `parJeu` remplace `lignes` dans ce jeu.
 export const REACTIONS = {
   bonneReponse: {
     serie: 3,
@@ -209,26 +205,22 @@ export const REACTIONS = {
 
 export const lignesDeReaction = (reaction, jeu) => reaction.parJeu?.[jeu] ?? reaction.lignes
 
-// Tirage au hasard, sans répéter `sauf`.
 export function auHasard(lignes, sauf = []) {
   const libres = lignes.filter((ligne) => !sauf.includes(ligne))
   const choix = libres.length > 0 ? libres : lignes
   return choix[Math.floor(Math.random() * choix.length)]
 }
 
-// 1,5 s + 15 caractères/s, entre 4 et 12 s.
 export function dureeLecture(texte) {
   const secondes = 1.5 + texte.length / 15
   return Math.round(Math.min(Math.max(secondes, 4), 12) * 1000)
 }
 
-// ms
 export const ATTENTE_ECRAN = 4000
 export const ATTENTE_INACTIF = 45000
 
 const CLE = 'ctrl-info:compagnon:place'
 
-// Fraction de la largeur de l'écran.
 export function lirePlace() {
   try {
     const brut = window.localStorage.getItem(CLE)

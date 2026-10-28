@@ -4,7 +4,6 @@ const PART_ALERTE = 1 / 3
 const RAYON = 19
 const TOUR = 2 * Math.PI * RAYON
 
-// La fin est une date : la mise en veille de l'onglet ne décale pas le chrono.
 export default function Countdown({ active, secondes: duree, onComplete }) {
   const totalMs = duree * 1000
   const [restant, setRestant] = useState(totalMs)
@@ -57,6 +56,10 @@ export default function Countdown({ active, secondes: duree, onComplete }) {
       <span className="countdown__chiffre">
         <span className="countdown__value">{secondes}</span>
         <span className="countdown__unit">secondes</span>
+      </span>
+      {/* Annoncé une seule fois aux lecteurs d'écran, à l'entrée dans le dernier tiers. */}
+      <span className="pour-lecteur" aria-live="polite">
+        {urgent && restant > 0 ? `Plus que ${Math.ceil((totalMs * PART_ALERTE) / 1000)} secondes.` : ''}
       </span>
     </span>
   )

@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { RefreshCw } from 'lucide-react'
 
-// Classe : seule façon de capter une erreur de rendu. Détail affiché en dev uniquement.
 export default class Rattrapage extends Component {
   state = { erreur: null }
 

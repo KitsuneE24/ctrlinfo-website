@@ -44,7 +44,7 @@ export default function PostCard({
         {post.sponsorise && <span className="post__sponso">Sponsorisé</span>}
       </header>
 
-      <div className="post__defile">
+      <div className="post__defile" tabIndex={0} role="region" aria-label={`Post de ${post.source}`}>
         <div className="post__lead">
           <p className="post__caption">
             <span className="post__caption-account">{post.source}</span>{' '}

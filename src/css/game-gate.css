@@ -1,5 +1,3 @@
-/* Seuil des jeux */
-
 @layer components {
   .game-start {
     z-index: 97;
@@ -11,7 +9,6 @@
     overflow: visible;
   }
 
-  /* La mascotte qui dépasse en haut de la fenêtre. */
   .game-start__kiwi {
     position: absolute;
     top: -26px;
@@ -93,7 +90,6 @@
     font-size: 17px;
   }
 
-  /* La fenêtre laisse dépasser la mascotte : seul le contenu défile. */
   .game-start__corps {
     max-height: calc(100dvh - 250px);
     overflow-y: auto;
@@ -122,8 +118,6 @@
     line-height: 1.45;
     color: var(--ink-muted);
   }
-
-  /* --- Maquette du jeu, repères numérotés comme dans la correction --- */
 
   .demo {
     display: flex;
@@ -170,7 +164,6 @@
     flex-shrink: 0;
     place-items: center;
     border-radius: 50%;
-    /* Neutre : le bleu est réservé aux repères numérotés. */
     border: 1px solid var(--contour);
     background: var(--filet-4);
     color: var(--blanc);
@@ -248,10 +241,9 @@
     }
   }
 
-  /* --- Quitter --- */
-
   .gate {
     z-index: 110;
+    background: transparent;
   }
 
   .gate__fenetre {
@@ -276,7 +268,6 @@
     color: var(--ink-faint);
   }
 
-
   /* --- Panneau du cagou : repères de notif-cagou.png (1200 px), --s = échelle. --- */
 
   .modal__cadre {
@@ -300,7 +291,6 @@
 
   .cadre-cagou__panneau {
     --ink: var(--papier-encre);
-    --ink-soft: var(--papier-encre);
     --ink-muted: var(--papier-encre);
     position: relative;
     display: flex;
@@ -352,7 +342,6 @@
     margin-top: 6px;
   }
 
-  /* Bouton secondaire sur fond blanc */
   .cadre-cagou__panneau .bouton:not(.bouton--encre) {
     border-color: color-mix(in srgb, var(--papier-encre) 55%, transparent);
     background: transparent;

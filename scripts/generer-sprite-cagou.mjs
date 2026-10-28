@@ -56,7 +56,6 @@ function blancDesYeux({ largeur, px }, pose) {
   return n
 }
 
-// Moyenne des pixels source couverts (alpha prémultiplié).
 function reduire(image, pose, echelle, sortie, largeurSortie, origine, cellule = VIGNETTE) {
   const { largeur, px } = image
   const l = Math.round((pose.x1 - pose.x0 + 1) * echelle)

@@ -18,16 +18,20 @@ const CHEMIN_ADMIN =
 // Adresse devinable ou laissée à l'exemple (ancien compris) : pas d'admin dans le build.
 const ADRESSE_CHOISIE = /^[a-z0-9-]{12,}$/i.test(CHEMIN_ADMIN) && !/^(admin|A-CHOISIR|gestion-3f9a2c)$/i.test(CHEMIN_ADMIN)
 
-const HTPASSWD = process.env.ADMIN_HTPASSWD ?? lire('config.local.json').admin?.htpasswd ?? null
+// Le chemin de l'exemple compte comme non réglé.
+const HTPASSWD_LU = process.env.ADMIN_HTPASSWD ?? lire('config.local.json').admin?.htpasswd ?? null
+const HTPASSWD = HTPASSWD_LU === lire('config.local.json.exemple').admin?.htpasswd ? null : HTPASSWD_LU
 
 function finirLeBundle() {
   return {
     name: 'finir-le-bundle',
+    apply: 'build',
     closeBundle() {
       const dist = resolve(import.meta.dirname, 'dist')
 
       if (process.env.NETLIFY) {
         rmSync(resolve(dist, 'admin'), { recursive: true, force: true })
+        rmSync(resolve(dist, '.htaccess'), { force: true })
         console.log('  administration : retirée (Netlify)')
         return
       }
@@ -49,19 +53,29 @@ function finirLeBundle() {
       const htaccess = resolve(dist, CHEMIN_ADMIN, '.htaccess')
       if (HTPASSWD && existsSync(htaccess)) {
         if (!HTPASSWD.startsWith('/') || /\s/.test(HTPASSWD)) {
-          throw new Error(`admin.htpasswd doit être un chemin absolu sans espace : ${HTPASSWD}`)
+          throw new Error('admin.htpasswd doit être un chemin absolu sans espace (config.local.json).')
         }
         const texte = readFileSync(htaccess, 'utf8')
         writeFileSync(htaccess, texte.replace('/CHEMIN/ABSOLU/A/REGLER/.htpasswd', HTPASSWD))
       }
-      console.log(`  administration : dist/${CHEMIN_ADMIN}/`)
-      console.log(`  mot de passe   : ${HTPASSWD ?? 'à régler (admin.htpasswd dans config.local.json)'}`)
+      // Chemins secrets jamais affichés : la sortie du build peut finir dans un journal.
+      console.log('  administration : construite dans dist/, dossier nommé selon admin.chemin')
+      console.log(`  mot de passe   : ${HTPASSWD ? 'chemin du .htpasswd injecté' : 'à régler (admin.htpasswd dans config.local.json)'}`)
     },
   }
 }
 
+// En-têtes de public/.htaccess, repris par `npm run preview` (tests e2e).
+const ENTETES = Object.fromEntries(
+  [...readFileSync(resolve(import.meta.dirname, 'public/.htaccess'), 'utf8').matchAll(/Header always set ([\w-]+) "([^"]+)"/g)]
+    .filter(([, nom]) => nom !== 'Strict-Transport-Security')
+    .map(([, nom, valeur]) => [nom, valeur])
+)
+
 export default defineConfig({
   plugins: [react(), finirLeBundle()],
+  preview: { headers: ENTETES },
+  test: { include: ['tests/unitaires/**/*.test.js'], environment: 'node' },
   build: {
     rollupOptions: {
       input: {

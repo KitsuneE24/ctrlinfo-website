@@ -6,7 +6,6 @@ export default function FeedScreen() {
   const { paused, runKey, onRegles } = useOutletContext()
   const navigate = useNavigate()
 
-  // Rien ne se charge avant le début de la partie.
   if (runKey !== 'play') return null
 
   return (

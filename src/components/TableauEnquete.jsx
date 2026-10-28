@@ -1,8 +1,6 @@
 import Filaments from './ui/Filaments'
 import { useFilRouge } from '../lib/useFilRouge'
 
-// Enfants : fonction recevant `epingler` ; chaque pièce : `ref={epingler(id, { vers, pointille })}`.
-
 export function FilsRouges({ fils }) {
   return (
     <svg

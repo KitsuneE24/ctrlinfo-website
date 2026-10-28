@@ -1,8 +1,4 @@
-/* Éléments communs à tous les écrans */
-
 @layer components {
-  /* --- Animations d'entrée --- */
-
   .anim-apparait {
     animation: apparait 0.18s ease-out backwards;
   }
@@ -35,8 +31,6 @@
       translate: 0 14px;
     }
   }
-
-  /* --- Filaments --- */
 
   .filaments {
     position: absolute;
@@ -96,8 +90,6 @@
     }
   }
 
-  /* --- Étiquette --- */
-
   .etiquette,
   .tableau__zone,
   .piece__manchette,
@@ -126,8 +118,6 @@
     color: var(--ink-muted);
   }
 
-  /* --- Papier --- */
-
   .papier {
     position: relative;
     border-radius: 4px;
@@ -136,7 +126,6 @@
     box-shadow: 0 20px 40px -14px color-mix(in srgb, var(--noir) 90%, transparent);
   }
 
-  /* Ruban adhésif */
   .papier__ruban {
     position: absolute;
     top: -12px;
@@ -150,7 +139,6 @@
     pointer-events: none;
   }
 
-  /* Punaise */
   .punaise {
     position: absolute;
     z-index: 2;
@@ -172,9 +160,6 @@
     margin-left: -11.5px;
   }
 
-  /* --- Tampon --- */
-
-  /* --tampon-fond : couleur du filet intérieur. */
   .tampon {
     --tampon-fond: var(--encre);
     display: inline-block;
@@ -202,13 +187,11 @@
     }
   }
 
-  /* Sur papier */
   .tampon--papier {
     --tampon-fond: var(--papier-clair);
     color: var(--rouge);
   }
 
-  /* --- Mascotte --- */
   .kiwi {
     display: grid;
     flex-shrink: 0;
@@ -226,8 +209,6 @@
     height: 88%;
     object-fit: contain;
   }
-
-  /* --- Boutons --- */
 
   .bouton {
     display: inline-flex;
@@ -340,7 +321,6 @@
     background: var(--surface-haute);
   }
 
-  /* --- Fenêtre --- */
   .voile {
     position: fixed;
     inset: 0;
@@ -447,8 +427,6 @@
     }
   }
 
-  /* --- Gabarit de page --- */
-
   .page {
     display: flex;
     flex: 1 1 0;
@@ -529,8 +507,6 @@
     color: var(--ink-faint);
   }
 
-  /* --- Bandeau --- */
-
   .banniere {
     position: relative;
     overflow: hidden;
@@ -588,8 +564,6 @@
   .card__text + .card__text {
     margin-top: 12px;
   }
-
-  /* --- Avatar --- */
 
   .avatar-joueur {
     display: grid;
@@ -654,8 +628,6 @@
     transform: scale(0.94);
   }
 
-  /* --- Chargement et erreur --- */
-
   .etat-api {
     display: flex;
     flex-direction: column;
@@ -701,7 +673,6 @@
       animation: none;
     }
   }
-  /* --- Rattrapage d'erreur --- */
 
   .rattrapage {
     display: flex;

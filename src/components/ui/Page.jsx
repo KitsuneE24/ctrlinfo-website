@@ -2,7 +2,6 @@ import { forwardRef } from 'react'
 import { Link } from 'react-router'
 import { PATHS } from '../../routes'
 
-// Variantes : `feed` (colonne centrée), `fill` (pleine hauteur, sans pied de page), `seamless` (sans filet).
 const Page = forwardRef(function Page(
   { title, subtitle, feed, fill, seamless, children },
   ref

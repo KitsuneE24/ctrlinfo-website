@@ -1,8 +1,6 @@
 import { Flag, Heart, Send, SendHorizontal } from 'lucide-react'
 import Riche from './ui/Riche'
 
-// Règles d'un jeu montrées sur une maquette : chaque puce renvoie à une action de la liste.
-// `ligne` : dans le texte, devant les mots ; sinon posée sur le coin de l'élément.
 function Puce({ reperes, cible, ligne = false }) {
   const i = reperes.findIndex((r) => r.cible === cible)
   if (i < 0) return null
@@ -77,7 +75,6 @@ export default function Demonstration({ jeu }) {
 
   return (
     <>
-      {/* La liste dit la même chose : la maquette est décorative. */}
       <div aria-hidden="true">
         <Maquette exemple={exemple} reperes={reperes} />
       </div>

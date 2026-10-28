@@ -1,16 +1,10 @@
 import { Link } from 'react-router'
 import { Download } from 'lucide-react'
 import { PATHS } from '../routes'
-import Filaments from './ui/Filaments'
 
 export default function ExitGamePrompt({ onConfirm, onCancel }) {
   return (
-    <div
-      className="voile gate anim-apparait"
-    >
-      <span aria-hidden="true" className="voile__fantome" />
-      <Filaments forme="swirl" tourne inverse />
-
+    <div className="voile gate anim-apparait">
       <div
         role="dialog"
         aria-modal="true"

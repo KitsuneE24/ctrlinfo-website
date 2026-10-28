@@ -1,4 +1,3 @@
-// Ce qu'on ne montre qu'une fois ; si le stockage échoue, on remontre.
 const PREFIXE = 'ctrl-info:vu:'
 
 function stockage() {

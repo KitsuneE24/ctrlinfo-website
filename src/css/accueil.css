@@ -1,8 +1,4 @@
-/* Accueil */
-
 @layer components {
-  /* --- Bandeau (coquille dans colonne-de-contenu.css) --- */
-
   .hero {
     padding: 38px 22px 40px;
   }
@@ -106,8 +102,6 @@
     }
   }
 
-  /* --- Dossier --- */
-
   .dossier {
     padding: 34px 0 0;
     border-top: 1px solid var(--filet-1);
@@ -176,12 +170,9 @@
     }
   }
 
-  /* --- Le tableau : un liège sombre, une trame de points --- */
-
   .tableau {
     position: relative;
     display: grid;
-    /* Téléphone : une colonne, étapes 1 → 4 dans l'ordre. */
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       'z-sujet'
@@ -245,7 +236,6 @@
     }
   }
 
-  /* Le fil rouge, mesuré par TableauEnquete.jsx. Sous les notes. */
   .tableau__fils {
     position: absolute;
     z-index: 0;
@@ -263,7 +253,6 @@
     opacity: 0.9;
   }
 
-  /* Intitulés des zones : ordinateur seulement */
   .tableau__zone {
     position: relative;
     z-index: 1;
@@ -323,8 +312,6 @@
   .tableau__zone--principe {
     grid-area: z-principe;
   }
-
-  /* --- Les notes --- */
 
   .piece {
     position: relative;
@@ -401,12 +388,6 @@
     }
   }
 
-  .piece__legende {
-    margin: 2px 0 0;
-    font-size: 12px;
-    color: var(--papier-encre);
-  }
-
   .piece__etiquette {
     font-size: 12px;
     letter-spacing: 2px;
@@ -424,7 +405,6 @@
     grid-area: autorite;
   }
 
-  /* Téléphone : pièces en quinconce, gauche / droite. */
   @media (max-width: 899px) {
     .piece {
       width: min(100%, 320px);
@@ -442,7 +422,6 @@
     }
   }
 
-  /* La carte du milieu : plus claire, plus grande, un halo violet. */
   .piece--sujet {
     z-index: 3;
     grid-area: sujet;
@@ -489,7 +468,6 @@
     color: var(--papier-encre);
   }
 
-  /* La coupure de journal. */
   .piece--journal {
     grid-area: principe;
     border-radius: 2px;
@@ -520,7 +498,6 @@
     margin-top: 0;
   }
 
-  /* La vidéo, en photo punaisée. */
   .piece--video {
     grid-area: video;
     padding: 10px 10px 14px;
@@ -532,7 +509,6 @@
     }
   }
 
-  /* Le cliché Instagram : photo à bord blanc, deux autres glissées dessous. */
   .piece--cliche {
     grid-area: instagram;
     display: block;
@@ -690,9 +666,6 @@
     background: var(--noir);
   }
 
-  /* --- La parade, en bas --- */
-
-  /* Téléphone : les notes de la parade se placent dans la grille */
   .tableau__parade,
   .tableau__parade-notes {
     display: contents;
@@ -812,8 +785,6 @@
     font-size: 15px;
   }
 
-  /* --- La fin de page, sur téléphone --- */
-
   .home__fin {
     display: flex;
     flex-direction: column;
@@ -828,10 +799,7 @@
   }
 }
 
-/* --- Brève du jour --- */
-
 @layer components {
-  /* Sous la main du cagou */
   .tip-card__fermer {
     position: absolute;
     top: 18px;

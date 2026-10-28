@@ -1,11 +1,9 @@
-# Génération quotidienne (seuls les flux sous licence libre de config.json sont lus), vérification, commit puis envoi FTP/SFTP.
+# Génération à la demande (seuls les flux sous licence libre de config.json sont lus), vérification, commit (Netlify redéploie) ou envoi SFTP/FTPS.
 
 name: Génération du contenu
 
 on:
-  schedule:
-    # 6:00 à Nouméa
-    - cron: '0 19 * * *'
+  # Contenu fixe : lancée à la main seulement (Actions → Run), chaque lancement coûte 1 déploiement Netlify.
   workflow_dispatch:
 
 permissions:
@@ -37,6 +35,8 @@ jobs:
       - run: npm run generer
 
       - run: npm run verifier
+
+      - run: npm test
 
       - name: Enregistrer s'il y a du neuf
         run: |
@@ -83,4 +83,4 @@ jobs:
             open --env-password -u '$ENVOI_UTILISATEUR' '$URL';
             cd '$ENVOI_DOSSIER';
             $COMMANDES"
-          echo "Envoyé vers $ENVOI_HOTE:$ENVOI_DOSSIER"
+          echo "Envoi terminé."

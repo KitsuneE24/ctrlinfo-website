@@ -1,7 +1,3 @@
-// Commentaires d'un post : réactions au sujet, à la photo, et avis (y croit, doute, a vérifié).
-// Rien dans le nom ou la couleur d'un commentateur ne dit s'il a raison.
-
-// Réactions au sujet, les mêmes sous un vrai post et sous une fake news.
 export const REACTIONS_THEME = {
   mer: [
     'Le lagon, on ne s’en lasse pas 🐠',
@@ -88,30 +84,61 @@ export const REACTIONS_THEME = {
     'Long, mais ça vaut le coup.',
     'Je ne m’étais jamais posé la question.',
   ],
+  arnaque: [
+    'J’ai reçu presque le même message hier…',
+    'Ma tante s’est fait avoir avec un truc pareil.',
+    'Ça a l’air trop beau, non ?',
+    'Quelqu’un connaît cette page ?',
+    'Toujours vérifier avant de cliquer.',
+  ],
+  alerte: [
+    'Quelqu’un a entendu ça à la radio ?',
+    'Je préviens ma famille sur la côte.',
+    'Ça fait peur, j’espère que ce n’est rien.',
+    'On a déjà fait les réserves, on ne sait jamais.',
+  ],
 }
 
-// Seulement quand la photo est affichée.
 const REACTIONS_PHOTO = ['Belle photo !', 'La photo 😍', 'Elle est où cette photo ?', 'Quelle image…']
 
-// Des avis qui se trompent : aux niveaux 3 à 5, les commentaires ne suffisent plus.
 const CONTRE = {
   vrai: ['N’importe quoi, j’ai lu le contraire.', 'Encore une info pas vérifiée…', 'Je n’y crois pas une seconde.'],
   faux: ['Je confirme, j’en ai entendu parler aussi.', 'Vrai de vrai, tout le monde le dit.', 'Mon cousin me l’a dit aussi.'],
 }
 
-// Chance d'un commentaire qui a vérifié, par niveau.
 const PART_VERIFIE = [0.85, 0.7, 0.5, 0.35, 0.25]
 
 const NOMS = [
-  'Nadia_988', 'Thierry P.', 'Patrick L.', 'Hélène', 'Ryan_NC', 'Willy', 'Aurélie', 'Mélanie', 'Kévin.nc', 'sam_974',
+  'Nadia_988', 'Thierry P.', 'Patrick L.', 'Hélène', 'Ryan_NC', 'Willy', 'Aurélie', 'Mélanie', 'Kévin.nc', 'sam_988',
   'Tehei', 'bruno_zz', 'Manu', 'Léa', 'Nathalie', 'Didier', 'Louise M.', 'Marie-Jo', 'Anaïs W.', 'Camille R.',
   'Inès K.', 'Fatou S.', 'Olivier T.', 'Karim', 'Vaimiti', 'Jean-Luc', 'Soane', 'Elodie_nc', 'Gaby', 'Moana R.',
 ]
-// Couleurs tirées du nom, jamais de l'avis.
 const COULEURS = ['#791561', '#8a4fbe', '#b45309', '#14663f', '#1800ad', '#57534e', '#c2410c', '#0e7490']
 
-// Tirage déterministe à partir de la graine du post.
-function tirage(graine) {
+const REACTIONS_VOIX = {
+  ado: ['ptdr', 'jure ?? 😭', 'c’est fou ça', 'mdrr t’as appris ça où'],
+  parent: ['Merci {prenom} 🌺', 'Merci pour le partage {prenom} !', 'Toujours de bonnes infos ici ❤️'],
+  ancien: ['Merci {prenom}, toujours intéressant.', 'Merci pour ce rappel {prenom}.'],
+  neutre: ['Ah, je ne savais pas.', 'Tiens, intéressant 👀'],
+  vulgarisation: ['J’adore cette page 😍', 'Toujours des posts intéressants ici.', 'Vous pourriez faire un post sur les tortues ?'],
+  quiz: ['J’avais dit vrai 😎', 'Raté pour moi 😅', 'Encore un quiz demain ?'],
+  alarmiste: ['Pas besoin de crier 😅', 'Pourquoi tout est en majuscules ?', 'Calmez-vous un peu…'],
+  militant: ['Toujours le même discours sur cette page…', 'Merci de nous ouvrir les yeux.', 'Tout est un complot ici 🙄'],
+  informe: ['Tu tiens ça d’où ?', 'T’as toujours les infos avant tout le monde toi.', 'Tes contacts, c’est qui au juste ?'],
+  article: ['Quelqu’un a lu l’article en entier ?', 'Article intéressant, merci.', 'Trop long, quelqu’un résume ?', 'Le lien ne s’ouvre pas chez moi.'],
+}
+
+const REACTIONS_LIEU = [
+  'On passe {lieu} ce week-end justement !',
+  'Il se passe toujours un truc {lieu} 😄',
+  'Ma tante habite {lieu}, je vais lui demander.',
+  'Ça fait longtemps que je ne suis pas allé {lieu}.',
+]
+
+const remplir = (texte, valeurs) => texte.replace(/\{(\w+)\}/g, (_, cle) => valeurs[cle] ?? '')
+const prenomDe = (compte = '') => compte.split(/[\s._]/)[0]
+
+export function tirage(graine) {
   let e = graine >>> 0 || 1
   return () => {
     e ^= e << 13
@@ -123,28 +150,35 @@ function tirage(graine) {
 
 const un = (liste, alea) => liste[Math.floor(alea() * liste.length)]
 
+const variante = (avis, alea) => (Array.isArray(avis) ? un(avis, alea) : avis)
+
 /**
- * `avis` : { croit, doute, verifie } du post (textes). `theme` : clé de REACTIONS_THEME.
+ * `avis` : { croit, doute, verifie } du post (texte ou variantes). `theme` : clé de REACTIONS_THEME.
+ * `contexte` : { voix, compte, lieu } pour répondre au compte et au lieu.
  * Entre 2 et 4 commentaires, dans un ordre qui change d'un post à l'autre.
  */
-export function composerCommentaires({ graine, niveau = 1, isFake, theme, avecPhoto, avis }) {
+export function composerCommentaires({ graine, niveau = 1, isFake, theme, avecPhoto, avis, contexte = {} }) {
   const alea = tirage(graine)
   const lignes = []
   const sujet = REACTIONS_THEME[theme] ?? REACTIONS_THEME.actu
+  const valeurs = { prenom: prenomDe(contexte.compte), lieu: contexte.lieu }
 
   lignes.push(['SUJET', un(sujet, alea)])
+  if (contexte.lieu && alea() < 0.5) lignes.push(['SUJET', remplir(un(REACTIONS_LIEU, alea), valeurs)])
+  if (REACTIONS_VOIX[contexte.voix] && alea() < 0.5) lignes.push(['SUJET', remplir(un(REACTIONS_VOIX[contexte.voix], alea), valeurs)])
   if (avecPhoto && alea() < 0.5) lignes.push(['PHOTO', un(REACTIONS_PHOTO, alea)])
-  if (alea() < 0.6) lignes.push(['CROIT', avis.croit])
-  if (alea() < 0.5) lignes.push(['DOUTE', avis.doute])
-  if (avis.verifie && alea() < PART_VERIFIE[Math.min(niveau, 5) - 1]) lignes.push(['VERIFIE', avis.verifie])
+  if (alea() < 0.6) lignes.push(['CROIT', variante(avis.croit, alea)])
+  if (alea() < 0.5) lignes.push(['DOUTE', variante(avis.doute, alea)])
+  if (avis.verifie && alea() < PART_VERIFIE[Math.min(niveau, 5) - 1]) lignes.push(['VERIFIE', variante(avis.verifie, alea)])
   if (niveau >= 3 && alea() < 0.35) lignes.push(['CONTRE', un(CONTRE[isFake ? 'faux' : 'vrai'], alea)])
   if (lignes.length < 2) lignes.push(['SUJET', un(sujet.filter((t) => t !== lignes[0][1]), alea)])
 
-  // Mélange, puis au plus 4.
   for (let i = lignes.length - 1; i > 0; i--) {
     const j = Math.floor(alea() * (i + 1))
     ;[lignes[i], lignes[j]] = [lignes[j], lignes[i]]
   }
+  const v = lignes.findIndex(([posture]) => posture === 'VERIFIE')
+  if (v > 3) [lignes[3], lignes[v]] = [lignes[v], lignes[3]]
   const pris = new Set()
   return lignes.slice(0, 4).map(([posture, texte]) => {
     let auteur = un(NOMS, alea)

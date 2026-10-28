@@ -55,7 +55,6 @@ export default function StoryViewer({ stories, index, onIndex, onClose }) {
             {stories.map((autre, i) => (
               <span key={autre.id} className="story-view__bar">
                 <span
-                  // La clé relance l'animation.
                   key={`${story.id}-${i}`}
                   className={`story-view__fill${
                     i < index ? ' story-view__fill--vue' : ''

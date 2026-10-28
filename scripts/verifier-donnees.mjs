@@ -24,7 +24,6 @@ const ACTIONS = ['share', 'ignore', 'report']
 const texte = (v) => typeof v === 'string' && v.trim() !== ''
 const PUBLIC = new URL('../public', import.meta.url).href
 
-// Image locale : le fichier existe, avec un texte alternatif et un crédit complet.
 function verifierImage(ici, fichier = '', alt, credit) {
   if (!fichier.startsWith('/') || !existsSync(new URL(PUBLIC + fichier))) signaler(`${ici} : image introuvable (${fichier})`)
   if (!texte(alt)) signaler(`${ici} : image sans texte alternatif`)
@@ -56,7 +55,6 @@ if (contenu) {
     }
   }
 
-  // Les banques du générateur.
   const idsFaits = new Set()
   for (const [i, fait] of (contenu.faits ?? []).entries()) {
     const ici = `fait ${i + 1} (${fait.id ?? '?'})`
@@ -97,7 +95,6 @@ function verifierPosts(posts, nom, isFake) {
     if (Object.values(post.scores ?? {}).some((score) => typeof score !== 'number' || Math.abs(score) > 100)) {
       signaler(`${ici} : score hors de -100 à 100`)
     }
-    // La CSP n'autorise que les images du site.
     if (post.image && !post.image.startsWith('/images/')) signaler(`${ici} : image hors de /images/ (${post.image.slice(0, 60)})`)
     else if (post.image) verifierImage(ici, post.image, post.imageAlt, post.credit)
   }
@@ -111,6 +108,9 @@ if (contenu && Array.isArray(vrais) && Array.isArray(faux)) {
     const f = faux.filter((p) => p.level === niveau.level).length
     if (v === 0 || f === 0) signaler(`niveau ${niveau.level} : ${v} vraies, ${f} fausses (il faut les deux)`)
     else if (v + f < (niveau.taille ?? 5)) signaler(`niveau ${niveau.level} : ${v + f} publications pour un lot de ${niveau.taille}`)
+  }
+  for (const biais of new Set(faux.map((p) => p.biais))) {
+    if (!contenu.remediations?.[biais]) signaler(`procédé « ${biais} » : pas de post d’entraînement dans remediations`)
   }
 }
 

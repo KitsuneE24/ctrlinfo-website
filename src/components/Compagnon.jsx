@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router'
+import { mouvementReduit } from '../lib/mouvement'
 import {
   ATTENTE_ECRAN,
   ATTENTE_INACTIF,
@@ -31,22 +32,18 @@ const AUCUNE = []
 
 const POINTE = 16
 
-// La pointe tombe sur l'axe de l'ancre.
 const RECOUVREMENT = POINTE + 6
 
 const DEGAGEMENT = 8
 
-// px/s²
 const CHUTE = 2400
 
-// Durées en ms.
 const ETALE = 1200
 
 const REPORT = 6000
 
 const PERIODE_RELEVE = 1200
 
-// Fractions de sa hauteur : tête, corps, pattes.
 const HAUTEURS_SONDEES = [0.85, 0.55, 0.25]
 
 const COLONNES_PAR_IMAGE = 6
@@ -83,7 +80,6 @@ export default function Compagnon({ jeu = null }) {
   const dites = file.cle === cle ? file.dites : AUCUNE
   const reste = dites.length < lignes.length
 
-  // `x` depuis le bord gauche, `y` depuis le sol.
   const etat = useRef({
     x: null,
     y: 0,
@@ -161,7 +157,6 @@ export default function Compagnon({ jeu = null }) {
 
   useEffect(() => ecouterLeCompagnon(reagir), [reagir])
 
-  // Reporte s'il parle déjà, est tenu, ou devant du contenu (3 fois max).
   useEffect(() => {
     if (!reste) return undefined
     const delai = reporte > 0 ? REPORT : dites.length === 0 ? ATTENTE_ECRAN : ATTENTE_INACTIF
@@ -256,7 +251,6 @@ export default function Compagnon({ jeu = null }) {
       return false
     }
 
-    // Coût d'une colonne = nombre de hauteurs occupées (0 à 3).
     function avancerReleve(maintenant, cadre) {
       if (!releve) {
         if (maintenant < prochainReleve || cadre.width <= 0) return
@@ -314,7 +308,7 @@ export default function Compagnon({ jeu = null }) {
 
     function promenade(maintenant, min, max) {
       const e = etat.current
-      if (enJeuRef.current) return
+      if (enJeuRef.current || mouvementReduit()) return
       if (!e.prochaineBalade) {
         e.prochaineBalade = maintenant + PAUSE_BALADE.min + Math.random() * PAUSE_BALADE.ecart
         return
@@ -403,7 +397,7 @@ export default function Compagnon({ jeu = null }) {
       const e = etat.current
       const { debut, images, pas, cadence } = postureDe(e.posture, e.sens)
 
-      if (images === 1) e.phase = 0
+      if (images === 1 || mouvementReduit()) e.phase = 0
       else e.phase += pas ? parcouru : dt
 
       const echelle = pas ?? cadence
@@ -412,7 +406,6 @@ export default function Compagnon({ jeu = null }) {
     }
 
     const boucle = (maintenant) => {
-      // Demandée avant le calcul : une erreur n'arrête pas la boucle.
       image = requestAnimationFrame(boucle)
       const dt = Math.min((maintenant - dernier) / 1000, 0.05)
       dernier = maintenant
@@ -477,7 +470,6 @@ export default function Compagnon({ jeu = null }) {
       const bouge = e.saisi.bouge
       e.saisi = null
 
-      // Sans mouvement, c'est un appui : le clic qui suit le fait parler.
       ignorerClic.current = bouge
       majPosture('repos')
 

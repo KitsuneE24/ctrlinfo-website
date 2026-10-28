@@ -7,6 +7,8 @@ export default function ImagePost({ post, className = '', avecCredit = true }) {
   if (!post.image || post.image === cassee) return null
   const credit = post.credit
   const page = lienWeb(credit?.page)
+  const licence = lienWeb(credit?.licenceUrl)
+  const ailleurs = post.isFake && post.scenario && !post.scenario.startsWith('fait-')
 
   return (
     <figure className={`image-post ${className}`}>
@@ -19,9 +21,18 @@ export default function ImagePost({ post, className = '', avecCredit = true }) {
       />
       {avecCredit && credit?.auteur && (
         <figcaption className="image-post__credit">
+          {ailleurs && 'Photo d’illustration prise ailleurs, sans lien avec ce post. '}
           Photo : {credit.auteur},{' '}
           {page ? (
             <a href={page} target="_blank" rel="noopener noreferrer">
+              Wikimedia Commons
+            </a>
+          ) : (
+            'Wikimedia Commons'
+          )}
+          ,{' '}
+          {licence ? (
+            <a href={licence} target="_blank" rel="noopener noreferrer">
               {credit.licence}
             </a>
           ) : (

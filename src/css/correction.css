@@ -1,9 +1,4 @@
-/* Correction */
-
 @layer components {
-
-  /* --- Verdict : panneau du cagou, posé sur le post --- */
-
   .verdict-cagou {
     position: absolute;
     z-index: 40;
@@ -21,14 +16,12 @@
     width: min(560px, calc(100vw - 24px));
   }
 
-  /* Centré sur la colonne du post (ordinateur). */
   @media (min-width: 1024px) {
     .verdict-cagou__cadre {
       transform: translateX(-160px);
     }
   }
 
-  /* Étiquettes d'enquête : pochoir, double encadré. */
   .verdict-cagou__procede,
   .verdict-cagou__resultat {
     align-self: flex-start;
@@ -48,7 +41,6 @@
     text-transform: uppercase;
   }
 
-  /* Résultat en filigrane : très grand, incliné, pâle, derrière le contenu. */
   .verdict-cagou .cadre-cagou__panneau {
     container-type: inline-size;
   }
@@ -80,14 +72,12 @@
     user-select: none;
   }
 
-  /* Mobile : remonté, au-dessus des boutons. */
   @media (max-width: 767px) {
     .verdict-cagou .cadre-cagou__panneau > .verdict-cagou__resultat {
       top: 38%;
     }
   }
 
-  /* Texte posé par CSS : purement décoratif. */
   .verdict-cagou__resultat::before {
     content: attr(data-texte);
   }
@@ -96,7 +86,6 @@
     color: var(--juste);
   }
 
-  /* Procédé utilisé : magenta. */
   .verdict-cagou__procede {
     color: var(--magenta);
   }
@@ -114,7 +103,6 @@
     line-height: 1.45;
   }
 
-  /* Boutons empilés : chaque libellé tient sur une ligne. */
   .verdict-cagou__actions {
     display: flex;
     flex-direction: column;
@@ -141,8 +129,6 @@
       flex: 1 1 auto;
     }
   }
-
-  /* --- « Ce qu'il fallait voir » : écran plein --- */
 
   .indices {
     position: fixed;
@@ -290,7 +276,6 @@
     }
   }
 
-
   .indices__piece {
     padding: 22px 18px 18px;
     transform: rotate(-1.2deg);
@@ -416,8 +401,6 @@
     }
   }
 
-  /* --- La publication rejouée, sur papier --- */
-
   .annot__head {
     display: flex;
     align-items: center;
@@ -490,7 +473,6 @@
     }
   }
 
-  /* Passage visé : surligné et souligné de la couleur de l'indice. */
   .annot--vise {
     display: inline;
     padding: 0 2px;
@@ -500,12 +482,7 @@
     box-decoration-break: clone;
   }
 
-  .annot--verification {
-    background: color-mix(in srgb, var(--magenta) 14%, transparent);
-    border-bottom-color: var(--magenta);
-  }
-
-  .annot--fiable {
+  .annot--vrai {
     background: color-mix(in srgb, var(--bleu) 12%, transparent);
     border-bottom-color: var(--bleu);
   }
@@ -535,11 +512,10 @@
     background: var(--magenta);
   }
 
-  .annot__puce--fiable {
+  .annot__puce--fiable,
+  .annot__puce--vrai {
     background: var(--bleu);
   }
-
-  /* --- Les indices, reliés par un fil rouge vertical --- */
 
   .annot__liste {
     position: relative;
@@ -633,11 +609,8 @@
     }
   }
 
-  .indice--verification .indice__numero {
-    background: var(--magenta);
-  }
-
-  .indice--fiable .indice__numero {
+  .annot__liste--vrai::before,
+  .annot__liste--vrai .indice__numero {
     background: var(--bleu);
   }
 
@@ -656,10 +629,7 @@
   }
 }
 
-/* --- « Ce qu'il fallait voir » : ordre mobile, colonnes ordinateur --- */
-
 @layer components {
-  /* Mobile : titre, publication, indices, vrai/faux. */
   .indices__explications {
     display: contents;
   }
@@ -682,9 +652,27 @@
       padding: 8px 40px 12px;
     }
 
+    .indices__corps {
+      grid-template-rows: minmax(0, 1fr);
+    }
+
     .indices__piece {
+      display: flex;
+      max-height: calc(100% - 12px);
+      flex-direction: column;
       margin-top: 12px;
       padding: 22px 26px 20px;
+    }
+
+    .indices__piece .annot {
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+
+    .indices__piece .image-post__photo {
+      max-height: 28dvh;
     }
 
     .indices__piece .annot__titre {
@@ -758,7 +746,6 @@
     }
   }
 
-  /* Écrans bas : texte resserré. */
   @media (min-width: 900px) and (max-height: 800px) {
     .indices__explications {
       gap: 16px;

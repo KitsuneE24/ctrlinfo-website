@@ -1,4 +1,3 @@
-// Les contacts de la messagerie. `soutien` n'existe que dans les groupes.
 export const DISTRIBUTIONS = [
   {
     id: 'tata-josiane',
@@ -50,7 +49,6 @@ export const DISTRIBUTIONS = [
   },
 ]
 
-// Plusieurs tournures par étape : deux sujets sur le même procédé ne se ressemblent pas.
 const OUVERTURES = [
   (source, titre) => `Regarde ce que ${source} vient de publier : « ${titre} »`,
   (source, titre) => `Tu as vu ça ? ${source} : « ${titre} »`,
@@ -79,7 +77,6 @@ const SOUTIENS_3 = [
 
 const parmi = (liste, n) => liste[n % liste.length]
 
-// `correct` marque la bonne réponse ; `variante` choisit les tournures.
 export function etapes({ post, gabarit, lanceur, soutien, variante = 0 }) {
   return [
     {

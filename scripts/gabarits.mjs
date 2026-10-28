@@ -1,5 +1,3 @@
-// Modèles des posts. Les faits et les événements inventés sont dans contenu.json (faits, scenarios).
-
 const indice = (nature, cible, picto, libelle, explication) => ({
   nature,
   cible,
@@ -34,8 +32,13 @@ export const CATEGORIES = [
     pression: 'Ils disent que ça va être supprimé !',
     indice: indice('ALERTE', 'TEXTE', 'Clock', 'Une suppression annoncée',
       'Rien n’indique que quoi que ce soit sera retiré. La menace sert seulement à faire partager vite.'),
-    croit: 'Partagé direct avant que ça disparaisse 😱',
-    doute: 'Pourquoi ce serait supprimé ?',
+    croit: ['Partagé direct avant que ça disparaisse 😱', 'Vite, j’enregistre avant que ça saute'],
+    doute: ['Pourquoi ce serait supprimé ?', 'Supprimé par qui, et pourquoi ?'],
+    suites: [
+      'Ils vont tout effacer, alors enregistrez-le et envoyez-le à vos contacts !',
+      'Une fois supprimé, ce sera trop tard pour en parler.',
+      'Mieux vaut l’avoir lu avant qu’il ne soit plus en ligne.',
+    ],
     verifie: [
       'Supprimé par qui ? J’ai cherché, aucun média n’en parle.',
       'Je ne trouve cette info nulle part ailleurs…',
@@ -63,8 +66,13 @@ export const CATEGORIES = [
     pression: 'C’est un responsable qui le dit, c’est du sérieux.',
     indice: indice('ALERTE', 'TEXTE', 'UserRound', 'Une source sans nom',
       'Un « responsable » anonyme : rien qui puisse être vérifié.'),
-    croit: 'Évidemment qu’on nous cache des choses 👏',
-    doute: 'C’est qui ce responsable ? Il a un nom ?',
+    croit: ['Évidemment qu’on nous cache des choses 👏', 'Si un responsable le dit, c’est que c’est vrai.'],
+    doute: ['C’est qui ce responsable ? Il a un nom ?', 'Un anonyme, ça peut être n’importe qui…'],
+    suites: [
+      'Il risque gros en parlant, alors respectez son anonymat !',
+      'Il n’a pas voulu donner son nom, mais il sait de quoi il parle.',
+      'Le responsable n’a pas souhaité en dire plus pour le moment.',
+    ],
     verifie: [
       'Un responsable de quoi ? Aucun média ne rapporte ça.',
       'Une « source proche du dossier », mais quel dossier ? Je ne trouve rien ailleurs.',
@@ -92,8 +100,13 @@ export const CATEGORIES = [
     pression: 'Ça fait peur quand même, faut prévenir tout le monde non ?',
     indice: indice('ALERTE', 'TEXTE', 'Flame', 'Une menace sans contenu',
       'Aucune conséquence précise n’est décrite : l’inquiétude remplace l’information.'),
-    croit: 'J’ai peur pour mes enfants… je préviens la famille.',
-    doute: 'Inquiétant comment ? Ils ne disent rien de précis.',
+    croit: ['J’ai peur pour mes enfants… je préviens la famille.', 'Je préfère prévenir mes parents, on ne sait jamais.'],
+    doute: ['Inquiétant comment ? Ils ne disent rien de précis.', 'Ça fait peur, mais peur de quoi exactement ?'],
+    suites: [
+      'Gardez vos enfants près de vous et ne prenez aucun risque.',
+      'Personne ne sait encore jusqu’où ça ira.',
+      'Beaucoup de parents se posent des questions.',
+    ],
     verifie: [
       'Quel danger ? Aucun média sérieux n’en parle.',
       'Inquiétude de qui ? Je ne trouve cette info nulle part ailleurs.',
@@ -121,8 +134,13 @@ export const CATEGORIES = [
     pression: 'Regarde les chiffres, c’est énorme !',
     indice: indice('ALERTE', 'TEXTE', 'ChartColumn', 'Un chiffre sans base',
       'De quoi, par rapport à quand, mesuré par qui ? Le chiffre n’a aucune source.'),
-    croit: 'C’est énorme, faut que ça se sache',
-    doute: 'Ce chiffre sort d’où ? 🤔',
+    croit: ['C’est énorme, faut que ça se sache', 'Les chiffres ne mentent pas.'],
+    doute: ['Ce chiffre sort d’où ? 🤔', '+312 % de quoi, depuis quand ?'],
+    suites: [
+      'Et ce n’est que le chiffre officiel, imaginez le vrai !',
+      'Un chiffre pareil, ça ne s’invente pas.',
+      'Un chiffre qui mérite qu’on s’y arrête.',
+    ],
     verifie: [
       'Aucune source pour ce chiffre, et aucun média n’en parle.',
       'Il sort d’où ce chiffre ? Je ne le trouve nulle part.',
@@ -150,8 +168,13 @@ export const CATEGORIES = [
     pression: 'Même un expert le dit.',
     indice: indice('VERIFICATION', 'TEXTE', 'UserRound', 'Un « expert » de quoi ?',
       'Ni institution, ni spécialité, ni publication : rien ne dit qu’il connaît le sujet.'),
-    croit: 'Enfin un expert qui dit les choses 👍',
-    doute: 'Il est expert en quoi exactement ?',
+    croit: ['Enfin un expert qui dit les choses 👍', 'S’il le dit, il doit savoir.'],
+    doute: ['Il est expert en quoi exactement ?', 'Expert, ça veut dire quoi ici ? Il a étudié le sujet ?'],
+    suites: [
+      'Lui, au moins, il ose dire les choses.',
+      'Il suit le sujet depuis des années.',
+      'Son analyse circule beaucoup en ce moment.',
+    ],
     verifie: [
       'J’ai cherché Gérald Mourin : aucune publication, aucune institution.',
       'C’est qui, Gérald Mourin ? Je ne trouve rien sur lui.',
@@ -179,8 +202,13 @@ export const CATEGORIES = [
     pression: 'Je le disais depuis le début, tu vois !',
     indice: indice('ALERTE', 'TEXTE', 'Filter', 'Une conclusion plaquée',
       'Un fait isolé ne prouve pas une tendance. La conclusion flatte ce qu’on pense déjà.'),
-    croit: 'Je le disais depuis le début ! 🙏',
-    doute: 'Un seul cas, ça fait une tendance ?',
+    croit: ['Je le disais depuis le début ! 🙏', 'Ça confirme tout ce que je pensais.'],
+    doute: ['Un seul cas, ça fait une tendance ?', 'Un exemple, ce n’est pas une preuve.'],
+    suites: [
+      'On ne pourra plus dire qu’on ne savait pas.',
+      'Les faits finissent toujours par parler.',
+      'Un exemple de plus, pour ceux qui doutaient encore.',
+    ],
     verifie: [
       'Quelle tendance ? Aucun média ne parle même de ce fait.',
       'Un seul cas, et introuvable ailleurs. Ça ne prouve rien.',
@@ -208,8 +236,13 @@ export const CATEGORIES = [
     pression: 'C’est pas un hasard tout ça.',
     indice: indice('ALERTE', 'TEXTE', 'Brain', 'Un lien insinué',
       'La phrase suggère une cause sans la démontrer, ni dire de quelles décisions il s’agit.'),
-    croit: 'Exactement, tout est lié 😤',
-    doute: 'Quelles décisions ?',
+    croit: ['Exactement, tout est lié 😤', 'Comme par hasard, oui…'],
+    doute: ['Quelles décisions ?', 'Arriver après, ça ne veut pas dire arriver à cause de.'],
+    suites: [
+      'Faites le lien vous-mêmes.',
+      'Chacun en tirera ses conclusions.',
+      'Le calendrier interroge, forcément.',
+    ],
     verifie: [
       'Quelles décisions ? Aucun média ne fait ce lien, ni ne parle de ce fait.',
       'Quel rapport avec le mois dernier ? Je ne trouve rien ailleurs.',
@@ -237,8 +270,13 @@ export const CATEGORIES = [
     pression: 'C’est confirmé en plus !',
     indice: indice('VERIFICATION', 'TEXTE', 'Scale', 'Confirmé par qui ?',
       'Aucune source n’est nommée. « Plusieurs sources », ce n’est personne.'),
-    croit: 'Ah ben si c’est confirmé 👍',
-    doute: 'Confirmé par qui ?',
+    croit: ['Ah ben si c’est confirmé 👍', 'Confirmé, donc je partage.'],
+    doute: ['Confirmé par qui ?', 'Plusieurs sources, mais lesquelles ?'],
+    suites: [
+      'Plus de doute possible, c’est vérifié !',
+      'Ce n’est plus une rumeur.',
+      'Le doute n’est plus permis.',
+    ],
     verifie: [
       'Confirmé par qui ? Aucun média ne donne cette info.',
       'Ces « plusieurs sources », elles ont un nom ? Je ne trouve rien.',
@@ -268,8 +306,13 @@ CATEGORIES.push(
     pression: 'C’est tout récent en plus !',
     indice: indice('ALERTE', 'DATE', 'Clock', 'Une date qui ne colle pas',
       'Le post date de plus de deux ans, mais il est partagé comme une nouvelle du jour.'),
-    croit: 'Incroyable, je ne savais pas que c’était cette semaine 😮',
-    doute: 'Ça ne date pas un peu, ça ?',
+    croit: ['Incroyable, je ne savais pas que c’était cette semaine 😮', 'Je fais suivre, c’est tout frais.'],
+    doute: ['Ça ne date pas un peu, ça ?', 'J’ai l’impression d’avoir déjà vu passer ça…'],
+    suites: [
+      'Je viens de le voir passer, faites tourner.',
+      'Tout le monde en parle aujourd’hui.',
+      'Ça circule beaucoup depuis ce matin.',
+    ],
     verifie: [
       'Regardez la date : ça a plus de deux ans.',
       'La date du post est ancienne, ce n’est pas d’actualité.',
@@ -287,8 +330,8 @@ CATEGORIES.push(
     pression: 'Lis jusqu’au bout, c’est fou !',
     indice: indice('ALERTE', 'TEXTE', 'Search', 'Un détail qui change',
       'Relisez le titre puis le texte : un chiffre, un lieu ou un jour ne correspond pas.'),
-    croit: 'Trop bien, je partage 👍',
-    doute: 'Attends, le titre et le texte ne disent pas pareil…',
+    croit: ['Trop bien, je partage 👍', 'Génial, merci pour l’info.'],
+    doute: ['Attends, le titre et le texte ne disent pas pareil…', 'Le titre et l’article ne racontent pas la même chose, non ?'],
     verifie: [
       'Le titre et le texte ne racontent pas la même chose.',
       'Relisez : le chiffre du titre n’est pas celui du texte.',
@@ -299,58 +342,121 @@ CATEGORIES.push(
 const introuvable = 'Aucune source sérieuse ne dit ça : cherchez avant de le croire.'
 
 // Comment chaque profil écrit. Les vrais et les faux utilisent les mêmes voix.
-// `source` : la façon dont le profil cite une source, quand il en cite une.
+// `relais` : comment le profil a eu l'info (`fait` : un fait connu, `actu` : un événement).
+// `source(ou)` : la source dite dans une phrase ; `ou` vaut par exemple « sur Wikipédia ».
 export const VOIX = {
   ado: {
     casse: 'min',
     ouvertures: ['frr', 'attendez', 'genre', 'wsh', 'jsp si vous saviez mais', ''],
+    relais: {
+      fait: ['on a vu ça en cours aujourd’hui', 'ma sœur me l’a dit et j’y croyais pas', 'je l’ai appris en faisant mon exposé', 'personne m’avait jamais dit ça'],
+      actu: ['on me l’a envoyé sur le groupe de la classe', 'tout le monde en parle au lycée', 'mon cousin m’a envoyé ça ce matin'],
+    },
+    appels: ['vous saviez ?', 'qui savait ??', 'dites moi que jsuis pas le seul'],
     fins: ['😭', '💀', 'ptdr', '🤯', 'c fou', 'jsuis choqué 😭'],
-    source: (nom) => `c sur ${nom} jsuis pas fou`,
+    source: (ou) => `c’est ${ou} jsuis pas fou`,
   },
   parent: {
     ouvertures: ['Coucou tout le monde 🌺', 'Bonjour à tous !', 'Petite info du jour :', 'Les amis,'],
+    relais: {
+      fait: ['Ma fille me l’a appris en rentrant de l’école, je ne le savais pas du tout !', 'On en parlait hier soir à table avec les enfants.', 'Je l’ai découvert en aidant mon fils pour ses devoirs.'],
+      actu: ['Une maman de l’école me l’a envoyé ce matin.', 'On en parlait tout à l’heure à la sortie de l’école.', 'Ma voisine m’en a parlé ce matin.'],
+    },
+    appels: ['Vous le saviez, vous ?', 'Qui d’autre l’ignorait ? 😅', 'Dites-moi en commentaire si vous connaissiez !'],
     fins: ['🙏', 'Bonne journée à tous ☀️', 'Partagez autour de vous 🙏', '❤️'],
-    source: (nom) => `J’ai vérifié sur ${nom} 👍`,
+    source: (ou) => `Je l’ai vu ${ou} 👍`,
   },
   ancien: {
     ouvertures: ['Bonjour à tous,', 'Mes amis,', 'Une information intéressante :'],
+    relais: {
+      fait: ['Mon père me le racontait déjà quand j’étais enfant.', 'Une chose que les jeunes ne savent pas toujours.', 'Je l’ai redécouvert en rangeant de vieux livres sur le pays.'],
+      actu: ['Un ami me l’a appris ce matin au marché.', 'On m’en a parlé au club hier après-midi.'],
+    },
+    appels: ['Le saviez-vous ?', 'Qu’en pensez-vous ?'],
     fins: ['Bonne journée.', 'À méditer...', 'Bien à vous.'],
-    source: (nom) => `Source : ${nom}.`,
+    source: (ou) => `Je l’ai lu ${ou}.`,
   },
   neutre: {
     ouvertures: ['', 'Tiens,', 'Bon à savoir :', 'Appris aujourd’hui :'],
+    relais: {
+      fait: ['Je suis tombé dessus par hasard.', 'Je pensais le contraire depuis des années.', 'On en parlait au boulot ce midi.'],
+      actu: ['On me l’a envoyé ce matin.', 'Ça tourne dans mes groupes depuis hier.'],
+    },
+    appels: ['Vous saviez ?', 'Ça vous étonne aussi ?'],
     fins: ['👀', '🤔', '', 'Intéressant.'],
-    source: (nom) => `(vu sur ${nom})`,
+    source: (ou) => `Lu ${ou}.`,
   },
   vulgarisation: {
     ouvertures: ['🔎 Le saviez-vous ?', '🌿 Nature calédo :', '📌 À retenir :'],
+    relais: {
+      fait: ['Un petit fait qu’on adore partager avec vous.', 'Une info qui étonne souvent nos abonnés.', 'On en parle souvent, mais peu de gens le savent.'],
+      actu: ['On nous l’a signalé en message privé.', 'Plusieurs abonnés nous en ont parlé cette semaine.'],
+    },
+    appels: ['Vous le saviez ? 👇', 'Dites-nous en commentaire !', 'Enregistrez ce post pour le retrouver.'],
     fins: ['#NouvelleCalédonie #LeSaviezVous', '#Caillou #Nature', '#Science #NC'],
-    source: (nom) => `📚 Source : ${nom}`,
+    source: (ou) => `📚 Pour aller plus loin, c’est ${ou}.`,
   },
   quiz: {
     ouvertures: ['❓ Vrai ou faux ?', '🧠 Culture G du jour :', '🎯 Le quiz du jour :'],
-    fins: ['Réponse : VRAI ✅', 'Vous le saviez ? Dites-le en commentaire 👇', '#Quiz #NC'],
-    source: (nom) => `Source : ${nom}`,
+    relais: {
+      fait: ['Beaucoup se trompent sur celle-là !', 'La réponse va peut-être vous surprendre.'],
+      actu: ['Une question d’actu, cette fois !', 'On change un peu : place à l’actu.'],
+    },
+    appels: ['Vous aviez trouvé ? 👇', 'Votre score en commentaire !'],
+    fins: ['Réponse : VRAI ✅', '#Quiz #NC', 'Rendez-vous demain pour la suite 😉'],
+    source: (ou) => `On a vérifié ${ou} 😉`,
   },
   alarmiste: {
     casse: 'maj',
     ouvertures: ['⚠️🔴', '🚨🚨🚨', '‼️'],
+    relais: {
+      fait: ['On ne vous le dira nulle part ailleurs.', 'Tout le monde doit être au courant.'],
+      actu: ['On ne vous le dira nulle part ailleurs.', 'Ça concerne tout le monde.', 'Tout le monde doit être au courant.'],
+    },
+    appels: ['Vous êtes au courant ???', 'Pourquoi personne n’en parle ???'],
     fins: ['PARTAGEZ !!!', 'FAITES TOURNER 🔴', 'AVANT QUE ÇA SOIT SUPPRIMÉ !!'],
-    source: (nom) => `SOURCE : ${nom}`,
+    source: (ou) => `Vu ${ou} !!!`,
   },
   militant: {
     ouvertures: ['Réveillez-vous.', 'On ne vous le dira pas ailleurs :', 'Encore une fois :'],
+    relais: {
+      fait: ['Les grands médias n’en parleront pas, comme d’habitude.', 'Ce n’est pas la première fois.'],
+      actu: ['Les grands médias n’en parleront pas, comme d’habitude.', 'On vous prend pour des idiots, et ça marche.', 'Ce n’est pas la première fois.'],
+    },
+    appels: ['Jusqu’à quand ?', 'Et vous, vous en pensez quoi ?'],
     fins: ['#OnNousMent #RéveilNC', 'Ouvrez les yeux 👁️', '#VéritéNC'],
-    source: (nom) => `Source : ${nom}, cherchez vous-mêmes.`,
+    source: (ou) => `C’est ${ou}, cherchez vous-mêmes.`,
   },
   informe: {
     ouvertures: ['🧵 Info :', 'Je vous le dis avant tout le monde :', 'Exclu :'],
+    relais: {
+      fait: ['J’ai mes contacts, je vous tiens au courant.', 'Je l’ai su avant tout le monde.'],
+      actu: ['J’ai mes contacts, je vous tiens au courant.', 'Je l’ai su avant tout le monde.', 'Ça va sortir partout dans quelques jours.'],
+    },
+    appels: ['Vous en saviez quelque chose ?', 'On en reparle bientôt.'],
     fins: ['Retenez bien ça.', 'Vous verrez.', '👀'],
-    source: (nom) => `Je le tiens de ${nom}.`,
+    source: (ou) => `Repéré ${ou}.`,
   },
 }
 
-// Personnes ordinaires : elles publient des vrais comme des faux. Dernier champ : la voix.
+export const RELAIS_THEME = {
+  mer: ['On en parlait justement en sortant en bateau dimanche.', 'Ça m’a fait penser à notre dernière sortie sur l’îlot.'],
+  faune: ['J’ai toujours eu un faible pour nos animaux.', 'Les enfants adorent ce genre d’info sur les bêtes d’ici.'],
+  flore: ['On en a parlé pendant une balade en brousse.', 'Je regarde les arbres autrement depuis.'],
+  meteo: ['Toujours utile à savoir avant la saison.', 'Avec le temps qu’il fait en ce moment, ça tombe bien.'],
+  geo: ['Pratique à savoir quand on fait visiter le pays.', 'Les cousins de France me posent toujours la question.'],
+  histoire: ['Un bout de notre histoire qu’on oublie trop vite.', 'J’adore ces petites histoires du pays.'],
+  sortie: ['Ça fait une idée de sortie pour le week-end.', 'On y passera sûrement avec les enfants.'],
+  cuisine: ['Rien que d’y penser, j’ai faim.', 'Il faudra goûter ça au moins une fois.'],
+  jeunes: ['Ça fait plaisir de voir les jeunes bouger.', 'Une belle histoire, pour une fois.'],
+  ville: ['On en parlait justement au boulot.', 'Ça va changer un peu le quotidien en ville.'],
+  environnement: ['Chaque geste compte, franchement.', 'Ça donne envie de s’y mettre aussi.'],
+}
+
+const sigle = (nom) => /^[A-ZÉ]{2,}$/.test(nom)
+export const surLeSite = (nom) => (nom === 'Wikipédia' ? 'sur Wikipédia' : `sur le site ${sigle(nom) ? 'de l’' : 'de '}${nom}`)
+export const dapres = (nom) => `D’après ${sigle(nom) ? 'l’' : ''}${nom}`
+
 export const PERSONNES = [
   ['Mélissa R.', '#791561', '@melissa.r', 'parent'], ['Teva', '#14663f', '@teva.nc', 'ado'],
   ['Christophe M.', '#1800ad', '@christophe.m', 'neutre'], ['Josiane', '#b45309', '@josiane988', 'parent'],
@@ -360,14 +466,12 @@ export const PERSONNES = [
   ['Rose-Marie', '#b45309', '@rosemarie.nc', 'ancien'], ['Dylan', '#8a4fbe', '@dylan.k', 'ado'],
 ]
 
-// Pages ordinaires : elles publient des vrais comme des faux.
 export const PAGES_ORDINAIRES = [
   ['Les Curieux du Pacifique', '#14663f', 'page de vulgarisation', 'vulgarisation'],
   ['Nature et Lagon NC', '#1800ad', 'page nature', 'vulgarisation'],
   ['Quiz du Caillou', '#791561', 'page de quiz', 'quiz'],
 ]
 
-// Pages inventées (niveaux 1 à 3), vérifiées introuvables en octobre 2026.
 export const HABILLAGES = [
   {
     niveau: 1,
@@ -432,8 +536,6 @@ export const HABILLAGES = [
   },
 ]
 
-// Médias inventés, vérifiés introuvables en octobre 2026. Ils publient des vrais comme des faux :
-// le nom du média ne dit rien, la signature et la source si.
 export const MEDIAS_FICTIFS = [
   ['Le Quotidien du Pacifique', '#1800ad', 'quotidien-pacifique.info'],
   ['Nouméa Matin', '#0d0080', 'noumea-matin.info'],
@@ -441,10 +543,8 @@ export const MEDIAS_FICTIFS = [
   ['Le Fil Calédonien', '#0d0080', 'fil-caledonien.info'],
 ]
 
-// Journalistes inventés qui signent les articles.
 export const JOURNALISTES = ['Claire Weber', 'Thomas Naudin', 'Sarah Kowalczyk', 'Julien Ferrand', 'Anaïs Labbé', 'Marc Ollivier']
 
-// Un faux article : sans signature ni source jusqu'au niveau 3 ; signé, mais sur une source vague, ensuite.
 export const HABILLAGE_MEDIA = {
   explication: 'L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.',
   explicationSigne: 'L’article est signé, mais sa seule source est vague : impossible de remonter à l’information.',
@@ -456,7 +556,6 @@ export const HABILLAGE_MEDIA = {
       `L’article de « ${compte.nom} » est signé, mais il s’appuie sur une source vague, impossible à consulter.`),
 }
 
-// Un vrai article d'un média inventé : signé, et sa source se vérifie.
 export const VRAI_MEDIA = {
   indices: (f, compte, journaliste) => [
     indice('FIABLE', 'TEXTE', 'BadgeCheck', 'Une source citée',
@@ -468,14 +567,24 @@ export const VRAI_MEDIA = {
   ],
 }
 
-// Avis des commentateurs sous un vrai post (voir commentaires.mjs).
-export const AVIS_VRAI = [
-  (f) => ({ croit: 'Merci pour l’info 🙏', doute: 'Vous êtes sûrs ? J’avais entendu autre chose…', verifie: `J’ai vérifié sur ${f.source.nom} : c’est exact.` }),
-  (f) => ({ croit: 'Bon à savoir, je fais tourner.', doute: 'On ne sait jamais avec ce qu’on lit sur internet…', verifie: `C’est bien ce que dit ${f.source.nom}.` }),
-  (f) => ({ croit: 'Enfin une info claire.', doute: 'Ça m’étonne quand même.', verifie: `Confirmé par ${f.source.nom}, j’ai regardé.` }),
-]
+export const AVIS_VRAI = (f) => {
+  const ou = surLeSite(f.source.nom)
+  return {
+    croit: ['Merci pour l’info 🙏', 'Bon à savoir, je fais tourner.', 'Enfin une info claire.', 'Je ne savais pas du tout !'],
+    doute: ['Vous êtes sûrs ? J’avais entendu autre chose…', 'Ça m’étonne quand même.', 'On ne sait jamais avec ce qu’on lit sur internet…'],
+    verifie: [`J’ai vérifié ${ou} : c’est exact.`, `C’est bien ce qu’on trouve ${ou}.`, `Confirmé ${ou}, j’ai regardé.`, `Exact, et c’est bien expliqué ${ou}.`],
+  }
+}
 
-// Vrais articles repris tels quels (titre et lien), sous licence libre.
+export const CORRECTIONS_FAIT = (f, vraiEnMinuscule) => {
+  const ou = surLeSite(f.source.nom)
+  return [
+    `Non, ${vraiEnMinuscule} C’est ${ou}.`,
+    `J’ai vérifié ${ou} : ce n’est pas ça. ${f.vrai}`,
+    `Attention, c’est faux : ${vraiEnMinuscule} Ça se vérifie ${ou}.`,
+  ]
+}
+
 export const VRAI_ARTICLE = {
   explication: (a) =>
     `Un vrai article de ${a.editeur} : média identifiable, auteur nommé, date et lien vers l'article complet. ` +
@@ -488,31 +597,37 @@ export const VRAI_ARTICLE = {
     indice('FIABLE', 'TITRE', 'Scale', 'Un titre qui décrit',
       'Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas.'),
   ],
-  avis: [
-    (a) => ({ croit: 'Merci pour l’article 🙏', doute: 'Encore un article qui va dans tous les sens…', verifie: `L’article complet est sur ${a.domaine}, signé ${a.auteur}.` }),
-    (a) => ({ croit: 'Intéressant, je partage.', doute: 'On ne sait jamais avec les médias…', verifie: `C’est bien sur le site de ${a.nom}, daté du ${a.date}.` }),
-  ],
+  avis: (a) => ({
+    croit: ['Merci pour l’article 🙏', 'Intéressant, je partage.'],
+    doute: ['Encore un article qui va dans tous les sens…', 'On ne sait jamais avec les médias…'],
+    verifie: [`L’article complet est sur ${a.domaine}, signé ${a.auteur}.`, `C’est bien sur le site de ${a.nom}, daté du ${a.date}.`],
+  }),
 }
 
-// Aux niveaux 4 et 5, un faux cite une source qui n'en est pas une.
-export const SOURCES_VAGUES = ['un docu', 'internet', 'un groupe Facebook', 'une vidéo TikTok', 'la télé', 'un site d’info']
+export const SOURCES_VAGUES = ['dans un docu', 'sur internet', 'dans un groupe Facebook', 'dans une vidéo TikTok', 'à la télé', 'sur un site d’info']
 
-// Mêmes tournures pour une vraie source et une source vague.
-export const FORMATS_SOURCE = [(nom) => `Source : ${nom}.`, (nom) => `(source : ${nom})`]
+export const TEXTES_ARTICLE = {
+  vrai: [
+    ({ journaliste, source }) => `Par ${journaliste}. ${dapres(source)}, l’information se vérifie en quelques clics. On vous explique ce qu’il faut retenir.`,
+    ({ journaliste, source }) => `${journaliste} fait le point, à partir des informations publiées ${surLeSite(source)}. L’essentiel est à lire en lien en bio.`,
+    ({ journaliste, source }) => `Un article de ${journaliste}. ${dapres(source)}, c’est bien le cas, et voici pourquoi. Tous les détails dans l’article.`,
+  ],
+  faux: ({ journaliste, phrase, suite, cite }) =>
+    journaliste
+      ? `Par ${journaliste}. ${phrase} ${suite ?? ''} Une information repérée ${cite}.`.replace(/\s+/g, ' ')
+      : `Par la rédaction. ${phrase} ${suite ?? ''}`.trim(),
+}
 
-// Le dernier indice d'un faux : simple jusqu'au niveau 3, subtil ensuite.
 export const INDICE_AILLEURS = [
   indice('VERIFICATION', 'TITRE', 'Search', 'Introuvable ailleurs', introuvable),
   indice('FIABLE', 'TITRE', 'Scale', 'Un ton qui rassure',
     `Le post est posé et crédible : c’est ce qui le rend dangereux. ${introuvable}`),
 ]
 
-// Pour un fait déformé : la vraie version se trouve en une recherche.
 export const indiceCorrection = (fait) =>
   indice('VERIFICATION', 'TITRE', 'Search', 'Facile à vérifier',
     `${fait.source.nom} dit autre chose : ${fait.vrai}`)
 
-// Aux niveaux 4 et 5, un fait déformé imite un vrai post : même ton, même forme.
 export const FAIT_DEFORME = {
   biais: 'Fait déformé',
   titres: [meme, meme, meme, meme, meme],
@@ -522,26 +637,9 @@ export const FAIT_DEFORME = {
   pression: 'C’est connu, en plus !',
   indice: indice('ALERTE', 'TITRE', 'Search', 'Un détail faux',
     'Le fait a l’air connu, mais un chiffre, une date ou un détail a été changé.'),
-  croit: 'Je ne savais pas, merci 🙏',
-  doute: 'Tu es sûr de ce chiffre ?',
+  croit: ['Je ne savais pas, merci 🙏', 'Incroyable, je partage.'],
+  doute: ['Tu es sûr de ça ?', 'Ça ne colle pas avec ce que j’ai appris à l’école…'],
 }
-
-export const INTROS_VRAI = [
-  'Appris aujourd’hui.',
-  'Bon à savoir.',
-  'Je ne le savais pas !',
-  'Pour ceux qui se posaient la question.',
-  'Petit rappel.',
-  'Ça m’a étonné 😮',
-  'Vu en préparant un exposé.',
-  'À montrer aux enfants 😉',
-  'Je partage, c’est intéressant.',
-  'On en apprend tous les jours !',
-  'Le saviez-vous ?',
-  'Pour la culture 🌺',
-  'Mon fils m’a appris ça hier.',
-  'Je ne m’en doutais pas.',
-]
 
 export const VRAI = {
   explication: (f) =>

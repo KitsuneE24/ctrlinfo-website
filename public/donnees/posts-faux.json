@@ -1,20 +1,20 @@
 [
   {
     "sponsorise": false,
-    "reactionCount": 15635,
-    "commentCount": 1928,
-    "date": "25 octobre 2026 à 04:36",
+    "reactionCount": 28304,
+    "commentCount": 532,
+    "date": "25 octobre 2026 à 18:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "roussette-sarramea",
     "slug": "faux-20261027-roussette-sarramea-1-bgqykb",
     "source": "Le Fil Calédonien",
     "sourceColor": "#0d0080",
     "domain": "fil-caledonien.info",
     "titre": "Urgent, partagez avant suppression : Une roussette albinos photographiée dans la vallée de Sarraméa",
-    "texte": "Article de la rédaction, publié par Le Fil Calédonien. Cette information va être retirée dans les prochaines heures. PARTAGEZ MAINTENANT 🔴🔴",
+    "texte": "Par la rédaction. Cette information va être retirée dans les prochaines heures. PARTAGEZ MAINTENANT 🔴🔴 Ils vont tout effacer, alors enregistrez-le et envoyez-le à vos contacts !",
     "isFake": true,
     "level": 1,
     "correctAction": "report",
@@ -49,20 +49,26 @@
     ],
     "commentaires": [
       {
-        "auteur": "Louise M.",
-        "couleur": "#1800ad",
-        "texte": "Supprimé par qui ? J’ai cherché, aucun média n’en parle.",
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Ça fait longtemps que je ne suis pas allé à Sarraméa.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Quelqu’un a lu l’article en entier ?",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "J’ai demandé à de la famille à Sarraméa : personne n’est au courant.",
         "posture": "VERIFIE"
       },
       {
-        "auteur": "bruno_zz",
-        "couleur": "#8a4fbe",
-        "texte": "Partagé direct avant que ça disparaisse 😱",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Fatou S.",
-        "couleur": "#791561",
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
         "texte": "Je n’en ai jamais vu en vrai.",
         "posture": "SUJET"
       }
@@ -85,20 +91,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 14904,
-    "commentCount": 624,
-    "date": "26 octobre 2026 à 03:36",
+    "reactionCount": 16284,
+    "commentCount": 1157,
+    "date": "26 octobre 2026 à 17:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-recifs-especes",
     "slug": "faux-20261027-fait-recifs-especes-1-jr2doy",
     "source": "Le Quotidien du Pacifique",
     "sourceColor": "#1800ad",
     "domain": "quotidien-pacifique.info",
     "titre": "Un haut responsable brise le silence : Les récifs coralliens couvrent environ un quart des océans, mais abritent moins de 1 % des espèces marines",
-    "texte": "Article de la rédaction, publié par Le Quotidien du Pacifique. Un haut responsable, qui veut rester anonyme, nous l'a confirmé : le dossier complet est bien plus lourd !",
+    "texte": "Par la rédaction. Un haut responsable, qui veut rester anonyme, nous l'a confirmé : le dossier complet est bien plus lourd ! Il risque gros en parlant, alors respectez son anonymat !",
     "isFake": true,
     "level": 1,
     "correctAction": "report",
@@ -133,15 +139,27 @@
     ],
     "commentaires": [
       {
-        "auteur": "Willy",
-        "couleur": "#8a4fbe",
-        "texte": "Évidemment qu’on nous cache des choses 👏",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Karim",
+        "auteur": "Louise M.",
         "couleur": "#1800ad",
         "texte": "Le lagon, on ne s’en lasse pas 🐠",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "C’est qui ce responsable ? Il a un nom ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
+        "texte": "Attention, c’est faux : les récifs coralliens couvrent moins de 1 % des océans, mais abritent environ un quart des espèces marines. Ça se vérifie sur Wikipédia.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Trop long, quelqu’un résume ?",
         "posture": "SUJET"
       }
     ],
@@ -163,12 +181,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 38774,
-    "commentCount": 1411,
-    "date": "27 octobre 2026 à 11:36",
+    "reactionCount": 13560,
+    "commentCount": 161,
+    "date": "28 octobre 2026 à 01:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-niaouli",
     "image": "/images/faits/niaouli.jpg",
     "imageAlt": "Des niaoulis à l’écorce claire au bord d’une mare, à Poum",
@@ -183,7 +201,7 @@
     "sourceColor": "#dc2626",
     "domain": "@jojo_verite · compte créé hier",
     "titre": "‼️ DANGER POUR VOS ENFANTS : LE NIAOULI EST UN PALMIER, DE LA MÊME FAMILLE QUE LE COCOTIER",
-    "texte": "PROTÉGEZ VOS PROCHES, LES CONSÉQUENCES POURRAIENT ÊTRE DRAMATIQUES !! AVANT QUE ÇA SOIT SUPPRIMÉ !!",
+    "texte": "ON NE VOUS LE DIRA NULLE PART AILLEURS. PROTÉGEZ VOS PROCHES, LES CONSÉQUENCES POURRAIENT ÊTRE DRAMATIQUES !! GARDEZ VOS ENFANTS PRÈS DE VOUS ET NE PRENEZ AUCUN RISQUE. VOUS ÊTES AU COURANT ??? PARTAGEZ !!!",
     "isFake": true,
     "level": 1,
     "correctAction": "report",
@@ -218,14 +236,14 @@
     ],
     "commentaires": [
       {
-        "auteur": "Soane",
-        "couleur": "#c2410c",
-        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Attention, c’est faux : le niaouli est un arbre de la même famille que l’eucalyptus. Ça se vérifie sur Wikipédia.",
         "posture": "VERIFIE"
       },
       {
-        "auteur": "sam_974",
-        "couleur": "#1800ad",
+        "auteur": "Hélène",
+        "couleur": "#791561",
         "texte": "Je ne regarderai plus les arbres pareil.",
         "posture": "SUJET"
       }
@@ -248,19 +266,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 40030,
-    "commentCount": 1494,
-    "date": "25 octobre 2026 à 05:36",
+    "reactionCount": 16803,
+    "commentCount": 1987,
+    "date": "25 octobre 2026 à 19:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "corail-maitre",
     "slug": "faux-20261027-corail-maitre-1-el21ry",
     "source": "Jojo_Vérité 🔥",
     "sourceColor": "#dc2626",
     "domain": "@jojo_verite · compte créé hier",
-    "titre": "‼️ +312 % !!! UNE FLORAISON RARE DE CORAIL OBSERVÉE PRÈS DE L’ÎLOT MAÎTRE",
-    "texte": "+312 % EN UN AN, UN RECORD QUE PERSONNE N'OSE PUBLIER ! AVANT QUE ÇA SOIT SUPPRIMÉ !!",
+    "titre": "🚨🚨🚨 +312 % !!! UNE FLORAISON RARE DE CORAIL OBSERVÉE PRÈS DE L’ÎLOT MAÎTRE",
+    "texte": "TOUT LE MONDE DOIT ÊTRE AU COURANT. +312 % EN UN AN, UN RECORD QUE PERSONNE N'OSE PUBLIER ! ET CE N’EST QUE LE CHIFFRE OFFICIEL, IMAGINEZ LE VRAI ! VOUS ÊTES AU COURANT ??? FAITES TOURNER 🔴",
     "isFake": true,
     "level": 1,
     "correctAction": "report",
@@ -295,22 +313,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Ryan_NC",
-        "couleur": "#b45309",
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
         "texte": "Le lagon, on ne s’en lasse pas 🐠",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Les chiffres ne mentent pas.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#c2410c",
+        "texte": "Ma tante habite à l’îlot Maître, je vais lui demander.",
         "posture": "SUJET"
       },
       {
         "auteur": "Patrick L.",
         "couleur": "#791561",
-        "texte": "Aucune source pour ce chiffre, et aucun média n’en parle.",
+        "texte": "J’ai demandé à de la famille à l’îlot Maître : personne n’est au courant.",
         "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Fatou S.",
-        "couleur": "#791561",
-        "texte": "C’est énorme, faut que ça se sache",
-        "posture": "CROIT"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « manipulation statistique ».",
@@ -331,12 +355,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 39562,
-    "commentCount": 160,
-    "date": "25 octobre 2026 à 03:36",
+    "reactionCount": 35309,
+    "commentCount": 1748,
+    "date": "25 octobre 2026 à 17:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-cagou-oeuf",
     "image": "/images/faits/cagou-oeuf.jpg",
     "imageAlt": "Un œuf de cagou, beige tacheté de brun",
@@ -351,7 +375,7 @@
     "sourceColor": "#dc2626",
     "domain": "@jojo_verite · compte créé hier",
     "titre": "🚨🚨🚨 UN EXPERT PRÉVIENT : LE CAGOU POND UNE DIZAINE D’ŒUFS À CHAQUE COUVÉE, ET CE N'EST QUE LE DÉBUT",
-    "texte": "GÉRALD MOURIN, EXPERT RECONNU SUR LES RÉSEAUX, EST FORMEL : « TOUT VA S’AGGRAVER ». FAITES TOURNER 🔴",
+    "texte": "ON NE VOUS LE DIRA NULLE PART AILLEURS. GÉRALD MOURIN, EXPERT RECONNU SUR LES RÉSEAUX, EST FORMEL : « TOUT VA S’AGGRAVER ». LUI, AU MOINS, IL OSE DIRE LES CHOSES. AVANT QUE ÇA SOIT SUPPRIMÉ !!",
     "isFake": true,
     "level": 1,
     "correctAction": "report",
@@ -386,28 +410,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Camille R.",
-        "couleur": "#0e7490",
-        "texte": "Enfin un expert qui dit les choses 👍",
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Nos bêtes sont vraiment uniques 😍",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "S’il le dit, il doit savoir.",
         "posture": "CROIT"
       },
       {
         "auteur": "Marie-Jo",
         "couleur": "#1800ad",
-        "texte": "Il est expert en quoi exactement ?",
-        "posture": "DOUTE"
-      },
-      {
-        "auteur": "Fatou S.",
-        "couleur": "#791561",
-        "texte": "Nos bêtes sont vraiment uniques 😍",
-        "posture": "SUJET"
-      },
-      {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
+        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça. Le cagou ne pond en général qu’un seul œuf à la fois.",
         "posture": "VERIFIE"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "La photo 😍",
+        "posture": "PHOTO"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « faux expert ».",
@@ -428,19 +452,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 23577,
-    "commentCount": 1436,
-    "date": "25 octobre 2026 à 11:36",
+    "reactionCount": 36756,
+    "commentCount": 1937,
+    "date": "26 octobre 2026 à 01:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "marche-la-foa",
     "slug": "faux-20261027-marche-la-foa-1-18sg80b",
     "source": "ALERTE ROUGE NC 🔥",
     "sourceColor": "#991b1b",
     "domain": "page créée hier",
-    "titre": "‼️ ON VOUS L'AVAIT DIT : UN MARCHÉ NOCTURNE S’INSTALLE CHAQUE MERCREDI SOIR À LA FOA",
-    "texte": "CEUX QUI NOUS TRAITAIENT DE COMPLOTISTES PEUVENT S’EXCUSER ! AVANT QUE ÇA SOIT SUPPRIMÉ !!",
+    "titre": "🚨🚨🚨 ON VOUS L'AVAIT DIT : UN MARCHÉ NOCTURNE S’INSTALLE CHAQUE MERCREDI SOIR À LA FOA",
+    "texte": "ÇA CONCERNE TOUT LE MONDE. CEUX QUI NOUS TRAITAIENT DE COMPLOTISTES PEUVENT S’EXCUSER ! ON NE POURRA PLUS DIRE QU’ON NE SAVAIT PAS. POURQUOI PERSONNE N’EN PARLE ??? FAITES TOURNER 🔴",
     "isFake": true,
     "level": 1,
     "correctAction": "report",
@@ -475,22 +499,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Didier",
-        "couleur": "#8a4fbe",
+        "auteur": "Karim",
+        "couleur": "#1800ad",
         "texte": "Quelle tendance ? Aucun média ne parle même de ce fait.",
         "posture": "VERIFIE"
       },
       {
-        "auteur": "Nadia_988",
-        "couleur": "#57534e",
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Je le disais depuis le début ! 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
         "texte": "Quelqu’un sait à quelle heure ça commence ?",
         "posture": "SUJET"
       },
       {
-        "auteur": "Anaïs W.",
-        "couleur": "#0e7490",
-        "texte": "Je le disais depuis le début ! 🙏",
-        "posture": "CROIT"
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
+        "texte": "Un exemple, ce n’est pas une preuve.",
+        "posture": "DOUTE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
@@ -511,19 +541,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 5179,
-    "commentCount": 1703,
-    "date": "27 octobre 2026 à 06:36",
+    "reactionCount": 34621,
+    "commentCount": 1806,
+    "date": "27 octobre 2026 à 20:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-saison-cyclonique",
     "slug": "faux-20261027-fait-saison-cyclonique-1-hdbh0z",
     "source": "LA VÉRITÉ CACHÉE",
     "sourceColor": "#b91c1c",
     "domain": "page créée il y a 2 semaines",
-    "titre": "🚨🚨🚨 COMME PAR HASARD : EN NOUVELLE-CALÉDONIE, LA SAISON CYCLONIQUE VA DE JUIN À SEPTEMBRE",
-    "texte": "COMME PAR HASARD, JUSTE APRÈS LES DÉCISIONS DU MOIS DERNIER… OUVREZ LES YEUX ! FAITES TOURNER 🔴",
+    "titre": "⚠️🔴 COMME PAR HASARD : EN NOUVELLE-CALÉDONIE, LA SAISON CYCLONIQUE VA DE JUIN À SEPTEMBRE",
+    "texte": "ON NE VOUS LE DIRA NULLE PART AILLEURS. COMME PAR HASARD, JUSTE APRÈS LES DÉCISIONS DU MOIS DERNIER… OUVREZ LES YEUX ! FAITES LE LIEN VOUS-MÊMES. AVANT QUE ÇA SOIT SUPPRIMÉ !!",
     "isFake": true,
     "level": 1,
     "correctAction": "report",
@@ -553,27 +583,27 @@
         "cible": "TITRE",
         "picto": "Search",
         "libelle": "Facile à vérifier",
-        "explication": "Météo-France Nouvelle-Calédonie dit autre chose : En Nouvelle-Calédonie, la saison cyclonique va de novembre à avril."
+        "explication": "Wikipédia dit autre chose : En Nouvelle-Calédonie, la saison cyclonique va de novembre à avril."
       }
     ],
     "commentaires": [
       {
-        "auteur": "Soane",
+        "auteur": "Nathalie",
         "couleur": "#c2410c",
-        "texte": "Quelles décisions ?",
-        "posture": "DOUTE"
-      },
-      {
-        "auteur": "Anaïs W.",
-        "couleur": "#0e7490",
         "texte": "Ici ça souffle déjà fort depuis hier.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Nathalie",
-        "couleur": "#c2410c",
-        "texte": "J’ai vérifié sur Météo-France Nouvelle-Calédonie : ce n’est pas ça.",
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Attention, c’est faux : en Nouvelle-Calédonie, la saison cyclonique va de novembre à avril. Ça se vérifie sur Wikipédia.",
         "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Exactement, tout est lié 😤",
+        "posture": "CROIT"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fausse corrélation ».",
@@ -589,17 +619,17 @@
       "report": 100
     },
     "sourceUrl": null,
-    "learnMoreUrl": "https://www.meteo.nc/",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Climat_de_la_Nouvelle-Cal%C3%A9donie",
     "id": 39
   },
   {
     "sponsorise": false,
-    "reactionCount": 27693,
-    "commentCount": 1900,
-    "date": "25 octobre 2026 à 22:36",
+    "reactionCount": 5442,
+    "commentCount": 1754,
+    "date": "26 octobre 2026 à 12:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "dessin-lifou",
     "image": "/images/scenarios/dessin-lifou.jpg",
     "imageAlt": "Des crayons de couleur en bois alignés",
@@ -613,8 +643,8 @@
     "source": "Ninou ALERTE",
     "sourceColor": "#b91c1c",
     "domain": "@ninou_alerte · compte créé il y a 4 jours",
-    "titre": "⚠️🔴 C'EST CONFIRMÉ !!! UN COLLÉGIEN DE LIFOU REMPORTE UN CONCOURS DE DESSIN EN MÉTROPOLE",
-    "texte": "100 % CONFIRMÉ PAR TOUTES LES SOURCES ! AVANT QUE ÇA SOIT SUPPRIMÉ !!",
+    "titre": "‼️ C'EST CONFIRMÉ !!! UN COLLÉGIEN DE LIFOU REMPORTE UN CONCOURS DE DESSIN EN MÉTROPOLE",
+    "texte": "TOUT LE MONDE DOIT ÊTRE AU COURANT. 100 % CONFIRMÉ PAR TOUTES LES SOURCES ! PLUS DE DOUTE POSSIBLE, C’EST VÉRIFIÉ ! FAITES TOURNER 🔴",
     "isFake": true,
     "level": 1,
     "correctAction": "report",
@@ -649,28 +679,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Vaimiti",
-        "couleur": "#14663f",
-        "texte": "Ça fait plaisir de voir ça.",
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "La photo 😍",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Pas besoin de crier 😅",
         "posture": "SUJET"
       },
       {
-        "auteur": "Patrick L.",
-        "couleur": "#791561",
-        "texte": "Confirmé par qui ?",
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "J’habite pas loin, personne n’en parle à Lifou.",
         "posture": "DOUTE"
       },
       {
-        "auteur": "Moana R.",
-        "couleur": "#1800ad",
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
         "texte": "Confirmé par qui ? Aucun média ne donne cette info.",
         "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Thierry P.",
-        "couleur": "#57534e",
-        "texte": "Ah ben si c’est confirmé 👍",
-        "posture": "CROIT"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « certitude ajoutée ».",
@@ -691,20 +721,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 6689,
-    "commentCount": 1012,
-    "date": "26 octobre 2026 à 19:36",
+    "reactionCount": 3798,
+    "commentCount": 1041,
+    "date": "27 octobre 2026 à 09:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-phare-amedee",
     "slug": "faux-20261027-fait-phare-amedee-2-bgqykb",
     "source": "Le Quotidien du Pacifique",
     "sourceColor": "#1800ad",
     "domain": "quotidien-pacifique.info",
     "titre": "À partager vite : Le phare Amédée, haut de 56 mètres, a été construit en bois de kaori sur place",
-    "texte": "Article de la rédaction, publié par Le Quotidien du Pacifique. Faites tourner avant que ce soit supprimé.",
+    "texte": "Par la rédaction. Faites tourner avant que ce soit supprimé. Ils vont tout effacer, alors enregistrez-le et envoyez-le à vos contacts !",
     "isFake": true,
     "level": 2,
     "correctAction": "report",
@@ -739,16 +769,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Olivier T.",
-        "couleur": "#1800ad",
-        "texte": "Partagé direct avant que ça disparaisse 😱",
-        "posture": "CROIT"
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "Le lien ne s’ouvre pas chez moi.",
+        "posture": "SUJET"
       },
       {
-        "auteur": "Camille R.",
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Supprimé par qui, et pourquoi ?",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Anaïs W.",
         "couleur": "#0e7490",
         "texte": "On oublie vite tout ça.",
         "posture": "SUJET"
+      },
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "Non, le phare Amédée, haut de 56 mètres, est en métal : il a été fabriqué en France puis monté sur l’îlot. C’est sur Wikipédia.",
+        "posture": "VERIFIE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
@@ -769,20 +811,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 17353,
-    "commentCount": 1101,
-    "date": "26 octobre 2026 à 12:36",
+    "reactionCount": 11331,
+    "commentCount": 1553,
+    "date": "27 octobre 2026 à 02:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-communes",
     "slug": "faux-20261027-fait-communes-2-jr2doy",
     "source": "Le Fil Calédonien",
     "sourceColor": "#0d0080",
     "domain": "fil-caledonien.info",
     "titre": "Révélations d'un haut responsable : La Nouvelle-Calédonie compte 53 communes",
-    "texte": "Article de la rédaction, publié par Le Fil Calédonien. Un responsable anonyme affirme que tout n'a pas été dit.",
+    "texte": "Par la rédaction. Un responsable anonyme affirme que tout n'a pas été dit. Il risque gros en parlant, alors respectez son anonymat !",
     "isFake": true,
     "level": 2,
     "correctAction": "report",
@@ -817,16 +859,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "sam_974",
+        "auteur": "Moana R.",
         "couleur": "#1800ad",
+        "texte": "Non, la Nouvelle-Calédonie compte 33 communes. C’est sur Wikipédia.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
         "texte": "Ça donne envie de faire le tour de la Grande Terre.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Willy",
-        "couleur": "#8a4fbe",
-        "texte": "Évidemment qu’on nous cache des choses 👏",
-        "posture": "CROIT"
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Le lien ne s’ouvre pas chez moi.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « autorité inventée ».",
@@ -847,20 +895,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 32004,
-    "commentCount": 1975,
-    "date": "27 octobre 2026 à 18:36",
+    "reactionCount": 23419,
+    "commentCount": 1221,
+    "date": "28 octobre 2026 à 08:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "robot-kone",
     "slug": "faux-20261027-robot-kone-2-vlq8f9",
     "source": "Nouméa Matin",
     "sourceColor": "#0d0080",
     "domain": "noumea-matin.info",
     "titre": "Ce que ça va changer pour votre famille : Des lycéens de Koné construisent un robot qui trie les déchets",
-    "texte": "Article de la rédaction, publié par Nouméa Matin. Personne ne vous dit ce qui va suivre. Préparez-vous.",
+    "texte": "Par la rédaction. Personne ne vous dit ce qui va suivre. Préparez-vous. Gardez vos enfants près de vous et ne prenez aucun risque.",
     "isFake": true,
     "level": 2,
     "correctAction": "report",
@@ -895,22 +943,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Elodie_nc",
-        "couleur": "#b45309",
-        "texte": "Quel danger ? Aucun média sérieux n’en parle.",
-        "posture": "VERIFIE"
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Je préfère prévenir mes parents, on ne sait jamais.",
+        "posture": "CROIT"
       },
       {
-        "auteur": "Karim",
-        "couleur": "#1800ad",
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "J’habite pas loin, personne n’en parle à Koné.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
         "texte": "Il faudrait plus de projets comme ça.",
         "posture": "SUJET"
-      },
-      {
-        "auteur": "Mélanie",
-        "couleur": "#0e7490",
-        "texte": "J’ai peur pour mes enfants… je préviens la famille.",
-        "posture": "CROIT"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « appel à la peur ».",
@@ -931,12 +979,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 26861,
-    "commentCount": 1909,
-    "date": "25 octobre 2026 à 16:36",
+    "reactionCount": 1118,
+    "commentCount": 979,
+    "date": "26 octobre 2026 à 06:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-mont-panie",
     "image": "/images/faits/mont-panie.jpg",
     "imageAlt": "Un kaori des montagnes sur les pentes du mont Panié",
@@ -951,7 +999,7 @@
     "sourceColor": "#991b1b",
     "domain": "page militante",
     "titre": "Réveillez-vous. +312 % : Le mont Panié, dans le nord-est de la Grande Terre, culmine à 2 629 mètres",
-    "texte": "Les chiffres parlent d'eux-mêmes : +312 % sur la période. #VéritéNC",
+    "texte": "Les grands médias n’en parleront pas, comme d’habitude. Les chiffres parlent d'eux-mêmes : +312 % sur la période. Et ce n’est que le chiffre officiel, imaginez le vrai ! #OnNousMent #RéveilNC",
     "isFake": true,
     "level": 2,
     "correctAction": "report",
@@ -986,16 +1034,16 @@
     ],
     "commentaires": [
       {
-        "auteur": "Soane",
+        "auteur": "Nathalie",
         "couleur": "#c2410c",
-        "texte": "Il faudrait apprendre ça à l’école.",
+        "texte": "Ça donne envie de faire le tour de la Grande Terre.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Elodie_nc",
-        "couleur": "#b45309",
-        "texte": "C’est énorme, faut que ça se sache",
-        "posture": "CROIT"
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Quelle image…",
+        "posture": "PHOTO"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « manipulation statistique ».",
@@ -1016,12 +1064,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 16857,
-    "commentCount": 348,
-    "date": "27 octobre 2026 à 13:36",
+    "reactionCount": 22317,
+    "commentCount": 1130,
+    "date": "28 octobre 2026 à 03:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "livre-koumac",
     "image": "/images/scenarios/livre-koumac.jpg",
     "imageAlt": "Des étagères de livres pour enfants dans une bibliothèque",
@@ -1035,8 +1083,8 @@
     "source": "Patou Nouméa",
     "sourceColor": "#991b1b",
     "domain": "@patou.noumea · « je dis ce qu’on vous cache »",
-    "titre": "Réveillez-vous. Un salon du livre jeunesse annoncé à Koumac pour les vacances : « ce n'est qu'un début », selon un expert",
-    "texte": "Pour Gérald Mourin, expert indépendant, « tout cela était prévisible et va s’aggraver ». #OnNousMent #RéveilNC",
+    "titre": "On ne vous le dira pas ailleurs. Un salon du livre jeunesse annoncé à Koumac pour les vacances : « ce n'est qu'un début », selon un expert",
+    "texte": "Ce n’est pas la première fois. Pour Gérald Mourin, expert indépendant, « tout cela était prévisible et va s’aggraver ». Lui, au moins, il ose dire les choses. Jusqu’à quand ? Ouvrez les yeux 👁️",
     "isFake": true,
     "level": 2,
     "correctAction": "report",
@@ -1073,20 +1121,26 @@
       {
         "auteur": "Nadia_988",
         "couleur": "#57534e",
-        "texte": "Quelle fierté pour leurs parents.",
+        "texte": "S’il le dit, il doit savoir.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "On passe à Koumac ce week-end justement !",
         "posture": "SUJET"
       },
       {
-        "auteur": "Olivier T.",
+        "auteur": "Moana R.",
         "couleur": "#1800ad",
-        "texte": "Belle photo !",
-        "posture": "PHOTO"
+        "texte": "J’ai demandé à de la famille à Koumac : personne n’est au courant.",
+        "posture": "VERIFIE"
       },
       {
-        "auteur": "Patrick L.",
+        "auteur": "Kévin.nc",
         "couleur": "#791561",
-        "texte": "J’ai cherché Gérald Mourin : aucune publication, aucune institution.",
-        "posture": "VERIFIE"
+        "texte": "Quelle fierté pour leurs parents.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « faux expert ».",
@@ -1107,19 +1161,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 31947,
-    "commentCount": 932,
-    "date": "27 octobre 2026 à 04:36",
+    "reactionCount": 25073,
+    "commentCount": 173,
+    "date": "27 octobre 2026 à 18:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "dauphins-prony",
     "slug": "faux-20261027-dauphins-prony-2-18sg80b",
     "source": "Vigilance Citoyenne",
     "sourceColor": "#991b1b",
     "domain": "page militante",
     "titre": "Réveillez-vous. Un banc d’une centaine de dauphins filmé dans la baie de Prony ce week-end : la preuve de ce que beaucoup pensaient",
-    "texte": "Ceux qui alertaient depuis des mois avaient raison. Ouvrez les yeux 👁️",
+    "texte": "On vous prend pour des idiots, et ça marche. Ceux qui alertaient depuis des mois avaient raison. On ne pourra plus dire qu’on ne savait pas. #OnNousMent #RéveilNC",
     "isFake": true,
     "level": 2,
     "correctAction": "report",
@@ -1154,16 +1208,16 @@
     ],
     "commentaires": [
       {
-        "auteur": "Ryan_NC",
-        "couleur": "#b45309",
-        "texte": "Je le disais depuis le début ! 🙏",
-        "posture": "CROIT"
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Ça donne envie d’aller à l’eau ce week-end.",
+        "posture": "SUJET"
       },
       {
-        "auteur": "Willy",
-        "couleur": "#8a4fbe",
-        "texte": "Quelle tendance ? Aucun média ne parle même de ce fait.",
-        "posture": "VERIFIE"
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Il se passe toujours un truc dans la baie de Prony 😄",
+        "posture": "SUJET"
       },
       {
         "auteur": "Nathalie",
@@ -1172,10 +1226,10 @@
         "posture": "DOUTE"
       },
       {
-        "auteur": "Marie-Jo",
-        "couleur": "#1800ad",
-        "texte": "Ça donne envie d’aller à l’eau ce week-end.",
-        "posture": "SUJET"
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "Quelle tendance ? Aucun média ne parle même de ce fait.",
+        "posture": "VERIFIE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
@@ -1196,12 +1250,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 10255,
-    "commentCount": 432,
-    "date": "26 octobre 2026 à 02:36",
+    "reactionCount": 32025,
+    "commentCount": 135,
+    "date": "26 octobre 2026 à 16:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "orchestre-nz",
     "image": "/images/scenarios/orchestre-nz.jpg",
     "imageAlt": "Un violon et son archet",
@@ -1215,8 +1269,8 @@
     "source": "Le Vrai Dossier",
     "sourceColor": "#b91c1c",
     "domain": "page militante",
-    "titre": "Encore une fois : un orchestre de jeunes de Nouméa invité à jouer en Nouvelle-Zélande : pas un hasard",
-    "texte": "Ce n’est pas un hasard si ça arrive juste après les décisions du mois dernier. #OnNousMent #RéveilNC",
+    "titre": "On ne vous le dira pas ailleurs. Un orchestre de jeunes de Nouméa invité à jouer en Nouvelle-Zélande : pas un hasard",
+    "texte": "Ce n’est pas la première fois. Ce n’est pas un hasard si ça arrive juste après les décisions du mois dernier. Faites le lien vous-mêmes. Jusqu’à quand ? #OnNousMent #RéveilNC",
     "isFake": true,
     "level": 2,
     "correctAction": "report",
@@ -1251,22 +1305,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "sam_974",
-        "couleur": "#1800ad",
-        "texte": "Quelles décisions ? Aucun média ne fait ce lien, ni ne parle de ce fait.",
-        "posture": "VERIFIE"
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Comme par hasard, oui…",
+        "posture": "CROIT"
       },
       {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "Bravo les jeunes 👏",
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Ça fait longtemps que je ne suis pas allé à Nouméa.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Gaby",
-        "couleur": "#14663f",
-        "texte": "Quelle image…",
-        "posture": "PHOTO"
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "J’ai demandé à de la famille à Nouméa : personne n’est au courant.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Bravo les jeunes 👏",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fausse corrélation ».",
@@ -1287,12 +1347,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 9951,
-    "commentCount": 540,
-    "date": "27 octobre 2026 à 00:36",
+    "reactionCount": 20570,
+    "commentCount": 53,
+    "date": "27 octobre 2026 à 14:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "surf-bourail",
     "image": "/images/scenarios/surf-bourail.jpg",
     "imageAlt": "La Roche Percée de Bourail, au bord de la plage",
@@ -1306,8 +1366,8 @@
     "source": "Chiffres & Vérité",
     "sourceColor": "#ea580c",
     "domain": "page militante",
-    "titre": "On ne vous le dira pas ailleurs : C'est confirmé : Une école de surf pour enfants ouvre à la Roche Percée",
-    "texte": "L'information est confirmée par plusieurs sources. Ouvrez les yeux 👁️",
+    "titre": "Encore une fois. C'est confirmé : Une école de surf pour enfants ouvre à la Roche Percée",
+    "texte": "Ce n’est pas la première fois. L'information est confirmée par plusieurs sources. Plus de doute possible, c’est vérifié ! Jusqu’à quand ? Ouvrez les yeux 👁️",
     "isFake": true,
     "level": 2,
     "correctAction": "report",
@@ -1342,28 +1402,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Inès K.",
-        "couleur": "#14663f",
-        "texte": "Confirmé par qui ?",
-        "posture": "DOUTE"
-      },
-      {
-        "auteur": "Léa",
+        "auteur": "Soane",
         "couleur": "#c2410c",
-        "texte": "Quelle image…",
+        "texte": "Elle est où cette photo ?",
         "posture": "PHOTO"
       },
       {
-        "auteur": "Camille R.",
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "Confirmé par qui ? Aucun média ne donne cette info.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Jean-Luc",
         "couleur": "#0e7490",
         "texte": "Quelqu’un sait à quelle heure ça commence ?",
         "posture": "SUJET"
       },
       {
-        "auteur": "sam_974",
-        "couleur": "#1800ad",
-        "texte": "Confirmé par qui ? Aucun média ne donne cette info.",
-        "posture": "VERIFIE"
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Ça fait longtemps que je ne suis pas allé à la Roche Percée.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « certitude ajoutée ».",
@@ -1384,20 +1444,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 34130,
-    "commentCount": 1300,
-    "date": "27 octobre 2024 à 19:36",
+    "reactionCount": 33151,
+    "commentCount": 1308,
+    "date": "28 octobre 2024 à 09:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fleur-panie",
     "slug": "faux-20261027-fleur-panie-3-a9cv50",
     "source": "Le Quotidien du Pacifique",
     "sourceColor": "#1800ad",
     "domain": "quotidien-pacifique.info",
     "titre": "Des randonneurs repèrent une fleur jamais décrite sur les pentes du mont Panié",
-    "texte": "Article de la rédaction, publié par Le Quotidien du Pacifique. À voir cette semaine.",
+    "texte": "Par la rédaction. À voir cette semaine. Tout le monde en parle aujourd’hui.",
     "isFake": true,
     "level": 3,
     "correctAction": "report",
@@ -1432,28 +1492,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Nadia_988",
-        "couleur": "#57534e",
-        "texte": "Ça ne date pas un peu, ça ?",
-        "posture": "DOUTE"
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Le lien ne s’ouvre pas chez moi.",
+        "posture": "SUJET"
       },
       {
         "auteur": "Tehei",
         "couleur": "#0e7490",
-        "texte": "Incroyable, je ne savais pas que c’était cette semaine 😮",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Inès K.",
-        "couleur": "#14663f",
         "texte": "Il faudrait apprendre ça à l’école.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Camille R.",
-        "couleur": "#0e7490",
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
         "texte": "Regardez la date : ça a plus de deux ans.",
         "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "On passe au mont Panié ce week-end justement !",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « information recyclée ».",
@@ -1474,26 +1534,26 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 11021,
-    "commentCount": 561,
-    "date": "25 octobre 2026 à 03:36",
+    "reactionCount": 17017,
+    "commentCount": 1764,
+    "date": "25 octobre 2026 à 17:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-population",
     "slug": "faux-20261027-fait-population-3-bgqykb",
     "source": "Le Quotidien du Pacifique",
     "sourceColor": "#1800ad",
     "domain": "quotidien-pacifique.info",
-    "titre": "Avant que ça disparaisse : Le recensement de 2019 a compté environ 700 000 habitants en Nouvelle-Calédonie",
-    "texte": "Article de la rédaction, publié par Le Quotidien du Pacifique. L'article risque d'être retiré, on vous le met ici.",
+    "titre": "Avant que ça disparaisse : Le recensement de 2025 a compté environ 700 000 habitants en Nouvelle-Calédonie",
+    "texte": "Par la rédaction. L'article risque d'être retiré, on vous le met ici. Une fois supprimé, ce sera trop tard pour en parler.",
     "isFake": true,
     "level": 3,
     "correctAction": "report",
     "biais": "Urgence artificielle",
-    "explication": "Ce post déforme un fait réel : Le recensement de 2019 a compté environ 270 000 habitants en Nouvelle-Calédonie. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
-    "analyseFaux": "Personne ne retire cette information : l'urgence sert à faire partager sans vérifier. En réalité : Le recensement de 2019 a compté environ 270 000 habitants en Nouvelle-Calédonie.",
+    "explication": "Ce post déforme un fait réel : Le recensement de 2025 a compté environ 265 000 habitants en Nouvelle-Calédonie. L'urgence (« avant suppression ») sert à faire partager avant de vérifier. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "Personne ne retire cette information : l'urgence sert à faire partager sans vérifier. En réalité : Le recensement de 2025 a compté environ 265 000 habitants en Nouvelle-Calédonie.",
     "indices": [
       {
         "ordre": 0,
@@ -1517,33 +1577,33 @@
         "cible": "TITRE",
         "picto": "Search",
         "libelle": "Facile à vérifier",
-        "explication": "ISEE dit autre chose : Le recensement de 2019 a compté environ 270 000 habitants en Nouvelle-Calédonie."
+        "explication": "ISEE dit autre chose : Le recensement de 2025 a compté environ 265 000 habitants en Nouvelle-Calédonie."
       }
     ],
     "commentaires": [
       {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "Pourquoi ce serait supprimé ?",
-        "posture": "DOUTE"
-      },
-      {
-        "auteur": "Soane",
-        "couleur": "#c2410c",
-        "texte": "Partagé direct avant que ça disparaisse 😱",
-        "posture": "CROIT"
-      },
-      {
         "auteur": "Camille R.",
         "couleur": "#0e7490",
-        "texte": "Vrai de vrai, tout le monde le dit.",
-        "posture": "CONTRE"
+        "texte": "J’ai appris ça au collège je crois.",
+        "posture": "SUJET"
       },
       {
         "auteur": "Vaimiti",
         "couleur": "#14663f",
-        "texte": "J’ai appris ça au collège je crois.",
+        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Article intéressant, merci.",
         "posture": "SUJET"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Je confirme, j’en ai entendu parler aussi.",
+        "posture": "CONTRE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
@@ -1559,18 +1619,18 @@
       "report": 100
     },
     "sourceUrl": null,
-    "learnMoreUrl": "https://www.isee.nc/",
+    "learnMoreUrl": "https://www.isee.nc/population/recensement",
     "id": 66
   },
   {
     "sponsorise": false,
-    "reactionCount": 22579,
-    "commentCount": 1292,
-    "date": "26 octobre 2026 à 18:36",
+    "reactionCount": 35863,
+    "commentCount": 138,
+    "date": "27 octobre 2026 à 08:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "pirogues-ouvea",
     "image": "/images/scenarios/pirogues-ouvea.jpg",
     "imageAlt": "Deux pirogues à balancier blanches posées sur l’herbe près d’un port",
@@ -1585,7 +1645,7 @@
     "sourceColor": "#0d0080",
     "domain": "noumea-matin.info",
     "titre": "Une course de pirogues réunit soixante équipages à Ouvéa",
-    "texte": "Article de la rédaction, publié par Nouméa Matin. Une quinzaine d’équipages se sont affrontés au large de Lifou.",
+    "texte": "Par la rédaction. Une quinzaine d’équipages se sont affrontés au large de Lifou.",
     "isFake": true,
     "level": 3,
     "correctAction": "report",
@@ -1620,28 +1680,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Vaimiti",
+        "auteur": "Aurélie",
         "couleur": "#14663f",
         "texte": "Quelqu’un sait à quelle heure ça commence ?",
         "posture": "SUJET"
       },
       {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "Elle est où cette photo ?",
-        "posture": "PHOTO"
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Trop bien, je partage 👍",
+        "posture": "CROIT"
       },
       {
-        "auteur": "Anaïs W.",
-        "couleur": "#0e7490",
-        "texte": "Le titre et le texte ne racontent pas la même chose.",
-        "posture": "VERIFIE"
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Ma tante habite à Ouvéa, je vais lui demander.",
+        "posture": "SUJET"
       },
       {
-        "auteur": "Aurélie",
-        "couleur": "#14663f",
-        "texte": "Vrai de vrai, tout le monde le dit.",
-        "posture": "CONTRE"
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "J’habite pas loin, personne n’en parle à Ouvéa.",
+        "posture": "DOUTE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « détail modifié ».",
@@ -1662,13 +1722,13 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 565,
-    "commentCount": 587,
-    "date": "25 octobre 2026 à 20:36",
+    "reactionCount": 9447,
+    "commentCount": 1117,
+    "date": "26 octobre 2026 à 10:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-distance-australie",
     "image": "/images/faits/distance-australie.jpg",
     "imageAlt": "La Nouvelle-Calédonie et l’Australie vues en image satellite",
@@ -1682,14 +1742,14 @@
     "source": "Le Fil Calédonien",
     "sourceColor": "#0d0080",
     "domain": "fil-caledonien.info",
-    "titre": "Nouméa est à environ 300 kilomètres de la côte est de l’Australie : un responsable se confie",
-    "texte": "Article de la rédaction, publié par Le Fil Calédonien. Un responsable, qui a souhaité garder l'anonymat, évoque d'autres éléments.",
+    "titre": "La Nouvelle-Calédonie est à environ 300 kilomètres à l’est de l’Australie : un responsable se confie",
+    "texte": "Par la rédaction. Un responsable, qui a souhaité garder l'anonymat, évoque d'autres éléments. Il n’a pas voulu donner son nom, mais il sait de quoi il parle.",
     "isFake": true,
     "level": 3,
     "correctAction": "report",
     "biais": "Autorité inventée",
-    "explication": "Ce post déforme un fait réel : Nouméa est à environ 1 500 kilomètres de la côte est de l’Australie. La source est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
-    "analyseFaux": "La source anonyme n’existe que dans ce post : aucun nom, aucun document. En réalité : Nouméa est à environ 1 500 kilomètres de la côte est de l’Australie.",
+    "explication": "Ce post déforme un fait réel : La Nouvelle-Calédonie est à environ 1 200 kilomètres à l’est de l’Australie. La source est anonyme : elle a le ton de l’autorité sans rien offrir à vérifier. L’article ne dit pas qui l’a écrit ni d’où vient l’information : rien ne permet de le vérifier.",
+    "analyseFaux": "La source anonyme n’existe que dans ce post : aucun nom, aucun document. En réalité : La Nouvelle-Calédonie est à environ 1 200 kilomètres à l’est de l’Australie.",
     "indices": [
       {
         "ordre": 0,
@@ -1713,33 +1773,33 @@
         "cible": "TITRE",
         "picto": "Search",
         "libelle": "Facile à vérifier",
-        "explication": "Wikipédia dit autre chose : Nouméa est à environ 1 500 kilomètres de la côte est de l’Australie."
+        "explication": "Wikipédia dit autre chose : La Nouvelle-Calédonie est à environ 1 200 kilomètres à l’est de l’Australie."
       }
     ],
     "commentaires": [
       {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
         "texte": "Ça donne envie de faire le tour de la Grande Terre.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Didier",
-        "couleur": "#8a4fbe",
-        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
-        "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Willy",
-        "couleur": "#8a4fbe",
-        "texte": "C’est qui ce responsable ? Il a un nom ?",
-        "posture": "DOUTE"
-      },
-      {
         "auteur": "Hélène",
         "couleur": "#791561",
-        "texte": "Elle est où cette photo ?",
-        "posture": "PHOTO"
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "Trop long, quelqu’un résume ?",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Manu",
+        "couleur": "#8a4fbe",
+        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça. La Nouvelle-Calédonie est à environ 1 200 kilomètres à l’est de l’Australie.",
+        "posture": "VERIFIE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « autorité inventée ».",
@@ -1760,13 +1820,13 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 2810,
-    "commentCount": 1364,
-    "date": "25 octobre 2026 à 23:36",
+    "reactionCount": 11158,
+    "commentCount": 1835,
+    "date": "26 octobre 2026 à 13:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-provinces",
     "image": "/images/faits/provinces.png",
     "imageAlt": "Carte des provinces et des communes de Nouvelle-Calédonie",
@@ -1781,7 +1841,7 @@
     "sourceColor": "#1800ad",
     "domain": "quotidien-pacifique.info",
     "titre": "La Nouvelle-Calédonie compte quatre provinces : Sud, Nord, Ouest et îles Loyauté : faut-il s'inquiéter ?",
-    "texte": "Article de la rédaction, publié par Le Quotidien du Pacifique. Les conséquences pour les familles pourraient être lourdes.",
+    "texte": "Par la rédaction. Les conséquences pour les familles pourraient être lourdes. Personne ne sait encore jusqu’où ça ira.",
     "isFake": true,
     "level": 3,
     "correctAction": "report",
@@ -1816,28 +1876,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "bruno_zz",
-        "couleur": "#8a4fbe",
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Inquiétant comment ? Ils ne disent rien de précis.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
+        "texte": "Je préfère prévenir mes parents, on ne sait jamais.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
         "texte": "Quelle image…",
         "posture": "PHOTO"
       },
       {
-        "auteur": "Inès K.",
-        "couleur": "#14663f",
-        "texte": "J’ai peur pour mes enfants… je préviens la famille.",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "sam_974",
-        "couleur": "#1800ad",
-        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
+        "auteur": "Léa",
+        "couleur": "#c2410c",
+        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça. La Nouvelle-Calédonie compte trois provinces : Sud, Nord et îles Loyauté.",
         "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Hélène",
-        "couleur": "#791561",
-        "texte": "J’ai appris ça au collège je crois.",
-        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « appel à la peur ».",
@@ -1858,12 +1918,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 37986,
-    "commentCount": 282,
-    "date": "27 octobre 2026 à 02:36",
+    "reactionCount": 30554,
+    "commentCount": 1974,
+    "date": "27 octobre 2026 à 16:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "food-truck",
     "image": "/images/scenarios/food-truck.jpg",
     "imageAlt": "Un food-truck garé dans la rue",
@@ -1877,8 +1937,8 @@
     "source": "Nouméa Décrypte",
     "sourceColor": "#57534e",
     "domain": "page d’actualité",
-    "titre": "Exclu : un food-truck de bougna fait sensation sur le front de mer de Nouméa : un chiffre qui interroge",
-    "texte": "Selon les chiffres disponibles, la hausse atteindrait 312 %. Retenez bien ça.",
+    "titre": "🧵 Info. Un food-truck de bougna fait sensation sur le front de mer de Nouméa : un chiffre qui interroge",
+    "texte": "Ça va sortir partout dans quelques jours. Selon les chiffres disponibles, la hausse atteindrait 312 %. Un chiffre pareil, ça ne s’invente pas. On en reparle bientôt. 👀",
     "isFake": true,
     "level": 3,
     "correctAction": "report",
@@ -1913,28 +1973,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Vaimiti",
-        "couleur": "#14663f",
-        "texte": "Ce chiffre sort d’où ? 🤔",
-        "posture": "DOUTE"
-      },
-      {
-        "auteur": "Jean-Luc",
-        "couleur": "#0e7490",
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
         "texte": "C’est énorme, faut que ça se sache",
         "posture": "CROIT"
       },
       {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "Aucune source pour ce chiffre, et aucun média n’en parle.",
-        "posture": "VERIFIE"
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "Quelqu’un a goûté ?",
+        "posture": "SUJET"
       },
       {
-        "auteur": "sam_974",
-        "couleur": "#1800ad",
-        "texte": "Elle est où cette photo ?",
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "La photo 😍",
         "posture": "PHOTO"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Ce chiffre sort d’où ? 🤔",
+        "posture": "DOUTE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « manipulation statistique ».",
@@ -1955,19 +2015,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 31005,
-    "commentCount": 1811,
-    "date": "25 octobre 2026 à 21:36",
+    "reactionCount": 38322,
+    "commentCount": 522,
+    "date": "26 octobre 2026 à 11:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "chat-conteneur",
     "slug": "faux-20261027-chat-conteneur-3-bmghzr",
     "source": "Fabrice L.",
     "sourceColor": "#c2410c",
     "domain": "@fabrice.l · « toujours bien informé »",
-    "titre": "Je vous le dis avant tout le monde : un chat retrouvé sain et sauf dans un conteneur arrivé au port de Nouméa : l'analyse d'un expert",
-    "texte": "Gérald Mourin, consultant, estime que « la situation devrait s’aggraver ». Retenez bien ça.",
+    "titre": "Exclu. Un chat retrouvé sain et sauf dans un conteneur arrivé au port de Nouméa : l'analyse d'un expert",
+    "texte": "Ça va sortir partout dans quelques jours. Gérald Mourin, consultant, estime que « la situation devrait s’aggraver ». Il suit le sujet depuis des années. Retenez bien ça.",
     "isFake": true,
     "level": 3,
     "correctAction": "report",
@@ -2002,22 +2062,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Didier",
-        "couleur": "#8a4fbe",
-        "texte": "Enfin un expert qui dit les choses 👍",
-        "posture": "CROIT"
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "J’ai demandé à de la famille au port de Nouméa : personne n’est au courant.",
+        "posture": "VERIFIE"
       },
       {
-        "auteur": "Vaimiti",
-        "couleur": "#14663f",
-        "texte": "Pas sûr que ça change grand-chose…",
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "Il se passe toujours un truc au port de Nouméa 😄",
         "posture": "SUJET"
       },
       {
-        "auteur": "Hélène",
-        "couleur": "#791561",
-        "texte": "Il est expert en quoi exactement ?",
-        "posture": "DOUTE"
+        "auteur": "Léa",
+        "couleur": "#c2410c",
+        "texte": "Pas sûr que ça change grand-chose…",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « faux expert ».",
@@ -2038,19 +2098,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 13401,
-    "commentCount": 296,
-    "date": "27 octobre 2026 à 07:36",
+    "reactionCount": 38351,
+    "commentCount": 852,
+    "date": "27 octobre 2026 à 21:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-cook-1774",
     "slug": "faux-20261027-fait-cook-1774-3-18sg80b",
     "source": "Info Directe NC",
     "sourceColor": "#c2410c",
     "domain": "page d’actualité",
     "titre": "🧵 Info : c’est en 1874 que le navigateur James Cook aperçoit la Grande Terre et la nomme New Caledonia, comme on pouvait s'y attendre",
-    "texte": "Un fait qui confirme ce que beaucoup pressentaient. Vous verrez.",
+    "texte": "Je l’ai su avant tout le monde. Un fait qui confirme ce que beaucoup pressentaient. Les faits finissent toujours par parler. On en reparle bientôt. 👀",
     "isFake": true,
     "level": 3,
     "correctAction": "report",
@@ -2085,15 +2145,9 @@
     ],
     "commentaires": [
       {
-        "auteur": "Patrick L.",
-        "couleur": "#791561",
-        "texte": "Mon cousin me l’a dit aussi.",
-        "posture": "CONTRE"
-      },
-      {
         "auteur": "Thierry P.",
         "couleur": "#57534e",
-        "texte": "On oublie vite tout ça.",
+        "texte": "Tes contacts, c’est qui au juste ?",
         "posture": "SUJET"
       },
       {
@@ -2105,8 +2159,8 @@
       {
         "auteur": "Aurélie",
         "couleur": "#14663f",
-        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
-        "posture": "VERIFIE"
+        "texte": "On oublie vite tout ça.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
@@ -2127,20 +2181,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 29975,
-    "commentCount": 858,
-    "date": "27 octobre 2024 à 19:36",
+    "reactionCount": 35745,
+    "commentCount": 1254,
+    "date": "28 octobre 2024 à 09:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "baleine-yate",
     "slug": "faux-20261027-baleine-yate-4-a9cv50",
     "source": "Nouméa Matin",
     "sourceColor": "#0d0080",
     "domain": "noumea-matin.info",
     "titre": "Une baleine filmée à quelques mètres du rivage à Yaté",
-    "texte": "Article de Thomas Naudin, publié par Nouméa Matin. Une info qui circule beaucoup en ce moment. Source : une vidéo TikTok.",
+    "texte": "Par Thomas Naudin. Une info qui circule beaucoup en ce moment. Ça circule beaucoup depuis ce matin. Une information repérée dans une vidéo TikTok.",
     "isFake": true,
     "level": 4,
     "correctAction": "report",
@@ -2175,28 +2229,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Inès K.",
-        "couleur": "#14663f",
-        "texte": "C’est pour ça qu’il faut protéger le lagon.",
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Le lien ne s’ouvre pas chez moi.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Didier",
-        "couleur": "#8a4fbe",
-        "texte": "Incroyable, je ne savais pas que c’était cette semaine 😮",
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "Je fais suivre, c’est tout frais.",
         "posture": "CROIT"
       },
       {
-        "auteur": "Mélanie",
-        "couleur": "#0e7490",
-        "texte": "La date du post est ancienne, ce n’est pas d’actualité.",
-        "posture": "VERIFIE"
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "On passe à Yaté ce week-end justement !",
+        "posture": "SUJET"
       },
       {
-        "auteur": "bruno_zz",
-        "couleur": "#8a4fbe",
-        "texte": "Ça ne date pas un peu, ça ?",
-        "posture": "DOUTE"
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "C’est pour ça qu’il faut protéger le lagon.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « information recyclée ».",
@@ -2217,20 +2271,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 18015,
-    "commentCount": 1250,
-    "date": "25 octobre 2026 à 21:36",
+    "reactionCount": 17782,
+    "commentCount": 1105,
+    "date": "26 octobre 2026 à 11:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-fuseau-horaire",
     "slug": "faux-20261027-fait-fuseau-horaire-4-j6e1s7",
     "source": "Pacifique Express Info",
     "sourceColor": "#1800ad",
     "domain": "pacifique-express.info",
     "titre": "La Nouvelle-Calédonie avance ses montres d’une heure chaque été",
-    "texte": "Article de Marc Ollivier, publié par Pacifique Express Info. Selon nos informations. (source : un site d’info)",
+    "texte": "Par Marc Ollivier. Selon nos informations. Une information repérée sur un site d’info.",
     "isFake": true,
     "level": 4,
     "correctAction": "report",
@@ -2265,15 +2319,27 @@
     ],
     "commentaires": [
       {
-        "auteur": "Soane",
-        "couleur": "#c2410c",
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
         "texte": "À montrer aux cousins de Métropole.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Ryan_NC",
-        "couleur": "#b45309",
-        "texte": "Je ne savais pas, merci 🙏",
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Trop long, quelqu’un résume ?",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
+        "texte": "Je confirme, j’en ai entendu parler aussi.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Incroyable, je partage.",
         "posture": "CROIT"
       }
     ],
@@ -2295,20 +2361,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 15013,
-    "commentCount": 637,
-    "date": "27 octobre 2026 à 00:36",
+    "reactionCount": 36675,
+    "commentCount": 131,
+    "date": "27 octobre 2026 à 14:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-ile-des-pins-nom",
     "slug": "faux-20261027-fait-ile-des-pins-nom-4-j6e1s7",
     "source": "Le Fil Calédonien",
     "sourceColor": "#0d0080",
     "domain": "fil-caledonien.info",
     "titre": "L’île des Pins doit son nom à des pins maritimes plantés au XXe siècle",
-    "texte": "Article de Sarah Kowalczyk, publié par Le Fil Calédonien. Selon nos informations. (source : la télé)",
+    "texte": "Par Sarah Kowalczyk. Selon nos informations. Une information repérée à la télé.",
     "isFake": true,
     "level": 4,
     "correctAction": "report",
@@ -2343,16 +2409,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Nathalie",
-        "couleur": "#c2410c",
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Ça ne colle pas avec ce que j’ai appris à l’école…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
         "texte": "Les plantes d’ici sont incroyables 🌿",
         "posture": "SUJET"
       },
       {
-        "auteur": "Elodie_nc",
-        "couleur": "#b45309",
-        "texte": "Tu es sûr de ce chiffre ?",
-        "posture": "DOUTE"
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "Incroyable, je partage.",
+        "posture": "CROIT"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
@@ -2373,13 +2445,13 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 35428,
-    "commentCount": 979,
-    "date": "26 octobre 2026 à 07:36",
+    "reactionCount": 1213,
+    "commentCount": 786,
+    "date": "26 octobre 2026 à 21:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "cerfs-volants",
     "image": "/images/scenarios/cerfs-volants.jpg",
     "imageAlt": "Des cerfs-volants colorés dans un ciel bleu",
@@ -2394,7 +2466,7 @@
     "sourceColor": "#1800ad",
     "domain": "quotidien-pacifique.info",
     "titre": "Un concours de cerfs-volants colore la plage de l’Anse-Vata",
-    "texte": "Article de Anaïs Labbé, publié par Le Quotidien du Pacifique. Les maquettes de bateaux ont défilé sur la plage de la baie des Citrons. (source : un groupe Facebook)",
+    "texte": "Par Anaïs Labbé. Les maquettes de bateaux ont défilé sur la plage de la baie des Citrons. Une information repérée dans un groupe Facebook.",
     "isFake": true,
     "level": 4,
     "correctAction": "report",
@@ -2429,22 +2501,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "bruno_zz",
-        "couleur": "#8a4fbe",
-        "texte": "Attends, le titre et le texte ne disent pas pareil…",
-        "posture": "DOUTE"
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
+        "texte": "Trop bien, je partage 👍",
+        "posture": "CROIT"
       },
       {
         "auteur": "Anaïs W.",
         "couleur": "#0e7490",
-        "texte": "Tu viens @kim.nc ?",
+        "texte": "La photo 😍",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Quelqu’un a lu l’article en entier ?",
         "posture": "SUJET"
       },
       {
         "auteur": "Vaimiti",
         "couleur": "#14663f",
-        "texte": "Trop bien, je partage 👍",
-        "posture": "CROIT"
+        "texte": "Tu viens @kim.nc ?",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « détail modifié ».",
@@ -2465,20 +2543,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 14734,
-    "commentCount": 203,
-    "date": "27 octobre 2026 à 01:36",
+    "reactionCount": 21220,
+    "commentCount": 635,
+    "date": "27 octobre 2026 à 15:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-ile-des-pins-position",
     "slug": "faux-20261027-fait-ile-des-pins-position-4-j6e1s7",
     "source": "Pacifique Express Info",
     "sourceColor": "#1800ad",
     "domain": "pacifique-express.info",
     "titre": "L’île des Pins se trouve au nord-ouest de la Grande Terre",
-    "texte": "Article de Marc Ollivier, publié par Pacifique Express Info. Selon nos informations. Source : un groupe Facebook.",
+    "texte": "Par Marc Ollivier. Selon nos informations. Une information repérée dans un groupe Facebook.",
     "isFake": true,
     "level": 4,
     "correctAction": "report",
@@ -2513,22 +2591,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "bruno_zz",
-        "couleur": "#8a4fbe",
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
         "texte": "J’ai appris ça au collège je crois.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Jean-Luc",
-        "couleur": "#0e7490",
-        "texte": "Je ne savais pas, merci 🙏",
-        "posture": "CROIT"
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Ça ne colle pas avec ce que j’ai appris à l’école…",
+        "posture": "DOUTE"
       },
       {
-        "auteur": "Olivier T.",
+        "auteur": "Karim",
         "couleur": "#1800ad",
-        "texte": "Mon cousin me l’a dit aussi.",
-        "posture": "CONTRE"
+        "texte": "Trop long, quelqu’un résume ?",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
@@ -2549,19 +2627,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 35461,
-    "commentCount": 367,
-    "date": "26 octobre 2026 à 00:36",
+    "reactionCount": 9916,
+    "commentCount": 213,
+    "date": "26 octobre 2026 à 14:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "snorkeling-canard",
     "slug": "faux-20261027-snorkeling-canard-4-bgqykb",
     "source": "Poema",
     "sourceColor": "#791561",
     "domain": "@poema.w",
-    "titre": "Les amis, des plongeurs bénévoles balisent un parcours de snorkeling à l’îlot Canard, à lire tant que c'est en ligne",
-    "texte": "Lisez-le tant qu'il est disponible. J’ai vérifié sur internet 👍 Partagez autour de vous 🙏",
+    "titre": "Petite info du jour : des plongeurs bénévoles balisent un parcours de snorkeling à l’îlot Canard, à lire tant que c'est en ligne",
+    "texte": "On en parlait tout à l’heure à la sortie de l’école. Lisez-le tant qu'il est disponible. Mieux vaut l’avoir lu avant qu’il ne soit plus en ligne. Je l’ai vu sur internet 👍 Bonne journée à tous ☀️",
     "isFake": true,
     "level": 4,
     "correctAction": "report",
@@ -2596,16 +2674,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Camille R.",
-        "couleur": "#0e7490",
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
+        "texte": "Merci pour le partage Poema !",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Ça fait longtemps que je ne suis pas allé à l’îlot Canard.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
         "texte": "Mon fils va adorer, il est fan de tout ce qui vit dans l’eau.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Marie-Jo",
-        "couleur": "#1800ad",
-        "texte": "Partagé direct avant que ça disparaisse 😱",
-        "posture": "CROIT"
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Vrai de vrai, tout le monde le dit.",
+        "posture": "CONTRE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
@@ -2626,12 +2716,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 20601,
-    "commentCount": 559,
-    "date": "26 octobre 2026 à 20:36",
+    "reactionCount": 18265,
+    "commentCount": 1398,
+    "date": "27 octobre 2026 à 10:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-gecko-leach",
     "image": "/images/faits/gecko-leach.jpg",
     "imageAlt": "Un gecko géant de Leach, peau brune tachetée, sur une branche",
@@ -2645,8 +2735,8 @@
     "source": "Quiz du Caillou",
     "sourceColor": "#791561",
     "domain": "page de quiz",
-    "titre": "🎯 Le quiz du jour : le gecko géant de Leach est un petit gecko de quelques centimètres, venu d’Asie",
-    "texte": "Source : un site d’info #Quiz #NC",
+    "titre": "🧠 Culture G du jour : le gecko géant de Leach est un petit gecko de quelques centimètres, venu d’Asie",
+    "texte": "Beaucoup se trompent sur celle-là ! On a vérifié sur un site d’info 😉 Vous aviez trouvé ? 👇 Réponse : VRAI ✅",
     "isFake": true,
     "level": 4,
     "correctAction": "report",
@@ -2681,22 +2771,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Aurélie",
-        "couleur": "#14663f",
-        "texte": "Elle est où cette photo ?",
-        "posture": "PHOTO"
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "Ça ne colle pas avec ce que j’ai appris à l’école…",
+        "posture": "DOUTE"
       },
       {
-        "auteur": "Didier",
-        "couleur": "#8a4fbe",
-        "texte": "J’ai vérifié sur Wikipédia : ce n’est pas ça.",
-        "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Olivier T.",
-        "couleur": "#1800ad",
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
         "texte": "Nos bêtes sont vraiment uniques 😍",
         "posture": "SUJET"
+      },
+      {
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Raté pour moi 😅",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
+        "texte": "Non, le gecko géant de Leach, qui vit en Nouvelle-Calédonie, est l’un des plus grands geckos du monde. C’est sur Wikipédia.",
+        "posture": "VERIFIE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
@@ -2717,12 +2813,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 19525,
-    "commentCount": 1763,
-    "date": "25 octobre 2026 à 03:36",
+    "reactionCount": 23777,
+    "commentCount": 1425,
+    "date": "25 octobre 2026 à 17:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-roussette",
     "image": "/images/faits/roussette.jpg",
     "imageAlt": "Une roussette suspendue la tête en bas à une branche",
@@ -2736,14 +2832,14 @@
     "source": "Kenji T.",
     "sourceColor": "#8a4fbe",
     "domain": "@kenji.t",
-    "titre": "jsp si vous saviez mais la roussette est une chauve-souris qui se nourrit surtout de petits poissons",
-    "texte": "😭",
+    "titre": "genre la roussette rousse, une chauve-souris de nouvelle-calédonie, se nourrit surtout de petits poissons",
+    "texte": "je l’ai appris en faisant mon exposé vous saviez ? jsuis choqué 😭",
     "isFake": true,
     "level": 4,
     "correctAction": "report",
     "biais": "Fait déformé",
-    "explication": "Ce post déforme un fait réel : La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. Le post vient d’un compte ordinaire, qui ne cite pas de source sérieuse.",
-    "analyseFaux": "Un détail du post est faux. En réalité : La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs.",
+    "explication": "Ce post déforme un fait réel : La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de fruits et de fleurs. Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas. Le post vient d’un compte ordinaire, qui ne cite pas de source sérieuse.",
+    "analyseFaux": "Un détail du post est faux. En réalité : La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de fruits et de fleurs.",
     "indices": [
       {
         "ordre": 0,
@@ -2767,26 +2863,32 @@
         "cible": "TITRE",
         "picto": "Search",
         "libelle": "Facile à vérifier",
-        "explication": "Wikipédia dit autre chose : La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs."
+        "explication": "Wikipédia dit autre chose : La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de fruits et de fleurs."
       }
     ],
     "commentaires": [
       {
-        "auteur": "Léa",
+        "auteur": "Nathalie",
         "couleur": "#c2410c",
-        "texte": "Je confirme, j’en ai entendu parler aussi.",
-        "posture": "CONTRE"
-      },
-      {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "Belle photo !",
-        "posture": "PHOTO"
+        "texte": "On ne connaît pas assez nos animaux.",
+        "posture": "SUJET"
       },
       {
         "auteur": "Anaïs W.",
         "couleur": "#0e7490",
-        "texte": "On ne connaît pas assez nos animaux.",
+        "texte": "Non, la roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de fruits et de fleurs. C’est sur Wikipédia.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Mon cousin me l’a dit aussi.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#c2410c",
+        "texte": "ptdr",
         "posture": "SUJET"
       }
     ],
@@ -2803,25 +2905,25 @@
       "report": 100
     },
     "sourceUrl": null,
-    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Roussette",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Roussette_rousse",
     "id": 88
   },
   {
     "sponsorise": false,
-    "reactionCount": 35934,
-    "commentCount": 1935,
-    "date": "27 octobre 2024 à 19:36",
+    "reactionCount": 8591,
+    "commentCount": 707,
+    "date": "28 octobre 2024 à 09:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "trottinettes",
     "slug": "faux-20261027-trottinettes-5-a9cv50",
     "source": "Le Fil Calédonien",
     "sourceColor": "#0d0080",
     "domain": "fil-caledonien.info",
     "titre": "Les trottinettes électriques de plus en plus nombreuses sur la promenade Pierre-Vernier",
-    "texte": "Article de Marc Ollivier, publié par Le Fil Calédonien. Une nouvelle qui refait parler d’elle. Source : un site d’info.",
+    "texte": "Par Marc Ollivier. Une nouvelle qui refait parler d’elle. Ça circule beaucoup depuis ce matin. Une information repérée sur un site d’info.",
     "isFake": true,
     "level": 5,
     "correctAction": "report",
@@ -2856,15 +2958,27 @@
     ],
     "commentaires": [
       {
-        "auteur": "bruno_zz",
-        "couleur": "#8a4fbe",
-        "texte": "Incroyable, je ne savais pas que c’était cette semaine 😮",
-        "posture": "CROIT"
-      },
-      {
         "auteur": "Inès K.",
         "couleur": "#14663f",
+        "texte": "Je confirme, j’en ai entendu parler aussi.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Ma tante habite à Nouméa, je vais lui demander.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
         "texte": "Pas sûr que ça change grand-chose…",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Trop long, quelqu’un résume ?",
         "posture": "SUJET"
       }
     ],
@@ -2886,20 +3000,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 5793,
-    "commentCount": 1624,
-    "date": "26 octobre 2026 à 17:36",
+    "reactionCount": 33093,
+    "commentCount": 395,
+    "date": "27 octobre 2026 à 07:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-mangrove",
     "slug": "faux-20261027-fait-mangrove-5-j6e1s7",
     "source": "Pacifique Express Info",
     "sourceColor": "#1800ad",
     "domain": "pacifique-express.info",
     "titre": "La mangrove abîme les côtes : ses racines accélèrent l’érosion",
-    "texte": "Article de Julien Ferrand, publié par Pacifique Express Info. Selon nos informations. Source : internet.",
+    "texte": "Par Julien Ferrand. Selon nos informations. Une information repérée sur internet.",
     "isFake": true,
     "level": 5,
     "correctAction": "report",
@@ -2934,16 +3048,16 @@
     ],
     "commentaires": [
       {
-        "auteur": "Moana R.",
-        "couleur": "#1800ad",
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
         "texte": "Je ne regarderai plus les arbres pareil.",
         "posture": "SUJET"
       },
       {
-        "auteur": "bruno_zz",
-        "couleur": "#8a4fbe",
-        "texte": "Il faudrait apprendre ça à l’école.",
-        "posture": "SUJET"
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Ça ne colle pas avec ce que j’ai appris à l’école…",
+        "posture": "DOUTE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
@@ -2964,12 +3078,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 14756,
-    "commentCount": 1428,
-    "date": "26 octobre 2026 à 23:36",
+    "reactionCount": 16122,
+    "commentCount": 116,
+    "date": "27 octobre 2026 à 13:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-lagon-unesco",
     "image": "/images/faits/lagon-unesco.jpg",
     "imageAlt": "Le lagon calédonien vu d’avion, eau turquoise parsemée de récifs",
@@ -2983,8 +3097,8 @@
     "source": "Yannick D.",
     "sourceColor": "#14663f",
     "domain": "@yannick.d",
-    "titre": "Les lagons de Nouvelle-Calédonie sont inscrits au patrimoine mondial de l’UNESCO depuis 1998",
-    "texte": "(vu sur la télé) Intéressant.",
+    "titre": "Appris aujourd’hui : les lagons de Nouvelle-Calédonie sont inscrits au patrimoine mondial de l’UNESCO depuis 1998",
+    "texte": "Je suis tombé dessus par hasard. Lu à la télé. Vous saviez ? 🤔",
     "isFake": true,
     "level": 5,
     "correctAction": "report",
@@ -3019,22 +3133,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Anaïs W.",
-        "couleur": "#0e7490",
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
         "texte": "Mon fils va adorer, il est fan de tout ce qui vit dans l’eau.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Fatou S.",
+        "auteur": "Kévin.nc",
         "couleur": "#791561",
-        "texte": "J’ai vérifié sur UNESCO : ce n’est pas ça.",
-        "posture": "VERIFIE"
+        "texte": "Tu es sûr de ça ?",
+        "posture": "DOUTE"
       },
       {
-        "auteur": "Willy",
+        "auteur": "Manu",
         "couleur": "#8a4fbe",
-        "texte": "Elle est où cette photo ?",
-        "posture": "PHOTO"
+        "texte": "Tiens, intéressant 👀",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
@@ -3055,19 +3169,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 6729,
-    "commentCount": 1100,
-    "date": "26 octobre 2026 à 22:36",
+    "reactionCount": 5566,
+    "commentCount": 1643,
+    "date": "27 octobre 2026 à 12:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "baguette-kone",
     "slug": "faux-20261027-baguette-kone-5-1mxreyd",
     "source": "Manon",
     "sourceColor": "#1800ad",
     "domain": "@manon.988",
-    "titre": "wsh une boulangerie de koné invente une baguette au niaouli",
-    "texte": "le gâteau à la vanille a été créé par une pâtisserie de pouembout. c sur la télé jsuis pas fou jsuis choqué 😭",
+    "titre": "une boulangerie de koné invente une baguette au niaouli",
+    "texte": "on me l’a envoyé sur le groupe de la classe le gâteau à la vanille a été créé par une pâtisserie de pouembout. c’est à la télé jsuis pas fou vous saviez ? ptdr",
     "isFake": true,
     "level": 5,
     "correctAction": "report",
@@ -3102,16 +3216,28 @@
     ],
     "commentaires": [
       {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Attends, le titre et le texte ne disent pas pareil…",
+        "posture": "DOUTE"
+      },
+      {
         "auteur": "Nadia_988",
         "couleur": "#57534e",
-        "texte": "Ça donne faim 😋",
+        "texte": "Je veux la recette !",
         "posture": "SUJET"
       },
       {
-        "auteur": "Olivier T.",
-        "couleur": "#1800ad",
-        "texte": "Je veux la recette !",
-        "posture": "SUJET"
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Génial, merci pour l’info.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "J’ai demandé à de la famille à Koné : personne n’est au courant.",
+        "posture": "VERIFIE"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « détail modifié ».",
@@ -3132,12 +3258,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 19413,
-    "commentCount": 625,
-    "date": "25 octobre 2026 à 10:36",
+    "reactionCount": 1502,
+    "commentCount": 1267,
+    "date": "26 octobre 2026 à 00:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-pin-colonnaire",
     "image": "/images/faits/pin-colonnaire.jpg",
     "imageAlt": "Des pins colonnaires sur un îlot de la baie de Prony",
@@ -3152,7 +3278,7 @@
     "sourceColor": "#1800ad",
     "domain": "@manon.988",
     "titre": "wsh le pin colonnaire a été apporté d’europe par les premiers colons",
-    "texte": "c sur un groupe facebook jsuis pas fou 💀",
+    "texte": "personne m’avait jamais dit ça c’est dans un groupe facebook jsuis pas fou ptdr",
     "isFake": true,
     "level": 5,
     "correctAction": "report",
@@ -3187,28 +3313,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
-        "texte": "Les plantes d’ici sont incroyables 🌿",
-        "posture": "SUJET"
-      },
-      {
-        "auteur": "bruno_zz",
-        "couleur": "#8a4fbe",
-        "texte": "La photo 😍",
-        "posture": "PHOTO"
-      },
-      {
         "auteur": "Louise M.",
         "couleur": "#1800ad",
-        "texte": "Mon cousin me l’a dit aussi.",
-        "posture": "CONTRE"
+        "texte": "jure ?? 😭",
+        "posture": "SUJET"
       },
       {
         "auteur": "Soane",
         "couleur": "#c2410c",
-        "texte": "Je ne savais pas, merci 🙏",
-        "posture": "CROIT"
+        "texte": "Ça ne colle pas avec ce que j’ai appris à l’école…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "Les plantes d’ici sont incroyables 🌿",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
@@ -3229,12 +3355,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 38411,
-    "commentCount": 432,
-    "date": "24 octobre 2026 à 22:36",
+    "reactionCount": 14531,
+    "commentCount": 213,
+    "date": "25 octobre 2026 à 12:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "fait-grand-noumea",
     "image": "/images/faits/grand-noumea.jpg",
     "imageAlt": "Nouméa vue des hauteurs, entre baies et collines",
@@ -3248,8 +3374,8 @@
     "source": "Manon",
     "sourceColor": "#1800ad",
     "domain": "@manon.988",
-    "titre": "wsh le grand nouméa regroupe six communes, dont bourail et la foa",
-    "texte": "c sur un groupe facebook jsuis pas fou 💀",
+    "titre": "genre le grand nouméa regroupe six communes, dont bourail et la foa",
+    "texte": "ma sœur me l’a dit et j’y croyais pas c’est dans un groupe facebook jsuis pas fou ptdr",
     "isFake": true,
     "level": 5,
     "correctAction": "report",
@@ -3284,22 +3410,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Vaimiti",
-        "couleur": "#14663f",
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
         "texte": "Ça donne envie de faire le tour de la Grande Terre.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "Quelle image…",
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Elle est où cette photo ?",
         "posture": "PHOTO"
       },
       {
-        "auteur": "Anaïs W.",
+        "auteur": "Mélanie",
         "couleur": "#0e7490",
-        "texte": "Je ne savais pas, merci 🙏",
+        "texte": "Incroyable, je partage.",
         "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "mdrr t’as appris ça où",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
@@ -3320,12 +3452,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 1775,
-    "commentCount": 1892,
-    "date": "25 octobre 2026 à 09:36",
+    "reactionCount": 22905,
+    "commentCount": 1616,
+    "date": "25 octobre 2026 à 23:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "velos-electriques",
     "image": "/images/scenarios/velos-electriques.jpg",
     "imageAlt": "Un vélo électrique en libre-service",
@@ -3339,8 +3471,8 @@
     "source": "Nature et Lagon NC",
     "sourceColor": "#1800ad",
     "domain": "page nature",
-    "titre": "🌿 Nature calédo : les ventes de vélos électriques en forte hausse à Nouméa depuis la rentrée",
-    "texte": "Article susceptible d’être dépublié prochainement. 📚 Source : un groupe Facebook #Caillou #Nature",
+    "titre": "🔎 Le saviez-vous ? Les ventes de vélos électriques en forte hausse à Nouméa depuis la rentrée",
+    "texte": "Ça va changer un peu le quotidien en ville. Article susceptible d’être dépublié prochainement. Mieux vaut l’avoir lu avant qu’il ne soit plus en ligne. 📚 Pour aller plus loin, c’est dans un groupe Facebook. #Science #NC",
     "isFake": true,
     "level": 5,
     "correctAction": "report",
@@ -3375,28 +3507,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "Pourquoi ce serait supprimé ?",
-        "posture": "DOUTE"
-      },
-      {
-        "auteur": "Thierry P.",
-        "couleur": "#57534e",
-        "texte": "Encore faut-il que ça dure.",
-        "posture": "SUJET"
-      },
-      {
-        "auteur": "Didier",
-        "couleur": "#8a4fbe",
-        "texte": "Je ne trouve cette info nulle part ailleurs…",
+        "auteur": "Aurélie",
+        "couleur": "#14663f",
+        "texte": "J’ai demandé à de la famille à Nouméa : personne n’est au courant.",
         "posture": "VERIFIE"
       },
       {
-        "auteur": "Gaby",
-        "couleur": "#14663f",
-        "texte": "Partagé direct avant que ça disparaisse 😱",
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Vite, j’enregistre avant que ça saute",
         "posture": "CROIT"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "Toujours des posts intéressants ici.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
@@ -3417,12 +3549,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 21903,
-    "commentCount": 850,
-    "date": "27 octobre 2026 à 11:36",
+    "reactionCount": 4408,
+    "commentCount": 1151,
+    "date": "28 octobre 2026 à 01:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "scenario": "potager-riviere-salee",
     "image": "/images/scenarios/potager-riviere-salee.jpg",
     "imageAlt": "Un potager en bacs surélevés",
@@ -3436,8 +3568,8 @@
     "source": "Quiz du Caillou",
     "sourceColor": "#791561",
     "domain": "page de quiz",
-    "titre": "🎯 Le quiz du jour : un potager partagé voit le jour au pied des immeubles de Rivière-Salée",
-    "texte": "D'après une source proche du dossier, la décision était connue depuis plusieurs semaines. Source : un site d’info #Quiz #NC",
+    "titre": "❓ Vrai ou faux ? Un potager partagé voit le jour au pied des immeubles de Rivière-Salée",
+    "texte": "On en a parlé pendant une balade en brousse. D'après une source proche du dossier, la décision était connue depuis plusieurs semaines. Le responsable n’a pas souhaité en dire plus pour le moment. On a vérifié sur un site d’info 😉 #Quiz #NC",
     "isFake": true,
     "level": 5,
     "correctAction": "report",
@@ -3474,14 +3606,26 @@
       {
         "auteur": "Nadia_988",
         "couleur": "#57534e",
+        "texte": "La photo 😍",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Aurélie",
+        "couleur": "#14663f",
+        "texte": "Il faudrait apprendre ça à l’école.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
         "texte": "C’est qui ce responsable ? Il a un nom ?",
         "posture": "DOUTE"
       },
       {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
-        "texte": "Il faudrait apprendre ça à l’école.",
-        "posture": "SUJET"
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "Évidemment qu’on nous cache des choses 👏",
+        "posture": "CROIT"
       }
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « autorité inventée ».",

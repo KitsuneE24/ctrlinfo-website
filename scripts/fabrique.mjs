@@ -1,11 +1,10 @@
-// Fabrication des posts et des conversations, partagée par le générateur et le navigateur.
 // `banques` : { faits, scenarios } de contenu.json.
 import {
   AVIS_VRAI,
   CATEGORIES,
   CONSEQUENCES_FAUX,
   CONSEQUENCES_VRAI,
-  FORMATS_SOURCE,
+  CORRECTIONS_FAIT,
   HABILLAGES,
   HABILLAGE_MEDIA,
   FAIT_DEFORME,
@@ -14,17 +13,20 @@ import {
   MEDIAS_FICTIFS,
   PAGES_ORDINAIRES,
   PERSONNES,
+  RELAIS_THEME,
   SCORES_FAUX,
   SCORES_VRAI,
   SOURCES_VAGUES,
+  TEXTES_ARTICLE,
   VRAI,
   VRAI_ARTICLE,
   VRAI_MEDIA,
   VOIX,
   indiceCorrection,
+  surLeSite,
 } from './gabarits.mjs'
 import { etapes, outro } from './gabarits-conversations.mjs'
-import { composerCommentaires } from './commentaires.mjs'
+import { composerCommentaires, tirage } from './commentaires.mjs'
 
 const AIDE = 'https://www.clemi.fr/'
 
@@ -50,14 +52,12 @@ export function empreinte(texte) {
 
 const graineDe = (texte) => parseInt(empreinte(texte), 36)
 
-// Même format que les autres : seule l'année trahit un post recyclé.
 const dateAncienne = (iso) => {
   const d = new Date(iso ?? Date.now())
   d.setFullYear(d.getFullYear() - 2)
   return dateLisible(d.toISOString())
 }
 
-// Un peu avant la fabrication : les posts n'ont pas tous la même heure.
 const dateRecente = (iso, graine) => dateLisible(new Date(new Date(iso).getTime() - (graine % 72) * 3_600_000).toISOString())
 
 const permisPour = (categorie, niveau, base) =>
@@ -73,13 +73,10 @@ const engagement = () => ({
 
 const compter = (liste, cle) => liste.reduce((m, x) => m.set(cle(x), (m.get(cle(x)) ?? 0) + 1), new Map())
 
-// Les titres n'ont pas de point final, vrais comme faux.
 const sansPoint = (texte) => texte.replace(/\.$/, '')
 
-// Environ deux posts sur trois montrent la photo, vrais comme faux.
 const montrePhoto = (graine) => (graine >>> 11) % 3 !== 0
 
-// Photo libre et son crédit (affiché dans la correction), si le tirage la montre.
 const illustration = (image, graine) =>
   image && montrePhoto(graine)
     ? {
@@ -94,31 +91,36 @@ const DEBUTS_COMMUNS = /^(Le|La|Les|L’|L'|Un|Une|Des|Du|Dans|En|Au|Aux|Ce|Cett
 const casser = (texte, casse) =>
   casse === 'min' ? texte.toLocaleLowerCase('fr-FR') : casse === 'maj' ? texte.toLocaleUpperCase('fr-FR') : texte
 
-/** Le titre et le texte d'un post, écrits comme le profil écrit sur les réseaux. */
-function parler({ voix, graine, titre, phrase = '', source = null }) {
+const enMinuscule = (texte) => (DEBUTS_COMMUNS.test(texte) ? texte[0].toLocaleLowerCase('fr-FR') + texte.slice(1) : texte)
+
+const CRIENT = new Set(['alarmiste', 'militant', 'informe'])
+
+function parler({ voix, graine, titre, phrase = '', suite = '', source = null, theme, actu = false }) {
   const v = VOIX[voix]
   if (!v) return { titre, texte: phrase }
-  const ouverture = v.ouvertures[graine % v.ouvertures.length]
-  const fin = v.fins[(graine >>> 5) % v.fins.length]
-  const texte = [phrase, source ? v.source(source) : '', fin].filter(Boolean).join(' ')
-  // « Tiens, le cagou… » : minuscule après une virgule ou deux-points, sauf nom propre.
-  const suite = /[,:]$/.test(ouverture) && DEBUTS_COMMUNS.test(titre) ? titre[0].toLocaleLowerCase('fr-FR') + titre.slice(1) : titre
+  const alea = tirage(graine ^ 0x5bd1e995)
+  const un = (liste) => liste[Math.floor(alea() * liste.length)]
+  const ouverture = un(v.ouvertures)
+  const parTheme = RELAIS_THEME[theme] ?? []
+  const relai = !CRIENT.has(voix) && parTheme.length > 0 && alea() < 0.4 ? un(parTheme) : un(v.relais[actu ? 'actu' : 'fait'])
+  const appel = alea() < 0.6 ? un(v.appels) : ''
+  const fin = un(v.fins)
+  const texte = [relai, phrase, suite, source ? v.source(source) : '', appel, fin].filter(Boolean).join(' ')
+  const tete = /[,:]$/.test(ouverture) && !titre.includes(' : ') ? enMinuscule(titre) : titre
+  const debut = /:$/.test(ouverture) && titre.includes(' : ') ? ouverture.replace(/\s*:$/, '.') : ouverture
   return {
-    titre: casser([ouverture, suite].filter(Boolean).join(' '), v.casse),
+    titre: casser([debut, tete].filter(Boolean).join(' '), v.casse),
     texte: casser(texte, v.casse),
   }
 }
 
-// Qui publie : une personne, une page ou un média, pour les vrais comme pour les faux.
 const genreAuteur = (graine) => ['personne', 'personne', 'page', 'media'][(graine >>> 6) % 4]
 
-/** Ce qui peut devenir un faux : un événement inventé, ou un fait réel dont un détail change. */
 export const basesDe = ({ faits = [], scenarios = [] } = {}) => [
-  ...scenarios.map((s) => ({ id: s.id, titre: sansPoint(s.titre), ecart: s.ecart, image: s.image, theme: s.theme })),
+  ...scenarios.map((s) => ({ id: s.id, titre: sansPoint(s.titre), ecart: s.ecart, image: s.image, theme: s.theme, lieu: s.lieu })),
   ...faits.map((f) => ({ id: `fait-${f.id}`, titre: sansPoint(f.faux), fait: f, image: f.image, theme: f.theme })),
 ]
 
-/** Le fait le moins publié à ce niveau, puis partout ; jamais deux fois au même niveau. */
 export function prochainVrai(pris, niveau, faits = []) {
   const duNiveau = new Set(pris.filter((p) => p.level === niveau).map((p) => p.fait))
   const partout = compter(pris, (p) => p.fait)
@@ -138,13 +140,17 @@ export function fabriquerVrai(fait, niveau, { aideUrl, maintenant = new Date().t
   const auteurs = genre === 'media' ? MEDIAS_FICTIFS : genre === 'page' ? PAGES_ORDINAIRES : PERSONNES
   const [nom, couleur, pseudo, voix] = auteurs[graine % auteurs.length]
   const compte = { nom }
-  // Un média cite sa source ; une personne ou une page, une fois sur trois.
+  const journaliste = JOURNALISTES[(graine >>> 3) % JOURNALISTES.length]
   const ecrit =
     genre === 'media'
       ? null
-      : parler({ voix, graine, titre: sansPoint(fait.vrai), source: (graine >>> 9) % 3 === 0 ? fait.source.nom : null })
-  const source = FORMATS_SOURCE[(graine >>> 8) % FORMATS_SOURCE.length](fait.source.nom)
-  const journaliste = JOURNALISTES[(graine >>> 3) % JOURNALISTES.length]
+      : parler({
+          voix,
+          graine,
+          titre: sansPoint(fait.vrai),
+          source: (graine >>> 9) % 2 === 0 ? surLeSite(fait.source.nom) : null,
+          theme: fait.theme,
+        })
   const photo = illustration(fait.image, graine)
   return {
     ...engagement(),
@@ -160,7 +166,7 @@ export function fabriquerVrai(fait, niveau, { aideUrl, maintenant = new Date().t
     sourceColor: couleur,
     domain: pseudo,
     titre: ecrit ? ecrit.titre : sansPoint(fait.vrai),
-    texte: ecrit ? ecrit.texte : `Article de ${journaliste}, publié par ${nom}. ${source}`,
+    texte: ecrit ? ecrit.texte : TEXTES_ARTICLE.vrai[(graine >>> 8) % TEXTES_ARTICLE.vrai.length]({ journaliste, source: fait.source.nom }),
     isFake: false,
     level: niveau,
     correctAction: 'share',
@@ -174,7 +180,8 @@ export function fabriquerVrai(fait, niveau, { aideUrl, maintenant = new Date().t
       isFake: false,
       theme: fait.theme,
       avecPhoto: Boolean(photo.image),
-      avis: AVIS_VRAI[graine % AVIS_VRAI.length](fait),
+      avis: AVIS_VRAI(fait),
+      contexte: { voix: genre === 'media' ? 'article' : voix, compte: nom },
     }),
     encouragement: 'Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.',
     warning: 'Attention : cette information était vraie, et sa source se vérifie en une recherche.',
@@ -185,7 +192,6 @@ export function fabriquerVrai(fait, niveau, { aideUrl, maintenant = new Date().t
   }
 }
 
-/** Un vrai article repris tel quel : titre jamais modifié, crédit complet (auteur, éditeur, licence). */
 export function fabriquerArticle(article, niveau, { aideUrl, maintenant = new Date().toISOString() } = {}) {
   const slug = `article-${empreinte(article.url)}`
   const graine = graineDe(slug)
@@ -193,7 +199,6 @@ export function fabriquerArticle(article, niveau, { aideUrl, maintenant = new Da
     nom: article.nom,
     editeur: article.editeur,
     auteur: article.auteur,
-    // « d’Émilie », « de Julie »
     deAuteur: /^[aeiouyhàâéèêëîïôûü]/i.test(article.auteur) ? `d’${article.auteur}` : `de ${article.auteur}`,
     domaine: new URL(article.url).hostname.replace(/^www\./, ''),
     date: dateLisible(article.publieLe),
@@ -226,7 +231,8 @@ export function fabriquerArticle(article, niveau, { aideUrl, maintenant = new Da
       isFake: false,
       theme: 'actu',
       avecPhoto: false,
-      avis: VRAI_ARTICLE.avis[graine % VRAI_ARTICLE.avis.length](a),
+      avis: VRAI_ARTICLE.avis(a),
+      contexte: { voix: 'article', compte: a.nom },
     }),
     encouragement: 'Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.',
     warning: 'Attention : cet article venait d’un média identifiable, signé et daté.',
@@ -237,10 +243,6 @@ export function fabriquerArticle(article, niveau, { aideUrl, maintenant = new Da
   }
 }
 
-/**
- * Le prochain faux pour ce niveau : la base et le procédé les moins vus, jamais une combinaison
- * déjà prise. `pris` : les faux existants ({ scenario, biais, level }).
- */
 export function prochainFaux(pris, niveau, banques) {
   const duNiveau = pris.filter((p) => p.level === niveau)
   const deja = new Set(duNiveau.map((p) => `${p.scenario}|${p.biais}`))
@@ -252,7 +254,6 @@ export function prochainFaux(pris, niveau, banques) {
     (x, y) =>
       (basesNiveau.get(x.id) ?? 0) - (basesNiveau.get(y.id) ?? 0) ||
       (basesPartout.get(x.id) ?? 0) - (basesPartout.get(y.id) ?? 0) ||
-      // Mélange les faits déformés et les événements inventés.
       graineDe(`${x.id}|${niveau}`) - graineDe(`${y.id}|${niveau}`)
   )
   for (const base of bases) {
@@ -263,7 +264,6 @@ export function prochainFaux(pris, niveau, banques) {
     const categorie = CATEGORIES.filter((c) => permisPour(c, niveau, base) && !deja.has(`${base.id}|${c.biais}`)).sort(
       (x, y) =>
         (biaisNiveau.get(x.biais) ?? 0) - (biaisNiveau.get(y.biais) ?? 0) ||
-        // Les procédés subtils d'abord, là où ils sont permis.
         Number(Boolean(y.niveaux)) - Number(Boolean(x.niveaux))
     )[0]
     if (categorie) return { base, categorie }
@@ -273,15 +273,11 @@ export function prochainFaux(pris, niveau, banques) {
 
 const valeur = (v, base) => (typeof v === 'function' ? v(base) : v)
 
-// `media` : true ou false impose le format ; absent, le tirage choisit comme pour un vrai.
-// `photo: false` : pendant d'un vrai article repris, qui n'a jamais de photo.
 export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = new Date().toISOString(), prefixe = 'faux', media, photo: avecPhoto = true } = {}) {
   const slug = `${prefixe}-${base.id}-${niveau}-${empreinte(categorie.biais)}`
   const graine = graineDe(slug)
   const enMedia = media ?? genreAuteur(graine) === 'media'
-  // Un faux article : publié par un média inventé, au lieu d'une page ou d'une personne.
   const habillage = enMedia ? HABILLAGE_MEDIA : HABILLAGES.find((h) => h.niveau === niveau)
-  // Une fois sur deux une personne, une fois sur deux une page.
   const personne = (c) => c[2].startsWith('@')
   const tous = enMedia ? MEDIAS_FICTIFS : habillage.comptes
   const groupe = tous.filter((c) => personne(c) === Boolean((graine >>> 6) % 2))
@@ -291,28 +287,31 @@ export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = n
   const voix = enMedia ? null : voixCompte ?? habillage.voix
   const titre = categorie.titres[niveau - 1](base.titre)
   const subtil = niveau >= 4
-  // Un fait déformé reprend la forme d'un vrai post.
   const phrase = categorie.phrases
     ? valeur(categorie.phrases[niveau - 1], base)
     : enMedia
       ? 'Selon nos informations.'
       : ''
+  const suite = categorie.suites?.[niveau <= 2 ? 0 : niveau === 3 ? 1 : 2]
   const fait = base.fait
   const sourceVague = SOURCES_VAGUES[(graine >>> 4) % SOURCES_VAGUES.length]
-  const vague = FORMATS_SOURCE[(graine >>> 8) % FORMATS_SOURCE.length](sourceVague)
   const journaliste = JOURNALISTES[(graine >>> 3) % JOURNALISTES.length]
-  // Hors média, une source bidon deux fois sur trois aux niveaux 4 et 5, dite comme le profil parle.
   const ecrit = enMedia
     ? null
-    : parler({ voix, graine, titre, phrase, source: subtil && (graine >>> 9) % 3 !== 0 ? sourceVague : null })
-  // Comme un vrai article, sauf la source ; non signé avant le niveau 4.
+    : parler({
+        voix,
+        graine,
+        titre,
+        phrase,
+        suite,
+        source: subtil && (graine >>> 9) % 3 !== 0 ? sourceVague : null,
+        theme: base.theme,
+        actu: !fait,
+      })
   const texte = enMedia
-    ? subtil
-      ? `Article de ${journaliste}, publié par ${compte.nom}. ${phrase} ${vague}`
-      : `Article de la rédaction, publié par ${compte.nom}. ${phrase}`
+    ? TEXTES_ARTICLE.faux({ journaliste: subtil ? journaliste : null, phrase, suite, cite: sourceVague })
     : ecrit.texte
   const photo = avecPhoto ? illustration(base.image, graine) : {}
-  // Un événement inventé n'a pas de vraie photo : celle-ci vient d'ailleurs.
   const photoAilleurs = photo.image && !fait ? ' La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.' : ''
   const explicationCompte = enMedia ? (subtil ? habillage.explicationSigne : habillage.explication) : habillage.explication
 
@@ -354,9 +353,12 @@ export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = n
       avecPhoto: Boolean(photo.image),
       avis: {
         croit: categorie.croit,
-        doute: categorie.doute,
-        verifie: fait ? `J’ai vérifié sur ${fait.source.nom} : ce n’est pas ça.` : categorie.verifie[subtil ? 1 : 0],
+        doute: base.lieu ? [...categorie.doute, `J’habite pas loin, personne n’en parle ${base.lieu}.`] : categorie.doute,
+        verifie: fait
+          ? CORRECTIONS_FAIT(fait, enMinuscule(fait.vrai))
+          : [categorie.verifie[subtil ? 1 : 0], ...(base.lieu ? [`J’ai demandé à de la famille ${base.lieu} : personne n’est au courant.`] : [])],
       },
+      contexte: { voix: enMedia ? 'article' : voix, compte: compte.nom, lieu: base.lieu },
     }),
     encouragement: `Bien vu : vous avez reconnu le procédé « ${categorie.biais.toLowerCase()} ».`,
     warning: `Le procédé employé ici s'appelle « ${categorie.biais.toLowerCase()} ». Il fonctionne d'autant mieux qu'on est pressé.`,
@@ -404,7 +406,6 @@ export function fabriquerConversation(post, gabarit, distribution, options = {})
   }
 }
 
-/** `nombre` sujets neufs pour un contact : base et procédé jamais encore discutés. */
 export function sujetsPour(distribution, conversations, nombre, banques, { prefixe = 'sujet', maintenant } = {}) {
   const pris = new Set(conversations.map((c) => `${c.scenario}|${c.biais}`))
   const parBase = compter(conversations, (c) => c.scenario)
@@ -421,12 +422,10 @@ export function sujetsPour(distribution, conversations, nombre, banques, { prefi
     const graine = graineDe(`${distribution.id}|${base.id}`)
     const debut = (graine + sujets.length) % CATEGORIES.length
     const gabarit = [...CATEGORIES.slice(debut), ...CATEGORIES.slice(0, debut)].find(
-      // La date et le texte du post n'apparaissent pas dans une discussion.
       (c) => !c.niveaux && !pris.has(`${base.id}|${c.biais}`)
     )
     if (!gabarit) continue
     pris.add(`${base.id}|${gabarit.biais}`)
-    // Pas de niveau 5 : le post y est trop neutre pour une discussion.
     const post = fabriquerFaux(base, gabarit, 1 + (graine % 3), { maintenant })
     const id = `${prefixe}-${distribution.id}-${base.id}-${empreinte(gabarit.biais)}`
     sujets.push(fabriquerConversation(post, gabarit, distribution, { id, maintenant }))

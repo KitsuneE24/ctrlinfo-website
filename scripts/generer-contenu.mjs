@@ -1,8 +1,4 @@
 // node scripts/generer-contenu.mjs [--config config.json] [--refaire] [--essai]
-// Fabrique les posts et les sujets de discussion :
-// - posts de personnes et faux articles, depuis les banques de contenu.json (faits, scenarios) ;
-// - vrais articles, titre et lien tels quels, depuis des médias sous licence libre (generation.articles).
-// Chaque passage renouvelle une partie du fil.
 import { readFileSync, writeFileSync } from 'node:fs'
 import Parser from 'rss-parser'
 import { HABILLAGES } from './gabarits.mjs'
@@ -32,7 +28,6 @@ let vrais = lireJson(FICHIERS.vrais)
 let faux = lireJson(FICHIERS.faux)
 const banques = { faits: contenu.faits ?? [], scenarios: contenu.scenarios ?? [] }
 const maintenant = new Date().toISOString()
-// Un tour par jour : les posts renouvelés changent d'auteur et de tournure.
 const tour = maintenant.slice(0, 10).replaceAll('-', '')
 const options = { aideUrl: reglages.aideUrl, maintenant }
 
@@ -50,8 +45,6 @@ if (drapeau('--refaire')) {
   contenu.conversations = contenu.conversations.filter((c) => !genere(c))
 }
 
-// --- Vrais articles : seulement les médias sous licence libre de la configuration ---
-
 const lienWeb = (url) => {
   try {
     return typeof url === 'string' && ['http:', 'https:'].includes(new URL(url).protocol) ? url : null
@@ -59,7 +52,6 @@ const lienWeb = (url) => {
     return null
   }
 }
-// Texte venu d'un flux : sans balises ni entités, longueur bornée.
 const propre = (texte, max) =>
   String(texte ?? '')
     .replace(/<[^>]*>/g, ' ')
@@ -69,7 +61,6 @@ const propre = (texte, max) =>
     .slice(0, max)
 const motif = (liste) => new RegExp((liste ?? []).join('|') || '$^', 'i')
 const ecarte = motif(reglagesArticles.sujetsEcartes)
-// Certains flux français mêlent des titres en anglais.
 const MOTS_ANGLAIS = /\b(the|and|of|to|with|without|what|could|how|why|is|are|for)\b/gi
 const enFrancais = (titre) => (titre.match(MOTS_ANGLAIS) ?? []).length < 2
 
@@ -94,14 +85,12 @@ async function lireArticles() {
           publieLe: item.isoDate ?? item.pubDate ?? null,
           nom: flux.nom,
           editeur: flux.editeur,
-          // « Prénom Nom, fonction, établissement » : on garde le nom.
           auteur: propre(String(item.author ?? item.creator ?? flux.editeur).split(',')[0], 80) || flux.editeur,
           licence: flux.licence,
         })
       }
       console.log(`  ${flux.nom} : ${lu.items?.length ?? 0} articles lus`)
     } catch (erreur) {
-      // Sans flux, le fil se remplit de posts de personnes.
       console.log(`  ${flux.nom} : échec (${erreur.message})`)
     }
   }
@@ -117,7 +106,6 @@ const articlesParNiveau = Math.round(parNiveau * (reglagesArticles.part ?? 0))
 const renouveler = reglages.renouvelerParJour ?? 2
 const plusAncien = (x, y) => new Date(x.recolteLe ?? 0) - new Date(y.recolteLe ?? 0)
 
-// Les plus anciens de chaque niveau laissent leur place.
 let retires = 0
 function rafraichir(posts) {
   const garde = posts.filter((p) => !genere(p))
@@ -142,7 +130,6 @@ const ajouter = (liste, post) => {
 }
 for (const n of niveaux) {
   const compter = (liste, filtre = () => true) => liste.filter((p) => p.level === n && filtre(p)).length
-  // Environ un tiers d'articles, le reste en posts de personnes.
   while (compter(vrais, estArticle) < articlesParNiveau && compter(vrais) < parNiveau && disponibles.length > 0) {
     ajouter(vrais, fabriquerArticle(disponibles.shift(), n, options))
   }
@@ -151,12 +138,10 @@ for (const n of niveaux) {
     if (!fait) break
     ajouter(vrais, fabriquerVrai(fait, n, { ...options, prefixe: `vrai-${tour}` }))
   }
-  // Autant de faux que de vrais, et autant de faux articles (médias inventés) que de vrais articles.
   const fauxOptions = { ...options, prefixe: `faux-${tour}` }
   while (compter(faux, estArticle) < compter(vrais, estArticle) && compter(faux) < compter(vrais)) {
     const choix = prochainFaux(faux, n, banques)
     if (!choix) break
-    // Un vrai article repris n'a pas de photo : son pendant non plus.
     const photo = compter(faux, estArticle) >= compter(vrais, (p) => p.origine === 'article')
     ajouter(faux, fabriquerFaux(choix.base, choix.categorie, n, { ...fauxOptions, media: true, photo }))
   }
@@ -171,7 +156,6 @@ let prochainId =
   Math.max(0, ...[...vrais, ...faux, ...Object.values(contenu.remediations ?? {})].map((p) => Number(p.id) || 0)) + 1
 for (const post of nouveaux) post.id ??= prochainId++
 
-// Chaque contact garde quelques sujets d'avance ; le plus ancien est remplacé chaque jour.
 const sujetsParContact = reglages.sujetsParContact ?? 3
 const manuelles = contenu.conversations.filter((c) => !genere(c))
 let sujets = contenu.conversations.filter((c) => genere(c) && c.contact)

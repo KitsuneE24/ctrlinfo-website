@@ -1,37 +1,37 @@
 [
   {
     "sponsorise": false,
-    "reactionCount": 26444,
-    "commentCount": 1057,
-    "date": "27 octobre 2026 à 02:08",
+    "reactionCount": 31662,
+    "commentCount": 108,
+    "date": "28 octobre 2026 à 02:14",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "article",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "article": {
-      "titre": "Micropesanteur et réactivation virale : ce que les séjours dans l’espace révèlent de notre immunité",
-      "url": "https://theconversation.com/micropesanteur-et-reactivation-virale-ce-que-les-sejours-dans-lespace-revelent-de-notre-immunite-294286",
-      "publieLe": "2026-10-26T15:08:22.000Z",
+      "titre": "Pourquoi le narcotrafic résiste si bien à la répression policière ? Ce que l’expérience brésilienne peut enseigner à la France",
+      "url": "https://theconversation.com/pourquoi-le-narcotrafic-resiste-si-bien-a-la-repression-policiere-ce-que-lexperience-bresilienne-peut-enseigner-a-la-france-291853",
+      "publieLe": "2026-10-27T15:14:26.000Z",
       "nom": "The Conversation",
       "editeur": "The Conversation France",
-      "auteur": "Emmanuel Drouet"
+      "auteur": "François-Michel Le Tourneau"
     },
     "licence": {
       "nom": "CC BY-ND 4.0",
       "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
     },
-    "slug": "article-1e8zfki",
+    "slug": "article-1w6vmfx",
     "source": "The Conversation",
     "sourceColor": "#1800ad",
     "domain": "theconversation.com",
-    "titre": "Micropesanteur et réactivation virale : ce que les séjours dans l’espace révèlent de notre immunité",
-    "texte": "Article d’Emmanuel Drouet, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "titre": "Pourquoi le narcotrafic résiste si bien à la répression policière ? Ce que l’expérience brésilienne peut enseigner à la France",
+    "texte": "Article de François-Michel Le Tourneau, publié par The Conversation France. À lire en entier sur theconversation.com.",
     "isFake": false,
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
-    "analyseVrai": "Article d’Emmanuel Drouet, publié par The Conversation France le 27 octobre 2026 à 02:08.",
+    "analyseVrai": "Article de François-Michel Le Tourneau, publié par The Conversation France le 28 octobre 2026 à 02:14.",
     "indices": [
       {
         "ordre": 0,
@@ -47,7 +47,7 @@
         "cible": "DATE",
         "picto": "Clock",
         "libelle": "Une date précise",
-        "explication": "Publié le 27 octobre 2026 à 02:08 : on sait de quand date l’information."
+        "explication": "Publié le 28 octobre 2026 à 02:14 : on sait de quand date l’information."
       },
       {
         "ordre": 2,
@@ -60,21 +60,27 @@
     ],
     "commentaires": [
       {
-        "auteur": "Thierry P.",
-        "couleur": "#57534e",
-        "texte": "Je ne m’étais jamais posé la question.",
+        "auteur": "Manu",
+        "couleur": "#8a4fbe",
+        "texte": "Merci pour le lien.",
         "posture": "SUJET"
       },
       {
-        "auteur": "sam_974",
-        "couleur": "#1800ad",
-        "texte": "L’article complet est sur theconversation.com, signé Emmanuel Drouet.",
-        "posture": "VERIFIE"
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Encore un article qui va dans tous les sens…",
+        "posture": "DOUTE"
       },
       {
-        "auteur": "Marie-Jo",
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "Article intéressant, merci.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Moana R.",
         "couleur": "#1800ad",
-        "texte": "Merci pour l’article 🙏",
+        "texte": "Intéressant, je partage.",
         "posture": "CROIT"
       }
     ],
@@ -90,43 +96,43 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://theconversation.com/micropesanteur-et-reactivation-virale-ce-que-les-sejours-dans-lespace-revelent-de-notre-immunite-294286",
-    "learnMoreUrl": "https://theconversation.com/micropesanteur-et-reactivation-virale-ce-que-les-sejours-dans-lespace-revelent-de-notre-immunite-294286",
+    "sourceUrl": "https://theconversation.com/pourquoi-le-narcotrafic-resiste-si-bien-a-la-repression-policiere-ce-que-lexperience-bresilienne-peut-enseigner-a-la-france-291853",
+    "learnMoreUrl": "https://theconversation.com/pourquoi-le-narcotrafic-resiste-si-bien-a-la-repression-policiere-ce-que-lexperience-bresilienne-peut-enseigner-a-la-france-291853",
     "id": 25
   },
   {
     "sponsorise": false,
-    "reactionCount": 8564,
-    "commentCount": 873,
-    "date": "27 octobre 2026 à 02:06",
+    "reactionCount": 13159,
+    "commentCount": 1078,
+    "date": "28 octobre 2026 à 02:13",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "article",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "article": {
-      "titre": "Les gestes individuels peuvent-ils quelque chose pour lutter contre la pollution plastique ?",
-      "url": "https://theconversation.com/les-gestes-individuels-peuvent-ils-quelque-chose-pour-lutter-contre-la-pollution-plastique-292314",
-      "publieLe": "2026-10-26T15:06:37.000Z",
+      "titre": "Couper l’aide au développement au nom de l’intérêt national : le paradoxe des pays donateurs",
+      "url": "https://theconversation.com/couper-laide-au-developpement-au-nom-de-linteret-national-le-paradoxe-des-pays-donateurs-293771",
+      "publieLe": "2026-10-27T15:13:38.000Z",
       "nom": "The Conversation",
       "editeur": "The Conversation France",
-      "auteur": "Julie Metta"
+      "auteur": "Marin Ferry"
     },
     "licence": {
       "nom": "CC BY-ND 4.0",
       "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
     },
-    "slug": "article-ts62n0",
+    "slug": "article-pelan1",
     "source": "The Conversation",
     "sourceColor": "#1800ad",
     "domain": "theconversation.com",
-    "titre": "Les gestes individuels peuvent-ils quelque chose pour lutter contre la pollution plastique ?",
-    "texte": "Article de Julie Metta, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "titre": "Couper l’aide au développement au nom de l’intérêt national : le paradoxe des pays donateurs",
+    "texte": "Article de Marin Ferry, publié par The Conversation France. À lire en entier sur theconversation.com.",
     "isFake": false,
     "level": 1,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
-    "analyseVrai": "Article de Julie Metta, publié par The Conversation France le 27 octobre 2026 à 02:06.",
+    "analyseVrai": "Article de Marin Ferry, publié par The Conversation France le 28 octobre 2026 à 02:13.",
     "indices": [
       {
         "ordre": 0,
@@ -142,7 +148,7 @@
         "cible": "DATE",
         "picto": "Clock",
         "libelle": "Une date précise",
-        "explication": "Publié le 27 octobre 2026 à 02:06 : on sait de quand date l’information."
+        "explication": "Publié le 28 octobre 2026 à 02:13 : on sait de quand date l’information."
       },
       {
         "ordre": 2,
@@ -155,16 +161,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Willy",
-        "couleur": "#8a4fbe",
-        "texte": "Merci pour le lien.",
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "Quelqu’un a lu l’article en entier ?",
         "posture": "SUJET"
       },
       {
-        "auteur": "Fatou S.",
-        "couleur": "#791561",
-        "texte": "C’est bien sur le site de The Conversation, daté du 27 octobre 2026 à 02:06.",
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "L’article complet est sur theconversation.com, signé Marin Ferry.",
         "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Intéressant, je partage.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Manu",
+        "couleur": "#8a4fbe",
+        "texte": "Je ne m’étais jamais posé la question.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
@@ -179,18 +197,18 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://theconversation.com/les-gestes-individuels-peuvent-ils-quelque-chose-pour-lutter-contre-la-pollution-plastique-292314",
-    "learnMoreUrl": "https://theconversation.com/les-gestes-individuels-peuvent-ils-quelque-chose-pour-lutter-contre-la-pollution-plastique-292314",
+    "sourceUrl": "https://theconversation.com/couper-laide-au-developpement-au-nom-de-linteret-national-le-paradoxe-des-pays-donateurs-293771",
+    "learnMoreUrl": "https://theconversation.com/couper-laide-au-developpement-au-nom-de-linteret-national-le-paradoxe-des-pays-donateurs-293771",
     "id": 26
   },
   {
     "sponsorise": false,
-    "reactionCount": 40075,
-    "commentCount": 1507,
-    "date": "25 octobre 2026 à 10:36",
+    "reactionCount": 9414,
+    "commentCount": 1599,
+    "date": "26 octobre 2026 à 00:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "corail-blanchiment",
     "image": "/images/faits/corail-blanchiment.jpg",
     "imageAlt": "Un corail cerveau devenu blanc après un épisode de chaleur",
@@ -204,8 +222,8 @@
     "source": "Manon",
     "sourceColor": "#1800ad",
     "domain": "@manon.988",
-    "titre": "wsh les coraux blanchissent surtout quand l’eau de mer devient trop chaude",
-    "texte": "c fou",
+    "titre": "jsp si vous saviez mais les coraux blanchissent surtout quand l’eau de mer devient trop chaude",
+    "texte": "ma sœur me l’a dit et j’y croyais pas c’est sur wikipédia jsuis pas fou vous saviez ? 💀",
     "isFake": false,
     "level": 1,
     "correctAction": "share",
@@ -240,27 +258,27 @@
     ],
     "commentaires": [
       {
-        "auteur": "Jean-Luc",
-        "couleur": "#0e7490",
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "mdrr t’as appris ça où",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "On ne sait jamais avec ce qu’on lit sur internet…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
         "texte": "Le lagon, on ne s’en lasse pas 🐠",
         "posture": "SUJET"
       },
       {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
-        "texte": "Merci pour l’info 🙏",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Manu",
-        "couleur": "#8a4fbe",
-        "texte": "Quelle image…",
-        "posture": "PHOTO"
-      },
-      {
-        "auteur": "Soane",
-        "couleur": "#c2410c",
-        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
+        "texte": "Exact, et c’est bien expliqué sur Wikipédia.",
         "posture": "VERIFIE"
       }
     ],
@@ -282,19 +300,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 19596,
-    "commentCount": 1179,
-    "date": "25 octobre 2026 à 13:36",
+    "reactionCount": 9817,
+    "commentCount": 462,
+    "date": "26 octobre 2026 à 03:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "cyclone-mer-chaude",
     "slug": "vrai-20261027-cyclone-mer-chaude-1",
     "source": "Steeve",
     "sourceColor": "#57534e",
     "domain": "@steeve_nc",
-    "titre": "frr un cyclone tropical se forme au-dessus d’une mer chaude, à au moins 26 °c environ",
-    "texte": "c sur wikipédia jsuis pas fou 💀",
+    "titre": "genre un cyclone tropical se forme au-dessus d’une mer chaude, à au moins 26 °c environ",
+    "texte": "on en parlait justement en sortant en bateau dimanche. c’est sur wikipédia jsuis pas fou vous saviez ? 💀",
     "isFake": false,
     "level": 1,
     "correctAction": "share",
@@ -335,8 +353,8 @@
         "posture": "SUJET"
       },
       {
-        "auteur": "Gaby",
-        "couleur": "#14663f",
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
         "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
         "posture": "VERIFIE"
       }
@@ -359,12 +377,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 25734,
-    "commentCount": 1748,
-    "date": "25 octobre 2026 à 02:36",
+    "reactionCount": 26180,
+    "commentCount": 1263,
+    "date": "25 octobre 2026 à 16:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "pin-colonnaire",
     "image": "/images/faits/pin-colonnaire.jpg",
     "imageAlt": "Des pins colonnaires sur un îlot de la baie de Prony",
@@ -378,8 +396,8 @@
     "source": "Aline B.",
     "sourceColor": "#c2410c",
     "domain": "@aline.b",
-    "titre": "Tiens, le pin colonnaire est un arbre endémique de Nouvelle-Calédonie",
-    "texte": "",
+    "titre": "Le pin colonnaire est un arbre endémique de Nouvelle-Calédonie",
+    "texte": "On en a parlé pendant une balade en brousse. Lu sur Wikipédia. 🤔",
     "isFake": false,
     "level": 1,
     "correctAction": "share",
@@ -414,22 +432,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Patrick L.",
-        "couleur": "#791561",
-        "texte": "Ça m’étonne quand même.",
-        "posture": "DOUTE"
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Enfin une info claire.",
+        "posture": "CROIT"
       },
       {
-        "auteur": "Thierry P.",
-        "couleur": "#57534e",
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
         "texte": "Il faudrait apprendre ça à l’école.",
         "posture": "SUJET"
-      },
-      {
-        "auteur": "sam_974",
-        "couleur": "#1800ad",
-        "texte": "Confirmé par Wikipédia, j’ai regardé.",
-        "posture": "VERIFIE"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -450,12 +468,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 16597,
-    "commentCount": 1407,
-    "date": "25 octobre 2026 à 15:36",
+    "reactionCount": 14134,
+    "commentCount": 713,
+    "date": "26 octobre 2026 à 05:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "cagou-oeuf",
     "image": "/images/faits/cagou-oeuf.jpg",
     "imageAlt": "Un œuf de cagou, beige tacheté de brun",
@@ -469,8 +487,8 @@
     "source": "Nature et Lagon NC",
     "sourceColor": "#1800ad",
     "domain": "page nature",
-    "titre": "🌿 Nature calédo : le cagou ne pond en général qu’un seul œuf à la fois",
-    "texte": "#NouvelleCalédonie #LeSaviezVous",
+    "titre": "🔎 Le saviez-vous ? Le cagou ne pond en général qu’un seul œuf à la fois",
+    "texte": "J’ai toujours eu un faible pour nos animaux. 📚 Pour aller plus loin, c’est sur Wikipédia. Dites-nous en commentaire ! #NouvelleCalédonie #LeSaviezVous",
     "isFake": false,
     "level": 1,
     "correctAction": "share",
@@ -507,12 +525,18 @@
       {
         "auteur": "Marie-Jo",
         "couleur": "#1800ad",
-        "texte": "C’est bien ce que dit Wikipédia.",
+        "texte": "Confirmé sur Wikipédia, j’ai regardé.",
         "posture": "VERIFIE"
       },
       {
-        "auteur": "Camille R.",
+        "auteur": "Mélanie",
         "couleur": "#0e7490",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Hélène",
+        "couleur": "#791561",
         "texte": "On ne connaît pas assez nos animaux.",
         "posture": "SUJET"
       }
@@ -535,19 +559,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 34593,
-    "commentCount": 1525,
-    "date": "26 octobre 2026 à 13:36",
+    "reactionCount": 25890,
+    "commentCount": 992,
+    "date": "27 octobre 2026 à 03:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "loyaute-iles",
     "slug": "vrai-20261027-loyaute-iles-1",
     "source": "Steeve",
     "sourceColor": "#57534e",
     "domain": "@steeve_nc",
-    "titre": "frr les principales îles loyauté sont maré, lifou, tiga et ouvéa",
-    "texte": "c sur wikipédia jsuis pas fou 🤯",
+    "titre": "jsp si vous saviez mais les principales îles loyauté sont maré, lifou, tiga et ouvéa",
+    "texte": "je l’ai appris en faisant mon exposé c’est sur wikipédia jsuis pas fou vous saviez ? 💀",
     "isFake": false,
     "level": 1,
     "correctAction": "share",
@@ -582,28 +606,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Mélanie",
-        "couleur": "#0e7490",
-        "texte": "Merci pour l’info 🙏",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Patrick L.",
-        "couleur": "#791561",
-        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
-        "posture": "DOUTE"
-      },
-      {
         "auteur": "Didier",
         "couleur": "#8a4fbe",
-        "texte": "J’ai appris ça au collège je crois.",
+        "texte": "ptdr",
         "posture": "SUJET"
       },
       {
         "auteur": "Olivier T.",
         "couleur": "#1800ad",
-        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
+        "texte": "C’est bien ce qu’on trouve sur Wikipédia.",
         "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "J’ai appris ça au collège je crois.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -624,19 +642,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 12222,
-    "commentCount": 837,
-    "date": "25 octobre 2026 à 13:36",
+    "reactionCount": 10154,
+    "commentCount": 532,
+    "date": "26 octobre 2026 à 03:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "niaouli",
     "slug": "vrai-20261027-niaouli-1",
     "source": "Steeve",
     "sourceColor": "#57534e",
     "domain": "@steeve_nc",
     "titre": "frr le niaouli est un arbre de la même famille que l’eucalyptus",
-    "texte": "💀",
+    "texte": "ma sœur me l’a dit et j’y croyais pas 😭",
     "isFake": false,
     "level": 1,
     "correctAction": "share",
@@ -671,22 +689,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "bruno_zz",
-        "couleur": "#8a4fbe",
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "Exact, et c’est bien expliqué sur Wikipédia.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
         "texte": "Il faudrait apprendre ça à l’école.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Karim",
-        "couleur": "#1800ad",
-        "texte": "Merci pour l’info 🙏",
-        "posture": "CROIT"
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "mdrr t’as appris ça où",
+        "posture": "SUJET"
       },
       {
-        "auteur": "Fatou S.",
-        "couleur": "#791561",
-        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
-        "posture": "VERIFIE"
+        "auteur": "Manu",
+        "couleur": "#8a4fbe",
+        "texte": "Je ne savais pas du tout !",
+        "posture": "CROIT"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -707,37 +731,37 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 38559,
-    "commentCount": 1601,
-    "date": "27 octobre 2026 à 02:06",
+    "reactionCount": 19445,
+    "commentCount": 541,
+    "date": "28 octobre 2026 à 02:13",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "article",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "article": {
-      "titre": "Frances Power Cobbe : Défendre les femmes, défendre les animaux, un même engagement",
-      "url": "https://theconversation.com/frances-power-cobbe-defendre-les-femmes-defendre-les-animaux-un-meme-engagement-294410",
-      "publieLe": "2026-10-26T15:06:22.000Z",
+      "titre": "Protéger la biodiversité : et si avant de dépenser plus, on ciblait mieux les efforts ?",
+      "url": "https://theconversation.com/proteger-la-biodiversite-et-si-avant-de-depenser-plus-on-ciblait-mieux-les-efforts-292410",
+      "publieLe": "2026-10-27T15:13:06.000Z",
       "nom": "The Conversation",
       "editeur": "The Conversation France",
-      "auteur": "Émilie Dardenne"
+      "auteur": "Pierre Courtois"
     },
     "licence": {
       "nom": "CC BY-ND 4.0",
       "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
     },
-    "slug": "article-129phl2",
+    "slug": "article-pex2ca",
     "source": "The Conversation",
     "sourceColor": "#1800ad",
     "domain": "theconversation.com",
-    "titre": "Frances Power Cobbe : Défendre les femmes, défendre les animaux, un même engagement",
-    "texte": "Article d’Émilie Dardenne, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "titre": "Protéger la biodiversité : et si avant de dépenser plus, on ciblait mieux les efforts ?",
+    "texte": "Article de Pierre Courtois, publié par The Conversation France. À lire en entier sur theconversation.com.",
     "isFake": false,
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
-    "analyseVrai": "Article d’Émilie Dardenne, publié par The Conversation France le 27 octobre 2026 à 02:06.",
+    "analyseVrai": "Article de Pierre Courtois, publié par The Conversation France le 28 octobre 2026 à 02:13.",
     "indices": [
       {
         "ordre": 0,
@@ -753,7 +777,7 @@
         "cible": "DATE",
         "picto": "Clock",
         "libelle": "Une date précise",
-        "explication": "Publié le 27 octobre 2026 à 02:06 : on sait de quand date l’information."
+        "explication": "Publié le 28 octobre 2026 à 02:13 : on sait de quand date l’information."
       },
       {
         "ordre": 2,
@@ -766,27 +790,27 @@
     ],
     "commentaires": [
       {
-        "auteur": "Olivier T.",
-        "couleur": "#1800ad",
-        "texte": "Encore un article qui va dans tous les sens…",
-        "posture": "DOUTE"
-      },
-      {
-        "auteur": "Nadia_988",
-        "couleur": "#57534e",
-        "texte": "Merci pour l’article 🙏",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Louise M.",
-        "couleur": "#1800ad",
-        "texte": "Long, mais ça vaut le coup.",
+        "auteur": "Willy",
+        "couleur": "#8a4fbe",
+        "texte": "Merci pour le lien.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Mélanie",
-        "couleur": "#0e7490",
-        "texte": "L’article complet est sur theconversation.com, signé Émilie Dardenne.",
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "On ne sait jamais avec les médias…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Intéressant, je partage.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "C’est bien sur le site de The Conversation, daté du 28 octobre 2026 à 02:13.",
         "posture": "VERIFIE"
       }
     ],
@@ -802,43 +826,43 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://theconversation.com/frances-power-cobbe-defendre-les-femmes-defendre-les-animaux-un-meme-engagement-294410",
-    "learnMoreUrl": "https://theconversation.com/frances-power-cobbe-defendre-les-femmes-defendre-les-animaux-un-meme-engagement-294410",
+    "sourceUrl": "https://theconversation.com/proteger-la-biodiversite-et-si-avant-de-depenser-plus-on-ciblait-mieux-les-efforts-292410",
+    "learnMoreUrl": "https://theconversation.com/proteger-la-biodiversite-et-si-avant-de-depenser-plus-on-ciblait-mieux-les-efforts-292410",
     "id": 41
   },
   {
     "sponsorise": false,
-    "reactionCount": 30863,
-    "commentCount": 14,
-    "date": "27 octobre 2026 à 02:03",
+    "reactionCount": 4285,
+    "commentCount": 1353,
+    "date": "28 octobre 2026 à 02:11",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "article",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "article": {
-      "titre": "Quand l’IA vient à nous par l’intermédiaire d’« agents », jusqu’où peut-on lui faire confiance ?",
-      "url": "https://theconversation.com/quand-lia-vient-a-nous-par-lintermediaire-d-agents-jusquou-peut-on-lui-faire-confiance-294391",
-      "publieLe": "2026-10-26T15:03:56.000Z",
+      "titre": "Comment Moody’s, S&P et Fitch, les Big Three, ont-ils construit leur légitimité ?",
+      "url": "https://theconversation.com/comment-moodys-sandp-et-fitch-les-big-three-ont-ils-construit-leur-legitimite-285724",
+      "publieLe": "2026-10-27T15:11:32.000Z",
       "nom": "The Conversation",
       "editeur": "The Conversation France",
-      "auteur": "Paul Favier"
+      "auteur": "Valérie Lelièvre"
     },
     "licence": {
       "nom": "CC BY-ND 4.0",
       "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
     },
-    "slug": "article-mwbozp",
+    "slug": "article-1dmw7mh",
     "source": "The Conversation",
     "sourceColor": "#1800ad",
     "domain": "theconversation.com",
-    "titre": "Quand l’IA vient à nous par l’intermédiaire d’« agents », jusqu’où peut-on lui faire confiance ?",
-    "texte": "Article de Paul Favier, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "titre": "Comment Moody’s, S&P et Fitch, les Big Three, ont-ils construit leur légitimité ?",
+    "texte": "Article de Valérie Lelièvre, publié par The Conversation France. À lire en entier sur theconversation.com.",
     "isFake": false,
     "level": 2,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
-    "analyseVrai": "Article de Paul Favier, publié par The Conversation France le 27 octobre 2026 à 02:03.",
+    "analyseVrai": "Article de Valérie Lelièvre, publié par The Conversation France le 28 octobre 2026 à 02:11.",
     "indices": [
       {
         "ordre": 0,
@@ -854,7 +878,7 @@
         "cible": "DATE",
         "picto": "Clock",
         "libelle": "Une date précise",
-        "explication": "Publié le 27 octobre 2026 à 02:03 : on sait de quand date l’information."
+        "explication": "Publié le 28 octobre 2026 à 02:11 : on sait de quand date l’information."
       },
       {
         "ordre": 2,
@@ -867,22 +891,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Jean-Luc",
-        "couleur": "#0e7490",
-        "texte": "On ne sait jamais avec les médias…",
-        "posture": "DOUTE"
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "L’article complet est sur theconversation.com, signé Valérie Lelièvre.",
+        "posture": "VERIFIE"
       },
       {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "Long, mais ça vaut le coup.",
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Merci pour le lien.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Inès K.",
+        "auteur": "Aurélie",
         "couleur": "#14663f",
-        "texte": "Intéressant, je partage.",
-        "posture": "CROIT"
+        "texte": "Trop long, quelqu’un résume ?",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
@@ -897,19 +921,19 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://theconversation.com/quand-lia-vient-a-nous-par-lintermediaire-d-agents-jusquou-peut-on-lui-faire-confiance-294391",
-    "learnMoreUrl": "https://theconversation.com/quand-lia-vient-a-nous-par-lintermediaire-d-agents-jusquou-peut-on-lui-faire-confiance-294391",
+    "sourceUrl": "https://theconversation.com/comment-moodys-sandp-et-fitch-les-big-three-ont-ils-construit-leur-legitimite-285724",
+    "learnMoreUrl": "https://theconversation.com/comment-moodys-sandp-et-fitch-les-big-three-ont-ils-construit-leur-legitimite-285724",
     "id": 42
   },
   {
     "sponsorise": false,
-    "reactionCount": 8859,
-    "commentCount": 507,
-    "date": "27 octobre 2026 à 18:36",
+    "reactionCount": 14689,
+    "commentCount": 1070,
+    "date": "28 octobre 2026 à 08:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "recifs-especes",
     "image": "/images/faits/recifs-especes.jpg",
     "imageAlt": "Un requin gris au milieu d’un banc de poissons-cochers",
@@ -924,7 +948,7 @@
     "sourceColor": "#0d0080",
     "domain": "noumea-matin.info",
     "titre": "Les récifs coralliens couvrent moins de 1 % des océans, mais abritent environ un quart des espèces marines",
-    "texte": "Article de Julien Ferrand, publié par Nouméa Matin. (source : Wikipédia)",
+    "texte": "Par Julien Ferrand. D’après Wikipédia, l’information se vérifie en quelques clics. On vous explique ce qu’il faut retenir.",
     "isFake": false,
     "level": 2,
     "correctAction": "share",
@@ -959,16 +983,16 @@
     ],
     "commentaires": [
       {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
-        "texte": "Quelle image…",
-        "posture": "PHOTO"
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "C’est bien ce qu’on trouve sur Wikipédia.",
+        "posture": "VERIFIE"
       },
       {
-        "auteur": "Hélène",
-        "couleur": "#791561",
-        "texte": "Bon à savoir, je fais tourner.",
-        "posture": "CROIT"
+        "auteur": "Manu",
+        "couleur": "#8a4fbe",
+        "texte": "Quelle image…",
+        "posture": "PHOTO"
       },
       {
         "auteur": "Tehei",
@@ -977,10 +1001,10 @@
         "posture": "SUJET"
       },
       {
-        "auteur": "Camille R.",
-        "couleur": "#0e7490",
-        "texte": "C’est bien ce que dit Wikipédia.",
-        "posture": "VERIFIE"
+        "auteur": "Soane",
+        "couleur": "#c2410c",
+        "texte": "Le lien ne s’ouvre pas chez moi.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -1001,19 +1025,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 36738,
-    "commentCount": 228,
-    "date": "26 octobre 2026 à 12:36",
+    "reactionCount": 17141,
+    "commentCount": 351,
+    "date": "27 octobre 2026 à 02:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "cagou-endemique",
     "slug": "vrai-20261027-cagou-endemique-2",
     "source": "Poema",
     "sourceColor": "#791561",
     "domain": "@poema.w",
-    "titre": "Les amis, le cagou est endémique : il ne vit naturellement qu’en Nouvelle-Calédonie",
-    "texte": "J’ai vérifié sur Wikipédia 👍 ❤️",
+    "titre": "Les amis, Le cagou est endémique : il ne vit naturellement qu’en Nouvelle-Calédonie",
+    "texte": "Ma fille me l’a appris en rentrant de l’école, je ne le savais pas du tout ! 🙏",
     "isFake": false,
     "level": 2,
     "correctAction": "share",
@@ -1048,22 +1072,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Louise M.",
-        "couleur": "#1800ad",
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "Toujours de bonnes infos ici ❤️",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#c2410c",
         "texte": "Il faut les protéger, elles sont fragiles.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "Bon à savoir, je fais tourner.",
-        "posture": "CROIT"
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "C’est bien ce qu’on trouve sur Wikipédia.",
+        "posture": "VERIFIE"
       },
       {
-        "auteur": "Anaïs W.",
-        "couleur": "#0e7490",
-        "texte": "C’est bien ce que dit Wikipédia.",
-        "posture": "VERIFIE"
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Je ne savais pas du tout !",
+        "posture": "CROIT"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -1084,19 +1114,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 7046,
-    "commentCount": 322,
-    "date": "27 octobre 2026 à 19:36",
+    "reactionCount": 32086,
+    "commentCount": 1380,
+    "date": "28 octobre 2026 à 09:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "nautile",
     "slug": "vrai-20261027-nautile-2",
     "source": "Mélissa R.",
     "sourceColor": "#791561",
     "domain": "@melissa.r",
-    "titre": "Coucou tout le monde 🌺 Le nautile est un mollusque qui vit en profondeur, au large des récifs",
-    "texte": "Partagez autour de vous 🙏",
+    "titre": "Petite info du jour : le nautile est un mollusque qui vit en profondeur, au large des récifs",
+    "texte": "Je l’ai découvert en aidant mon fils pour ses devoirs. Qui d’autre l’ignorait ? 😅 Partagez autour de vous 🙏",
     "isFake": false,
     "level": 2,
     "correctAction": "share",
@@ -1131,22 +1161,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Hélène",
-        "couleur": "#791561",
+        "auteur": "Karim",
+        "couleur": "#1800ad",
         "texte": "Le lagon, on ne s’en lasse pas 🐠",
         "posture": "SUJET"
       },
       {
-        "auteur": "Gaby",
-        "couleur": "#14663f",
-        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
-        "posture": "DOUTE"
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Exact, et c’est bien expliqué sur Wikipédia.",
+        "posture": "VERIFIE"
       },
       {
-        "auteur": "Louise M.",
-        "couleur": "#1800ad",
-        "texte": "Merci pour l’info 🙏",
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Je ne savais pas du tout !",
         "posture": "CROIT"
+      },
+      {
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "On ne sait jamais avec ce qu’on lit sur internet…",
+        "posture": "DOUTE"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -1167,12 +1203,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 850,
-    "commentCount": 163,
-    "date": "27 octobre 2026 à 02:36",
+    "reactionCount": 2519,
+    "commentCount": 703,
+    "date": "27 octobre 2026 à 16:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "mangrove",
     "image": "/images/faits/mangrove.jpg",
     "imageAlt": "La mangrove de Voh vue des hauteurs, entre terre et mer",
@@ -1186,8 +1222,8 @@
     "source": "Quiz du Caillou",
     "sourceColor": "#791561",
     "domain": "page de quiz",
-    "titre": "🎯 Le quiz du jour : la mangrove protège les côtes : ses racines freinent les vagues et retiennent la terre",
-    "texte": "Vous le saviez ? Dites-le en commentaire 👇",
+    "titre": "🧠 Culture G du jour. La mangrove protège les côtes : ses racines freinent les vagues et retiennent la terre",
+    "texte": "Beaucoup se trompent sur celle-là ! Votre score en commentaire ! Rendez-vous demain pour la suite 😉",
     "isFake": false,
     "level": 2,
     "correctAction": "share",
@@ -1222,28 +1258,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Fatou S.",
-        "couleur": "#791561",
-        "texte": "Confirmé par Wikipédia, j’ai regardé.",
-        "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Patrick L.",
-        "couleur": "#791561",
-        "texte": "Elle est où cette photo ?",
-        "posture": "PHOTO"
-      },
-      {
         "auteur": "Marie-Jo",
         "couleur": "#1800ad",
-        "texte": "Ça m’étonne quand même.",
-        "posture": "DOUTE"
+        "texte": "Raté pour moi 😅",
+        "posture": "SUJET"
       },
       {
         "auteur": "Camille R.",
         "couleur": "#0e7490",
-        "texte": "Enfin une info claire.",
+        "texte": "Encore une raison d’aller marcher en brousse.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
+        "texte": "Merci pour l’info 🙏",
         "posture": "CROIT"
+      },
+      {
+        "auteur": "Louise M.",
+        "couleur": "#1800ad",
+        "texte": "Belle photo !",
+        "posture": "PHOTO"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -1264,19 +1300,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 7851,
-    "commentCount": 392,
-    "date": "26 octobre 2026 à 02:36",
+    "reactionCount": 30022,
+    "commentCount": 460,
+    "date": "26 octobre 2026 à 16:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "cagou-vol",
     "slug": "vrai-20261027-cagou-vol-2",
     "source": "Aline B.",
     "sourceColor": "#c2410c",
     "domain": "@aline.b",
-    "titre": "Tiens, le cagou ne sait pas voler : il se déplace en courant au sol",
-    "texte": "(vu sur Wikipédia)",
+    "titre": "Appris aujourd’hui. Le cagou ne sait pas voler : il se déplace en courant au sol",
+    "texte": "On en parlait au boulot ce midi. 👀",
     "isFake": false,
     "level": 2,
     "correctAction": "share",
@@ -1311,28 +1347,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Marie-Jo",
-        "couleur": "#1800ad",
-        "texte": "Ça m’étonne quand même.",
-        "posture": "DOUTE"
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "Ah, je ne savais pas.",
+        "posture": "SUJET"
       },
       {
-        "auteur": "Louise M.",
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Confirmé sur Wikipédia, j’ai regardé.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Moana R.",
         "couleur": "#1800ad",
         "texte": "Je n’en ai jamais vu en vrai.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Nadia_988",
-        "couleur": "#57534e",
-        "texte": "Enfin une info claire.",
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Je ne savais pas du tout !",
         "posture": "CROIT"
-      },
-      {
-        "auteur": "sam_974",
-        "couleur": "#1800ad",
-        "texte": "Confirmé par Wikipédia, j’ai regardé.",
-        "posture": "VERIFIE"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -1353,12 +1389,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 11828,
-    "commentCount": 1102,
-    "date": "24 octobre 2026 à 22:36",
+    "reactionCount": 6777,
+    "commentCount": 998,
+    "date": "25 octobre 2026 à 12:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "nickel-mines",
     "image": "/images/faits/nickel-mines.jpg",
     "imageAlt": "Une mine de nickel à ciel ouvert, terre rouge en gradins",
@@ -1373,7 +1409,7 @@
     "sourceColor": "#14663f",
     "domain": "page de vulgarisation",
     "titre": "🔎 Le saviez-vous ? En Nouvelle-Calédonie, le nickel est surtout extrait dans des mines à ciel ouvert",
-    "texte": "📚 Source : Wikipédia #Caillou #Nature",
+    "texte": "Un petit fait qu’on adore partager avec vous. 📚 Pour aller plus loin, c’est sur Wikipédia. #Science #NC",
     "isFake": false,
     "level": 2,
     "correctAction": "share",
@@ -1408,25 +1444,25 @@
     ],
     "commentaires": [
       {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
-        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Enfin une info claire.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Ça m’étonne quand même.",
         "posture": "DOUTE"
       },
       {
-        "auteur": "Ryan_NC",
-        "couleur": "#b45309",
-        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
-        "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Inès K.",
-        "couleur": "#14663f",
-        "texte": "Elle est où cette photo ?",
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Belle photo !",
         "posture": "PHOTO"
       },
       {
-        "auteur": "Camille R.",
+        "auteur": "Anaïs W.",
         "couleur": "#0e7490",
         "texte": "On oublie vite tout ça.",
         "posture": "SUJET"
@@ -1450,37 +1486,37 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 6995,
-    "commentCount": 775,
-    "date": "27 octobre 2026 à 02:03",
+    "reactionCount": 16452,
+    "commentCount": 1563,
+    "date": "28 octobre 2026 à 02:11",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "article",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "article": {
-      "titre": "À quoi servent les prix littéraires ?",
-      "url": "https://theconversation.com/a-quoi-servent-les-prix-litteraires-294968",
-      "publieLe": "2026-10-26T15:03:15.000Z",
+      "titre": "Annuler la dette détenue par la Banque centrale européenne, c’est changer la nature de l’euro",
+      "url": "https://theconversation.com/annuler-la-dette-detenue-par-la-banque-centrale-europeenne-cest-changer-la-nature-de-leuro-293882",
+      "publieLe": "2026-10-27T15:11:27.000Z",
       "nom": "The Conversation",
       "editeur": "The Conversation France",
-      "auteur": "Pierre-Guillaume Méon"
+      "auteur": "Gaetano Gaballo"
     },
     "licence": {
       "nom": "CC BY-ND 4.0",
       "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
     },
-    "slug": "article-1i6eafr",
+    "slug": "article-3qx4p6",
     "source": "The Conversation",
     "sourceColor": "#1800ad",
     "domain": "theconversation.com",
-    "titre": "À quoi servent les prix littéraires ?",
-    "texte": "Article de Pierre-Guillaume Méon, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "titre": "Annuler la dette détenue par la Banque centrale européenne, c’est changer la nature de l’euro",
+    "texte": "Article de Gaetano Gaballo, publié par The Conversation France. À lire en entier sur theconversation.com.",
     "isFake": false,
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
-    "analyseVrai": "Article de Pierre-Guillaume Méon, publié par The Conversation France le 27 octobre 2026 à 02:03.",
+    "analyseVrai": "Article de Gaetano Gaballo, publié par The Conversation France le 28 octobre 2026 à 02:11.",
     "indices": [
       {
         "ordre": 0,
@@ -1496,7 +1532,7 @@
         "cible": "DATE",
         "picto": "Clock",
         "libelle": "Une date précise",
-        "explication": "Publié le 27 octobre 2026 à 02:03 : on sait de quand date l’information."
+        "explication": "Publié le 28 octobre 2026 à 02:11 : on sait de quand date l’information."
       },
       {
         "ordre": 2,
@@ -1509,14 +1545,26 @@
     ],
     "commentaires": [
       {
-        "auteur": "Léa",
-        "couleur": "#c2410c",
-        "texte": "Je ne m’étais jamais posé la question.",
+        "auteur": "Hélène",
+        "couleur": "#791561",
+        "texte": "Quelqu’un a lu l’article en entier ?",
         "posture": "SUJET"
       },
       {
-        "auteur": "bruno_zz",
-        "couleur": "#8a4fbe",
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "Encore un article qui va dans tous les sens…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "L’article complet est sur theconversation.com, signé Gaetano Gaballo.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Moana R.",
+        "couleur": "#1800ad",
         "texte": "Merci pour le lien.",
         "posture": "SUJET"
       }
@@ -1533,43 +1581,43 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://theconversation.com/a-quoi-servent-les-prix-litteraires-294968",
-    "learnMoreUrl": "https://theconversation.com/a-quoi-servent-les-prix-litteraires-294968",
+    "sourceUrl": "https://theconversation.com/annuler-la-dette-detenue-par-la-banque-centrale-europeenne-cest-changer-la-nature-de-leuro-293882",
+    "learnMoreUrl": "https://theconversation.com/annuler-la-dette-detenue-par-la-banque-centrale-europeenne-cest-changer-la-nature-de-leuro-293882",
     "id": 57
   },
   {
     "sponsorise": false,
-    "reactionCount": 22355,
-    "commentCount": 1074,
-    "date": "26 octobre 2026 à 21:15",
+    "reactionCount": 18085,
+    "commentCount": 837,
+    "date": "28 octobre 2026 à 02:10",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "article",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "article": {
-      "titre": "Les rémunérations des banquiers d’affaires reposent moins sur des profits mesurables que sur des jugements genrés dans un univers masculin",
-      "url": "https://theconversation.com/les-remunerations-des-banquiers-daffaires-reposent-moins-sur-des-profits-mesurables-que-sur-des-jugements-genres-dans-un-univers-masculin-278457",
-      "publieLe": "2026-10-26T10:15:52.000Z",
+      "titre": "Pourquoi Kant jugeait-il les peuples autochtones d’Amérique « incapables de toute culture » ? Enquête sur une source oubliée",
+      "url": "https://theconversation.com/pourquoi-kant-jugeait-il-les-peuples-autochtones-damerique-incapables-de-toute-culture-enquete-sur-une-source-oubliee-293563",
+      "publieLe": "2026-10-27T15:10:34.000Z",
       "nom": "The Conversation",
       "editeur": "The Conversation France",
-      "auteur": "Pierre Lescoat"
+      "auteur": "Arnaud Pelletier"
     },
     "licence": {
       "nom": "CC BY-ND 4.0",
       "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
     },
-    "slug": "article-al4d7g",
+    "slug": "article-1r60bmc",
     "source": "The Conversation",
     "sourceColor": "#1800ad",
     "domain": "theconversation.com",
-    "titre": "Les rémunérations des banquiers d’affaires reposent moins sur des profits mesurables que sur des jugements genrés dans un univers masculin",
-    "texte": "Article de Pierre Lescoat, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "titre": "Pourquoi Kant jugeait-il les peuples autochtones d’Amérique « incapables de toute culture » ? Enquête sur une source oubliée",
+    "texte": "Article d’Arnaud Pelletier, publié par The Conversation France. À lire en entier sur theconversation.com.",
     "isFake": false,
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
-    "analyseVrai": "Article de Pierre Lescoat, publié par The Conversation France le 26 octobre 2026 à 21:15.",
+    "analyseVrai": "Article d’Arnaud Pelletier, publié par The Conversation France le 28 octobre 2026 à 02:10.",
     "indices": [
       {
         "ordre": 0,
@@ -1585,7 +1633,7 @@
         "cible": "DATE",
         "picto": "Clock",
         "libelle": "Une date précise",
-        "explication": "Publié le 26 octobre 2026 à 21:15 : on sait de quand date l’information."
+        "explication": "Publié le 28 octobre 2026 à 02:10 : on sait de quand date l’information."
       },
       {
         "ordre": 2,
@@ -1598,22 +1646,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Louise M.",
-        "couleur": "#1800ad",
-        "texte": "C’est bien sur le site de The Conversation, daté du 26 octobre 2026 à 21:15.",
+        "auteur": "Manu",
+        "couleur": "#8a4fbe",
+        "texte": "L’article complet est sur theconversation.com, signé Arnaud Pelletier.",
         "posture": "VERIFIE"
       },
       {
-        "auteur": "Willy",
-        "couleur": "#8a4fbe",
-        "texte": "Merci pour le lien.",
-        "posture": "SUJET"
-      },
-      {
-        "auteur": "Patrick L.",
+        "auteur": "Fatou S.",
         "couleur": "#791561",
         "texte": "Intéressant, je partage.",
         "posture": "CROIT"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
+        "texte": "Long, mais ça vaut le coup.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
@@ -1628,32 +1676,32 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://theconversation.com/les-remunerations-des-banquiers-daffaires-reposent-moins-sur-des-profits-mesurables-que-sur-des-jugements-genres-dans-un-univers-masculin-278457",
-    "learnMoreUrl": "https://theconversation.com/les-remunerations-des-banquiers-daffaires-reposent-moins-sur-des-profits-mesurables-que-sur-des-jugements-genres-dans-un-univers-masculin-278457",
+    "sourceUrl": "https://theconversation.com/pourquoi-kant-jugeait-il-les-peuples-autochtones-damerique-incapables-de-toute-culture-enquete-sur-une-source-oubliee-293563",
+    "learnMoreUrl": "https://theconversation.com/pourquoi-kant-jugeait-il-les-peuples-autochtones-damerique-incapables-de-toute-culture-enquete-sur-une-source-oubliee-293563",
     "id": 58
   },
   {
     "sponsorise": false,
-    "reactionCount": 10565,
-    "commentCount": 193,
-    "date": "24 octobre 2026 à 23:36",
+    "reactionCount": 4525,
+    "commentCount": 1135,
+    "date": "25 octobre 2026 à 13:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "baleines",
     "slug": "vrai-20261027-baleines-3",
     "source": "Le Quotidien du Pacifique",
     "sourceColor": "#1800ad",
     "domain": "quotidien-pacifique.info",
-    "titre": "Les baleines à bosse viennent dans le lagon sud pendant l’hiver austral, de juillet à septembre environ",
-    "texte": "Article de Sarah Kowalczyk, publié par Le Quotidien du Pacifique. (source : Wikipédia)",
+    "titre": "Les baleines à bosse viennent se reproduire dans les eaux calédoniennes pendant la saison fraîche, entre juin et novembre",
+    "texte": "Sarah Kowalczyk fait le point, à partir des informations publiées sur Wikipédia. L’essentiel est à lire en lien en bio.",
     "isFake": false,
     "level": 3,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
-    "analyseVrai": "Les baleines à bosse viennent dans le lagon sud pendant l’hiver austral, de juillet à septembre environ. À vérifier sur Wikipédia.",
+    "analyseVrai": "Les baleines à bosse viennent se reproduire dans les eaux calédoniennes pendant la saison fraîche, entre juin et novembre. À vérifier sur Wikipédia.",
     "indices": [
       {
         "ordre": 0,
@@ -1682,22 +1730,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Vaimiti",
-        "couleur": "#14663f",
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
         "texte": "Ça donne envie d’aller à l’eau ce week-end.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Karim",
-        "couleur": "#1800ad",
-        "texte": "Enfin une info claire.",
-        "posture": "CROIT"
-      },
-      {
         "auteur": "Soane",
         "couleur": "#c2410c",
-        "texte": "Confirmé par Wikipédia, j’ai regardé.",
-        "posture": "VERIFIE"
+        "texte": "Trop long, quelqu’un résume ?",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Bon à savoir, je fais tourner.",
+        "posture": "CROIT"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -1712,18 +1760,18 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://fr.wikipedia.org/wiki/Baleine_%C3%A0_bosse",
-    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Baleine_%C3%A0_bosse",
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Koumac",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Koumac",
     "id": 59
   },
   {
     "sponsorise": false,
-    "reactionCount": 2548,
-    "commentCount": 361,
-    "date": "26 octobre 2026 à 17:36",
+    "reactionCount": 20137,
+    "commentCount": 1627,
+    "date": "27 octobre 2026 à 07:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "ile-des-pins-nom",
     "image": "/images/faits/ile-des-pins-nom.jpg",
     "imageAlt": "Des pins colonnaires au bord de l’eau à l’île des Pins",
@@ -1737,8 +1785,8 @@
     "source": "Quiz du Caillou",
     "sourceColor": "#791561",
     "domain": "page de quiz",
-    "titre": "🎯 Le quiz du jour : L’île des Pins doit son nom aux pins colonnaires, des arbres qui poussent naturellement sur l’île",
-    "texte": "Vous le saviez ? Dites-le en commentaire 👇",
+    "titre": "🧠 Culture G du jour : L’île des Pins doit son nom aux pins colonnaires, des arbres qui poussent naturellement sur l’île",
+    "texte": "Je regarde les arbres autrement depuis. #Quiz #NC",
     "isFake": false,
     "level": 3,
     "correctAction": "share",
@@ -1773,28 +1821,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Soane",
+        "auteur": "Léa",
         "couleur": "#c2410c",
-        "texte": "Ça m’étonne quand même.",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
         "posture": "DOUTE"
       },
       {
-        "auteur": "Nathalie",
-        "couleur": "#c2410c",
-        "texte": "N’importe quoi, j’ai lu le contraire.",
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "Je n’y crois pas une seconde.",
         "posture": "CONTRE"
       },
       {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
-        "texte": "Enfin une info claire.",
-        "posture": "CROIT"
+        "auteur": "Anaïs W.",
+        "couleur": "#0e7490",
+        "texte": "Encore une raison d’aller marcher en brousse.",
+        "posture": "SUJET"
       },
       {
         "auteur": "Thierry P.",
         "couleur": "#57534e",
-        "texte": "Encore une raison d’aller marcher en brousse.",
-        "posture": "SUJET"
+        "texte": "Belle photo !",
+        "posture": "PHOTO"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -1815,12 +1863,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 39030,
-    "commentCount": 1451,
-    "date": "25 octobre 2026 à 05:36",
+    "reactionCount": 30356,
+    "commentCount": 378,
+    "date": "25 octobre 2026 à 19:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "communes",
     "image": "/images/faits/provinces.png",
     "imageAlt": "Carte des provinces et des communes de Nouvelle-Calédonie",
@@ -1834,8 +1882,8 @@
     "source": "Christophe M.",
     "sourceColor": "#1800ad",
     "domain": "@christophe.m",
-    "titre": "Bon à savoir : la Nouvelle-Calédonie compte 33 communes",
-    "texte": "🤔",
+    "titre": "Appris aujourd’hui : la Nouvelle-Calédonie compte 33 communes",
+    "texte": "On en parlait au boulot ce midi. Lu sur Wikipédia. Vous saviez ?",
     "isFake": false,
     "level": 3,
     "correctAction": "share",
@@ -1870,16 +1918,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Manu",
-        "couleur": "#8a4fbe",
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Exact, et c’est bien expliqué sur Wikipédia.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
         "texte": "À montrer aux cousins de Métropole.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Léa",
-        "couleur": "#c2410c",
-        "texte": "La photo 😍",
-        "posture": "PHOTO"
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Ah, je ne savais pas.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -1900,20 +1954,20 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 27729,
-    "commentCount": 1976,
-    "date": "25 octobre 2026 à 09:36",
+    "reactionCount": 15372,
+    "commentCount": 15,
+    "date": "25 octobre 2026 à 23:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "lifou-taille",
     "slug": "vrai-20261027-lifou-taille-3",
     "source": "Pacifique Express Info",
     "sourceColor": "#1800ad",
     "domain": "pacifique-express.info",
     "titre": "Lifou est la plus grande des îles Loyauté",
-    "texte": "Article de Thomas Naudin, publié par Pacifique Express Info. (source : Wikipédia)",
+    "texte": "Thomas Naudin fait le point, à partir des informations publiées sur Wikipédia. L’essentiel est à lire en lien en bio.",
     "isFake": false,
     "level": 3,
     "correctAction": "share",
@@ -1948,22 +2002,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Nadia_988",
-        "couleur": "#57534e",
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "Merci pour l’info 🙏",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Soane",
+        "couleur": "#c2410c",
         "texte": "On ne connaît pas assez notre propre île.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Patrick L.",
-        "couleur": "#791561",
-        "texte": "C’est bien ce que dit Wikipédia.",
-        "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Elodie_nc",
-        "couleur": "#b45309",
-        "texte": "On ne sait jamais avec ce qu’on lit sur internet…",
-        "posture": "DOUTE"
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "N’importe quoi, j’ai lu le contraire.",
+        "posture": "CONTRE"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -1984,13 +2044,13 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 16813,
-    "commentCount": 137,
-    "date": "26 octobre 2026 à 23:36",
+    "reactionCount": 37975,
+    "commentCount": 1283,
+    "date": "27 octobre 2026 à 13:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "lagon-unesco",
     "image": "/images/faits/lagon-unesco.jpg",
     "imageAlt": "Le lagon calédonien vu d’avion, eau turquoise parsemée de récifs",
@@ -2005,7 +2065,7 @@
     "sourceColor": "#1800ad",
     "domain": "quotidien-pacifique.info",
     "titre": "Les lagons de Nouvelle-Calédonie sont inscrits au patrimoine mondial de l’UNESCO depuis 2008",
-    "texte": "Article de Marc Ollivier, publié par Le Quotidien du Pacifique. (source : UNESCO)",
+    "texte": "Marc Ollivier fait le point, à partir des informations publiées sur le site de l’UNESCO. L’essentiel est à lire en lien en bio.",
     "isFake": false,
     "level": 3,
     "correctAction": "share",
@@ -2040,28 +2100,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Karim",
+        "auteur": "sam_974",
         "couleur": "#1800ad",
         "texte": "Ça m’étonne quand même.",
         "posture": "DOUTE"
       },
       {
-        "auteur": "Mélanie",
-        "couleur": "#0e7490",
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
+        "texte": "Enfin une info claire.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
         "texte": "C’est pour ça qu’il faut protéger le lagon.",
         "posture": "SUJET"
       },
       {
-        "auteur": "sam_974",
-        "couleur": "#1800ad",
-        "texte": "Encore une info pas vérifiée…",
-        "posture": "CONTRE"
-      },
-      {
-        "auteur": "Nathalie",
-        "couleur": "#c2410c",
-        "texte": "Belle photo !",
-        "posture": "PHOTO"
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "C’est bien ce qu’on trouve sur le site de l’UNESCO.",
+        "posture": "VERIFIE"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -2082,19 +2142,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 37379,
-    "commentCount": 816,
-    "date": "27 octobre 2026 à 10:36",
+    "reactionCount": 29590,
+    "commentCount": 418,
+    "date": "28 octobre 2026 à 00:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "fuseau-horaire",
     "slug": "vrai-20261027-fuseau-horaire-3",
     "source": "Les Curieux du Pacifique",
     "sourceColor": "#14663f",
     "domain": "page de vulgarisation",
     "titre": "🔎 Le saviez-vous ? La Nouvelle-Calédonie est à UTC+11 et ne change pas d’heure en été",
-    "texte": "#Caillou #Nature",
+    "texte": "Un petit fait qu’on adore partager avec vous. 📚 Pour aller plus loin, c’est sur Wikipédia. Enregistrez ce post pour le retrouver. #NouvelleCalédonie #LeSaviezVous",
     "isFake": false,
     "level": 3,
     "correctAction": "share",
@@ -2129,22 +2189,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Nathalie",
-        "couleur": "#c2410c",
-        "texte": "N’importe quoi, j’ai lu le contraire.",
-        "posture": "CONTRE"
-      },
-      {
-        "auteur": "Karim",
+        "auteur": "Olivier T.",
         "couleur": "#1800ad",
         "texte": "J’ai appris ça au collège je crois.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Soane",
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Léa",
         "couleur": "#c2410c",
-        "texte": "Merci pour l’info 🙏",
-        "posture": "CROIT"
+        "texte": "Vous pourriez faire un post sur les tortues ?",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -2165,37 +2231,37 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 23991,
-    "commentCount": 1006,
-    "date": "26 octobre 2026 à 21:15",
+    "reactionCount": 25156,
+    "commentCount": 1798,
+    "date": "27 octobre 2026 à 22:08",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "article",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "article": {
-      "titre": "Adidas, ou comment une campagne locale déclenche une crise mondiale",
-      "url": "https://theconversation.com/adidas-ou-comment-une-campagne-locale-declenche-une-crise-mondiale-292697",
-      "publieLe": "2026-10-26T10:15:13.000Z",
+      "titre": "Is France in 2026, Greece in 2009?",
+      "url": "https://theconversation.com/is-france-in-2026-greece-in-2009-295259",
+      "publieLe": "2026-10-27T11:08:11.000Z",
       "nom": "The Conversation",
       "editeur": "The Conversation France",
-      "auteur": "Frédéric Aubrun"
+      "auteur": "George Papaconstantinou"
     },
     "licence": {
       "nom": "CC BY-ND 4.0",
       "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
     },
-    "slug": "article-a8c42c",
+    "slug": "article-1hoycf2",
     "source": "The Conversation",
     "sourceColor": "#1800ad",
     "domain": "theconversation.com",
-    "titre": "Adidas, ou comment une campagne locale déclenche une crise mondiale",
-    "texte": "Article de Frédéric Aubrun, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "titre": "Is France in 2026, Greece in 2009?",
+    "texte": "Article de George Papaconstantinou, publié par The Conversation France. À lire en entier sur theconversation.com.",
     "isFake": false,
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
-    "analyseVrai": "Article de Frédéric Aubrun, publié par The Conversation France le 26 octobre 2026 à 21:15.",
+    "analyseVrai": "Article de George Papaconstantinou, publié par The Conversation France le 27 octobre 2026 à 22:08.",
     "indices": [
       {
         "ordre": 0,
@@ -2211,7 +2277,7 @@
         "cible": "DATE",
         "picto": "Clock",
         "libelle": "Une date précise",
-        "explication": "Publié le 26 octobre 2026 à 21:15 : on sait de quand date l’information."
+        "explication": "Publié le 27 octobre 2026 à 22:08 : on sait de quand date l’information."
       },
       {
         "ordre": 2,
@@ -2224,22 +2290,22 @@
     ],
     "commentaires": [
       {
-        "auteur": "Louise M.",
-        "couleur": "#1800ad",
-        "texte": "C’est bien sur le site de The Conversation, daté du 26 octobre 2026 à 21:15.",
-        "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Anaïs W.",
-        "couleur": "#0e7490",
-        "texte": "Intéressant, je partage.",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Willy",
-        "couleur": "#8a4fbe",
-        "texte": "Intéressant, je lirai ça ce soir.",
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "Quelqu’un a lu l’article en entier ?",
         "posture": "SUJET"
+      },
+      {
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Long, mais ça vaut le coup.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
+        "texte": "Merci pour l’article 🙏",
+        "posture": "CROIT"
       }
     ],
     "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
@@ -2254,43 +2320,43 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://theconversation.com/adidas-ou-comment-une-campagne-locale-declenche-une-crise-mondiale-292697",
-    "learnMoreUrl": "https://theconversation.com/adidas-ou-comment-une-campagne-locale-declenche-une-crise-mondiale-292697",
+    "sourceUrl": "https://theconversation.com/is-france-in-2026-greece-in-2009-295259",
+    "learnMoreUrl": "https://theconversation.com/is-france-in-2026-greece-in-2009-295259",
     "id": 73
   },
   {
     "sponsorise": false,
-    "reactionCount": 15548,
-    "commentCount": 757,
-    "date": "26 octobre 2026 à 21:15",
+    "reactionCount": 37637,
+    "commentCount": 380,
+    "date": "27 octobre 2026 à 02:08",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "article",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "article": {
-      "titre": "Quels sont les secrets de la longévité exceptionnelle des entreprises familiales ?",
-      "url": "https://theconversation.com/quels-sont-les-secrets-de-la-longevite-exceptionnelle-des-entreprises-familiales-286677",
-      "publieLe": "2026-10-26T10:15:07.000Z",
+      "titre": "Micropesanteur et réactivation virale : ce que les séjours dans l’espace révèlent de notre immunité",
+      "url": "https://theconversation.com/micropesanteur-et-reactivation-virale-ce-que-les-sejours-dans-lespace-revelent-de-notre-immunite-294286",
+      "publieLe": "2026-10-26T15:08:22.000Z",
       "nom": "The Conversation",
       "editeur": "The Conversation France",
-      "auteur": "Raina Homai"
+      "auteur": "Emmanuel Drouet"
     },
     "licence": {
       "nom": "CC BY-ND 4.0",
       "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
     },
-    "slug": "article-1fzr07d",
+    "slug": "article-1e8zfki",
     "source": "The Conversation",
     "sourceColor": "#1800ad",
     "domain": "theconversation.com",
-    "titre": "Quels sont les secrets de la longévité exceptionnelle des entreprises familiales ?",
-    "texte": "Article de Raina Homai, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "titre": "Micropesanteur et réactivation virale : ce que les séjours dans l’espace révèlent de notre immunité",
+    "texte": "Article d’Emmanuel Drouet, publié par The Conversation France. À lire en entier sur theconversation.com.",
     "isFake": false,
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
-    "analyseVrai": "Article de Raina Homai, publié par The Conversation France le 26 octobre 2026 à 21:15.",
+    "analyseVrai": "Article d’Emmanuel Drouet, publié par The Conversation France le 27 octobre 2026 à 02:08.",
     "indices": [
       {
         "ordre": 0,
@@ -2306,7 +2372,7 @@
         "cible": "DATE",
         "picto": "Clock",
         "libelle": "Une date précise",
-        "explication": "Publié le 26 octobre 2026 à 21:15 : on sait de quand date l’information."
+        "explication": "Publié le 27 octobre 2026 à 02:08 : on sait de quand date l’information."
       },
       {
         "ordre": 2,
@@ -2319,27 +2385,15 @@
     ],
     "commentaires": [
       {
-        "auteur": "Tehei",
-        "couleur": "#0e7490",
-        "texte": "Encore un article qui va dans tous les sens…",
-        "posture": "DOUTE"
-      },
-      {
-        "auteur": "Karim",
+        "auteur": "Marie-Jo",
         "couleur": "#1800ad",
-        "texte": "L’article complet est sur theconversation.com, signé Raina Homai.",
-        "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
-        "texte": "Merci pour l’article 🙏",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Hélène",
-        "couleur": "#791561",
         "texte": "Intéressant, je lirai ça ce soir.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Je ne m’étais jamais posé la question.",
         "posture": "SUJET"
       }
     ],
@@ -2355,18 +2409,18 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://theconversation.com/quels-sont-les-secrets-de-la-longevite-exceptionnelle-des-entreprises-familiales-286677",
-    "learnMoreUrl": "https://theconversation.com/quels-sont-les-secrets-de-la-longevite-exceptionnelle-des-entreprises-familiales-286677",
+    "sourceUrl": "https://theconversation.com/micropesanteur-et-reactivation-virale-ce-que-les-sejours-dans-lespace-revelent-de-notre-immunite-294286",
+    "learnMoreUrl": "https://theconversation.com/micropesanteur-et-reactivation-virale-ce-que-les-sejours-dans-lespace-revelent-de-notre-immunite-294286",
     "id": 74
   },
   {
     "sponsorise": false,
-    "reactionCount": 7540,
-    "commentCount": 1087,
-    "date": "25 octobre 2026 à 10:36",
+    "reactionCount": 15700,
+    "commentCount": 1154,
+    "date": "26 octobre 2026 à 00:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "hemisphere-sud",
     "image": "/images/faits/hemisphere-sud.png",
     "imageAlt": "La Terre vue par satellite, hémisphère Sud",
@@ -2380,8 +2434,8 @@
     "source": "Manon",
     "sourceColor": "#1800ad",
     "domain": "@manon.988",
-    "titre": "wsh la nouvelle-calédonie est dans l’hémisphère sud : il y fait plus frais de juin à août",
-    "texte": "jsuis choqué 😭",
+    "titre": "frr la nouvelle-calédonie est dans l’hémisphère sud : il y fait plus frais de juin à août",
+    "texte": "toujours utile à savoir avant la saison. 💀",
     "isFake": false,
     "level": 4,
     "correctAction": "share",
@@ -2416,14 +2470,26 @@
     ],
     "commentaires": [
       {
-        "auteur": "Aurélie",
-        "couleur": "#14663f",
-        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "Ça m’étonne quand même.",
         "posture": "DOUTE"
       },
       {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "C’est bien ce qu’on trouve sur Wikipédia.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Léa",
+        "couleur": "#c2410c",
+        "texte": "Enfin une info claire.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
         "texte": "Toujours bon à rappeler.",
         "posture": "SUJET"
       }
@@ -2446,13 +2512,13 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 16572,
-    "commentCount": 192,
-    "date": "25 octobre 2026 à 13:36",
+    "reactionCount": 5390,
+    "commentCount": 999,
+    "date": "26 octobre 2026 à 03:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "flore-endemique",
     "image": "/images/faits/flore-endemique.jpg",
     "imageAlt": "Un plant d’Amborella en sous-bois, feuilles vertes et petits fruits rouges",
@@ -2467,7 +2533,7 @@
     "sourceColor": "#1800ad",
     "domain": "pacifique-express.info",
     "titre": "La majorité des plantes de Nouvelle-Calédonie n’existent nulle part ailleurs dans le monde",
-    "texte": "Article de Claire Weber, publié par Pacifique Express Info. (source : Wikipédia)",
+    "texte": "Un article de Claire Weber. D’après Wikipédia, c’est bien le cas, et voici pourquoi. Tous les détails dans l’article.",
     "isFake": false,
     "level": 4,
     "correctAction": "share",
@@ -2502,28 +2568,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Mélanie",
+        "auteur": "Jean-Luc",
         "couleur": "#0e7490",
-        "texte": "Merci pour l’info 🙏",
-        "posture": "CROIT"
+        "texte": "Le lien ne s’ouvre pas chez moi.",
+        "posture": "SUJET"
       },
       {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
+        "auteur": "Aurélie",
+        "couleur": "#14663f",
         "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
         "posture": "DOUTE"
       },
       {
-        "auteur": "Patrick L.",
-        "couleur": "#791561",
-        "texte": "Les plantes d’ici sont incroyables 🌿",
-        "posture": "SUJET"
-      },
-      {
         "auteur": "Thierry P.",
         "couleur": "#57534e",
-        "texte": "Quelle image…",
+        "texte": "La photo 😍",
         "posture": "PHOTO"
+      },
+      {
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Je ne savais pas du tout !",
+        "posture": "CROIT"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -2544,12 +2610,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 1340,
-    "commentCount": 404,
-    "date": "26 octobre 2026 à 16:36",
+    "reactionCount": 25478,
+    "commentCount": 1793,
+    "date": "27 octobre 2026 à 06:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "corail-animal",
     "image": "/images/faits/corail-animal.jpg",
     "imageAlt": "Gros plan sur les polypes d’un corail, petits tentacules ouverts",
@@ -2563,8 +2629,8 @@
     "source": "Josiane",
     "sourceColor": "#b45309",
     "domain": "@josiane988",
-    "titre": "Les amis, le corail est un animal, et non une plante ou un caillou",
-    "texte": "❤️",
+    "titre": "Bonjour à tous ! Le corail est un animal, et non une plante ou un caillou",
+    "texte": "On en parlait justement en sortant en bateau dimanche. Je l’ai vu sur Wikipédia 👍 Vous le saviez, vous ? Bonne journée à tous ☀️",
     "isFake": false,
     "level": 4,
     "correctAction": "share",
@@ -2599,16 +2665,16 @@
     ],
     "commentaires": [
       {
-        "auteur": "Louise M.",
-        "couleur": "#1800ad",
+        "auteur": "Soane",
+        "couleur": "#c2410c",
         "texte": "Incroyable tout ce qu’on a autour de nous.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Soane",
-        "couleur": "#c2410c",
-        "texte": "Je n’y crois pas une seconde.",
-        "posture": "CONTRE"
+        "auteur": "Inès K.",
+        "couleur": "#14663f",
+        "texte": "Confirmé sur Wikipédia, j’ai regardé.",
+        "posture": "VERIFIE"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -2629,19 +2695,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 10991,
-    "commentCount": 1685,
-    "date": "26 octobre 2026 à 13:36",
+    "reactionCount": 4487,
+    "commentCount": 1081,
+    "date": "27 octobre 2026 à 03:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "dugong",
     "slug": "vrai-20261027-dugong-4",
     "source": "Steeve",
     "sourceColor": "#57534e",
     "domain": "@steeve_nc",
-    "titre": "frr le dugong est un mammifère marin herbivore : il broute les herbiers du lagon",
-    "texte": "c sur wikipédia jsuis pas fou 🤯",
+    "titre": "genre le dugong est un mammifère marin herbivore : il broute les herbiers du lagon",
+    "texte": "je l’ai appris en faisant mon exposé qui savait ?? ptdr",
     "isFake": false,
     "level": 4,
     "correctAction": "share",
@@ -2676,22 +2742,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Incroyable tout ce qu’on a autour de nous.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Marie-Jo",
+        "couleur": "#1800ad",
         "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
         "posture": "DOUTE"
       },
       {
-        "auteur": "Camille R.",
-        "couleur": "#0e7490",
-        "texte": "Merci pour l’info 🙏",
-        "posture": "CROIT"
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "ptdr",
+        "posture": "SUJET"
       },
       {
-        "auteur": "Vaimiti",
-        "couleur": "#14663f",
-        "texte": "Incroyable tout ce qu’on a autour de nous.",
-        "posture": "SUJET"
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "Encore une info pas vérifiée…",
+        "posture": "CONTRE"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -2712,13 +2784,13 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 32541,
-    "commentCount": 1857,
-    "date": "26 octobre 2026 à 19:36",
+    "reactionCount": 23154,
+    "commentCount": 2000,
+    "date": "27 octobre 2026 à 09:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "roussette",
     "image": "/images/faits/roussette.jpg",
     "imageAlt": "Une roussette suspendue la tête en bas à une branche",
@@ -2732,14 +2804,14 @@
     "source": "Le Quotidien du Pacifique",
     "sourceColor": "#1800ad",
     "domain": "quotidien-pacifique.info",
-    "titre": "La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs",
-    "texte": "Article de Julien Ferrand, publié par Le Quotidien du Pacifique. Source : Wikipédia.",
+    "titre": "La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de fruits et de fleurs",
+    "texte": "Julien Ferrand fait le point, à partir des informations publiées sur Wikipédia. L’essentiel est à lire en lien en bio.",
     "isFake": false,
     "level": 4,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Information vraie et vérifiable : Wikipédia le confirme. Rien dans le post ne pousse à partager vite : il peut se partager.",
-    "analyseVrai": "La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs. À vérifier sur Wikipédia.",
+    "analyseVrai": "La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de fruits et de fleurs. À vérifier sur Wikipédia.",
     "indices": [
       {
         "ordre": 0,
@@ -2768,28 +2840,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Elodie_nc",
-        "couleur": "#b45309",
-        "texte": "Je n’y crois pas une seconde.",
-        "posture": "CONTRE"
-      },
-      {
-        "auteur": "Marie-Jo",
-        "couleur": "#1800ad",
-        "texte": "Je n’en ai jamais vu en vrai.",
-        "posture": "SUJET"
-      },
-      {
         "auteur": "Fatou S.",
         "couleur": "#791561",
-        "texte": "Merci pour l’info 🙏",
-        "posture": "CROIT"
+        "texte": "On ne sait jamais avec ce qu’on lit sur internet…",
+        "posture": "DOUTE"
       },
       {
         "auteur": "Ryan_NC",
         "couleur": "#b45309",
-        "texte": "Quelle image…",
+        "texte": "Le lien ne s’ouvre pas chez moi.",
+        "posture": "SUJET"
+      },
+      {
+        "auteur": "Tehei",
+        "couleur": "#0e7490",
+        "texte": "Elle est où cette photo ?",
         "posture": "PHOTO"
+      },
+      {
+        "auteur": "Manu",
+        "couleur": "#8a4fbe",
+        "texte": "Je n’en ai jamais vu en vrai.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -2804,19 +2876,19 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://fr.wikipedia.org/wiki/Roussette",
-    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Roussette",
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Roussette_rousse",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Roussette_rousse",
     "id": 79
   },
   {
     "sponsorise": false,
-    "reactionCount": 1218,
-    "commentCount": 414,
-    "date": "27 octobre 2026 à 07:36",
+    "reactionCount": 12571,
+    "commentCount": 1222,
+    "date": "27 octobre 2026 à 21:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "phare-amedee",
     "image": "/images/faits/phare-amedee.jpg",
     "imageAlt": "Le phare Amédée, tour blanche sur son îlot",
@@ -2831,7 +2903,7 @@
     "sourceColor": "#1800ad",
     "domain": "quotidien-pacifique.info",
     "titre": "Le phare Amédée, haut de 56 mètres, est en métal : il a été fabriqué en France puis monté sur l’îlot",
-    "texte": "Article de Anaïs Labbé, publié par Le Quotidien du Pacifique. (source : Wikipédia)",
+    "texte": "Anaïs Labbé fait le point, à partir des informations publiées sur Wikipédia. L’essentiel est à lire en lien en bio.",
     "isFake": false,
     "level": 4,
     "correctAction": "share",
@@ -2866,22 +2938,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Louise M.",
-        "couleur": "#1800ad",
-        "texte": "Merci pour l’info 🙏",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Moana R.",
-        "couleur": "#1800ad",
-        "texte": "Je n’y crois pas une seconde.",
-        "posture": "CONTRE"
-      },
-      {
-        "auteur": "Marie-Jo",
-        "couleur": "#1800ad",
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
         "texte": "On devrait en parler plus à l’école.",
         "posture": "SUJET"
+      },
+      {
+        "auteur": "Ryan_NC",
+        "couleur": "#b45309",
+        "texte": "Elle est où cette photo ?",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Thierry P.",
+        "couleur": "#57534e",
+        "texte": "J’ai vérifié sur Wikipédia : c’est exact.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "sam_974",
+        "couleur": "#1800ad",
+        "texte": "On ne sait jamais avec ce qu’on lit sur internet…",
+        "posture": "DOUTE"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -2902,37 +2980,37 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 35471,
-    "commentCount": 1404,
-    "date": "25 octobre 2026 à 18:06",
+    "reactionCount": 27364,
+    "commentCount": 634,
+    "date": "27 octobre 2026 à 02:06",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "article",
     "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "article": {
-      "titre": "Pour mieux anticiper les séismes en France, garder la mémoire des précédents",
-      "url": "https://theconversation.com/pour-mieux-anticiper-les-seismes-en-france-garder-la-memoire-des-precedents-294528",
-      "publieLe": "2026-10-25T07:06:48.000Z",
+      "titre": "Les gestes individuels peuvent-ils quelque chose pour lutter contre la pollution plastique ?",
+      "url": "https://theconversation.com/les-gestes-individuels-peuvent-ils-quelque-chose-pour-lutter-contre-la-pollution-plastique-292314",
+      "publieLe": "2026-10-26T15:06:37.000Z",
       "nom": "The Conversation",
       "editeur": "The Conversation France",
-      "auteur": "Samuel Auclair"
+      "auteur": "Julie Metta"
     },
     "licence": {
       "nom": "CC BY-ND 4.0",
       "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
     },
-    "slug": "article-1170393",
+    "slug": "article-ts62n0",
     "source": "The Conversation",
     "sourceColor": "#1800ad",
     "domain": "theconversation.com",
-    "titre": "Pour mieux anticiper les séismes en France, garder la mémoire des précédents",
-    "texte": "Article de Samuel Auclair, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "titre": "Les gestes individuels peuvent-ils quelque chose pour lutter contre la pollution plastique ?",
+    "texte": "Article de Julie Metta, publié par The Conversation France. À lire en entier sur theconversation.com.",
     "isFake": false,
     "level": 5,
     "correctAction": "share",
     "biais": "Aucun (information vérifiée)",
     "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
-    "analyseVrai": "Article de Samuel Auclair, publié par The Conversation France le 25 octobre 2026 à 18:06.",
+    "analyseVrai": "Article de Julie Metta, publié par The Conversation France le 27 octobre 2026 à 02:06.",
     "indices": [
       {
         "ordre": 0,
@@ -2948,96 +3026,7 @@
         "cible": "DATE",
         "picto": "Clock",
         "libelle": "Une date précise",
-        "explication": "Publié le 25 octobre 2026 à 18:06 : on sait de quand date l’information."
-      },
-      {
-        "ordre": 2,
-        "nature": "FIABLE",
-        "cible": "TITRE",
-        "picto": "Scale",
-        "libelle": "Un titre qui décrit",
-        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
-      }
-    ],
-    "commentaires": [
-      {
-        "auteur": "Nathalie",
-        "couleur": "#c2410c",
-        "texte": "L’article complet est sur theconversation.com, signé Samuel Auclair.",
-        "posture": "VERIFIE"
-      },
-      {
-        "auteur": "Vaimiti",
-        "couleur": "#14663f",
-        "texte": "Long, mais ça vaut le coup.",
-        "posture": "SUJET"
-      }
-    ],
-    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
-    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
-    "consequences": {
-      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
-      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
-      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
-    "sourceUrl": "https://theconversation.com/pour-mieux-anticiper-les-seismes-en-france-garder-la-memoire-des-precedents-294528",
-    "learnMoreUrl": "https://theconversation.com/pour-mieux-anticiper-les-seismes-en-france-garder-la-memoire-des-precedents-294528",
-    "id": 89
-  },
-  {
-    "sponsorise": false,
-    "reactionCount": 10668,
-    "commentCount": 93,
-    "date": "25 octobre 2026 à 18:06",
-    "learnMoreTips": "https://www.clemi.fr/",
-    "origine": "article",
-    "format": "article",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
-    "article": {
-      "titre": "Modifier le génome des embryons humains : entre espoir et inquiétude, les questions soulevées par les avancées scientifiques récentes",
-      "url": "https://theconversation.com/modifier-le-genome-des-embryons-humains-entre-espoir-et-inquietude-les-questions-soulevees-par-les-avancees-scientifiques-recentes-291694",
-      "publieLe": "2026-10-25T07:06:21.000Z",
-      "nom": "The Conversation",
-      "editeur": "The Conversation France",
-      "auteur": "Hervé Chneiweiss"
-    },
-    "licence": {
-      "nom": "CC BY-ND 4.0",
-      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
-    },
-    "slug": "article-1rlg0aw",
-    "source": "The Conversation",
-    "sourceColor": "#1800ad",
-    "domain": "theconversation.com",
-    "titre": "Modifier le génome des embryons humains : entre espoir et inquiétude, les questions soulevées par les avancées scientifiques récentes",
-    "texte": "Article d’Hervé Chneiweiss, publié par The Conversation France. À lire en entier sur theconversation.com.",
-    "isFake": false,
-    "level": 5,
-    "correctAction": "share",
-    "biais": "Aucun (information vérifiée)",
-    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
-    "analyseVrai": "Article d’Hervé Chneiweiss, publié par The Conversation France le 25 octobre 2026 à 18:06.",
-    "indices": [
-      {
-        "ordre": 0,
-        "nature": "FIABLE",
-        "cible": "SOURCE",
-        "picto": "BadgeCheck",
-        "libelle": "Un média identifiable",
-        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
-      },
-      {
-        "ordre": 1,
-        "nature": "FIABLE",
-        "cible": "DATE",
-        "picto": "Clock",
-        "libelle": "Une date précise",
-        "explication": "Publié le 25 octobre 2026 à 18:06 : on sait de quand date l’information."
+        "explication": "Publié le 27 octobre 2026 à 02:06 : on sait de quand date l’information."
       },
       {
         "ordre": 2,
@@ -3052,20 +3041,14 @@
       {
         "auteur": "Moana R.",
         "couleur": "#1800ad",
-        "texte": "Long, mais ça vaut le coup.",
+        "texte": "Je n’y crois pas une seconde.",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "Merci pour le lien.",
         "posture": "SUJET"
-      },
-      {
-        "auteur": "Nadia_988",
-        "couleur": "#57534e",
-        "texte": "Merci pour l’article 🙏",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Aurélie",
-        "couleur": "#14663f",
-        "texte": "Encore un article qui va dans tous les sens…",
-        "posture": "DOUTE"
       }
     ],
     "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
@@ -3080,25 +3063,126 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://theconversation.com/modifier-le-genome-des-embryons-humains-entre-espoir-et-inquietude-les-questions-soulevees-par-les-avancees-scientifiques-recentes-291694",
-    "learnMoreUrl": "https://theconversation.com/modifier-le-genome-des-embryons-humains-entre-espoir-et-inquietude-les-questions-soulevees-par-les-avancees-scientifiques-recentes-291694",
+    "sourceUrl": "https://theconversation.com/les-gestes-individuels-peuvent-ils-quelque-chose-pour-lutter-contre-la-pollution-plastique-292314",
+    "learnMoreUrl": "https://theconversation.com/les-gestes-individuels-peuvent-ils-quelque-chose-pour-lutter-contre-la-pollution-plastique-292314",
+    "id": 89
+  },
+  {
+    "sponsorise": false,
+    "reactionCount": 35313,
+    "commentCount": 947,
+    "date": "27 octobre 2026 à 02:06",
+    "learnMoreTips": "https://www.clemi.fr/",
+    "origine": "article",
+    "format": "article",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
+    "article": {
+      "titre": "Frances Power Cobbe : Défendre les femmes, défendre les animaux, un même engagement",
+      "url": "https://theconversation.com/frances-power-cobbe-defendre-les-femmes-defendre-les-animaux-un-meme-engagement-294410",
+      "publieLe": "2026-10-26T15:06:22.000Z",
+      "nom": "The Conversation",
+      "editeur": "The Conversation France",
+      "auteur": "Émilie Dardenne"
+    },
+    "licence": {
+      "nom": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+    },
+    "slug": "article-129phl2",
+    "source": "The Conversation",
+    "sourceColor": "#1800ad",
+    "domain": "theconversation.com",
+    "titre": "Frances Power Cobbe : Défendre les femmes, défendre les animaux, un même engagement",
+    "texte": "Article d’Émilie Dardenne, publié par The Conversation France. À lire en entier sur theconversation.com.",
+    "isFake": false,
+    "level": 5,
+    "correctAction": "share",
+    "biais": "Aucun (information vérifiée)",
+    "explication": "Un vrai article de The Conversation France : média identifiable, auteur nommé, date et lien vers l'article complet. Le titre décrit sans pousser : il peut se partager.",
+    "analyseVrai": "Article d’Émilie Dardenne, publié par The Conversation France le 27 octobre 2026 à 02:06.",
+    "indices": [
+      {
+        "ordre": 0,
+        "nature": "FIABLE",
+        "cible": "SOURCE",
+        "picto": "BadgeCheck",
+        "libelle": "Un média identifiable",
+        "explication": "The Conversation publie sur theconversation.com, avec des auteurs nommés et des mentions légales."
+      },
+      {
+        "ordre": 1,
+        "nature": "FIABLE",
+        "cible": "DATE",
+        "picto": "Clock",
+        "libelle": "Une date précise",
+        "explication": "Publié le 27 octobre 2026 à 02:06 : on sait de quand date l’information."
+      },
+      {
+        "ordre": 2,
+        "nature": "FIABLE",
+        "cible": "TITRE",
+        "picto": "Scale",
+        "libelle": "Un titre qui décrit",
+        "explication": "Ni majuscules, ni « partagez », ni révélation promise : le titre décrit, il ne pousse pas."
+      }
+    ],
+    "commentaires": [
+      {
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "Encore une info pas vérifiée…",
+        "posture": "CONTRE"
+      },
+      {
+        "auteur": "Vaimiti",
+        "couleur": "#14663f",
+        "texte": "On ne sait jamais avec les médias…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "Intéressant, je partage.",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
+        "texte": "Long, mais ça vaut le coup.",
+        "posture": "SUJET"
+      }
+    ],
+    "encouragement": "Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.",
+    "warning": "Attention : cet article venait d’un média identifiable, signé et daté.",
+    "consequences": {
+      "share": "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
+      "ignore": "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
+      "report": "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable."
+    },
+    "scores": {
+      "share": 100,
+      "ignore": 0,
+      "report": -40
+    },
+    "sourceUrl": "https://theconversation.com/frances-power-cobbe-defendre-les-femmes-defendre-les-animaux-un-meme-engagement-294410",
+    "learnMoreUrl": "https://theconversation.com/frances-power-cobbe-defendre-les-femmes-defendre-les-animaux-un-meme-engagement-294410",
     "id": 90
   },
   {
     "sponsorise": false,
-    "reactionCount": 24194,
-    "commentCount": 595,
-    "date": "26 octobre 2026 à 03:36",
+    "reactionCount": 13524,
+    "commentCount": 1520,
+    "date": "26 octobre 2026 à 17:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "cyclone-sens",
     "slug": "vrai-20261027-cyclone-sens-5",
     "source": "Kenji T.",
     "sourceColor": "#8a4fbe",
     "domain": "@kenji.t",
-    "titre": "jsp si vous saviez mais dans l’hémisphère sud, les cyclones tournent dans le sens des aiguilles d’une montre",
-    "texte": "c sur wikipédia jsuis pas fou jsuis choqué 😭",
+    "titre": "wsh dans l’hémisphère sud, les cyclones tournent dans le sens des aiguilles d’une montre",
+    "texte": "toujours utile à savoir avant la saison. vous saviez ? 🤯",
     "isFake": false,
     "level": 5,
     "correctAction": "share",
@@ -3133,14 +3217,14 @@
     ],
     "commentaires": [
       {
-        "auteur": "Nathalie",
+        "auteur": "Léa",
         "couleur": "#c2410c",
-        "texte": "Ici ça souffle déjà fort depuis hier.",
+        "texte": "Mon père suit toujours la météo de près pour ça.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Léa",
-        "couleur": "#c2410c",
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
         "texte": "Pensez à vos réserves d’eau et de piles.",
         "posture": "SUJET"
       }
@@ -3157,18 +3241,18 @@
       "ignore": 0,
       "report": -40
     },
-    "sourceUrl": "https://fr.wikipedia.org/wiki/Cyclone_tropical",
-    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Cyclone_tropical",
+    "sourceUrl": "https://fr.wikipedia.org/wiki/Cyclone",
+    "learnMoreUrl": "https://fr.wikipedia.org/wiki/Cyclone",
     "id": 91
   },
   {
     "sponsorise": false,
-    "reactionCount": 18909,
-    "commentCount": 669,
-    "date": "27 octobre 2026 à 14:36",
+    "reactionCount": 38018,
+    "commentCount": 1382,
+    "date": "28 octobre 2026 à 04:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "mont-panie",
     "image": "/images/faits/mont-panie.jpg",
     "imageAlt": "Un kaori des montagnes sur les pentes du mont Panié",
@@ -3183,7 +3267,7 @@
     "sourceColor": "#c2410c",
     "domain": "@aline.b",
     "titre": "Tiens, le mont Panié, dans le nord-est de la Grande Terre, est le point culminant de la Nouvelle-Calédonie, à 1 629 mètres",
-    "texte": "Intéressant.",
+    "texte": "Pratique à savoir quand on fait visiter le pays. Lu sur Wikipédia. Vous saviez ? 👀",
     "isFake": false,
     "level": 5,
     "correctAction": "share",
@@ -3218,15 +3302,21 @@
     ],
     "commentaires": [
       {
-        "auteur": "Vaimiti",
-        "couleur": "#14663f",
-        "texte": "Ça m’étonne quand même.",
+        "auteur": "Olivier T.",
+        "couleur": "#1800ad",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
         "posture": "DOUTE"
       },
       {
-        "auteur": "Elodie_nc",
-        "couleur": "#b45309",
-        "texte": "Encore une raison d’aller marcher en brousse.",
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "Je ne savais pas du tout !",
+        "posture": "CROIT"
+      },
+      {
+        "auteur": "Mélanie",
+        "couleur": "#0e7490",
+        "texte": "On ne connaît pas assez notre propre île.",
         "posture": "SUJET"
       }
     ],
@@ -3248,12 +3338,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 26147,
-    "commentCount": 972,
-    "date": "25 octobre 2026 à 11:36",
+    "reactionCount": 9557,
+    "commentCount": 1101,
+    "date": "26 octobre 2026 à 01:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "provinces",
     "image": "/images/faits/provinces.png",
     "imageAlt": "Carte des provinces et des communes de Nouvelle-Calédonie",
@@ -3267,8 +3357,8 @@
     "source": "Yannick D.",
     "sourceColor": "#14663f",
     "domain": "@yannick.d",
-    "titre": "La Nouvelle-Calédonie compte trois provinces : Sud, Nord et îles Loyauté",
-    "texte": "(vu sur Wikipédia) 👀",
+    "titre": "Bon à savoir. La Nouvelle-Calédonie compte trois provinces : Sud, Nord et îles Loyauté",
+    "texte": "Je suis tombé dessus par hasard. Intéressant.",
     "isFake": false,
     "level": 5,
     "correctAction": "share",
@@ -3303,28 +3393,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Tehei",
+        "auteur": "Jean-Luc",
+        "couleur": "#0e7490",
+        "texte": "Belle photo !",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Ça m’étonne quand même.",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Camille R.",
         "couleur": "#0e7490",
         "texte": "Fier de notre Caillou.",
         "posture": "SUJET"
       },
       {
-        "auteur": "Nadia_988",
-        "couleur": "#57534e",
-        "texte": "Ça m’étonne quand même.",
-        "posture": "DOUTE"
-      },
-      {
-        "auteur": "Soane",
-        "couleur": "#c2410c",
-        "texte": "N’importe quoi, j’ai lu le contraire.",
-        "posture": "CONTRE"
-      },
-      {
-        "auteur": "Jean-Luc",
-        "couleur": "#0e7490",
-        "texte": "Elle est où cette photo ?",
-        "posture": "PHOTO"
+        "auteur": "Fatou S.",
+        "couleur": "#791561",
+        "texte": "Tiens, intéressant 👀",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -3345,19 +3435,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 11968,
-    "commentCount": 143,
-    "date": "27 octobre 2026 à 13:36",
+    "reactionCount": 10472,
+    "commentCount": 617,
+    "date": "28 octobre 2026 à 03:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "ouvea-atoll",
     "slug": "vrai-20261027-ouvea-atoll-5",
     "source": "Steeve",
     "sourceColor": "#57534e",
     "domain": "@steeve_nc",
-    "titre": "frr ouvéa est un atoll surélevé, bordé d’une plage de plus de 20 kilomètres",
-    "texte": "😭",
+    "titre": "ouvéa est un atoll surélevé, bordé d’une plage de plus de 20 kilomètres",
+    "texte": "je l’ai appris en faisant mon exposé c’est sur wikipédia jsuis pas fou qui savait ?? 😭",
     "isFake": false,
     "level": 5,
     "correctAction": "share",
@@ -3392,21 +3482,27 @@
     ],
     "commentaires": [
       {
-        "auteur": "Anaïs W.",
-        "couleur": "#0e7490",
-        "texte": "Merci pour l’info 🙏",
-        "posture": "CROIT"
+        "auteur": "Kévin.nc",
+        "couleur": "#791561",
+        "texte": "À montrer aux cousins de Métropole.",
+        "posture": "SUJET"
       },
       {
-        "auteur": "Camille R.",
-        "couleur": "#0e7490",
+        "auteur": "Nathalie",
+        "couleur": "#c2410c",
         "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
         "posture": "DOUTE"
       },
       {
-        "auteur": "Kévin.nc",
-        "couleur": "#791561",
-        "texte": "À montrer aux cousins de Métropole.",
+        "auteur": "Nadia_988",
+        "couleur": "#57534e",
+        "texte": "Confirmé sur Wikipédia, j’ai regardé.",
+        "posture": "VERIFIE"
+      },
+      {
+        "auteur": "Didier",
+        "couleur": "#8a4fbe",
+        "texte": "ptdr",
         "posture": "SUJET"
       }
     ],
@@ -3428,19 +3524,19 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 14731,
-    "commentCount": 118,
-    "date": "25 octobre 2026 à 21:36",
+    "reactionCount": 5731,
+    "commentCount": 534,
+    "date": "26 octobre 2026 à 11:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "tricot-raye",
     "slug": "vrai-20261027-tricot-raye-5",
     "source": "Nature et Lagon NC",
     "sourceColor": "#1800ad",
     "domain": "page nature",
-    "titre": "🌿 Nature calédo : le tricot rayé est un serpent marin qui vient pondre ses œufs à terre",
-    "texte": "📚 Source : Wikipédia #Science #NC",
+    "titre": "🔎 Le saviez-vous ? Le tricot rayé est un serpent marin qui vient pondre ses œufs à terre",
+    "texte": "On en parlait justement en sortant en bateau dimanche. 📚 Pour aller plus loin, c’est sur Wikipédia. #Science #NC",
     "isFake": false,
     "level": 5,
     "correctAction": "share",
@@ -3475,22 +3571,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Mélanie",
-        "couleur": "#0e7490",
+        "auteur": "Elodie_nc",
+        "couleur": "#b45309",
+        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
+        "posture": "DOUTE"
+      },
+      {
+        "auteur": "Karim",
+        "couleur": "#1800ad",
         "texte": "N’importe quoi, j’ai lu le contraire.",
         "posture": "CONTRE"
       },
       {
-        "auteur": "Thierry P.",
-        "couleur": "#57534e",
-        "texte": "Incroyable tout ce qu’on a autour de nous.",
-        "posture": "SUJET"
+        "auteur": "Camille R.",
+        "couleur": "#0e7490",
+        "texte": "Confirmé sur Wikipédia, j’ai regardé.",
+        "posture": "VERIFIE"
       },
       {
-        "auteur": "Elodie_nc",
-        "couleur": "#b45309",
-        "texte": "C’est bien ce que dit Wikipédia.",
-        "posture": "VERIFIE"
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Incroyable tout ce qu’on a autour de nous.",
+        "posture": "SUJET"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",
@@ -3511,12 +3613,12 @@
   },
   {
     "sponsorise": false,
-    "reactionCount": 35790,
-    "commentCount": 497,
-    "date": "24 octobre 2026 à 22:36",
+    "reactionCount": 31166,
+    "commentCount": 1644,
+    "date": "25 octobre 2026 à 12:09",
     "learnMoreTips": "https://www.clemi.fr/",
     "origine": "fiction",
-    "recolteLe": "2026-10-27T08:36:01.807Z",
+    "recolteLe": "2026-10-27T22:09:12.417Z",
     "fait": "bagne-debut",
     "image": "/images/faits/bagne-debut.jpg",
     "imageAlt": "Les ruines d’un bâtiment du bagne à l’île des Pins, fenêtres à barreaux",
@@ -3530,8 +3632,8 @@
     "source": "Manon",
     "sourceColor": "#1800ad",
     "domain": "@manon.988",
-    "titre": "wsh les premiers condamnés au bagne arrivent en nouvelle-calédonie en 1864",
-    "texte": "c fou",
+    "titre": "frr les premiers condamnés au bagne arrivent en nouvelle-calédonie en 1864",
+    "texte": "j’adore ces petites histoires du pays. c’est sur wikipédia jsuis pas fou 😭",
     "isFake": false,
     "level": 5,
     "correctAction": "share",
@@ -3566,22 +3668,28 @@
     ],
     "commentaires": [
       {
-        "auteur": "Aurélie",
+        "auteur": "Inès K.",
         "couleur": "#14663f",
-        "texte": "Vous êtes sûrs ? J’avais entendu autre chose…",
-        "posture": "DOUTE"
+        "texte": "N’importe quoi, j’ai lu le contraire.",
+        "posture": "CONTRE"
       },
       {
-        "auteur": "Thierry P.",
-        "couleur": "#57534e",
-        "texte": "Merci pour l’info 🙏",
-        "posture": "CROIT"
-      },
-      {
-        "auteur": "Marie-Jo",
-        "couleur": "#1800ad",
+        "auteur": "Patrick L.",
+        "couleur": "#791561",
         "texte": "Je passe devant sans jamais y penser.",
         "posture": "SUJET"
+      },
+      {
+        "auteur": "bruno_zz",
+        "couleur": "#8a4fbe",
+        "texte": "Belle photo !",
+        "posture": "PHOTO"
+      },
+      {
+        "auteur": "Gaby",
+        "couleur": "#14663f",
+        "texte": "Confirmé sur Wikipédia, j’ai regardé.",
+        "posture": "VERIFIE"
       }
     ],
     "encouragement": "Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.",

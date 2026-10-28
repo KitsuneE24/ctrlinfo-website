@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "genere": "2026-10-27T08:36:01.807Z",
+  "genere": "2026-10-27T22:09:12.417Z",
   "jeux": [
     {
       "id": "feed",
@@ -627,7 +627,7 @@
       "id": "sujet-20261027-tata-josiane-fait-grand-noumea-bmghzr",
       "contact": "tata-josiane",
       "name": "Tata Josiane",
-      "preview": "Encore une fois : le Grand Nouméa regroupe six communes, dont Bourail et La Foa : « ce n'est qu'un début », selon un expert",
+      "preview": "Réveillez-vous. Le Grand Nouméa regroupe six communes, dont Bourail et La Foa : « ce n'est qu'un début », selon un expert",
       "color": "#791561",
       "groupe": false,
       "etapes": 3,
@@ -651,7 +651,7 @@
           },
           "messages": [
             {
-              "texte": "Regarde ce que Le Vrai Dossier vient de publier : « Encore une fois : le Grand Nouméa regroupe six communes, dont Bourail et La Foa : « ce n'est qu'un début », selon un expert »",
+              "texte": "Regarde ce que Le Vrai Dossier vient de publier : « Réveillez-vous. Le Grand Nouméa regroupe six communes, dont Bourail et La Foa : « ce n'est qu'un début », selon un expert »",
               "auteur": {
                 "id": "tata-josiane",
                 "nom": "Tata Josiane",
@@ -796,7 +796,7 @@
       "origine": "fiction",
       "scenario": "fait-grand-noumea",
       "biais": "Faux expert",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-tata-josiane-jouets-paita-hdbh0z",
@@ -971,13 +971,13 @@
       "origine": "fiction",
       "scenario": "jouets-paita",
       "biais": "Fausse corrélation",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-tata-josiane-fait-fuseau-horaire-bmghzr",
       "contact": "tata-josiane",
       "name": "Tata Josiane",
-      "preview": "🧵 Info : la Nouvelle-Calédonie avance ses montres d’une heure chaque été : l'analyse d'un expert",
+      "preview": "Je vous le dis avant tout le monde. La Nouvelle-Calédonie avance ses montres d’une heure chaque été : l'analyse d'un expert",
       "color": "#791561",
       "groupe": false,
       "etapes": 3,
@@ -1001,7 +1001,7 @@
           },
           "messages": [
             {
-              "texte": "On m’a envoyé ça ce matin, c’est de Info Directe NC : « 🧵 Info : la Nouvelle-Calédonie avance ses montres d’une heure chaque été : l'analyse d'un expert »",
+              "texte": "On m’a envoyé ça ce matin, c’est de Info Directe NC : « Je vous le dis avant tout le monde. La Nouvelle-Calédonie avance ses montres d’une heure chaque été : l'analyse d'un expert »",
               "auteur": {
                 "id": "tata-josiane",
                 "nom": "Tata Josiane",
@@ -1146,13 +1146,13 @@
       "origine": "fiction",
       "scenario": "fait-fuseau-horaire",
       "biais": "Faux expert",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-famille-fait-roussette-bmghzr",
       "contact": "famille",
       "name": "Famille 🌺",
-      "preview": "🧵 Info : la roussette est une chauve-souris qui se nourrit surtout de petits poissons : l'analyse d'un expert",
+      "preview": "Je vous le dis avant tout le monde. La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de petits poissons : l'analyse d'un expert",
       "color": "#b45309",
       "groupe": true,
       "contexte": "Famille 🌺",
@@ -1192,7 +1192,7 @@
               }
             },
             {
-              "texte": "Regarde ce que Fabrice L. vient de publier : « 🧵 Info : la roussette est une chauve-souris qui se nourrit surtout de petits poissons : l'analyse d'un expert »",
+              "texte": "Regarde ce que Fabrice L. vient de publier : « Je vous le dis avant tout le monde. La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de petits poissons : l'analyse d'un expert »",
               "auteur": {
                 "id": "tonton-georges",
                 "nom": "Tonton Georges",
@@ -1346,7 +1346,7 @@
       "origine": "fiction",
       "scenario": "fait-roussette",
       "biais": "Faux expert",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-famille-fait-mont-panie-bgqykb",
@@ -1546,7 +1546,7 @@
       "origine": "fiction",
       "scenario": "fait-mont-panie",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-famille-baleine-yate-jr2doy",
@@ -1746,7 +1746,7 @@
       "origine": "fiction",
       "scenario": "baleine-yate",
       "biais": "Autorité inventée",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-mathis-baguette-kone-bgqykb",
@@ -1921,7 +1921,7 @@
       "origine": "fiction",
       "scenario": "baguette-kone",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-mathis-fait-recifs-especes-bgqykb",
@@ -2096,13 +2096,13 @@
       "origine": "fiction",
       "scenario": "fait-recifs-especes",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-mathis-fait-gecko-leach-bgqykb",
       "contact": "mathis",
       "name": "Mathis",
-      "preview": "Réveillez-vous. À partager vite : Le gecko géant de Leach est un petit gecko de quelques centimètres, venu d’Asie",
+      "preview": "On ne vous le dira pas ailleurs. À partager vite : Le gecko géant de Leach est un petit gecko de quelques centimètres, venu d’Asie",
       "color": "#14663f",
       "groupe": false,
       "etapes": 3,
@@ -2126,7 +2126,7 @@
           },
           "messages": [
             {
-              "texte": "Tu as vu ça ? Vigilance Citoyenne : « Réveillez-vous. À partager vite : Le gecko géant de Leach est un petit gecko de quelques centimètres, venu d’Asie »",
+              "texte": "Tu as vu ça ? Vigilance Citoyenne : « On ne vous le dira pas ailleurs. À partager vite : Le gecko géant de Leach est un petit gecko de quelques centimètres, venu d’Asie »",
               "auteur": {
                 "id": "mathis",
                 "nom": "Mathis",
@@ -2271,13 +2271,13 @@
       "origine": "fiction",
       "scenario": "fait-gecko-leach",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-potes-marche-la-foa-bgqykb",
       "contact": "potes",
       "name": "Les potes 🏝️",
-      "preview": "🧵 Info : avant que ça disparaisse : Un marché nocturne s’installe chaque mercredi soir à La Foa",
+      "preview": "Exclu. Avant que ça disparaisse : Un marché nocturne s’installe chaque mercredi soir à La Foa",
       "color": "#8a4fbe",
       "groupe": true,
       "contexte": "Les potes 🏝️",
@@ -2317,7 +2317,7 @@
               }
             },
             {
-              "texte": "Regarde ce que Fabrice L. vient de publier : « 🧵 Info : avant que ça disparaisse : Un marché nocturne s’installe chaque mercredi soir à La Foa »",
+              "texte": "Regarde ce que Fabrice L. vient de publier : « Exclu. Avant que ça disparaisse : Un marché nocturne s’installe chaque mercredi soir à La Foa »",
               "auteur": {
                 "id": "kenzo",
                 "nom": "Kenzo",
@@ -2471,13 +2471,13 @@
       "origine": "fiction",
       "scenario": "marche-la-foa",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-potes-velos-electriques-18sg80b",
       "contact": "potes",
       "name": "Les potes 🏝️",
-      "preview": "On ne vous le dira pas ailleurs : les ventes de vélos électriques en forte hausse à Nouméa depuis la rentrée : la preuve de ce que beaucoup pensaient",
+      "preview": "On ne vous le dira pas ailleurs. Les ventes de vélos électriques en forte hausse à Nouméa depuis la rentrée : la preuve de ce que beaucoup pensaient",
       "color": "#8a4fbe",
       "groupe": true,
       "contexte": "Les potes 🏝️",
@@ -2517,7 +2517,7 @@
               }
             },
             {
-              "texte": "On m’a envoyé ça ce matin, c’est de Sandy B. : « On ne vous le dira pas ailleurs : les ventes de vélos électriques en forte hausse à Nouméa depuis la rentrée : la preuve de ce que beaucoup pensaient »",
+              "texte": "On m’a envoyé ça ce matin, c’est de Sandy B. : « On ne vous le dira pas ailleurs. Les ventes de vélos électriques en forte hausse à Nouméa depuis la rentrée : la preuve de ce que beaucoup pensaient »",
               "auteur": {
                 "id": "kenzo",
                 "nom": "Kenzo",
@@ -2671,13 +2671,13 @@
       "origine": "fiction",
       "scenario": "velos-electriques",
       "biais": "Biais de confirmation",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-potes-fleur-panie-bgqykb",
       "contact": "potes",
       "name": "Les potes 🏝️",
-      "preview": "🧵 Info : avant que ça disparaisse : Des randonneurs repèrent une fleur jamais décrite sur les pentes du mont Panié",
+      "preview": "🧵 Info. Avant que ça disparaisse : Des randonneurs repèrent une fleur jamais décrite sur les pentes du mont Panié",
       "color": "#8a4fbe",
       "groupe": true,
       "contexte": "Les potes 🏝️",
@@ -2717,7 +2717,7 @@
               }
             },
             {
-              "texte": "Regarde ce que Info Directe NC vient de publier : « 🧵 Info : avant que ça disparaisse : Des randonneurs repèrent une fleur jamais décrite sur les pentes du mont Panié »",
+              "texte": "Regarde ce que Info Directe NC vient de publier : « 🧵 Info. Avant que ça disparaisse : Des randonneurs repèrent une fleur jamais décrite sur les pentes du mont Panié »",
               "auteur": {
                 "id": "kenzo",
                 "nom": "Kenzo",
@@ -2871,13 +2871,13 @@
       "origine": "fiction",
       "scenario": "fleur-panie",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-colette-fait-nautile-hdbh0z",
       "contact": "colette",
       "name": "Colette",
-      "preview": "‼️ COMME PAR HASARD : LE NAUTILE EST UN MOLLUSQUE QUI VIT DANS LES RIVIÈRES DE LA GRANDE TERRE",
+      "preview": "⚠️🔴 COMME PAR HASARD : LE NAUTILE EST UN MOLLUSQUE QUI VIT DANS LES RIVIÈRES DE LA GRANDE TERRE",
       "color": "#57534e",
       "groupe": false,
       "etapes": 3,
@@ -2901,7 +2901,7 @@
           },
           "messages": [
             {
-              "texte": "On m’a envoyé ça ce matin, c’est de ALERTE ROUGE NC 🔥 : « ‼️ COMME PAR HASARD : LE NAUTILE EST UN MOLLUSQUE QUI VIT DANS LES RIVIÈRES DE LA GRANDE TERRE »",
+              "texte": "On m’a envoyé ça ce matin, c’est de ALERTE ROUGE NC 🔥 : « ⚠️🔴 COMME PAR HASARD : LE NAUTILE EST UN MOLLUSQUE QUI VIT DANS LES RIVIÈRES DE LA GRANDE TERRE »",
               "auteur": {
                 "id": "colette",
                 "nom": "Colette",
@@ -3046,7 +3046,7 @@
       "origine": "fiction",
       "scenario": "fait-nautile",
       "biais": "Fausse corrélation",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-colette-fait-hemisphere-sud-bmghzr",
@@ -3221,13 +3221,13 @@
       "origine": "fiction",
       "scenario": "fait-hemisphere-sud",
       "biais": "Faux expert",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-colette-dechets-thio-vlq8f9",
       "contact": "colette",
       "name": "Colette",
-      "preview": "Encore une fois : ce que ça va changer pour votre famille : Des bénévoles ramassent 500 kilos de déchets sur une plage de Thio",
+      "preview": "Encore une fois. Ce que ça va changer pour votre famille : Des bénévoles ramassent 500 kilos de déchets sur une plage de Thio",
       "color": "#57534e",
       "groupe": false,
       "etapes": 3,
@@ -3251,7 +3251,7 @@
           },
           "messages": [
             {
-              "texte": "Regarde ce que Sandy B. vient de publier : « Encore une fois : ce que ça va changer pour votre famille : Des bénévoles ramassent 500 kilos de déchets sur une plage de Thio »",
+              "texte": "Regarde ce que Sandy B. vient de publier : « Encore une fois. Ce que ça va changer pour votre famille : Des bénévoles ramassent 500 kilos de déchets sur une plage de Thio »",
               "auteur": {
                 "id": "colette",
                 "nom": "Colette",
@@ -3396,7 +3396,7 @@
       "origine": "fiction",
       "scenario": "dechets-thio",
       "biais": "Appel à la peur",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-papi-rene-fait-ile-des-pins-nom-bgqykb",
@@ -3571,13 +3571,13 @@
       "origine": "fiction",
       "scenario": "fait-ile-des-pins-nom",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-papi-rene-couchers-mare-bgqykb",
       "contact": "papi-rene",
       "name": "Papi René",
-      "preview": "On ne vous le dira pas ailleurs : à partager vite : Des habitants de Maré lancent un concours de photos de couchers de soleil",
+      "preview": "Encore une fois. À partager vite : Des habitants de Maré lancent un concours de photos de couchers de soleil",
       "color": "#1800ad",
       "groupe": false,
       "etapes": 3,
@@ -3601,7 +3601,7 @@
           },
           "messages": [
             {
-              "texte": "Tu as vu ça ? Patou Nouméa : « On ne vous le dira pas ailleurs : à partager vite : Des habitants de Maré lancent un concours de photos de couchers de soleil »",
+              "texte": "Tu as vu ça ? Patou Nouméa : « Encore une fois. À partager vite : Des habitants de Maré lancent un concours de photos de couchers de soleil »",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -3746,13 +3746,13 @@
       "origine": "fiction",
       "scenario": "couchers-mare",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-papi-rene-fait-baleines-bgqykb",
       "contact": "papi-rene",
       "name": "Papi René",
-      "preview": "Exclu : avant que ça disparaisse : Les baleines à bosse viennent dans le lagon sud en plein été, de janvier à mars",
+      "preview": "Je vous le dis avant tout le monde. Avant que ça disparaisse : Les baleines à bosse viennent se reproduire dans les eaux calédoniennes en plein été, de janvier à mars",
       "color": "#1800ad",
       "groupe": false,
       "etapes": 3,
@@ -3776,7 +3776,7 @@
           },
           "messages": [
             {
-              "texte": "Regarde ce que Nouméa Décrypte vient de publier : « Exclu : avant que ça disparaisse : Les baleines à bosse viennent dans le lagon sud en plein été, de janvier à mars »",
+              "texte": "Regarde ce que Nouméa Décrypte vient de publier : « Je vous le dis avant tout le monde. Avant que ça disparaisse : Les baleines à bosse viennent se reproduire dans les eaux calédoniennes en plein été, de janvier à mars »",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -3921,13 +3921,13 @@
       "origine": "fiction",
       "scenario": "fait-baleines",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-collegues-lecture-paita-bgqykb",
       "contact": "collegues",
       "name": "Collègues ☕",
-      "preview": "🧵 Info : avant que ça disparaisse : Un club de lecture pour adolescents se lance à Païta",
+      "preview": "🧵 Info. Avant que ça disparaisse : Un club de lecture pour adolescents se lance à Païta",
       "color": "#14663f",
       "groupe": true,
       "contexte": "Collègues ☕",
@@ -3967,7 +3967,7 @@
               }
             },
             {
-              "texte": "Regarde ce que Lina K. vient de publier : « 🧵 Info : avant que ça disparaisse : Un club de lecture pour adolescents se lance à Païta »",
+              "texte": "Regarde ce que Lina K. vient de publier : « 🧵 Info. Avant que ça disparaisse : Un club de lecture pour adolescents se lance à Païta »",
               "auteur": {
                 "id": "sylvie",
                 "nom": "Sylvie",
@@ -4121,7 +4121,7 @@
       "origine": "fiction",
       "scenario": "lecture-paita",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-collegues-fait-loyaute-iles-el21ry",
@@ -4321,13 +4321,13 @@
       "origine": "fiction",
       "scenario": "fait-loyaute-iles",
       "biais": "Manipulation statistique",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-collegues-fait-ouvea-atoll-bmghzr",
       "contact": "collegues",
       "name": "Collègues ☕",
-      "preview": "On ne vous le dira pas ailleurs : Ouvéa est une île volcanique, avec un volcan encore actif : « ce n'est qu'un début », selon un expert",
+      "preview": "Réveillez-vous. Ouvéa est une île volcanique, avec un volcan encore actif : « ce n'est qu'un début », selon un expert",
       "color": "#14663f",
       "groupe": true,
       "contexte": "Collègues ☕",
@@ -4367,7 +4367,7 @@
               }
             },
             {
-              "texte": "Tu as vu ça ? Patou Nouméa : « On ne vous le dira pas ailleurs : Ouvéa est une île volcanique, avec un volcan encore actif : « ce n'est qu'un début », selon un expert »",
+              "texte": "Tu as vu ça ? Patou Nouméa : « Réveillez-vous. Ouvéa est une île volcanique, avec un volcan encore actif : « ce n'est qu'un début », selon un expert »",
               "auteur": {
                 "id": "sylvie",
                 "nom": "Sylvie",
@@ -4521,13 +4521,13 @@
       "origine": "fiction",
       "scenario": "fait-ouvea-atoll",
       "biais": "Faux expert",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-club-foot-fait-tricot-raye-bgqykb",
       "contact": "club-foot",
       "name": "Club de foot ⚽",
-      "preview": "Je vous le dis avant tout le monde : avant que ça disparaisse : Le tricot rayé est un serpent marin qui pond ses œufs en pleine mer",
+      "preview": "Je vous le dis avant tout le monde. Avant que ça disparaisse : Le tricot rayé est un serpent marin qui pond ses œufs en pleine mer",
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
@@ -4567,7 +4567,7 @@
               }
             },
             {
-              "texte": "Tu as vu ça ? Le Caillou Dévoilé : « Je vous le dis avant tout le monde : avant que ça disparaisse : Le tricot rayé est un serpent marin qui pond ses œufs en pleine mer »",
+              "texte": "Tu as vu ça ? Le Caillou Dévoilé : « Je vous le dis avant tout le monde. Avant que ça disparaisse : Le tricot rayé est un serpent marin qui pond ses œufs en pleine mer »",
               "auteur": {
                 "id": "coach-alain",
                 "nom": "Coach Alain",
@@ -4721,13 +4721,13 @@
       "origine": "fiction",
       "scenario": "fait-tricot-raye",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-club-foot-fait-mangrove-jr2doy",
       "contact": "club-foot",
       "name": "Club de foot ⚽",
-      "preview": "Exclu : la mangrove abîme les côtes : ses racines accélèrent l’érosion : un responsable se confie",
+      "preview": "🧵 Info. La mangrove abîme les côtes : ses racines accélèrent l’érosion : un responsable se confie",
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
@@ -4767,7 +4767,7 @@
               }
             },
             {
-              "texte": "Regarde ce que Lina K. vient de publier : « Exclu : la mangrove abîme les côtes : ses racines accélèrent l’érosion : un responsable se confie »",
+              "texte": "Regarde ce que Lina K. vient de publier : « 🧵 Info. La mangrove abîme les côtes : ses racines accélèrent l’érosion : un responsable se confie »",
               "auteur": {
                 "id": "coach-alain",
                 "nom": "Coach Alain",
@@ -4921,13 +4921,13 @@
       "origine": "fiction",
       "scenario": "fait-mangrove",
       "biais": "Autorité inventée",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     },
     {
       "id": "sujet-20261027-club-foot-orchestre-nz-bgqykb",
       "contact": "club-foot",
       "name": "Club de foot ⚽",
-      "preview": "Je vous le dis avant tout le monde : avant que ça disparaisse : Un orchestre de jeunes de Nouméa invité à jouer en Nouvelle-Zélande",
+      "preview": "🧵 Info. Avant que ça disparaisse : Un orchestre de jeunes de Nouméa invité à jouer en Nouvelle-Zélande",
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
@@ -4967,7 +4967,7 @@
               }
             },
             {
-              "texte": "Tu as vu ça ? Le Caillou Dévoilé : « Je vous le dis avant tout le monde : avant que ça disparaisse : Un orchestre de jeunes de Nouméa invité à jouer en Nouvelle-Zélande »",
+              "texte": "Tu as vu ça ? Le Caillou Dévoilé : « 🧵 Info. Avant que ça disparaisse : Un orchestre de jeunes de Nouméa invité à jouer en Nouvelle-Zélande »",
               "auteur": {
                 "id": "coach-alain",
                 "nom": "Coach Alain",
@@ -5121,7 +5121,7 @@
       "origine": "fiction",
       "scenario": "orchestre-nz",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-27T08:36:01.807Z"
+      "recolteLe": "2026-10-27T22:09:12.417Z"
     }
   ],
   "chapitres": [
@@ -6064,23 +6064,17 @@
   ],
   "mentionsLegales": [
     {
-      "id": "editeur",
-      "titre": "Éditeur du site",
+      "id": "statut",
+      "titre": "Statut du site",
       "paragraphes": [
         {
-          "texte": "Le site est édité par [À compléter : nom du commanditaire], [À compléter : forme juridique : association, collectivité, entreprise…]."
+          "texte": "CTRL INFO est un projet étudiant réalisé en 2026 par l’équipe citée dans « Crédits ». Il est publié à titre non professionnel et non commercial, sans éditeur : aucune personne ni structure n’en assure la publication, le suivi ou la mise à jour."
         },
         {
-          "texte": "• Adresse : [À compléter : adresse postale], Nouvelle-Calédonie\n• Numéro RIDET : [À compléter, ou supprimer cette ligne s’il n’y en a pas]\n• Contact : [À compléter : adresse de contact du commanditaire]"
+          "texte": "Le site n’est pas maintenu. Il reste en ligne tel quel tant que son hébergement est assuré, et s’arrêtera à une date qui n’est pas fixée, sans préavis."
         },
         {
-          "texte": "Responsable de la publication : [À compléter : nom et fonction de la personne responsable chez le commanditaire]."
-        },
-        {
-          "texte": "Le site a été conçu et réalisé par une équipe d’étudiantes et d’étudiants (voir « Crédits »), qui l’a remis au commanditaire à la fin du projet et n’en assure plus la gestion."
-        },
-        {
-          "texte": "Ces informations sont publiées en application de l’article 6, III de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique (LCEN)."
+          "texte": "Pour toute demande (signalement, droits, retrait d’un contenu), le seul contact est l’hébergeur du site (voir « Hébergement »)."
         }
       ]
     },
@@ -6089,7 +6083,7 @@
       "titre": "Hébergement",
       "paragraphes": [
         {
-          "texte": "Le site est hébergé par [À compléter : nom de l’hébergeur : le commanditaire lui-même ou son prestataire], [À compléter : adresse], [À compléter : site web]."
+          "texte": "Le site est hébergé par [À compléter : nom ou raison sociale de l’hébergeur], [À compléter : adresse postale], [À compléter : numéro de téléphone], [À compléter : site web ou adresse de contact]."
         },
         {
           "texte": "L’hébergeur reçoit les informations techniques de chaque visite (voir « Données personnelles ») et les traite pour acheminer les pages et sécuriser le service."
@@ -6104,10 +6098,13 @@
           "texte": "CTRL INFO est un jeu éducatif gratuit de sensibilisation à la désinformation, conçu pour le public de Nouvelle-Calédonie et réalisé dans le cadre d’un projet étudiant. Il ne comporte ni publicité, ni achat, ni compte utilisateur."
         },
         {
+          "texte": "Le site est conçu pour ordinateur et pour mobile (téléphone, tablette). Il s’utilise dans un navigateur web récent, sans application à installer."
+        },
+        {
           "texte": "Les posts de personnes, les faux articles, les comptes, les commentaires et les conversations du jeu sont écrits par l’équipe du projet et publiés par des personnes, des pages ou des médias imaginaires. Les noms, pseudonymes et sites sont inventés : toute ressemblance avec des personnes, des comptes ou des sites existants serait fortuite. Les « cas réels » cités dans la rubrique Ressources renvoient à des faits documentés par des médias ou des organismes de vérification."
         },
         {
-          "texte": "Le fil mélange trois sortes de posts. Les posts de personnes présentés comme vrais énoncent des faits réels et vérifiables sur la Nouvelle-Calédonie, rédigés par l’équipe, avec un lien vers une source qui les confirme. Les posts faux sont des événements imaginaires, ou ces mêmes faits avec un détail volontairement changé ; ils sont aussi publiés sous forme de faux articles de médias inventés. Les vrais articles reprennent, sans aucune modification, le titre et le lien d’articles publiés sous licence libre par The Conversation France et la CNIL (voir « Propriété intellectuelle ») ; aucun faux n’est fabriqué à partir de ces articles. La correction affichée après chaque réponse donne la bonne information et sa source. Les sujets graves, politiques ou religieux sont écartés automatiquement. Pour signaler un contenu inapproprié, écrire au contact indiqué dans « Éditeur du site »."
+          "texte": "Le fil mélange trois sortes de posts. Les posts de personnes présentés comme vrais énoncent des faits réels et vérifiables sur la Nouvelle-Calédonie, rédigés par l’équipe, avec un lien vers une source qui les confirme. Les posts faux sont des événements imaginaires, ou ces mêmes faits avec un détail volontairement changé ; ils sont aussi publiés sous forme de faux articles de médias inventés. Les vrais articles reprennent, sans aucune modification, le titre et le lien d’articles publiés sous licence libre par The Conversation France et la CNIL (voir « Propriété intellectuelle ») ; aucun faux n’est fabriqué à partir de ces articles. La correction affichée après chaque réponse donne la bonne information et sa source. Les faits retenus ne mettent en cause aucune personne vivante et évitent la politique, la coutume et la santé ; les titres d’articles qui touchent à des sujets graves, politiques ou religieux sont écartés automatiquement. Pour signaler un contenu inapproprié, voir « Signaler un contenu »."
         }
       ]
     },
@@ -6116,16 +6113,19 @@
       "titre": "Propriété intellectuelle",
       "paragraphes": [
         {
-          "texte": "La structure du site, ses textes, son code, ses illustrations (dont le personnage du cagou) et son identité graphique ont été créés par l’équipe du projet (voir « Crédits »). [À compléter selon la convention de projet : « Les droits d’exploitation ont été cédés au commanditaire. » ou « Leurs auteurs en conservent les droits et en autorisent l’exploitation par le commanditaire. »] Toute autre reproduction ou réutilisation, totale ou partielle, sans autorisation écrite préalable est interdite (articles L. 122-4 et L. 335-2 du code de la propriété intellectuelle)."
+          "texte": "La structure du site, ses textes, son code, ses illustrations (dont le personnage du cagou) et son identité graphique ont été créés par l’équipe du projet (voir « Crédits »), qui en conserve les droits. Toute reproduction ou réutilisation, totale ou partielle, sans autorisation écrite préalable de ses auteurs est interdite (articles L. 122-4 et L. 335-2 du code de la propriété intellectuelle)."
         },
         {
-          "texte": "Le compte instagram Planké (https://www.instagram.com/planke_nc ) fait également partie du projet dans le cadre de notre SAE. Il reste la propriété de l'équipe en charge du projet."
+          "texte": "Le compte Instagram Planké (https://www.instagram.com/planke_nc) fait également partie du projet. Il reste la propriété de l’équipe du projet."
         },
         {
           "texte": "Les posts de personnes et les faux articles ne reprennent aucun contenu protégé : les faits ne sont pas protégés par le droit d’auteur, et chaque fait a été reformulé par l’équipe. Les liens vers les sources (encyclopédies, organismes publics) renvoient vers leurs pages, qui restent la propriété de leurs auteurs."
         },
         {
-          "texte": "Les vrais articles affichés dans le fil sont des titres d’articles de The Conversation France (https://theconversation.com/fr) et de la CNIL (https://www.cnil.fr), publiés sous licence Creative Commons Attribution, Pas de modification 4.0 (CC BY-ND 4.0, https://creativecommons.org/licenses/by-nd/4.0/deed.fr). Chaque titre est repris sans aucune modification, avec le nom de son auteur, de l’éditeur, la date de reprise, la licence et un lien vers l’article complet. Ni le texte des articles, ni leurs images ne sont repris. Un éditeur ou un auteur qui souhaite le retrait d’un titre peut écrire à l’adresse de contact : le retrait sera fait dans les meilleurs délais."
+          "texte": "Les vrais articles affichés dans le fil sont des titres d’articles de The Conversation France (https://theconversation.com/fr) et de la CNIL (https://www.cnil.fr), publiés sous licence Creative Commons Attribution, Pas de modification 4.0 (CC BY-ND 4.0, https://creativecommons.org/licenses/by-nd/4.0/deed.fr). Chaque titre est repris sans aucune modification, avec le nom de son auteur, de l’éditeur, la date de reprise, la licence et un lien vers l’article complet. Ni le texte des articles, ni leurs images ne sont repris. Un éditeur ou un auteur qui souhaite le retrait d’un titre peut le demander à l’hébergeur du site (voir « Hébergement »)."
+        },
+        {
+          "texte": "Les photos des posts viennent de Wikimedia Commons, dans le domaine public ou sous licence libre (CC0, CC BY, CC BY-SA). Leur auteur, leur source et leur licence sont indiqués sous chaque photo, dans la correction du post. Elles illustrent des posts fabriqués pour l’exercice : celles des événements inventés ont été prises ailleurs."
         },
         {
           "texte": "Les marques et noms de médias, de plateformes ou d’organismes cités appartiennent à leurs titulaires. Leur mention ne signifie ni partenariat ni approbation de leur part."
@@ -6140,13 +6140,13 @@
       "titre": "Données personnelles",
       "paragraphes": [
         {
-          "texte": "Le site ne demande ni nom, ni adresse électronique, ni mot de passe, et ne crée aucun compte. L’éditeur ne collecte et ne conserve aucune donnée personnelle sur les joueurs."
+          "texte": "Le site ne demande ni nom, ni adresse électronique, ni mot de passe, et ne crée aucun compte. Aucune donnée personnelle sur les joueurs n’est collectée ni conservée."
         },
         {
-          "texte": "Ce qui reste dans votre navigateur. Pour que vous retrouviez votre partie, le site enregistre dans le stockage local de votre navigateur (localStorage), sur votre seul appareil :\n• votre progression : posts joués, réponses, niveaux, conversations terminées ;\n• le pseudo et l’avatar que vous choisissez, si vous en choisissez ;\n• vos réglages : affichage et place du cagou ;\n• la mémoire de ce que vous avez déjà vu : stories ouvertes, brève du jour.\nCes informations ne sont jamais envoyées à l’éditeur ni à un tiers. Elles restent tant que vous ne les effacez pas. Pour les supprimer, effacez les données du site dans les réglages de votre navigateur ; la navigation privée les efface à la fermeture."
+          "texte": "Ce qui reste dans votre navigateur. Pour que vous retrouviez votre partie, le site enregistre dans le stockage local de votre navigateur (localStorage), sur l’appareil que vous utilisez :\n• votre progression : posts joués, réponses, niveaux, conversations terminées ;\n• le pseudo et l’avatar que vous choisissez, si vous en choisissez ;\n• vos réglages : affichage et place du cagou ;\n• la mémoire de ce que vous avez déjà vu : posts et conversations déjà proposés, règles et stories déjà lues.\nCes informations ne sont jamais envoyées à qui que ce soit. Chaque appareil et chaque navigateur garde sa propre partie : jouer sur ordinateur puis sur téléphone donne deux parties distinctes. Elles restent tant que vous ne les effacez pas. Pour les supprimer, effacez les données du site dans les réglages de votre navigateur ; la navigation privée les efface à la fermeture."
         },
         {
-          "texte": "Le code de progression. La page « Ma progression » peut produire un code qui contient votre avancement et votre pseudo. Il est fabriqué dans votre navigateur et n’est transmis à personne : c’est vous qui choisissez de le copier, de le conserver ou de le partager."
+          "texte": "Le code de progression. La page « Profil » peut produire un code qui contient votre avancement et votre pseudo, et le restaurer sur un autre appareil ou un autre navigateur. Il est fabriqué dans votre navigateur et n’est transmis à personne : c’est vous qui choisissez de le copier, de le conserver ou de le partager."
         },
         {
           "texte": "Données techniques. Comme tout site, chaque visite transmet à l’hébergeur des informations techniques (adresse IP, date et heure, page demandée, type de navigateur). Il les traite pour acheminer les pages et assurer la sécurité du service. Son identité figure à la section « Hébergement »."
@@ -6155,7 +6155,7 @@
           "texte": "Le site n’utilise aucun outil de mesure d’audience, aucune publicité et aucun module de réseau social. Le lien vers le compte Instagram de Planké est un simple lien : Instagram ne reçoit rien tant que vous ne cliquez pas dessus."
         },
         {
-          "texte": "Vos droits. Conformément à la loi n° 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, applicable en Nouvelle-Calédonie, et, pour les personnes situées dans l’Union européenne, au règlement (UE) 2016/679 (RGPD), vous disposez d’un droit d’accès, de rectification, d’effacement, d’opposition et de limitation sur les données qui vous concernent. Pour toute question, écrivez à [À compléter : adresse de contact du commanditaire]. Vous pouvez aussi adresser une réclamation à la Commission nationale de l’informatique et des libertés (CNIL), 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, https://www.cnil.fr"
+          "texte": "Vos droits. Conformément à la loi n° 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, applicable en Nouvelle-Calédonie, et, pour les personnes situées dans l’Union européenne, au règlement (UE) 2016/679 (RGPD), vous disposez d’un droit d’accès, de rectification, d’effacement, d’opposition et de limitation sur les données qui vous concernent. Les seules données traitées sont les données techniques de l’hébergeur : adressez-vous à lui (voir « Hébergement »). Vous pouvez aussi adresser une réclamation à la Commission nationale de l’informatique et des libertés (CNIL), 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, https://www.cnil.fr"
         },
         {
           "texte": "Jeune public. Le jeu s’adresse aussi aux adolescents. Aucune donnée n’étant collectée, son usage ne demande pas d’autorisation parentale. Nous conseillons toutefois aux plus jeunes de ne pas utiliser leur vrai nom comme pseudo."
@@ -6176,7 +6176,7 @@
       "titre": "Liens vers d’autres sites",
       "paragraphes": [
         {
-          "texte": "Le site renvoie vers des sites extérieurs : médias, organismes de vérification, ressources pédagogiques. L’éditeur n’a aucun contrôle sur leur contenu, leur disponibilité ni leur traitement des données, et décline toute responsabilité à leur sujet. Ces liens s’ouvrent dans un nouvel onglet."
+          "texte": "Le site renvoie vers des sites extérieurs : médias, organismes de vérification, ressources pédagogiques. L’équipe du projet n’a aucun contrôle sur leur contenu, leur disponibilité ni leur traitement des données, et décline toute responsabilité à leur sujet. Ces liens s’ouvrent dans un nouvel onglet."
         }
       ]
     },
@@ -6185,10 +6185,10 @@
       "titre": "Responsabilité",
       "paragraphes": [
         {
-          "texte": "Le site a été réalisé en 2026 dans le cadre d’un projet étudiant. L’équipe n’en assure plus la gestion depuis sa remise au commanditaire. Les posts et les conversations se renouvellent automatiquement à partir des faits et des événements imaginaires listés dans le contenu du site ; le reste du contenu (fiches, liens) n’est plus mis à jour, et certains liens, chiffres ou exemples peuvent avoir vieilli. Les contenus pédagogiques ne constituent pas un conseil juridique, médical ou professionnel."
+          "texte": "Le site a été réalisé en 2026 dans le cadre d’un projet étudiant. Il n’est ni suivi ni maintenu. Les posts et les conversations se renouvellent automatiquement à partir des faits et des événements imaginaires listés dans le contenu du site, tant que ce renouvellement fonctionne ; le reste du contenu (fiches, liens) n’est plus mis à jour, et certains liens, chiffres ou exemples peuvent avoir vieilli. Les contenus pédagogiques ne constituent pas un conseil juridique, médical ou professionnel."
         },
         {
-          "texte": "Le site est accessible gratuitement, sans garantie de disponibilité permanente. L’éditeur ne saurait être tenu responsable d’une interruption, d’une erreur ou d’une perte de progression liée à l’effacement des données du navigateur. Le code de progression permet de sauvegarder sa partie."
+          "texte": "Le site est accessible gratuitement, sans garantie de disponibilité et pour une durée limitée. L’équipe du projet ne saurait être tenue responsable d’une interruption, d’une erreur, de l’arrêt du site ou d’une perte de progression liée à l’effacement des données du navigateur. Le code de progression permet de sauvegarder sa partie."
         }
       ]
     },
@@ -6197,7 +6197,7 @@
       "titre": "Signaler un contenu",
       "paragraphes": [
         {
-          "texte": "Si un contenu vous semble illicite, inexact ou porte atteinte à vos droits, écrivez à [À compléter : adresse de contact du commanditaire] en indiquant la page concernée et la raison de votre demande. Elle sera examinée dans les meilleurs délais."
+          "texte": "Si un contenu vous semble illicite, inexact ou porte atteinte à vos droits, signalez-le à l’hébergeur du site (voir « Hébergement »), en indiquant la page concernée et la raison de votre demande."
         }
       ]
     },
@@ -6206,7 +6206,7 @@
       "titre": "Accessibilité",
       "paragraphes": [
         {
-          "texte": "Le site est conçu pour être utilisable au clavier, lisible par les lecteurs d’écran et contrasté. Il n’a pas fait l’objet d’un audit de conformité au référentiel général d’amélioration de l’accessibilité (RGAA). Si vous rencontrez une difficulté, signalez-la à [À compléter : adresse de contact du commanditaire]."
+          "texte": "Le site est conçu pour être utilisable au clavier et au toucher, lisible par les lecteurs d’écran, contrasté, et adapté aux écrans d’ordinateur comme de mobile. Il n’a pas fait l’objet d’un audit de conformité au référentiel général d’amélioration de l’accessibilité (RGAA). Le site n’étant pas maintenu, les difficultés rencontrées ne pourront pas être corrigées."
         }
       ]
     },
@@ -6216,6 +6216,9 @@
       "paragraphes": [
         {
           "texte": "Les présentes mentions sont régies par le droit français, dans ses dispositions applicables en Nouvelle-Calédonie. En cas de litige, et à défaut de solution amiable, les juridictions de Nouméa sont compétentes."
+        },
+        {
+          "texte": "Mentions mises à jour le 28 octobre 2026."
         }
       ]
     },
@@ -6307,8 +6310,8 @@
       "vrai": "En Nouvelle-Calédonie, la saison cyclonique va de novembre à avril.",
       "faux": "En Nouvelle-Calédonie, la saison cyclonique va de juin à septembre.",
       "source": {
-        "nom": "Météo-France Nouvelle-Calédonie",
-        "url": "https://www.meteo.nc/"
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Climat_de_la_Nouvelle-Cal%C3%A9donie"
       },
       "image": {
         "fichier": "/images/faits/saison-cyclonique.jpg",
@@ -6326,7 +6329,7 @@
       "faux": "Dans l’hémisphère Sud, les cyclones tournent dans le sens inverse des aiguilles d’une montre.",
       "source": {
         "nom": "Wikipédia",
-        "url": "https://fr.wikipedia.org/wiki/Cyclone_tropical"
+        "url": "https://fr.wikipedia.org/wiki/Cyclone"
       },
       "image": {
         "fichier": "/images/faits/cyclone-sens.jpg",
@@ -6408,7 +6411,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Agathis_montana_de_Laub._2.jpg"
       },
-      "theme": "flore"
+      "theme": "geo"
     },
     {
       "id": "grande-terre-longueur",
@@ -6466,8 +6469,8 @@
     },
     {
       "id": "distance-australie",
-      "vrai": "Nouméa est à environ 1 500 kilomètres de la côte est de l’Australie.",
-      "faux": "Nouméa est à environ 300 kilomètres de la côte est de l’Australie.",
+      "vrai": "La Nouvelle-Calédonie est à environ 1 200 kilomètres à l’est de l’Australie.",
+      "faux": "La Nouvelle-Calédonie est à environ 300 kilomètres à l’est de l’Australie.",
       "source": {
         "nom": "Wikipédia",
         "url": "https://fr.wikipedia.org/wiki/Nouvelle-Cal%C3%A9donie"
@@ -6592,11 +6595,11 @@
     },
     {
       "id": "population",
-      "vrai": "Le recensement de 2019 a compté environ 270 000 habitants en Nouvelle-Calédonie.",
-      "faux": "Le recensement de 2019 a compté environ 700 000 habitants en Nouvelle-Calédonie.",
+      "vrai": "Le recensement de 2025 a compté environ 265 000 habitants en Nouvelle-Calédonie.",
+      "faux": "Le recensement de 2025 a compté environ 700 000 habitants en Nouvelle-Calédonie.",
       "source": {
         "nom": "ISEE",
-        "url": "https://www.isee.nc/"
+        "url": "https://www.isee.nc/population/recensement"
       },
       "image": {
         "fichier": "/images/faits/population.jpg",
@@ -6736,11 +6739,11 @@
     },
     {
       "id": "roussette",
-      "vrai": "La roussette est une chauve-souris qui se nourrit surtout de fruits et de fleurs.",
-      "faux": "La roussette est une chauve-souris qui se nourrit surtout de petits poissons.",
+      "vrai": "La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de fruits et de fleurs.",
+      "faux": "La roussette rousse, une chauve-souris de Nouvelle-Calédonie, se nourrit surtout de petits poissons.",
       "source": {
         "nom": "Wikipédia",
-        "url": "https://fr.wikipedia.org/wiki/Roussette"
+        "url": "https://fr.wikipedia.org/wiki/Roussette_rousse"
       },
       "image": {
         "fichier": "/images/faits/roussette.jpg",
@@ -6826,11 +6829,11 @@
     },
     {
       "id": "baleines",
-      "vrai": "Les baleines à bosse viennent dans le lagon sud pendant l’hiver austral, de juillet à septembre environ.",
-      "faux": "Les baleines à bosse viennent dans le lagon sud en plein été, de janvier à mars.",
+      "vrai": "Les baleines à bosse viennent se reproduire dans les eaux calédoniennes pendant la saison fraîche, entre juin et novembre.",
+      "faux": "Les baleines à bosse viennent se reproduire dans les eaux calédoniennes en plein été, de janvier à mars.",
       "source": {
         "nom": "Wikipédia",
-        "url": "https://fr.wikipedia.org/wiki/Baleine_%C3%A0_bosse"
+        "url": "https://fr.wikipedia.org/wiki/Koumac"
       },
       "image": {
         "fichier": "/images/faits/baleines.jpg",
@@ -6964,6 +6967,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "page": "https://commons.wikimedia.org/wiki/File:A_pod_of_spinner_dolphins_in_the_Red_Sea.jpg"
       },
+      "lieu": "dans la baie de Prony",
       "theme": "mer"
     },
     {
@@ -6978,6 +6982,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Green_Sea_Turtle_-_Chelonia_mydas_-_Poipu_beach,_Kauai.jpg"
       },
+      "lieu": "à Poé",
       "theme": "mer"
     },
     {
@@ -6992,6 +6997,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Fruits_et_l%C3%A9gumes_sur_un_%C3%A9tal_02.jpg"
       },
+      "lieu": "à La Foa",
       "theme": "sortie"
     },
     {
@@ -7006,6 +7012,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Colored_wood_pencils_01.jpg"
       },
+      "lieu": "à Lifou",
       "theme": "jeunes"
     },
     {
@@ -7020,6 +7027,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Outrigger_canoes_at_TCYC_Rockingham,_August_2019.jpg"
       },
+      "lieu": "à Ouvéa",
       "theme": "sortie"
     },
     {
@@ -7034,6 +7042,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Local_rock_band_performs_under_vibrant_stage_lights_during_outdoor_festival_at_night.jpg"
       },
+      "lieu": "à Koumac",
       "theme": "sortie"
     },
     {
@@ -7048,6 +7057,7 @@
         "licenceUrl": "",
         "page": "https://commons.wikimedia.org/wiki/File:Coral_Spawning_(38797556434).jpg"
       },
+      "lieu": "à l’îlot Maître",
       "theme": "mer"
     },
     {
@@ -7062,6 +7072,7 @@
         "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
         "page": "https://commons.wikimedia.org/wiki/File:Stack_of_multicolored_books_on_a_table.jpg"
       },
+      "lieu": "à Païta",
       "theme": "jeunes"
     },
     {
@@ -7076,6 +7087,7 @@
         "licenceUrl": "",
         "page": "https://commons.wikimedia.org/wiki/File:Pothole_in_Villeray,_Montr%C3%A9al.jpg"
       },
+      "lieu": "à Nouméa",
       "theme": "ville"
     },
     {
@@ -7090,6 +7102,7 @@
         "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
         "page": "https://commons.wikimedia.org/wiki/File:Hanging_flying_foxes.JPG"
       },
+      "lieu": "à Sarraméa",
       "theme": "faune"
     },
     {
@@ -7104,6 +7117,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Bib_race_RunUralan_Elista.jpg"
       },
+      "lieu": "à Bourail",
       "theme": "sortie"
     },
     {
@@ -7118,6 +7132,7 @@
         "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
         "page": "https://commons.wikimedia.org/wiki/File:Austin_Texas_food_truck_3.jpg"
       },
+      "lieu": "à Nouméa",
       "theme": "cuisine"
     },
     {
@@ -7132,6 +7147,7 @@
         "licenceUrl": "",
         "page": "https://commons.wikimedia.org/wiki/File:Cucurbita_2018_G1.jpg"
       },
+      "lieu": "à Hienghène",
       "theme": "flore"
     },
     {
@@ -7146,6 +7162,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Boe_Bot.jpg"
       },
+      "lieu": "à Koné",
       "theme": "jeunes"
     },
     {
@@ -7160,6 +7177,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Heinke_Hans_Hass_Diving_Mask_and_Snorkel_Tube.jpg"
       },
+      "lieu": "à l’îlot Canard",
       "theme": "mer"
     },
     {
@@ -7174,6 +7192,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "page": "https://commons.wikimedia.org/wiki/File:Cononut_milk.JPG"
       },
+      "lieu": "à Poindimié",
       "theme": "cuisine"
     },
     {
@@ -7188,6 +7207,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:LACMTA_Bike_Share_electric_bicycle_-_drive_side.jpg"
       },
+      "lieu": "à Nouméa",
       "theme": "ville"
     },
     {
@@ -7202,6 +7222,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Shipping_container_stacks_-_Port_of_Rotterdam_-_2017_-_5.jpg"
       },
+      "lieu": "au port de Nouméa",
       "theme": "ville"
     },
     {
@@ -7216,6 +7237,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Telephone_box_library_in_Lachapelle-sous-Rougemont_(1).jpg"
       },
+      "lieu": "à Bourail",
       "theme": "ville"
     },
     {
@@ -7230,6 +7252,7 @@
         "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
         "page": "https://commons.wikimedia.org/wiki/File:Plastic_Bottle_Litter_in_Bora_Bora.jpg"
       },
+      "lieu": "à Thio",
       "theme": "environnement"
     },
     {
@@ -7244,6 +7267,7 @@
         "licenceUrl": "",
         "page": "https://commons.wikimedia.org/wiki/File:Nintendo-Switch-Pro-Controller-FL.jpg"
       },
+      "lieu": "à Dumbéa",
       "theme": "jeunes"
     },
     {
@@ -7258,6 +7282,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Banc_de_thons_albacores_(Thunnus_albacares)_(Ifremer_00568-68027_-_25201).jpg"
       },
+      "lieu": "à Pouébo",
       "theme": "mer"
     },
     {
@@ -7272,6 +7297,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Bicycle_repair_tools,_Bicycle_Kitchen,_Los_Angeles.jpg"
       },
+      "lieu": "au Mont-Dore",
       "theme": "ville"
     },
     {
@@ -7286,6 +7312,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Purpureostemon_Ciliatus_-_Nouvelle-Cal%C3%A9donie_(New_Caledonia)_01.jpg"
       },
+      "lieu": "au mont Panié",
       "theme": "flore"
     },
     {
@@ -7300,6 +7327,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Violin_%26_bow.jpg"
       },
+      "lieu": "à Nouméa",
       "theme": "jeunes"
     },
     {
@@ -7314,6 +7342,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Roche_perc%C3%A9e_de_Bourail.jpg"
       },
+      "lieu": "à la Roche Percée",
       "theme": "sortie"
     },
     {
@@ -7328,6 +7357,7 @@
         "licenceUrl": "",
         "page": "https://commons.wikimedia.org/wiki/File:Soap_Box_Derby_Racer.jpg"
       },
+      "lieu": "à Farino",
       "theme": "sortie"
     },
     {
@@ -7342,6 +7372,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Children%27s_books,_Orkney_Library,_Kirkwall.jpg"
       },
+      "lieu": "à Koumac",
       "theme": "jeunes"
     },
     {
@@ -7356,6 +7387,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Coucher_de_soleil_sur_l%27oc%C3%A9an_Pacifique_(Ifremer_00568-68014_-_25152).jpg"
       },
+      "lieu": "à Maré",
       "theme": "geo"
     },
     {
@@ -7370,6 +7402,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:-2020-07-01_Vegetable_garden_with_raised_beds,_Trimingham,_Norfolk.JPG"
       },
+      "lieu": "à Rivière-Salée",
       "theme": "flore"
     },
     {
@@ -7384,6 +7417,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Blue_and_yellow_wooden_toys_at_display.jpg"
       },
+      "lieu": "à Païta",
       "theme": "jeunes"
     },
     {
@@ -7398,6 +7432,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Kites_on_the_beach_(5930596637).jpg"
       },
+      "lieu": "à l’Anse-Vata",
       "theme": "sortie"
     },
     {
@@ -7412,6 +7447,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Papaya_-_longitudinal_section.jpg"
       },
+      "lieu": "à Nouméa",
       "theme": "cuisine"
     },
     {
@@ -7426,6 +7462,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Studio_A_broadcast_area_(4039602492).jpg"
       },
+      "lieu": "à Canala",
       "theme": "jeunes"
     },
     {
@@ -7440,6 +7477,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Humpback_whale_tail_flukes_off_the_coast_coast_of_Maui,_Hawaii.jpg"
       },
+      "lieu": "à Yaté",
       "theme": "mer"
     },
     {
@@ -7454,6 +7492,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:T%C3%A4hesadu_2016_-_Meteor_shower_2016.jpg"
       },
+      "lieu": "à Sarraméa",
       "theme": "meteo"
     },
     {
@@ -7468,6 +7507,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Baguette_mie.jpg"
       },
+      "lieu": "à Koné",
       "theme": "cuisine"
     },
     {
@@ -7482,6 +7522,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "page": "https://commons.wikimedia.org/wiki/File:Beach_Volleyball_Net,_Destin,_Florida.jpg"
       },
+      "lieu": "à Poé",
       "theme": "sortie"
     },
     {
@@ -7496,6 +7537,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "page": "https://commons.wikimedia.org/wiki/File:Parked_electric_kick_scooters_in_Benediktbeuerer_Stra%C3%9Fe_(Munich).jpg"
       },
+      "lieu": "à Nouméa",
       "theme": "ville"
     },
     {
@@ -7510,6 +7552,7 @@
         "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
         "page": "https://commons.wikimedia.org/wiki/File:Picnic_basket_01.jpg"
       },
+      "lieu": "au Ouen-Toro",
       "theme": "sortie"
     }
   ]

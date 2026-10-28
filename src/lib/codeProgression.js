@@ -132,7 +132,7 @@ export async function decoderCode(code) {
     if (echec instanceof ErreurCode) throw echec
     throw new ErreurCode(
       'illisible',
-      "Ce code n'a pas pu être relu : un caractère a changé, ou il en manque un morceau. Recopie-le en entier, sans rien ajouter autour."
+      "Ce code n'a pas pu être relu : un caractère a changé, ou il en manque un morceau. Recopiez-le en entier, sans rien ajouter autour."
     )
   }
 

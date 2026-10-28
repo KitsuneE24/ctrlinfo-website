@@ -90,7 +90,7 @@ export default function CodeProgression() {
           ) : (
             <>
               <label className="champ">
-                <span className="champ__label">Ton code</span>
+                <span className="champ__label">Votre code</span>
                 <textarea
                   value={code}
                   readOnly

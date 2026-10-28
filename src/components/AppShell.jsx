@@ -88,9 +88,12 @@ export default function AppShell() {
   return (
     <ExitGuardContext.Provider value={guard}>
       <div className="app">
+        <a href="#contenu" className="lien-evitement">
+          Aller au contenu
+        </a>
         <AppHeader />
 
-        <main className="app__main">
+        <main id="contenu" tabIndex={-1} className="app__main">
           <div key={pathname} className="app__screen anim-apparait">
             <Outlet
               context={{

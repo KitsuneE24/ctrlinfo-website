@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router'
+import { mouvementReduit } from '../lib/mouvement'
 import {
   ATTENTE_ECRAN,
   ATTENTE_INACTIF,
@@ -307,7 +308,7 @@ export default function Compagnon({ jeu = null }) {
 
     function promenade(maintenant, min, max) {
       const e = etat.current
-      if (enJeuRef.current) return
+      if (enJeuRef.current || mouvementReduit()) return
       if (!e.prochaineBalade) {
         e.prochaineBalade = maintenant + PAUSE_BALADE.min + Math.random() * PAUSE_BALADE.ecart
         return
@@ -396,7 +397,7 @@ export default function Compagnon({ jeu = null }) {
       const e = etat.current
       const { debut, images, pas, cadence } = postureDe(e.posture, e.sens)
 
-      if (images === 1) e.phase = 0
+      if (images === 1 || mouvementReduit()) e.phase = 0
       else e.phase += pas ? parcouru : dt
 
       const echelle = pas ?? cadence

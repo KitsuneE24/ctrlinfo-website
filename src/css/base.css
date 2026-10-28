@@ -147,6 +147,36 @@
     outline-offset: 2px;
   }
 
+  .lien-evitement {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 1000;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--blanc);
+    color: var(--papier-encre);
+    font-weight: 600;
+    transform: translateY(-200%);
+  }
+
+  .lien-evitement:focus-visible {
+    transform: none;
+  }
+
+  #contenu:focus {
+    outline: none;
+  }
+
+  .pour-lecteur {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--filet-4) transparent;

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Renderer, Program, Mesh, Triangle } from 'ogl'
+import { mouvementReduit } from '../lib/mouvement'
 
 const hexToRgb = hex => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
@@ -223,7 +224,8 @@ const MoltenMetal = ({
       program.uniforms.uMouse.value[0] = currentMouse[0]
       program.uniforms.uMouse.value[1] = currentMouse[1]
       renderer.render({ scene: mesh })
-      raf = requestAnimationFrame(loop)
+      // Animations réduites : une seule image, fixe.
+      raf = mouvementReduit() ? 0 : requestAnimationFrame(loop)
     }
 
     const tryStart = () => {

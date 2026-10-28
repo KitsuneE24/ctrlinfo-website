@@ -57,6 +57,10 @@ export default function Countdown({ active, secondes: duree, onComplete }) {
         <span className="countdown__value">{secondes}</span>
         <span className="countdown__unit">secondes</span>
       </span>
+      {/* Annoncé une seule fois aux lecteurs d'écran, à l'entrée dans le dernier tiers. */}
+      <span className="pour-lecteur" aria-live="polite">
+        {urgent && restant > 0 ? `Plus que ${Math.ceil((totalMs * PART_ALERTE) / 1000)} secondes.` : ''}
+      </span>
     </span>
   )
 }

@@ -20,7 +20,8 @@
   }
 
   .search-field:focus-within {
-    border-color: var(--filet-4);
+    border-color: var(--magenta-texte);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--magenta-texte) 18%, transparent);
   }
 
   .search-field__input {

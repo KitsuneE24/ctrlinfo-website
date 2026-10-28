@@ -191,7 +191,7 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
         </button>
       </header>
 
-      <div ref={scrollRef} className="thread__log no-scrollbar">
+      <div ref={scrollRef} className="thread__log no-scrollbar" tabIndex={0} role="log" aria-label="Fil de la conversation">
         {log.map((message, i) => {
           if (message.kind === 'explication') {
             return (

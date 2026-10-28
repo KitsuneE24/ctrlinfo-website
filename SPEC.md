@@ -1,6 +1,6 @@
 # CTRL INFO — Spécification
 
-> Seule documentation du projet. Mise à jour : 27/10/2026.
+> Seule documentation du projet. Mise à jour : 28/10/2026.
 > À modifier à chaque changement notable. L'historique est dans [JOURNAL.md](JOURNAL.md).
 
 ## 1. Le projet
@@ -14,7 +14,7 @@ pour apprendre à vérifier une info.
   navigateur et s'emporte par un code à copier-coller.
 - **Contenu séparé du code** : tous les textes sont dans `public/donnees/`.
 - **Contenu renouvelé seul chaque matin**, sans IA et sans relecture humaine.
-- **Projet étudiant remis au commanditaire**, sans maintenance par l'équipe.
+- **Projet étudiant sans éditeur**, ni suivi ni maintenu, en ligne pour une durée limitée.
 
 ## 2. Stack
 
@@ -37,7 +37,7 @@ pour apprendre à vérifier une info.
 | `/conversations` | Messages | un fil par contact, le joueur choisit ses réponses |
 | `/ressources` | Ressources | 8 thèmes sur les mécanismes de la désinformation |
 | `/profil` | Profil | statistiques, avatar, code de sauvegarde, compagnon |
-| `/mentions-legales` | Mentions légales | éditeur, hébergeur, données, crédits photo |
+| `/mentions-legales` | Mentions légales | statut (sans éditeur), hébergeur, données, crédits |
 
 **Fil d'actualité**
 - Lots de 5 posts par niveau, tirés parmi les inédits.
@@ -48,6 +48,11 @@ pour apprendre à vérifier une info.
 - Vrais et faux sont publiés par les mêmes types de comptes, avec les mêmes
   voix (ado, parent, page de quiz, alarmiste…). Seuls le fond, la source et
   le détail exact trahissent un faux.
+- Un post fait quelques phrases : d'où vient l'info, une question aux abonnés,
+  la source dite comme on la dit (« je l'ai vu sur Wikipédia »), jamais « Source : ».
+- Les commentaires réagissent au sujet, au lieu, à la façon d'écrire du compte ;
+  sous un fait déformé, celui qui a vérifié rétablit le vrai.
+- Correction : une couleur par post, rouge pour une fake news, bleu pour un vrai.
 - Environ un tiers d'articles : de vrais articles sous licence libre (The
   Conversation, CNIL, titre intact), et autant de faux de médias inventés.
 - Deux erreurs sur le même biais insèrent un post d'entraînement ciblé.
@@ -119,7 +124,7 @@ Où se trouve chaque partie dans le code :
 | --- | --- |
 | `posts-vrais.json`, `posts-faux.json` | les posts du fil (générés) |
 | `contenu.json` → `faits` | faits réels et vérifiables : version vraie, version fausse (un détail changé), source, photo |
-| `contenu.json` → `scenarios` | événements inventés et anodins |
+| `contenu.json` → `scenarios` | événements inventés et anodins, avec leur `lieu` (« à La Foa ») |
 | `contenu.json` → `conversations` | sujets de discussion (générés) |
 | `contenu.json` → `remediations` | posts d'entraînement, un par biais |
 | `contenu.json` → `chapitres`, `ressources`, `stories`, `astuces` | fiches, sites de vérification, brèves |
@@ -135,7 +140,8 @@ ou passer par l'administration. Puis `npm run verifier` et jouer le passage.
   détail, sans danger si elle circulait.
 - Un événement inventé ne cite aucune personne, entreprise ni institution réelle.
 - Photos : libres (Wikimedia Commons), sans visage reconnaissable, avec `alt`
-  et crédit. `npm run verifier` refuse une photo sans crédit.
+  et crédit, affiché sous la photo dans la correction (jamais dans le fil).
+  `npm run verifier` refuse une photo sans crédit.
 - Jamais de média sans licence libre ; jamais de faux tiré d'un vrai article.
 - Le biais d'un faux doit exister dans `remediations`.
 - Ton : on vouvoie le joueur, le cagou le tutoie, les personnages se tutoient.
@@ -199,8 +205,9 @@ Sur un serveur de build sans `config.local.json`, les variables `ADMIN_PATH`
 et `ADMIN_HTPASSWD` remplacent le fichier.
 
 **À savoir**
-- Chaque enregistrement est noté dans `journal.log` ; les 10 dernières versions
-  sont gardées.
+- Chaque enregistrement est noté dans `journal.log` (date, compte, fichier,
+  résultat, IP hachée avec un sel secret `.htsel`, jamais le contenu) ; au-delà
+  de 1 Mo il passe en `journal.1.log`. Les 10 dernières versions sont gardées.
 - **Admin et génération s'excluent** : l'envoi du matin écrase les
   modifications en ligne. Choisir l'un ou l'autre.
 
@@ -211,7 +218,7 @@ et `ADMIN_HTPASSWD` remplacent le fichier.
 3. Servir `index.html` pour toute adresse inconnue : déjà réglé pour Apache
    et Netlify ; Nginx : `try_files $uri $uri/ /index.html;`.
 4. Compléter les mentions légales : les champs `[À compléter : …]` de
-   `mentionsLegales` (éditeur, RIDET, responsable, contact, hébergeur).
+   `mentionsLegales` (hébergeur seulement : seul contact du site).
 5. Transférer le dépôt GitHub au commanditaire et renseigner les secrets.
 6. Vérifier : redirection HTTPS, admin sous mot de passe, aucune erreur
    « Content-Security-Policy » dans la console.
@@ -225,11 +232,13 @@ depuis un autre site et tracée ; liens externes limités à `http(s)` ; images 
 joueur transmise à un tiers ; code de
 sauvegarde et contenu fabriqué relus au chargement ; envoi en SFTP/FTPS
 uniquement ; workflow « Sécurité » et Dependabot. Audit :
-`npm run audit:securite` donne 40 OK, 0 échec, et 2 alertes tant que
+`npm run audit:securite` donne 45 OK, 0 échec, et 2 alertes tant que
 `config.local.json` n'est pas rempli (adresse de l'admin et `.htpasswd`, § 7).
 
 **Aucun secret dans le dépôt** : chemin de l'admin, `.htpasswd` et accès
-d'envoi restent dehors. Un secret vu dans un commit est considéré comme volé.
+d'envoi restent dehors, et ni le build ni les workflows ne les affichent. Un
+secret vu dans un commit est considéré comme volé. Aucune erreur technique
+n'est montrée (erreurs PHP masquées, version du serveur cachée).
 
 **Suivi**
 - Dépôt au nom du commanditaire, double authentification, peu de collaborateurs.
@@ -253,8 +262,8 @@ l'admin, archiver le dépôt. Le site statique continue seul.
 
 - Pas de tests automatisés ; la vérification ne contrôle que la forme.
 - 40 faits et 40 événements : un joueur assidu revoit les mêmes faits.
-- Six faits à relire sur leur source : phare Amédée, Lifou, œuf du cagou,
-  longueur de la Grande Terre, roussette, baleines.
+- Sources des 40 faits relues le 28/10/2026 ; la page de l'UNESCO refuse les
+  robots et se vérifie à la main.
 - Quatre biais sans post d'entraînement : « Certitude ajoutée »,
   « Information recyclée », « Détail modifié », « Fait déformé ».
 - Mot de passe de l'admin sans limite d'essais.

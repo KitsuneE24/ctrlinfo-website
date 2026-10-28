@@ -24,6 +24,8 @@ Le détail de chaque modification reste dans git : `git log --oneline`, ou
 
 | Date | Changement |
 | --- | --- |
+| 28/10 | Confidentialité : IP du journal hachées avec un sel secret, journal borné à 1 Mo et valeurs du client tronquées, erreurs PHP et versions du serveur masquées, plus aucun chemin secret ni hôte d'envoi dans les sorties du build et du workflow ; 5 règles d'audit |
+| 28/10 | Posts plus longs et plus naturels : chaque voix raconte d'où vient l'info, interpelle ses abonnés et cite sa source dans une phrase (plus de « Source : ») ; commentaires selon le sujet, le lieu (`scenarios[].lieu`), la façon d'écrire du compte et le fait corrigé ; correction en une seule couleur par post (rouge faux, bleu vrai) ; sources des 40 faits relues : roussette, baleines, distance de l'Australie, sens des cyclones corrigés, population au recensement 2025 |
 | 28/10 | Sécurité : l'ancienne adresse d'exemple de l'admin (dans l'historique git) est refusée comme les autres ; l'audit signale un `.htpasswd` resté au chemin de l'exemple |
 | 28/10 | Accessibilité : Lighthouse 100/100 sur les 8 écrans (zone `<main>`, libellés qui reprennent le texte visible, titres h1 › h2 › h3) ; contrastes AA vérifiés sur tous les couples texte/fond ; étiquettes à 12 px minimum ; avatar de la démonstration en gris pour ne pas se confondre avec les repères |
 | 28/10 | Règles des jeux en démonstration : maquette du fil ou des Messages avec repères numérotés, comme la correction, et la liste des actions (textes dans `jeux[].demonstration`) |

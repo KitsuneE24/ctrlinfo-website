@@ -18,18 +18,19 @@ export { expect }
 
 // Règles WCAG 2.2 A et AA, base automatisable du RGAA.
 export async function accessibilite(page) {
-  // Un fondu en cours fausserait la mesure des contrastes.
-  await page.evaluate(() =>
-    Promise.all(
-      document
-        .getAnimations()
-        .filter((a) => a.effect?.getTiming().iterations !== Infinity)
-        .map((a) => a.finished.catch(() => {}))
-    )
+  // Un fondu en cours fausserait la mesure des contrastes : on attend qu'il n'y en ait plus.
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.waitForLoadState('networkidle')
+  await page.waitForFunction(
+    () => document.getAnimations().every((a) => a.playState !== 'running' || a.effect?.getTiming().iterations === Infinity),
+    null,
+    { timeout: 10_000 }
   )
   const resultat = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
     .analyze()
-  const lisible = resultat.violations.map((v) => `${v.id} (${v.impact}) : ${v.nodes.map((n) => n.target.join(' ')).slice(0, 3).join(' | ')}`)
+  const lisible = resultat.violations.map(
+    (v) => `${v.id} (${v.impact}) : ${v.nodes.map((n) => `${n.target.join(' ')} ${n.any[0]?.message ?? ''}`).slice(0, 3).join(' | ')}`
+  )
   expect(lisible).toEqual([])
 }

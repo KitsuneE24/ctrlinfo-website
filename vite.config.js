@@ -31,6 +31,7 @@ function finirLeBundle() {
 
       if (process.env.NETLIFY) {
         rmSync(resolve(dist, 'admin'), { recursive: true, force: true })
+        rmSync(resolve(dist, '.htaccess'), { force: true })
         console.log('  administration : retirée (Netlify)')
         return
       }

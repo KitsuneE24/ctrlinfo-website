@@ -24,6 +24,7 @@ Le détail de chaque modification reste dans git : `git log --oneline`, ou
 
 | Date | Changement |
 | --- | --- |
+| 28/10 | 17 faits ajoutés (57 en tout), chacun vérifié à la source : récifs et dugongs (UNESCO), mer de Corail, tortue verte, chant du cagou (Endemia), notou, superficie, indicatif, franc CFP, langues kanak, aires coutumières (ALK), Port-de-France, lavabo et hémisphère, lumière du Soleil, Grande Muraille, Apollo 11, mot de passe (CNIL) ; contenu refait, aucun fait plus de deux fois ; stockage local décrit dans la SPEC |
 | 28/10 | Contenu fixe pour économiser les crédits Netlify : génération lancée à la main seulement, 160 posts (16 vrais et 16 faux par niveau) et 48 sujets de Messages ; dates des posts inventés recalculées le jour où l'on joue (`ilYa`) ; pas de déploiement si seuls doc, tests ou workflows changent |
 | 28/10 | Netlify comme hébergeur : génération le lundi au lieu de chaque matin (plan gratuit à 300 crédits, 15 par déploiement), fichiers à nom unique en cache un an, `.htaccess` retiré du build Netlify, mentions : Netlify, Inc. et transfert vers les États-Unis (Data Privacy Framework) |
 | 28/10 | Doc : SPEC à jour (pièges, arnaques, tests, ajout d'un fait pas à pas, § 11 « Reprendre le projet ») |

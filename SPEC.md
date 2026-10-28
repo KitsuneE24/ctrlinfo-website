@@ -140,8 +140,20 @@ Où se trouve chaque partie dans le code :
 - Si le contenu manque ou est cassé, l'écran affiche un message clair.
 - Chaque écran a son adresse : l'hébergeur doit servir `index.html` pour toute
   adresse inconnue.
-- La progression est écrite dans `localStorage` à chaque action. Le code de
-  sauvegarde est compressé, limité à 10 000 caractères et relu à l'import.
+- **Stockage local** (`localStorage`, propre à chaque navigateur, jamais
+  envoyé) :
+  - `ctrl-info:progression` : pseudo, avatar, niveau, posts vus (5 000 au
+    plus), score par procédé, réponses dans chaque conversation ; écrit à
+    chaque action ;
+  - `ctrl-info:generes-3` : posts et sujets de Messages fabriqués dans le
+    navigateur (« Continuer à jouer », « Nouveau sujet »), 120 de chaque au
+    plus, les plus anciens effacés d'abord ; relus au chargement, seules les
+    fabrications locales bien formées passent ;
+  - réglages du cagou (affiché, position) et écrans déjà présentés.
+  Le code de sauvegarde (Profil) emporte pseudo, avatar, niveau, scores et
+  résultats des conversations ; pas la liste des posts vus, ni les
+  conversations en cours, ni les posts fabriqués : un autre appareil en
+  fabrique d'autres. Il est compressé, limité à 10 000 caractères et relu à l'import.
 - En navigation privée, le jeu marche ; la progression est perdue au
   rechargement.
 
@@ -351,9 +363,11 @@ l'admin, archiver le dépôt. Le site statique continue seul.
 
 ## 10. Limites connues
 
-- 40 faits et 40 événements : un joueur assidu revoit les mêmes faits.
-- 32 faits sur 40 ont encore Wikipédia pour source ; les 8 autres ont une
-  source première (UNESCO, ISEE, Endemia, gouv.nc). La page de l'UNESCO
+- 57 faits et 40 événements : chaque fait sert au plus deux fois dans le
+  contenu fixe, mais un joueur assidu qui « continue à jouer » les revoit.
+- 44 faits sur 57 ont encore Wikipédia pour source ; les 13 autres ont une
+  source première (UNESCO, ISEE, Endemia, gouv.nc, CNIL, Académie des langues
+  kanak). La page de l'UNESCO
   refuse les robots et se vérifie à la main.
 - Deux cas réels des Ressources ont une source en anglais (le tigre, The
   Connexion ; le riz, Oman Observer) : pas d'équivalent français trouvé qui

@@ -4,9 +4,9 @@
     "chemin": "admin"
   },
   "generation": {
-    "postsParNiveau": 8,
+    "postsParNiveau": 16,
     "renouvelerParJour": 2,
-    "sujetsParContact": 3,
+    "sujetsParContact": 6,
     "aideUrl": "https://www.clemi.fr/",
     "articles": {
       "_note": "Seulement des médias qui publient sous licence libre, et des rubriques proches du jeu (sciences, environnement, éducation, numérique). Les titres sont repris tels quels, jamais modifiés.",

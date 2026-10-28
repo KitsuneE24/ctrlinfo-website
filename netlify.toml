@@ -1,6 +1,8 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  # Pas de déploiement (ni de crédits) si seuls la doc, les tests ou les workflows changent.
+  ignore = "[ \"$CACHED_COMMIT_REF\" != \"$COMMIT_REF\" ] && git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- src public admin scripts index.html package.json package-lock.json vite.config.js netlify.toml"
 
 [build.environment]
   NODE_VERSION = "24"

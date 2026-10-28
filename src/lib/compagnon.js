@@ -89,7 +89,7 @@ const REPLIQUES = [
       'Chaque contact a son sujet. À toi de choisir par qui commencer.',
       'Ici, la fake news vient de gens que tu aimes bien. C’est plus délicat.',
       'Le but n’est pas de gagner un débat, c’est de trouver les bons mots.',
-      'De nouveaux sujets arrivent chaque semaine. Repasse bientôt.',
+      'Tout lu ? « Nouveau sujet » t’en prépare d’autres.',
       'Quelqu’un qui pousse à partager vite, c’est déjà un signal.',
     ],
   ],

@@ -1,11 +1,9 @@
-# Génération hebdomadaire (seuls les flux sous licence libre de config.json sont lus), vérification, commit (Netlify redéploie) ou envoi SFTP/FTPS.
+# Génération à la demande (seuls les flux sous licence libre de config.json sont lus), vérification, commit (Netlify redéploie) ou envoi SFTP/FTPS.
 
 name: Génération du contenu
 
 on:
-  schedule:
-    # Lundi 6:00 à Nouméa : 1 déploiement Netlify par semaine, dans le quota gratuit.
-    - cron: '0 19 * * 0'
+  # Contenu fixe : lancée à la main seulement (Actions → Run), chaque lancement coûte 1 déploiement Netlify.
   workflow_dispatch:
 
 permissions:

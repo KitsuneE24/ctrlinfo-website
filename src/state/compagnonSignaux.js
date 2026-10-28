@@ -1,5 +1,3 @@
-// Signaux du jeu vers le compagnon, hors de React.
-
 const auditeurs = new Set()
 
 export function signalerAuCompagnon(nom) {

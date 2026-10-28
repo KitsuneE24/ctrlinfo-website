@@ -13,32 +13,8 @@ export const getRemediations = depuis((c) => c.remediations)
 export const getNiveaux = depuis((c) => c.niveaux)
 export const getConversations = depuis((c) => c.conversations)
 export const getChapitres = depuis((c) => c.chapitres)
-// Les crédits photos sont tirés des banques : une photo ajoutée y apparaît d'elle-même.
-function creditsPhotos(c) {
-  const vues = new Set()
-  const lignes = []
-  for (const base of [...(c.faits ?? []), ...(c.scenarios ?? [])]) {
-    const image = base.image
-    if (!image?.page || vues.has(image.fichier)) continue
-    vues.add(image.fichier)
-    lignes.push(`• ${image.alt} : ${image.auteur}, ${image.licence}, ${image.page}`)
-  }
-  if (lignes.length === 0) return []
-  return [
-    {
-      id: 'credits-photos',
-      titre: 'Crédits photos',
-      paragraphes: [
-        { texte: 'Les photos des posts viennent de Wikimedia Commons, dans le domaine public ou sous licence libre (CC0, CC BY, CC BY-SA). Elles illustrent des posts fabriqués pour l’exercice : celles des événements inventés ont été prises ailleurs.' },
-        { texte: lignes.join('\n') },
-      ],
-    },
-  ]
-}
+export const getMentionsLegales = depuis((c) => c.mentionsLegales ?? [])
 
-export const getMentionsLegales = depuis((c) => [...(c.mentionsLegales ?? []), ...creditsPhotos(c)])
-
-// Index tiré du quantième.
 export const getDailyTip = depuis((c) => {
   if (c.astuces.length === 0) return null
   const jours = Math.floor(Date.now() / 86_400_000)
@@ -75,8 +51,6 @@ export const fabriquerNouvellesPublications = (level, { vus } = {}) =>
     return posts.length
   })
 
-
-/** De nouveaux sujets pour ce contact ; renvoie les sujets créés. */
 export const fabriquerNouveauxSujets = (contact) =>
   chargerContenu().then((c) => {
     if (!plusAutorise(c, 'chat')) return []

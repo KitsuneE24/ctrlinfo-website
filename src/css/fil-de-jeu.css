@@ -1,8 +1,4 @@
-/* Fil de jeu */
-
 @layer components {
-  /* --- Partie en cours : tout tient dans la hauteur de l'écran --- */
-
   .feed .page__column--feed {
     padding-bottom: 12px;
   }
@@ -21,7 +17,6 @@
     flex-direction: column;
   }
 
-  /* Ordinateur : post à gauche, état de la partie à droite. */
   @media (min-width: 1024px) {
     .feed .page__column--feed {
       max-width: 920px;
@@ -43,8 +38,6 @@
       height: 100%;
     }
   }
-
-  /* --- État de la partie --- */
 
   .fil-etat {
     position: sticky;
@@ -71,11 +64,6 @@
     gap: 14px;
   }
 
-  .fil-etat__quitter-texte {
-    display: none;
-  }
-
-  /* « ? » des règles : en bout de bandeau sur mobile */
   .fil-etat__regles {
     order: 2;
   }
@@ -128,7 +116,6 @@
     flex-shrink: 0;
   }
 
-
   .fil-etat__conseil {
     display: none;
   }
@@ -160,31 +147,12 @@
       background: var(--surface);
     }
 
-    .fil-etat__quitter {
-      align-self: flex-end;
-      width: auto;
-      gap: 8px;
-      padding: 0 16px 0 12px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .fil-etat__quitter-texte {
-      display: inline;
-    }
-
     .fil-etat__chrono {
       align-self: center;
       order: -1;
       margin-top: 8px;
     }
 
-    .fil-etat__quitter {
-      order: -2;
-    }
-
-    /* Métal en fusion en fond, voilé pour garder le compteur lisible. */
     .fil-etat__molten {
       position: absolute;
       z-index: 0;
@@ -198,7 +166,6 @@
       background: color-mix(in srgb, var(--encre) 20%, transparent);
     }
 
-    /* Même violet que les bandeaux, sous le shader. */
     .fil-etat__barre:has(.fil-etat__molten) {
       border-color: color-mix(in srgb, var(--blanc) 12%, transparent);
       background: var(--brand-violet-deep);
@@ -209,7 +176,6 @@
       z-index: 1;
     }
 
-    /* Ordinateur : « ? » en haut à gauche, Quitter en haut à droite. */
     .fil-etat__barre > .fil-etat__regles {
       position: absolute;
       top: 20px;
@@ -243,8 +209,6 @@
       line-height: 1.15;
     }
   }
-
-  /* --- Chrono en anneau --- */
 
   .countdown {
     position: relative;
@@ -336,8 +300,6 @@
     }
   }
 
-  /* --- Publication --- */
-
   .post {
     display: flex;
     max-height: 100%;
@@ -354,7 +316,6 @@
     flex-shrink: 0;
   }
 
-  /* Texte, image, commentaires : défilent dans le post si besoin. */
   .post__defile {
     min-height: 0;
     flex: 0 1 auto;
@@ -409,7 +370,6 @@
     color: var(--ink);
   }
 
-  /* Couleur du contenu, éclaircie pour le fond sombre */
   .reaction__auteur {
     font-weight: 700;
     color: color-mix(in srgb, var(--auteur, var(--ink)) 45%, var(--blanc));
@@ -455,7 +415,6 @@
     padding: 0 16px 12px;
   }
 
-  /* Image plafonnée : le texte passe en premier. */
   .image-post {
     margin: 0;
   }
@@ -497,7 +456,6 @@
     padding-inline: 0;
   }
 
-  /* Toujours visible : collée en bas de la zone qui défile. */
   .post__actions {
     position: sticky;
     z-index: 1;
@@ -596,7 +554,6 @@
     color: var(--ink-faint);
   }
 
-  /* Bandeau au-dessus d'un post de remédiation. */
   .remediation {
     display: flex;
     align-items: center;
@@ -614,8 +571,6 @@
     position: relative;
   }
 
-  /* --- Annonce d'un nouveau niveau --- */
-
   .palier {
     position: absolute;
     z-index: 40;
@@ -632,8 +587,6 @@
   .palier__carte {
     width: min(480px, 100%);
   }
-
-  /* --- Fenêtre générique (brève du jour) --- */
 
   .modal {
     position: fixed;
@@ -670,8 +623,6 @@
     gap: 8px;
     margin-top: 22px;
   }
-
-  /* --- Fin de niveau, fin de partie --- */
 
   .outcome {
     position: relative;

@@ -1,5 +1,3 @@
-// Recherche tolérante aux accents et aux fautes (Levenshtein borné).
-
 function normalize(texte) {
   return texte
     .normalize('NFD')
@@ -7,7 +5,6 @@ function normalize(texte) {
     .toLowerCase()
 }
 
-// Aucune faute tolérée sous quatre lettres.
 function budgetFautes(mot) {
   if (mot.length <= 3) return 0
   if (mot.length <= 5) return 1
@@ -26,9 +23,9 @@ function distance(a, b, max) {
     for (let j = 1; j <= b.length; j += 1) {
       const cout = a[i - 1] === b[j - 1] ? 0 : 1
       const valeur = Math.min(
-        ligne[j] + 1, // suppression
-        suivante[j - 1] + 1, // insertion
-        ligne[j - 1] + cout // substitution
+        ligne[j] + 1,
+        suivante[j - 1] + 1,
+        ligne[j - 1] + cout
       )
       suivante.push(valeur)
       if (valeur < minimum) minimum = valeur

@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
 
-// Texte des Ressources : « **mot** » s'affiche en gras, le reste tel quel.
 export default function Riche({ texte }) {
   if (typeof texte !== 'string') return null
   return texte.split(/\*\*(.+?)\*\*/g).map((morceau, i) =>

@@ -4,7 +4,6 @@ import { useRessource } from '../lib/useRessource'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 import Page from '../components/ui/Page'
 
-// Adresses web, courriels et champs « [À compléter…] ».
 const MOTIF = /(https?:\/\/[^\s]+[^\s.,;:)]|[\w.+-]+@[\w-]+\.[\w.-]*\w|\[[^\]]+\])/g
 
 function Texte({ texte }) {

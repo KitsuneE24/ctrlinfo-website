@@ -1,4 +1,3 @@
-// Progression du joueur dans localStorage, repli en mémoire si indisponible.
 const CLE = 'ctrl-info:progression'
 
 // À incrémenter si la forme de l'état change.
@@ -10,15 +9,12 @@ const vide = () => ({
   avatar: null,
   fil: {
     niveau: 1,
-    // Slugs déjà traités, écartés des tirages.
     vus: [],
     decisions: 0,
     justes: 0,
     points: 0,
-    // { nom: { total, justes } }
     biais: {},
   },
-  // { slug: { faite, score, total, encours } }
   conversations: {},
 })
 
@@ -39,7 +35,6 @@ function ecrire(etat) {
   }
 }
 
-// Valide un état relu (ancien stockage ou code collé).
 function fusionner(recu, { depuisCode = false } = {}) {
   const base = vide()
   if (!recu || typeof recu !== 'object') return base
@@ -69,7 +64,6 @@ function fusionner(recu, { depuisCode = false } = {}) {
 const PLAFOND = 1_000_000_000
 const IDENTIFIANT = /^[a-z0-9-]{1,80}$/
 const CLES_INTERDITES = new Set(['__proto__', 'constructor', 'prototype'])
-// Caractères de contrôle et invisibles, sauf la jonction des emojis.
 const INVISIBLES = /(?!\u200d)[\p{Cc}\p{Cf}]/gu
 
 function entier(valeur, min, max, defaut) {
@@ -137,7 +131,6 @@ export function niveauDeDepart() {
 
 export function noterDecision({ slug, biais, juste, points = 0 }) {
   const fil = etat.fil
-  // La dernière vue passe en fin de liste : les plus anciennes reviennent d'abord.
   const vus = slug ? [...fil.vus.filter((vu) => vu !== slug), slug] : fil.vus
 
   const compte = fil.biais[biais] ?? { total: 0, justes: 0 }
@@ -185,11 +178,6 @@ export function finirConversation(slug, { score, total }) {
   })
 }
 
-export function oublierConversation(slug) {
-  if (!etat.conversations[slug]?.encours) return
-  poserConversation(slug, { encours: null })
-}
-
 export function noterAvatar(avatarId) {
   appliquer({ ...etat, avatar: avatarId ?? null })
 }
@@ -198,7 +186,6 @@ export function noterPseudo(pseudo) {
   appliquer({ ...etat, pseudo: nettoyerPseudo(pseudo) })
 }
 
-// Sans les publications vues, pour garder un code court.
 export function exportable(conversationsEnLigne = []) {
   const enLigne = new Set(conversationsEnLigne)
   const conversations = {}
@@ -222,7 +209,6 @@ export function incoherence(recu) {
   const justes = n(fil.justes)
 
   if (justes > decisions) return 'il compte plus de bonnes réponses que de décisions'
-  // Un niveau ne se passe qu'en finissant un lot, donc avec au moins une décision.
   if (n(fil.niveau) - 1 > decisions) return 'son niveau est trop élevé pour le nombre de décisions'
   if (Math.abs(n(fil.points)) > decisions * POINTS_MAX) {
     return 'il compte plus de points que ses décisions ne peuvent en rapporter'

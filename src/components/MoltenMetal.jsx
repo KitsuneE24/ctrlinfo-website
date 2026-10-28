@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Renderer, Program, Mesh, Triangle } from 'ogl'
 
-// Fond WebGL 2 décoratif ; sans WebGL 2, rien n'est dessiné.
-
 const hexToRgb = hex => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
   if (!result) return [1, 1, 1]
@@ -134,7 +132,6 @@ const MoltenMetal = ({
       alpha: true,
       premultipliedAlpha: true,
       antialias: false,
-      // Plafond à 1,5 pour alléger le rendu.
       dpr: Math.min(window.devicePixelRatio || 1, 1.5)
     })
 
@@ -239,7 +236,6 @@ const MoltenMetal = ({
       }
     }
 
-    // Hors écran ou onglet masqué : la boucle s'arrête.
     const io = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting

@@ -1,5 +1,3 @@
-/* Conversations */
-
 @layer components {
   .messaging {
     display: flex;
@@ -131,8 +129,6 @@
     color: var(--ink-faint);
   }
 
-  /* --- Ligne de la boîte de réception --- */
-
   .inbox-item {
     display: flex;
     width: 100%;
@@ -216,13 +212,6 @@
     padding: 18px 16px 24px;
   }
 
-  .fabriquer__texte {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--ink-faint);
-  }
-
   .inbox-item__faite {
     display: grid;
     width: 22px;
@@ -233,8 +222,6 @@
     background: var(--bleu);
     color: var(--blanc);
   }
-
-  /* --- Fil de discussion --- */
 
   .thread {
     display: flex;
@@ -320,7 +307,6 @@
     }
   }
 
-  /* Ancrage bas, sans rogner le haut du fil. */
   .thread__log > *:first-child {
     margin-top: auto;
   }
@@ -362,7 +348,6 @@
     color: var(--ink);
   }
 
-  /* Question : liseré de la couleur du contact */
   .message__bubble--question {
     box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--contact-color, var(--magenta)) 60%, var(--blanc));
   }
@@ -373,7 +358,6 @@
     color: var(--encre);
   }
 
-  /* « Pourquoi » : la voix pédagogique, sans bulle. */
   .thread__log .note {
     width: 100%;
     margin: 6px 0;
@@ -472,8 +456,6 @@
     color: var(--ink-muted);
   }
 
-  /* --- Zone de réponse --- */
-
   .composer {
     flex-shrink: 0;
     padding: 12px 16px calc(16px + var(--sa-bottom));
@@ -500,7 +482,6 @@
     color: var(--ink-faint);
   }
 
-  /* Pendant le choix, le champ inactif s'efface. */
   .composer__stack + .composer__field--idle {
     display: none;
   }
@@ -570,8 +551,6 @@
   .composer__send--idle {
     color: var(--ink-faint);
   }
-
-  /* --- Groupes --- */
 
   .thread__pile {
     display: flex;

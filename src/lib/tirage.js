@@ -1,5 +1,3 @@
-// Tirage au niveau demandé : inédites d'abord, puis déjà vues les plus anciennes.
-
 export const melanger = (tableau) => {
   const copie = [...tableau]
   for (let i = copie.length - 1; i > 0; i -= 1) {
@@ -12,7 +10,6 @@ export const melanger = (tableau) => {
 function varier(disponibles, taille) {
   const choisis = []
   const procedes = new Set()
-  // Au plus un article sur deux : le reste vient de personnes et de pages.
   const maxArticles = Math.floor(taille * 0.5)
   const articles = () => choisis.filter((p) => p.format === 'article').length
   for (const post of disponibles) {

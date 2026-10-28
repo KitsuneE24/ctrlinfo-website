@@ -1,8 +1,4 @@
-/* Profil */
-
 @layer components {
-  /* --- Champs --- */
-
   .champ {
     display: flex;
     flex-direction: column;
@@ -37,7 +33,6 @@
     color: var(--ink-faint);
   }
 
-  /* Zone du code : police à chasse fixe, coupure forcée */
   .champ__zone {
     resize: none;
     font-family: var(--font-code);
@@ -45,8 +40,6 @@
     line-height: 1.5;
     word-break: break-all;
   }
-
-  /* --- Code de progression --- */
 
   .code {
     display: flex;
@@ -56,7 +49,6 @@
     margin-top: 18px;
   }
 
-  /* Restaurer, sous un filet */
   .code--restaurer {
     margin-top: 22px;
     padding-top: 20px;
@@ -72,7 +64,6 @@
     width: 100%;
   }
 
-  /* Boutons côte à côte */
   .code__actions {
     display: flex;
     gap: 10px;
@@ -83,7 +74,6 @@
     flex: 0 1 auto;
   }
 
-  /* « Copier » à droite, « Masquer » juste à sa gauche. */
   .code__actions--droite {
     width: 100%;
     justify-content: flex-end;
@@ -118,7 +108,6 @@
     color: var(--bleu-texte);
   }
 
-  /* Lien « effacer » */
   .code__lien {
     display: inline-flex;
     align-items: center;
@@ -133,8 +122,6 @@
   .code__lien:hover {
     color: var(--rouge-texte);
   }
-
-  /* --- Mise en page : une colonne, deux sur ordinateur --- */
 
   .profil {
     position: relative;
@@ -277,7 +264,6 @@
     }
   }
 
-  /* Trois chiffres en ligne. */
   .profil-chiffres {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -366,7 +352,6 @@
     transition: width 0.4s ease-out;
   }
 
-  /* Sans fin : la barre s'estompe vers la droite. */
   .jauge__barre--infini {
     background: linear-gradient(90deg, var(--bleu-texte) 30%, transparent);
   }
@@ -375,8 +360,6 @@
     font-size: 1.25em;
     line-height: 1;
   }
-
-  /* --- « Ce qui te piège », sur papier --- */
 
   .profil-piege {
     display: flex;
@@ -441,8 +424,6 @@
     }
   }
 
-
-
   .biais-liste {
     display: flex;
     flex-direction: column;
@@ -472,7 +453,6 @@
 }
 
 @layer components {
-  /* Annule le bord à bord des pages `seamless` */
   .page__column .profil .card {
     border: 1px solid var(--filet-2);
     border-radius: var(--radius-card);
@@ -486,8 +466,6 @@
 }
 
 @layer components {
-  /* --- Réglage on/off --- */
-
   .reglage {
     display: flex;
     align-items: center;

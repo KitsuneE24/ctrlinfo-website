@@ -1,7 +1,4 @@
-/* Base */
-
 @layer base {
-  /* Remise à zéro des styles du navigateur */
   *,
   *::before,
   *::after {
@@ -150,7 +147,6 @@
     outline-offset: 2px;
   }
 
-  /* Barres de défilement : fines, couleurs du site. */
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--filet-4) transparent;
@@ -175,7 +171,6 @@
     background: var(--magenta-texte) padding-box;
   }
 
-  /* Téléphone : aucune barre de défilement. */
   @media (max-width: 767px) {
     * {
       scrollbar-width: none;

@@ -110,7 +110,6 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
 
   const affichee = useRef(0)
 
-  // File vide = chargement.
   const chargerNiveau = useCallback(
     (level) =>
       getTirageEtReste(level, { vus: dejaVus() })

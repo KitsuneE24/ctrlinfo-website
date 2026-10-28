@@ -35,7 +35,6 @@ import {
   Zap,
 } from 'lucide-react'
 
-// Nom d'icône (contenu) → composant. Icône inconnue : point d'interrogation.
 const ICONES = {
   BadgeCheck,
   Banknote,

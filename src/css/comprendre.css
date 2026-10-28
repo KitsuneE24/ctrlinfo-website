@@ -1,8 +1,4 @@
-/* Comprendre */
-
 @layer components {
-  /* --- Recherche ------------------------------------------------------- */
-
   .search-field {
     display: flex;
     max-width: 640px;
@@ -80,8 +76,6 @@
     color: var(--ink-faint);
   }
 
-  /* --- Bandeau ---------------------------------------------------------- */
-
   .learn-hero {
     padding: 46px 22px 34px;
     background: var(--violet-bandeau);
@@ -139,8 +133,6 @@
     }
   }
 
-  /* --- Corps ------------------------------------------------------------ */
-
   .learn__body {
     display: flex;
     width: 100%;
@@ -162,8 +154,6 @@
       max-width: var(--content-read);
     }
   }
-
-  /* --- Galerie : tuiles carrées ----------------------------------------- */
 
   .themes {
     display: grid;
@@ -191,7 +181,6 @@
     text-decoration: none;
   }
 
-  /* Trame de dossier : grain et quadrillage discret. */
   .theme::before {
     content: '';
     position: absolute;
@@ -308,8 +297,6 @@
     }
   }
 
-  /* --- Page d'un thème : un dossier d'enquête ---------------------------- */
-
   .chapitre {
     display: flex;
     flex-direction: column;
@@ -321,15 +308,12 @@
     align-self: flex-start;
   }
 
-  /* --- Couverture -------------------------------------------------------- */
-
   .chemise {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  /* L'onglet de la chemise cartonnée. */
   .chemise__onglet {
     position: relative;
     top: 1px;
@@ -349,7 +333,6 @@
     padding: 30px 22px 22px;
     border-radius: 4px 14px 14px 14px;
     background-color: var(--dossier);
-    /* Même trame que la vignette, et un fond assombri pour le texte. */
     background-image:
       linear-gradient(to bottom, transparent 20%, color-mix(in srgb, var(--encre) 55%, transparent)),
       repeating-linear-gradient(0deg, color-mix(in srgb, var(--blanc) 6%, transparent) 0 1px, transparent 1px 22px),
@@ -438,8 +421,6 @@
     color: color-mix(in srgb, var(--blanc) 82%, transparent);
   }
 
-  /* --- Le tableau -------------------------------------------------------- */
-
   .chapitre__tableau {
     position: relative;
     display: flex;
@@ -454,13 +435,10 @@
     }
   }
 
-  /* Le fil passe sous les pièces. */
   .chapitre__tableau > :not(.tableau__fils) {
     position: relative;
     z-index: 1;
   }
-
-  /* --- Blocs ------------------------------------------------------------- */
 
   .bloc {
     display: flex;
@@ -476,8 +454,6 @@
     line-height: 1.05;
     color: var(--ink);
   }
-
-  /* --- Notes punaisées --------------------------------------------------- */
 
   .notes-dossier {
     display: grid;
@@ -553,8 +529,6 @@
     line-height: 1.6;
   }
 
-  /* --- Coupures (encadrés) ----------------------------------------------- */
-
   .coupure {
     position: relative;
     margin: 16px -4px 0 6px;
@@ -573,7 +547,6 @@
     margin-top: 12px;
   }
 
-  /* Morceau de ruban adhésif */
   .coupure::before {
     content: '';
     position: absolute;
@@ -610,12 +583,9 @@
     text-decoration: underline;
   }
 
-  /* Les mots importants des Ressources, souvent l'action à faire. */
   .chapitre strong {
     font-weight: 700;
   }
-
-  /* --- Le réflexe : la note bleue du tableau ----------------------------- */
 
   .conseil {
     position: relative;
@@ -660,8 +630,6 @@
     margin-top: 10px;
   }
 
-  /* --- Scellés (chiffres) ------------------------------------------------ */
-
   .scelles {
     display: grid;
     gap: 22px;
@@ -678,7 +646,6 @@
     }
   }
 
-  /* Étiquette de scellé : coins coupés, œillet en tête. */
   .scelle {
     position: relative;
     padding: 30px 16px 16px;
@@ -724,8 +691,6 @@
     line-height: 1.5;
   }
 
-  /* --- Rapport (texte suivi) --------------------------------------------- */
-
   .rapport {
     padding: 30px 22px 24px;
     transform: rotate(-0.4deg);
@@ -755,13 +720,10 @@
     margin-top: 12px;
   }
 
-  /* --- Illustration ------------------------------------------------------ */
-
   .bloc__figure {
     margin: 0 0 6px;
   }
 
-  /* Tirage photo, bord blanc. */
   .bloc__figure--photo {
     align-self: flex-start;
     max-width: 100%;
@@ -799,8 +761,6 @@
   .bloc__figure--photo .bloc__legende {
     color: var(--papier-encre);
   }
-
-  /* --- Suite de l'enquête ------------------------------------------------ */
 
   .chapitre__pied {
     display: flex;
@@ -860,8 +820,6 @@
   }
 }
 
-/* --- Carte de fin de page « À toi de jouer » --- */
-
 @layer components {
   .entry-card {
     position: relative;
@@ -919,8 +877,5 @@
       margin-top: 0;
     }
   }
-
-
-
 
 }

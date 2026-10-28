@@ -1,9 +1,4 @@
-/**
- * Les publications et conversations fabriquées dans le navigateur du joueur
- * (bouton « Fabriquer »). Elles restent sur l'appareil, comme la progression.
- */
 const CLE = 'ctrl-info:generes-3'
-// Anciennes fabrications, faites avec des contenus de médias.
 const ANCIENNES_CLES = ['ctrl-info:generes', 'ctrl-info:generes-2']
 const PLAFOND_POSTS = 120
 const PLAFOND_CONVERSATIONS = 120
@@ -39,7 +34,6 @@ let etat = lire()
 
 export const generes = () => etat
 
-/** Les nouveautés passent devant ; au-delà du plafond, les plus anciennes sortent. */
 export function ajouterGeneres({ posts = [], conversations = [] }) {
   etat = {
     posts: [...posts, ...etat.posts].slice(0, PLAFOND_POSTS),
@@ -49,14 +43,5 @@ export function ajouterGeneres({ posts = [], conversations = [] }) {
     window.localStorage.setItem(CLE, JSON.stringify(etat))
   } catch {
     // Sans stockage, elles durent le temps de l'onglet.
-  }
-}
-
-export function oublierGeneres() {
-  etat = vide()
-  try {
-    window.localStorage.removeItem(CLE)
-  } catch {
-    // Rien à effacer.
   }
 }

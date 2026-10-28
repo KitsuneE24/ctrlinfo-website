@@ -1,4 +1,3 @@
-// Générés par outils/generer-filaments.py.
 const SOURCES = {
   swirl: 'filaments/molten-swirl.webp',
   wide: 'filaments/molten-wide.webp',

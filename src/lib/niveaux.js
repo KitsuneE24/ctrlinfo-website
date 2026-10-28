@@ -8,7 +8,6 @@ export function dureePour(post, dureeNiveau) {
   return Math.max(dureeNiveau, Math.ceil(mots / MOTS_PAR_SECONDE) + DECISION_SECONDES)
 }
 
-// Au-delà du dernier niveau décrit, le chrono raccourcit de `accelerationSecondes` par niveau.
 export function reglesDuNiveau(niveaux, level) {
   if (niveaux.length === 0) return null
   const tries = [...niveaux].sort((a, b) => a.level - b.level)

@@ -3,7 +3,6 @@ import Filaments from './ui/Filaments'
 import Kiwi from './ui/Kiwi'
 import Demonstration from './Demonstration'
 
-// `reprise` : rouvert en cours de partie, ne relance rien.
 export default function GameStart({ jeu, reprise, onStart }) {
   return (
     <div

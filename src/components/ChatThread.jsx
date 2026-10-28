@@ -5,7 +5,6 @@ import { finirConversation } from '../state/progression'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
 import { texteSur } from '../lib/contraste'
 
-// Durée des points de frappe selon la longueur du message.
 const TYPING_BASE_MS = 700
 const TYPING_PER_CHAR_MS = 10
 const TYPING_MIN_MS = 1200
@@ -60,7 +59,6 @@ function TypingBubble() {
   )
 }
 
-// Un sujet de discussion ; reprend une partie sauvegardée. `suite` : null, 'encours' ou 'rien'.
 export default function ChatThread({ conversation, paused, onFinished, onBack, onNouveauSujet, suite = null, onRegles }) {
   const { name, color, intro, steps, outro, groupe, contexte, participants } = conversation
 
@@ -117,7 +115,6 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
     const nextIdx = stepIdx + 1
     setStepIdx(nextIdx)
 
-    // Réplique, puis explication, puis question suivante.
     const suite = [
       { text: choice.reply, auteur: steps[stepIdx].auteur, kind: 'message' },
       { text: choice.explication, kind: 'explication', correct: choice.correct },
@@ -145,7 +142,6 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' })
   }, [log, typing, choices.length, done])
 
-  // Toute variation de hauteur ramène le fil en bas.
   useEffect(() => {
     const el = scrollRef.current
     if (!el || typeof ResizeObserver === 'undefined') return
@@ -197,7 +193,6 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
 
       <div ref={scrollRef} className="thread__log no-scrollbar">
         {log.map((message, i) => {
-          // Voix pédagogique : ni avatar ni bulle.
           if (message.kind === 'explication') {
             return (
               <div

@@ -4,7 +4,6 @@ const PART_ALERTE = 1 / 3
 const RAYON = 19
 const TOUR = 2 * Math.PI * RAYON
 
-// La fin est une date : la mise en veille de l'onglet ne décale pas le chrono.
 export default function Countdown({ active, secondes: duree, onComplete }) {
   const totalMs = duree * 1000
   const [restant, setRestant] = useState(totalMs)

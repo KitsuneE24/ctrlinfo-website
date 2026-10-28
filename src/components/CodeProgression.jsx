@@ -30,7 +30,6 @@ export default function CodeProgression() {
       await navigator.clipboard.writeText(code)
       setCopie(true)
     } catch {
-      // Presse-papiers refusé : copie manuelle depuis la zone de texte.
       setCopie(false)
       setErreur('Le presse-papiers est bloqué : sélectionnez le code et copiez-le à la main.')
     }
@@ -82,7 +81,6 @@ export default function CodeProgression() {
           Copiez votre code pour retrouver votre progression ailleurs.
         </p>
 
-        {/* Exporter */}
         <div className="code">
           {code === null ? (
             <button type="button" onClick={exporter} className="bouton bouton--plein bouton--large">
@@ -127,7 +125,6 @@ export default function CodeProgression() {
           )}
         </div>
 
-        {/* Restaurer */}
         <div className="code code--restaurer">
           <label className="champ">
             <span className="champ__label">Restaurer un code</span>
@@ -198,7 +195,6 @@ export default function CodeProgression() {
           )}
         </div>
 
-        {/* Repartir de zéro */}
         {aQuelqueChose && (
           <div className="code code--effacer">
             {remise ? (

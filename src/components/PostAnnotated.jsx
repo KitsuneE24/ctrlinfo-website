@@ -5,8 +5,10 @@ import ImagePost from './ImagePost'
 
 const ZONES_TEXTE = ['SOURCE', 'TITRE', 'TEXTE', 'DATE', 'ENGAGEMENT']
 
-function Puce({ numero, nature }) {
-  return <span className={`annot__puce annot__puce--${nature.toLowerCase()}`}>{numero}</span>
+const tonDe = (post) => (post.isFake ? 'faux' : 'vrai')
+
+function Puce({ numero, ton }) {
+  return <span className={`annot__puce annot__puce--${ton}`}>{numero}</span>
 }
 
 const numerosPour = (indices, cible) =>
@@ -14,25 +16,19 @@ const numerosPour = (indices, cible) =>
     .map((indice, i) => (indice.cible === cible ? i + 1 : null))
     .filter((numero) => numero !== null)
 
-// Prend la nature du premier indice qui vise la partie.
-function surlignage(indices, cible) {
+function surlignage(indices, cible, ton) {
   if (!ZONES_TEXTE.includes(cible)) return ''
-  const vise = indices.find((indice) => indice.cible === cible)
-  return vise ? ` annot--vise annot--${vise.nature.toLowerCase()}` : ''
+  return indices.some((indice) => indice.cible === cible) ? ` annot--vise annot--${ton}` : ''
 }
 
-function Marques({ indices, cible }) {
+function Marques({ indices, cible, ton }) {
   const numeros = numerosPour(indices, cible)
   if (numeros.length === 0) return null
 
   return (
     <span className="annot__marques">
       {numeros.map((numero) => (
-        <Puce
-          key={numero}
-          numero={numero}
-          nature={indices[numero - 1].nature}
-        />
+        <Puce key={numero} numero={numero} ton={ton} />
       ))}
     </span>
   )
@@ -43,9 +39,9 @@ export function ListeIndices({ post }) {
   if (indices.length === 0) return null
 
   return (
-    <ol className="annot__liste">
+    <ol className={`annot__liste annot__liste--${tonDe(post)}`}>
       {indices.map((indice, i) => (
-        <li key={i} className={`indice indice--${indice.nature.toLowerCase()}`}>
+        <li key={i} className="indice">
           <span className="indice__picto">
             {createElement(icone(indice.picto), { size: 17, strokeWidth: 2 })}
           </span>
@@ -64,7 +60,8 @@ export function ListeIndices({ post }) {
 
 export default function PostAnnotated({ post, liste = true }) {
   const indices = post.indices ?? []
-  const surligne = (cible) => surlignage(indices, cible)
+  const ton = tonDe(post)
+  const surligne = (cible) => surlignage(indices, cible, ton)
 
   return (
     <article className="annot">
@@ -75,23 +72,23 @@ export default function PostAnnotated({ post, liste = true }) {
         <div className="annot__identite">
           <p className={`annot__compte${surligne('SOURCE')}`}>
             {post.source}
-            <Marques indices={indices} cible="SOURCE" />
+            <Marques indices={indices} ton={ton} cible="SOURCE" />
           </p>
           <p className={`annot__domaine${surligne('DATE')}`}>
             {post.domain || 'post sponsorisé'} · {post.date}
-            <Marques indices={indices} cible="DATE" />
+            <Marques indices={indices} ton={ton} cible="DATE" />
           </p>
         </div>
       </header>
 
       <p className={`annot__titre${surligne('TITRE')}`}>
         {post.titre}
-        <Marques indices={indices} cible="TITRE" />
+        <Marques indices={indices} ton={ton} cible="TITRE" />
       </p>
 
       <p className={`annot__texte${surligne('TEXTE')}`}>
         {post.texte}
-        <Marques indices={indices} cible="TEXTE" />
+        <Marques indices={indices} ton={ton} cible="TEXTE" />
       </p>
 
       <ImagePost post={post} className="annot__image" />

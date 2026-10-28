@@ -7572,10 +7572,10 @@
       "titre": "Hébergement",
       "paragraphes": [
         {
-          "texte": "Le site est hébergé par [À compléter : nom ou raison sociale de l’hébergeur, c’est-à-dire la société qui fournit le serveur], [À compléter : adresse postale], [À compléter : numéro de téléphone], [À compléter : site web ou adresse de contact]."
+          "texte": "Le site est hébergé par Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, États-Unis, [À compléter : numéro de téléphone], https://www.netlify.com (données personnelles : https://www.netlify.com/privacy/)."
         },
         {
-          "texte": "L’hébergeur reçoit les informations techniques de chaque visite (voir « Données personnelles ») et les traite pour acheminer les pages et sécuriser le service."
+          "texte": "L’hébergeur reçoit les informations techniques de chaque visite (voir « Données personnelles ») et les traite pour acheminer les pages et sécuriser le service. Ces informations peuvent être traitées aux États-Unis : Netlify est certifié au Data Privacy Framework UE–États-Unis, reconnu par la Commission européenne comme offrant une protection adéquate."
         }
       ]
     },
@@ -7596,7 +7596,7 @@
           "texte": "Le fil mélange trois sortes de posts. Les posts de personnes présentés comme vrais énoncent des faits réels et vérifiables sur la Nouvelle-Calédonie, rédigés par l’équipe, avec un lien vers une source qui les confirme. Les posts faux sont des événements imaginaires, ou ces mêmes faits avec un détail volontairement changé ; ils sont aussi publiés sous forme de faux articles de médias inventés. Les vrais articles reprennent, sans aucune modification, le titre et le lien d’articles publiés sous licence libre par The Conversation France et la CNIL (voir « Propriété intellectuelle ») ; aucun faux n’est fabriqué à partir de ces articles. La correction affichée après chaque réponse donne la bonne information et sa source. Les faits retenus ne mettent en cause aucune personne vivante et évitent la politique, la coutume et la santé ; les titres d’articles qui touchent à des sujets graves, politiques ou religieux sont écartés automatiquement. Pour signaler un contenu inapproprié, voir « Signaler un contenu »."
         },
         {
-          "texte": "Les textes du site, les modèles de posts et le code ont été écrits par l’équipe avec l’aide d’un assistant d’intelligence artificielle. La fabrication quotidienne des posts et des conversations, elle, n’utilise aucune IA : un programme assemble ces modèles avec des faits vérifiés et des événements imaginaires. Les arnaques montrées (faux concours, colis bloqué, fausse cagnotte, fausse alerte…) imitent des pièges réels mais sont inventées : aucun de leurs liens n’existe ni n’est cliquable."
+          "texte": "Les textes du site, les modèles de posts et le code ont été écrits par l’équipe avec l’aide d’un assistant d’intelligence artificielle. La fabrication automatique des posts et des conversations, elle, n’utilise aucune IA : un programme assemble ces modèles avec des faits vérifiés et des événements imaginaires. Les arnaques montrées (faux concours, colis bloqué, fausse cagnotte, fausse alerte…) imitent des pièges réels mais sont inventées : aucun de leurs liens n’existe ni n’est cliquable."
         },
         {
           "texte": "Les noms de comptes, de pages et de médias du jeu sont inventés. Leurs adresses web ont été vérifiées comme non enregistrées à la date de mise en ligne ; « Le Cagou Déchaîné » est un site parodique imaginaire."

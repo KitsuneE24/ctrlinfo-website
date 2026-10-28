@@ -14,7 +14,8 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 - **Aucun compte, aucune donnée personnelle** : la progression reste dans le
   navigateur et s'emporte par un code à copier-coller.
 - **Contenu séparé du code** : tous les textes sont dans `public/donnees/`.
-- **Contenu renouvelé seul chaque lundi matin**, sans IA et sans relecture humaine. Les modèles
+- **Contenu fixe et nombreux** (160 posts, 48 sujets de Messages), fabriqué sans IA et sans relecture humaine,
+  complété à l'infini dans le navigateur du joueur (« Continuer à jouer »). Les modèles
   de textes et le code ont, eux, été écrits avec l’aide d’un assistant d’IA (dit dans
   les mentions légales).
 - **Projet étudiant**, édité à titre non professionnel, ni suivi ni maintenu,
@@ -91,10 +92,10 @@ les animations.
 
 Le projet tient en trois étapes.
 
-1. **Le contenu est préparé hors du site.** Chaque lundi matin, un robot
-   GitHub fabrique de nouveaux posts à partir des faits du dépôt, les
-   vérifie et les enregistre dans le dépôt ; Netlify republie alors le site.
-   Une personne peut aussi modifier les JSON à la main dans GitHub.
+1. **Le contenu est préparé hors du site**, une fois : le générateur fabrique
+   les posts à partir des faits du dépôt, les vérifie et les enregistre dans
+   le dépôt ; Netlify publie alors le site. On le relance à la main au besoin,
+   et on peut aussi modifier les JSON dans GitHub.
 2. **Le site lit ce contenu.** Ce sont trois fichiers JSON, chargés une fois à
    l'ouverture de la page. Le site n'a pas de serveur : il ne fait qu'afficher.
 3. **La progression reste chez le joueur.** Elle est gardée dans son
@@ -102,7 +103,7 @@ Le projet tient en trois étapes.
 
 ```mermaid
 flowchart TB
-  A["1. Préparer le contenu<br/>robot GitHub chaque lundi<br/>ou modification dans GitHub"]
+  A["1. Préparer le contenu<br/>générateur, lancé à la main<br/>ou modification dans GitHub"]
   B["Fichiers de contenu<br/>public/donnees/*.json"]
   C["2. Le site affiche<br/>accueil, fil, messages, ressources"]
   D["3. Navigateur du joueur<br/>progression + code de sauvegarde"]
@@ -133,7 +134,7 @@ Où se trouve chaque partie dans le code :
 | `tests/unitaires/` | code de sauvegarde, tirage, stockage, générateur, contenu |
 | `tests/e2e/` | chaque écran, les parcours, le clavier, l'accessibilité |
 | `config.json` | réglages de la génération |
-| `.github/workflows/` | `generation.yml` (chaque lundi), `securite.yml` « Contrôles » (chaque envoi et chaque semaine) |
+| `.github/workflows/` | `generation.yml` (à la main), `securite.yml` « Contrôles » (chaque envoi et chaque semaine) |
 
 **À savoir**
 - Si le contenu manque ou est cassé, l'écran affiche un message clair.
@@ -155,7 +156,7 @@ Où se trouve chaque partie dans le code :
 | `contenu.json` → `remediations` | posts d'entraînement, un par procédé (complétés seuls s'il en manque) |
 | `contenu.json` → `chapitres`, `ressources`, `stories`, `astuces` | fiches, sites utiles, brèves |
 | `contenu.json` → `jeux`, `niveaux`, `avatars`, `mentionsLegales` | règles, tutoriels, avatars, mentions |
-| `config.json` → `generation` | posts par niveau, renouvellement, médias sous licence, sujets écartés |
+| `config.json` → `generation` | posts par niveau (16), sujets par contact (6), renouvellement, médias sous licence, sujets écartés |
 
 **Modifier un texte** : copier une entrée existante dans le JSON (attention aux
 virgules), ou passer par l'administration. Puis `npm run verifier` et `npm test`.
@@ -195,9 +196,28 @@ de guillemets imbriqués) et le générateur lui crée son post d'entraînement.
 - Ton : on vouvoie le joueur, le cagou le tutoie, les personnages se tutoient.
   Pas de tiret cadratin. On dit « post », « fake news », « cagou ».
 
-## 6. Génération automatique
+## 6. Génération du contenu
 
-Chaque lundi à 6 h (Nouméa), `generation.yml` :
+**Le contenu est fixe** : 16 vrais et 16 faux par niveau, 6 sujets par contact
+dans les Messages, un post d'entraînement par procédé. Rien n'est programmé,
+pour ne pas dépenser les crédits Netlify (plan gratuit : 300 crédits par mois,
+15 par déploiement, 20 par Go servi aux joueurs ; à 0 crédit, le site est mis
+en pause). Le jeu ne s'épuise pas : quand tout est vu, « Continuer à jouer » et
+« Nouveau sujet » fabriquent d'autres posts dans le navigateur du joueur, avec
+les mêmes modèles, sans rien demander au serveur.
+
+**Dates** : chaque post inventé garde son âge (`ilYa`, en heures) et sa date
+est recalculée le jour où l'on joue ; une information recyclée a toujours deux
+ans de trop. Les vrais articles gardent leur date de publication.
+
+**Plus d'exemples** : augmenter `postsParNiveau` ou `sujetsParContact` dans
+`config.json`, puis `npm run generer -- --refaire` en local (tout est refait ;
+sans `--refaire`, seuls les 2 plus anciens de chaque niveau sont remplacés).
+Au-delà de 16, les mêmes faits reviennent plus souvent : **ajouter des faits
+(§ 5) donne plus de variété que d'augmenter les chiffres.**
+
+`generation.yml` fait la même chose depuis GitHub (onglet *Actions* →
+« Génération du contenu » → *Run workflow*) :
 
 1. assemble faits, événements, arnaques et articles sous licence avec les
    modèles du dépôt ;
@@ -205,24 +225,15 @@ Chaque lundi à 6 h (Nouméa), `generation.yml` :
    vrais que de faux, et crée les posts d'entraînement manquants ;
 3. vérifie le résultat (`verifier` et `npm test`). En cas d'échec, rien n'est
    publié : le site garde la version précédente ;
-4. enregistre dans le dépôt (Netlify republie alors le site) ; sur serveur
+4. enregistre dans le dépôt (Netlify republie : 15 crédits) ; sur serveur
    Apache, envoie aussi les 3 fichiers JSON en SFTP/FTPS.
 
-**Pourquoi une fois par semaine** : le plan gratuit de Netlify donne 300
-crédits par mois ; un déploiement en coûte 15 et chaque Go servi aux joueurs
-20. Un déploiement par jour (450 crédits) mettrait le site en pause avant la
-fin du mois. Une fois par semaine (environ 65 crédits) laisse environ 11 Go
-pour les visites. Suivre la jauge dans Netlify, *Usage & billing*. Les posts
-du fil datent donc au plus d'une semaine ; seul « Continuer à jouer » date
-ses posts du jour où l'on joue.
+Le générateur varie la présentation des faits : il n'invente pas
+d'actualité. Seuls les articles sous licence libre apportent de la vraie
+actualité.
 
-Les dates des posts suivent le jour de génération (« Continuer à jouer », le
-jour où l'on joue). Le générateur varie la présentation des faits : il
-n'invente pas d'actualité. Seuls les articles sous licence libre apportent de
-la vraie actualité.
-
-Lancer ou arrêter : onglet *Actions* → « Génération du contenu » → *Run* ou
-*Disable workflow*.
+Pour la remettre en automatique (serveur sans quota), rajouter un `schedule`
+dans `generation.yml`.
 
 **Sur Netlify, aucun secret à renseigner.** Sur serveur Apache seulement,
 **secrets GitHub** (*Settings → Secrets → Actions*) :
@@ -270,7 +281,7 @@ et `ADMIN_HTPASSWD` remplacent le fichier.
 - Chaque enregistrement est noté dans `journal.log` (date, compte, fichier,
   résultat, IP hachée avec un sel secret `.htsel`, jamais le contenu) ; au-delà
   de 1 Mo il passe en `journal.1.log`. Les 10 dernières versions sont gardées.
-- **Admin et génération s'excluent** : l'envoi du lundi écrase les
+- **Admin et génération s'excluent** : chaque génération écrase les
   modifications en ligne. Choisir l'un ou l'autre.
 
 ## 8. Mise en ligne
@@ -280,8 +291,9 @@ et `ADMIN_HTPASSWD` remplacent le fichier.
 3. **Netlify** : relier le dépôt GitHub au site Netlify, branche de
    production `main`. Tout est dans `netlify.toml` (build, Node 24, en-têtes,
    cache, adresses des écrans) : rien à régler dans l'interface. Chaque commit
-   sur `main` republie le site (15 crédits, § 6) ; les autres branches ne
-   coûtent rien. Le compte Netlify, à votre nom, vaut identité d'éditeur
+   sur `main` republie le site (15 crédits, § 6), sauf s'il ne touche que la
+   doc, les tests ou les workflows (`ignore` dans `netlify.toml`) ; les autres
+   branches ne coûtent rien. Regrouper les modifications avant de fusionner. Le compte Netlify, à votre nom, vaut identité d'éditeur
    donnée à l'hébergeur (LCEN, éditeur non professionnel).
    **Serveur Apache** (autre possibilité) : `npm run build`, puis copier
    `dist/` en SFTP/FTPS ; `public/.htaccess` porte les mêmes réglages.

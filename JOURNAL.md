@@ -24,6 +24,7 @@ Le détail de chaque modification reste dans git : `git log --oneline`, ou
 
 | Date | Changement |
 | --- | --- |
+| 28/10 | Contenu fixe pour économiser les crédits Netlify : génération lancée à la main seulement, 160 posts (16 vrais et 16 faux par niveau) et 48 sujets de Messages ; dates des posts inventés recalculées le jour où l'on joue (`ilYa`) ; pas de déploiement si seuls doc, tests ou workflows changent |
 | 28/10 | Netlify comme hébergeur : génération le lundi au lieu de chaque matin (plan gratuit à 300 crédits, 15 par déploiement), fichiers à nom unique en cache un an, `.htaccess` retiré du build Netlify, mentions : Netlify, Inc. et transfert vers les États-Unis (Data Privacy Framework) |
 | 28/10 | Doc : SPEC à jour (pièges, arnaques, tests, ajout d'un fait pas à pas, § 11 « Reprendre le projet ») |
 | 28/10 | Mentions légales : éditeur non professionnel (LCEN) au lieu de « sans éditeur », déclaration d'accessibilité (chrono = limite essentielle, RGAA 13.1), génération quotidienne sans IA (modèles et code écrits avec l'aide d'un assistant d'IA, dit en toutes lettres), noms inventés vérifiés, crédits photos remis ; Planké = visuels du projet |

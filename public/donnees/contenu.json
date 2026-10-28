@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "genere": "2026-10-28T02:37:39.745Z",
+  "genere": "2026-10-28T02:41:03.044Z",
   "jeux": [
     {
       "id": "feed",
@@ -1473,588 +1473,6 @@
       "isRemediation": true,
       "id": 113
     },
-    "Faux concours": {
-      "sponsorise": false,
-      "reactionCount": 27121,
-      "commentCount": 754,
-      "date": "28 octobre 2026 à 10:20",
-      "learnMoreTips": "https://www.clemi.fr/",
-      "origine": "fiction",
-      "recolteLe": "2026-10-28T02:20:16.317Z",
-      "scenario": "arnaque-concours",
-      "slug": "remediation-faux-concours",
-      "source": "Nouméa Matin · Jeux",
-      "sourceColor": "#0d0080",
-      "domain": "page créée il y a 6 jours",
-      "titre": "🎁 Gagnez 2 billets d’avion pour Tahiti !",
-      "texte": "Likez, partagez, puis validez votre participation sur le lien avant minuit. Une carte bancaire est demandée pour les frais. Tirage au sort ce soir ! (Post d’entraînement : faux concours.)",
-      "isFake": true,
-      "level": 2,
-      "correctAction": "report",
-      "biais": "Faux concours",
-      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Un concours qui demande de payer, ou une carte bancaire, n’est pas un concours : c’est une arnaque. La page imite un média connu.",
-      "analyseFaux": "Le formulaire récupère vos coordonnées bancaires. Aucun vrai jeu ne demande de payer pour gagner.",
-      "indices": [
-        {
-          "ordre": 0,
-          "nature": "ALERTE",
-          "cible": "TEXTE",
-          "picto": "Gift",
-          "libelle": "Payer pour gagner",
-          "explication": "Un vrai concours ne demande jamais de carte bancaire ni de « frais de dossier »."
-        },
-        {
-          "ordre": 1,
-          "nature": "ALERTE",
-          "cible": "SOURCE",
-          "picto": "Search",
-          "libelle": "Une page copiée",
-          "explication": "« Nouméa Matin · Jeux » imite une page connue, mais elle a été créée il y a quelques jours. La vraie page a des années de publications."
-        },
-        {
-          "ordre": 2,
-          "nature": "VERIFICATION",
-          "cible": "TITRE",
-          "picto": "ShieldCheck",
-          "libelle": "En cas de doute",
-          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
-        }
-      ],
-      "commentaires": [
-        {
-          "auteur": "Fatou S.",
-          "couleur": "#791561",
-          "texte": "Partagé, j’espère gagner 🙏",
-          "posture": "CROIT"
-        },
-        {
-          "auteur": "Willy",
-          "couleur": "#8a4fbe",
-          "texte": "Pourquoi il faut une carte bancaire pour un concours ?",
-          "posture": "DOUTE"
-        },
-        {
-          "auteur": "Léa",
-          "couleur": "#c2410c",
-          "texte": "La vraie page n’organise aucun concours : celle-ci est une copie.",
-          "posture": "VERIFIE"
-        },
-        {
-          "auteur": "Patrick L.",
-          "couleur": "#791561",
-          "texte": "Ça a l’air trop beau, non ?",
-          "posture": "SUJET"
-        }
-      ],
-      "encouragement": "Bien vu : vous reconnaissez maintenant « faux concours ».",
-      "warning": "Encore raté : relisez les indices, « faux concours » revient souvent.",
-      "consequences": {
-        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
-        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
-        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
-      "isRemediation": true,
-      "id": 114
-    },
-    "Fausse cagnotte": {
-      "sponsorise": false,
-      "reactionCount": 4980,
-      "commentCount": 770,
-      "date": "28 octobre 2026 à 12:20",
-      "learnMoreTips": "https://www.clemi.fr/",
-      "origine": "fiction",
-      "recolteLe": "2026-10-28T02:20:16.317Z",
-      "scenario": "arnaque-cagnotte",
-      "slug": "remediation-fausse-cagnotte",
-      "source": "Vaea M.",
-      "sourceColor": "#791561",
-      "domain": "@vaea.m.officiel · compte créé cette semaine",
-      "titre": "🙏 Urgent : aidez les familles sinistrées après le coup de vent",
-      "texte": "Chaque franc compte : envoyez votre don par le lien, c’est urgent. Merci pour votre générosité. (Post d’entraînement : fausse cagnotte.)",
-      "isFake": true,
-      "level": 2,
-      "correctAction": "report",
-      "biais": "Fausse cagnotte",
-      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Après une catastrophe, de fausses cagnottes profitent de la générosité : personne de connu ne les gère.",
-      "analyseFaux": "Aucune association, aucune mairie derrière cette cagnotte : l’argent part chez un inconnu.",
-      "indices": [
-        {
-          "ordre": 0,
-          "nature": "ALERTE",
-          "cible": "TEXTE",
-          "picto": "HandCoins",
-          "libelle": "Une cagnotte sans organisateur",
-          "explication": "Pour aider, passez par une association reconnue, la mairie ou la Croix-Rouge, pas par un lien inconnu."
-        },
-        {
-          "ordre": 1,
-          "nature": "VERIFICATION",
-          "cible": "SOURCE",
-          "picto": "Search",
-          "libelle": "Un compte tout neuf",
-          "explication": "« Vaea M. » vient d’être créé et ne dit pas qui il est. Une collecte sérieuse donne un nom et un contact."
-        },
-        {
-          "ordre": 2,
-          "nature": "VERIFICATION",
-          "cible": "TITRE",
-          "picto": "ShieldCheck",
-          "libelle": "En cas de doute",
-          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
-        }
-      ],
-      "commentaires": [
-        {
-          "auteur": "Manu",
-          "couleur": "#8a4fbe",
-          "texte": "Tout est un complot ici 🙄",
-          "posture": "SUJET"
-        },
-        {
-          "auteur": "Anaïs W.",
-          "couleur": "#0e7490",
-          "texte": "Aucune association ne gère cette cagnotte : passez par la mairie.",
-          "posture": "VERIFIE"
-        },
-        {
-          "auteur": "Moana R.",
-          "couleur": "#1800ad",
-          "texte": "Ma tante s’est fait avoir avec un truc pareil.",
-          "posture": "SUJET"
-        },
-        {
-          "auteur": "Marie-Jo",
-          "couleur": "#1800ad",
-          "texte": "Partagé pour aider 🙏",
-          "posture": "CROIT"
-        }
-      ],
-      "encouragement": "Bien vu : vous reconnaissez maintenant « fausse cagnotte ».",
-      "warning": "Encore raté : relisez les indices, « fausse cagnotte » revient souvent.",
-      "consequences": {
-        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
-        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
-        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
-      "isRemediation": true,
-      "id": 115
-    },
-    "Hameçonnage": {
-      "sponsorise": true,
-      "reactionCount": 30468,
-      "commentCount": 950,
-      "date": "26 octobre 2026 à 20:20",
-      "learnMoreTips": "https://www.clemi.fr/",
-      "origine": "fiction",
-      "recolteLe": "2026-10-28T02:20:16.317Z",
-      "scenario": "arnaque-colis",
-      "slug": "remediation-hameconnage",
-      "source": "Livraison Express NC",
-      "sourceColor": "#b45309",
-      "domain": "publicité",
-      "titre": "📦 Votre colis est bloqué en douane",
-      "texte": "Réglez 350 F de frais de douane sous 24 h, sinon il repart. Cliquez ici. Passé ce délai, le colis sera détruit. (Post d’entraînement : hameçonnage.)",
-      "isFake": true,
-      "level": 2,
-      "correctAction": "report",
-      "biais": "Hameçonnage",
-      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Une petite somme, un colis qu’on attend peut-être : la page copie un transporteur pour voler votre carte bancaire. C’est de l’hameçonnage.",
-      "analyseFaux": "La publicité ne connaît ni votre nom ni votre colis : elle s’adresse à tout le monde, pour récupérer des cartes bancaires.",
-      "indices": [
-        {
-          "ordre": 0,
-          "nature": "ALERTE",
-          "cible": "TEXTE",
-          "picto": "Package",
-          "libelle": "Un colis sans nom ni numéro",
-          "explication": "Ni votre nom ni un numéro de suivi : la pub vise tout le monde. Un transporteur se vérifie en tapant soi-même l’adresse de son site."
-        },
-        {
-          "ordre": 1,
-          "nature": "ALERTE",
-          "cible": "SOURCE",
-          "picto": "Megaphone",
-          "libelle": "Une publicité, pas un transporteur",
-          "explication": "« Livraison Express NC » est une publicité payée par un inconnu. Les transporteurs ne réclament pas de frais par une pub."
-        },
-        {
-          "ordre": 2,
-          "nature": "VERIFICATION",
-          "cible": "TITRE",
-          "picto": "ShieldCheck",
-          "libelle": "En cas de doute",
-          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
-        }
-      ],
-      "commentaires": [
-        {
-          "auteur": "Karim",
-          "couleur": "#1800ad",
-          "texte": "Vite, je règle avant qu’il reparte.",
-          "posture": "CROIT"
-        },
-        {
-          "auteur": "Mélanie",
-          "couleur": "#0e7490",
-          "texte": "Ça a l’air trop beau, non ?",
-          "posture": "SUJET"
-        }
-      ],
-      "encouragement": "Bien vu : vous reconnaissez maintenant « hameçonnage ».",
-      "warning": "Encore raté : relisez les indices, « hameçonnage » revient souvent.",
-      "consequences": {
-        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
-        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
-        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
-      "isRemediation": true,
-      "id": 116
-    },
-    "Offre trop belle": {
-      "sponsorise": false,
-      "reactionCount": 4701,
-      "commentCount": 1295,
-      "date": "26 octobre 2026 à 23:20",
-      "learnMoreTips": "https://www.clemi.fr/",
-      "origine": "fiction",
-      "recolteLe": "2026-10-28T02:20:16.317Z",
-      "scenario": "arnaque-emploi",
-      "slug": "remediation-offre-trop-belle",
-      "source": "Lydia T.",
-      "sourceColor": "#c2410c",
-      "domain": "@lydia.t.recrute · compte créé il y a 3 jours",
-      "titre": "💰 Payé 25 000 F par jour pour liker des vidéos",
-      "texte": "Aucune expérience demandée. Écrivez-moi vite sur WhatsApp. Paiement dès le premier jour. (Post d’entraînement : offre trop belle.)",
-      "isFake": true,
-      "level": 2,
-      "correctAction": "report",
-      "biais": "Offre trop belle",
-      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. On vous paie un peu au début, puis on vous demande d’« investir » pour débloquer vos gains : c’est une arnaque connue.",
-      "analyseFaux": "Aucune entreprise, aucun contrat : le but est de vous faire verser de l’argent plus tard.",
-      "indices": [
-        {
-          "ordre": 0,
-          "nature": "ALERTE",
-          "cible": "TEXTE",
-          "picto": "Briefcase",
-          "libelle": "Trop beau pour être vrai",
-          "explication": "Être payé pour liker : au début on gagne un peu, puis on doit payer pour « débloquer » ses gains."
-        },
-        {
-          "ordre": 1,
-          "nature": "VERIFICATION",
-          "cible": "SOURCE",
-          "picto": "Search",
-          "libelle": "Un recruteur sans entreprise",
-          "explication": "« Lydia T. » ne donne ni nom d’entreprise, ni adresse, ni contrat. Un vrai employeur se vérifie."
-        },
-        {
-          "ordre": 2,
-          "nature": "VERIFICATION",
-          "cible": "TITRE",
-          "picto": "ShieldCheck",
-          "libelle": "En cas de doute",
-          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
-        }
-      ],
-      "commentaires": [
-        {
-          "auteur": "Mélanie",
-          "couleur": "#0e7490",
-          "texte": "Merci de nous ouvrir les yeux.",
-          "posture": "SUJET"
-        },
-        {
-          "auteur": "Elodie_nc",
-          "couleur": "#b45309",
-          "texte": "Quelqu’un connaît cette page ?",
-          "posture": "SUJET"
-        }
-      ],
-      "encouragement": "Bien vu : vous reconnaissez maintenant « offre trop belle ».",
-      "warning": "Encore raté : relisez les indices, « offre trop belle » revient souvent.",
-      "consequences": {
-        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
-        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
-        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
-      "isRemediation": true,
-      "id": 117
-    },
-    "Placement miracle": {
-      "sponsorise": true,
-      "reactionCount": 10000,
-      "commentCount": 1413,
-      "date": "28 octobre 2026 à 11:20",
-      "learnMoreTips": "https://www.clemi.fr/",
-      "origine": "fiction",
-      "recolteLe": "2026-10-28T02:20:16.317Z",
-      "scenario": "arnaque-placement",
-      "slug": "remediation-placement-miracle",
-      "source": "Finance Liberté",
-      "sourceColor": "#14663f",
-      "domain": "publicité",
-      "titre": "💸 150 000 F par semaine, sans rien faire",
-      "texte": "Les banques la cachent : inscrivez-vous avant qu’elle ferme. Places limitées. (Post d’entraînement : placement miracle.)",
-      "isFake": true,
-      "level": 2,
-      "correctAction": "report",
-      "biais": "Placement miracle",
-      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Aucun placement honnête ne garantit de gros gains rapides. Plus la promesse est forte, plus le risque d’arnaque l’est aussi.",
-      "analyseFaux": "Le gain « garanti » est le signe d’une arnaque : l’argent versé ne revient jamais.",
-      "indices": [
-        {
-          "ordre": 0,
-          "nature": "ALERTE",
-          "cible": "TEXTE",
-          "picto": "TrendingUp",
-          "libelle": "Un gain garanti",
-          "explication": "8 % par semaine, c’est plus de 50 fois l’argent placé en un an : aucun placement réel ne fait ça."
-        },
-        {
-          "ordre": 1,
-          "nature": "ALERTE",
-          "cible": "SOURCE",
-          "picto": "Megaphone",
-          "libelle": "Une publicité anonyme",
-          "explication": "« Finance Liberté » n’a ni adresse ni agrément : une société d’investissement sérieuse se vérifie."
-        },
-        {
-          "ordre": 2,
-          "nature": "VERIFICATION",
-          "cible": "TITRE",
-          "picto": "ShieldCheck",
-          "libelle": "En cas de doute",
-          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
-        }
-      ],
-      "commentaires": [
-        {
-          "auteur": "Moana R.",
-          "couleur": "#1800ad",
-          "texte": "Pourquoi les banques cacheraient ça ?",
-          "posture": "DOUTE"
-        },
-        {
-          "auteur": "Aurélie",
-          "couleur": "#14663f",
-          "texte": "Quelqu’un connaît cette page ?",
-          "posture": "SUJET"
-        },
-        {
-          "auteur": "Marie-Jo",
-          "couleur": "#1800ad",
-          "texte": "Arnaque classique : on ne revoit jamais son argent.",
-          "posture": "VERIFIE"
-        },
-        {
-          "auteur": "Kévin.nc",
-          "couleur": "#791561",
-          "texte": "Tout est un complot ici 🙄",
-          "posture": "SUJET"
-        }
-      ],
-      "encouragement": "Bien vu : vous reconnaissez maintenant « placement miracle ».",
-      "warning": "Encore raté : relisez les indices, « placement miracle » revient souvent.",
-      "consequences": {
-        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
-        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
-        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
-      "isRemediation": true,
-      "id": 118
-    },
-    "Fausse alerte": {
-      "sponsorise": false,
-      "reactionCount": 32622,
-      "commentCount": 843,
-      "date": "25 octobre 2026 à 23:20",
-      "learnMoreTips": "https://www.clemi.fr/",
-      "origine": "fiction",
-      "recolteLe": "2026-10-28T02:20:16.317Z",
-      "scenario": "arnaque-alerte",
-      "slug": "remediation-fausse-alerte",
-      "source": "ALERTE MÉTÉO CALÉDO ⚠️",
-      "sourceColor": "#b91c1c",
-      "domain": "page créée il y a 2 jours",
-      "titre": "⚠️ Alerte tsunami ce soir sur la côte Ouest",
-      "texte": "Quittez le bord de mer avant 20 h et prévenez tous vos contacts. Transférez sans attendre. (Post d’entraînement : fausse alerte.)",
-      "isFake": true,
-      "level": 2,
-      "correctAction": "report",
-      "biais": "Fausse alerte",
-      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Une fausse alerte crée la panique et fait douter des vraies. Les alertes officielles viennent de la sécurité civile et de Météo-France Nouvelle-Calédonie, relayées par la radio.",
-      "analyseFaux": "Aucune source officielle n’a donné cette alerte : elle ne vient que d’une page inconnue.",
-      "indices": [
-        {
-          "ordre": 0,
-          "nature": "ALERTE",
-          "cible": "TEXTE",
-          "picto": "Siren",
-          "libelle": "Une alerte hors des canaux officiels",
-          "explication": "Une vraie alerte se confirme sur le site de la sécurité civile, de Météo-France Nouvelle-Calédonie et à la radio."
-        },
-        {
-          "ordre": 1,
-          "nature": "VERIFICATION",
-          "cible": "SOURCE",
-          "picto": "Search",
-          "libelle": "Pas un service officiel",
-          "explication": "« ALERTE MÉTÉO CALÉDO ⚠️ » n’est ni la sécurité civile ni Météo-France : son alerte ne vaut rien sans confirmation."
-        },
-        {
-          "ordre": 2,
-          "nature": "VERIFICATION",
-          "cible": "TITRE",
-          "picto": "ShieldCheck",
-          "libelle": "En cas de doute",
-          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
-        }
-      ],
-      "commentaires": [
-        {
-          "auteur": "Olivier T.",
-          "couleur": "#1800ad",
-          "texte": "Transféré à tout le monde, on ne sait jamais.",
-          "posture": "CROIT"
-        },
-        {
-          "auteur": "Inès K.",
-          "couleur": "#14663f",
-          "texte": "Ça fait peur, j’espère que ce n’est rien.",
-          "posture": "SUJET"
-        }
-      ],
-      "encouragement": "Bien vu : vous reconnaissez maintenant « fausse alerte ».",
-      "warning": "Encore raté : relisez les indices, « fausse alerte » revient souvent.",
-      "consequences": {
-        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
-        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
-        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
-      "isRemediation": true,
-      "id": 119
-    },
-    "Compte piraté": {
-      "sponsorise": false,
-      "reactionCount": 3148,
-      "commentCount": 572,
-      "date": "28 octobre 2026 à 06:20",
-      "learnMoreTips": "https://www.clemi.fr/",
-      "origine": "fiction",
-      "recolteLe": "2026-10-28T02:20:16.317Z",
-      "scenario": "arnaque-compte-pirate",
-      "slug": "remediation-compte-pirate",
-      "source": "Kenji T. (nouveau compte)",
-      "sourceColor": "#8a4fbe",
-      "domain": "@kenji_t_2 · compte créé hier",
-      "titre": "Mon ancien compte a été piraté, ajoutez celui-ci",
-      "texte": "Vous allez recevoir un code par SMS, envoyez-le moi en privé pour m’aider à récupérer mes photos. Merci, vous êtes adorables. (Post d’entraînement : compte piraté.)",
-      "isFake": true,
-      "level": 2,
-      "correctAction": "report",
-      "biais": "Compte piraté",
-      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Le code reçu par SMS est la clé de votre propre compte. Le donner, même à un « ami », c’est se faire voler son compte à son tour.",
-      "analyseFaux": "Le « nouveau compte » est celui d’un pirate qui se fait passer pour votre ami : il veut votre code.",
-      "indices": [
-        {
-          "ordre": 0,
-          "nature": "ALERTE",
-          "cible": "TEXTE",
-          "picto": "KeyRound",
-          "libelle": "Un code demandé",
-          "explication": "Un code reçu par SMS ne se donne jamais, à personne. Appelez votre ami pour vérifier que c’est bien lui."
-        },
-        {
-          "ordre": 1,
-          "nature": "ALERTE",
-          "cible": "SOURCE",
-          "picto": "UserRound",
-          "libelle": "Un double tout neuf",
-          "explication": "« Kenji T. (nouveau compte) » a été créé hier, avec le nom et la photo d’une personne que vous connaissez."
-        },
-        {
-          "ordre": 2,
-          "nature": "VERIFICATION",
-          "cible": "TITRE",
-          "picto": "ShieldCheck",
-          "libelle": "En cas de doute",
-          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
-        }
-      ],
-      "commentaires": [
-        {
-          "auteur": "Ryan_NC",
-          "couleur": "#b45309",
-          "texte": "Je l’ai appelée : ce n’est pas elle, ne donnez rien !",
-          "posture": "VERIFIE"
-        },
-        {
-          "auteur": "Olivier T.",
-          "couleur": "#1800ad",
-          "texte": "J’ai reçu presque le même message hier…",
-          "posture": "SUJET"
-        }
-      ],
-      "encouragement": "Bien vu : vous reconnaissez maintenant « compte piraté ».",
-      "warning": "Encore raté : relisez les indices, « compte piraté » revient souvent.",
-      "consequences": {
-        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
-        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
-        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
-      "isRemediation": true,
-      "id": 120
-    },
     "Fait déformé": {
       "sponsorise": false,
       "reactionCount": 28327,
@@ -2138,6 +1556,582 @@
       "learnMoreUrl": "https://whc.unesco.org/fr/list/1115",
       "isRemediation": true,
       "id": 121
+    },
+    "Faux concours": {
+      "sponsorise": false,
+      "reactionCount": 17231,
+      "commentCount": 588,
+      "date": "28 octobre 2026 à 10:41",
+      "learnMoreTips": "https://www.clemi.fr/",
+      "origine": "fiction",
+      "recolteLe": "2026-10-28T02:41:03.044Z",
+      "scenario": "arnaque-concours",
+      "slug": "remediation-faux-concours",
+      "source": "Nouméa Matin · Jeux",
+      "sourceColor": "#0d0080",
+      "domain": "page créée il y a 6 jours",
+      "titre": "🎁 Gagnez 2 billets d’avion pour Tahiti !",
+      "texte": "Likez, partagez, puis validez votre participation sur le lien avant minuit. Une carte bancaire est demandée pour les frais. Tirage au sort ce soir ! (Post d’entraînement : faux concours.)",
+      "isFake": true,
+      "level": 2,
+      "correctAction": "report",
+      "biais": "Faux concours",
+      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Un concours qui demande de payer, ou une carte bancaire, n’est pas un concours : c’est une arnaque. La page imite un média connu.",
+      "analyseFaux": "Le formulaire récupère vos coordonnées bancaires. Aucun vrai jeu ne demande de payer pour gagner.",
+      "indices": [
+        {
+          "ordre": 0,
+          "nature": "ALERTE",
+          "cible": "TEXTE",
+          "picto": "Gift",
+          "libelle": "Payer pour gagner",
+          "explication": "Un vrai concours ne demande jamais de carte bancaire ni de « frais de dossier »."
+        },
+        {
+          "ordre": 1,
+          "nature": "ALERTE",
+          "cible": "SOURCE",
+          "picto": "Search",
+          "libelle": "Une page copiée",
+          "explication": "« Nouméa Matin · Jeux » imite une page connue, mais elle a été créée il y a quelques jours. La vraie page a des années de publications."
+        },
+        {
+          "ordre": 2,
+          "nature": "VERIFICATION",
+          "cible": "TITRE",
+          "picto": "ShieldCheck",
+          "libelle": "En cas de doute",
+          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
+        }
+      ],
+      "commentaires": [
+        {
+          "auteur": "Patrick L.",
+          "couleur": "#791561",
+          "texte": "La vraie page n’organise aucun concours : celle-ci est une copie.",
+          "posture": "VERIFIE"
+        },
+        {
+          "auteur": "Ryan_NC",
+          "couleur": "#b45309",
+          "texte": "Ça a l’air trop beau, non ?",
+          "posture": "SUJET"
+        },
+        {
+          "auteur": "Aurélie",
+          "couleur": "#14663f",
+          "texte": "C’est la vraie page ? Elle a été créée cette semaine.",
+          "posture": "DOUTE"
+        }
+      ],
+      "encouragement": "Bien vu : vous reconnaissez maintenant « faux concours ».",
+      "warning": "Encore raté : relisez les indices, « faux concours » revient souvent.",
+      "consequences": {
+        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+      },
+      "scores": {
+        "share": -80,
+        "ignore": 10,
+        "report": 100
+      },
+      "sourceUrl": null,
+      "learnMoreUrl": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/fraude-carte-bancaire",
+      "isRemediation": true,
+      "id": 202
+    },
+    "Fausse cagnotte": {
+      "sponsorise": false,
+      "reactionCount": 11688,
+      "commentCount": 1419,
+      "date": "28 octobre 2026 à 12:41",
+      "learnMoreTips": "https://www.clemi.fr/",
+      "origine": "fiction",
+      "recolteLe": "2026-10-28T02:41:03.044Z",
+      "scenario": "arnaque-cagnotte",
+      "slug": "remediation-fausse-cagnotte",
+      "source": "Vaea M.",
+      "sourceColor": "#791561",
+      "domain": "@vaea.m.officiel · compte créé cette semaine",
+      "titre": "🙏 Urgent : aidez les familles sinistrées après le coup de vent",
+      "texte": "Chaque franc compte : envoyez votre don par le lien, c’est urgent. Merci pour votre générosité. (Post d’entraînement : fausse cagnotte.)",
+      "isFake": true,
+      "level": 2,
+      "correctAction": "report",
+      "biais": "Fausse cagnotte",
+      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Après une catastrophe, de fausses cagnottes profitent de la générosité : personne de connu ne les gère.",
+      "analyseFaux": "Aucune association, aucune mairie derrière cette cagnotte : l’argent part chez un inconnu.",
+      "indices": [
+        {
+          "ordre": 0,
+          "nature": "ALERTE",
+          "cible": "TEXTE",
+          "picto": "HandCoins",
+          "libelle": "Une cagnotte sans organisateur",
+          "explication": "Pour aider, passez par une association reconnue, la mairie ou la Croix-Rouge, pas par un lien inconnu."
+        },
+        {
+          "ordre": 1,
+          "nature": "VERIFICATION",
+          "cible": "SOURCE",
+          "picto": "Search",
+          "libelle": "Un compte tout neuf",
+          "explication": "« Vaea M. » vient d’être créé et ne dit pas qui il est. Une collecte sérieuse donne un nom et un contact."
+        },
+        {
+          "ordre": 2,
+          "nature": "VERIFICATION",
+          "cible": "TITRE",
+          "picto": "ShieldCheck",
+          "libelle": "En cas de doute",
+          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
+        }
+      ],
+      "commentaires": [
+        {
+          "auteur": "Didier",
+          "couleur": "#8a4fbe",
+          "texte": "Ma tante s’est fait avoir avec un truc pareil.",
+          "posture": "SUJET"
+        },
+        {
+          "auteur": "Thierry P.",
+          "couleur": "#57534e",
+          "texte": "Partagé pour aider 🙏",
+          "posture": "CROIT"
+        },
+        {
+          "auteur": "Manu",
+          "couleur": "#8a4fbe",
+          "texte": "Aucune association ne gère cette cagnotte : passez par la mairie.",
+          "posture": "VERIFIE"
+        },
+        {
+          "auteur": "Anaïs W.",
+          "couleur": "#0e7490",
+          "texte": "Il y a une association derrière ?",
+          "posture": "DOUTE"
+        }
+      ],
+      "encouragement": "Bien vu : vous reconnaissez maintenant « fausse cagnotte ».",
+      "warning": "Encore raté : relisez les indices, « fausse cagnotte » revient souvent.",
+      "consequences": {
+        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+      },
+      "scores": {
+        "share": -80,
+        "ignore": 10,
+        "report": 100
+      },
+      "sourceUrl": null,
+      "learnMoreUrl": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing",
+      "isRemediation": true,
+      "id": 203
+    },
+    "Hameçonnage": {
+      "sponsorise": true,
+      "reactionCount": 28899,
+      "commentCount": 998,
+      "date": "26 octobre 2026 à 20:41",
+      "learnMoreTips": "https://www.clemi.fr/",
+      "origine": "fiction",
+      "recolteLe": "2026-10-28T02:41:03.044Z",
+      "scenario": "arnaque-colis",
+      "slug": "remediation-hameconnage",
+      "source": "Livraison Express NC",
+      "sourceColor": "#b45309",
+      "domain": "publicité",
+      "titre": "📦 Votre colis est bloqué en douane",
+      "texte": "Réglez 350 F de frais de douane sous 24 h, sinon il repart. Cliquez ici. Passé ce délai, le colis sera détruit. (Post d’entraînement : hameçonnage.)",
+      "isFake": true,
+      "level": 2,
+      "correctAction": "report",
+      "biais": "Hameçonnage",
+      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Une petite somme, un colis qu’on attend peut-être : la page copie un transporteur pour voler votre carte bancaire. C’est de l’hameçonnage.",
+      "analyseFaux": "La publicité ne connaît ni votre nom ni votre colis : elle s’adresse à tout le monde, pour récupérer des cartes bancaires.",
+      "indices": [
+        {
+          "ordre": 0,
+          "nature": "ALERTE",
+          "cible": "TEXTE",
+          "picto": "Package",
+          "libelle": "Un colis sans nom ni numéro",
+          "explication": "Ni votre nom ni un numéro de suivi : la pub vise tout le monde. Un transporteur se vérifie en tapant soi-même l’adresse de son site."
+        },
+        {
+          "ordre": 1,
+          "nature": "ALERTE",
+          "cible": "SOURCE",
+          "picto": "Megaphone",
+          "libelle": "Une publicité, pas un transporteur",
+          "explication": "« Livraison Express NC » est une publicité payée par un inconnu. Les transporteurs ne réclament pas de frais par une pub."
+        },
+        {
+          "ordre": 2,
+          "nature": "VERIFICATION",
+          "cible": "TITRE",
+          "picto": "ShieldCheck",
+          "libelle": "En cas de doute",
+          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
+        }
+      ],
+      "commentaires": [
+        {
+          "auteur": "Manu",
+          "couleur": "#8a4fbe",
+          "texte": "Ça a l’air trop beau, non ?",
+          "posture": "SUJET"
+        },
+        {
+          "auteur": "Karim",
+          "couleur": "#1800ad",
+          "texte": "J’attends un colis justement, je paie.",
+          "posture": "CROIT"
+        }
+      ],
+      "encouragement": "Bien vu : vous reconnaissez maintenant « hameçonnage ».",
+      "warning": "Encore raté : relisez les indices, « hameçonnage » revient souvent.",
+      "consequences": {
+        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+      },
+      "scores": {
+        "share": -80,
+        "ignore": 10,
+        "report": 100
+      },
+      "sourceUrl": null,
+      "learnMoreUrl": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing",
+      "isRemediation": true,
+      "id": 204
+    },
+    "Offre trop belle": {
+      "sponsorise": false,
+      "reactionCount": 26752,
+      "commentCount": 1565,
+      "date": "26 octobre 2026 à 23:41",
+      "learnMoreTips": "https://www.clemi.fr/",
+      "origine": "fiction",
+      "recolteLe": "2026-10-28T02:41:03.044Z",
+      "scenario": "arnaque-emploi",
+      "slug": "remediation-offre-trop-belle",
+      "source": "Lydia T.",
+      "sourceColor": "#c2410c",
+      "domain": "@lydia.t.recrute · compte créé il y a 3 jours",
+      "titre": "💰 Payé 25 000 F par jour pour liker des vidéos",
+      "texte": "Aucune expérience demandée. Écrivez-moi vite sur WhatsApp. Paiement dès le premier jour. (Post d’entraînement : offre trop belle.)",
+      "isFake": true,
+      "level": 2,
+      "correctAction": "report",
+      "biais": "Offre trop belle",
+      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. On vous paie un peu au début, puis on vous demande d’« investir » pour débloquer vos gains : c’est une arnaque connue.",
+      "analyseFaux": "Aucune entreprise, aucun contrat : le but est de vous faire verser de l’argent plus tard.",
+      "indices": [
+        {
+          "ordre": 0,
+          "nature": "ALERTE",
+          "cible": "TEXTE",
+          "picto": "Briefcase",
+          "libelle": "Trop beau pour être vrai",
+          "explication": "Être payé pour liker : au début on gagne un peu, puis on doit payer pour « débloquer » ses gains."
+        },
+        {
+          "ordre": 1,
+          "nature": "VERIFICATION",
+          "cible": "SOURCE",
+          "picto": "Search",
+          "libelle": "Un recruteur sans entreprise",
+          "explication": "« Lydia T. » ne donne ni nom d’entreprise, ni adresse, ni contrat. Un vrai employeur se vérifie."
+        },
+        {
+          "ordre": 2,
+          "nature": "VERIFICATION",
+          "cible": "TITRE",
+          "picto": "ShieldCheck",
+          "libelle": "En cas de doute",
+          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
+        }
+      ],
+      "commentaires": [
+        {
+          "auteur": "Elodie_nc",
+          "couleur": "#b45309",
+          "texte": "Je suis intéressé, je t’écris !",
+          "posture": "CROIT"
+        },
+        {
+          "auteur": "Jean-Luc",
+          "couleur": "#0e7490",
+          "texte": "Arnaque à la tâche : on finit toujours par devoir payer.",
+          "posture": "VERIFIE"
+        },
+        {
+          "auteur": "Inès K.",
+          "couleur": "#14663f",
+          "texte": "Quelqu’un connaît cette page ?",
+          "posture": "SUJET"
+        }
+      ],
+      "encouragement": "Bien vu : vous reconnaissez maintenant « offre trop belle ».",
+      "warning": "Encore raté : relisez les indices, « offre trop belle » revient souvent.",
+      "consequences": {
+        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+      },
+      "scores": {
+        "share": -80,
+        "ignore": 10,
+        "report": 100
+      },
+      "sourceUrl": null,
+      "learnMoreUrl": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/arnaques-a-l-emploi",
+      "isRemediation": true,
+      "id": 205
+    },
+    "Placement miracle": {
+      "sponsorise": true,
+      "reactionCount": 14153,
+      "commentCount": 1146,
+      "date": "28 octobre 2026 à 11:41",
+      "learnMoreTips": "https://www.clemi.fr/",
+      "origine": "fiction",
+      "recolteLe": "2026-10-28T02:41:03.044Z",
+      "scenario": "arnaque-placement",
+      "slug": "remediation-placement-miracle",
+      "source": "Finance Liberté",
+      "sourceColor": "#14663f",
+      "domain": "publicité",
+      "titre": "💸 150 000 F par semaine, sans rien faire",
+      "texte": "Les banques la cachent : inscrivez-vous avant qu’elle ferme. Places limitées. (Post d’entraînement : placement miracle.)",
+      "isFake": true,
+      "level": 2,
+      "correctAction": "report",
+      "biais": "Placement miracle",
+      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Aucun placement honnête ne garantit de gros gains rapides. Plus la promesse est forte, plus le risque d’arnaque l’est aussi.",
+      "analyseFaux": "Le gain « garanti » est le signe d’une arnaque : l’argent versé ne revient jamais.",
+      "indices": [
+        {
+          "ordre": 0,
+          "nature": "ALERTE",
+          "cible": "TEXTE",
+          "picto": "TrendingUp",
+          "libelle": "Un gain garanti",
+          "explication": "8 % par semaine, c’est plus de 50 fois l’argent placé en un an : aucun placement réel ne fait ça."
+        },
+        {
+          "ordre": 1,
+          "nature": "ALERTE",
+          "cible": "SOURCE",
+          "picto": "Megaphone",
+          "libelle": "Une publicité anonyme",
+          "explication": "« Finance Liberté » n’a ni adresse ni agrément : une société d’investissement sérieuse se vérifie."
+        },
+        {
+          "ordre": 2,
+          "nature": "VERIFICATION",
+          "cible": "TITRE",
+          "picto": "ShieldCheck",
+          "libelle": "En cas de doute",
+          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
+        }
+      ],
+      "commentaires": [
+        {
+          "auteur": "Tehei",
+          "couleur": "#0e7490",
+          "texte": "Arnaque classique : on ne revoit jamais son argent.",
+          "posture": "VERIFIE"
+        },
+        {
+          "auteur": "bruno_zz",
+          "couleur": "#8a4fbe",
+          "texte": "Quelqu’un connaît cette page ?",
+          "posture": "SUJET"
+        },
+        {
+          "auteur": "Nathalie",
+          "couleur": "#c2410c",
+          "texte": "Si 2 000 personnes y sont, c’est sérieux.",
+          "posture": "CROIT"
+        }
+      ],
+      "encouragement": "Bien vu : vous reconnaissez maintenant « placement miracle ».",
+      "warning": "Encore raté : relisez les indices, « placement miracle » revient souvent.",
+      "consequences": {
+        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+      },
+      "scores": {
+        "share": -80,
+        "ignore": 10,
+        "report": 100
+      },
+      "sourceUrl": null,
+      "learnMoreUrl": "https://www.amf-france.org/fr/espace-epargnants/proteger-son-epargne/listes-noires-et-mises-en-garde",
+      "isRemediation": true,
+      "id": 206
+    },
+    "Fausse alerte": {
+      "sponsorise": false,
+      "reactionCount": 18060,
+      "commentCount": 1280,
+      "date": "25 octobre 2026 à 23:41",
+      "learnMoreTips": "https://www.clemi.fr/",
+      "origine": "fiction",
+      "recolteLe": "2026-10-28T02:41:03.044Z",
+      "scenario": "arnaque-alerte",
+      "slug": "remediation-fausse-alerte",
+      "source": "ALERTE MÉTÉO CALÉDO ⚠️",
+      "sourceColor": "#b91c1c",
+      "domain": "page créée il y a 2 jours",
+      "titre": "⚠️ Alerte tsunami ce soir sur la côte Ouest",
+      "texte": "Quittez le bord de mer avant 20 h et prévenez tous vos contacts. Transférez sans attendre. (Post d’entraînement : fausse alerte.)",
+      "isFake": true,
+      "level": 2,
+      "correctAction": "report",
+      "biais": "Fausse alerte",
+      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Une fausse alerte crée la panique et fait douter des vraies. Les alertes officielles viennent de la sécurité civile et de Météo-France Nouvelle-Calédonie, relayées par la radio.",
+      "analyseFaux": "Aucune source officielle n’a donné cette alerte : elle ne vient que d’une page inconnue.",
+      "indices": [
+        {
+          "ordre": 0,
+          "nature": "ALERTE",
+          "cible": "TEXTE",
+          "picto": "Siren",
+          "libelle": "Une alerte hors des canaux officiels",
+          "explication": "Une vraie alerte se confirme sur le site de la sécurité civile, de Météo-France Nouvelle-Calédonie et à la radio."
+        },
+        {
+          "ordre": 1,
+          "nature": "VERIFICATION",
+          "cible": "SOURCE",
+          "picto": "Search",
+          "libelle": "Pas un service officiel",
+          "explication": "« ALERTE MÉTÉO CALÉDO ⚠️ » n’est ni la sécurité civile ni Météo-France : son alerte ne vaut rien sans confirmation."
+        },
+        {
+          "ordre": 2,
+          "nature": "VERIFICATION",
+          "cible": "TITRE",
+          "picto": "ShieldCheck",
+          "libelle": "En cas de doute",
+          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
+        }
+      ],
+      "commentaires": [
+        {
+          "auteur": "Mélanie",
+          "couleur": "#0e7490",
+          "texte": "Ça fait peur, j’espère que ce n’est rien.",
+          "posture": "SUJET"
+        },
+        {
+          "auteur": "Olivier T.",
+          "couleur": "#1800ad",
+          "texte": "C’est une page officielle, ça ?",
+          "posture": "DOUTE"
+        }
+      ],
+      "encouragement": "Bien vu : vous reconnaissez maintenant « fausse alerte ».",
+      "warning": "Encore raté : relisez les indices, « fausse alerte » revient souvent.",
+      "consequences": {
+        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+      },
+      "scores": {
+        "share": -80,
+        "ignore": 10,
+        "report": 100
+      },
+      "sourceUrl": null,
+      "learnMoreUrl": "https://meteo.nc/fr/cyclone",
+      "isRemediation": true,
+      "id": 207
+    },
+    "Compte piraté": {
+      "sponsorise": false,
+      "reactionCount": 5516,
+      "commentCount": 1445,
+      "date": "28 octobre 2026 à 06:41",
+      "learnMoreTips": "https://www.clemi.fr/",
+      "origine": "fiction",
+      "recolteLe": "2026-10-28T02:41:03.044Z",
+      "scenario": "arnaque-compte-pirate",
+      "slug": "remediation-compte-pirate",
+      "source": "Kenji T. (nouveau compte)",
+      "sourceColor": "#8a4fbe",
+      "domain": "@kenji_t_2 · compte créé hier",
+      "titre": "Mon ancien compte a été piraté, ajoutez celui-ci",
+      "texte": "Vous allez recevoir un code par SMS, envoyez-le moi en privé pour m’aider à récupérer mes photos. Merci, vous êtes adorables. (Post d’entraînement : compte piraté.)",
+      "isFake": true,
+      "level": 2,
+      "correctAction": "report",
+      "biais": "Compte piraté",
+      "explication": "Ce post est inventé pour l’exercice, mais ce piège existe vraiment. Le code reçu par SMS est la clé de votre propre compte. Le donner, même à un « ami », c’est se faire voler son compte à son tour.",
+      "analyseFaux": "Le « nouveau compte » est celui d’un pirate qui se fait passer pour votre ami : il veut votre code.",
+      "indices": [
+        {
+          "ordre": 0,
+          "nature": "ALERTE",
+          "cible": "TEXTE",
+          "picto": "KeyRound",
+          "libelle": "Un code demandé",
+          "explication": "Un code reçu par SMS ne se donne jamais, à personne. Appelez votre ami pour vérifier que c’est bien lui."
+        },
+        {
+          "ordre": 1,
+          "nature": "ALERTE",
+          "cible": "SOURCE",
+          "picto": "UserRound",
+          "libelle": "Un double tout neuf",
+          "explication": "« Kenji T. (nouveau compte) » a été créé hier, avec le nom et la photo d’une personne que vous connaissez."
+        },
+        {
+          "ordre": 2,
+          "nature": "VERIFICATION",
+          "cible": "TITRE",
+          "picto": "ShieldCheck",
+          "libelle": "En cas de doute",
+          "explication": "Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr."
+        }
+      ],
+      "commentaires": [
+        {
+          "auteur": "bruno_zz",
+          "couleur": "#8a4fbe",
+          "texte": "J’ai reçu presque le même message hier…",
+          "posture": "SUJET"
+        },
+        {
+          "auteur": "Ryan_NC",
+          "couleur": "#b45309",
+          "texte": "Ça a l’air trop beau, non ?",
+          "posture": "SUJET"
+        }
+      ],
+      "encouragement": "Bien vu : vous reconnaissez maintenant « compte piraté ».",
+      "warning": "Encore raté : relisez les indices, « compte piraté » revient souvent.",
+      "consequences": {
+        "share": "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
+        "ignore": "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
+        "report": "Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir."
+      },
+      "scores": {
+        "share": -80,
+        "ignore": 10,
+        "report": 100
+      },
+      "sourceUrl": null,
+      "learnMoreUrl": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/piratage-de-compte",
+      "isRemediation": true,
+      "id": 208
     }
   },
   "conversations": [
@@ -2305,7 +2299,7 @@
       "origine": "fiction",
       "scenario": "arnaque-compte-pirate",
       "biais": "Compte piraté",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-tata-josiane-tortue-poe-bmghzr",
@@ -2480,7 +2474,7 @@
       "origine": "fiction",
       "scenario": "tortue-poe",
       "biais": "Faux expert",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-tata-josiane-jouets-paita-vlq8f9",
@@ -2655,7 +2649,7 @@
       "origine": "fiction",
       "scenario": "jouets-paita",
       "biais": "Appel à la peur",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-famille-arnaque-emploi-zhw8j4",
@@ -2846,7 +2840,7 @@
       "origine": "fiction",
       "scenario": "arnaque-emploi",
       "biais": "Offre trop belle",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-famille-cabine-bourail-hdbh0z",
@@ -3046,7 +3040,7 @@
       "origine": "fiction",
       "scenario": "cabine-bourail",
       "biais": "Fausse corrélation",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-famille-fait-tricot-raye-1tscjqq",
@@ -3246,7 +3240,7 @@
       "origine": "fiction",
       "scenario": "fait-tricot-raye",
       "biais": "Certitude ajoutée",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-mathis-arnaque-placement-smdn",
@@ -3412,7 +3406,7 @@
       "origine": "fiction",
       "scenario": "arnaque-placement",
       "biais": "Placement miracle",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-mathis-nids-de-poule-1ca5vru",
@@ -3587,7 +3581,7 @@
       "origine": "fiction",
       "scenario": "nids-de-poule",
       "biais": "Effet de halo",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-mathis-esport-dumbea-2yywba",
@@ -3762,7 +3756,7 @@
       "origine": "fiction",
       "scenario": "esport-dumbea",
       "biais": "Satire prise au sérieux",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-potes-arnaque-cagnotte-2ggh65",
@@ -3953,7 +3947,7 @@
       "origine": "fiction",
       "scenario": "arnaque-cagnotte",
       "biais": "Fausse cagnotte",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-potes-marche-la-foa-jr2doy",
@@ -4153,7 +4147,7 @@
       "origine": "fiction",
       "scenario": "marche-la-foa",
       "biais": "Autorité inventée",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-potes-fleur-panie-18kzlob",
@@ -4353,7 +4347,7 @@
       "origine": "fiction",
       "scenario": "fleur-panie",
       "biais": "Voix ou vidéo truquée",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-colette-arnaque-concours-hp9alp",
@@ -4519,7 +4513,7 @@
       "origine": "fiction",
       "scenario": "arnaque-concours",
       "biais": "Faux concours",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-colette-caisses-farino-af9y93",
@@ -4694,7 +4688,7 @@
       "origine": "fiction",
       "scenario": "caisses-farino",
       "biais": "Fabriqué pour le clic",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-colette-surf-bourail-vju5zz",
@@ -4869,7 +4863,7 @@
       "origine": "fiction",
       "scenario": "surf-bourail",
       "biais": "Cherry picking",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-papi-rene-arnaque-colis-1y09zw6",
@@ -5035,7 +5029,7 @@
       "origine": "fiction",
       "scenario": "arnaque-colis",
       "biais": "Hameçonnage",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-papi-rene-course-bourail-1cy2fxe",
@@ -5210,7 +5204,7 @@
       "origine": "fiction",
       "scenario": "course-bourail",
       "biais": "Vérité par répétition",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-papi-rene-festival-koumac-el21ry",
@@ -5385,7 +5379,7 @@
       "origine": "fiction",
       "scenario": "festival-koumac",
       "biais": "Manipulation statistique",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-collegues-arnaque-alerte-16vfrmx",
@@ -5576,7 +5570,7 @@
       "origine": "fiction",
       "scenario": "arnaque-alerte",
       "biais": "Fausse alerte",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-collegues-baleine-yate-5in7d6",
@@ -5776,7 +5770,7 @@
       "origine": "fiction",
       "scenario": "baleine-yate",
       "biais": "Discours complotiste",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-collegues-fait-recifs-especes-bgqykb",
@@ -5976,7 +5970,7 @@
       "origine": "fiction",
       "scenario": "fait-recifs-especes",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-club-foot-velos-electriques-18sg80b",
@@ -6176,7 +6170,7 @@
       "origine": "fiction",
       "scenario": "velos-electriques",
       "biais": "Biais de confirmation",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-club-foot-radio-canala-hdbh0z",
@@ -6376,7 +6370,7 @@
       "origine": "fiction",
       "scenario": "radio-canala",
       "biais": "Fausse corrélation",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     },
     {
       "id": "sujet-20261028-club-foot-chat-conteneur-2yywba",
@@ -6576,7 +6570,7 @@
       "origine": "fiction",
       "scenario": "chat-conteneur",
       "biais": "Satire prise au sérieux",
-      "recolteLe": "2026-10-28T02:37:39.745Z"
+      "recolteLe": "2026-10-28T02:41:03.044Z"
     }
   ],
   "chapitres": [
@@ -6615,10 +6609,10 @@
               "notes": [
                 {
                   "label": "Cas réel",
-                  "texte": "Janvier 2020, l’Australie brûle. Une image du pays entier en flammes circule comme une « photo de la NASA ». C’est en réalité une illustration en 3D réalisée par un graphiste, qui additionne un mois de feux comme s’ils brûlaient tous en même temps. Lui-même l’avait écrit : ce n’est pas une photo.",
+                  "texte": "Janvier 2020, l’Australie brûle. Une image du pays entier en flammes circule comme une « photo de la NASA ». C’est en réalité une visualisation en 3D réalisée par un graphiste, qui additionne un mois de feux comme s’ils brûlaient tous en même temps. Lui-même l’avait écrit : ce n’est pas une photo.",
                   "source": {
-                    "texte": "Chequeado, 8 janvier 2020",
-                    "url": "https://chequeado.com/el-explicador/esta-imagen-satelital-de-australia-en-llamas-no-es-real-aunque-superpone-incendios-de-los-ultimos-30-dias/"
+                    "texte": "Futura-Sciences, 7 janvier 2020",
+                    "url": "https://www.futura-sciences.com/planete/breves/incendie-non-cette-image-australie-feu-nest-pas-photo-prise-satellite-1741/"
                   }
                 }
               ]
@@ -7136,14 +7130,14 @@
             {
               "surtitre": "Depuis 2011",
               "titre": "Le requin dans la rue inondée",
-              "texte": "À chaque ouragan, la même photo revient : un requin qui nage dans une rue inondée. Elle circule depuis 2011, d’une tempête à l’autre. Le requin vient en réalité d’une photo parue dans un magazine en 2005.",
+              "texte": "À chaque ouragan, la même photo revient : un requin qui nage sur une autoroute inondée. Elle circule depuis 2011, d’une tempête à l’autre. C’est un montage : le requin a été collé sur la photo d’une route inondée.",
               "notes": [
                 {
                   "label": "La leçon",
                   "texte": "Une photo spectaculaire qui revient à chaque catastrophe mérite qu’on **cherche sa première apparition**.",
                   "source": {
-                    "texte": "El Dínamo, 30 août 2017",
-                    "url": "https://www.eldinamo.cl/mundo/2017/08/30/las-7-fotos-falsas-del-huracan-harvey-que-circulan-en-redes-sociales/"
+                    "texte": "Slate, 29 août 2017",
+                    "url": "https://www.slate.fr/story/150519/houston-requin-fake"
                   }
                 }
               ]

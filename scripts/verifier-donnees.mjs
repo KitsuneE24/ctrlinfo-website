@@ -109,6 +109,9 @@ if (contenu && Array.isArray(vrais) && Array.isArray(faux)) {
     if (v === 0 || f === 0) signaler(`niveau ${niveau.level} : ${v} vraies, ${f} fausses (il faut les deux)`)
     else if (v + f < (niveau.taille ?? 5)) signaler(`niveau ${niveau.level} : ${v + f} publications pour un lot de ${niveau.taille}`)
   }
+  for (const biais of new Set(faux.map((p) => p.biais))) {
+    if (!contenu.remediations?.[biais]) signaler(`procédé « ${biais} » : pas de post d’entraînement dans remediations`)
+  }
 }
 
 const SCHEMA = /^\s*([a-z][a-z0-9+.-]*):/i

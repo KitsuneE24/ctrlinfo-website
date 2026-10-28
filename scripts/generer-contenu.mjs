@@ -1,9 +1,9 @@
 // node scripts/generer-contenu.mjs [--config config.json] [--refaire] [--essai]
 import { readFileSync, writeFileSync } from 'node:fs'
 import Parser from 'rss-parser'
-import { HABILLAGES } from './gabarits.mjs'
+import { FAIT_DEFORME, HABILLAGES } from './gabarits.mjs'
 import { DISTRIBUTIONS } from './gabarits-conversations.mjs'
-import { fabriquerArticle, fabriquerFaux, fabriquerVrai, prochainFaux, prochainVrai, sujetsPour } from './fabrique.mjs'
+import { fabriquerArticle, fabriquerFaux, fabriquerRemediation, fabriquerVrai, PROCEDES, prochainFaux, prochainVrai, sujetsPour } from './fabrique.mjs'
 
 const argument = (nom, defaut) => {
   const i = process.argv.indexOf(nom)
@@ -36,7 +36,7 @@ if (banques.faits.length === 0) {
   process.exit(1)
 }
 
-const avant = JSON.stringify([vrais, faux, contenu.conversations])
+const avant = JSON.stringify([vrais, faux, contenu.conversations, contenu.remediations])
 const genere = (p) => p.origine === 'fiction' || p.origine === 'article'
 
 if (drapeau('--refaire')) {
@@ -61,7 +61,7 @@ const propre = (texte, max) =>
     .slice(0, max)
 const motif = (liste) => new RegExp((liste ?? []).join('|') || '$^', 'i')
 const ecarte = motif(reglagesArticles.sujetsEcartes)
-const MOTS_ANGLAIS = /\b(the|and|of|to|with|without|what|could|how|why|is|are|for)\b/gi
+const MOTS_ANGLAIS = /\b(the|and|of|to|in|with|without|what|could|how|why|is|are|was|does|for|this|from)\b/gi
 const enFrancais = (titre) => (titre.match(MOTS_ANGLAIS) ?? []).length < 2
 
 async function lireArticles() {
@@ -156,6 +156,14 @@ let prochainId =
   Math.max(0, ...[...vrais, ...faux, ...Object.values(contenu.remediations ?? {})].map((p) => Number(p.id) || 0)) + 1
 for (const post of nouveaux) post.id ??= prochainId++
 
+// Chaque procédé a son post d'entraînement ; ceux écrits à la main sont gardés.
+contenu.remediations ??= {}
+for (const categorie of [...PROCEDES, FAIT_DEFORME]) {
+  if (contenu.remediations[categorie.biais]) continue
+  const remediation = fabriquerRemediation(categorie, banques, { maintenant })
+  if (remediation) contenu.remediations[categorie.biais] = { ...remediation, id: prochainId++ }
+}
+
 const sujetsParContact = reglages.sujetsParContact ?? 3
 const manuelles = contenu.conversations.filter((c) => !genere(c))
 let sujets = contenu.conversations.filter((c) => genere(c) && c.contact)
@@ -192,7 +200,7 @@ if (drapeau('--essai')) {
   process.exit(0)
 }
 
-if (JSON.stringify([vrais, faux, contenu.conversations]) === avant) {
+if (JSON.stringify([vrais, faux, contenu.conversations, contenu.remediations]) === avant) {
   console.log('\nRien n’a changé : aucun fichier réécrit.')
   process.exit(0)
 }

@@ -84,6 +84,19 @@ export const REACTIONS_THEME = {
     'Long, mais ça vaut le coup.',
     'Je ne m’étais jamais posé la question.',
   ],
+  arnaque: [
+    'J’ai reçu presque le même message hier…',
+    'Ma tante s’est fait avoir avec un truc pareil.',
+    'Ça a l’air trop beau, non ?',
+    'Quelqu’un connaît cette page ?',
+    'Toujours vérifier avant de cliquer.',
+  ],
+  alerte: [
+    'Quelqu’un a entendu ça à la radio ?',
+    'Je préviens ma famille sur la côte.',
+    'Ça fait peur, j’espère que ce n’est rien.',
+    'On a déjà fait les réserves, on ne sait jamais.',
+  ],
 }
 
 const REACTIONS_PHOTO = ['Belle photo !', 'La photo 😍', 'Elle est où cette photo ?', 'Quelle image…']
@@ -96,7 +109,7 @@ const CONTRE = {
 const PART_VERIFIE = [0.85, 0.7, 0.5, 0.35, 0.25]
 
 const NOMS = [
-  'Nadia_988', 'Thierry P.', 'Patrick L.', 'Hélène', 'Ryan_NC', 'Willy', 'Aurélie', 'Mélanie', 'Kévin.nc', 'sam_974',
+  'Nadia_988', 'Thierry P.', 'Patrick L.', 'Hélène', 'Ryan_NC', 'Willy', 'Aurélie', 'Mélanie', 'Kévin.nc', 'sam_988',
   'Tehei', 'bruno_zz', 'Manu', 'Léa', 'Nathalie', 'Didier', 'Louise M.', 'Marie-Jo', 'Anaïs W.', 'Camille R.',
   'Inès K.', 'Fatou S.', 'Olivier T.', 'Karim', 'Vaimiti', 'Jean-Luc', 'Soane', 'Elodie_nc', 'Gaby', 'Moana R.',
 ]

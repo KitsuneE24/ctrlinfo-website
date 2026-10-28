@@ -9,18 +9,41 @@
     "sujetsParContact": 3,
     "aideUrl": "https://www.clemi.fr/",
     "articles": {
-      "_note": "Seulement des médias qui publient sous licence libre. Les titres sont repris tels quels, jamais modifiés.",
+      "_note": "Seulement des médias qui publient sous licence libre, et des rubriques proches du jeu (sciences, environnement, éducation, numérique). Les titres sont repris tels quels, jamais modifiés.",
       "part": 0.25,
       "flux": [
         {
           "nom": "The Conversation",
           "editeur": "The Conversation France",
-          "url": "https://theconversation.com/fr/articles.atom",
+          "url": "https://theconversation.com/fr/technologie/articles.atom",
           "licence": {
             "nom": "CC BY-ND 4.0",
             "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
           },
-          "actif": true
+          "actif": true,
+          "rubrique": "Sciences et technologie"
+        },
+        {
+          "nom": "The Conversation",
+          "editeur": "The Conversation France",
+          "url": "https://theconversation.com/fr/environnement/articles.atom",
+          "licence": {
+            "nom": "CC BY-ND 4.0",
+            "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+          },
+          "actif": true,
+          "rubrique": "Environnement"
+        },
+        {
+          "nom": "The Conversation",
+          "editeur": "The Conversation France",
+          "url": "https://theconversation.com/fr/education/articles.atom",
+          "licence": {
+            "nom": "CC BY-ND 4.0",
+            "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+          },
+          "actif": true,
+          "rubrique": "Éducation"
         },
         {
           "nom": "CNIL",

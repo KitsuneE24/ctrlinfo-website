@@ -22,13 +22,20 @@ import {
   VRAI_ARTICLE,
   VRAI_MEDIA,
   VOIX,
+  indice,
   indiceCorrection,
   surLeSite,
 } from './gabarits.mjs'
-import { etapes, outro } from './gabarits-conversations.mjs'
+import { ARNAQUES } from './arnaques.mjs'
+import { etapes, etapesArnaque, outro } from './gabarits-conversations.mjs'
 import { composerCommentaires, tirage } from './commentaires.mjs'
 
 const AIDE = 'https://www.clemi.fr/'
+
+export const PROCEDES = [...CATEGORIES, ...ARNAQUES.map((a) => a.categorie)]
+
+const INDICE_ARNAQUE = indice('VERIFICATION', 'TITRE', 'ShieldCheck', 'En cas de doute',
+  'Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr.')
 
 export const dateLisible = (iso) =>
   (iso ? new Date(iso) : new Date()).toLocaleDateString('fr-FR', {
@@ -60,8 +67,12 @@ const dateAncienne = (iso) => {
 
 const dateRecente = (iso, graine) => dateLisible(new Date(new Date(iso).getTime() - (graine % 72) * 3_600_000).toISOString())
 
-const permisPour = (categorie, niveau, base) =>
-  (!categorie.niveaux || categorie.niveaux.includes(niveau)) && (categorie.besoin !== 'ecart' || Boolean(base.ecart))
+// Une arnaque n'a que son procédé ; un fait réel, seulement ceux qui s'y prêtent.
+export const permisPour = (categorie, niveau, base) =>
+  (base.arnaque ? categorie.surArnaque === base.id : !categorie.surArnaque) &&
+  (!base.fait || Boolean(categorie.surFait)) &&
+  (!categorie.niveaux || categorie.niveaux.includes(niveau)) &&
+  (!categorie.besoin || Boolean(base[categorie.besoin]))
 
 const avecOrdre = (indices) => indices.map((indice, ordre) => ({ ordre, ...indice }))
 
@@ -77,8 +88,8 @@ const sansPoint = (texte) => texte.replace(/\.$/, '')
 
 const montrePhoto = (graine) => (graine >>> 11) % 3 !== 0
 
-const illustration = (image, graine) =>
-  image && montrePhoto(graine)
+const illustration = (image, graine, toujours = false) =>
+  image && (toujours || montrePhoto(graine))
     ? {
         image: image.fichier,
         imageAlt: image.alt,
@@ -119,7 +130,11 @@ const genreAuteur = (graine) => ['personne', 'personne', 'page', 'media'][(grain
 export const basesDe = ({ faits = [], scenarios = [] } = {}) => [
   ...scenarios.map((s) => ({ id: s.id, titre: sansPoint(s.titre), ecart: s.ecart, image: s.image, theme: s.theme, lieu: s.lieu })),
   ...faits.map((f) => ({ id: `fait-${f.id}`, titre: sansPoint(f.faux), fait: f, image: f.image, theme: f.theme })),
+  ...ARNAQUES.map((a) => a.base),
 ]
+
+// Au moins deux arnaques par niveau : ce sont les pièges les plus courants.
+const ARNAQUES_PAR_NIVEAU = 2
 
 export function prochainVrai(pris, niveau, faits = []) {
   const duNiveau = new Set(pris.filter((p) => p.level === niveau).map((p) => p.fait))
@@ -249,26 +264,29 @@ export function prochainFaux(pris, niveau, banques) {
   const basesNiveau = compter(duNiveau, (p) => p.scenario)
   const basesPartout = compter(pris, (p) => p.scenario)
   const biaisNiveau = compter(duNiveau, (p) => p.biais)
+  const arnaquesAvant = duNiveau.filter((p) => p.scenario?.startsWith('arnaque-')).length < ARNAQUES_PAR_NIVEAU
+  // Le fait au détail changé est le piège le plus subtil : une place par niveau, deux dès le niveau 3.
+  const deformesAvant = (biaisNiveau.get(FAIT_DEFORME.biais) ?? 0) < (niveau >= 3 ? 2 : 1)
 
-  const bases = basesDe(banques).sort(
+  // Toutes les paires (base, procédé) possibles ; la plus neuve à ce niveau l'emporte.
+  const paires = basesDe(banques).flatMap((base) => {
+    const candidats = base.fait ? (niveau >= 4 ? [FAIT_DEFORME] : [...PROCEDES, FAIT_DEFORME]) : PROCEDES
+    return candidats
+      .filter((c) => (c === FAIT_DEFORME || permisPour(c, niveau, base)) && !deja.has(`${base.id}|${c.biais}`))
+      .map((categorie) => ({ base, categorie }))
+  })
+  const n = (carte, cle) => carte.get(cle) ?? 0
+  paires.sort(
     (x, y) =>
-      (basesNiveau.get(x.id) ?? 0) - (basesNiveau.get(y.id) ?? 0) ||
-      (basesPartout.get(x.id) ?? 0) - (basesPartout.get(y.id) ?? 0) ||
-      graineDe(`${x.id}|${niveau}`) - graineDe(`${y.id}|${niveau}`)
+      (arnaquesAvant ? Number(Boolean(y.base.arnaque)) - Number(Boolean(x.base.arnaque)) : 0) ||
+      (deformesAvant ? Number(y.categorie === FAIT_DEFORME) - Number(x.categorie === FAIT_DEFORME) : 0) ||
+      n(basesNiveau, x.base.id) - n(basesNiveau, y.base.id) ||
+      n(biaisNiveau, x.categorie.biais) - n(biaisNiveau, y.categorie.biais) ||
+      n(basesPartout, x.base.id) - n(basesPartout, y.base.id) ||
+      Number(Boolean(y.categorie.niveaux)) - Number(Boolean(x.categorie.niveaux)) ||
+      graineDe(`${x.base.id}|${x.categorie.biais}|${niveau}`) - graineDe(`${y.base.id}|${y.categorie.biais}|${niveau}`)
   )
-  for (const base of bases) {
-    if (base.fait && niveau >= 4) {
-      if (!deja.has(`${base.id}|${FAIT_DEFORME.biais}`)) return { base, categorie: FAIT_DEFORME }
-      continue
-    }
-    const categorie = CATEGORIES.filter((c) => permisPour(c, niveau, base) && !deja.has(`${base.id}|${c.biais}`)).sort(
-      (x, y) =>
-        (biaisNiveau.get(x.biais) ?? 0) - (biaisNiveau.get(y.biais) ?? 0) ||
-        Number(Boolean(y.niveaux)) - Number(Boolean(x.niveaux))
-    )[0]
-    if (categorie) return { base, categorie }
-  }
-  return null
+  return paires[0] ?? null
 }
 
 const valeur = (v, base) => (typeof v === 'function' ? v(base) : v)
@@ -276,15 +294,16 @@ const valeur = (v, base) => (typeof v === 'function' ? v(base) : v)
 export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = new Date().toISOString(), prefixe = 'faux', media, photo: avecPhoto = true } = {}) {
   const slug = `${prefixe}-${base.id}-${niveau}-${empreinte(categorie.biais)}`
   const graine = graineDe(slug)
-  const enMedia = media ?? genreAuteur(graine) === 'media'
+  const arnaque = Boolean(base.arnaque)
+  const enMedia = !arnaque && (media ?? genreAuteur(graine) === 'media')
   const habillage = enMedia ? HABILLAGE_MEDIA : HABILLAGES.find((h) => h.niveau === niveau)
   const personne = (c) => c[2].startsWith('@')
-  const tous = enMedia ? MEDIAS_FICTIFS : habillage.comptes
+  const tous = arnaque ? categorie.comptes : enMedia ? MEDIAS_FICTIFS : habillage.comptes
   const groupe = tous.filter((c) => personne(c) === Boolean((graine >>> 6) % 2))
   const comptes = groupe.length > 0 ? groupe : tous
   const [nom, couleur, domaine, voixCompte] = comptes[graine % comptes.length]
   const compte = { nom, couleur, domaine }
-  const voix = enMedia ? null : voixCompte ?? habillage.voix
+  const voix = enMedia || arnaque ? null : voixCompte ?? habillage.voix
   const titre = categorie.titres[niveau - 1](base.titre)
   const subtil = niveau >= 4
   const phrase = categorie.phrases
@@ -296,7 +315,9 @@ export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = n
   const fait = base.fait
   const sourceVague = SOURCES_VAGUES[(graine >>> 4) % SOURCES_VAGUES.length]
   const journaliste = JOURNALISTES[(graine >>> 3) % JOURNALISTES.length]
-  const ecrit = enMedia
+  const ecrit = arnaque
+    ? { titre, texte: [phrase, suite].filter(Boolean).join(' ') }
+    : enMedia
     ? null
     : parler({
         voix,
@@ -311,12 +332,25 @@ export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = n
   const texte = enMedia
     ? TEXTES_ARTICLE.faux({ journaliste: subtil ? journaliste : null, phrase, suite, cite: sourceVague })
     : ecrit.texte
-  const photo = avecPhoto ? illustration(base.image, graine) : {}
-  const photoAilleurs = photo.image && !fait ? ' La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.' : ''
-  const explicationCompte = enMedia ? (subtil ? habillage.explicationSigne : habillage.explication) : habillage.explication
+  const toujours = categorie.photo === 'toujours'
+  const photo = avecPhoto || toujours ? illustration(base.image, graine, toujours) : {}
+  const photoAilleurs =
+    photo.image && !fait && !toujours ? ' La photo est réelle, mais elle a été prise ailleurs : elle ne prouve rien.' : ''
+  const explicationCompte = arnaque ? '' : enMedia ? (subtil ? habillage.explicationSigne : habillage.explication) : habillage.explication
+  const indiceCompte = arnaque
+    ? categorie.indiceCompte(compte)
+    : enMedia
+      ? subtil ? habillage.indiceSigne(compte) : habillage.indice(compte)
+      : habillage.indice(compte)
+  const debut = fait
+    ? `Ce post déforme un fait réel : ${fait.vrai} `
+    : arnaque
+      ? 'Ce post est inventé pour l’exercice, mais ce piège existe vraiment. '
+      : `Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. `
 
   return {
     ...engagement(),
+    ...(categorie.sponsorise ? { sponsorise: true } : {}),
     date: categorie.ancienne ? dateAncienne(maintenant) : dateRecente(maintenant, graine),
     learnMoreTips: aideUrl ?? AIDE,
     origine: 'fiction',
@@ -334,16 +368,12 @@ export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = n
     level: niveau,
     correctAction: 'report',
     biais: categorie.biais,
-    explication:
-      (fait
-        ? `Ce post déforme un fait réel : ${fait.vrai} `
-        : `Ce post est inventé pour l'exercice : ni le fait, ni le compte n'existent. `) +
-      `${categorie.explication} ${explicationCompte}${photoAilleurs}`,
+    explication: `${debut}${categorie.explication} ${explicationCompte}${photoAilleurs}`.trim(),
     analyseFaux: fait ? `${categorie.analyseFaux} En réalité : ${fait.vrai}` : categorie.analyseFaux,
     indices: avecOrdre([
       categorie.indice,
-      enMedia ? (subtil ? habillage.indiceSigne(compte) : habillage.indice(compte)) : habillage.indice(compte),
-      fait ? indiceCorrection(fait) : INDICE_AILLEURS[subtil ? 1 : 0],
+      indiceCompte,
+      fait ? indiceCorrection(fait) : arnaque ? INDICE_ARNAQUE : INDICE_AILLEURS[subtil ? 1 : 0],
     ]),
     commentaires: composerCommentaires({
       graine,
@@ -375,7 +405,8 @@ export function fabriquerConversation(post, gabarit, distribution, options = {})
   const variante = graineDe(id)
   const message = ([auteur, texte]) => ({ texte, auteur })
 
-  const steps = etapes({ post, gabarit, lanceur, soutien, variante }).map((etape, ordre) => {
+  const deroule = gabarit.conseil ? etapesArnaque : etapes
+  const steps = deroule({ post, gabarit, lanceur, soutien, variante }).map((etape, ordre) => {
     const decalage = (variante + ordre) % etape.choix.length
     const choix = [...etape.choix.slice(decalage), ...etape.choix.slice(0, decalage)]
     return {
@@ -420,15 +451,34 @@ export function sujetsPour(distribution, conversations, nombre, banques, { prefi
   for (const base of bases) {
     if (sujets.length === nombre) break
     const graine = graineDe(`${distribution.id}|${base.id}`)
-    const debut = (graine + sujets.length) % CATEGORIES.length
-    const gabarit = [...CATEGORIES.slice(debut), ...CATEGORIES.slice(0, debut)].find(
-      (c) => !c.niveaux && !pris.has(`${base.id}|${c.biais}`)
+    const niveau = 1 + (graine % 3)
+    const debut = (graine + sujets.length) % PROCEDES.length
+    const gabarit = [...PROCEDES.slice(debut), ...PROCEDES.slice(0, debut)].find(
+      (c) => !c.horsMessages && permisPour(c, niveau, base) && !pris.has(`${base.id}|${c.biais}`)
     )
     if (!gabarit) continue
     pris.add(`${base.id}|${gabarit.biais}`)
-    const post = fabriquerFaux(base, gabarit, 1 + (graine % 3), { maintenant })
+    const post = fabriquerFaux(base, gabarit, niveau, { maintenant })
     const id = `${prefixe}-${distribution.id}-${base.id}-${empreinte(gabarit.biais)}`
     sujets.push(fabriquerConversation(post, gabarit, distribution, { id, maintenant }))
   }
   return sujets
+}
+
+const enSlug = (texte) => texte.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-')
+
+// Post d'entraînement d'un procédé : un exemple de niveau 2, expliqué. Sert quand contenu.json n'en a pas.
+export function fabriquerRemediation(categorie, banques, { maintenant } = {}) {
+  const base = basesDe(banques).find((b) => (categorie === FAIT_DEFORME ? Boolean(b.fait) : permisPour(categorie, 4, b)))
+  if (!base) return null
+  const niveau = categorie.niveaux?.[0] ?? 2
+  const post = fabriquerFaux(base, categorie, niveau, { maintenant, media: false, prefixe: 'remediation' })
+  return {
+    ...post,
+    slug: `remediation-${enSlug(categorie.biais)}`,
+    isRemediation: true,
+    texte: `${post.texte} (Post d’entraînement : ${categorie.biais.toLowerCase()}.)`,
+    encouragement: `Bien vu : vous reconnaissez maintenant « ${categorie.biais.toLowerCase()} ».`,
+    warning: `Encore raté : relisez les indices, « ${categorie.biais.toLowerCase()} » revient souvent.`,
+  }
 }

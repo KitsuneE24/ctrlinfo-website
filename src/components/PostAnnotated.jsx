@@ -3,7 +3,7 @@ import { icone } from '../data/icones'
 import { texteSur } from '../lib/contraste'
 import ImagePost from './ImagePost'
 
-const ZONES_TEXTE = ['SOURCE', 'TITRE', 'TEXTE', 'DATE', 'ENGAGEMENT']
+const ZONES_TEXTE = ['SOURCE', 'TITRE', 'TEXTE', 'DATE', 'ENGAGEMENT', 'IMAGE']
 
 const tonDe = (post) => (post.isFake ? 'faux' : 'vrai')
 
@@ -91,7 +91,12 @@ export default function PostAnnotated({ post, liste = true }) {
         <Marques indices={indices} ton={ton} cible="TEXTE" />
       </p>
 
-      <ImagePost post={post} className="annot__image" />
+      {post.image && (
+        <div className={`annot__photo${surligne('IMAGE')}`}>
+          <ImagePost post={post} className="annot__image" />
+          <Marques indices={indices} ton={ton} cible="IMAGE" />
+        </div>
+      )}
 
       {liste && <ListeIndices post={post} />}
     </article>

@@ -49,11 +49,112 @@ export const DISTRIBUTIONS = [
   },
 ]
 
+// Une citation dans une citation prend des guillemets anglais.
+const citer = (texte) => `« ${texte.replace(/«\s?/g, '“').replace(/\s?»/g, '”')} »`
+
 const OUVERTURES = [
-  (source, titre) => `Regarde ce que ${source} vient de publier : « ${titre} »`,
-  (source, titre) => `Tu as vu ça ? ${source} : « ${titre} »`,
-  (source, titre) => `On m’a envoyé ça ce matin, c’est de ${source} : « ${titre} »`,
+  (source, titre) => `Regarde ce que ${source} vient de publier : ${citer(titre)}`,
+  (source, titre) => `Tu as vu ça ? ${source} : ${citer(titre)}`,
+  (source, titre) => `On m’a envoyé ça ce matin, c’est de ${source} : ${citer(titre)}`,
 ]
+
+const OUVERTURES_ARNAQUE = [
+  (source, titre) => `Regarde ce que je viens de voir, c’est ${source} : ${citer(titre)}`,
+  (source, titre) => `Trop bien ça ! ${source} : ${citer(titre)}`,
+  (source, titre) => `Tu crois que c’est vrai ? ${source} : ${citer(titre)}`,
+]
+const RASSURE = [
+  'Mais ils ont l’air sérieux, il y a plein de likes et de commentaires.',
+  'Mais la page a un logo et tout, ça fait officiel.',
+  'Mais plein de gens l’ont partagé, ça ne peut pas être faux.',
+]
+const TROP_TARD = [
+  'Euh… j’ai déjà fait ce qu’ils demandaient 😬 Je fais quoi ?',
+  'Trop tard, j’ai déjà rempli le formulaire 🙈 On fait quoi ?',
+  'Aïe, j’ai déjà répondu… Je rattrape comment ?',
+]
+
+// Déroulé des arnaques : ne pas agir, vérifier, puis réparer si c'est trop tard.
+export function etapesArnaque({ post, gabarit, lanceur, soutien, variante = 0 }) {
+  return [
+    {
+      messages: [
+        soutien && [soutien, parmi(SOUTIENS_1, variante)],
+        [lanceur, parmi(OUVERTURES_ARNAQUE, variante)(post.source, post.titre)],
+        [lanceur, `${gabarit.pression} J’y vais ?`],
+      ],
+      choix: [
+        {
+          text: 'Vas-y, tu n’as rien à perdre.',
+          correct: false,
+          reply: 'Ok, j’y vais 🤞',
+          explication: `Dans une arnaque, on a toujours quelque chose à perdre : de l’argent, ses codes ou son compte. Ici, c’est ${gabarit.ajout}.`,
+        },
+        {
+          text: gabarit.conseil,
+          correct: true,
+          reply: 'Ah… ok, j’attends alors.',
+          explication: 'S’arrêter avant de cliquer, payer ou envoyer un code : c’est le réflexe qui déjoue presque toutes les arnaques.',
+        },
+        {
+          text: 'Franchement, il faut être naïf pour tomber là-dedans.',
+          correct: false,
+          reply: 'Merci… Je vais le faire quand même, tu n’as rien expliqué.',
+          explication: 'Tout le monde peut se faire avoir, surtout quand le piège est bien fait. Se moquer n’aide pas : expliquer, oui.',
+        },
+      ],
+    },
+    {
+      messages: [[lanceur, parmi(RASSURE, variante + 1)]],
+      choix: [
+        {
+          text: 'C’est vrai, s’il y a des likes, c’est fiable.',
+          correct: false,
+          reply: 'Tu vois !',
+          explication: 'Likes, logo et commentaires se fabriquent ou s’achètent. Ils ne disent rien de qui est derrière.',
+        },
+        {
+          text: gabarit.verifier,
+          correct: true,
+          reply: 'Ah oui, je n’avais pas regardé ça.',
+          explication: `C’est un piège connu : ${gabarit.biais.toLowerCase()}. Vérifier qui est derrière prend une minute.`,
+        },
+        {
+          text: 'De toute façon, tout est arnaque sur internet.',
+          correct: false,
+          reply: 'Donc on ne peut plus rien faire en ligne ? Super…',
+          explication: 'Tout rejeter n’aide pas à reconnaître les vrais pièges. Le bon réflexe est de vérifier qui est derrière.',
+        },
+      ],
+    },
+    {
+      messages: [
+        soutien && [soutien, 'Moi j’ai déjà répondu hier 🙈'],
+        [lanceur, parmi(TROP_TARD, variante + 2)],
+      ],
+      choix: [
+        {
+          text: gabarit.reparer,
+          correct: true,
+          reply: 'Ok, je fais ça tout de suite.',
+          explication: 'Agir vite limite les dégâts : bloquer, changer ses accès, signaler. Et prévenir les autres évite qu’ils tombent dans le même piège.',
+        },
+        {
+          text: 'Pas de panique, ça va sûrement s’arranger tout seul.',
+          correct: false,
+          reply: 'Bon… j’attends alors.',
+          explication: 'Une arnaque ne s’arrange pas seule : chaque heure compte pour bloquer une carte ou récupérer un compte.',
+        },
+        {
+          text: 'Supprime juste le message, et n’en parle à personne.',
+          correct: false,
+          reply: 'Supprimé. Mais ils ont déjà mes infos…',
+          explication: 'Supprimer n’efface pas ce qui a été envoyé. Il faut bloquer, changer ses accès, et signaler.',
+        },
+      ],
+    },
+  ]
+}
 const SOUTIENS_1 = [
   'Je l’ai vu passer aussi, ça tourne partout',
   'Ah oui, on m’en a parlé hier',

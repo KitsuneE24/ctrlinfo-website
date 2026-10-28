@@ -1,4 +1,4 @@
-const indice = (nature, cible, picto, libelle, explication) => ({
+export const indice = (nature, cible, picto, libelle, explication) => ({
   nature,
   cible,
   picto,
@@ -8,10 +8,13 @@ const indice = (nature, cible, picto, libelle, explication) => ({
 
 // `titres` et `phrases` vont du niveau 1 au 5 (une phrase peut dépendre du fait inventé).
 // `verifie` : [niveaux 1 à 3, niveaux 4 et 5]. `niveaux` limite un procédé subtil aux niveaux avancés.
-// `ancienne` : le post porte une date vieille de deux ans.
+// `ancienne` : le post porte une date vieille de deux ans. `surFait` : se plaque aussi sur un fait réel.
+// `horsMessages` : indice invisible dans une conversation (date, photo, texte du post).
+// `photo: 'toujours'` : la photo s'affiche à coup sûr. `besoin` : champ requis sur la base.
 export const CATEGORIES = [
   {
     biais: 'Urgence artificielle',
+    surFait: true,
     titres: [
       (t) => `Urgent, partagez avant suppression : ${t}`,
       (t) => `À partager vite : ${t}`,
@@ -250,6 +253,7 @@ export const CATEGORIES = [
   },
   {
     biais: 'Certitude ajoutée',
+    surFait: true,
     titres: [
       (t) => `C'est confirmé !!! ${t}`,
       (t) => `C'est confirmé : ${t}`,
@@ -290,6 +294,7 @@ const ecart = (base) => base.ecart
 CATEGORIES.push(
   {
     biais: 'Information recyclée',
+    horsMessages: true,
     niveaux: [3, 4, 5],
     ancienne: true,
     titres: [meme, meme, meme, meme, meme],
@@ -320,6 +325,7 @@ CATEGORIES.push(
   },
   {
     biais: 'Détail modifié',
+    horsMessages: true,
     niveaux: [3, 4, 5],
     besoin: 'ecart',
     titres: [meme, meme, meme, meme, meme],
@@ -335,6 +341,284 @@ CATEGORIES.push(
     verifie: [
       'Le titre et le texte ne racontent pas la même chose.',
       'Relisez : le chiffre du titre n’est pas celui du texte.',
+    ],
+  },
+  {
+    biais: 'Décontextualisation',
+    horsMessages: true,
+    besoin: 'image',
+    photo: 'toujours',
+    titres: [
+      (t) => `📸 PHOTO PRISE CE MATIN : ${t}`,
+      (t) => `Photo à l’appui : ${t}`,
+      (t) => `${t}, la photo qui circule`,
+      (t) => `${t} (photo)`,
+      meme,
+    ],
+    phrases: [
+      'LA PREUVE EN IMAGE, ILS NE POURRONT PAS DIRE LE CONTRAIRE !',
+      'La photo parle d’elle-même.',
+      'Une photo prise sur place circule depuis ce matin.',
+      'Un habitant a pris la photo ce matin.',
+      'Photo envoyée par une abonnée.',
+    ],
+    explication: 'La photo est réelle, mais elle a été prise ailleurs, pour autre chose : une vraie image sert de fausse preuve.',
+    analyseFaux: 'La photo existe, mais elle ne montre pas cet événement : une recherche d’image inversée la retrouve ailleurs.',
+    ajout: 'une photo prise ailleurs, présentée comme une preuve',
+    pression: 'Il y a la photo, donc c’est vrai !',
+    indice: indice('ALERTE', 'IMAGE', 'Image', 'Une photo prise ailleurs',
+      'Une recherche d’image inversée (Google Lens, TinEye) retrouve cette photo sur un autre site, pour un autre lieu.'),
+    croit: ['La photo ne ment pas 😮', 'Avec la photo, plus de doute.'],
+    doute: ['Elle vient d’où, cette photo ?', 'On est sûr que la photo est d’ici ?'],
+    suites: [
+      'Regardez bien la photo et faites tourner !',
+      'Tout est sur la photo.',
+      'La photo suffit à comprendre.',
+    ],
+    verifie: [
+      'J’ai fait une recherche d’image inversée : la photo a été prise ailleurs, il y a longtemps.',
+      'Recherche d’image faite : cette photo vient d’un autre pays.',
+    ],
+  },
+  {
+    biais: 'Fabriqué pour le clic',
+    titres: [
+      (t) => `VOUS NE DEVINEREZ JAMAIS LA SUITE 😱 ${t}`,
+      (t) => `Vous ne devinerez jamais : ${t}`,
+      (t) => `${t} : la suite va vous surprendre`,
+      (t) => `${t}, et ce n’est pas tout`,
+      meme,
+    ],
+    phrases: [
+      'LA SUITE EN COMMENTAIRE 👇👇 (cliquez sur le lien)',
+      'La suite est en commentaire, cliquez sur le lien 👇',
+      'Tous les détails sur notre site, lien en commentaire.',
+      'Le détail complet est sur notre site, lien en bio.',
+      'Plus d’infos sur le site, lien en bio.',
+    ],
+    explication: 'Le post retient la suite pour faire cliquer : chaque clic rapporte de la publicité au site, vrai ou pas.',
+    analyseFaux: 'Le post ne donne rien à vérifier : il sert à faire cliquer vers un site rempli de publicités.',
+    ajout: 'un lien vers un site à publicités',
+    pression: 'Clique sur le lien, la suite est dingue !',
+    indice: indice('ALERTE', 'TEXTE', 'MousePointerClick', 'Une suite cachée',
+      'La suite est « en commentaire » ou « en bio » : le but est le clic, pas l’information. Ces sites vivent de la publicité, souvent avec des textes écrits à la chaîne par une IA.'),
+    croit: ['Je clique tout de suite 😂', 'Ah, je veux savoir la suite !'],
+    doute: ['Pourquoi ils ne disent pas tout dans le post ?', 'Encore un lien pour faire cliquer…'],
+    suites: [
+      'Vous n’allez pas en revenir.',
+      'La fin est incroyable.',
+      'La suite vaut le détour.',
+    ],
+    verifie: [
+      'J’ai cliqué : un site rempli de pubs, aucune source.',
+      'Le lien mène à un site plein de pubs qui ne cite personne.',
+    ],
+  },
+  {
+    biais: 'Satire prise au sérieux',
+    niveaux: [2, 3, 4, 5],
+    titres: [
+      (t) => `INCROYABLE : ${t}`,
+      (t) => `${t} (lu sur Le Cagou Déchaîné)`,
+      (t) => `${t}, d’après Le Cagou Déchaîné`,
+      (t) => `Vu sur Le Cagou Déchaîné : ${t}`,
+      meme,
+    ],
+    phrases: [
+      'Je l’ai lu sur Le Cagou Déchaîné, c’est fou !',
+      'C’est Le Cagou Déchaîné qui l’a sorti.',
+      'L’info vient du Cagou Déchaîné.',
+      'Lu sur Le Cagou Déchaîné ce matin.',
+      'Repris du Cagou Déchaîné.',
+    ],
+    explication: 'L’info vient d’un site parodique, qui invente pour faire rire. Repartagée sans le contexte, la blague devient une fausse nouvelle.',
+    analyseFaux: 'Le Cagou Déchaîné est un site d’humour (inventé pour ce jeu) : rien de ce qu’il publie n’est vrai, et il le dit.',
+    ajout: 'une blague d’un site parodique',
+    pression: 'C’est un site d’info qui l’a dit !',
+    indice: indice('ALERTE', 'TEXTE', 'Laugh', 'Un site parodique',
+      'Le Cagou Déchaîné publie des articles inventés pour faire rire. Avant de partager, regardez qui a publié en premier.'),
+    croit: ['Mdr c’est vrai ça ?? Je partage', 'Incroyable, je fais suivre.'],
+    doute: ['Le Cagou Déchaîné, ce n’est pas un site d’humour ?', 'Ce site fait des blagues, non ?'],
+    suites: [
+      'Même pas besoin d’inventer, ça arrive vraiment.',
+      'On n’arrête pas le progrès.',
+      'À lire jusqu’au bout.',
+    ],
+    verifie: [
+      'Le Cagou Déchaîné, c’est un site parodique : tout est inventé.',
+      'C’est une blague du Cagou Déchaîné, c’est écrit en bas de leur site.',
+    ],
+  },
+  {
+    biais: 'Voix ou vidéo truquée',
+    niveaux: [3, 4, 5],
+    titres: [
+      (t) => `🎧 L’AUDIO QUI FAIT PEUR : ${t}`,
+      (t) => `Écoutez ce vocal : ${t}`,
+      (t) => `${t} : un message vocal circule`,
+      (t) => `${t}, d’après un vocal`,
+      meme,
+    ],
+    phrases: [
+      'ON ENTEND UN SECOURISTE LE DIRE, ÉCOUTEZ LE VOCAL !!',
+      'Dans le vocal, on entend la voix d’un agent de la mairie.',
+      'Un message vocal attribué à un agent de la commune circule sur WhatsApp.',
+      'Dans un vocal qui tourne, une voix qui se présente comme un agent de la commune l’explique.',
+      'C’est dans un vocal transféré plusieurs fois.',
+    ],
+    explication: 'Une voix se fabrique en quelques secondes avec une IA : un vocal, sans nom ni source, ne prouve rien.',
+    analyseFaux: 'Personne n’est nommé et aucune source officielle ne reprend ce vocal : rien ne dit qui parle.',
+    ajout: 'un message vocal dont on ignore l’auteur',
+    pression: 'On l’entend le dire dans le vocal !',
+    indice: indice('ALERTE', 'TEXTE', 'AudioLines', 'Une voix sans auteur',
+      'En 2026, quelques secondes d’enregistrement suffisent pour imiter une voix. Sans nom ni source officielle, un vocal ne prouve rien.'),
+    croit: ['J’ai écouté, ça fait froid dans le dos.', 'Si on l’entend, c’est que c’est vrai.'],
+    doute: ['C’est qui qui parle dans ce vocal ?', 'Ça peut être n’importe qui, ce vocal.'],
+    suites: [
+      'Transférez le vocal à tous vos contacts !',
+      'Le vocal tourne dans tous les groupes.',
+      'Le vocal est transféré depuis hier.',
+    ],
+    verifie: [
+      'La mairie n’a jamais publié ça. Une voix, ça s’imite.',
+      'Aucun site officiel ne parle de ce vocal : on ne sait même pas qui parle.',
+    ],
+  },
+  {
+    biais: 'Effet de halo',
+    titres: [
+      (t) => `MÊME LUI LE DIT !! ${t}`,
+      (t) => `Un influenceur connu le confirme : ${t}`,
+      (t) => `${t}, relayé par un influenceur`,
+      (t) => `${t} : un créateur suivi par 300 000 personnes en parle`,
+      meme,
+    ],
+    phrases: [
+      'Teiva_Fit, 300 000 abonnés, l’a partagé, IL SAIT DE QUOI IL PARLE !',
+      'Teiva_Fit, suivi par 300 000 personnes, l’a relayé hier.',
+      'Le créateur Teiva_Fit en a parlé à ses 300 000 abonnés.',
+      'Partagé hier par Teiva_Fit, créateur de contenu sportif.',
+      'Teiva_Fit l’a mis en story hier.',
+    ],
+    explication: 'Être connu ne rend pas compétent : un influenceur sportif n’est pas une source sur ce sujet. C’est l’effet de halo.',
+    analyseFaux: 'La seule « preuve » est la célébrité de la personne qui relaie : elle ne cite elle-même aucune source.',
+    ajout: 'la caution d’un influenceur, sans source',
+    pression: 'Il a 300 000 abonnés, il ne va pas mentir !',
+    indice: indice('VERIFICATION', 'TEXTE', 'Star', 'Connu, pas compétent',
+      'Le nombre d’abonnés ne dit rien de la fiabilité. Qu’en dit une source spécialisée ?'),
+    croit: ['Je l’adore, s’il le dit c’est vrai ❤️', 'Il ne partagerait pas n’importe quoi.'],
+    doute: ['Il est coach sportif, pas spécialiste de ça.', 'Le nombre d’abonnés, ce n’est pas une source.'],
+    suites: [
+      'S’il le dit, c’est qu’il a vérifié.',
+      'Il a toujours été honnête avec sa communauté.',
+      'Sa story a été vue des milliers de fois.',
+    ],
+    verifie: [
+      'L’influenceur ne cite aucune source, et aucun média n’en parle.',
+      'J’ai cherché : la seule « source », c’est sa story.',
+    ],
+  },
+  {
+    biais: 'Vérité par répétition',
+    titres: [
+      (t) => `TOUT LE MONDE EN PARLE : ${t}`,
+      (t) => `Ça tourne partout : ${t}`,
+      (t) => `${t}, l’info qui tourne dans tous les groupes`,
+      (t) => `${t} (vu passer plusieurs fois)`,
+      meme,
+    ],
+    phrases: [
+      'JE L’AI VU DANS 5 GROUPES DIFFÉRENTS, C’EST FORCÉMENT VRAI !',
+      'Je l’ai vu passer dans au moins cinq groupes.',
+      'L’info revient dans tous les groupes depuis hier.',
+      'Ça fait trois fois qu’on me l’envoie.',
+      'On me l’a envoyé plusieurs fois aujourd’hui.',
+    ],
+    explication: 'Une info vue plusieurs fois semble plus vraie. Mais cent partages du même message restent une seule source, invérifiée.',
+    analyseFaux: 'Le post ne s’appuie que sur le fait que l’info circule : la répétition n’est pas une preuve.',
+    ajout: 'l’argument « tout le monde en parle »',
+    pression: 'Tout le monde en parle, c’est forcément vrai !',
+    indice: indice('ALERTE', 'TEXTE', 'Repeat', 'Vu partout, prouvé nulle part',
+      'Cent partages du même message ne font pas cent sources. On retient mieux ce qu’on voit souvent : c’est l’effet de vérité illusoire.'),
+    croit: ['Moi aussi je l’ai reçu trois fois !', 'Si tout le monde en parle…'],
+    doute: ['Tout le monde le partage, mais qui l’a vérifié ?', 'Beaucoup de partages, ça ne fait pas une source.'],
+    suites: [
+      'Il n’y a pas de fumée sans feu.',
+      'Ça ne peut pas être une coïncidence.',
+      'Autant de monde ne peut pas se tromper.',
+    ],
+    verifie: [
+      'Tous ces groupes partagent le même message, sans source.',
+      'J’ai remonté le message : aucun média, aucune source officielle.',
+    ],
+  },
+  {
+    biais: 'Discours complotiste',
+    niveaux: [2, 3, 4, 5],
+    titres: [
+      (t) => `CE QU’ILS NE VEULENT PAS QUE VOUS SACHIEZ : ${t}`,
+      (t) => `Ce qu’on ne vous dit pas : ${t}`,
+      (t) => `${t} : à qui profite le silence ?`,
+      (t) => `${t}, et personne n’en parle`,
+      meme,
+    ],
+    phrases: [
+      'ILS savent, ILS se taisent. Ceux qui disent que c’est faux font partie du système !',
+      'Bien sûr, « ils » vont dire que c’est faux. Justement.',
+      'Si les médias n’en parlent pas, c’est bien qu’on veut le cacher.',
+      'Étonnant que si peu de monde en parle.',
+      'Curieux que personne ne relaie.',
+    ],
+    explication: 'Un « eux » jamais nommé cache la vérité, et toute objection devient une preuve : le récit ne peut jamais être démenti.',
+    analyseFaux: 'Le silence des médias est présenté comme une preuve : c’est surtout le signe que rien ne confirme l’info.',
+    ajout: 'un « ils » qui cacherait la vérité',
+    pression: 'Ils ne veulent pas qu’on le sache !',
+    indice: indice('ALERTE', 'TEXTE', 'EyeOff', 'Un « eux » sans nom',
+      'Qui sont « ils » ? Quand l’absence de preuve devient une preuve, on n’est plus dans l’information.'),
+    croit: ['On nous cache tout 😤', 'Évidemment qu’ils ne vont pas en parler.'],
+    doute: ['« Ils », c’est qui ?', 'Si personne n’en parle, c’est peut-être que ce n’est pas vrai.'],
+    suites: [
+      'Ceux qui démentent sont payés pour.',
+      'Posez-vous les bonnes questions.',
+      'Chacun jugera.',
+    ],
+    verifie: [
+      'Personne ne cache rien : aucune source ne parle de ce fait.',
+      'Si personne n’en parle, c’est d’abord que rien ne le confirme.',
+    ],
+  },
+  {
+    biais: 'Cherry picking',
+    titres: [
+      (t) => `LA PREUVE : ${t}`,
+      (t) => `Des témoins le confirment : ${t}`,
+      (t) => `${t} : plusieurs témoignages`,
+      (t) => `${t}, selon des habitants`,
+      meme,
+    ],
+    phrases: [
+      'Trois personnes l’ont vu de leurs yeux, ÇA SUFFIT COMME PREUVE !',
+      'Trois témoins l’ont vu, ça suffit.',
+      'Trois habitants nous l’ont confirmé en commentaire.',
+      'Plusieurs habitants le racontent en commentaire.',
+      'Des habitants en témoignent.',
+    ],
+    explication: 'Quelques témoignages choisis sont présentés comme une preuve : on ne montre que ce qui arrange, jamais le reste.',
+    analyseFaux: 'Trois témoignages choisis ne prouvent rien : aucune source ne vérifie l’ensemble des faits.',
+    ajout: 'trois témoignages triés sur le volet',
+    pression: 'Il y a des témoins, quand même !',
+    indice: indice('VERIFICATION', 'TEXTE', 'Filter', 'Des exemples triés',
+      'Trois témoins choisis ne disent rien des centaines d’autres. Qui a vérifié l’ensemble ?'),
+    croit: ['S’il y a des témoins, c’est vrai.', 'Trois personnes, ce n’est pas rien.'],
+    doute: ['Et tous ceux qui n’ont rien vu ?', 'Trois témoignages, c’est peu.'],
+    suites: [
+      'D’autres témoignages arrivent.',
+      'Les témoins sont formels.',
+      'D’autres habitants pourraient témoigner.',
+    ],
+    verifie: [
+      'Trois témoignages, mais aucun média ni source officielle.',
+      'Les « témoins » sont des commentaires anonymes : rien de vérifiable.',
     ],
   }
 )
@@ -630,6 +914,7 @@ export const indiceCorrection = (fait) =>
 
 export const FAIT_DEFORME = {
   biais: 'Fait déformé',
+  surFait: true,
   titres: [meme, meme, meme, meme, meme],
   explication: 'Un fait connu, avec un détail changé : le post a l’air vrai, il ne l’est pas.',
   analyseFaux: 'Un détail du post est faux.',

@@ -1,6 +1,7 @@
 // Pièges courants en 2026 : chaque arnaque est sa propre base, avec son procédé.
 // `titres` et `phrases` vont du niveau 1 (grossier) au niveau 5 (soigné).
 // `comptes` : [nom, couleur, description] ; tout est inventé.
+// `aide` : page qui explique le piège (lien « En savoir plus »).
 // `conseil`, `verifier`, `reparer` : les bons réflexes, repris dans les Messages.
 import { indice } from './gabarits.mjs'
 
@@ -14,6 +15,7 @@ export const ARNAQUES = [
     id: 'concours',
     titre: 'Deux billets d’avion pour Tahiti à gagner',
     biais: 'Faux concours',
+    aide: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/fraude-carte-bancaire',
     comptes: [
       ['Nouméa Matin · Jeux', '#0d0080', 'page créée il y a 6 jours'],
       ['Le Fil Calédonien Officiel ✔️', '#1800ad', 'page créée la semaine dernière'],
@@ -53,6 +55,7 @@ export const ARNAQUES = [
     id: 'cagnotte',
     titre: 'Une cagnotte pour les familles sinistrées après le coup de vent',
     biais: 'Fausse cagnotte',
+    aide: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing',
     comptes: [
       ['Solidarité Calédo 🙏', '#14663f', 'page créée hier'],
       ['Entraide NC Sinistrés', '#14663f', 'page créée il y a 2 jours'],
@@ -92,6 +95,7 @@ export const ARNAQUES = [
     id: 'colis',
     titre: 'Un colis bloqué, des frais à régler',
     biais: 'Hameçonnage',
+    aide: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing',
     sponsorise: true,
     comptes: [
       ['Suivi Colis Pacifique', '#b45309', 'publicité'],
@@ -131,6 +135,7 @@ export const ARNAQUES = [
     id: 'emploi',
     titre: 'Un travail payé pour liker des vidéos',
     biais: 'Offre trop belle',
+    aide: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/arnaques-a-l-emploi',
     comptes: [
       ['Job Facile NC 💰', '#ea580c', 'page créée il y a 4 jours'],
       ['Recrutement Pacifique', '#57534e', 'page créée la semaine dernière'],
@@ -170,6 +175,7 @@ export const ARNAQUES = [
     id: 'placement',
     titre: 'Un placement qui rapporte 150 000 F par semaine',
     biais: 'Placement miracle',
+    aide: 'https://www.amf-france.org/fr/espace-epargnants/proteger-son-epargne/listes-noires-et-mises-en-garde',
     sponsorise: true,
     comptes: [
       ['Finance Liberté', '#14663f', 'publicité'],
@@ -210,6 +216,7 @@ export const ARNAQUES = [
     titre: 'Une alerte tsunami ce soir sur la côte Ouest',
     theme: 'alerte',
     biais: 'Fausse alerte',
+    aide: 'https://meteo.nc/fr/cyclone',
     comptes: [
       ['ALERTE MÉTÉO CALÉDO ⚠️', '#b91c1c', 'page créée il y a 2 jours'],
       ['Info Vigilance NC', '#c2410c', 'page créée la semaine dernière'],
@@ -249,6 +256,7 @@ export const ARNAQUES = [
     id: 'compte-pirate',
     titre: 'Un ami qui demande un code reçu par SMS',
     biais: 'Compte piraté',
+    aide: 'https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/piratage-de-compte',
     comptes: [
       ['Poema W. (nouveau compte)', '#791561', '@poema.w.2 · compte créé hier'],
       ['Kenji T. (nouveau compte)', '#8a4fbe', '@kenji_t_2 · compte créé hier'],

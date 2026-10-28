@@ -395,7 +395,7 @@ export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = n
     consequences: CONSEQUENCES_FAUX,
     scores: SCORES_FAUX,
     sourceUrl: null,
-    learnMoreUrl: fait?.source.url ?? aideUrl ?? AIDE,
+    learnMoreUrl: fait?.source.url ?? categorie.aide ?? aideUrl ?? AIDE,
   }
 }
 

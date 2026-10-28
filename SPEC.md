@@ -42,7 +42,7 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 | `/conversations` | Messages | un fil par contact, le joueur choisit ses réponses |
 | `/ressources` | Ressources | 8 thèmes, 12 sites utiles (vérifier, se protéger des arnaques, comprendre) |
 | `/profil` | Profil | statistiques, avatar, code de sauvegarde, compagnon |
-| `/mentions-legales` | Mentions légales | éditeur, hébergeur, données, accessibilité, crédits |
+| `/mentions-legales` | Mentions légales | éditeur, hébergeur, données, accessibilité, propriété |
 
 **Fil d'actualité**
 - Lots de 5 posts par niveau, tirés parmi les inédits.
@@ -183,8 +183,7 @@ virgules), ou passer par l'administration. Puis `npm run verifier` et `npm test`
    CC BY-SA, sans visage reconnaissable. L'enregistrer dans
    `public/images/faits/<id>.jpg`, lancer `npm run images` (réduit le poids et
    retire les métadonnées), puis remplir `image: { fichier, alt, auteur,
-   licence, licenceUrl, page }`. Le crédit s'affiche seul dans la correction
-   et les mentions légales.
+   licence, licenceUrl, page }`. Le crédit s'affiche seul dans la correction.
 4. `npm run verifier && npm test`, puis `npm run generer -- --essai`.
 5. Commiter sur `main` : Netlify republie tout, photo comprise. Sur serveur
    Apache, **une nouvelle photo exige un envoi complet du site** (§ 8), le
@@ -203,7 +202,8 @@ de guillemets imbriqués) et le générateur lui crée son post d'entraînement.
 - Un nom de compte, de page ou de média inventé ne doit pas exister : vérifier
   que son adresse n'est pas enregistrée (`nslookup nom.info` doit échouer).
 - Photos : avec `alt` et crédit, affiché sous la photo dans la correction
-  (jamais dans le fil). `npm run verifier` refuse une photo sans crédit.
+  seulement : **jamais dans le fil ni dans les mentions légales** (celles-ci
+  disent seulement que les crédits sont dans la correction). `npm run verifier` refuse une photo sans crédit.
 - Jamais de média sans licence libre ; jamais de faux tiré d'un vrai article.
 - Ton : on vouvoie le joueur, le cagou le tutoie, les personnages se tutoient.
   Pas de tiret cadratin. On dit « post », « fake news », « cagou ».

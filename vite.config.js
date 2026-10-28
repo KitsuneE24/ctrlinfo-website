@@ -25,6 +25,7 @@ const HTPASSWD = HTPASSWD_LU === lire('config.local.json.exemple').admin?.htpass
 function finirLeBundle() {
   return {
     name: 'finir-le-bundle',
+    apply: 'build',
     closeBundle() {
       const dist = resolve(import.meta.dirname, 'dist')
 

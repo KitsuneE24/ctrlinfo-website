@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "genere": "2026-10-28T05:38:04.558Z",
+  "genere": "2026-10-28T05:48:39.876Z",
   "jeux": [
     {
       "id": "feed",
@@ -2299,7 +2299,7 @@
       "origine": "fiction",
       "scenario": "arnaque-compte-pirate",
       "biais": "Compte piraté",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-tata-josiane-tortue-poe-bmghzr",
@@ -2474,7 +2474,7 @@
       "origine": "fiction",
       "scenario": "tortue-poe",
       "biais": "Faux expert",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-tata-josiane-jouets-paita-vlq8f9",
@@ -2649,7 +2649,7 @@
       "origine": "fiction",
       "scenario": "jouets-paita",
       "biais": "Appel à la peur",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-tata-josiane-radio-canala-1ca5vru",
@@ -2824,7 +2824,7 @@
       "origine": "fiction",
       "scenario": "radio-canala",
       "biais": "Effet de halo",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-tata-josiane-fait-cagou-vol-1tscjqq",
@@ -2999,7 +2999,7 @@
       "origine": "fiction",
       "scenario": "fait-cagou-vol",
       "biais": "Certitude ajoutée",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-tata-josiane-couchers-mare-hdbh0z",
@@ -3174,7 +3174,7 @@
       "origine": "fiction",
       "scenario": "couchers-mare",
       "biais": "Fausse corrélation",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-famille-arnaque-emploi-zhw8j4",
@@ -3365,7 +3365,7 @@
       "origine": "fiction",
       "scenario": "arnaque-emploi",
       "biais": "Offre trop belle",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-famille-cerfs-volants-bgqykb",
@@ -3565,7 +3565,7 @@
       "origine": "fiction",
       "scenario": "cerfs-volants",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-famille-potager-riviere-salee-vju5zz",
@@ -3765,7 +3765,7 @@
       "origine": "fiction",
       "scenario": "potager-riviere-salee",
       "biais": "Cherry picking",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-famille-festival-koumac-af9y93",
@@ -3965,7 +3965,7 @@
       "origine": "fiction",
       "scenario": "festival-koumac",
       "biais": "Fabriqué pour le clic",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-famille-robot-kone-18sg80b",
@@ -4165,7 +4165,7 @@
       "origine": "fiction",
       "scenario": "robot-kone",
       "biais": "Biais de confirmation",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-famille-cabine-bourail-1cy2fxe",
@@ -4365,7 +4365,7 @@
       "origine": "fiction",
       "scenario": "cabine-bourail",
       "biais": "Vérité par répétition",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-mathis-arnaque-placement-smdn",
@@ -4531,7 +4531,7 @@
       "origine": "fiction",
       "scenario": "arnaque-placement",
       "biais": "Placement miracle",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-mathis-esport-dumbea-2yywba",
@@ -4706,7 +4706,7 @@
       "origine": "fiction",
       "scenario": "esport-dumbea",
       "biais": "Satire prise au sérieux",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-mathis-thon-pouebo-el21ry",
@@ -4881,7 +4881,7 @@
       "origine": "fiction",
       "scenario": "thon-pouebo",
       "biais": "Manipulation statistique",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-mathis-pique-nique-ouen-toro-5in7d6",
@@ -5056,7 +5056,7 @@
       "origine": "fiction",
       "scenario": "pique-nique-ouen-toro",
       "biais": "Discours complotiste",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-mathis-cerf-papaye-jr2doy",
@@ -5231,7 +5231,7 @@
       "origine": "fiction",
       "scenario": "cerf-papaye",
       "biais": "Autorité inventée",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-mathis-velos-electriques-18kzlob",
@@ -5406,7 +5406,7 @@
       "origine": "fiction",
       "scenario": "velos-electriques",
       "biais": "Voix ou vidéo truquée",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-potes-arnaque-cagnotte-2ggh65",
@@ -5597,7 +5597,7 @@
       "origine": "fiction",
       "scenario": "arnaque-cagnotte",
       "biais": "Fausse cagnotte",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-potes-arnaque-concours-hp9alp",
@@ -5788,7 +5788,7 @@
       "origine": "fiction",
       "scenario": "arnaque-concours",
       "biais": "Faux concours",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-potes-arnaque-colis-1y09zw6",
@@ -5979,7 +5979,7 @@
       "origine": "fiction",
       "scenario": "arnaque-colis",
       "biais": "Hameçonnage",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-potes-arnaque-alerte-16vfrmx",
@@ -6170,7 +6170,7 @@
       "origine": "fiction",
       "scenario": "arnaque-alerte",
       "biais": "Fausse alerte",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-potes-marche-la-foa-jr2doy",
@@ -6370,13 +6370,13 @@
       "origine": "fiction",
       "scenario": "marche-la-foa",
       "biais": "Autorité inventée",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
-      "id": "sujet-20261028-potes-volley-poe-1ca5vru",
+      "id": "sujet-20261028-potes-fait-langues-kanak-bgqykb",
       "contact": "potes",
       "name": "Les potes 🏝️",
-      "preview": "MÊME LUI LE DIT !! Un tournoi de volley de plage réunit quarante équipes à Poé",
+      "preview": "Avant que ça disparaisse : On compte 8 langues kanak en Nouvelle-Calédonie, dialectes compris",
       "color": "#8a4fbe",
       "groupe": true,
       "contexte": "Les potes 🏝️",
@@ -6407,7 +6407,7 @@
           },
           "messages": [
             {
-              "texte": "C’est fou, non ?",
+              "texte": "Ah oui, on m’en a parlé hier",
               "auteur": {
                 "id": "maeva",
                 "nom": "Maëva",
@@ -6416,7 +6416,7 @@
               }
             },
             {
-              "texte": "On m’a envoyé ça ce matin, c’est de Pacifique Express Info : « MÊME LUI LE DIT !! Un tournoi de volley de plage réunit quarante équipes à Poé »",
+              "texte": "Tu as vu ça ? Le Quotidien du Pacifique : « Avant que ça disparaisse : On compte 8 langues kanak en Nouvelle-Calédonie, dialectes compris »",
               "auteur": {
                 "id": "kenzo",
                 "nom": "Kenzo",
@@ -6425,7 +6425,7 @@
               }
             },
             {
-              "texte": "Il a 300 000 abonnés, il ne va pas mentir ! Je le transfère ?",
+              "texte": "Ils disent que ça va être supprimé ! Je le transfère ?",
               "auteur": {
                 "id": "kenzo",
                 "nom": "Kenzo",
@@ -6436,25 +6436,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-potes-volley-poe-1ca5vru-0-0",
+              "id": "sujet-20261028-potes-fait-langues-kanak-bgqykb-0-0",
+              "text": "Attends : Le Quotidien du Pacifique, c’est qui ? On cherche une source sérieuse ?",
+              "correct": true,
+              "reply": "Bonne idée, je cherche…",
+              "explication": "Remonter à la source avant de partager : c’est le premier réflexe, et il prend une minute. Si c’est vrai, une source sérieuse le dit aussi."
+            },
+            {
+              "id": "sujet-20261028-potes-fait-langues-kanak-bgqykb-0-1",
               "text": "C’est encore une fake news, t’es trop crédule.",
               "correct": false,
               "reply": "Merci, sympa… Je l’envoie quand même, tu n’as même pas regardé.",
               "explication": "Se moquer ferme la discussion. La personne se braque et partagera ailleurs, là où personne ne la contredira."
             },
             {
-              "id": "sujet-20261028-potes-volley-poe-1ca5vru-0-1",
+              "id": "sujet-20261028-potes-fait-langues-kanak-bgqykb-0-2",
               "text": "Oui, envoie, au cas où.",
               "correct": false,
               "reply": "Ok, je l’envoie partout 📤",
               "explication": "« Au cas où » fait circuler la plupart des fake news : chaque transfert de bonne foi lui donne la caution de quelqu’un qu’on connaît."
-            },
-            {
-              "id": "sujet-20261028-potes-volley-poe-1ca5vru-0-2",
-              "text": "Attends : Pacifique Express Info, c’est qui ? On cherche une source sérieuse ?",
-              "correct": true,
-              "reply": "Bonne idée, je cherche…",
-              "explication": "Remonter à la source avant de partager : c’est le premier réflexe, et il prend une minute. Si c’est vrai, une source sérieuse le dit aussi."
             }
           ]
         },
@@ -6468,7 +6468,7 @@
           },
           "messages": [
             {
-              "texte": "J’ai cherché, je ne trouve aucune source sérieuse qui dit ça.",
+              "texte": "J’ai tapé la phrase sur internet : il n’y a que ce post.",
               "auteur": {
                 "id": "kenzo",
                 "nom": "Kenzo",
@@ -6477,7 +6477,7 @@
               }
             },
             {
-              "texte": "Mais ça a l’air sérieux quand même, non ?",
+              "texte": "C’est peut-être un scoop, non ?",
               "auteur": {
                 "id": "kenzo",
                 "nom": "Kenzo",
@@ -6488,25 +6488,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-potes-volley-poe-1ca5vru-1-0",
-              "text": "Oui, s’ils l’ont écrit, c’est que c’est vrai.",
-              "correct": false,
-              "reply": "Tu vois ! Donc je peux partager.",
-              "explication": "Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute la caution d’un influenceur, sans source."
-            },
-            {
-              "id": "sujet-20261028-potes-volley-poe-1ca5vru-1-1",
-              "text": "Si aucune source sérieuse ne le dit, c’est un signal. Et le post ajoute la caution d’un influenceur, sans source.",
-              "correct": true,
-              "reply": "Ah oui… je ne l’avais pas vu comme ça.",
-              "explication": "Une info qu’aucune source sérieuse ne confirme, plus un procédé pour faire réagir : c’est ce qu’on appelle effet de halo."
-            },
-            {
-              "id": "sujet-20261028-potes-volley-poe-1ca5vru-1-2",
+              "id": "sujet-20261028-potes-fait-langues-kanak-bgqykb-1-0",
               "text": "De toute façon, tout est faux sur internet.",
               "correct": false,
               "reply": "Donc je ne peux plus rien croire ? Super…",
               "explication": "Tout rejeter, c’est se tromper dans l’autre sens. Le bon réflexe est de vérifier, pas de ne plus rien croire."
+            },
+            {
+              "id": "sujet-20261028-potes-fait-langues-kanak-bgqykb-1-1",
+              "text": "Oui, s’ils l’ont écrit, c’est que c’est vrai.",
+              "correct": false,
+              "reply": "Tu vois ! Donc je peux partager.",
+              "explication": "Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute une menace de suppression."
+            },
+            {
+              "id": "sujet-20261028-potes-fait-langues-kanak-bgqykb-1-2",
+              "text": "Si aucune source sérieuse ne le dit, c’est un signal. Et le post ajoute une menace de suppression.",
+              "correct": true,
+              "reply": "Ah oui… je ne l’avais pas vu comme ça.",
+              "explication": "Une info qu’aucune source sérieuse ne confirme, plus un procédé pour faire réagir : c’est ce qu’on appelle urgence artificielle."
             }
           ]
         },
@@ -6520,7 +6520,7 @@
           },
           "messages": [
             {
-              "texte": "Moi aussi je l’ai envoyé, oups",
+              "texte": "Moi je l’ai déjà mis dans un autre groupe 🙈",
               "auteur": {
                 "id": "maeva",
                 "nom": "Maëva",
@@ -6529,7 +6529,7 @@
               }
             },
             {
-              "texte": "Trop tard, je l’ai mis dans un autre groupe hier soir 🙈 On fait quoi ?",
+              "texte": "Le souci, c’est que je l’ai déjà envoyé à deux personnes 😬 Je fais quoi ?",
               "auteur": {
                 "id": "kenzo",
                 "nom": "Kenzo",
@@ -6540,25 +6540,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-potes-volley-poe-1ca5vru-2-0",
+              "id": "sujet-20261028-potes-fait-langues-kanak-bgqykb-2-0",
+              "text": "Écris-leur que tu n’as trouvé aucune source sérieuse, et pourquoi.",
+              "correct": true,
+              "reply": "Ok, je fais ça, et j’explique pourquoi.",
+              "explication": "Corriger auprès des mêmes personnes, en expliquant ce qui manque, c’est réparer le partage."
+            },
+            {
+              "id": "sujet-20261028-potes-fait-langues-kanak-bgqykb-2-1",
               "text": "Supprime le message, personne ne verra rien.",
               "correct": false,
               "reply": "Supprimé. Mais eux l’ont déjà lu…",
               "explication": "Supprimer ne rattrape pas ceux qui ont déjà lu. Sans correction, ils restent sur la mauvaise version et peuvent la transférer."
             },
             {
-              "id": "sujet-20261028-potes-volley-poe-1ca5vru-2-1",
+              "id": "sujet-20261028-potes-fait-langues-kanak-bgqykb-2-2",
               "text": "Laisse, ce n’est pas bien grave.",
               "correct": false,
               "reply": "Bon, tant pis alors.",
               "explication": "Un post trompeur circule tant que personne ne le corrige. Celui qui l’a envoyé est le mieux placé pour le faire."
-            },
-            {
-              "id": "sujet-20261028-potes-volley-poe-1ca5vru-2-2",
-              "text": "Écris-leur que tu n’as trouvé aucune source sérieuse, et pourquoi.",
-              "correct": true,
-              "reply": "Ok, je fais ça, et j’explique pourquoi.",
-              "explication": "Corriger auprès des mêmes personnes, en expliquant ce qui manque, c’est réparer le partage."
             }
           ]
         }
@@ -6568,9 +6568,9 @@
         "low": "Pas facile cette fois. Le réflexe à retenir : avant de transférer, chercher une source sérieuse. Si aucune ne le confirme, on ne partage pas."
       },
       "origine": "fiction",
-      "scenario": "volley-poe",
-      "biais": "Effet de halo",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "scenario": "fait-langues-kanak",
+      "biais": "Urgence artificielle",
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-colette-caisses-farino-af9y93",
@@ -6745,7 +6745,7 @@
       "origine": "fiction",
       "scenario": "caisses-farino",
       "biais": "Fabriqué pour le clic",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-colette-livre-koumac-hdbh0z",
@@ -6920,7 +6920,7 @@
       "origine": "fiction",
       "scenario": "livre-koumac",
       "biais": "Fausse corrélation",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-colette-surf-bourail-vju5zz",
@@ -7095,7 +7095,7 @@
       "origine": "fiction",
       "scenario": "surf-bourail",
       "biais": "Cherry picking",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-colette-baguette-kone-2yywba",
@@ -7270,7 +7270,7 @@
       "origine": "fiction",
       "scenario": "baguette-kone",
       "biais": "Satire prise au sérieux",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-colette-baleine-yate-el21ry",
@@ -7445,7 +7445,7 @@
       "origine": "fiction",
       "scenario": "baleine-yate",
       "biais": "Manipulation statistique",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-colette-giraumon-hienghene-18sg80b",
@@ -7620,7 +7620,7 @@
       "origine": "fiction",
       "scenario": "giraumon-hienghene",
       "biais": "Biais de confirmation",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-papi-rene-dessin-lifou-1tscjqq",
@@ -7795,7 +7795,7 @@
       "origine": "fiction",
       "scenario": "dessin-lifou",
       "biais": "Certitude ajoutée",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-papi-rene-course-bourail-1cy2fxe",
@@ -7970,13 +7970,13 @@
       "origine": "fiction",
       "scenario": "course-bourail",
       "biais": "Vérité par répétition",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
-      "id": "sujet-20261028-papi-rene-fait-pin-colonnaire-bgqykb",
+      "id": "sujet-20261028-papi-rene-dechets-thio-1ca5vru",
       "contact": "papi-rene",
       "name": "Papi René",
-      "preview": "Urgent, partagez avant suppression : Le pin colonnaire a été apporté d’Europe par les premiers colons",
+      "preview": "⚠️🔴 MÊME LUI LE DIT !! DES BÉNÉVOLES RAMASSENT 500 KILOS DE DÉCHETS SUR UNE PLAGE DE THIO",
       "color": "#1800ad",
       "groupe": false,
       "etapes": 3,
@@ -8000,7 +8000,7 @@
           },
           "messages": [
             {
-              "texte": "Regarde ce que Pacifique Express Info vient de publier : « Urgent, partagez avant suppression : Le pin colonnaire a été apporté d’Europe par les premiers colons »",
+              "texte": "Tu as vu ça ? Ninou ALERTE : « ⚠️🔴 MÊME LUI LE DIT !! DES BÉNÉVOLES RAMASSENT 500 KILOS DE DÉCHETS SUR UNE PLAGE DE THIO »",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -8009,7 +8009,7 @@
               }
             },
             {
-              "texte": "Ils disent que ça va être supprimé ! Je le transfère ?",
+              "texte": "Il a 300 000 abonnés, il ne va pas mentir ! Je le transfère ?",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -8020,25 +8020,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-papi-rene-fait-pin-colonnaire-bgqykb-0-0",
-              "text": "Oui, envoie, au cas où.",
-              "correct": false,
-              "reply": "Ok, je l’envoie partout 📤",
-              "explication": "« Au cas où » fait circuler la plupart des fake news : chaque transfert de bonne foi lui donne la caution de quelqu’un qu’on connaît."
-            },
-            {
-              "id": "sujet-20261028-papi-rene-fait-pin-colonnaire-bgqykb-0-1",
-              "text": "Attends : Pacifique Express Info, c’est qui ? On cherche une source sérieuse ?",
+              "id": "sujet-20261028-papi-rene-dechets-thio-1ca5vru-0-0",
+              "text": "Attends : Ninou ALERTE, c’est qui ? On cherche une source sérieuse ?",
               "correct": true,
               "reply": "Bonne idée, je cherche…",
               "explication": "Remonter à la source avant de partager : c’est le premier réflexe, et il prend une minute. Si c’est vrai, une source sérieuse le dit aussi."
             },
             {
-              "id": "sujet-20261028-papi-rene-fait-pin-colonnaire-bgqykb-0-2",
+              "id": "sujet-20261028-papi-rene-dechets-thio-1ca5vru-0-1",
               "text": "C’est encore une fake news, t’es trop crédule.",
               "correct": false,
               "reply": "Merci, sympa… Je l’envoie quand même, tu n’as même pas regardé.",
               "explication": "Se moquer ferme la discussion. La personne se braque et partagera ailleurs, là où personne ne la contredira."
+            },
+            {
+              "id": "sujet-20261028-papi-rene-dechets-thio-1ca5vru-0-2",
+              "text": "Oui, envoie, au cas où.",
+              "correct": false,
+              "reply": "Ok, je l’envoie partout 📤",
+              "explication": "« Au cas où » fait circuler la plupart des fake news : chaque transfert de bonne foi lui donne la caution de quelqu’un qu’on connaît."
             }
           ]
         },
@@ -8052,7 +8052,7 @@
           },
           "messages": [
             {
-              "texte": "Bizarre, je ne trouve ça nulle part ailleurs.",
+              "texte": "J’ai tapé la phrase sur internet : il n’y a que ce post.",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -8061,7 +8061,7 @@
               }
             },
             {
-              "texte": "Ils sont peut-être les premiers à le savoir ?",
+              "texte": "C’est peut-être un scoop, non ?",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -8072,25 +8072,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-papi-rene-fait-pin-colonnaire-bgqykb-1-0",
-              "text": "Si aucune source sérieuse ne le dit, c’est un signal. Et le post ajoute une menace de suppression.",
-              "correct": true,
-              "reply": "Ah oui… je ne l’avais pas vu comme ça.",
-              "explication": "Une info qu’aucune source sérieuse ne confirme, plus un procédé pour faire réagir : c’est ce qu’on appelle urgence artificielle."
-            },
-            {
-              "id": "sujet-20261028-papi-rene-fait-pin-colonnaire-bgqykb-1-1",
+              "id": "sujet-20261028-papi-rene-dechets-thio-1ca5vru-1-0",
               "text": "De toute façon, tout est faux sur internet.",
               "correct": false,
               "reply": "Donc je ne peux plus rien croire ? Super…",
               "explication": "Tout rejeter, c’est se tromper dans l’autre sens. Le bon réflexe est de vérifier, pas de ne plus rien croire."
             },
             {
-              "id": "sujet-20261028-papi-rene-fait-pin-colonnaire-bgqykb-1-2",
+              "id": "sujet-20261028-papi-rene-dechets-thio-1ca5vru-1-1",
               "text": "Oui, s’ils l’ont écrit, c’est que c’est vrai.",
               "correct": false,
               "reply": "Tu vois ! Donc je peux partager.",
-              "explication": "Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute une menace de suppression."
+              "explication": "Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute la caution d’un influenceur, sans source."
+            },
+            {
+              "id": "sujet-20261028-papi-rene-dechets-thio-1ca5vru-1-2",
+              "text": "Si aucune source sérieuse ne le dit, c’est un signal. Et le post ajoute la caution d’un influenceur, sans source.",
+              "correct": true,
+              "reply": "Ah oui… je ne l’avais pas vu comme ça.",
+              "explication": "Une info qu’aucune source sérieuse ne confirme, plus un procédé pour faire réagir : c’est ce qu’on appelle effet de halo."
             }
           ]
         },
@@ -8104,7 +8104,7 @@
           },
           "messages": [
             {
-              "texte": "Aïe, je l’ai déjà transféré à plusieurs personnes… Je rattrape comment ?",
+              "texte": "Le souci, c’est que je l’ai déjà envoyé à deux personnes 😬 Je fais quoi ?",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -8115,25 +8115,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-papi-rene-fait-pin-colonnaire-bgqykb-2-0",
-              "text": "Laisse, ce n’est pas bien grave.",
-              "correct": false,
-              "reply": "Bon, tant pis alors.",
-              "explication": "Un post trompeur circule tant que personne ne le corrige. Celui qui l’a envoyé est le mieux placé pour le faire."
-            },
-            {
-              "id": "sujet-20261028-papi-rene-fait-pin-colonnaire-bgqykb-2-1",
+              "id": "sujet-20261028-papi-rene-dechets-thio-1ca5vru-2-0",
               "text": "Écris-leur que tu n’as trouvé aucune source sérieuse, et pourquoi.",
               "correct": true,
               "reply": "Ok, je fais ça, et j’explique pourquoi.",
               "explication": "Corriger auprès des mêmes personnes, en expliquant ce qui manque, c’est réparer le partage."
             },
             {
-              "id": "sujet-20261028-papi-rene-fait-pin-colonnaire-bgqykb-2-2",
+              "id": "sujet-20261028-papi-rene-dechets-thio-1ca5vru-2-1",
               "text": "Supprime le message, personne ne verra rien.",
               "correct": false,
               "reply": "Supprimé. Mais eux l’ont déjà lu…",
               "explication": "Supprimer ne rattrape pas ceux qui ont déjà lu. Sans correction, ils restent sur la mauvaise version et peuvent la transférer."
+            },
+            {
+              "id": "sujet-20261028-papi-rene-dechets-thio-1ca5vru-2-2",
+              "text": "Laisse, ce n’est pas bien grave.",
+              "correct": false,
+              "reply": "Bon, tant pis alors.",
+              "explication": "Un post trompeur circule tant que personne ne le corrige. Celui qui l’a envoyé est le mieux placé pour le faire."
             }
           ]
         }
@@ -8143,9 +8143,9 @@
         "low": "Pas facile cette fois. Le réflexe à retenir : avant de transférer, chercher une source sérieuse. Si aucune ne le confirme, on ne partage pas."
       },
       "origine": "fiction",
-      "scenario": "fait-pin-colonnaire",
-      "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "scenario": "dechets-thio",
+      "biais": "Effet de halo",
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-papi-rene-snorkeling-canard-18kzlob",
@@ -8320,13 +8320,13 @@
       "origine": "fiction",
       "scenario": "snorkeling-canard",
       "biais": "Voix ou vidéo truquée",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
-      "id": "sujet-20261028-papi-rene-dechets-thio-vlq8f9",
+      "id": "sujet-20261028-papi-rene-corail-maitre-vlq8f9",
       "contact": "papi-rene",
       "name": "Papi René",
-      "preview": "⚠️🔴 DANGER POUR VOS ENFANTS : DES BÉNÉVOLES RAMASSENT 500 KILOS DE DÉCHETS SUR UNE PLAGE DE THIO",
+      "preview": "‼️ DANGER POUR VOS ENFANTS : UNE FLORAISON RARE DE CORAIL OBSERVÉE PRÈS DE L’ÎLOT MAÎTRE",
       "color": "#1800ad",
       "groupe": false,
       "etapes": 3,
@@ -8350,7 +8350,7 @@
           },
           "messages": [
             {
-              "texte": "On m’a envoyé ça ce matin, c’est de Jojo_Vérité 🔥 : « ⚠️🔴 DANGER POUR VOS ENFANTS : DES BÉNÉVOLES RAMASSENT 500 KILOS DE DÉCHETS SUR UNE PLAGE DE THIO »",
+              "texte": "Regarde ce que ALERTE-INFO NC vient de publier : « ‼️ DANGER POUR VOS ENFANTS : UNE FLORAISON RARE DE CORAIL OBSERVÉE PRÈS DE L’ÎLOT MAÎTRE »",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -8370,25 +8370,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-papi-rene-dechets-thio-vlq8f9-0-0",
-              "text": "C’est encore une fake news, t’es trop crédule.",
-              "correct": false,
-              "reply": "Merci, sympa… Je l’envoie quand même, tu n’as même pas regardé.",
-              "explication": "Se moquer ferme la discussion. La personne se braque et partagera ailleurs, là où personne ne la contredira."
-            },
-            {
-              "id": "sujet-20261028-papi-rene-dechets-thio-vlq8f9-0-1",
+              "id": "sujet-20261028-papi-rene-corail-maitre-vlq8f9-0-0",
               "text": "Oui, envoie, au cas où.",
               "correct": false,
               "reply": "Ok, je l’envoie partout 📤",
               "explication": "« Au cas où » fait circuler la plupart des fake news : chaque transfert de bonne foi lui donne la caution de quelqu’un qu’on connaît."
             },
             {
-              "id": "sujet-20261028-papi-rene-dechets-thio-vlq8f9-0-2",
-              "text": "Attends : Jojo_Vérité 🔥, c’est qui ? On cherche une source sérieuse ?",
+              "id": "sujet-20261028-papi-rene-corail-maitre-vlq8f9-0-1",
+              "text": "Attends : ALERTE-INFO NC, c’est qui ? On cherche une source sérieuse ?",
               "correct": true,
               "reply": "Bonne idée, je cherche…",
               "explication": "Remonter à la source avant de partager : c’est le premier réflexe, et il prend une minute. Si c’est vrai, une source sérieuse le dit aussi."
+            },
+            {
+              "id": "sujet-20261028-papi-rene-corail-maitre-vlq8f9-0-2",
+              "text": "C’est encore une fake news, t’es trop crédule.",
+              "correct": false,
+              "reply": "Merci, sympa… Je l’envoie quand même, tu n’as même pas regardé.",
+              "explication": "Se moquer ferme la discussion. La personne se braque et partagera ailleurs, là où personne ne la contredira."
             }
           ]
         },
@@ -8402,7 +8402,7 @@
           },
           "messages": [
             {
-              "texte": "J’ai cherché, je ne trouve aucune source sérieuse qui dit ça.",
+              "texte": "Bizarre, je ne trouve ça nulle part ailleurs.",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -8411,7 +8411,7 @@
               }
             },
             {
-              "texte": "Mais ça a l’air sérieux quand même, non ?",
+              "texte": "Ils sont peut-être les premiers à le savoir ?",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -8422,25 +8422,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-papi-rene-dechets-thio-vlq8f9-1-0",
-              "text": "Oui, s’ils l’ont écrit, c’est que c’est vrai.",
-              "correct": false,
-              "reply": "Tu vois ! Donc je peux partager.",
-              "explication": "Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute une inquiétude pour les familles, jamais expliquée."
-            },
-            {
-              "id": "sujet-20261028-papi-rene-dechets-thio-vlq8f9-1-1",
+              "id": "sujet-20261028-papi-rene-corail-maitre-vlq8f9-1-0",
               "text": "Si aucune source sérieuse ne le dit, c’est un signal. Et le post ajoute une inquiétude pour les familles, jamais expliquée.",
               "correct": true,
               "reply": "Ah oui… je ne l’avais pas vu comme ça.",
               "explication": "Une info qu’aucune source sérieuse ne confirme, plus un procédé pour faire réagir : c’est ce qu’on appelle appel à la peur."
             },
             {
-              "id": "sujet-20261028-papi-rene-dechets-thio-vlq8f9-1-2",
+              "id": "sujet-20261028-papi-rene-corail-maitre-vlq8f9-1-1",
               "text": "De toute façon, tout est faux sur internet.",
               "correct": false,
               "reply": "Donc je ne peux plus rien croire ? Super…",
               "explication": "Tout rejeter, c’est se tromper dans l’autre sens. Le bon réflexe est de vérifier, pas de ne plus rien croire."
+            },
+            {
+              "id": "sujet-20261028-papi-rene-corail-maitre-vlq8f9-1-2",
+              "text": "Oui, s’ils l’ont écrit, c’est que c’est vrai.",
+              "correct": false,
+              "reply": "Tu vois ! Donc je peux partager.",
+              "explication": "Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute une inquiétude pour les familles, jamais expliquée."
             }
           ]
         },
@@ -8454,7 +8454,7 @@
           },
           "messages": [
             {
-              "texte": "Trop tard, je l’ai mis dans un autre groupe hier soir 🙈 On fait quoi ?",
+              "texte": "Aïe, je l’ai déjà transféré à plusieurs personnes… Je rattrape comment ?",
               "auteur": {
                 "id": "papi-rene",
                 "nom": "Papi René",
@@ -8465,25 +8465,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-papi-rene-dechets-thio-vlq8f9-2-0",
-              "text": "Supprime le message, personne ne verra rien.",
-              "correct": false,
-              "reply": "Supprimé. Mais eux l’ont déjà lu…",
-              "explication": "Supprimer ne rattrape pas ceux qui ont déjà lu. Sans correction, ils restent sur la mauvaise version et peuvent la transférer."
-            },
-            {
-              "id": "sujet-20261028-papi-rene-dechets-thio-vlq8f9-2-1",
+              "id": "sujet-20261028-papi-rene-corail-maitre-vlq8f9-2-0",
               "text": "Laisse, ce n’est pas bien grave.",
               "correct": false,
               "reply": "Bon, tant pis alors.",
               "explication": "Un post trompeur circule tant que personne ne le corrige. Celui qui l’a envoyé est le mieux placé pour le faire."
             },
             {
-              "id": "sujet-20261028-papi-rene-dechets-thio-vlq8f9-2-2",
+              "id": "sujet-20261028-papi-rene-corail-maitre-vlq8f9-2-1",
               "text": "Écris-leur que tu n’as trouvé aucune source sérieuse, et pourquoi.",
               "correct": true,
               "reply": "Ok, je fais ça, et j’explique pourquoi.",
               "explication": "Corriger auprès des mêmes personnes, en expliquant ce qui manque, c’est réparer le partage."
+            },
+            {
+              "id": "sujet-20261028-papi-rene-corail-maitre-vlq8f9-2-2",
+              "text": "Supprime le message, personne ne verra rien.",
+              "correct": false,
+              "reply": "Supprimé. Mais eux l’ont déjà lu…",
+              "explication": "Supprimer ne rattrape pas ceux qui ont déjà lu. Sans correction, ils restent sur la mauvaise version et peuvent la transférer."
             }
           ]
         }
@@ -8493,9 +8493,9 @@
         "low": "Pas facile cette fois. Le réflexe à retenir : avant de transférer, chercher une source sérieuse. Si aucune ne le confirme, on ne partage pas."
       },
       "origine": "fiction",
-      "scenario": "dechets-thio",
+      "scenario": "corail-maitre",
       "biais": "Appel à la peur",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-papi-rene-dauphins-prony-bmghzr",
@@ -8670,7 +8670,7 @@
       "origine": "fiction",
       "scenario": "dauphins-prony",
       "biais": "Faux expert",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-collegues-chat-conteneur-5in7d6",
@@ -8870,7 +8870,7 @@
       "origine": "fiction",
       "scenario": "chat-conteneur",
       "biais": "Discours complotiste",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-collegues-fait-ouvea-atoll-1tscjqq",
@@ -9070,7 +9070,7 @@
       "origine": "fiction",
       "scenario": "fait-ouvea-atoll",
       "biais": "Certitude ajoutée",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-collegues-fait-recifs-especes-bgqykb",
@@ -9270,7 +9270,7 @@
       "origine": "fiction",
       "scenario": "fait-recifs-especes",
       "biais": "Urgence artificielle",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-collegues-cuisine-poindimie-el21ry",
@@ -9470,7 +9470,7 @@
       "origine": "fiction",
       "scenario": "cuisine-poindimie",
       "biais": "Manipulation statistique",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-collegues-fleur-panie-bmghzr",
@@ -9670,7 +9670,7 @@
       "origine": "fiction",
       "scenario": "fleur-panie",
       "biais": "Faux expert",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-collegues-lecture-paita-18kzlob",
@@ -9870,7 +9870,7 @@
       "origine": "fiction",
       "scenario": "lecture-paita",
       "biais": "Voix ou vidéo truquée",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-club-foot-velos-mont-dore-af9y93",
@@ -10070,7 +10070,7 @@
       "origine": "fiction",
       "scenario": "velos-mont-dore",
       "biais": "Fabriqué pour le clic",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-club-foot-trottinettes-vju5zz",
@@ -10270,13 +10270,13 @@
       "origine": "fiction",
       "scenario": "trottinettes",
       "biais": "Cherry picking",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
-      "id": "sujet-20261028-club-foot-corail-maitre-2yywba",
+      "id": "sujet-20261028-club-foot-volley-poe-1ca5vru",
       "contact": "club-foot",
       "name": "Club de foot ⚽",
-      "preview": "Réveillez-vous. Une floraison rare de corail observée près de l’îlot Maître (lu sur Le Cagou Déchaîné)",
+      "preview": "MÊME LUI LE DIT !! Un tournoi de volley de plage réunit quarante équipes à Poé",
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
@@ -10307,7 +10307,7 @@
           },
           "messages": [
             {
-              "texte": "Je l’ai vu passer aussi, ça tourne partout",
+              "texte": "C’est fou, non ?",
               "auteur": {
                 "id": "jordan",
                 "nom": "Jordan",
@@ -10316,7 +10316,7 @@
               }
             },
             {
-              "texte": "Regarde ce que Chiffres & Vérité vient de publier : « Réveillez-vous. Une floraison rare de corail observée près de l’îlot Maître (lu sur Le Cagou Déchaîné) »",
+              "texte": "On m’a envoyé ça ce matin, c’est de Pacifique Express Info : « MÊME LUI LE DIT !! Un tournoi de volley de plage réunit quarante équipes à Poé »",
               "auteur": {
                 "id": "coach-alain",
                 "nom": "Coach Alain",
@@ -10325,7 +10325,7 @@
               }
             },
             {
-              "texte": "C’est un site d’info qui l’a dit ! Je le transfère ?",
+              "texte": "Il a 300 000 abonnés, il ne va pas mentir ! Je le transfère ?",
               "auteur": {
                 "id": "coach-alain",
                 "nom": "Coach Alain",
@@ -10336,25 +10336,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-club-foot-corail-maitre-2yywba-0-0",
+              "id": "sujet-20261028-club-foot-volley-poe-1ca5vru-0-0",
+              "text": "C’est encore une fake news, t’es trop crédule.",
+              "correct": false,
+              "reply": "Merci, sympa… Je l’envoie quand même, tu n’as même pas regardé.",
+              "explication": "Se moquer ferme la discussion. La personne se braque et partagera ailleurs, là où personne ne la contredira."
+            },
+            {
+              "id": "sujet-20261028-club-foot-volley-poe-1ca5vru-0-1",
               "text": "Oui, envoie, au cas où.",
               "correct": false,
               "reply": "Ok, je l’envoie partout 📤",
               "explication": "« Au cas où » fait circuler la plupart des fake news : chaque transfert de bonne foi lui donne la caution de quelqu’un qu’on connaît."
             },
             {
-              "id": "sujet-20261028-club-foot-corail-maitre-2yywba-0-1",
-              "text": "Attends : Chiffres & Vérité, c’est qui ? On cherche une source sérieuse ?",
+              "id": "sujet-20261028-club-foot-volley-poe-1ca5vru-0-2",
+              "text": "Attends : Pacifique Express Info, c’est qui ? On cherche une source sérieuse ?",
               "correct": true,
               "reply": "Bonne idée, je cherche…",
               "explication": "Remonter à la source avant de partager : c’est le premier réflexe, et il prend une minute. Si c’est vrai, une source sérieuse le dit aussi."
-            },
-            {
-              "id": "sujet-20261028-club-foot-corail-maitre-2yywba-0-2",
-              "text": "C’est encore une fake news, t’es trop crédule.",
-              "correct": false,
-              "reply": "Merci, sympa… Je l’envoie quand même, tu n’as même pas regardé.",
-              "explication": "Se moquer ferme la discussion. La personne se braque et partagera ailleurs, là où personne ne la contredira."
             }
           ]
         },
@@ -10368,7 +10368,7 @@
           },
           "messages": [
             {
-              "texte": "Bizarre, je ne trouve ça nulle part ailleurs.",
+              "texte": "J’ai cherché, je ne trouve aucune source sérieuse qui dit ça.",
               "auteur": {
                 "id": "coach-alain",
                 "nom": "Coach Alain",
@@ -10377,7 +10377,7 @@
               }
             },
             {
-              "texte": "Ils sont peut-être les premiers à le savoir ?",
+              "texte": "Mais ça a l’air sérieux quand même, non ?",
               "auteur": {
                 "id": "coach-alain",
                 "nom": "Coach Alain",
@@ -10388,25 +10388,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-club-foot-corail-maitre-2yywba-1-0",
-              "text": "Si aucune source sérieuse ne le dit, c’est un signal. Et le post ajoute une blague d’un site parodique.",
-              "correct": true,
-              "reply": "Ah oui… je ne l’avais pas vu comme ça.",
-              "explication": "Une info qu’aucune source sérieuse ne confirme, plus un procédé pour faire réagir : c’est ce qu’on appelle satire prise au sérieux."
+              "id": "sujet-20261028-club-foot-volley-poe-1ca5vru-1-0",
+              "text": "Oui, s’ils l’ont écrit, c’est que c’est vrai.",
+              "correct": false,
+              "reply": "Tu vois ! Donc je peux partager.",
+              "explication": "Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute la caution d’un influenceur, sans source."
             },
             {
-              "id": "sujet-20261028-club-foot-corail-maitre-2yywba-1-1",
+              "id": "sujet-20261028-club-foot-volley-poe-1ca5vru-1-1",
+              "text": "Si aucune source sérieuse ne le dit, c’est un signal. Et le post ajoute la caution d’un influenceur, sans source.",
+              "correct": true,
+              "reply": "Ah oui… je ne l’avais pas vu comme ça.",
+              "explication": "Une info qu’aucune source sérieuse ne confirme, plus un procédé pour faire réagir : c’est ce qu’on appelle effet de halo."
+            },
+            {
+              "id": "sujet-20261028-club-foot-volley-poe-1ca5vru-1-2",
               "text": "De toute façon, tout est faux sur internet.",
               "correct": false,
               "reply": "Donc je ne peux plus rien croire ? Super…",
               "explication": "Tout rejeter, c’est se tromper dans l’autre sens. Le bon réflexe est de vérifier, pas de ne plus rien croire."
-            },
-            {
-              "id": "sujet-20261028-club-foot-corail-maitre-2yywba-1-2",
-              "text": "Oui, s’ils l’ont écrit, c’est que c’est vrai.",
-              "correct": false,
-              "reply": "Tu vois ! Donc je peux partager.",
-              "explication": "Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute une blague d’un site parodique."
             }
           ]
         },
@@ -10420,7 +10420,7 @@
           },
           "messages": [
             {
-              "texte": "J’ai même mis un pouce dessus…",
+              "texte": "Moi aussi je l’ai envoyé, oups",
               "auteur": {
                 "id": "jordan",
                 "nom": "Jordan",
@@ -10429,7 +10429,7 @@
               }
             },
             {
-              "texte": "Aïe, je l’ai déjà transféré à plusieurs personnes… Je rattrape comment ?",
+              "texte": "Trop tard, je l’ai mis dans un autre groupe hier soir 🙈 On fait quoi ?",
               "auteur": {
                 "id": "coach-alain",
                 "nom": "Coach Alain",
@@ -10440,25 +10440,25 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-club-foot-corail-maitre-2yywba-2-0",
+              "id": "sujet-20261028-club-foot-volley-poe-1ca5vru-2-0",
+              "text": "Supprime le message, personne ne verra rien.",
+              "correct": false,
+              "reply": "Supprimé. Mais eux l’ont déjà lu…",
+              "explication": "Supprimer ne rattrape pas ceux qui ont déjà lu. Sans correction, ils restent sur la mauvaise version et peuvent la transférer."
+            },
+            {
+              "id": "sujet-20261028-club-foot-volley-poe-1ca5vru-2-1",
               "text": "Laisse, ce n’est pas bien grave.",
               "correct": false,
               "reply": "Bon, tant pis alors.",
               "explication": "Un post trompeur circule tant que personne ne le corrige. Celui qui l’a envoyé est le mieux placé pour le faire."
             },
             {
-              "id": "sujet-20261028-club-foot-corail-maitre-2yywba-2-1",
+              "id": "sujet-20261028-club-foot-volley-poe-1ca5vru-2-2",
               "text": "Écris-leur que tu n’as trouvé aucune source sérieuse, et pourquoi.",
               "correct": true,
               "reply": "Ok, je fais ça, et j’explique pourquoi.",
               "explication": "Corriger auprès des mêmes personnes, en expliquant ce qui manque, c’est réparer le partage."
-            },
-            {
-              "id": "sujet-20261028-club-foot-corail-maitre-2yywba-2-2",
-              "text": "Supprime le message, personne ne verra rien.",
-              "correct": false,
-              "reply": "Supprimé. Mais eux l’ont déjà lu…",
-              "explication": "Supprimer ne rattrape pas ceux qui ont déjà lu. Sans correction, ils restent sur la mauvaise version et peuvent la transférer."
             }
           ]
         }
@@ -10468,9 +10468,9 @@
         "low": "Pas facile cette fois. Le réflexe à retenir : avant de transférer, chercher une source sérieuse. Si aucune ne le confirme, on ne partage pas."
       },
       "origine": "fiction",
-      "scenario": "corail-maitre",
-      "biais": "Satire prise au sérieux",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "scenario": "volley-poe",
+      "biais": "Effet de halo",
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-club-foot-food-truck-5in7d6",
@@ -10670,7 +10670,7 @@
       "origine": "fiction",
       "scenario": "food-truck",
       "biais": "Discours complotiste",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
       "id": "sujet-20261028-club-foot-roussette-sarramea-1cy2fxe",
@@ -10870,13 +10870,13 @@
       "origine": "fiction",
       "scenario": "roussette-sarramea",
       "biais": "Vérité par répétition",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     },
     {
-      "id": "sujet-20261028-club-foot-nids-de-poule-1ca5vru",
+      "id": "sujet-20261028-club-foot-orchestre-nz-vlq8f9",
       "contact": "club-foot",
       "name": "Club de foot ⚽",
-      "preview": "Encore une fois. Un influenceur connu le confirme : Une application pour signaler les nids-de-poule fait parler d’elle à Nouméa",
+      "preview": "🧵 Info. Un orchestre de jeunes de Nouméa invité à jouer en Nouvelle-Zélande : faut-il s'inquiéter ?",
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
@@ -10916,7 +10916,7 @@
               }
             },
             {
-              "texte": "On m’a envoyé ça ce matin, c’est de Le Vrai Dossier : « Encore une fois. Un influenceur connu le confirme : Une application pour signaler les nids-de-poule fait parler d’elle à Nouméa »",
+              "texte": "On m’a envoyé ça ce matin, c’est de Lina K. : « 🧵 Info. Un orchestre de jeunes de Nouméa invité à jouer en Nouvelle-Zélande : faut-il s'inquiéter ? »",
               "auteur": {
                 "id": "coach-alain",
                 "nom": "Coach Alain",
@@ -10925,7 +10925,7 @@
               }
             },
             {
-              "texte": "Il a 300 000 abonnés, il ne va pas mentir ! Je le transfère ?",
+              "texte": "Ça fait peur quand même, faut prévenir tout le monde non ? Je le transfère ?",
               "auteur": {
                 "id": "coach-alain",
                 "nom": "Coach Alain",
@@ -10936,22 +10936,22 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-club-foot-nids-de-poule-1ca5vru-0-0",
+              "id": "sujet-20261028-club-foot-orchestre-nz-vlq8f9-0-0",
               "text": "C’est encore une fake news, t’es trop crédule.",
               "correct": false,
               "reply": "Merci, sympa… Je l’envoie quand même, tu n’as même pas regardé.",
               "explication": "Se moquer ferme la discussion. La personne se braque et partagera ailleurs, là où personne ne la contredira."
             },
             {
-              "id": "sujet-20261028-club-foot-nids-de-poule-1ca5vru-0-1",
+              "id": "sujet-20261028-club-foot-orchestre-nz-vlq8f9-0-1",
               "text": "Oui, envoie, au cas où.",
               "correct": false,
               "reply": "Ok, je l’envoie partout 📤",
               "explication": "« Au cas où » fait circuler la plupart des fake news : chaque transfert de bonne foi lui donne la caution de quelqu’un qu’on connaît."
             },
             {
-              "id": "sujet-20261028-club-foot-nids-de-poule-1ca5vru-0-2",
-              "text": "Attends : Le Vrai Dossier, c’est qui ? On cherche une source sérieuse ?",
+              "id": "sujet-20261028-club-foot-orchestre-nz-vlq8f9-0-2",
+              "text": "Attends : Lina K., c’est qui ? On cherche une source sérieuse ?",
               "correct": true,
               "reply": "Bonne idée, je cherche…",
               "explication": "Remonter à la source avant de partager : c’est le premier réflexe, et il prend une minute. Si c’est vrai, une source sérieuse le dit aussi."
@@ -10988,21 +10988,21 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-club-foot-nids-de-poule-1ca5vru-1-0",
+              "id": "sujet-20261028-club-foot-orchestre-nz-vlq8f9-1-0",
               "text": "Oui, s’ils l’ont écrit, c’est que c’est vrai.",
               "correct": false,
               "reply": "Tu vois ! Donc je peux partager.",
-              "explication": "Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute la caution d’un influenceur, sans source."
+              "explication": "Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute une inquiétude pour les familles, jamais expliquée."
             },
             {
-              "id": "sujet-20261028-club-foot-nids-de-poule-1ca5vru-1-1",
-              "text": "Si aucune source sérieuse ne le dit, c’est un signal. Et le post ajoute la caution d’un influenceur, sans source.",
+              "id": "sujet-20261028-club-foot-orchestre-nz-vlq8f9-1-1",
+              "text": "Si aucune source sérieuse ne le dit, c’est un signal. Et le post ajoute une inquiétude pour les familles, jamais expliquée.",
               "correct": true,
               "reply": "Ah oui… je ne l’avais pas vu comme ça.",
-              "explication": "Une info qu’aucune source sérieuse ne confirme, plus un procédé pour faire réagir : c’est ce qu’on appelle effet de halo."
+              "explication": "Une info qu’aucune source sérieuse ne confirme, plus un procédé pour faire réagir : c’est ce qu’on appelle appel à la peur."
             },
             {
-              "id": "sujet-20261028-club-foot-nids-de-poule-1ca5vru-1-2",
+              "id": "sujet-20261028-club-foot-orchestre-nz-vlq8f9-1-2",
               "text": "De toute façon, tout est faux sur internet.",
               "correct": false,
               "reply": "Donc je ne peux plus rien croire ? Super…",
@@ -11040,21 +11040,21 @@
           ],
           "choices": [
             {
-              "id": "sujet-20261028-club-foot-nids-de-poule-1ca5vru-2-0",
+              "id": "sujet-20261028-club-foot-orchestre-nz-vlq8f9-2-0",
               "text": "Supprime le message, personne ne verra rien.",
               "correct": false,
               "reply": "Supprimé. Mais eux l’ont déjà lu…",
               "explication": "Supprimer ne rattrape pas ceux qui ont déjà lu. Sans correction, ils restent sur la mauvaise version et peuvent la transférer."
             },
             {
-              "id": "sujet-20261028-club-foot-nids-de-poule-1ca5vru-2-1",
+              "id": "sujet-20261028-club-foot-orchestre-nz-vlq8f9-2-1",
               "text": "Laisse, ce n’est pas bien grave.",
               "correct": false,
               "reply": "Bon, tant pis alors.",
               "explication": "Un post trompeur circule tant que personne ne le corrige. Celui qui l’a envoyé est le mieux placé pour le faire."
             },
             {
-              "id": "sujet-20261028-club-foot-nids-de-poule-1ca5vru-2-2",
+              "id": "sujet-20261028-club-foot-orchestre-nz-vlq8f9-2-2",
               "text": "Écris-leur que tu n’as trouvé aucune source sérieuse, et pourquoi.",
               "correct": true,
               "reply": "Ok, je fais ça, et j’explique pourquoi.",
@@ -11068,9 +11068,9 @@
         "low": "Pas facile cette fois. Le réflexe à retenir : avant de transférer, chercher une source sérieuse. Si aucune ne le confirme, on ne partage pas."
       },
       "origine": "fiction",
-      "scenario": "nids-de-poule",
-      "biais": "Effet de halo",
-      "recolteLe": "2026-10-28T05:38:04.558Z"
+      "scenario": "orchestre-nz",
+      "biais": "Appel à la peur",
+      "recolteLe": "2026-10-28T05:48:39.876Z"
     }
   ],
   "chapitres": [
@@ -12956,6 +12956,176 @@
         "page": "https://commons.wikimedia.org/wiki/File:IlesChesterfield_250m.jpg"
       },
       "theme": "mer"
+    },
+    {
+      "id": "recifs-trois-grands",
+      "vrai": "Les récifs de Nouvelle-Calédonie forment l’un des trois plus grands systèmes de récifs coralliens du monde.",
+      "faux": "Les récifs de Nouvelle-Calédonie forment le plus grand système de récifs coralliens du monde.",
+      "source": {
+        "nom": "UNESCO",
+        "url": "https://whc.unesco.org/fr/list/1115"
+      },
+      "theme": "mer"
+    },
+    {
+      "id": "dugongs-population",
+      "vrai": "La Nouvelle-Calédonie abrite la troisième plus grande population de dugongs au monde.",
+      "faux": "La Nouvelle-Calédonie abrite la plus grande population de dugongs au monde.",
+      "source": {
+        "nom": "UNESCO",
+        "url": "https://whc.unesco.org/fr/list/1115"
+      },
+      "theme": "mer"
+    },
+    {
+      "id": "parc-mer-de-corail",
+      "vrai": "Le parc naturel de la mer de Corail, créé en 2014, couvre environ 1,3 million de kilomètres carrés.",
+      "faux": "Le parc naturel de la mer de Corail, créé en 2014, couvre environ 13 000 kilomètres carrés.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Parc_naturel_de_la_mer_de_Corail"
+      },
+      "theme": "mer"
+    },
+    {
+      "id": "tortue-verte",
+      "vrai": "Adulte, la tortue verte se nourrit presque uniquement de plantes, surtout d’herbiers marins.",
+      "faux": "Adulte, la tortue verte se nourrit presque uniquement de poissons et de méduses.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Tortue_verte"
+      },
+      "theme": "mer"
+    },
+    {
+      "id": "cagou-chant",
+      "vrai": "Le chant du cagou ressemble à un aboiement.",
+      "faux": "Le chant du cagou ressemble au miaulement d’un chat.",
+      "source": {
+        "nom": "Endemia",
+        "url": "https://endemia.nc/faune/fiche144"
+      },
+      "theme": "faune"
+    },
+    {
+      "id": "notou",
+      "vrai": "Le notou, oiseau endémique de Nouvelle-Calédonie, est le plus gros pigeon vivant dans les arbres au monde.",
+      "faux": "Le notou, plus gros pigeon vivant dans les arbres au monde, vit aussi en Australie et en Nouvelle-Zélande.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Carpophage_g%C3%A9ant"
+      },
+      "theme": "faune"
+    },
+    {
+      "id": "superficie",
+      "vrai": "Les terres de la Nouvelle-Calédonie couvrent environ 18 600 kilomètres carrés.",
+      "faux": "Les terres de la Nouvelle-Calédonie couvrent environ 186 000 kilomètres carrés.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Nouvelle-Cal%C3%A9donie"
+      },
+      "theme": "geo"
+    },
+    {
+      "id": "indicatif",
+      "vrai": "L’indicatif téléphonique de la Nouvelle-Calédonie est le +687.",
+      "faux": "L’indicatif téléphonique de la Nouvelle-Calédonie est le +689.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Nouvelle-Cal%C3%A9donie"
+      },
+      "theme": "geo"
+    },
+    {
+      "id": "franc-cfp",
+      "vrai": "Un euro vaut environ 119 francs CFP, et ce taux est fixe.",
+      "faux": "Un euro vaut environ 100 francs CFP, et ce taux change chaque mois.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Franc_CFP"
+      },
+      "theme": "actu"
+    },
+    {
+      "id": "langues-kanak",
+      "vrai": "On compte 28 langues kanak en Nouvelle-Calédonie, sans compter leurs dialectes.",
+      "faux": "On compte 8 langues kanak en Nouvelle-Calédonie, dialectes compris.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Langues_kanak"
+      },
+      "theme": "histoire"
+    },
+    {
+      "id": "aires-coutumieres",
+      "vrai": "La Nouvelle-Calédonie compte huit aires coutumières.",
+      "faux": "La Nouvelle-Calédonie compte trois aires coutumières, une par province.",
+      "source": {
+        "nom": "Académie des langues kanak",
+        "url": "https://www.alk.nc/"
+      },
+      "theme": "geo"
+    },
+    {
+      "id": "port-de-france",
+      "vrai": "Nouméa s’appelait Port-de-France jusqu’en 1866.",
+      "faux": "Nouméa s’appelait Port-de-France jusqu’en 1966.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Noum%C3%A9a"
+      },
+      "theme": "histoire"
+    },
+    {
+      "id": "lavabo-hemisphere",
+      "vrai": "Le sens dans lequel l’eau tourne en se vidant d’un lavabo ne dépend pas de l’hémisphère : il dépend de la forme du lavabo.",
+      "faux": "Dans l’hémisphère Sud, l’eau d’un lavabo se vide toujours en tournant dans le sens des aiguilles d’une montre.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Force_de_Coriolis"
+      },
+      "theme": "meteo"
+    },
+    {
+      "id": "lumiere-soleil",
+      "vrai": "La lumière du Soleil met un peu plus de 8 minutes pour arriver jusqu’à la Terre.",
+      "faux": "La lumière du Soleil met un peu plus de 8 secondes pour arriver jusqu’à la Terre.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Soleil"
+      },
+      "theme": "meteo"
+    },
+    {
+      "id": "grande-muraille",
+      "vrai": "La Grande Muraille de Chine ne se voit pas à l’œil nu depuis la Lune.",
+      "faux": "La Grande Muraille de Chine est la seule construction humaine visible à l’œil nu depuis la Lune.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Grande_Muraille"
+      },
+      "theme": "actu"
+    },
+    {
+      "id": "lune-1969",
+      "vrai": "Le premier pas sur la Lune a eu lieu en juillet 1969, lors de la mission Apollo 11.",
+      "faux": "Le premier pas sur la Lune a eu lieu en juillet 1979, lors de la mission Apollo 11.",
+      "source": {
+        "nom": "Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Apollo_11"
+      },
+      "theme": "actu"
+    },
+    {
+      "id": "mot-de-passe",
+      "vrai": "La CNIL recommande un mot de passe d’au moins 12 caractères, avec majuscules, minuscules, chiffres et caractères spéciaux.",
+      "faux": "La CNIL impose un mot de passe d’au moins 20 caractères pour tous les sites.",
+      "source": {
+        "nom": "CNIL",
+        "url": "https://www.cnil.fr/fr/mots-de-passe-une-nouvelle-recommandation-pour-maitriser-sa-securite"
+      },
+      "theme": "actu"
     }
   ],
   "scenarios": [

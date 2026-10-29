@@ -108,7 +108,7 @@
   }
 
   .fil-etat__segment--en-cours {
-    background: var(--magenta-texte);
+    background: var(--ink-faint);
   }
 
   .fil-etat__chrono {

@@ -54,7 +54,7 @@
     height: 66px;
     padding: 3px;
     border-radius: 50%;
-    background-image: linear-gradient(135deg, var(--magenta-texte), var(--halo));
+    background-image: linear-gradient(135deg, var(--rouge), var(--magenta), var(--bleu));
     transition: transform 0.15s;
   }
 

@@ -177,7 +177,7 @@
     letter-spacing: 1px;
     line-height: 1.25;
     text-transform: uppercase;
-    color: var(--magenta-texte);
+    color: var(--blanc);
   }
 
   @media (min-width: 768px) {
@@ -241,7 +241,7 @@
   }
 
   .bouton:focus-visible {
-    outline: 2px solid var(--magenta-texte);
+    outline: 2px solid var(--blanc);
     outline-offset: 3px;
   }
 
@@ -640,7 +640,7 @@
 
   .etat-api__spinner {
     animation: etat-api-tourne 1s linear infinite;
-    color: var(--magenta-texte);
+    color: var(--blanc);
   }
 
   .etat-api__titre {

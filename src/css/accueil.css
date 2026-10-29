@@ -50,7 +50,9 @@
   }
 
   .hero__title em {
-    color: var(--magenta-pale);
+    color: var(--magenta);
+    -webkit-text-stroke: 2px var(--blanc);
+    paint-order: stroke fill;
   }
 
   .hero__tagline {
@@ -136,7 +138,7 @@
   }
 
   .dossier__etiquette {
-    color: var(--magenta-texte);
+    color: var(--blanc);
   }
 
   .dossier__titre {
@@ -748,7 +750,7 @@
   }
 
   .piece--jouer .piece__etiquette {
-    color: var(--magenta-texte);
+    color: var(--blanc);
   }
 
   .piece__gestes {
@@ -769,15 +771,21 @@
   }
 
   .piece__gestes li:nth-child(1) {
-    color: var(--magenta-texte);
+    border-color: var(--magenta);
+    background: var(--magenta);
+    color: var(--blanc);
   }
 
   .piece__gestes li:nth-child(2) {
-    color: var(--bleu-texte);
+    border-color: var(--bleu);
+    background: var(--bleu);
+    color: var(--blanc);
   }
 
   .piece__gestes li:nth-child(3) {
-    color: var(--rouge-texte);
+    border-color: var(--rouge);
+    background: var(--rouge);
+    color: var(--blanc);
   }
 
   .piece--jouer .bouton {

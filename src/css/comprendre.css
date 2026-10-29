@@ -20,8 +20,8 @@
   }
 
   .search-field:focus-within {
-    border-color: var(--magenta-texte);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--magenta-texte) 18%, transparent);
+    border-color: var(--blanc);
+    box-shadow: 0 0 0 3px var(--magenta);
   }
 
   .search-field__input {
@@ -748,7 +748,7 @@
     place-items: center;
     border-radius: 50%;
     background: var(--surface-haute);
-    color: var(--magenta-texte);
+    color: var(--blanc);
   }
 
   .bloc__legende {
@@ -799,7 +799,7 @@
   }
 
   .dossier-suivant:focus-visible {
-    outline: 2px solid var(--magenta-texte);
+    outline: 2px solid var(--blanc);
     outline-offset: 3px;
   }
 

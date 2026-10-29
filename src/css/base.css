@@ -138,12 +138,12 @@
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--magenta-texte) 35%, transparent);
-    color: var(--ink);
+    background: var(--magenta);
+    color: var(--blanc);
   }
 
   :focus-visible {
-    outline: 2px solid var(--magenta-texte);
+    outline: 2px solid var(--blanc);
     outline-offset: 2px;
   }
 
@@ -198,7 +198,7 @@
   }
 
   *::-webkit-scrollbar-thumb:hover {
-    background: var(--magenta-texte) padding-box;
+    background: var(--contour) padding-box;
   }
 
   @media (max-width: 767px) {

@@ -24,8 +24,8 @@
 
   .champ__input:focus {
     outline: none;
-    border-color: var(--magenta-texte);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--magenta-texte) 18%, transparent);
+    border-color: var(--blanc);
+    box-shadow: 0 0 0 3px var(--magenta);
   }
 
   .champ__aide {
@@ -208,7 +208,7 @@
   }
 
   .profil-avatar .avatar-joueur {
-    box-shadow: 0 0 0 2px var(--encre), 0 0 0 4px var(--magenta-texte);
+    box-shadow: 0 0 0 2px var(--encre), 0 0 0 4px var(--blanc);
   }
 
   .profil-bio {
@@ -235,7 +235,7 @@
   }
 
   .profil-pseudo:hover svg {
-    color: var(--magenta-texte);
+    color: var(--blanc);
   }
 
   .profil-pseudo__form {

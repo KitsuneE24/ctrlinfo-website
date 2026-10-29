@@ -110,7 +110,7 @@
     place-items: center;
     border: 1px solid var(--filet-4);
     border-radius: 50%;
-    color: var(--magenta-texte);
+    color: var(--blanc);
   }
 
   .messaging__empty-title {
@@ -152,7 +152,7 @@
   }
 
   .inbox-item--active {
-    border-left-color: var(--magenta-texte);
+    border-left-color: var(--blanc);
     background: var(--surface);
   }
 
@@ -508,7 +508,7 @@
   }
 
   .composer__field--choice:hover {
-    border-color: var(--magenta-texte);
+    border-color: var(--blanc);
     background: var(--surface-haute);
   }
 
@@ -522,7 +522,7 @@
     font-family: var(--font-title);
     font-size: 22px;
     line-height: 1;
-    color: var(--magenta-texte);
+    color: var(--blanc);
   }
 
   .composer__text {

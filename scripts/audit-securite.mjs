@@ -27,12 +27,15 @@ verifier('01 Authentification', "L'administration demande un mot de passe", /Req
 verifier('01 Authentification', 'Le script refuse si personne n’est identifié', /REMOTE_USER/.test(php) && /sortir\(401/.test(php), 'enregistrer.php ne revérifie pas l’utilisateur')
 const configLocale = lire('config.local.json') ? JSON.parse(lire('config.local.json')) : {}
 const htpasswd = process.env.ADMIN_HTPASSWD ?? configLocale.admin?.htpasswd
-noter('01 Authentification', 'Chemin du .htpasswd réglé pour le build', htpasswd?.startsWith('/') && htpasswd !== '/home/compte/.htpasswd' ? 'OK' : 'ALERTE',
-  'admin.htpasswd absent de config.local.json ou laissé à l’exemple : l’admin construite restera fermée (erreur 500), à régler au déploiement')
-const cheminAdmin = process.env.ADMIN_PATH ?? configLocale.admin?.chemin ?? 'admin'
-noter('01 Authentification', 'Adresse de l’admin choisie et non devinable',
-  /^[a-z0-9-]{12,}$/i.test(cheminAdmin) && !/^(admin|A-CHOISIR|gestion-3f9a2c)$/i.test(cheminAdmin) ? 'OK' : 'ALERTE',
-  'admin.chemin absent ou trop simple dans config.local.json : l’admin sera retirée du build')
+const cheminAdmin = process.env.ADMIN_PATH ?? configLocale.admin?.chemin
+// Sans adresse choisie, l'admin n'est pas construite (Netlify seul) : rien à régler.
+const adminConstruite = cheminAdmin !== undefined
+noter('01 Authentification', 'Adresse de l’admin choisie et non devinable (Apache seulement)',
+  !adminConstruite || (/^[a-z0-9-]{12,}$/i.test(cheminAdmin) && !/^(admin|A-CHOISIR|gestion-3f9a2c)$/i.test(cheminAdmin)) ? 'OK' : 'ALERTE',
+  'admin.chemin trop simple dans config.local.json : l’admin sera retirée du build')
+noter('01 Authentification', 'Chemin du .htpasswd réglé (Apache seulement)',
+  !adminConstruite || (htpasswd?.startsWith('/') && htpasswd !== '/home/compte/.htpasswd') ? 'OK' : 'ALERTE',
+  'admin.htpasswd absent de config.local.json ou laissé à l’exemple : l’admin construite restera fermée (erreur 500)')
 verifier('01 Authentification', 'Le .htpasswd n’est pas dans le dossier public', !existsSync(join(RACINE, 'public/admin/.htpasswd')) && !existsSync(join(RACINE, 'public/.htpasswd')), '.htpasswd présent dans public/')
 
 const ht = lire('public/.htaccess')
@@ -82,6 +85,10 @@ verifier('07 Entrée / Sortie', 'Aucune injection HTML ni eval', dangereux.lengt
 const sansNoopener = sources.filter((f) => /target="_blank"(?![^>]*noopener)/s.test(lire(f).replace(/\n\s*/g, ' ')))
 verifier('07 Entrée / Sortie', 'Liens externes en noopener', sansNoopener.length === 0, sansNoopener.join(', '))
 verifier('07 Entrée / Sortie', 'Liens des sources filtrés (http/https)', /CLES_ADRESSE = \/\^\(url\|/.test(lire('scripts/verifier-donnees.mjs')), 'adresses des sources non contrôlées')
+const liensBruts = sources.filter((f) => !f.startsWith('src/admin/') && /href=\{[\w.?]*\.(url|page|href)\b/i.test(lire(f)) && !/lienWeb/.test(lire(f)))
+verifier('07 Entrée / Sortie', 'Liens du contenu filtrés à l’affichage (http/https)', liensBruts.length === 0, liensBruts.join(', '))
+const lourds = fichiers('public', ['']).filter((f) => statSync(join(RACINE, f)).size > 50 * 1024 * 1024)
+noter('04 Sécurité applicative', 'Aucun fichier de plus de 50 Mo publié (disponibilité, bande passante)', lourds.length === 0 ? 'OK' : 'ALERTE', lourds.join(', '))
 const generateur = lire('scripts/generer-contenu.mjs')
 verifier('07 Entrée / Sortie', 'Flux sous licence libre nettoyés (liens, balises, longueur)', /lienWeb\(item\.link\)/.test(generateur) && /propre\(item\.title, \d+\)/.test(generateur),
   'titre ou lien d’un flux repris sans contrôle')

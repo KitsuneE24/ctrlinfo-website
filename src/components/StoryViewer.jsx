@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { ChevronLeft, ChevronRight, ExternalLink, X } from 'lucide-react'
 import { icone } from '../data/icones'
 import { chapterPath } from '../routes'
+import { lienWeb } from '../lib/lienWeb'
 import Filaments from './ui/Filaments'
 
 const DUREE = '8s'
@@ -115,7 +116,7 @@ export default function StoryViewer({ stories, index, onIndex, onClose }) {
               </Link>
             ) : (
               <a
-                href={story.lien.url}
+                href={lienWeb(story.lien.url) ?? undefined}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bouton bouton--plein bouton--large story-view__lien"

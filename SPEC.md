@@ -1,6 +1,6 @@
 # CTRL INFO — Spécification
 
-> Seule documentation du projet. Mise à jour : 28/10/2026.
+> Seule documentation du projet. Mise à jour : 29/10/2026.
 > À modifier à chaque changement notable. L'historique est dans [JOURNAL.md](JOURNAL.md).
 
 ## 1. Le projet
@@ -28,7 +28,7 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 | Interface | React 19, react-router 8, lucide-react |
 | Construction | Vite 8, Node.js 24 |
 | Styles | CSS maison (BEM), polices Fontsource, fond WebGL (ogl) |
-| Génération du contenu | script Node + rss-parser, lancé par GitHub Actions |
+| Génération du contenu | script Node + rss-parser, lancé à la main (en local ou depuis GitHub Actions) |
 | Hébergement | Netlify (plan gratuit), redéployé à chaque commit sur `main` ; autre possibilité : serveur Apache + envoi SFTP/FTPS |
 | Administration | `enregistrer.php`, sur serveur Apache + PHP 8.1+ seulement (absente sur Netlify) |
 | Contrôles | ESLint, `verifier`, `audit:securite`, Vitest (unitaires), Playwright + axe (bout en bout et accessibilité), Dependabot |
@@ -37,7 +37,7 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 
 | Adresse | Écran | Contenu |
 | --- | --- | --- |
-| `/` | Accueil | stories (sites où vérifier une info), tableau d'enquête, brève du jour |
+| `/` | Accueil | stories (sites où vérifier une info), tableau d'enquête avec la vidéo du projet, brève du jour |
 | `/fil` | Fil d'actualité | le jeu principal |
 | `/conversations` | Messages | un fil par contact, le joueur choisit ses réponses |
 | `/ressources` | Ressources | 8 thèmes, 12 sites utiles (vérifier, se protéger des arnaques, comprendre) |
@@ -76,12 +76,16 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 - Quand tout est vu, « Continuer à jouer » fabrique un nouveau lot dans le
   navigateur.
 
-**Messages** : 8 contacts, 3 sujets chacun, dont une arnaque par contact.
+**Messages** : 8 contacts, 6 sujets chacun, dont une arnaque par contact
+(7 arnaques : le 8e contact n'en a pas, § 10).
 Chaque choix donne une réplique du personnage et une explication. Une fake
 news se joue en 3 temps (ne pas transférer, chercher la source, corriger) ;
 une arnaque aussi (ne pas cliquer, vérifier qui est derrière, réparer si c'est
 trop tard). « Nouveau sujet » ouvre le suivant ; quand il n'y en a plus, le
-navigateur en fabrique 10.
+navigateur en fabrique 10. Chaque contact a sa propre réserve (environ 75
+sujets) ; les 7 arnaques sont communes, une seule par contact. Une pastille
+signale les contacts jamais ouverts : point rouge dans la liste, nombre sur
+l'onglet Messages (barre du bas et menu du haut).
 
 **Compagnon** : un cagou en pixel art qui commente l'écran et réagit aux coups.
 Il évite le texte, se range pendant une partie, se déplace à la main et se
@@ -318,6 +322,15 @@ et `ADMIN_HTPASSWD` remplacent le fichier.
 6. Vérifier : redirection HTTPS, aucune erreur « Content-Security-Policy »
    dans la console, `/fil` rechargé directement s'affiche.
 
+**Vidéo de l'accueil** : jamais plus de 50 Mo dans `public/` (GitHub refuse
+au-delà de 100 Mo, chaque lecture consomme de la bande passante). Depuis une
+vidéo source : `ffmpeg -i source.mp4 -vf scale=1920:-2 -c:v libx264 -preset slow
+-crf 24 -maxrate 2200k -bufsize 4400k -pix_fmt yuv420p -c:a aac -b:a 128k
+-movflags +faststart -map_metadata -1 public/video/<nom>.mp4`. Les personnes
+filmées doivent avoir donné leur accord écrit. Coût : la vidéo (34 Mo) ne se
+télécharge qu'au clic ; une trentaine de lectures font 1 Go, soit 20 crédits
+Netlify (§ 6).
+
 ## 9. Sécurité et accessibilité
 
 **En place** : HTTPS + HSTS, en-têtes de sécurité (CSP, anti-encadrement) ;
@@ -328,8 +341,11 @@ servies par le site seulement (`img-src 'self'`, image externe refusée par
 sauvegarde et contenu fabriqué relus au chargement ; JSON jamais mis en cache ;
 fichiers à nom unique gardés en cache un an (moins de crédits Netlify) ;
 envoi en SFTP/FTPS uniquement sur Apache ; workflow « Contrôles » et Dependabot. Audit :
-`npm run audit:securite` donne 46 OK, 0 échec, et 1 alerte tant que le
-`.htpasswd` n'est pas réglé (§ 7).
+`npm run audit:securite` donne 49 OK, 0 alerte, 0 échec pour Netlify (admin
+non construite, `config.local.json` inutile). Avec Apache, `admin.chemin` et
+`admin.htpasswd` sont exigés (§ 7) : un `config.local.json` avec l'adresse
+mais sans `.htpasswd` donne 1 alerte en local ; un fichier de plus de 50 Mo dans `public/`
+ajoute une alerte.
 
 **Aucun secret dans le dépôt** : chemin de l'admin, `.htpasswd` et accès
 d'envoi restent dehors, et ni le build ni les workflows ne les affichent. Un
@@ -377,6 +393,8 @@ l'admin, archiver le dépôt. Le site statique continue seul.
 - La fiche Endemia du cagou contient une erreur de description (« oiseau
   blanc au bec jaune ») ; les faits cités (inapte au vol, un seul œuf,
   endémique) y sont justes.
+- La vidéo de l'accueil n'a ni sous-titres ni transcription (RGAA, thème 4).
+- 7 arnaques pour 8 contacts : club-foot n'en a pas dans les Messages.
 - Les vrais posts attendent toujours « Partager » : le jeu ne récompense pas
   encore « ne pas partager une info vraie mais non sourcée ».
 - Mot de passe de l'admin sans limite d'essais.

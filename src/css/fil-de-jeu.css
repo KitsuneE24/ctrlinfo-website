@@ -182,6 +182,14 @@
       left: 22px;
     }
 
+    .fil-etat__barre:not(:has(.fil-etat__chrono)) > .fil-etat__regles {
+      position: relative;
+      top: auto;
+      left: auto;
+      order: -1;
+      align-self: flex-start;
+    }
+
     .fil-etat__conseil {
       display: flex;
       align-items: center;

@@ -3,11 +3,14 @@ import { useExitGuard } from '../state/exitGuard'
 import { PATHS } from '../routes'
 import { useAvatar } from '../state/useAvatar'
 import { useProgression } from '../state/useProgression'
+import { useContactsNonLus } from '../state/useNonLus'
 import { AvatarJoueur } from './AvatarPicker'
+import PastilleNonLus from './PastilleNonLus'
 import { NAV_BUREAU } from './navItems'
 
 export default function AppHeader() {
   const { pseudo } = useProgression()
+  const nonLus = useContactsNonLus()
   const avatar = useAvatar()
   const { requestExit } = useExitGuard()
 
@@ -44,6 +47,7 @@ export default function AppHeader() {
               }
             >
               {label}
+              {id === 'chat' && <PastilleNonLus nombre={nonLus} />}
             </NavLink>
           ))}
         </nav>

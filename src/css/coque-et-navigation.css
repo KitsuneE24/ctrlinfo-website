@@ -245,4 +245,17 @@
     opacity: 1;
   }
 
+
+  .tab-bar__icone {
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+
+  .pastille-non-lus--icone {
+    position: absolute;
+    top: -6px;
+    left: calc(100% - 8px);
+    box-shadow: 0 0 0 2px var(--encre);
+  }
 }

@@ -580,4 +580,9 @@
     font-weight: 500;
     color: var(--ink-faint);
   }
+
+  .inbox-item--non-lu .inbox-item__preview {
+    color: var(--ink);
+    font-weight: 600;
+  }
 }

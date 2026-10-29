@@ -31,8 +31,15 @@ function lire() {
 }
 
 let etat = lire()
+let version = 0
+const abonnes = new Set()
 
 export const generes = () => etat
+export const versionGeneres = () => version
+export function abonnerGeneres(ecouteur) {
+  abonnes.add(ecouteur)
+  return () => abonnes.delete(ecouteur)
+}
 
 export function ajouterGeneres({ posts = [], conversations = [] }) {
   etat = {
@@ -44,4 +51,6 @@ export function ajouterGeneres({ posts = [], conversations = [] }) {
   } catch {
     // Sans stockage, elles durent le temps de l'onglet.
   }
+  version += 1
+  for (const abonne of abonnes) abonne()
 }

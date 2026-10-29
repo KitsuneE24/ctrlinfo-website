@@ -9,7 +9,7 @@ import TableauEnquete from '../components/TableauEnquete'
 import DailyTip from '../components/DailyTip'
 import { PATHS } from '../routes'
 
-const VIDEO_URL = null
+const VIDEO_URL = '/video/SAE_501_Et_tout_le_monde_y_croit.mp4'
 
 const INSTAGRAM_URL = 'https://www.instagram.com/planke_nc'
 
@@ -166,15 +166,26 @@ export default function HomeScreen() {
                       className="video__poster"
                       aria-label="Lire la vidéo de présentation"
                     >
-                      <Filaments forme="wide" className="filaments--couvre" />
+                      {VIDEO_URL ? (
+                        <video
+                          src={`${VIDEO_URL}#t=1`}
+                          muted
+                          playsInline
+                          preload="metadata"
+                          disablePictureInPicture
+                          disableRemotePlayback
+                          aria-hidden="true"
+                          tabIndex={-1}
+                          className="video__vignette"
+                        />
+                      ) : (
+                        <Filaments forme="wide" className="filaments--couvre" />
+                      )}
                       <span className="video__play">
                         <Play size={20} fill="currentColor" strokeWidth={0} />
                       </span>
                       {videoOpen && (
-                        <span className="video__hint">
-                          La vidéo sera intégrée ici : renseignez <code>VIDEO_URL</code>{' '}
-                          dans <code>src/screens/HomeScreen.jsx</code>.
-                        </span>
+                        <span className="video__hint">Vidéo bientôt disponible.</span>
                       )}
                     </button>
                   )}

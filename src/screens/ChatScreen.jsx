@@ -10,18 +10,8 @@ import { PATHS, chatPath } from '../routes'
 import Page from '../components/ui/Page'
 import { Chargement, ErreurChargement } from '../components/ui/Chargement'
 import ChatThread from '../components/ChatThread'
-
-const contactDe = (conversation) => conversation.contact ?? conversation.id
-
-function parContact(conversations) {
-  const contacts = new Map()
-  for (const conversation of conversations) {
-    const cle = contactDe(conversation)
-    if (!contacts.has(cle)) contacts.set(cle, [])
-    contacts.get(cle).push(conversation)
-  }
-  return [...contacts.values()]
-}
+import PastilleNonLus from '../components/PastilleNonLus'
+import { contactDe, estNonLu, parContact, sujetCourant } from '../state/useNonLus'
 
 export default function ChatScreen() {
   const { slug: openId = null } = useParams()
@@ -84,14 +74,15 @@ export default function ChatScreen() {
             ) : (
               <ul>
                 {parContact(conversations).map((sujets) => {
-                  const courant = sujets.find((c) => !faite(c)) ?? sujets[sujets.length - 1]
+                  const courant = sujetCourant(sujets, avancement)
                   const toutFait = sujets.every(faite)
                   const isOpen = sujets.some((c) => c.id === openId)
+                  const aLire = estNonLu(sujets, avancement)
                   return (
                     <li key={contactDe(courant)}>
                       <Link
                         to={chatPath(courant.id)}
-                        className={`inbox-item${isOpen ? ' inbox-item--active' : ''}`}
+                        className={`inbox-item${isOpen ? ' inbox-item--active' : ''}${aLire ? ' inbox-item--non-lu' : ''}`}
                       >
                         <span
                           className="inbox-item__avatar"
@@ -114,6 +105,8 @@ export default function ChatScreen() {
                           <span title="Tous les sujets sont faits" className="inbox-item__faite">
                             <Check size={14} strokeWidth={3} />
                           </span>
+                        ) : aLire ? (
+                          <PastilleNonLus visible />
                         ) : (
                           <ChevronRight size={18} className="inbox-item__chevron" />
                         )}

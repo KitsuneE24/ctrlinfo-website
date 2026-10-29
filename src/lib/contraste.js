@@ -1,7 +1,8 @@
 import { couleur } from './couleurs'
 
 function luminance(hex) {
-  const valeur = hex.replace('#', '')
+  let valeur = hex.replace('#', '')
+  if (/^[0-9a-f]{3}$/i.test(valeur)) valeur = [...valeur].map((c) => c + c).join('')
   if (!/^[0-9a-f]{6}$/i.test(valeur)) return null
   const canal = (i) => {
     const c = parseInt(valeur.slice(i, i + 2), 16) / 255

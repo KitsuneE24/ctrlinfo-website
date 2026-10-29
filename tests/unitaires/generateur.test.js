@@ -69,7 +69,7 @@ describe('posts faux', () => {
         pris.push(fabriquerFaux(choix.base, choix.categorie, niveau, { maintenant }))
       }
     }
-  })
+  }, 30_000)
 
   it('chaque procédé, sur chaque base et chaque niveau, donne un texte propre', () => {
     const defauts = []
@@ -87,7 +87,7 @@ describe('posts faux', () => {
       }
     }
     expect([...new Set(defauts)].slice(0, 10)).toEqual([])
-  })
+  }, 30_000)
 })
 
 describe('conversations', () => {

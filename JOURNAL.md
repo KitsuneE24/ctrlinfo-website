@@ -24,6 +24,15 @@ Le détail de chaque modification reste dans git : `git log --oneline`, ou
 
 | Date | Changement |
 | --- | --- |
+| 29/10 | Contenu fixe refait (`--refaire`) : 160 posts et 48 sujets, une arnaque par contact sauf club-foot ; limite retirée de la SPEC |
+| 29/10 | Pastille « non lu » sur les contacts jamais ouverts (liste des Messages, onglet Messages en bas et en haut) |
+| 29/10 | Couleurs plus sombres pour le contraste AA (bleu, magenta, rouge) : texte blanc sur fond plein, `--magenta-texte` et `--magenta-pale` retirés ; couleurs à 3 chiffres acceptées par le calcul de contraste |
+| 29/10 | Audit : adresse de l'admin et `.htpasswd` exigés seulement si l'admin est construite (Apache) ; sur Netlify seul, aucun réglage local |
+| 29/10 | Doc : vidéo dans le tableau de l'accueil, coût en crédits Netlify, sous-titres manquants ajoutés aux limites |
+| 29/10 | Vidéo de l'accueil compressée : 4K 1,2 Go → 1080p 34 Mo (même durée, métadonnées retirées, lecture avant fin du téléchargement), mise en cache 30 jours ; l'originale 4K reste hors du dépôt |
+| 29/10 | Sécurité : lien des stories filtré (`http(s)` seulement, comme les autres) ; audit : liens du contenu filtrés à l'affichage, alerte au-delà de 50 Mo dans `public/` |
+| 29/10 | Tests : délai porté à 30 s pour les deux tests exhaustifs du générateur (5 à 10 s avec 57 faits et 26 procédés), `npm test` repasse au vert |
+| 29/10 | Doc relue face au code : 6 sujets par contact (et non 3), génération lancée à la main ; arnaques mal réparties et tests trop lents signalés dans les limites |
 | 28/10 | Crédits photos retirés des mentions légales : uniquement dans la correction de chaque post |
 | 28/10 | 17 faits ajoutés (57 en tout), chacun vérifié à la source : récifs et dugongs (UNESCO), mer de Corail, tortue verte, chant du cagou (Endemia), notou, superficie, indicatif, franc CFP, langues kanak, aires coutumières (ALK), Port-de-France, lavabo et hémisphère, lumière du Soleil, Grande Muraille, Apollo 11, mot de passe (CNIL) ; contenu refait, aucun fait plus de deux fois ; stockage local décrit dans la SPEC |
 | 28/10 | Contenu fixe pour économiser les crédits Netlify : génération lancée à la main seulement, 160 posts (16 vrais et 16 faux par niveau) et 48 sujets de Messages ; dates des posts inventés recalculées le jour où l'on joue (`ilYa`) ; pas de déploiement si seuls doc, tests ou workflows changent |

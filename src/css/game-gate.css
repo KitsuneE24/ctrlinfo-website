@@ -75,7 +75,7 @@
     border-radius: 50%;
     font-family: var(--font-title);
     font-size: 22px;
-    color: var(--magenta-texte);
+    color: var(--blanc);
   }
 
   @media (min-width: 768px) {
@@ -232,7 +232,7 @@
   .demo__lettre {
     padding-right: 6px;
     font-weight: 700;
-    color: var(--magenta-texte);
+    color: var(--blanc);
   }
 
   @media (max-height: 640px) {

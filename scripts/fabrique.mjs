@@ -27,7 +27,7 @@ import {
   surLeSite,
 } from './gabarits.mjs'
 import { ARNAQUES } from './arnaques.mjs'
-import { etapes, etapesArnaque, outro } from './gabarits-conversations.mjs'
+import { DISTRIBUTIONS, etapes, etapesArnaque, outro } from './gabarits-conversations.mjs'
 import { composerCommentaires, tirage } from './commentaires.mjs'
 
 const AIDE = 'https://www.clemi.fr/'
@@ -437,9 +437,22 @@ export function fabriquerConversation(post, gabarit, distribution, options = {})
   }
 }
 
+// Chaque paire (base, procédé) hors arnaque revient à un seul contact.
+function partDuContact(bases, contact) {
+  const rang = DISTRIBUTIONS.findIndex((d) => d.id === contact)
+  if (rang < 0) return null
+  const cles = bases
+    .filter((base) => !base.arnaque)
+    .flatMap((base) =>
+      PROCEDES.filter((c) => !c.horsMessages && permisPour({ ...c, niveaux: null }, 1, base)).map((c) => `${base.id}|${c.biais}`)
+    )
+  return new Set(cles.sort((x, y) => graineDe(x) - graineDe(y)).filter((_, i) => i % DISTRIBUTIONS.length === rang))
+}
+
 export function sujetsPour(distribution, conversations, nombre, banques, { prefixe = 'sujet', maintenant } = {}) {
   const sujets = []
   const bases = basesDe(banques)
+  const part = partDuContact(bases, distribution.id)
   while (sujets.length < nombre) {
     // Recalculé à chaque sujet : une arnaque par contact, puis les procédés les moins vus.
     const tous = [...conversations, ...sujets]
@@ -453,7 +466,7 @@ export function sujetsPour(distribution, conversations, nombre, banques, { prefi
 
     const paires = bases.flatMap((base) => {
       const niveau = 1 + (graineDe(`${distribution.id}|${base.id}`) % 3)
-      return PROCEDES.filter((c) => !c.horsMessages && permisPour(c, niveau, base) && !pris.has(`${base.id}|${c.biais}`)).map(
+      return PROCEDES.filter((c) => !c.horsMessages && permisPour(c, niveau, base) && (!part || (base.arnaque ? arnaqueAvant : part.has(`${base.id}|${c.biais}`))) && !pris.has(`${base.id}|${c.biais}`)).map(
         (gabarit) => ({ base, gabarit, niveau })
       )
     })

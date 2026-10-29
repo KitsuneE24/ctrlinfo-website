@@ -30,6 +30,11 @@
     Cache-Control = "public, max-age=2592000"
 
 [[headers]]
+  for = "/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
   for = "/donnees/*"
   [headers.values]
     Cache-Control = "no-cache, must-revalidate"

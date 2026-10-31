@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react'
-import { ArrowRight, ChevronLeft, ExternalLink, ScanSearch } from 'lucide-react'
+import {
+  ArrowRight,
+  ChevronLeft,
+  CircleCheck,
+  ExternalLink,
+  ScanSearch,
+  ShieldCheck,
+  TriangleAlert,
+} from 'lucide-react'
 import CadreCagou from './CadreCagou'
 import PostAnnotated, { ListeIndices } from './PostAnnotated'
 import { lienWeb } from '../lib/lienWeb'
@@ -22,12 +30,82 @@ function Licence({ post }) {
   )
 }
 
+const majuscule = (texte) => texte.charAt(0).toUpperCase() + texte.slice(1)
+const domaine = (url) => new URL(url).hostname.replace(/^www\./, '')
+
+// Lien vers l'info dont parle le post ; null si l'événement est inventé.
+function lienDe(post) {
+  if (post.lienInfo && lienWeb(post.lienInfo.url)) return post.lienInfo
+  if (post.isFake) return null
+  const url = lienWeb(post.sourceUrl) ?? lienWeb(post.learnMoreUrl)
+  return url ? { titre: 'La source de cette info', nom: domaine(url), url } : null
+}
+
+function LienInfo({ post, compact = false }) {
+  const lien = lienDe(post)
+
+  if (compact) {
+    return (
+      <p className="lien-info lien-info--compact">
+        {(!lien || lien.invente) && 'Événement inventé : aucun article n’en parle. '}
+        {lien && (
+          <>
+            {lien.titre}&nbsp;:{' '}
+            <a href={lien.url} target="_blank" rel="noopener noreferrer" className="lien-info__lien">
+              {majuscule(lien.nom).split(' ').slice(0, -1).join(' ')}{' '}
+              <span className="lien-info__fin">
+                {majuscule(lien.nom).split(' ').at(-1)}
+                <ExternalLink size={13} strokeWidth={2} aria-hidden="true" />
+              </span>
+              <span className="pour-lecteur"> (nouvel onglet)</span>
+            </a>
+          </>
+        )}
+      </p>
+    )
+  }
+
+  return (
+    <section className="lien-info">
+      {(!lien || lien.invente) && (
+        <>
+          <p className="lien-info__titre">D’où vient l’info&nbsp;?</p>
+          <p className="lien-info__texte">Événement inventé pour l’exercice&nbsp;: aucun article n’en parle.</p>
+        </>
+      )}
+      {lien && (
+        <>
+          <p className="lien-info__titre">{lien.titre}</p>
+          <a href={lien.url} target="_blank" rel="noopener noreferrer" className="lien-info__lien">
+            {majuscule(lien.nom)} ({domaine(lien.url)})
+            <ExternalLink size={15} strokeWidth={2} aria-hidden="true" />
+            <span className="pour-lecteur"> (nouvel onglet)</span>
+          </a>
+        </>
+      )}
+    </section>
+  )
+}
+
 function Tampon({ biais }) {
   if (!biais || biais.startsWith('Aucun')) return null
   return <span className="tampon">{biais}</span>
 }
 
-function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
+function Consequence({ post, action }) {
+  const texte = post.consequences?.[action]
+  if (!texte) return null
+  const alerte = post.isFake && action !== 'report'
+  const Icone = alerte ? TriangleAlert : post.isFake ? ShieldCheck : CircleCheck
+  return (
+    <p className={`verdict-cagou__consequence verdict-cagou__consequence--${alerte ? 'alerte' : 'calme'}`}>
+      <Icone size={18} strokeWidth={2.2} aria-hidden="true" />
+      {texte}
+    </p>
+  )
+}
+
+function Verdict({ post, action, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
   const voirIndices = aQuoiMontrer && !isCorrect
   const biais = post.biais && !post.biais.startsWith('Aucun') ? post.biais : null
 
@@ -58,13 +136,15 @@ function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
             {isCorrect ? 'Bien vu.' : 'À revoir.'}
           </h2>
           <p className="modal__text">{isCorrect ? post.encouragement : post.warning}</p>
+          <Consequence post={post} action={action} />
+          <LienInfo post={post} compact />
 
           <div className="verdict-cagou__actions">
             {voirIndices ? (
               <>
                 <button type="button" onClick={onDetail} className="bouton bouton--encre bouton--large">
                   <ScanSearch size={16} strokeWidth={2.2} />
-                  {post.isFake ? 'Voir ce qui clochait' : 'Voir pourquoi c’était fiable'}
+                  Voir les indices
                 </button>
                 <button type="button" onClick={onDismiss} className="bouton bouton--large">
                   Continuer
@@ -90,7 +170,7 @@ function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
   )
 }
 
-function Indices({ post, learnMoreUrl, onRetour, onDismiss, onLearnMore }) {
+function Indices({ post, onRetour, onDismiss }) {
   return (
     <div
       role="dialog"
@@ -146,22 +226,12 @@ function Indices({ post, learnMoreUrl, onRetour, onDismiss, onLearnMore }) {
             </section>
           )}
 
+          <LienInfo post={post} />
           <Licence post={post} />
         </div>
       </div>
 
       <footer className="indices__pied">
-        {learnMoreUrl && (
-          <button
-            type="button"
-            onClick={() => onLearnMore(learnMoreUrl)}
-            aria-label="En savoir plus"
-            className="bouton indices__plus"
-          >
-            <ExternalLink size={18} strokeWidth={2} />
-            <span className="indices__plus-texte">En savoir plus</span>
-          </button>
-        )}
         <button type="button" onClick={onDismiss} className="bouton bouton--plein indices__continuer">
           Continuer
           <ArrowRight size={18} strokeWidth={2.4} />
@@ -177,7 +247,6 @@ export default function FeedbackModal({
   post,
   action,
   onDismiss,
-  onLearnMore,
 }) {
   const [detail, setDetail] = useState(false)
 
@@ -196,7 +265,6 @@ export default function FeedbackModal({
 
   if (!post || !action) return null
 
-  const learnMoreUrl = isCorrect ? post.learnMoreUrl || post.sourceUrl : post.learnMoreTips
   const aQuoiMontrer = (post.indices?.length ?? 0) > 0 || post.analyseVrai || post.analyseFaux
 
   if (!visible) return null
@@ -204,14 +272,13 @@ export default function FeedbackModal({
   return detail ? (
     <Indices
       post={post}
-      learnMoreUrl={learnMoreUrl}
       onRetour={() => setDetail(false)}
       onDismiss={onDismiss}
-      onLearnMore={onLearnMore}
     />
   ) : (
     <Verdict
       post={post}
+      action={action}
       isCorrect={isCorrect}
       aQuoiMontrer={aQuoiMontrer}
       onDismiss={onDismiss}

@@ -18,11 +18,21 @@ test('le fil se joue entièrement au clavier', async ({ page }) => {
   await expect(signaler).toBeVisible()
   await signaler.focus()
   await page.keyboard.press('Enter')
-  const continuer = page.getByRole('button', { name: /continuer/i }).first()
+  const continuer = page.getByRole('button', { name: /^continuer$/i })
   await expect(continuer).toBeVisible()
   await continuer.focus()
   await page.keyboard.press('Enter')
   await expect(page.getByRole('button', { name: 'Signaler' })).toBeVisible()
+})
+
+test('on peut ignorer un post, puis continuer', async ({ page }) => {
+  await page.goto('/fil')
+  await page.getByRole('button', { name: /commencer|reprendre/i }).click()
+  await page.getByRole('button', { name: 'Ignorer' }).click()
+  const continuer = page.getByRole('button', { name: /^continuer$/i })
+  await expect(continuer).toBeVisible()
+  await continuer.click()
+  await expect(page.getByRole('button', { name: 'Ignorer' })).toBeEnabled()
 })
 
 test.describe('animations réduites', () => {

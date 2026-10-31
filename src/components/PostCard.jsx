@@ -1,4 +1,4 @@
-import { Heart, Send, Flag } from 'lucide-react'
+import { EyeOff, Flag, Heart, Send } from 'lucide-react'
 import { texteSur } from '../lib/contraste'
 import ImagePost from './ImagePost'
 
@@ -28,6 +28,7 @@ export default function PostCard({
   const initial = post.source[0]?.toUpperCase() || '?'
   const liked = selectedAction === 'share'
   const reported = selectedAction === 'report'
+  const ignored = selectedAction === 'ignore'
 
   return (
     <article className={`post${isActive ? '' : ' post--past'}`}>
@@ -75,6 +76,16 @@ export default function PostCard({
               <Send size={25} strokeWidth={1.8} />
             </ActionIcon>
             <span className="post__action--last">
+              <button
+                type="button"
+                onClick={() => onAction('ignore')}
+                disabled={disabled}
+                aria-pressed={ignored}
+                className={`post__ignorer${ignored ? ' post__ignorer--actif' : ''}`}
+              >
+                <EyeOff size={18} strokeWidth={1.9} aria-hidden="true" />
+                Ignorer
+              </button>
               <ActionIcon
                 label="Signaler"
                 onClick={() => onAction('report')}

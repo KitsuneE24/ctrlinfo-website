@@ -82,11 +82,11 @@
   }
 
   .fil-etat__niveau .etiquette {
-    font-size: 12px;
+    font-size: calc(12px * var(--echelle-texte, 1));
   }
 
   .fil-etat__compte {
-    font-size: 13px;
+    font-size: calc(13px * var(--echelle-texte, 1));
     color: var(--ink-muted);
   }
 
@@ -213,7 +213,7 @@
     .fil-etat__conseil p {
       margin: 0;
       font-family: var(--font-title);
-      font-size: 20px;
+      font-size: calc(20px * var(--echelle-texte, 1));
       line-height: 1.15;
     }
   }
@@ -266,7 +266,7 @@
   }
 
   .countdown__value {
-    font-size: 14px;
+    font-size: calc(14px * var(--echelle-texte, 1));
     font-weight: 700;
     line-height: 1;
     font-variant-numeric: tabular-nums;
@@ -293,7 +293,7 @@
 
     .countdown__value {
       font-family: var(--font-title);
-      font-size: 52px;
+      font-size: calc(52px * var(--echelle-texte, 1));
       font-weight: 400;
     }
 
@@ -303,7 +303,7 @@
       height: auto;
       margin-top: 2px;
       clip: auto;
-      font-size: 12px;
+      font-size: calc(12px * var(--echelle-texte, 1));
       color: var(--ink-faint);
     }
   }
@@ -361,7 +361,7 @@
     border: 2px solid var(--surface);
     border-radius: 50%;
     color: var(--blanc);
-    font-size: 13px;
+    font-size: calc(13px * var(--echelle-texte, 1));
     font-weight: 700;
   }
 
@@ -373,7 +373,7 @@
   }
 
   .reaction {
-    font-size: 14px;
+    font-size: calc(14px * var(--echelle-texte, 1));
     line-height: 1.5;
     color: var(--ink);
   }
@@ -389,7 +389,7 @@
     padding: 3px 9px;
     border: 1px solid var(--filet-4);
     border-radius: 999px;
-    font-size: 12px;
+    font-size: calc(12px * var(--echelle-texte, 1));
     font-weight: 600;
     color: var(--ink-muted);
   }
@@ -403,7 +403,7 @@
   .post__account {
     margin: 0;
     overflow: hidden;
-    font-size: 14px;
+    font-size: calc(14px * var(--echelle-texte, 1));
     font-weight: 700;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -413,7 +413,7 @@
   .post__domain {
     margin: 1px 0 0;
     overflow: hidden;
-    font-size: 12px;
+    font-size: calc(12px * var(--echelle-texte, 1));
     text-overflow: ellipsis;
     white-space: nowrap;
     color: var(--ink-faint);
@@ -462,6 +462,7 @@
 
   .annot__image .image-post__credit {
     padding-inline: 0;
+    color: var(--papier-encre);
   }
 
   .post__actions {
@@ -518,7 +519,36 @@
   }
 
   .post__action--last {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     margin-left: auto;
+  }
+
+  .post__ignorer {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid var(--contour);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: calc(14px * var(--echelle-texte, 1));
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .post__ignorer:disabled {
+    cursor: default;
+  }
+
+  .post__ignorer--actif {
+    border-color: var(--blanc);
+    background: var(--blanc);
+    color: var(--papier-encre);
   }
 
   .post__body {
@@ -530,33 +560,32 @@
 
   .post__likes {
     margin: 0;
-    font-size: 14px;
+    font-size: calc(14px * var(--echelle-texte, 1));
     font-weight: 700;
     color: var(--ink);
   }
 
   .post__caption {
     margin: 0;
-    font-size: 14.5px;
+    font-size: calc(14.5px * var(--echelle-texte, 1));
     line-height: 1.45;
     color: var(--ink);
   }
 
-  .post__caption-account,
-  .post__claim {
+  .post__caption-account {
     font-weight: 700;
     color: var(--ink);
   }
 
   .post__comments {
     margin: 0;
-    font-size: 14px;
+    font-size: calc(14px * var(--echelle-texte, 1));
     color: var(--ink-faint);
   }
 
   .post__date {
     margin: 0;
-    font-size: 12px;
+    font-size: calc(12px * var(--echelle-texte, 1));
     letter-spacing: 0.3px;
     text-transform: uppercase;
     color: var(--ink-faint);
@@ -571,7 +600,7 @@
     border-radius: 999px;
     background: var(--magenta);
     color: var(--blanc);
-    font-size: 13px;
+    font-size: calc(13px * var(--echelle-texte, 1));
     font-weight: 600;
   }
 
@@ -599,7 +628,7 @@
   .modal {
     position: fixed;
     inset: 0;
-    z-index: 100;
+    z-index: 110;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -612,7 +641,7 @@
   .modal__title {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 32px;
+    font-size: calc(32px * var(--echelle-texte, 1));
     font-weight: 400;
     line-height: 1;
     color: var(--ink);
@@ -661,7 +690,7 @@
   .outcome__title {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 40px;
+    font-size: calc(40px * var(--echelle-texte, 1));
     font-weight: 400;
     line-height: 1;
     color: var(--ink);
@@ -670,7 +699,7 @@
   .outcome__note {
     max-width: 38ch;
     margin: 14px auto 0;
-    font-size: 15px;
+    font-size: calc(15px * var(--echelle-texte, 1));
     line-height: 1.55;
     color: var(--ink-muted);
   }

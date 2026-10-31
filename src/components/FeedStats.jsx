@@ -38,9 +38,10 @@ export default function FeedStats({
           onClick={onRegles}
           aria-label="Règles du jeu"
           title="Règles du jeu"
-          className="bouton-rond fil-etat__regles"
+          className="bouton-regles fil-etat__regles"
         >
-          <HelpCircle size={20} strokeWidth={2} />
+          <HelpCircle size={18} strokeWidth={2.2} aria-hidden="true" />
+          Règles
         </button>
 
         <div className="fil-etat__avancement">

@@ -15,7 +15,6 @@ import FeedStats from './FeedStats'
 import PostCard from './PostCard'
 import FeedbackModal from './FeedbackModal'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
-import { lienWeb } from '../lib/lienWeb'
 
 const ANNONCE_MS = 6000
 
@@ -238,7 +237,6 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
         post={currentPost}
         action={action}
         onDismiss={handleDismiss}
-        onLearnMore={(url) => lienWeb(url) && window.open(url, '_blank', 'noopener,noreferrer')}
       />
 
       {annonce && regles && !chargement && (

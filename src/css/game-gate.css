@@ -1,23 +1,43 @@
 @layer components {
+  /* Entre l’en-tête et la barre du bas, pour que le bouton reste visible. */
   .game-start {
+    position: absolute;
     z-index: 97;
+    padding: 16px;
   }
 
-  .game-start__fenetre {
+  .game-start__cadre {
+    position: relative;
+    display: flex;
+    width: 100%;
     max-width: 480px;
-    margin-top: 30px;
-    overflow: visible;
+    max-height: 100%;
+    padding-top: 26px;
+  }
+
+  /* Seul le corps défile : le titre et le bouton restent à l’écran. */
+  .game-start__fenetre {
+    display: flex;
+    max-width: none;
+    min-height: 0;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .game-start__fenetre > * {
+    flex-shrink: 0;
   }
 
   .game-start__kiwi {
     position: absolute;
-    top: -26px;
+    z-index: 2;
+    top: 0;
     left: 22px;
   }
 
   @media (min-width: 768px) {
     .game-start__kiwi {
-      top: -34px;
+      top: -8px;
       right: 36px;
       left: auto;
       width: 68px !important;
@@ -53,7 +73,7 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    font-size: 15px;
+    font-size: calc(15px * var(--echelle-texte, 1));
     line-height: 1.35;
     color: var(--ink);
   }
@@ -61,7 +81,7 @@
   @media (min-width: 768px) {
     .game-start__points li {
       gap: 16px;
-      font-size: 17px;
+      font-size: calc(17px * var(--echelle-texte, 1));
     }
   }
 
@@ -74,7 +94,7 @@
     border: 1px solid var(--filet-fenetre);
     border-radius: 50%;
     font-family: var(--font-title);
-    font-size: 22px;
+    font-size: calc(22px * var(--echelle-texte, 1));
     color: var(--blanc);
   }
 
@@ -86,21 +106,30 @@
   }
 
   .game-start .bouton--plein {
-    min-height: 58px;
-    font-size: 17px;
+    min-height: 54px;
+    margin-top: 12px;
+    font-size: calc(17px * var(--echelle-texte, 1));
   }
 
-  .game-start__corps {
-    max-height: calc(100dvh - 250px);
+  .game-start__fenetre > .game-start__corps {
+    min-height: 0;
+    flex: 1 1 auto;
     overflow-y: auto;
     overscroll-behavior: contain;
     margin: 0 -6px 4px;
     padding: 10px 6px 0;
-    scrollbar-width: none;
+    scrollbar-width: thin;
   }
 
   .game-start__corps::-webkit-scrollbar {
-    display: none;
+    width: 4px;
+  }
+
+  @media (max-height: 640px) {
+    .game-start__titre {
+      margin-bottom: 12px;
+      font-size: calc(30px * var(--echelle-texte, 1));
+    }
   }
 
   .game-start__numero--puce {
@@ -108,7 +137,7 @@
     height: 28px;
     border: 0;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: calc(14px * var(--echelle-texte, 1));
     color: var(--blanc);
   }
 
@@ -128,7 +157,7 @@
     border: 1px solid var(--filet-2);
     border-radius: var(--radius-card);
     background: var(--surface-basse);
-    font-size: 14px;
+    font-size: calc(14px * var(--echelle-texte, 1));
     line-height: 1.4;
   }
 
@@ -201,6 +230,22 @@
     padding: 4px 14px 4px 0;
   }
 
+  .demo__groupe--fin {
+    align-items: center;
+  }
+
+  .demo__ignorer {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border: 1px solid var(--contour);
+    border-radius: 999px;
+    font-size: calc(12.5px * var(--echelle-texte, 1));
+    font-weight: 600;
+  }
+
   .demo__contact {
     margin: 0;
   }
@@ -264,7 +309,7 @@
 
   .gate__aparte-texte {
     margin: 0;
-    font-size: 13px;
+    font-size: calc(13px * var(--echelle-texte, 1));
     color: var(--ink-faint);
   }
 
@@ -329,7 +374,7 @@
   }
 
   .cadre-cagou__panneau .modal__title {
-    font-size: 30px;
+    font-size: calc(30px * var(--echelle-texte, 1));
     text-align: left;
   }
 

@@ -18,9 +18,37 @@ function Icone({ nom, size }) {
   return createElement(icone(nom), { size, strokeWidth: 1.9 })
 }
 
-function repere(surtitre, rang) {
+function repere(surtitre, rang, lettre) {
+  if (lettre) return `Pièce ${lettre}${rang}`
   if (!surtitre) return `Pièce n° ${rang}`
   return /^\d+$/.test(surtitre) ? `Pièce n° ${surtitre}` : surtitre
+}
+
+function LienSource({ source }) {
+  if (!lienWeb(source?.url)) return null
+  return (
+    <p className="source-lien">
+      <a href={source.url} target="_blank" rel="noopener noreferrer">
+        Source : {source.texte}
+        <span className="pour-lecteur"> (nouvel onglet)</span>
+      </a>
+    </p>
+  )
+}
+
+function Sources({ sources }) {
+  return sources?.map((source) => <LienSource key={source.url} source={source} />)
+}
+
+function LienOutil({ lien }) {
+  if (!lienWeb(lien?.url)) return null
+  return (
+    <a href={lien.url} target="_blank" rel="noopener noreferrer" className="bouton bouton--encre bouton--petit note-dossier__outil">
+      <ExternalLink size={14} strokeWidth={2} aria-hidden="true" />
+      {lien.texte}
+      <span className="pour-lecteur"> (nouvel onglet)</span>
+    </a>
+  )
 }
 
 function Coupures({ notes }) {
@@ -39,15 +67,24 @@ function Coupures({ notes }) {
   ))
 }
 
-function Piece({ entree, rang, epingle, Titre = 'h2' }) {
-  const { surtitre, titre, texte, notes } = entree
+// Même source pour toutes les pièces : on la cite une fois, en fin de partie.
+function sourceCommune(entrees = []) {
+  const url = entrees[0]?.source?.url
+  return url && entrees.length > 1 && entrees.every((e) => e.source?.url === url) ? entrees[0].source : null
+}
+
+function Piece({ entree, rang, lettre, epingle, Titre = 'h2', sansSource = false }) {
+  const { surtitre, titre, texte, notes, lien } = entree
+  const source = sansSource ? null : entree.source
 
   return (
     <li ref={epingle} className="note-dossier">
       <span className="punaise" aria-hidden="true" />
-      <p className="note-dossier__repere">{repere(surtitre, rang)}</p>
+      <p className="note-dossier__repere">{repere(surtitre, rang, lettre)}</p>
       {titre && <Titre className="note-dossier__titre">{titre}</Titre>}
       {texte && <p className="note-dossier__texte"><Riche texte={texte} /></p>}
+      <LienOutil lien={lien} />
+      <LienSource source={source} />
       <Coupures notes={notes} />
     </li>
   )
@@ -68,12 +105,42 @@ function Illustration({ image, legende, picto }) {
   )
 }
 
-function Bloc({ bloc, id, epingler }) {
-  const { genre, titre, paragraphes, entrees, image, legende, picto } = bloc
+function Partie({ lettre, titre, nombre, children }) {
+  if (!lettre) return children
+  return (
+    <section id={`partie-${lettre}`} aria-labelledby={`partie-${lettre}-titre`} className="partie">
+      <header className="partie__intercalaire">
+        <span className="partie__onglet">Partie {lettre}</span>
+        <h2 id={`partie-${lettre}-titre`} className="partie__titre">{titre}</h2>
+        <span className="partie__compte">
+          {nombre} pièce{nombre > 1 ? 's' : ''}
+        </span>
+      </header>
+      {children}
+    </section>
+  )
+}
+
+function SourcePartie({ source }) {
+  if (!lienWeb(source?.url)) return null
+  return (
+    <p className="source-partie">
+      <span className="source-partie__label">Source des pièces</span>
+      <a href={source.url} target="_blank" rel="noopener noreferrer">
+        {source.texte}
+        <span className="pour-lecteur"> (nouvel onglet)</span>
+      </a>
+    </p>
+  )
+}
+
+function Bloc({ bloc, id, lettre, epingler }) {
+  const { genre, titre, paragraphes, entrees, image, legende, picto, sources } = bloc
+  const commune = sourceCommune(entrees)
 
   if (genre === 'CONSEIL') {
     return (
-      <div ref={epingler(id)} className="conseil">
+      <div ref={epingler(id, { groupe: id })} className="conseil">
         <span className="punaise punaise--grande" aria-hidden="true" />
         <p className="conseil__label">{titre ?? 'Le réflexe'}</p>
         {paragraphes?.map((p) => (
@@ -81,24 +148,29 @@ function Bloc({ bloc, id, epingler }) {
             <Riche texte={p} />
           </p>
         ))}
+        <Sources sources={sources} />
       </div>
     )
   }
 
   if (genre === 'CHIFFRES') {
     return (
-      <div className="bloc">
-        {titre && <h2 className="bloc__titre">{titre}</h2>}
-        <ul className="scelles">
-          {entrees?.map((entree, i) => (
-            <li key={entree.titre} className="scelle">
-              <p className="scelle__numero">Scellé n° {i + 1}</p>
-              <p className="scelle__valeur">{entree.titre}</p>
-              <p className="scelle__texte"><Riche texte={entree.texte} /></p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Partie lettre={lettre} titre={titre} nombre={entrees?.length ?? 0}>
+        <div className="bloc">
+          {titre && !lettre && <h2 className="bloc__titre">{titre}</h2>}
+          <ul className="scelles">
+            {entrees?.map((entree, i) => (
+              <li key={entree.titre} className="scelle">
+                <p className="scelle__numero">Scellé {lettre ? `${lettre}${i + 1}` : `n° ${i + 1}`}</p>
+                <p className="scelle__valeur">{entree.titre}</p>
+                <p className="scelle__texte"><Riche texte={entree.texte} /></p>
+                {!commune && <LienSource source={entree.source} />}
+              </li>
+            ))}
+          </ul>
+          <SourcePartie source={commune} />
+        </div>
+      </Partie>
     )
   }
 
@@ -113,39 +185,81 @@ function Bloc({ bloc, id, epingler }) {
             <Riche texte={p} />
           </p>
         ))}
+        <Sources sources={sources} />
       </div>
     )
   }
 
   return (
-    <div className="bloc">
-      {titre && <h2 className="bloc__titre">{titre}</h2>}
-      <Illustration image={image} legende={legende} picto={picto} />
-      <ol className="notes-dossier">
-        {entrees?.map((entree, i) => (
-          <Piece
-            key={entree.titre ?? i}
-            entree={entree}
-            rang={i + 1}
-            epingle={epingler(`${id}-${i}`)}
-            Titre={titre ? 'h3' : 'h2'}
-          />
+    <Partie lettre={lettre} titre={titre} nombre={entrees?.length ?? 0}>
+      <div className="bloc">
+        {titre && !lettre && <h2 className="bloc__titre">{titre}</h2>}
+        <Illustration image={image} legende={legende} picto={picto} />
+        <ol className="notes-dossier">
+          {entrees?.map((entree, i) => (
+            <Piece
+              key={entree.titre ?? i}
+              entree={entree}
+              rang={i + 1}
+              lettre={lettre}
+              epingle={epingler(`${id}-${i}`, { groupe: id })}
+              Titre={titre ? 'h3' : 'h2'}
+              sansSource={Boolean(commune)}
+            />
+          ))}
+        </ol>
+        <SourcePartie source={commune} />
+      </div>
+    </Partie>
+  )
+}
+
+const LETTRES = 'ABCDEFGHIJ'
+
+// Plusieurs parties titrées : chacune reçoit une lettre et son intercalaire.
+function lettresDes(blocs) {
+  const titrees = blocs.filter((b) => b.titre && b.genre !== 'CONSEIL' && b.genre !== 'TEXTE')
+  if (titrees.length < 2) return blocs.map(() => null)
+  return blocs.map((b) => (titrees.includes(b) ? LETTRES[titrees.indexOf(b)] : null))
+}
+
+function Sommaire({ blocs, lettres }) {
+  const parties = blocs.map((bloc, i) => ({ bloc, lettre: lettres[i] })).filter((p) => p.lettre)
+  if (parties.length === 0) return null
+
+  return (
+    <nav aria-label="Sommaire du dossier" className="sommaire papier">
+      <span className="papier__ruban" aria-hidden="true" />
+      <p className="sommaire__titre">Sommaire du dossier</p>
+      <ol className="sommaire__liste">
+        {parties.map(({ bloc, lettre }) => (
+          <li key={lettre}>
+            <a href={`#partie-${lettre}`} className="sommaire__lien">
+              <span className="sommaire__lettre">{lettre}</span>
+              <span className="sommaire__nom">{bloc.titre}</span>
+              <span className="sommaire__compte">{bloc.entrees?.length ?? 0}</span>
+            </a>
+          </li>
         ))}
       </ol>
-    </div>
+    </nav>
   )
 }
 
 function Tableau({ blocs }) {
   const { tableau, epingler, fils } = useFilRouge({ enChaine: true })
+  const lettres = lettresDes(blocs)
 
   return (
-    <div ref={tableau} className="chapitre__tableau">
-      <FilsRouges fils={fils} />
-      {blocs.map((bloc, i) => (
-        <Bloc key={i} id={`b${i}`} bloc={bloc} epingler={epingler} />
-      ))}
-    </div>
+    <>
+      <Sommaire blocs={blocs} lettres={lettres} />
+      <div ref={tableau} className="chapitre__tableau">
+        <FilsRouges fils={fils} />
+        {blocs.map((bloc, i) => (
+          <Bloc key={i} id={`b${i}`} bloc={bloc} lettre={lettres[i]} epingler={epingler} />
+        ))}
+      </div>
+    </>
   )
 }
 
@@ -282,7 +396,7 @@ export default function LearnScreen() {
         <p className="etiquette learn-hero__eyebrow">Ressources</p>
         <h1 className="learn-hero__title">Ce qu'il faut savoir avant de partager.</h1>
         <p className="learn-hero__lead">
-          Huit thèmes courts, chacun lisible en deux minutes, avec des cas réels
+          Des dossiers courts, chacun lisible en deux minutes, avec des cas réels
           et leurs sources.
         </p>
       </Banniere>

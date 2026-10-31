@@ -1,6 +1,6 @@
 # CTRL INFO — Spécification
 
-> Seule documentation du projet. Mise à jour : 29/10/2026.
+> Seule documentation du projet. Mise à jour : 31/10/2026.
 > À modifier à chaque changement notable. L'historique est dans [JOURNAL.md](JOURNAL.md).
 
 ## 1. Le projet
@@ -37,21 +37,27 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 
 | Adresse | Écran | Contenu |
 | --- | --- | --- |
-| `/` | Accueil | stories (sites où vérifier une info), tableau d'enquête avec la vidéo du projet, brève du jour |
+| `/` | Accueil | stories (sites où vérifier une info), tableau d'enquête avec la vidéo du projet (« Comprendre d'abord » y descend), brève du jour |
 | `/fil` | Fil d'actualité | le jeu principal |
 | `/conversations` | Messages | un fil par contact, le joueur choisit ses réponses |
-| `/ressources` | Ressources | 8 thèmes, 12 sites utiles (vérifier, se protéger des arnaques, comprendre) |
+| `/ressources` | Ressources | 10 dossiers sourcés, dont « Repérer une fake news », « Désinformer pour manipuler l'opinion » et « Les outils pour vérifier » |
 | `/profil` | Profil | statistiques, avatar, code de sauvegarde, compagnon |
 | `/mentions-legales` | Mentions légales | éditeur, hébergeur, données, accessibilité, propriété |
 
 **Fil d'actualité**
-- Lots de 5 posts par niveau, tirés parmi les inédits.
+- Lots de 5 posts par niveau, tirés parmi les inédits. Jamais le vrai et le
+  faux d'un même fait dans un lot ; un sujet vu dans les 30 derniers posts
+  passe après les autres.
 - Niveau 1 sans chrono, puis 60, 40, 30 et 25 s. Au-delà du niveau 5, le chrono
   raccourcit encore, sans passer sous le temps de lecture. Le chrono porte la
   courbe de difficulté (théorie du flow) : c'est une limite de temps
   essentielle au sens du RGAA (§ 9).
-- Boutons « J'aime » / « Partager » (= partager) et « Signaler ». Laisser
-  filer le chrono = ignorer.
+- Boutons « J'aime » / « Partager » (= partager), « Ignorer » et « Signaler ».
+  Laisser filer le chrono revient à ignorer. Ignorer n'est jamais la bonne
+  réponse : un vrai se partage, un faux se signale.
+- Le verdict dit la conséquence du geste : rien de faux n'a circulé (vrai),
+  d'autres peuvent y croire (fake news partagée ou ignorée), merci d'avoir
+  signalé. On passe au post suivant avec le bouton « Continuer ».
 - Trois sortes de faux, dans chaque niveau :
   - **les pièges des Ressources** : urgence, autorité inventée, peur, faux
     expert, chiffre sans base, fausse corrélation, photo prise ailleurs, post
@@ -64,14 +70,18 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 - Vrais et faux sont publiés par les mêmes types de comptes, avec les mêmes
   voix (ado, parent, page de quiz, alarmiste…).
 - Un post fait quelques phrases : d'où vient l'info, une question aux abonnés,
-  la source dite comme on la dit (« je l'ai vu sur Wikipédia »), jamais « Source : ».
+  la source dite comme on la dit (« je l'ai vu sur le site d'Endemia »), jamais « Source : ».
 - Les commentaires réagissent au sujet, au lieu, à la façon d'écrire du compte ;
   sous un fait déformé, celui qui a vérifié rétablit le vrai.
 - Correction : une couleur par post, rouge pour une fake news, bleu pour un
   vrai ; repères numérotés sur le compte, le titre, le texte, la date ou la photo.
-- Environ un tiers d'articles : de vrais articles sous licence libre (The
-  Conversation, rubriques Sciences, Environnement et Éducation ; CNIL), titre
-  intact, et autant de faux de médias inventés.
+  Chaque correction donne le lien vers l'info dont parle le post (source du
+  fait, article, page officielle contre l'arnaque) ; pour un événement
+  inventé, elle dit qu'aucun article n'existe et renvoie vers une page fiable
+  qui explique le procédé (`SOURCES_PROCEDES`, `scripts/gabarits.mjs`).
+  Jamais de lien vers un outil : les outils ont leur dossier.
+- Quelques vrais articles de la CNIL, sous licence libre, titre intact, et des
+  faux articles de médias inventés.
 - Deux erreurs sur le même procédé insèrent son post d'entraînement.
 - Quand tout est vu, « Continuer à jouer » fabrique un nouveau lot dans le
   navigateur.
@@ -81,15 +91,20 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 Chaque choix donne une réplique du personnage et une explication. Une fake
 news se joue en 3 temps (ne pas transférer, chercher la source, corriger) ;
 une arnaque aussi (ne pas cliquer, vérifier qui est derrière, réparer si c'est
-trop tard). « Nouveau sujet » ouvre le suivant ; quand il n'y en a plus, le
+trop tard : c'est un proche du personnage qui est déjà tombé dans le piège).
+Chaque réponse dit son issue : « L'arnaque s'arrête ici », « … continue » ou
+« Les dégâts sont limités » ; la fin de la conversation donne le lien vers
+l'info ou la page officielle. « Nouveau sujet » ouvre le suivant ; quand il n'y en a plus, le
 navigateur en fabrique 10. Chaque contact a sa propre réserve (environ 75
 sujets) ; les 7 arnaques sont communes, une seule par contact. Une pastille
 signale les contacts jamais ouverts : point rouge dans la liste, nombre sur
-l'onglet Messages (barre du bas et menu du haut).
+l'onglet Messages (barre du bas et menu du haut). On quitte les Messages sans
+confirmation ; seul le fil demande « Déjà fini ? ».
 
 **Compagnon** : un cagou en pixel art qui commente l'écran et réagit aux coups.
 Il évite le texte, se range pendant une partie, se déplace à la main et se
-désactive depuis le profil. Il reste immobile si le système demande de réduire
+désactive depuis le profil. Rangé par défaut sur téléphone (on le remet
+depuis le profil). Il reste immobile si le système demande de réduire
 les animations.
 
 ## 4. Architecture
@@ -153,7 +168,9 @@ Où se trouve chaque partie dans le code :
     navigateur (« Continuer à jouer », « Nouveau sujet »), 120 de chaque au
     plus, les plus anciens effacés d'abord ; relus au chargement, seules les
     fabrications locales bien formées passent ;
-  - réglages du cagou (affiché, position) et écrans déjà présentés.
+  - `ctrl-info:taille-texte` : taille du texte choisie dans le profil ;
+  - réglages du cagou (affiché, position ; rangé par défaut sur téléphone) et
+    écrans déjà présentés.
   Le code de sauvegarde (Profil) emporte pseudo, avatar, niveau, scores et
   résultats des conversations ; pas la liste des posts vus, ni les
   conversations en cours, ni les posts fabriqués : un autre appareil en
@@ -179,10 +196,12 @@ virgules), ou passer par l'administration. Puis `npm run verifier` et `npm test`
 
 **Ajouter un fait, pas à pas** (c'est le seul moyen de vraiment renouveler le jeu)
 1. Trouver le fait sur une **source première** : gouv.nc, ISEE, Endemia,
-   Météo-France NC, UNESCO… Wikipédia en dernier recours. Citer un fait
+   Météo-France NC, UNESCO, IEOM, Ifremer… **Jamais Wikipédia** (`npm test` le
+   refuse). Citer un fait
    reformulé avec un lien est libre : aucune licence n'est nécessaire.
 2. Écrire `vrai`, `faux` (un seul détail changé, sans danger s'il circulait),
-   `source: { nom, url }`, `theme`.
+   `source: { nom, url, article }`, `theme`. `article` (« le », « la », « l’ »)
+   sert aux phrases du post : « sur le site du ministère de la Culture ».
 3. Photo (facultative) : sur Wikimedia Commons, domaine public, CC0, CC BY ou
    CC BY-SA, sans visage reconnaissable. L'enregistrer dans
    `public/images/faits/<id>.jpg`, lancer `npm run images` (réduit le poids et
@@ -202,9 +221,22 @@ de guillemets imbriqués) et le générateur lui crée son post d'entraînement.
 **Règles**
 - Un fait est vrai, sourcé, sans personne vivante, sans politique, coutume ni
   santé.
-- Un événement inventé ne cite aucune personne, entreprise ni institution réelle.
+- Un événement inventé ne cite aucune personne, entreprise ni institution réelle,
+  et ne ressemble pas à une pub (commerce, produit à acheter).
+- On vise le discours complotiste, pas les militants : les comptes du niveau 2
+  sont des pages complotistes, jamais « militantes ».
 - Un nom de compte, de page ou de média inventé ne doit pas exister : vérifier
   que son adresse n'est pas enregistrée (`nslookup nom.info` doit échouer).
+- **Ressources et brèves** : chaque affirmation a sa source (`source: { texte,
+  url }` sur la pièce, `sources` sur un texte, `lien` pour un outil), d'un
+  organisme public, d'une étude ou d'un média reconnu, **jamais Wikipédia**.
+  `npm test` refuse une pièce sans source.
+- **Mise en page d'un dossier** : dès deux listes titrées, chacune devient une
+  partie lettrée (A, B…) avec son intercalaire, qui reste en haut de l'écran
+  pendant la lecture ; un sommaire ouvre le dossier ; les pièces sont
+  numérotées A1, A2… et le fil rouge ne relie que les pièces d'une même
+  partie. Si toutes les pièces d'une partie ont la même source, elle est citée
+  une fois, en fin de partie.
 - Photos : avec `alt` et crédit, affiché sous la photo dans la correction
   seulement : **jamais dans le fil ni dans les mentions légales** (celles-ci
   disent seulement que les crédits sont dans la correction). `npm run verifier` refuse une photo sans crédit.
@@ -291,7 +323,8 @@ sur le serveur**, sinon il reste en ligne. En cas de fuite, changer aussi les
 mots de passe.
 
 Sur un serveur de build sans `config.local.json`, les variables `ADMIN_PATH`
-et `ADMIN_HTPASSWD` remplacent le fichier.
+et `ADMIN_HTPASSWD` remplacent le fichier. Sous Windows, les régler dans
+PowerShell : Git Bash transforme le chemin du `.htpasswd` et le build échoue.
 
 **À savoir**
 - Chaque enregistrement est noté dans `journal.log` (date, compte, fichier,
@@ -353,7 +386,9 @@ secret vu dans un commit est considéré comme volé. Aucune erreur technique
 n'est montrée (erreurs PHP masquées, version du serveur cachée).
 
 **Accessibilité** (RGAA 4.1, visé AA, non audité) : lien « Aller au contenu »,
-tout se joue au clavier, zones défilantes atteignables, contrastes AA,
+taille du texte réglable au curseur dans le profil (90 à 150 % ; les
+onglets du bas gardent leur taille), fenêtres qui tiennent dans l'écran avec
+leur bouton visible, tout se joue au clavier, zones défilantes atteignables, contrastes AA,
 animations arrêtées si le système le demande, chrono annoncé aux lecteurs
 d'écran au dernier tiers. Le chrono est une exception assumée (critère 13.1,
 limite essentielle au jeu), décrite dans les mentions légales. `npm run
@@ -366,7 +401,8 @@ qui régresse fait échouer les contrôles.
   `journal.log` sans anomalie.
 - Départ d'une personne : retirer son compte (`htpasswd -D`), changer les accès
   FTP et le secret, retirer son accès au dépôt.
-- Chaque année : changer les mots de passe.
+- Chaque année : changer les mots de passe, et ouvrir les liens des sources
+  (Ressources, faits, procédés) : remplacer ceux qui ne répondent plus.
 
 | Incident | Premier geste |
 | --- | --- |
@@ -381,12 +417,18 @@ l'admin, archiver le dépôt. Le site statique continue seul.
 
 ## 10. Limites connues
 
-- 57 faits et 40 événements : chaque fait sert au plus deux fois dans le
+- Les liens des sources ne sont vérifiés qu'à la main (§ 9, chaque année) :
+  `npm test` vérifie qu'il y en a un, pas qu'il répond.
+- Pas d'édition directement sur les pages du site : on modifie le contenu par
+  le formulaire d'administration (Apache seulement, § 7) ou dans GitHub.
+- `npm audit` signale des failles modérées dans ESLint (outil de
+  développement, absent du site publié) ; `npm audit --omit=dev` : 0.
+- 49 faits et 36 événements : chaque fait sert au plus deux fois dans le
   contenu fixe, mais un joueur assidu qui « continue à jouer » les revoit.
-- 44 faits sur 57 ont encore Wikipédia pour source ; les 13 autres ont une
-  source première (UNESCO, ISEE, Endemia, gouv.nc, CNIL, Académie des langues
-  kanak). La page de l'UNESCO
-  refuse les robots et se vérifie à la main.
+- Aucun des 49 faits n'a Wikipédia pour source ; 8 faits sans source fiable
+  ont été retirés. Deux sources ne sont ni calédoniennes ni premières : l'IRM
+  belge (cyclone à 26 °C) et Futura Sciences (lavabo). La page de l'UNESCO refuse les robots
+  et se vérifie à la main.
 - Deux cas réels des Ressources ont une source en anglais (le tigre, The
   Connexion ; le riz, Oman Observer) : pas d'équivalent français trouvé qui
   confirme tout le texte.

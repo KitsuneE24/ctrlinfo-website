@@ -4,6 +4,17 @@ import { getSession, saveSession } from '../state/conversationSessions'
 import { finirConversation } from '../state/progression'
 import { signalerAuCompagnon } from '../state/compagnonSignaux'
 import { texteSur } from '../lib/contraste'
+import { lienWeb } from '../lib/lienWeb'
+
+const domaine = (url) => new URL(url).hostname.replace(/^www\./, '')
+const majuscule = (texte) => texte.charAt(0).toUpperCase() + texte.slice(1)
+
+function issueDe(issue, mot) {
+  if (issue === 'stoppe') return `${mot} s’arrête ici`
+  if (issue === 'limite') return 'Les dégâts sont limités'
+  if (issue === 'continue') return `${mot} continue`
+  return null
+}
 
 const TYPING_BASE_MS = 700
 const TYPING_PER_CHAR_MS = 10
@@ -60,7 +71,8 @@ function TypingBubble() {
 }
 
 export default function ChatThread({ conversation, paused, onFinished, onBack, onNouveauSujet, suite = null, onRegles }) {
-  const { name, color, intro, steps, outro, groupe, contexte, participants } = conversation
+  const { name, color, intro, steps, outro, groupe, contexte, participants, lienInfo } = conversation
+  const mot = conversation.mot ?? 'Le piège'
 
   const entete = groupe ? contexte || name : name
 
@@ -117,7 +129,7 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
 
     const suite = [
       { text: choice.reply, auteur: steps[stepIdx].auteur, kind: 'message' },
-      { text: choice.explication, kind: 'explication', correct: choice.correct },
+      { text: choice.explication, kind: 'explication', correct: choice.correct, issue: issueDe(choice.issue, mot) },
     ]
 
     if (nextIdx < steps.length) {
@@ -185,9 +197,10 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
           onClick={onRegles}
           aria-label="Règles du jeu"
           title="Règles du jeu"
-          className="bouton-rond thread__regles"
+          className="bouton-regles thread__regles"
         >
-          <HelpCircle size={20} strokeWidth={2} />
+          <HelpCircle size={18} strokeWidth={2.2} aria-hidden="true" />
+          Règles
         </button>
       </header>
 
@@ -199,6 +212,9 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
                 key={i}
                 className={`note anim-monte${message.correct ? '' : ' note--wrong'}`}
               >
+                {message.issue && (
+                  <p className={`note__issue note__issue--${message.correct ? 'bon' : 'mauvais'}`}>{message.issue}</p>
+                )}
                 <p className="note__label">
                   <Lightbulb size={12} strokeWidth={2.5} />
                   Pourquoi
@@ -269,6 +285,15 @@ export default function ChatThread({ conversation, paused, onFinished, onBack, o
             <p className="thread__score-value">
               {score}/{steps.length} bons réflexes
             </p>
+            {lienWeb(lienInfo?.url) && (
+              <p className="thread__source">
+                <span className="thread__source-titre">{lienInfo.titre}</span>
+                <a href={lienInfo.url} target="_blank" rel="noopener noreferrer">
+                  {majuscule(lienInfo.nom)} ({domaine(lienInfo.url)})
+                  <span className="pour-lecteur"> (nouvel onglet)</span>
+                </a>
+              </p>
+            )}
             <div className="outcome__action">
               {suite === 'rien' ? (
                 <p className="thread__score-suite">Pas de nouveau sujet pour l’instant. Revenez demain !</p>

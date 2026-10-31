@@ -24,6 +24,22 @@ describe('contenu publié', () => {
     expect(fautifs).toEqual([])
   })
 
+  it('source chaque affirmation des Ressources et des brèves, jamais Wikipédia', () => {
+    const sourcee = (s) => /^https:\/\//.test(s?.url ?? '') && !/wikipedia/i.test(s.url)
+    const sansSource = []
+    for (const chapitre of contenu.chapitres) {
+      for (const bloc of chapitre.blocs) {
+        if (bloc.genre === 'TEXTE' && !(bloc.sources?.length && bloc.sources.every(sourcee))) sansSource.push(`${chapitre.id} : texte`)
+        for (const entree of bloc.entrees ?? []) {
+          const ok = sourcee(entree.source) || (entree.notes ?? []).some((n) => sourcee(n.source))
+          if (!ok) sansSource.push(`${chapitre.id} : ${entree.titre ?? entree.texte.slice(0, 40)}`)
+        }
+      }
+    }
+    for (const astuce of contenu.astuces) if (!sourcee(astuce.source)) sansSource.push(`brève ${astuce.id}`)
+    expect(sansSource).toEqual([])
+  })
+
   it('n’a aucun lien externe en http simple', () => {
     const http = JSON.stringify(contenu).match(/"http:\/\/[^"]+"/g) ?? []
     expect(http.filter((u) => !u.includes('creativecommons.org'))).toEqual([])

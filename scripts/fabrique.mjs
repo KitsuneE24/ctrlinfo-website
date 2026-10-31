@@ -15,6 +15,7 @@ import {
   PERSONNES,
   RELAIS_THEME,
   SCORES_FAUX,
+  SOURCES_PROCEDES,
   SCORES_VRAI,
   SOURCES_VAGUES,
   TEXTES_ARTICLE,
@@ -23,14 +24,15 @@ import {
   VRAI_MEDIA,
   VOIX,
   indice,
+  LaSource,
   indiceCorrection,
   surLeSite,
 } from './gabarits.mjs'
 import { ARNAQUES } from './arnaques.mjs'
-import { DISTRIBUTIONS, etapes, etapesArnaque, outro } from './gabarits-conversations.mjs'
+import { DISTRIBUTIONS, etapes, etapesArnaque, outro, outroArnaque } from './gabarits-conversations.mjs'
 import { composerCommentaires, tirage } from './commentaires.mjs'
 
-const AIDE = 'https://www.clemi.fr/'
+const domaineDe = (url) => new URL(url).hostname.replace(/^www\./, '')
 
 export const PROCEDES = [...CATEGORIES, ...ARNAQUES.map((a) => a.categorie)]
 
@@ -102,7 +104,7 @@ const casser = (texte, casse) =>
 
 const enMinuscule = (texte) => (DEBUTS_COMMUNS.test(texte) ? texte[0].toLocaleLowerCase('fr-FR') + texte.slice(1) : texte)
 
-const CRIENT = new Set(['alarmiste', 'militant', 'informe'])
+const CRIENT = new Set(['alarmiste', 'complotiste', 'informe'])
 
 function parler({ voix, graine, titre, phrase = '', suite = '', source = null, theme, actu = false }) {
   const v = VOIX[voix]
@@ -131,7 +133,7 @@ export const basesDe = ({ faits = [], scenarios = [] } = {}) => [
   ...ARNAQUES.map((a) => a.base),
 ]
 
-// Au moins deux arnaques par niveau : ce sont les pièges les plus courants.
+// Au moins deux arnaques par niveau.
 const ARNAQUES_PAR_NIVEAU = 2
 
 export function prochainVrai(pris, niveau, faits = []) {
@@ -146,7 +148,7 @@ export function prochainVrai(pris, niveau, faits = []) {
     )[0] ?? null
 }
 
-export function fabriquerVrai(fait, niveau, { aideUrl, maintenant = new Date().toISOString(), prefixe = 'vrai' } = {}) {
+export function fabriquerVrai(fait, niveau, { maintenant = new Date().toISOString(), prefixe = 'vrai' } = {}) {
   const slug = `${prefixe}-${fait.id}-${niveau}`
   const graine = graineDe(slug)
   const genre = genreAuteur(graine)
@@ -161,7 +163,7 @@ export function fabriquerVrai(fait, niveau, { aideUrl, maintenant = new Date().t
           voix,
           graine,
           titre: sansPoint(fait.vrai),
-          source: (graine >>> 9) % 2 === 0 ? surLeSite(fait.source.nom) : null,
+          source: (graine >>> 9) % 2 === 0 ? surLeSite(fait.source) : null,
           theme: fait.theme,
         })
   const photo = illustration(fait.image, graine)
@@ -169,7 +171,6 @@ export function fabriquerVrai(fait, niveau, { aideUrl, maintenant = new Date().t
     ...engagement(),
     date: dateIlYa(ilYa(graine), maintenant),
     ilYa: ilYa(graine),
-    learnMoreTips: aideUrl ?? AIDE,
     origine: 'fiction',
     ...(genre === 'media' ? { format: 'article' } : {}),
     recolteLe: maintenant,
@@ -180,7 +181,7 @@ export function fabriquerVrai(fait, niveau, { aideUrl, maintenant = new Date().t
     sourceColor: couleur,
     domain: pseudo,
     titre: ecrit ? ecrit.titre : sansPoint(fait.vrai),
-    texte: ecrit ? ecrit.texte : TEXTES_ARTICLE.vrai[(graine >>> 8) % TEXTES_ARTICLE.vrai.length]({ journaliste, source: fait.source.nom }),
+    texte: ecrit ? ecrit.texte : TEXTES_ARTICLE.vrai[(graine >>> 8) % TEXTES_ARTICLE.vrai.length]({ journaliste, source: fait.source }),
     isFake: false,
     level: niveau,
     correctAction: 'share',
@@ -201,12 +202,11 @@ export function fabriquerVrai(fait, niveau, { aideUrl, maintenant = new Date().t
     warning: 'Attention : cette information était vraie, et sa source se vérifie en une recherche.',
     consequences: CONSEQUENCES_VRAI,
     scores: SCORES_VRAI,
-    sourceUrl: fait.source.url,
-    learnMoreUrl: fait.source.url,
+    lienInfo: { titre: 'La source de cette info', nom: LaSource(fait.source), url: fait.source.url },
   }
 }
 
-export function fabriquerArticle(article, niveau, { aideUrl, maintenant = new Date().toISOString() } = {}) {
+export function fabriquerArticle(article, niveau, { maintenant = new Date().toISOString() } = {}) {
   const slug = `article-${empreinte(article.url)}`
   const graine = graineDe(slug)
   const a = {
@@ -220,7 +220,6 @@ export function fabriquerArticle(article, niveau, { aideUrl, maintenant = new Da
   return {
     ...engagement(),
     date: a.date,
-    learnMoreTips: aideUrl ?? AIDE,
     origine: 'article',
     format: 'article',
     recolteLe: maintenant,
@@ -252,8 +251,7 @@ export function fabriquerArticle(article, niveau, { aideUrl, maintenant = new Da
     warning: 'Attention : cet article venait d’un média identifiable, signé et daté.',
     consequences: CONSEQUENCES_VRAI,
     scores: SCORES_VRAI,
-    sourceUrl: article.url,
-    learnMoreUrl: article.url,
+    lienInfo: { titre: 'L’article complet', nom: a.editeur, url: article.url },
   }
 }
 
@@ -264,7 +262,7 @@ export function prochainFaux(pris, niveau, banques) {
   const basesPartout = compter(pris, (p) => p.scenario)
   const biaisNiveau = compter(duNiveau, (p) => p.biais)
   const arnaquesAvant = duNiveau.filter((p) => p.scenario?.startsWith('arnaque-')).length < ARNAQUES_PAR_NIVEAU
-  // Le fait au détail changé est le piège le plus subtil : une place par niveau, deux dès le niveau 3.
+  // Fait au détail changé : une place par niveau, deux dès le niveau 3.
   const deformesAvant = (biaisNiveau.get(FAIT_DEFORME.biais) ?? 0) < (niveau >= 3 ? 2 : 1)
 
   // Toutes les paires (base, procédé) possibles ; la plus neuve à ce niveau l'emporte.
@@ -290,7 +288,7 @@ export function prochainFaux(pris, niveau, banques) {
 
 const valeur = (v, base) => (typeof v === 'function' ? v(base) : v)
 
-export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = new Date().toISOString(), prefixe = 'faux', media, photo: avecPhoto = true } = {}) {
+export function fabriquerFaux(base, categorie, niveau, { maintenant = new Date().toISOString(), prefixe = 'faux', media, photo: avecPhoto = true } = {}) {
   const slug = `${prefixe}-${base.id}-${niveau}-${empreinte(categorie.biais)}`
   const graine = graineDe(slug)
   const arnaque = Boolean(base.arnaque)
@@ -352,7 +350,6 @@ export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = n
     ...(categorie.sponsorise ? { sponsorise: true } : {}),
     date: dateIlYa(ilYa(graine, categorie.ancienne), maintenant),
     ilYa: ilYa(graine, categorie.ancienne),
-    learnMoreTips: aideUrl ?? AIDE,
     origine: 'fiction',
     ...(enMedia ? { format: 'article' } : {}),
     recolteLe: maintenant,
@@ -394,8 +391,13 @@ export function fabriquerFaux(base, categorie, niveau, { aideUrl, maintenant = n
     warning: `Le procédé employé ici s'appelle « ${categorie.biais.toLowerCase()} ». Il fonctionne d'autant mieux qu'on est pressé.`,
     consequences: CONSEQUENCES_FAUX,
     scores: SCORES_FAUX,
-    sourceUrl: null,
-    learnMoreUrl: fait?.source.url ?? categorie.aide ?? aideUrl ?? AIDE,
+    lienInfo: fait
+      ? { titre: 'La vraie info', nom: LaSource(fait.source), url: fait.source.url }
+      : arnaque && categorie.aide
+        ? { titre: 'Se protéger de cette arnaque', nom: domaineDe(categorie.aide), url: categorie.aide }
+        : SOURCES_PROCEDES[categorie.biais]
+          ? { titre: 'Ce procédé expliqué', ...SOURCES_PROCEDES[categorie.biais], invente: true }
+          : null,
   }
 }
 
@@ -425,11 +427,12 @@ export function fabriquerConversation(post, gabarit, distribution, options = {})
     color: lanceur.couleur,
     groupe,
     ...(groupe ? { contexte: distribution.nom } : {}),
-    etapes: steps.length,
     participants: groupe ? [lanceur, soutien] : [lanceur],
     intro: [],
     steps,
-    outro,
+    outro: gabarit.conseil ? outroArnaque : outro,
+    mot: gabarit.mot ?? (gabarit.conseil ? 'L’arnaque' : 'La fake news'),
+    ...(post.lienInfo ? { lienInfo: post.lienInfo } : {}),
     origine: 'fiction',
     scenario: post.scenario,
     biais: post.biais,

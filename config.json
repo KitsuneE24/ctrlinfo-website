@@ -13,39 +13,6 @@
       "part": 0.25,
       "flux": [
         {
-          "nom": "The Conversation",
-          "editeur": "The Conversation France",
-          "url": "https://theconversation.com/fr/technologie/articles.atom",
-          "licence": {
-            "nom": "CC BY-ND 4.0",
-            "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
-          },
-          "actif": true,
-          "rubrique": "Sciences et technologie"
-        },
-        {
-          "nom": "The Conversation",
-          "editeur": "The Conversation France",
-          "url": "https://theconversation.com/fr/environnement/articles.atom",
-          "licence": {
-            "nom": "CC BY-ND 4.0",
-            "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
-          },
-          "actif": true,
-          "rubrique": "Environnement"
-        },
-        {
-          "nom": "The Conversation",
-          "editeur": "The Conversation France",
-          "url": "https://theconversation.com/fr/education/articles.atom",
-          "licence": {
-            "nom": "CC BY-ND 4.0",
-            "url": "https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
-          },
-          "actif": true,
-          "rubrique": "Éducation"
-        },
-        {
           "nom": "CNIL",
           "editeur": "Commission nationale de l’informatique et des libertés",
           "url": "https://www.cnil.fr/fr/rss.xml",

@@ -68,14 +68,23 @@ const RASSURE = [
   'Mais la page a un logo et tout, ça fait officiel.',
   'Mais plein de gens l’ont partagé, ça ne peut pas être faux.',
 ]
+// Un proche du personnage est déjà tombé dans le piège : le joueur aide à limiter les dégâts.
 const TROP_TARD = [
-  'Euh… j’ai déjà fait ce qu’ils demandaient 😬 Je fais quoi ?',
-  'Trop tard, j’ai déjà rempli le formulaire 🙈 On fait quoi ?',
-  'Aïe, j’ai déjà répondu… Je rattrape comment ?',
+  (fait) => `Par contre, ma cousine a déjà ${fait} hier 😬 Elle fait quoi ?`,
+  (fait) => `Le souci, c’est que ma voisine a déjà ${fait}… Elle fait quoi maintenant ?`,
+  (fait) => `Ma sœur, elle, a déjà ${fait} 🙈 On lui dit quoi ?`,
+]
+const DEJA_TOMBE = [
+  'Ma cousine l’a vu passer aussi…',
+  'Il y en a qui ont déjà répondu, j’ai vu les commentaires.',
+  'Ma voisine m’en a parlé ce matin.',
 ]
 
-// Déroulé des arnaques : ne pas agir, vérifier, puis réparer si c'est trop tard.
+const majuscule = (texte) => texte.charAt(0).toUpperCase() + texte.slice(1)
+
+// `issue` : ce que la réponse change. stoppe = le piège s’arrête, continue = il avance, limite = dégâts limités.
 export function etapesArnaque({ post, gabarit, lanceur, soutien, variante = 0 }) {
+  const { fait, stoppe, risque, limite } = gabarit
   return [
     {
       messages: [
@@ -87,20 +96,23 @@ export function etapesArnaque({ post, gabarit, lanceur, soutien, variante = 0 })
         {
           text: 'Vas-y, tu n’as rien à perdre.',
           correct: false,
+          issue: 'continue',
           reply: 'Ok, j’y vais 🤞',
-          explication: `Dans une arnaque, on a toujours quelque chose à perdre : de l’argent, ses codes ou son compte. Ici, c’est ${gabarit.ajout}.`,
+          explication: `Dans une arnaque, on a toujours quelque chose à perdre. Ici, ${risque}.`,
         },
         {
           text: gabarit.conseil,
           correct: true,
+          issue: 'stoppe',
           reply: 'Ah… ok, j’attends alors.',
-          explication: 'S’arrêter avant de cliquer, payer ou envoyer un code : c’est le réflexe qui déjoue presque toutes les arnaques.',
+          explication: `${majuscule(stoppe)}. S’arrêter avant de cliquer, de payer ou d’envoyer un code : c’est le premier réflexe.`,
         },
         {
           text: 'Franchement, il faut être naïf pour tomber là-dedans.',
           correct: false,
+          issue: 'continue',
           reply: 'Merci… Je vais le faire quand même, tu n’as rien expliqué.',
-          explication: 'Tout le monde peut se faire avoir, surtout quand le piège est bien fait. Se moquer n’aide pas : expliquer, oui.',
+          explication: `Se moquer n’arrête rien : votre ami le fait quand même. Tout le monde peut se faire avoir, et ici, ${risque}.`,
         },
       ],
     },
@@ -110,46 +122,52 @@ export function etapesArnaque({ post, gabarit, lanceur, soutien, variante = 0 })
         {
           text: 'C’est vrai, s’il y a des likes, c’est fiable.',
           correct: false,
+          issue: 'continue',
           reply: 'Tu vois !',
-          explication: 'Likes, logo et commentaires se fabriquent ou s’achètent. Ils ne disent rien de qui est derrière.',
+          explication: `Likes, logo et commentaires s’achètent ou se copient : ils ne disent pas qui est derrière. Votre ami repart vers le piège : ${risque}.`,
         },
         {
           text: gabarit.verifier,
           correct: true,
-          reply: 'Ah oui, je n’avais pas regardé ça.',
-          explication: `C’est un piège connu : ${gabarit.biais.toLowerCase()}. Vérifier qui est derrière prend une minute.`,
+          issue: 'stoppe',
+          reply: 'Ah oui, je n’avais pas regardé ça. Je laisse tomber.',
+          explication: `Votre ami a vu qui est derrière : il ne fera rien. C’est un piège connu : ${gabarit.biais.toLowerCase()}.`,
         },
         {
           text: 'De toute façon, tout est arnaque sur internet.',
           correct: false,
-          reply: 'Donc on ne peut plus rien faire en ligne ? Super…',
-          explication: 'Tout rejeter n’aide pas à reconnaître les vrais pièges. Le bon réflexe est de vérifier qui est derrière.',
+          issue: 'continue',
+          reply: 'Donc on ne peut plus rien faire en ligne ? Bon, j’essaie quand même…',
+          explication: 'Tout rejeter n’aide pas à reconnaître ce piège-là : votre ami ne sait toujours pas pourquoi c’en est un. Le bon réflexe est de vérifier qui est derrière.',
         },
       ],
     },
     {
       messages: [
-        soutien && [soutien, 'Moi j’ai déjà répondu hier 🙈'],
-        [lanceur, parmi(TROP_TARD, variante + 2)],
+        soutien && [soutien, parmi(DEJA_TOMBE, variante + 2)],
+        [lanceur, parmi(TROP_TARD, variante + 2)(fait)],
       ],
       choix: [
         {
           text: gabarit.reparer,
           correct: true,
-          reply: 'Ok, je fais ça tout de suite.',
-          explication: 'Agir vite limite les dégâts : bloquer, changer ses accès, signaler. Et prévenir les autres évite qu’ils tombent dans le même piège.',
+          issue: 'limite',
+          reply: 'Ok, je lui dis tout de suite.',
+          explication: `${majuscule(limite)}. Plus c’est fait tôt, mieux c’est.`,
         },
         {
           text: 'Pas de panique, ça va sûrement s’arranger tout seul.',
           correct: false,
-          reply: 'Bon… j’attends alors.',
-          explication: 'Une arnaque ne s’arrange pas seule : chaque heure compte pour bloquer une carte ou récupérer un compte.',
+          issue: 'continue',
+          reply: 'Bon… je lui dis d’attendre.',
+          explication: `Une arnaque ne s’arrange pas seule : ${risque}. Chaque heure compte.`,
         },
         {
-          text: 'Supprime juste le message, et n’en parle à personne.',
+          text: 'Qu’elle supprime le message, et qu’elle n’en parle à personne.',
           correct: false,
-          reply: 'Supprimé. Mais ils ont déjà mes infos…',
-          explication: 'Supprimer n’efface pas ce qui a été envoyé. Il faut bloquer, changer ses accès, et signaler.',
+          issue: 'continue',
+          reply: 'Ok… mais ils ont déjà ce qu’elle a envoyé.',
+          explication: `Supprimer n’efface pas ce qui a été envoyé : ${risque}. Il faut agir, puis signaler.`,
         },
       ],
     },
@@ -190,6 +208,7 @@ export function etapes({ post, gabarit, lanceur, soutien, variante = 0 }) {
         {
           text: 'Oui, envoie, au cas où.',
           correct: false,
+          issue: 'continue',
           reply: 'Ok, je l’envoie partout 📤',
           explication:
             '« Au cas où » fait circuler la plupart des fake news : chaque transfert de bonne foi lui donne la caution de quelqu’un qu’on connaît.',
@@ -197,6 +216,7 @@ export function etapes({ post, gabarit, lanceur, soutien, variante = 0 }) {
         {
           text: `Attends : ${post.source}, c’est qui ? On cherche une source sérieuse ?`,
           correct: true,
+          issue: 'stoppe',
           reply: 'Bonne idée, je cherche…',
           explication:
             'Remonter à la source avant de partager : c’est le premier réflexe, et il prend une minute. Si c’est vrai, une source sérieuse le dit aussi.',
@@ -204,6 +224,7 @@ export function etapes({ post, gabarit, lanceur, soutien, variante = 0 }) {
         {
           text: 'C’est encore une fake news, t’es trop crédule.',
           correct: false,
+          issue: 'continue',
           reply: 'Merci, sympa… Je l’envoie quand même, tu n’as même pas regardé.',
           explication:
             'Se moquer ferme la discussion. La personne se braque et partagera ailleurs, là où personne ne la contredira.',
@@ -216,18 +237,21 @@ export function etapes({ post, gabarit, lanceur, soutien, variante = 0 }) {
         {
           text: 'Oui, s’ils l’ont écrit, c’est que c’est vrai.',
           correct: false,
+          issue: 'continue',
           reply: 'Tu vois ! Donc je peux partager.',
           explication: `Avoir l’air sérieux ne suffit pas. Ici, personne d’autre n’en parle, et le post ajoute ${gabarit.ajout}.`,
         },
         {
           text: `Si aucune source sérieuse ne le dit, c’est un signal. Et le post ajoute ${gabarit.ajout}.`,
           correct: true,
+          issue: 'stoppe',
           reply: 'Ah oui… je ne l’avais pas vu comme ça.',
           explication: `Une info qu’aucune source sérieuse ne confirme, plus un procédé pour faire réagir : c’est ce qu’on appelle ${gabarit.biais.toLowerCase()}.`,
         },
         {
           text: 'De toute façon, tout est faux sur internet.',
           correct: false,
+          issue: 'continue',
           reply: 'Donc je ne peux plus rien croire ? Super…',
           explication:
             'Tout rejeter, c’est se tromper dans l’autre sens. Le bon réflexe est de vérifier, pas de ne plus rien croire.',
@@ -243,6 +267,7 @@ export function etapes({ post, gabarit, lanceur, soutien, variante = 0 }) {
         {
           text: 'Écris-leur que tu n’as trouvé aucune source sérieuse, et pourquoi.',
           correct: true,
+          issue: 'limite',
           reply: 'Ok, je fais ça, et j’explique pourquoi.',
           explication:
             'Corriger auprès des mêmes personnes, en expliquant ce qui manque, c’est réparer le partage.',
@@ -250,6 +275,7 @@ export function etapes({ post, gabarit, lanceur, soutien, variante = 0 }) {
         {
           text: 'Supprime le message, personne ne verra rien.',
           correct: false,
+          issue: 'continue',
           reply: 'Supprimé. Mais eux l’ont déjà lu…',
           explication:
             'Supprimer ne rattrape pas ceux qui ont déjà lu. Sans correction, ils restent sur la mauvaise version et peuvent la transférer.',
@@ -257,6 +283,7 @@ export function etapes({ post, gabarit, lanceur, soutien, variante = 0 }) {
         {
           text: 'Laisse, ce n’est pas bien grave.',
           correct: false,
+          issue: 'continue',
           reply: 'Bon, tant pis alors.',
           explication:
             'Un post trompeur circule tant que personne ne le corrige. Celui qui l’a envoyé est le mieux placé pour le faire.',
@@ -264,6 +291,11 @@ export function etapes({ post, gabarit, lanceur, soutien, variante = 0 }) {
       ],
     },
   ]
+}
+
+export const outroArnaque = {
+  high: 'Bien joué : le piège n’est pas allé plus loin, et vous avez su quoi faire quand c’était trop tard. Le réflexe : ne rien payer ni envoyer avant de savoir qui est derrière.',
+  low: 'Pas facile cette fois. Le réflexe à retenir : devant une offre ou une demande pressante, on ne clique pas, on ne paie pas, on ne donne aucun code, et on vérifie qui est derrière.',
 }
 
 export const outro = {

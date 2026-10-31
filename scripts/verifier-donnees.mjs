@@ -116,7 +116,7 @@ if (contenu && Array.isArray(vrais) && Array.isArray(faux)) {
 
 const SCHEMA = /^\s*([a-z][a-z0-9+.-]*):/i
 const SCHEMAS_PERMIS = ['http', 'https', 'mailto']
-const CLES_ADRESSE = /^(url|href|image|couverture|sourceUrl|learnMoreUrl|learnMoreTips)$/
+const CLES_ADRESSE = /^(url|href|image|couverture)$/
 const adresseRefusee = (v) => {
   const schema = SCHEMA.exec(v)?.[1].toLowerCase()
   return schema !== undefined && !SCHEMAS_PERMIS.includes(schema)

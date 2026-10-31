@@ -4,6 +4,9 @@ import { BrowserRouter } from 'react-router'
 import './css/index.css'
 import App from './App.jsx'
 import Rattrapage from './components/ui/Rattrapage.jsx'
+import { appliquerTailleTexte } from './state/tailleTexte.js'
+
+appliquerTailleTexte()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

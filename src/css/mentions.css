@@ -6,7 +6,7 @@
   .mentions__titre {
     margin: 8px 0 4px;
     font-family: var(--font-title);
-    font-size: 40px;
+    font-size: calc(40px * var(--echelle-texte, 1));
     font-weight: 400;
     line-height: 1.1;
   }

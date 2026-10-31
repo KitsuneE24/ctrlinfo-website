@@ -32,7 +32,6 @@ export default function AppHeader() {
             alt=""
             className="app-header__logo"
           />
-          <span className="app-header__name">CTRL INFO</span>
         </Link>
 
         <nav aria-label="Navigation principale" className="app-header__nav">

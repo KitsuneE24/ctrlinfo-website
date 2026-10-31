@@ -6,6 +6,7 @@ import { useRessource } from '../lib/useRessource'
 import { markSeenToday, seenToday } from '../lib/premiereFois'
 import { chapterPath } from '../routes'
 import CadreCagou from './CadreCagou'
+import { lienWeb } from '../lib/lienWeb'
 
 const CLE = 'astuce-du-jour'
 
@@ -47,6 +48,14 @@ export default function DailyTip() {
 
           <h2 className="modal__title">Le saviez-vous&nbsp;?</h2>
           <p className="modal__text">{astuce.texte}</p>
+          {lienWeb(astuce.source?.url) && (
+            <p className="tip-card__source">
+              <a href={astuce.source.url} target="_blank" rel="noopener noreferrer">
+                Source : {astuce.source.texte}
+                <span className="pour-lecteur"> (nouvel onglet)</span>
+              </a>
+            </p>
+          )}
 
           <div className="modal__actions">
             {astuce.chapitre && (

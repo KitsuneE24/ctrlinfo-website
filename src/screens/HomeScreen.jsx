@@ -8,6 +8,7 @@ import StoryBar from '../components/StoryBar'
 import TableauEnquete from '../components/TableauEnquete'
 import DailyTip from '../components/DailyTip'
 import { PATHS } from '../routes'
+import { mouvementReduit } from '../lib/mouvement'
 
 const VIDEO_URL = '/video/SAE_501_Et_tout_le_monde_y_croit.mp4'
 
@@ -35,6 +36,14 @@ const LEVIERS = [
     rotation: -1.5,
   },
 ]
+
+function allerAuTableau(event) {
+  const cible = document.getElementById('tableau-enquete')
+  if (!cible) return
+  event.preventDefault()
+  cible.scrollIntoView({ behavior: mouvementReduit() ? 'auto' : 'smooth', block: 'start' })
+  cible.focus({ preventScroll: true })
+}
 
 function Zone({ numero, children, bleu = false, className = '' }) {
   return (
@@ -69,16 +78,16 @@ export default function HomeScreen() {
                 <ArrowRight size={18} strokeWidth={2.4} />
               </span>
             </Link>
-            <Link to={PATHS.resources} className="bouton hero__second">
+            <a href="#tableau-enquete" onClick={allerAuTableau} className="bouton hero__second">
               Comprendre d'abord
-            </Link>
+            </a>
           </div>
         </div>
       </Banniere>
 
       <StoryBar />
 
-      <section aria-labelledby="dossier-titre" className="dossier">
+      <section id="tableau-enquete" tabIndex={-1} aria-labelledby="dossier-titre" className="dossier">
         <div className="dossier__tete">
           <div className="dossier__intro">
             <p className="etiquette dossier__etiquette">Le dossier</p>
@@ -261,7 +270,7 @@ export default function HomeScreen() {
 
       <section className="home__fin">
         <Link to={PATHS.resources} className="bouton bouton--large">
-          Comprendre d'abord
+          Voir les ressources
         </Link>
       </section>
 

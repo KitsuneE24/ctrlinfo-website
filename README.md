@@ -1,5 +1,7 @@
 # CTRL INFO
 
+https://ctrlinfo-nc.netlify.app
+
 Jeu web de sensibilisation à la désinformation pour la Nouvelle-Calédonie.
 Site statique React 19 + Vite, sans compte ni donnée personnelle.
 

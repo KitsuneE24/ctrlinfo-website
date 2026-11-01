@@ -70,11 +70,11 @@ export default function AppShell() {
 
   const requestExit = useCallback(
     (to) => {
-      if (!enPartie) return true
+      if (!enPartie || gameId !== 'feed') return true
       setExitTo(to)
       return false
     },
-    [enPartie]
+    [enPartie, gameId]
   )
 
   const guard = useMemo(() => ({ requestExit }), [requestExit])

@@ -6,7 +6,7 @@ test('le fil : commencer, répondre, lire la correction, continuer', async ({ pa
   const signaler = page.getByRole('button', { name: 'Signaler' })
   await expect(signaler).toBeVisible()
   await signaler.click()
-  const continuer = page.getByRole('button', { name: /continuer/i }).first()
+  const continuer = page.getByRole('button', { name: /^continuer$/i })
   await expect(continuer).toBeVisible()
   await accessibilite(page)
   await continuer.click()

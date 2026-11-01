@@ -32,7 +32,7 @@ export default function TabBar() {
               <>
                 <span className="tab-bar__icone">
                   {id === 'profile' && avatar ? (
-                    <AvatarJoueur avatar={avatar} taille={32} />
+                    <AvatarJoueur avatar={avatar} taille={44} />
                   ) : (
                     <Icon size={22} strokeWidth={isActive ? 2.2 : 1.9} />
                   )}

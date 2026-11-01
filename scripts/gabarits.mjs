@@ -627,7 +627,7 @@ const introuvable = 'Aucune source sérieuse ne dit ça : cherchez avant de le c
 
 // Comment chaque profil écrit. Les vrais et les faux utilisent les mêmes voix.
 // `relais` : comment le profil a eu l'info (`fait` : un fait connu, `actu` : un événement).
-// `source(ou)` : la source dite dans une phrase ; `ou` vaut par exemple « sur Wikipédia ».
+// `source(ou)` : la source dite dans une phrase ; `ou` vaut par exemple « sur le site d’Endemia ».
 export const VOIX = {
   ado: {
     casse: 'min',
@@ -701,7 +701,7 @@ export const VOIX = {
     fins: ['PARTAGEZ !!!', 'FAITES TOURNER 🔴', 'AVANT QUE ÇA SOIT SUPPRIMÉ !!'],
     source: (ou) => `Vu ${ou} !!!`,
   },
-  militant: {
+  complotiste: {
     ouvertures: ['Réveillez-vous.', 'On ne vous le dira pas ailleurs :', 'Encore une fois :'],
     relais: {
       fait: ['Les grands médias n’en parleront pas, comme d’habitude.', 'Ce n’est pas la première fois.'],
@@ -737,10 +737,16 @@ export const RELAIS_THEME = {
   environnement: ['Chaque geste compte, franchement.', 'Ça donne envie de s’y mettre aussi.'],
 }
 
+// Source : { nom, article? } ; article vaut « le », « la », « l’ » ou rien.
 const sigle = (nom) => /^[A-ZÉ]{2,}$/.test(nom)
-const de = (nom) => (sigle(nom) ? 'de l’' : /^[aeiouyéèêàâîôû]/i.test(nom) ? 'd’' : 'de ')
-export const surLeSite = (nom) => (nom === 'Wikipédia' ? 'sur Wikipédia' : `sur le site ${de(nom)}${nom}`)
-export const dapres = (nom) => `D’après ${sigle(nom) ? 'l’' : ''}${nom}`
+const articleDe = (s) => s.article ?? (sigle(s.nom) ? 'l’' : '')
+const DE = { 'le ': 'du ', 'la ': 'de la ', 'l’': 'de l’' }
+const majuscule = (texte) => texte.charAt(0).toUpperCase() + texte.slice(1)
+const laSource = (s) => `${articleDe(s)}${s.nom}`
+export const LaSource = (s) => majuscule(laSource(s))
+export const surLeSite = (s) =>
+  `sur le site ${DE[articleDe(s)] ?? (/^[aeiouyéèêàâîôû]/i.test(s.nom) ? 'd’' : 'de ')}${s.nom}`
+const dapres = (s) => `D’après ${laSource(s)}`
 
 export const PERSONNES = [
   ['Mélissa R.', '#791561', '@melissa.r', 'parent'], ['Teva', '#14663f', '@teva.nc', 'ado'],
@@ -776,16 +782,16 @@ export const HABILLAGES = [
   {
     niveau: 2,
     comptes: [
-      ['Vigilance Citoyenne', '#991b1b', 'page militante'],
-      ['Chiffres & Vérité', '#ea580c', 'page militante'],
-      ['Le Vrai Dossier', '#b91c1c', 'page militante'],
+      ['Vigilance Citoyenne', '#991b1b', 'page de « réinformation »'],
+      ['Chiffres & Vérité', '#ea580c', 'page de « réinformation »'],
+      ['Le Vrai Dossier', '#b91c1c', 'page de « réinformation »'],
       ['Patou Nouméa', '#991b1b', '@patou.noumea · « je dis ce qu’on vous cache »'],
       ['Sandy B.', '#ea580c', '@sandy_b88 · « réveillez-vous »'],
     ],
-    voix: 'militant',
-    explication: 'Le compte défend une cause, sans auteur identifiable.',
+    voix: 'complotiste',
+    explication: 'Le compte voit un complot partout, sans auteur identifiable.',
     indice: (compte) =>
-      indice('VERIFICATION', 'SOURCE', 'Search', 'Un compte militant',
+      indice('VERIFICATION', 'SOURCE', 'Search', 'Un compte complotiste',
         `${compte.nom} ne dit pas qui écrit, ni d’où vient l’information.`),
   },
   {
@@ -844,7 +850,7 @@ export const HABILLAGE_MEDIA = {
 export const VRAI_MEDIA = {
   indices: (f, compte, journaliste) => [
     indice('FIABLE', 'TEXTE', 'BadgeCheck', 'Une source citée',
-      `L’article cite ${f.source.nom}, qu’on peut consulter pour vérifier.`),
+      `L’article cite ${laSource(f.source)}, qu’on peut consulter pour vérifier.`),
     indice('FIABLE', 'SOURCE', 'Newspaper', 'Un article signé',
       `${journaliste} signe l’article pour ${compte.nom} : on sait qui écrit.`),
     indice('FIABLE', 'TITRE', 'Scale', 'Un titre qui décrit',
@@ -853,7 +859,7 @@ export const VRAI_MEDIA = {
 }
 
 export const AVIS_VRAI = (f) => {
-  const ou = surLeSite(f.source.nom)
+  const ou = surLeSite(f.source)
   return {
     croit: ['Merci pour l’info 🙏', 'Bon à savoir, je fais tourner.', 'Enfin une info claire.', 'Je ne savais pas du tout !'],
     doute: ['Vous êtes sûrs ? J’avais entendu autre chose…', 'Ça m’étonne quand même.', 'On ne sait jamais avec ce qu’on lit sur internet…'],
@@ -862,7 +868,7 @@ export const AVIS_VRAI = (f) => {
 }
 
 export const CORRECTIONS_FAIT = (f, vraiEnMinuscule) => {
-  const ou = surLeSite(f.source.nom)
+  const ou = surLeSite(f.source)
   return [
     `Non, ${vraiEnMinuscule} C’est ${ou}.`,
     `J’ai vérifié ${ou} : ce n’est pas ça. ${f.vrai}`,
@@ -911,7 +917,7 @@ export const INDICE_AILLEURS = [
 
 export const indiceCorrection = (fait) =>
   indice('VERIFICATION', 'TITRE', 'Search', 'Facile à vérifier',
-    `${fait.source.nom} dit autre chose : ${fait.vrai}`)
+    `${LaSource(fait.source)} dit autre chose : ${fait.vrai}`)
 
 export const FAIT_DEFORME = {
   biais: 'Fait déformé',
@@ -929,12 +935,12 @@ export const FAIT_DEFORME = {
 
 export const VRAI = {
   explication: (f) =>
-    `Information vraie et vérifiable : ${f.source.nom} le confirme. Rien dans le post ne pousse à partager ` +
+    `Information vraie et vérifiable : ${laSource(f.source)} le confirme. Rien dans le post ne pousse à partager ` +
     'vite : il peut se partager.',
-  analyseVrai: (f) => `${f.vrai} À vérifier sur ${f.source.nom}.`,
+  analyseVrai: (f) => `${f.vrai} À vérifier ${surLeSite(f.source)}.`,
   indices: (f, compte) => [
     indice('FIABLE', 'TITRE', 'BadgeCheck', 'Une info vérifiable',
-      `${f.source.nom} le confirme : une recherche suffit.`),
+      `${LaSource(f.source)} le confirme : une recherche suffit.`),
     indice('FIABLE', 'TEXTE', 'Scale', 'Rien qui pousse',
       'Ni menace, ni « partagez vite », ni révélation : le post raconte, il ne pousse pas.'),
     indice('FIABLE', 'SOURCE', 'UserRound', 'Un compte, pas une source',
@@ -942,23 +948,40 @@ export const VRAI = {
   ],
 }
 
+// Page fiable qui explique chaque procédé : lien de la correction quand l'événement est inventé.
+const ARMEES = { nom: 'le ministère des Armées', url: 'https://www.defense.gouv.fr/aides-demarches/guide-contre-desinformation' }
+const CLEMI = { nom: 'le CLEMI', url: 'https://www.clemi.fr/sites/default/files/clemi/Ressources/Exposition%20fake%20news%2C%20arts%2C%20fiction%2C%20mensonge/Fake%20news%20infox%20de%20quoi%20parle-t-on.pdf' }
+const COMPACT = { nom: 'le réseau de chercheurs COMPACT', url: 'https://www.conspiracywatch.info/wp-content/uploads/2026/03/COMPACT_Guide-French__.pdf' }
+export const SOURCES_PROCEDES = {
+  'Urgence artificielle': ARMEES,
+  'Autorité inventée': ARMEES,
+  'Appel à la peur': ARMEES,
+  'Manipulation statistique': ARMEES,
+  'Faux expert': ARMEES,
+  'Biais de confirmation': ARMEES,
+  'Fausse corrélation': { nom: 'la Fondation La main à la pâte', url: 'https://fondation-lamap.org/sites/default/files/sequence_pdf/cette-cause-qui-n-en-etait-pas-une.pdf' },
+  'Certitude ajoutée': ARMEES,
+  'Information recyclée': ARMEES,
+  'Détail modifié': ARMEES,
+  'Décontextualisation': ARMEES,
+  'Fabriqué pour le clic': ARMEES,
+  'Satire prise au sérieux': CLEMI,
+  'Voix ou vidéo truquée': ARMEES,
+  'Effet de halo': ARMEES,
+  'Vérité par répétition': { nom: 'l’étude de Fazio et al., 2015', url: 'https://scholars.duke.edu/publication/1090926' },
+  'Discours complotiste': COMPACT,
+  'Cherry picking': COMPACT,
+}
+
 export const CONSEQUENCES_FAUX = {
-  share:
-    "En partageant, vous donnez à ce post la crédibilité qui lui manquait : celle de quelqu'un que vos proches connaissent.",
-  ignore:
-    "Vous ne l'avez pas amplifié, et c'est déjà ça. Sans signalement, il continue pourtant sa route auprès d'autres personnes.",
-  report:
-    'Bien vu. Ce post était faux, et son emballage était conçu pour vous faire réagir avant de réfléchir.',
+  share: 'Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.',
+  ignore: 'Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.',
+  report: 'Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez.',
 }
 
 export const CONSEQUENCES_VRAI = {
-  share:
-    "Vous avez relayé une information vraie, avec une source qu'on peut vérifier. C'est ce qui devrait circuler.",
-  ignore:
-    "Rien de grave, mais une information utile et vérifiée n'a pas atteint les personnes à qui elle aurait servi.",
-  report:
-    "Signaler une information vraie et sourcée n'aide personne : ça encombre la modération et fragilise la circulation de ce qui est fiable.",
+  share: 'Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.',
+  ignore: 'Aucun impact : l’info était vraie, aucune fake news n’a circulé.',
+  report: 'Aucune fake news ici : l’info était vraie. La signaler ne protège personne.',
 }
 
-export const SCORES_FAUX = { share: -80, ignore: 10, report: 100 }
-export const SCORES_VRAI = { share: 100, ignore: 0, report: -40 }

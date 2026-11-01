@@ -12,7 +12,6 @@ const vide = () => ({
     vus: [],
     decisions: 0,
     justes: 0,
-    points: 0,
     biais: {},
   },
   conversations: {},
@@ -54,7 +53,6 @@ function fusionner(recu, { depuisCode = false } = {}) {
           : [],
       decisions,
       justes: Math.min(entier(fil.justes, 0, PLAFOND, 0), decisions),
-      points: entier(fil.points, -PLAFOND, PLAFOND, 0),
       biais: lireBiais(fil.biais),
     },
     conversations: lireConversations(recu.conversations, depuisCode),
@@ -129,7 +127,7 @@ export function niveauDeDepart() {
   return etat.fil.niveau
 }
 
-export function noterDecision({ slug, biais, juste, points = 0 }) {
+export function noterDecision({ slug, biais, juste }) {
   const fil = etat.fil
   const vus = slug ? [...fil.vus.filter((vu) => vu !== slug), slug] : fil.vus
 
@@ -145,7 +143,6 @@ export function noterDecision({ slug, biais, juste, points = 0 }) {
       vus,
       decisions: fil.decisions + 1,
       justes: fil.justes + (juste ? 1 : 0),
-      points: fil.points + Math.min(Math.max(Number(points) || 0, -POINTS_MAX), POINTS_MAX),
       biais: biaisSuivant,
     },
   })
@@ -199,8 +196,6 @@ export function exportable(conversationsEnLigne = []) {
   return { version: VERSION, pseudo: etat.pseudo, avatar: etat.avatar, fil, conversations }
 }
 
-export const POINTS_MAX = 100
-
 export function incoherence(recu) {
   const fil = recu?.fil
   if (!fil || typeof fil !== 'object') return null
@@ -210,9 +205,6 @@ export function incoherence(recu) {
 
   if (justes > decisions) return 'il compte plus de bonnes réponses que de décisions'
   if (n(fil.niveau) - 1 > decisions) return 'son niveau est trop élevé pour le nombre de décisions'
-  if (Math.abs(n(fil.points)) > decisions * POINTS_MAX) {
-    return 'il compte plus de points que ses décisions ne peuvent en rapporter'
-  }
 
   const comptes = Object.values(fil.biais && typeof fil.biais === 'object' ? fil.biais : {}).filter(
     (compte) => compte && typeof compte === 'object'

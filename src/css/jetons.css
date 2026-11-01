@@ -1,4 +1,7 @@
 :root {
+  /* Taille du texte choisie dans le profil. */
+  --echelle-texte: 1;
+
   --font-body: 'Archivo', 'Segoe UI', system-ui, -apple-system, sans-serif;
   --font-title: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-label: 'Josefin Sans', 'Archivo', system-ui, sans-serif;
@@ -6,13 +9,13 @@
   --font-systeme: system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-code: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', 'Liberation Mono', monospace;
 
-  --text-2xs: 11.5px;
-  --text-xs: 13px;
-  --text-sm: 14.5px;
-  --text-md: 16px;
-  --text-2xl: 26px;
+  --text-2xs: calc(11.5px * var(--echelle-texte));
+  --text-xs: calc(13px * var(--echelle-texte));
+  --text-sm: calc(14.5px * var(--echelle-texte));
+  --text-md: calc(16px * var(--echelle-texte));
+  --text-2xl: calc(26px * var(--echelle-texte));
 
-  --etiquette-taille: 12px;
+  --etiquette-taille: calc(12px * var(--echelle-texte));
   --etiquette-espacement: 3px;
 
   --leading-snug: 1.4;
@@ -101,10 +104,10 @@
 
 @media (min-width: 768px) {
   :root {
-    --text-2xs: 12px;
-    --text-xs: 13.5px;
-    --text-sm: 15px;
-    --text-md: 16.5px;
-    --text-2xl: 30px;
+    --text-2xs: calc(12px * var(--echelle-texte));
+    --text-xs: calc(13.5px * var(--echelle-texte));
+    --text-sm: calc(15px * var(--echelle-texte));
+    --text-md: calc(16.5px * var(--echelle-texte));
+    --text-2xl: calc(30px * var(--echelle-texte));
   }
 }

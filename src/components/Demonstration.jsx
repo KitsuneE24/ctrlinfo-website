@@ -1,4 +1,4 @@
-import { Flag, Heart, Send, SendHorizontal } from 'lucide-react'
+import { EyeOff, Flag, Heart, Send, SendHorizontal } from 'lucide-react'
 import Riche from './ui/Riche'
 
 function Puce({ reperes, cible, ligne = false }) {
@@ -23,7 +23,7 @@ function MaquetteFil({ exemple, reperes }) {
       </div>
       <p className="demo__post">
         <Puce reperes={reperes} cible="post" ligne />
-        <strong>{exemple.titre}</strong> {exemple.texte}
+        {exemple.titre} {exemple.texte}
       </p>
       <div className="demo__actions">
         <span className="demo__groupe">
@@ -31,7 +31,12 @@ function MaquetteFil({ exemple, reperes }) {
           <Send size={19} strokeWidth={1.8} />
           <Puce reperes={reperes} cible="aimer" />
         </span>
-        <span className="demo__groupe">
+        <span className="demo__groupe demo__groupe--fin">
+          <span className="demo__ignorer">
+            <EyeOff size={15} strokeWidth={1.9} aria-hidden="true" />
+            Ignorer
+            <Puce reperes={reperes} cible="ignorer" />
+          </span>
           <Flag size={19} strokeWidth={1.8} />
           <Puce reperes={reperes} cible="signaler" />
         </span>

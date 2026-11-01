@@ -38,6 +38,8 @@ export function useFilRouge({ enChaine = false } = {}) {
         )
       for (let i = 1; i < suite.length; i++) {
         const [id, piece] = suite[i]
+        // Le fil ne relie que les pièces d'une même partie.
+        if (piece.groupe !== suite[i - 1][1].groupe) continue
         traces.push({
           id,
           d: courbe(

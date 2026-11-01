@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { HABILLAGES } from '../../scripts/gabarits.mjs'
+import { FAIT_DEFORME, HABILLAGES } from '../../scripts/gabarits.mjs'
 import { DISTRIBUTIONS } from '../../scripts/gabarits-conversations.mjs'
 import { basesDe, dateIlYa, fabriquerFaux, fabriquerVrai, permisPour, PROCEDES, prochainFaux, sujetsPour } from '../../scripts/fabrique.mjs'
 
@@ -25,12 +25,26 @@ function defautsDeRedaction(objet) {
   return defauts
 }
 
+describe('faits', () => {
+  it('ont une source fiable, jamais Wikipédia', () => {
+    const wiki = contenu.faits.filter((f) => /wikip/i.test(`${f.source.nom} ${f.source.url}`)).map((f) => f.id)
+    expect(wiki).toEqual([])
+  })
+
+  it('un faux tiré d’un fait renvoie vers la vraie info', () => {
+    for (const fait of contenu.faits) {
+      const post = fabriquerFaux(basesDe({ faits: [fait] })[0], FAIT_DEFORME, 3, { maintenant })
+      expect(post.lienInfo.url, fait.id).toBe(fait.source.url)
+    }
+  })
+})
+
 describe('posts vrais', () => {
   it.each(contenu.faits.map((f) => [f.id, f]))('%s : bien formé à chaque niveau', (_, fait) => {
     for (const niveau of NIVEAUX) {
       const post = fabriquerVrai(fait, niveau, { maintenant })
       expect(post).toMatchObject({ isFake: false, level: niveau })
-      expect(post.sourceUrl).toMatch(/^https:\/\//)
+      expect(post.lienInfo.url).toBe(fait.source.url)
       expect(post.indices.length).toBeGreaterThan(0)
       expect(defautsDeRedaction(post)).toEqual([])
     }

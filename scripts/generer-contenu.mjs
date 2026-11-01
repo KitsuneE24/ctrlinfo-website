@@ -29,7 +29,7 @@ let faux = lireJson(FICHIERS.faux)
 const banques = { faits: contenu.faits ?? [], scenarios: contenu.scenarios ?? [] }
 const maintenant = new Date().toISOString()
 const tour = maintenant.slice(0, 10).replaceAll('-', '')
-const options = { aideUrl: reglages.aideUrl, maintenant }
+const options = { maintenant }
 
 if (banques.faits.length === 0) {
   console.error('contenu.json ne contient aucun fait : rien à fabriquer.')
@@ -43,6 +43,7 @@ if (drapeau('--refaire')) {
   vrais = vrais.filter((p) => !genere(p))
   faux = faux.filter((p) => !genere(p))
   contenu.conversations = contenu.conversations.filter((c) => !genere(c))
+  contenu.remediations = Object.fromEntries(Object.entries(contenu.remediations ?? {}).filter(([, p]) => !genere(p)))
 }
 
 const lienWeb = (url) => {

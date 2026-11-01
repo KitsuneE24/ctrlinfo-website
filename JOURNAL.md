@@ -20,10 +20,29 @@ Le détail de chaque modification reste dans git : `git log --oneline`, ou
 `git log -p -- <fichier>` pour un fichier. **Ne jamais y écrire de secret**
 (mot de passe, adresse réelle de l'admin, accès FTP).
 
+## Novembre 2026
+
+| Date | Changement |
+| --- | --- |
+| 01/11 | Ménage : données jamais affichées retirées (`ressources`, `categoriesRessources`, `learnMoreTips`, `sourceUrl`, `learnMoreUrl`, `etapes`, `aideUrl`, bloc `admin` de `config.json`), code mort et commentaires superflus retirés ; points retirés (calculés mais jamais affichés) ; code de l'admin absent du build quand elle n'est pas construite ; règle de l'adresse de l'admin partagée entre build et audit ; curseur de taille du texte rond ; SPEC : noms dans le code, protection de `main`, branches |
+
 ## Octobre 2026
 
 | Date | Changement |
 | --- | --- |
+| 31/10 | Ressources : parties lettrées avec intercalaire épinglé, sommaire, pièces A1, A2…, fil rouge limité à la partie, source commune citée une fois ; verdict compact sur mobile (boutons toujours visibles, lien sur une ligne, « Voir les indices ») |
+| 31/10 | Fil : post suivant par le bouton « Continuer » ; bouton « Ignorer » parmi les choix (règles mises à jour) ; verdict plus compact sur ordinateur |
+| 31/10 | Ressources : « Le réflexe » devient « Repérer une fake news », deux dossiers ajoutés (manipulation de l'opinion, outils) ; chaque pièce et chaque brève a sa source (guide du ministère des Armées, CLEMI, MIT, COMPACT, études) ; chiffre « 59 % » et brève des spaghettis retirés faute de source première |
+| 31/10 | Correction d'un événement inventé : lien vers une page fiable qui explique le procédé, plus de lien vers un outil |
+| 31/10 | Messages : chaque réponse dit si l'arnaque s'arrête, continue ou si les dégâts sont limités ; c'est un proche qui est déjà tombé dans le piège (déroulé cohérent) ; lien de la source en fin de conversation |
+| 31/10 | Tirage : plus de vrai et de faux du même fait dans un lot, un sujet récent passe après les autres |
+| 31/10 | Interface : en-tête sans « CTRL INFO », logo plus grand ; bouton « Règles » blanc ; règles, verdict et brève tiennent dans l'écran ; app fixée à l'écran (iPhone) ; champ de recherche à 16 px ; cagou rangé par défaut sur téléphone ; taille du texte au curseur dans le profil (90 à 150 %) ; Accueil et Profil aux bords de la barre, avatar agrandi |
+| 31/10 | Chaque correction donne le lien vers l'info du post (source du fait, article, page contre l'arnaque) ou dit que l'événement est inventé ; « En savoir plus » retiré ; crédit photo lisible dans la correction |
+| 31/10 | The Conversation retiré : seuls les articles de la CNIL restent comme vraie actualité |
+| 31/10 | Wikipédia retiré des sources : 36 faits re-sourcés (gouvernement NC, IEOM, DENC, Endemia, Ifremer, Province Sud, ministères, CNES, ESA…), certains reformulés pour coller à la source ; 8 faits sans source fiable retirés (saison et sens des cyclones, fuseau horaire, île des Pins ×2, Grand Nouméa, indicatif, Grande Muraille) |
+| 31/10 | Retours : verdict du fil avec la conséquence du geste ; titre des posts sans gras ; Messages quittés sans confirmation ; « Comprendre d'abord » descend au tableau d'enquête |
+| 31/10 | Contenu refait : 4 événements trop proches d'une pub retirés (food-truck, vélos, restaurant, boulangerie), comptes « militants » renommés complotistes ; `--refaire` refait aussi les posts d'entraînement générés |
+| 31/10 | Admin testée sur PHP 8.2 (adresse secrète, `.htpasswd` injecté, enregistrement, refus sans compte ou depuis un autre site) |
 | 29/10 | Contenu fixe refait (`--refaire`) : 160 posts et 48 sujets, une arnaque par contact sauf club-foot ; limite retirée de la SPEC |
 | 29/10 | Pastille « non lu » sur les contacts jamais ouverts (liste des Messages, onglet Messages en bas et en haut) |
 | 29/10 | Couleurs plus sombres pour le contraste AA (bleu, magenta, rouge) : texte blanc sur fond plein, `--magenta-texte` et `--magenta-pale` retirés ; couleurs à 3 chiffres acceptées par le calcul de contraste |

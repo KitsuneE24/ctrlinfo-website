@@ -172,7 +172,7 @@
       inset 0 0 0 2px var(--tampon-fond),
       inset 0 0 0 3.5px currentColor;
     font-family: var(--font-enquete);
-    font-size: 15px;
+    font-size: calc(15px * var(--echelle-texte, 1));
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 1.25;
@@ -183,7 +183,7 @@
   @media (min-width: 768px) {
     .tampon {
       padding: 5px 12px 4px;
-      font-size: 17px;
+      font-size: calc(17px * var(--echelle-texte, 1));
     }
   }
 
@@ -222,7 +222,7 @@
     background: transparent;
     color: var(--ink);
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: calc(15px * var(--echelle-texte, 1));
     font-weight: 600;
     line-height: 1.2;
     text-align: center;
@@ -250,7 +250,7 @@
     border-color: var(--blanc);
     background: var(--blanc);
     color: var(--encre);
-    font-size: 16px;
+    font-size: calc(16px * var(--echelle-texte, 1));
     font-weight: 700;
   }
 
@@ -294,7 +294,7 @@
   .bouton--petit {
     min-height: 44px;
     padding: 0 18px;
-    font-size: 14px;
+    font-size: calc(14px * var(--echelle-texte, 1));
   }
 
   .bouton:disabled {
@@ -319,6 +319,28 @@
 
   .bouton-rond:hover {
     background: var(--surface-haute);
+  }
+
+  .bouton-regles {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--blanc);
+    color: var(--papier-encre);
+    font: inherit;
+    font-size: calc(14px * var(--echelle-texte, 1));
+    font-weight: 700;
+    box-shadow: 0 4px 14px -6px color-mix(in srgb, var(--noir) 80%, transparent);
+    cursor: pointer;
+  }
+
+  .bouton-regles:hover {
+    background: color-mix(in srgb, var(--blanc) 88%, var(--encre));
   }
 
   .voile {
@@ -366,7 +388,7 @@
   .fenetre__titre {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 38px;
+    font-size: calc(38px * var(--echelle-texte, 1));
     font-weight: 400;
     line-height: 1;
     color: var(--ink);
@@ -374,20 +396,20 @@
 
   @media (min-width: 768px) {
     .fenetre__titre {
-      font-size: 52px;
+      font-size: calc(52px * var(--echelle-texte, 1));
     }
   }
 
   .fenetre__texte {
     margin: 12px 0 0;
-    font-size: 15px;
+    font-size: calc(15px * var(--echelle-texte, 1));
     line-height: 1.55;
     color: var(--ink-muted);
   }
 
   @media (min-width: 768px) {
     .fenetre__texte {
-      font-size: 16px;
+      font-size: calc(16px * var(--echelle-texte, 1));
     }
   }
 
@@ -494,7 +516,7 @@
   .page__title {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 38px;
+    font-size: calc(38px * var(--echelle-texte, 1));
     font-weight: 400;
     line-height: 1;
     color: var(--ink);
@@ -731,7 +753,7 @@
     border-radius: 999px;
     background: var(--magenta);
     color: var(--blanc);
-    font-size: 11px;
+    font-size: calc(11px * var(--echelle-texte, 1));
     font-weight: 700;
     line-height: 1;
   }

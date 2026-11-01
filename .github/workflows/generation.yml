@@ -3,7 +3,7 @@
 name: Génération du contenu
 
 on:
-  # Contenu fixe : lancée à la main seulement (Actions → Run), chaque lancement coûte 1 déploiement Netlify.
+  # Lancée à la main seulement (Actions → Run workflow).
   workflow_dispatch:
 
 permissions:

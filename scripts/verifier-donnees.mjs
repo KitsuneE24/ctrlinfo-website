@@ -91,10 +91,6 @@ function verifierPosts(posts, nom, isFake) {
     if (!texte(post.source)) signaler(`${ici} : pas de source`)
     if (!Number.isInteger(post.level)) signaler(`${ici} : niveau absent`)
     if (!ACTIONS.includes(post.correctAction)) signaler(`${ici} : correctAction inconnue`)
-    if (typeof post.scores?.[post.correctAction] !== 'number') signaler(`${ici} : pas de score pour la bonne action`)
-    if (Object.values(post.scores ?? {}).some((score) => typeof score !== 'number' || Math.abs(score) > 100)) {
-      signaler(`${ici} : score hors de -100 à 100`)
-    }
     if (post.image && !post.image.startsWith('/images/')) signaler(`${ici} : image hors de /images/ (${post.image.slice(0, 60)})`)
     else if (post.image) verifierImage(ici, post.image, post.imageAlt, post.credit)
   }
@@ -116,7 +112,7 @@ if (contenu && Array.isArray(vrais) && Array.isArray(faux)) {
 
 const SCHEMA = /^\s*([a-z][a-z0-9+.-]*):/i
 const SCHEMAS_PERMIS = ['http', 'https', 'mailto']
-const CLES_ADRESSE = /^(url|href|image|couverture|sourceUrl|learnMoreUrl|learnMoreTips)$/
+const CLES_ADRESSE = /^(url|href|image|couverture)$/
 const adresseRefusee = (v) => {
   const schema = SCHEMA.exec(v)?.[1].toLowerCase()
   return schema !== undefined && !SCHEMAS_PERMIS.includes(schema)

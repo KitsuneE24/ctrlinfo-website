@@ -3,11 +3,15 @@ import { useSyncExternalStore } from 'react'
 const CLE = 'ctrl-info:compagnon-visible'
 const abonnes = new Set()
 
+// Par défaut : affiché sur ordinateur, rangé sur téléphone.
+const parDefaut = () => window.matchMedia?.('(min-width: 900px)').matches ?? true
+
 function lire() {
   try {
-    return window.localStorage.getItem(CLE) !== 'non'
+    const choix = window.localStorage.getItem(CLE)
+    return choix === null ? parDefaut() : choix !== 'non'
   } catch {
-    return true
+    return parDefaut()
   }
 }
 

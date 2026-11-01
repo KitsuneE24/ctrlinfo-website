@@ -1,4 +1,4 @@
-export const REACTIONS_THEME = {
+const REACTIONS_THEME = {
   mer: [
     'Le lagon, on ne s’en lasse pas 🐠',
     'Mon fils va adorer, il est fan de tout ce qui vit dans l’eau.',
@@ -123,7 +123,7 @@ const REACTIONS_VOIX = {
   vulgarisation: ['J’adore cette page 😍', 'Toujours des posts intéressants ici.', 'Vous pourriez faire un post sur les tortues ?'],
   quiz: ['J’avais dit vrai 😎', 'Raté pour moi 😅', 'Encore un quiz demain ?'],
   alarmiste: ['Pas besoin de crier 😅', 'Pourquoi tout est en majuscules ?', 'Calmez-vous un peu…'],
-  militant: ['Toujours le même discours sur cette page…', 'Merci de nous ouvrir les yeux.', 'Tout est un complot ici 🙄'],
+  complotiste: ['Toujours le même discours sur cette page…', 'Merci de nous ouvrir les yeux.', 'Tout est un complot ici 🙄'],
   informe: ['Tu tiens ça d’où ?', 'T’as toujours les infos avant tout le monde toi.', 'Tes contacts, c’est qui au juste ?'],
   article: ['Quelqu’un a lu l’article en entier ?', 'Article intéressant, merci.', 'Trop long, quelqu’un résume ?', 'Le lien ne s’ouvre pas chez moi.'],
 }

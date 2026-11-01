@@ -8,7 +8,6 @@ const LOT_CONVERSATIONS = 10
 
 const estArticle = (p) => p.format === 'article'
 const banquesDe = (contenu) => ({ faits: contenu.faits ?? [], scenarios: contenu.scenarios ?? [] })
-const aide = (posts) => posts.find((p) => p.learnMoreTips)?.learnMoreTips
 const lot = () => `local-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`
 
 export function fabriquerPublications(contenu, { level, vus = [] }) {
@@ -18,15 +17,14 @@ export function fabriquerPublications(contenu, { level, vus = [] }) {
 
   const banques = banquesDe(contenu)
   const dejaVus = new Set(vus)
-  const prefixe = lot()
-  const options = { aideUrl: aide(posts) }
+  const prefixe = lot()
 
   const vusFaits = posts.filter((p) => !p.isFake && dejaVus.has(p.slug)).map((p) => ({ ...p, level: cible }))
   const vrais = []
   for (let i = 0; i < LOT_POSTS; i++) {
     const fait = prochainVrai([...vusFaits, ...vrais], cible, banques.faits) ?? prochainVrai(vrais, cible, banques.faits)
     if (!fait) break
-    vrais.push({ ...fabriquerVrai(fait, cible, { ...options, prefixe: `${prefixe}-vrai` }), origine: 'local' })
+    vrais.push({ ...fabriquerVrai(fait, cible, { prefixe: `${prefixe}-vrai` }), origine: 'local' })
   }
 
   const pris = posts.filter((p) => p.isFake && p.scenario && dejaVus.has(p.slug)).map((p) => ({ ...p, level: cible }))
@@ -35,7 +33,7 @@ export function fabriquerPublications(contenu, { level, vus = [] }) {
     const choix = prochainFaux([...pris, ...faux], cible, banques)
     if (!choix) break
     const media = faux.filter(estArticle).length < vrais.filter(estArticle).length
-    faux.push({ ...fabriquerFaux(choix.base, choix.categorie, cible, { ...options, prefixe: `${prefixe}-faux`, media }), origine: 'local' })
+    faux.push({ ...fabriquerFaux(choix.base, choix.categorie, cible, { prefixe: `${prefixe}-faux`, media }), origine: 'local' })
   }
 
   const avecId = (p) => ({ ...p, id: p.slug })

@@ -5,6 +5,13 @@ import { getAvatars, getConversations } from '../api/contenu'
 import { useRessource } from '../lib/useRessource'
 import { noterPseudo } from '../state/progression'
 import { noterCompagnonVisible, useCompagnonVisible } from '../state/compagnonVisible'
+import {
+  ECHELLE_MAX,
+  ECHELLE_MIN,
+  ECHELLE_PAS,
+  noterTailleTexte,
+  useTailleTexte,
+} from '../state/tailleTexte'
 import { useAvatar } from '../state/useAvatar'
 import { useProgression } from '../state/useProgression'
 import AvatarPicker, { AvatarJoueur } from '../components/AvatarPicker'
@@ -93,6 +100,7 @@ export default function ProfileScreen() {
   const avatar = useAvatar()
   const [galerie, setGalerie] = useState(false)
   const compagnonVisible = useCompagnonVisible()
+  const tailleTexte = useTailleTexte()
 
   const { donnees: conversations } = useRessource(getConversations, [])
   const { donnees: avatars } = useRessource(getAvatars, [])
@@ -207,6 +215,45 @@ export default function ProfileScreen() {
             <Link to={PATHS.feed} className="bouton bouton--encre bouton--petit">
               S'entraîner
             </Link>
+          </div>
+
+          <div className="reglage reglage--choix">
+            <label htmlFor="taille-texte" className="reglage__titre">
+              Taille du texte
+            </label>
+            <div className="curseur-taille">
+              <span className="curseur-taille__repere curseur-taille__repere--petit" aria-hidden="true">
+                A
+              </span>
+              <input
+                id="taille-texte"
+                type="range"
+                className="curseur-taille__barre"
+                min={ECHELLE_MIN}
+                max={ECHELLE_MAX}
+                step={ECHELLE_PAS}
+                value={tailleTexte}
+                aria-valuetext={`${Math.round(tailleTexte * 100)} %`}
+                aria-describedby="taille-texte-apercu"
+                onChange={(event) => noterTailleTexte(Number(event.target.value))}
+              />
+              <span className="curseur-taille__repere curseur-taille__repere--grand" aria-hidden="true">
+                A
+              </span>
+            </div>
+            <p id="taille-texte-apercu" className="curseur-taille__apercu">
+              <span className="curseur-taille__valeur">{Math.round(tailleTexte * 100)} %</span>
+              Voici la taille du texte sur le site.
+            </p>
+            {tailleTexte !== 1 && (
+              <button
+                type="button"
+                className="curseur-taille__reinitialiser"
+                onClick={() => noterTailleTexte(1)}
+              >
+                Revenir à 100 %
+              </button>
+            )}
           </div>
 
           <label className="reglage">

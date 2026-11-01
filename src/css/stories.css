@@ -29,7 +29,7 @@
   .stories__item {
     display: flex;
     flex: none;
-    width: 78px;
+    width: max(78px, calc(76px * var(--echelle-texte)));
     flex-direction: column;
     align-items: center;
     gap: 6px;
@@ -39,7 +39,7 @@
 
   @media (min-width: 900px) {
     .stories__item {
-      width: 82px;
+      width: max(82px, calc(80px * var(--echelle-texte)));
       gap: 8px;
     }
 
@@ -86,18 +86,21 @@
   .stories__label {
     max-width: 100%;
     overflow: hidden;
-    font-size: 12px;
+    font-size: calc(12px * var(--echelle-texte, 1));
     font-weight: 600;
     line-height: 1.2;
     text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     color: var(--ink);
+    /* Deux lignes au plus, pour les grandes tailles de texte. */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 
   @media (min-width: 900px) {
     .stories__label {
-      font-size: 12px;
+      font-size: calc(12px * var(--echelle-texte, 1));
     }
   }
 
@@ -186,7 +189,7 @@
       overflow: hidden;
       padding: 14px;
       border-radius: 16px;
-      font-size: 13px;
+      font-size: calc(13px * var(--echelle-texte, 1));
       font-weight: 600;
       color: var(--ink);
     }
@@ -284,7 +287,7 @@
   .story-view__titre {
     flex: 1 1 auto;
     margin: 0;
-    font-size: 15px;
+    font-size: calc(15px * var(--echelle-texte, 1));
     font-weight: 700;
     color: var(--blanc);
   }
@@ -322,7 +325,7 @@
   .story-view__phrase {
     margin: 0;
     font-family: var(--font-title);
-    font-size: 38px;
+    font-size: calc(38px * var(--echelle-texte, 1));
     line-height: 1.05;
     color: var(--blanc);
     text-wrap: pretty;
@@ -330,21 +333,21 @@
 
   @media (min-width: 768px) {
     .story-view__phrase {
-      font-size: 44px;
+      font-size: calc(44px * var(--echelle-texte, 1));
       line-height: 1.02;
     }
   }
 
   .story-view__texte {
     margin: 0;
-    font-size: 16px;
+    font-size: calc(16px * var(--echelle-texte, 1));
     line-height: 1.5;
     color: var(--ink);
   }
 
   @media (min-width: 768px) {
     .story-view__texte {
-      font-size: 17px;
+      font-size: calc(17px * var(--echelle-texte, 1));
     }
   }
 

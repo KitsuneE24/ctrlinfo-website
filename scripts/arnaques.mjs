@@ -1,8 +1,9 @@
 // Pièges courants en 2026 : chaque arnaque est sa propre base, avec son procédé.
 // `titres` et `phrases` vont du niveau 1 (grossier) au niveau 5 (soigné).
 // `comptes` : [nom, couleur, description] ; tout est inventé.
-// `aide` : page qui explique le piège (lien « En savoir plus »).
+// `aide` : page officielle contre le piège, donnée dans la correction.
 // `conseil`, `verifier`, `reparer` : les bons réflexes, repris dans les Messages.
+// `fait`, `stoppe`, `risque`, `limite` : ce que chaque réponse change dans les Messages.
 import { indice } from './gabarits.mjs'
 
 const piege = ({ id, titre, theme = 'arnaque', ...categorie }) => ({
@@ -49,7 +50,11 @@ export const ARNAQUES = [
     verifie: ['La vraie page n’organise aucun concours : celle-ci est une copie.', 'Page créée il y a quelques jours et paiement demandé : c’est une arnaque connue.'],
     conseil: 'Attends, un concours ne demande jamais ta carte bancaire. Regarde depuis quand la page existe.',
     verifier: 'La vraie page a des années de posts. Celle-ci a été créée cette semaine : c’est une copie.',
-    reparer: 'Appelle ta banque pour faire opposition sur la carte, et signale la page.',
+    fait: 'tapé sa carte bancaire sur le formulaire',
+    stoppe: 'aucune carte bancaire n’a été donnée, il n’y a rien à voler',
+    risque: 'le numéro de carte tapé sur le formulaire peut servir à payer des achats en ligne',
+    limite: 'une carte en opposition ne peut plus être utilisée par les escrocs',
+    reparer: 'Qu’elle appelle sa banque pour faire opposition sur la carte, et qu’elle signale la page.',
   }),
   piege({
     id: 'cagnotte',
@@ -89,7 +94,11 @@ export const ARNAQUES = [
     verifie: ['Aucune association ne gère cette cagnotte : passez par la mairie.', 'J’ai demandé à la mairie : ce n’est pas eux.'],
     conseil: 'Attends, on ne sait pas qui récupère l’argent. Donne plutôt par une association ou la mairie.',
     verifier: 'Une vraie collecte dit qui l’organise. Là, la page a été créée hier et ne donne aucun nom.',
-    reparer: 'Préviens ta banque tout de suite, et signale la page pour que d’autres ne donnent pas.',
+    fait: 'donné 5 000 F sur la cagnotte',
+    stoppe: 'aucun don n’est parti chez un inconnu',
+    risque: 'l’argent part chez un inconnu, et la carte utilisée peut resservir',
+    limite: 'la banque, prévenue vite, peut surveiller ou bloquer la carte, et le signalement évite que d’autres donnent',
+    reparer: 'Qu’elle prévienne sa banque tout de suite, et qu’elle signale la page pour que d’autres ne donnent pas.',
   }),
   piege({
     id: 'colis',
@@ -129,7 +138,11 @@ export const ARNAQUES = [
     verifie: ['Arnaque connue : aucun transporteur ne demande ça par une pub.', 'J’ai vérifié sur le vrai site avec mon numéro : rien à payer.'],
     conseil: 'Attends, ne paie rien par ce lien. Va sur le site du transporteur en tapant l’adresse toi-même.',
     verifier: 'Il n’y a ni ton nom ni de numéro de suivi : la même pub est montrée à tout le monde.',
-    reparer: 'Fais opposition sur ta carte tout de suite, et signale-le sur internet-signalement.gouv.fr.',
+    fait: 'payé les 350 F sur le site',
+    stoppe: 'aucune coordonnée bancaire n’a été tapée sur le faux site',
+    risque: 'les 350 F ne sont qu’un prétexte : le faux site garde la carte pour d’autres paiements',
+    limite: 'avec l’opposition, la carte ne peut plus être débitée',
+    reparer: 'Qu’elle fasse opposition sur sa carte tout de suite, et qu’elle le signale sur internet-signalement.gouv.fr.',
   }),
   piege({
     id: 'emploi',
@@ -169,7 +182,11 @@ export const ARNAQUES = [
     verifie: ['Arnaque à la tâche : on finit toujours par devoir payer.', 'Aucune entreprise derrière, et un contact seulement par WhatsApp.'],
     conseil: 'Attends, aucune entreprise ne paie 25 000 F par jour pour des likes. Il n’y a même pas de nom.',
     verifier: 'Un vrai employeur a un nom, une adresse, un contrat. Là, juste un numéro WhatsApp.',
-    reparer: 'N’envoie plus rien, garde les messages, et signale le compte sur internet-signalement.gouv.fr.',
+    fait: 'commencé les « missions » et versé 5 000 F pour « débloquer » ses gains',
+    stoppe: 'personne n’a commencé les « missions » ni versé d’argent',
+    risque: 'après quelques petits gains, on demande de verser de l’argent pour « débloquer » le reste, qui ne vient jamais',
+    limite: 'en arrêtant de payer, elle ne perd pas plus, et les messages gardés servent au signalement',
+    reparer: 'Qu’elle n’envoie plus rien, qu’elle garde les messages et qu’elle signale le compte sur internet-signalement.gouv.fr.',
   }),
   piege({
     id: 'placement',
@@ -209,7 +226,11 @@ export const ARNAQUES = [
     verifie: ['Arnaque classique : on ne revoit jamais son argent.', 'Cette plateforme n’a aucun agrément : c’est une arnaque.'],
     conseil: 'Attends, aucun placement ne garantit de gagner autant. C’est le signe d’une arnaque.',
     verifier: 'Pas d’adresse, pas d’agrément, juste une pub : impossible de savoir qui est derrière.',
-    reparer: 'N’envoie plus d’argent, préviens ta banque et porte plainte : plus vite c’est fait, mieux c’est.',
+    fait: 'versé 50 000 F sur la plateforme',
+    stoppe: 'aucun argent n’a été versé sur la plateforme',
+    risque: 'l’argent versé ne revient pas, et d’autres frais seront réclamés pour le « récupérer »',
+    limite: 'arrêter de verser évite de perdre plus, et la plainte aide l’enquête',
+    reparer: 'Qu’elle ne verse plus rien, qu’elle prévienne sa banque et qu’elle porte plainte.',
   }),
   piege({
     id: 'alerte',
@@ -250,7 +271,12 @@ export const ARNAQUES = [
     verifie: ['Rien sur le site de la sécurité civile ni de Météo-France : c’est faux.', 'J’ai écouté la radio : aucune alerte en cours.'],
     conseil: 'Attends, regarde d’abord si la sécurité civile ou Météo-France en parlent. Sinon, on sème la panique.',
     verifier: 'Rien sur leurs sites ni à la radio : l’alerte ne vient que de cette page inconnue.',
-    reparer: 'Envoie un message à ceux qui l’ont reçu pour dire que c’est faux, avec le lien de la source officielle.',
+    mot: 'La fausse alerte',
+    fait: 'transféré l’alerte à tous ses contacts',
+    stoppe: 'la fausse alerte ne va pas plus loin',
+    risque: 'la panique se répand, et la prochaine vraie alerte risque d’être moins crue',
+    limite: 'ceux qui l’ont reçue savent maintenant que c’était faux',
+    reparer: 'Qu’elle écrive à ceux qui l’ont reçue que c’est faux, avec le lien de la source officielle.',
   }),
   piege({
     id: 'compte-pirate',
@@ -289,6 +315,10 @@ export const ARNAQUES = [
     verifie: ['Je l’ai appelée : ce n’est pas elle, ne donnez rien !', 'Son vrai compte marche toujours : celui-ci est faux.'],
     conseil: 'Attends, ne donne jamais un code reçu par SMS. Appelle-la pour vérifier que c’est elle.',
     verifier: 'Le compte a été créé hier. Je l’ai appelée : elle n’a rien demandé.',
-    reparer: 'Change ton mot de passe tout de suite, active la double vérification, et préviens tes contacts.',
+    fait: 'envoyé le code reçu par SMS',
+    stoppe: 'le code reste secret : le pirate ne peut pas entrer dans le compte',
+    risque: 'avec le code, le pirate prend le compte et écrit à tous les contacts pour piéger les suivants',
+    limite: 'en reprenant vite la main sur son compte, elle empêche le pirate de piéger ses contacts',
+    reparer: 'Qu’elle suive la procédure de récupération du compte, active la double vérification et prévienne ses contacts.',
   }),
 ]

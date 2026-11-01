@@ -68,6 +68,30 @@ describe('tirage des posts', () => {
     expect(inedites(posts, { level: 1, vus })).toBe(4)
   })
 
+  it('ne met jamais le vrai et le faux d’un même fait dans un lot', () => {
+    const paires = Array.from({ length: 5 }, (_, i) => [
+      post(`vrai-${i}`, 1, false, { fait: `fait${i}` }),
+      post(`faux-${i}`, 1, true, { scenario: `fait-fait${i}` }),
+    ]).flat()
+    for (let essai = 0; essai < 50; essai++) {
+      const lot = tirer(paires, { level: 1, taille: 5 })
+      expect(new Set(lot.map((p) => p.fait ?? p.scenario.replace('fait-', ''))).size).toBe(5)
+    }
+  })
+
+  it('repousse un sujet vu récemment', () => {
+    const sujets = [
+      post('vrai-a', 1, false, { fait: 'a' }),
+      post('faux-a', 1, true, { scenario: 'fait-a' }),
+      post('vrai-b', 1, false, { fait: 'b' }),
+      post('faux-c', 1, true, { scenario: 'fait-c' }),
+    ]
+    for (let essai = 0; essai < 20; essai++) {
+      const lot = tirer(sujets, { level: 1, taille: 2, vus: ['vrai-a'] })
+      expect(lot.map((p) => p.slug)).not.toContain('faux-a')
+    }
+  })
+
   it('reste au dernier niveau de contenu disponible', () => {
     expect(niveauDeContenu(posts, 9)).toBe(2)
   })

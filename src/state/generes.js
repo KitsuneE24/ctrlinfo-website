@@ -1,5 +1,4 @@
 const CLE = 'ctrl-info:generes-3'
-const ANCIENNES_CLES = ['ctrl-info:generes', 'ctrl-info:generes-2']
 const PLAFOND_POSTS = 120
 const PLAFOND_CONVERSATIONS = 120
 
@@ -19,7 +18,6 @@ const liste = (recu, cle, plafond) =>
 
 function lire() {
   try {
-    for (const ancienne of ANCIENNES_CLES) window.localStorage.removeItem(ancienne)
     const recu = JSON.parse(window.localStorage.getItem(CLE) ?? 'null')
     return {
       posts: liste(recu?.posts, 'slug', PLAFOND_POSTS),

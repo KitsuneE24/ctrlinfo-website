@@ -5,7 +5,7 @@ const etat = {
   version: 1,
   pseudo: 'Teva 🌺',
   avatar: 'avatar-1',
-  fil: { niveau: 3, decisions: 12, justes: 9, points: 640, biais: { 'Faux expert': { total: 2, justes: 1 } } },
+  fil: { niveau: 3, decisions: 12, justes: 9, biais: { 'Faux expert': { total: 2, justes: 1 } } },
   conversations: { 'sujet-a': { faite: true, score: 3, total: 3 } },
 }
 

@@ -18,7 +18,6 @@ const COLLECTIONS = [
   { cle: 'chapitres', nom: 'Chapitres', titre: (e) => e.titre },
   { cle: 'stories', nom: 'Stories', titre: (e) => e.titre ?? e.id },
   { cle: 'astuces', nom: 'Astuces', titre: (e) => e.texte },
-  { cle: 'ressources', nom: 'Ressources', titre: (e) => e.nom ?? e.titre ?? e.id },
   { cle: 'avatars', nom: 'Avatars', titre: (e) => e.nom },
   { cle: 'jeux', nom: 'Jeux', titre: (e) => e.titre },
   { cle: 'niveaux', nom: 'Niveaux', titre: (e) => e.titre },

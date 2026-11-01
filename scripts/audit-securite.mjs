@@ -2,6 +2,7 @@
 import { execSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
+import { adresseAdminChoisie } from './adresse-admin.mjs'
 
 const RACINE = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')
 const lire = (chemin) => (existsSync(join(RACINE, chemin)) ? readFileSync(join(RACINE, chemin), 'utf8') : '')
@@ -31,7 +32,7 @@ const cheminAdmin = process.env.ADMIN_PATH ?? configLocale.admin?.chemin
 // Sans adresse choisie, l'admin n'est pas construite (Netlify seul) : rien à régler.
 const adminConstruite = cheminAdmin !== undefined
 noter('01 Authentification', 'Adresse de l’admin choisie et non devinable (Apache seulement)',
-  !adminConstruite || (/^[a-z0-9-]{12,}$/i.test(cheminAdmin) && !/^(admin|A-CHOISIR|gestion-3f9a2c)$/i.test(cheminAdmin)) ? 'OK' : 'ALERTE',
+  !adminConstruite || adresseAdminChoisie(cheminAdmin) ? 'OK' : 'ALERTE',
   'admin.chemin trop simple dans config.local.json : l’admin sera retirée du build')
 noter('01 Authentification', 'Chemin du .htpasswd réglé (Apache seulement)',
   !adminConstruite || (htpasswd?.startsWith('/') && htpasswd !== '/home/compte/.htpasswd') ? 'OK' : 'ALERTE',

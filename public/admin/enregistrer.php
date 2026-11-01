@@ -131,7 +131,6 @@ if ($encode === false) {
 }
 
 if (is_file($fichier)) {
-    copy($fichier, $fichier . '.bak');
     copy($fichier, $fichier . '.bak.' . gmdate('YmdHis'));
     $anciennes = glob($fichier . '.bak.*') ?: [];
     rsort($anciennes);

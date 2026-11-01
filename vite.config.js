@@ -2,6 +2,7 @@ import { existsSync, readFileSync, renameSync, rmSync, writeFileSync } from 'nod
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { adresseAdminChoisie } from './scripts/adresse-admin.mjs'
 
 const lire = (nom) => {
   const fichier = resolve(import.meta.dirname, nom)
@@ -12,11 +13,10 @@ const lire = (nom) => {
 const CHEMIN_ADMIN =
   process.env.ADMIN_PATH ??
   lire('config.local.json').admin?.chemin ??
-  lire('config.json').admin?.chemin ??
   'admin'
 
-// Adresse devinable ou laissée à l'exemple (ancien compris) : pas d'admin dans le build.
-const ADRESSE_CHOISIE = /^[a-z0-9-]{12,}$/i.test(CHEMIN_ADMIN) && !/^(admin|A-CHOISIR|gestion-3f9a2c)$/i.test(CHEMIN_ADMIN)
+const ADRESSE_CHOISIE = adresseAdminChoisie(CHEMIN_ADMIN)
+const AVEC_ADMIN = ADRESSE_CHOISIE && !process.env.NETLIFY
 
 // Le chemin de l'exemple compte comme non réglé.
 const HTPASSWD_LU = process.env.ADMIN_HTPASSWD ?? lire('config.local.json').admin?.htpasswd ?? null
@@ -58,7 +58,7 @@ function finirLeBundle() {
         const texte = readFileSync(htaccess, 'utf8')
         writeFileSync(htaccess, texte.replace('/CHEMIN/ABSOLU/A/REGLER/.htpasswd', HTPASSWD))
       }
-      // Chemins secrets jamais affichés : la sortie du build peut finir dans un journal.
+      // Chemins secrets jamais affichés.
       console.log('  administration : construite dans dist/, dossier nommé selon admin.chemin')
       console.log(`  mot de passe   : ${HTPASSWD ? 'chemin du .htpasswd injecté' : 'à régler (admin.htpasswd dans config.local.json)'}`)
     },
@@ -80,7 +80,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
-        admin: resolve(import.meta.dirname, 'admin/index.html'),
+        ...(AVEC_ADMIN ? { admin: resolve(import.meta.dirname, 'admin/index.html') } : {}),
       },
     },
   },

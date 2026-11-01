@@ -1,7 +1,7 @@
 // Pièges courants en 2026 : chaque arnaque est sa propre base, avec son procédé.
 // `titres` et `phrases` vont du niveau 1 (grossier) au niveau 5 (soigné).
 // `comptes` : [nom, couleur, description] ; tout est inventé.
-// `aide` : page qui explique le piège (lien « En savoir plus »).
+// `aide` : page officielle contre le piège, donnée dans la correction.
 // `conseil`, `verifier`, `reparer` : les bons réflexes, repris dans les Messages.
 // `fait`, `stoppe`, `risque`, `limite` : ce que chaque réponse change dans les Messages.
 import { indice } from './gabarits.mjs'

@@ -39,7 +39,7 @@ export const PROCEDES = [...CATEGORIES, ...ARNAQUES.map((a) => a.categorie)]
 const INDICE_ARNAQUE = indice('VERIFICATION', 'TITRE', 'ShieldCheck', 'En cas de doute',
   'Ne cliquez pas, ne payez pas : signalez le post. Si c’est trop tard, prévenez votre banque et signalez-le sur internet-signalement.gouv.fr.')
 
-export const dateLisible = (iso) =>
+const dateLisible = (iso) =>
   (iso ? new Date(iso) : new Date()).toLocaleDateString('fr-FR', {
     day: 'numeric',
     month: 'long',
@@ -401,7 +401,7 @@ export function fabriquerFaux(base, categorie, niveau, { maintenant = new Date()
   }
 }
 
-export function fabriquerConversation(post, gabarit, distribution, options = {}) {
+function fabriquerConversation(post, gabarit, distribution, options = {}) {
   const { lanceur, soutien, groupe } = distribution
   const id = options.id ?? `sujet-${distribution.id}-${post.scenario}`
   const variante = graineDe(id)

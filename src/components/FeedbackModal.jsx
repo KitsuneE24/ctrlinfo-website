@@ -34,12 +34,7 @@ const majuscule = (texte) => texte.charAt(0).toUpperCase() + texte.slice(1)
 const domaine = (url) => new URL(url).hostname.replace(/^www\./, '')
 
 // Lien vers l'info dont parle le post ; null si l'événement est inventé.
-function lienDe(post) {
-  if (post.lienInfo && lienWeb(post.lienInfo.url)) return post.lienInfo
-  if (post.isFake) return null
-  const url = lienWeb(post.sourceUrl) ?? lienWeb(post.learnMoreUrl)
-  return url ? { titre: 'La source de cette info', nom: domaine(url), url } : null
-}
+const lienDe = (post) => (lienWeb(post.lienInfo?.url) ? post.lienInfo : null)
 
 function LienInfo({ post, compact = false }) {
   const lien = lienDe(post)

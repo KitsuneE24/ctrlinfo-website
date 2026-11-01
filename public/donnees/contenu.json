@@ -175,9 +175,6 @@
         "ignore": 30,
         "report": 100
       },
-      "sourceUrl": "https://www.educnum.fr",
-      "learnMoreUrl": "https://www.educnum.fr",
-      "learnMoreTips": "https://www.educnum.fr",
       "encouragement": "Vous reconnaissez maintenant l'urgence artificielle !",
       "warning": "Plus un contenu vous crie dessus, plus il faut ralentir et vérifier.",
       "reactionCount": 8432,
@@ -230,9 +227,6 @@
         "ignore": 30,
         "report": 100
       },
-      "sourceUrl": "https://www.lemonde.fr/les-decodeurs/",
-      "learnMoreUrl": "https://www.lemonde.fr/les-decodeurs/",
-      "learnMoreTips": "https://www.lemonde.fr/les-decodeurs/",
       "encouragement": "Vous savez maintenant identifier les faux experts !",
       "warning": "Un vrai expert a des publications académiques vérifiables et une affiliation réelle.",
       "reactionCount": 5621,
@@ -285,9 +279,6 @@
         "ignore": 30,
         "report": 100
       },
-      "sourceUrl": "https://www.hoaxbuster.com",
-      "learnMoreUrl": "https://www.hoaxbuster.com",
-      "learnMoreTips": "https://www.hoaxbuster.com",
       "encouragement": "Vous reconnaissez maintenant l'appel à la peur !",
       "warning": "Plus un contenu vous fait peur, plus il faut vérifier avant de partager.",
       "reactionCount": 11234,
@@ -340,9 +331,6 @@
         "ignore": 30,
         "report": 100
       },
-      "sourceUrl": "https://www.afis.org",
-      "learnMoreUrl": "https://www.afis.org",
-      "learnMoreTips": "https://www.afis.org",
       "encouragement": "Vous détectez maintenant les fausses corrélations !",
       "warning": "Corrélation ≠ causalité. Cherchez toujours le mécanisme qui expliquerait le lien.",
       "reactionCount": 9876,
@@ -395,9 +383,6 @@
         "ignore": 30,
         "report": 100
       },
-      "sourceUrl": "https://www.lemonde.fr/les-decodeurs/",
-      "learnMoreUrl": "https://www.lemonde.fr/les-decodeurs/",
-      "learnMoreTips": "https://www.lemonde.fr/les-decodeurs/",
       "encouragement": "Vous détectez maintenant le cherry picking !",
       "warning": "Cherchez des méta-analyses pour avoir une image complète des données.",
       "reactionCount": 6543,
@@ -450,9 +435,6 @@
         "ignore": 30,
         "report": 100
       },
-      "sourceUrl": "https://www.educnum.fr",
-      "learnMoreUrl": "https://www.educnum.fr",
-      "learnMoreTips": "https://www.educnum.fr",
       "encouragement": "Vous identifiez maintenant le biais de confirmation !",
       "warning": "Méfiez-vous des contenus qui confirment toujours ce que vous pensez déjà.",
       "reactionCount": 7654,
@@ -505,9 +487,6 @@
         "ignore": 100,
         "report": 30
       },
-      "sourceUrl": "https://images.google.com",
-      "learnMoreUrl": "https://images.google.com",
-      "learnMoreTips": "https://www.hoaxbuster.com",
       "encouragement": "Vous identifiez la décontextualisation !",
       "warning": "La recherche d'image inversée est votre outil principal contre la décontextualisation.",
       "reactionCount": 23456,
@@ -560,9 +539,6 @@
         "ignore": 30,
         "report": 100
       },
-      "sourceUrl": "https://www.lemonde.fr/les-decodeurs/",
-      "learnMoreUrl": "https://www.lemonde.fr/les-decodeurs/",
-      "learnMoreTips": "https://www.lemonde.fr/les-decodeurs/",
       "encouragement": "Vous savez maintenant reconnaître les faux experts !",
       "warning": "Vérifiez toujours un expert sur Google Scholar ou le site de son institution.",
       "reactionCount": 4321,
@@ -615,9 +591,6 @@
         "ignore": 30,
         "report": 100
       },
-      "sourceUrl": "https://www.lemonde.fr/les-decodeurs/",
-      "learnMoreUrl": "https://www.lemonde.fr/les-decodeurs/",
-      "learnMoreTips": "https://www.lemonde.fr/les-decodeurs/",
       "encouragement": "Vous détectez maintenant la manipulation statistique !",
       "warning": "Des vrais chiffres peuvent construire une image fausse selon comment ils sont présentés.",
       "reactionCount": 8765,
@@ -632,7 +605,6 @@
       "commentCount": 374,
       "date": "30 octobre 2026 à 10:22",
       "ilYa": 27,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "dauphins-prony",
@@ -712,8 +684,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -729,7 +699,6 @@
       "commentCount": 1919,
       "date": "31 octobre 2024 à 12:22",
       "ilYa": 17521,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "dauphins-prony",
@@ -811,8 +780,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -828,7 +795,6 @@
       "commentCount": 397,
       "date": "30 octobre 2026 à 14:22",
       "ilYa": 23,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "dauphins-prony",
@@ -908,8 +874,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -925,7 +889,6 @@
       "commentCount": 18,
       "date": "28 octobre 2026 à 14:22",
       "ilYa": 71,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "dauphins-prony",
@@ -1013,8 +976,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -1030,7 +991,6 @@
       "commentCount": 416,
       "date": "30 octobre 2026 à 19:22",
       "ilYa": 18,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "dauphins-prony",
@@ -1118,8 +1078,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le CLEMI",
@@ -1135,7 +1093,6 @@
       "commentCount": 1078,
       "date": "29 octobre 2026 à 01:22",
       "ilYa": 60,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "dauphins-prony",
@@ -1215,8 +1172,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -1232,7 +1187,6 @@
       "commentCount": 849,
       "date": "28 octobre 2026 à 18:22",
       "ilYa": 67,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "dauphins-prony",
@@ -1320,8 +1274,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -1337,7 +1289,6 @@
       "commentCount": 750,
       "date": "28 octobre 2026 à 15:22",
       "ilYa": 70,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "dauphins-prony",
@@ -1425,8 +1376,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "l’étude de Fazio et al., 2015",
@@ -1442,7 +1391,6 @@
       "commentCount": 38,
       "date": "29 octobre 2026 à 00:22",
       "ilYa": 61,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "dauphins-prony",
@@ -1530,8 +1478,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.clemi.fr/",
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le réseau de chercheurs COMPACT",
@@ -1547,7 +1493,6 @@
       "commentCount": 257,
       "date": "31 octobre 2026 à 10:22",
       "ilYa": 3,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "arnaque-concours",
@@ -1621,8 +1566,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/fraude-carte-bancaire",
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -1637,7 +1580,6 @@
       "commentCount": 846,
       "date": "31 octobre 2026 à 12:22",
       "ilYa": 1,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "arnaque-cagnotte",
@@ -1717,8 +1659,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing",
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -1733,7 +1673,6 @@
       "commentCount": 357,
       "date": "29 octobre 2026 à 20:22",
       "ilYa": 41,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "arnaque-colis",
@@ -1801,8 +1740,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/hameconnage-phishing",
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -1817,7 +1754,6 @@
       "commentCount": 1155,
       "date": "29 octobre 2026 à 23:22",
       "ilYa": 38,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "arnaque-emploi",
@@ -1891,8 +1827,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/arnaques-a-l-emploi",
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -1907,7 +1841,6 @@
       "commentCount": 1566,
       "date": "31 octobre 2026 à 11:22",
       "ilYa": 2,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "arnaque-placement",
@@ -1981,8 +1914,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.amf-france.org/fr/espace-epargnants/proteger-son-epargne/listes-noires-et-mises-en-garde",
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "amf-france.org",
@@ -1997,7 +1928,6 @@
       "commentCount": 566,
       "date": "28 octobre 2026 à 23:22",
       "ilYa": 62,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "arnaque-alerte",
@@ -2065,8 +1995,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://meteo.nc/fr/cyclone",
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "meteo.nc",
@@ -2081,7 +2009,6 @@
       "commentCount": 1490,
       "date": "31 octobre 2026 à 06:22",
       "ilYa": 7,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "arnaque-compte-pirate",
@@ -2149,8 +2076,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/piratage-de-compte",
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -2165,7 +2090,6 @@
       "commentCount": 1374,
       "date": "29 octobre 2026 à 16:22",
       "ilYa": 45,
-      "learnMoreTips": "https://www.clemi.fr/",
       "origine": "fiction",
       "recolteLe": "2026-10-31T02:22:56.708Z",
       "scenario": "fait-lagon-unesco",
@@ -2239,8 +2163,6 @@
         "ignore": 10,
         "report": 100
       },
-      "sourceUrl": null,
-      "learnMoreUrl": "https://whc.unesco.org/fr/list/1115",
       "lienInfo": {
         "titre": "La vraie info",
         "nom": "L’UNESCO",
@@ -2258,7 +2180,6 @@
       "preview": "Mon ancien compte a été piraté, ajoutez celui-ci",
       "color": "#791561",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "tata-josiane",
@@ -2439,7 +2360,6 @@
       "preview": "⚠️🔴 MÊME LUI LE DIT !! DES ÉLÈVES DE CANALA LANCENT LEUR PROPRE RADIO SCOLAIRE",
       "color": "#791561",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "tata-josiane",
@@ -2630,7 +2550,6 @@
       "preview": "Un expert prévient : Un chat retrouvé sain et sauf dans un conteneur arrivé au port de Nouméa, et ce n'est que le début",
       "color": "#791561",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "tata-josiane",
@@ -2821,7 +2740,6 @@
       "preview": "🚨🚨🚨 ON VOUS L'AVAIT DIT : UNE ROUSSETTE ALBINOS PHOTOGRAPHIÉE DANS LA VALLÉE DE SARRAMÉA",
       "color": "#791561",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "tata-josiane",
@@ -3012,7 +2930,6 @@
       "preview": "Avant que ça disparaisse : Les lagons de Nouvelle-Calédonie sont inscrits au patrimoine mondial de l’UNESCO depuis 1998",
       "color": "#791561",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "tata-josiane",
@@ -3202,7 +3119,6 @@
       "preview": "On ne vous le dira pas ailleurs. Ce que ça va changer pour votre famille : Des randonneurs repèrent une fleur jamais décrite sur les pentes du mont Panié",
       "color": "#791561",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "tata-josiane",
@@ -3394,7 +3310,6 @@
       "color": "#b45309",
       "groupe": true,
       "contexte": "Famille 🌺",
-      "etapes": 3,
       "participants": [
         {
           "id": "tonton-georges",
@@ -3600,7 +3515,6 @@
       "color": "#b45309",
       "groupe": true,
       "contexte": "Famille 🌺",
-      "etapes": 3,
       "participants": [
         {
           "id": "tonton-georges",
@@ -3815,7 +3729,6 @@
       "color": "#b45309",
       "groupe": true,
       "contexte": "Famille 🌺",
-      "etapes": 3,
       "participants": [
         {
           "id": "tonton-georges",
@@ -4031,7 +3944,6 @@
       "color": "#b45309",
       "groupe": true,
       "contexte": "Famille 🌺",
-      "etapes": 3,
       "participants": [
         {
           "id": "tonton-georges",
@@ -4247,7 +4159,6 @@
       "color": "#b45309",
       "groupe": true,
       "contexte": "Famille 🌺",
-      "etapes": 3,
       "participants": [
         {
           "id": "tonton-georges",
@@ -4463,7 +4374,6 @@
       "color": "#b45309",
       "groupe": true,
       "contexte": "Famille 🌺",
-      "etapes": 3,
       "participants": [
         {
           "id": "tonton-georges",
@@ -4678,7 +4588,6 @@
       "preview": "💸💸 150 000 F PAR SEMAINE DEPUIS VOTRE CANAPÉ !!!",
       "color": "#14663f",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "mathis",
@@ -4859,7 +4768,6 @@
       "preview": "🧵 Info : une collecte de jouets dépasse les 2 000 dons à Païta, l’info qui tourne dans tous les groupes",
       "color": "#14663f",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "mathis",
@@ -5050,7 +4958,6 @@
       "preview": "Exclu. Un pêcheur de Pouébo remonte un thon de 90 kilos à la ligne : un message vocal circule",
       "color": "#14663f",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "mathis",
@@ -5241,7 +5148,6 @@
       "preview": "VOUS NE DEVINEREZ JAMAIS LA SUITE 😱 Une course de caisses à savon dévale les rues de Farino ce dimanche",
       "color": "#14663f",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "mathis",
@@ -5432,7 +5338,6 @@
       "preview": "🧵 Info. Une course solidaire attire plus de 800 coureurs à Bourail : à qui profite le silence ?",
       "color": "#14663f",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "mathis",
@@ -5623,7 +5528,6 @@
       "preview": "Exclu. Un concours de cerfs-volants colore la plage de l’Anse-Vata : c'est officiel",
       "color": "#14663f",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "mathis",
@@ -5815,7 +5719,6 @@
       "color": "#8a4fbe",
       "groupe": true,
       "contexte": "Les potes 🏝️",
-      "etapes": 3,
       "participants": [
         {
           "id": "kenzo",
@@ -6021,7 +5924,6 @@
       "color": "#8a4fbe",
       "groupe": true,
       "contexte": "Les potes 🏝️",
-      "etapes": 3,
       "participants": [
         {
           "id": "kenzo",
@@ -6237,7 +6139,6 @@
       "color": "#8a4fbe",
       "groupe": true,
       "contexte": "Les potes 🏝️",
-      "etapes": 3,
       "participants": [
         {
           "id": "kenzo",
@@ -6453,7 +6354,6 @@
       "color": "#8a4fbe",
       "groupe": true,
       "contexte": "Les potes 🏝️",
-      "etapes": 3,
       "participants": [
         {
           "id": "kenzo",
@@ -6669,7 +6569,6 @@
       "color": "#8a4fbe",
       "groupe": true,
       "contexte": "Les potes 🏝️",
-      "etapes": 3,
       "participants": [
         {
           "id": "kenzo",
@@ -6885,7 +6784,6 @@
       "color": "#8a4fbe",
       "groupe": true,
       "contexte": "Les potes 🏝️",
-      "etapes": 3,
       "participants": [
         {
           "id": "kenzo",
@@ -7100,7 +6998,6 @@
       "preview": "🎁 Gagnez 2 billets d’avion pour Tahiti !",
       "color": "#57534e",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "colette",
@@ -7281,7 +7178,6 @@
       "preview": "⚠️🔴 TOUT LE MONDE EN PARLE : UN PIQUE-NIQUE GÉANT RASSEMBLE DES CENTAINES DE FAMILLES AU OUEN-TORO",
       "color": "#57534e",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "colette",
@@ -7472,7 +7368,6 @@
       "preview": "Encore une fois. Des lycéens de Koné construisent un robot qui trie les déchets : « ce n'est qu'un début », selon un expert",
       "color": "#57534e",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "colette",
@@ -7663,7 +7558,6 @@
       "preview": "‼️ URGENT, PARTAGEZ AVANT SUPPRESSION : UNE BALEINE FILMÉE À QUELQUES MÈTRES DU RIVAGE À YATÉ",
       "color": "#57534e",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "colette",
@@ -7854,7 +7748,6 @@
       "preview": "Réveillez-vous. Des plongeurs bénévoles balisent un parcours de snorkeling à l’îlot Canard : la preuve de ce que beaucoup pensaient",
       "color": "#57534e",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "colette",
@@ -8045,7 +7938,6 @@
       "preview": "Un tournoi de jeux vidéo réunit 120 joueurs dans un gymnase de Dumbéa : à qui profite le silence ?",
       "color": "#57534e",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "colette",
@@ -8236,7 +8128,6 @@
       "preview": "📦 VOTRE COLIS EST BLOQUÉ !!!",
       "color": "#1800ad",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "papi-rene",
@@ -8417,7 +8308,6 @@
       "preview": "Encore une fois. Révélations d'un haut responsable : Des habitants de Maré lancent un concours de photos de couchers de soleil",
       "color": "#1800ad",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "papi-rene",
@@ -8608,7 +8498,6 @@
       "preview": "Un collégien de Lifou remporte un concours de dessin en Métropole (lu sur Le Cagou Déchaîné)",
       "color": "#1800ad",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "papi-rene",
@@ -8799,7 +8688,6 @@
       "preview": "Exclu. Un jardinier de Hienghène récolte un giraumon de 40 kilos : un lien troublant",
       "color": "#1800ad",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "papi-rene",
@@ -8990,7 +8878,6 @@
       "preview": "Un orchestre de jeunes de Nouméa invité à jouer en Nouvelle-Zélande : un message vocal circule",
       "color": "#1800ad",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "papi-rene",
@@ -9181,7 +9068,6 @@
       "preview": "Exclu : un pique-nique géant rassemble des centaines de familles au Ouen-Toro, relayé par un influenceur",
       "color": "#1800ad",
       "groupe": false,
-      "etapes": 3,
       "participants": [
         {
           "id": "papi-rene",
@@ -9373,7 +9259,6 @@
       "color": "#14663f",
       "groupe": true,
       "contexte": "Collègues ☕",
-      "etapes": 3,
       "participants": [
         {
           "id": "sylvie",
@@ -9579,7 +9464,6 @@
       "color": "#14663f",
       "groupe": true,
       "contexte": "Collègues ☕",
-      "etapes": 3,
       "participants": [
         {
           "id": "sylvie",
@@ -9795,7 +9679,6 @@
       "color": "#14663f",
       "groupe": true,
       "contexte": "Collègues ☕",
-      "etapes": 3,
       "participants": [
         {
           "id": "sylvie",
@@ -10010,7 +9893,6 @@
       "color": "#14663f",
       "groupe": true,
       "contexte": "Collègues ☕",
-      "etapes": 3,
       "participants": [
         {
           "id": "sylvie",
@@ -10225,7 +10107,6 @@
       "color": "#14663f",
       "groupe": true,
       "contexte": "Collègues ☕",
-      "etapes": 3,
       "participants": [
         {
           "id": "sylvie",
@@ -10441,7 +10322,6 @@
       "color": "#14663f",
       "groupe": true,
       "contexte": "Collègues ☕",
-      "etapes": 3,
       "participants": [
         {
           "id": "sylvie",
@@ -10657,7 +10537,6 @@
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
-      "etapes": 3,
       "participants": [
         {
           "id": "coach-alain",
@@ -10873,7 +10752,6 @@
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
-      "etapes": 3,
       "participants": [
         {
           "id": "coach-alain",
@@ -11089,7 +10967,6 @@
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
-      "etapes": 3,
       "participants": [
         {
           "id": "coach-alain",
@@ -11305,7 +11182,6 @@
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
-      "etapes": 3,
       "participants": [
         {
           "id": "coach-alain",
@@ -11521,7 +11397,6 @@
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
-      "etapes": 3,
       "participants": [
         {
           "id": "coach-alain",
@@ -11737,7 +11612,6 @@
       "color": "#57534e",
       "groupe": true,
       "contexte": "Club de foot ⚽",
-      "etapes": 3,
       "participants": [
         {
           "id": "coach-alain",
@@ -13122,123 +12996,6 @@
         }
       ]
     }
-  ],
-  "ressources": [
-    {
-      "id": "decodeurs",
-      "titre": "Les Décodeurs",
-      "editeur": "Le Monde",
-      "categorie": "Vérifier une info",
-      "description": "Cellule de vérification qui décortique les affirmations qui circulent, avec le détail de la méthode employée.",
-      "url": "https://www.lemonde.fr/les-decodeurs/",
-      "color": "#1800ad"
-    },
-    {
-      "id": "afp-factuel",
-      "titre": "AFP Factuel",
-      "editeur": "Agence France-Presse",
-      "categorie": "Vérifier une info",
-      "description": "Les vérifications de l'AFP, souvent les premières à traiter les rumeurs qui tournent sur les réseaux.",
-      "url": "https://factuel.afp.com/",
-      "color": "#791561"
-    },
-    {
-      "id": "checknews",
-      "titre": "CheckNews",
-      "editeur": "Libération",
-      "categorie": "Vérifier une info",
-      "description": "Vous posez une question, des journalistes y répondent publiquement en montrant leurs sources.",
-      "url": "https://www.liberation.fr/checknews/",
-      "color": "#e0309a"
-    },
-    {
-      "id": "vrai-ou-faux",
-      "titre": "Vrai ou Faux",
-      "editeur": "franceinfo",
-      "categorie": "Vérifier une info",
-      "description": "Format court qui reprend les affirmations les plus partagées du moment et les confronte aux faits.",
-      "url": "https://www.francetvinfo.fr/vrai-ou-fake/",
-      "color": "#1800ad"
-    },
-    {
-      "id": "meteo-nc",
-      "titre": "Météo-France Nouvelle-Calédonie",
-      "editeur": "Météo-France",
-      "categorie": "Vérifier une info",
-      "description": "Les vigilances et alertes cycloniques officielles : à consulter avant de transférer une alerte reçue sur les réseaux.",
-      "url": "https://meteo.nc/fr",
-      "color": "#1800ad"
-    },
-    {
-      "id": "endemia",
-      "titre": "Endemia",
-      "editeur": "Association Endemia",
-      "categorie": "Vérifier une info",
-      "description": "L’encyclopédie de la faune et de la flore calédoniennes, avec une fiche par espèce : pratique pour vérifier une info sur la nature d’ici.",
-      "url": "https://endemia.nc/",
-      "color": "#791561"
-    },
-    {
-      "id": "image-inversee",
-      "titre": "Recherche d'image inversée",
-      "editeur": "Google Images",
-      "categorie": "Vérifier une image",
-      "description": "Retrouvez où une photo est déjà apparue. Le réflexe le plus efficace contre les images anciennes republiées comme récentes.",
-      "url": "https://images.google.com/",
-      "color": "#791561"
-    },
-    {
-      "id": "tineye",
-      "titre": "TinEye",
-      "editeur": "TinEye",
-      "categorie": "Vérifier une image",
-      "description": "Moteur de recherche d'images qui affiche la plus ancienne occurrence connue d'une photo.",
-      "url": "https://tineye.com/",
-      "color": "#e0309a"
-    },
-    {
-      "id": "cybermalveillance",
-      "titre": "Cybermalveillance.gouv.fr",
-      "editeur": "Dispositif national d’assistance",
-      "categorie": "Se protéger des arnaques",
-      "description": "Des fiches simples sur l’hameçonnage, le piratage de compte ou les fausses offres d’emploi : reconnaître le piège, et quoi faire si c’est trop tard.",
-      "url": "https://www.cybermalveillance.gouv.fr/",
-      "color": "#1800ad"
-    },
-    {
-      "id": "pharos",
-      "titre": "Pharos",
-      "editeur": "Ministère de l’Intérieur",
-      "categorie": "Se protéger des arnaques",
-      "description": "La plateforme officielle pour signaler un contenu illicite ou une escroquerie en ligne.",
-      "url": "https://www.internet-signalement.gouv.fr/",
-      "color": "#791561"
-    },
-    {
-      "id": "clemi",
-      "titre": "CLEMI",
-      "editeur": "Éducation nationale",
-      "categorie": "Comprendre",
-      "description": "Ressources pédagogiques sur l'éducation aux médias, pensées pour la classe comme pour l'auto-formation.",
-      "url": "https://www.clemi.fr/",
-      "color": "#1800ad"
-    },
-    {
-      "id": "educnum",
-      "titre": "Educnum",
-      "editeur": "CNIL",
-      "categorie": "Comprendre",
-      "description": "Guides sur les usages numériques : données personnelles, algorithmes de recommandation, réseaux sociaux.",
-      "url": "https://www.educnum.fr/",
-      "color": "#791561"
-    }
-  ],
-  "categoriesRessources": [
-    "Tout",
-    "Vérifier une info",
-    "Vérifier une image",
-    "Se protéger des arnaques",
-    "Comprendre"
   ],
   "stories": [
     {

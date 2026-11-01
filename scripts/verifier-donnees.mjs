@@ -91,10 +91,6 @@ function verifierPosts(posts, nom, isFake) {
     if (!texte(post.source)) signaler(`${ici} : pas de source`)
     if (!Number.isInteger(post.level)) signaler(`${ici} : niveau absent`)
     if (!ACTIONS.includes(post.correctAction)) signaler(`${ici} : correctAction inconnue`)
-    if (typeof post.scores?.[post.correctAction] !== 'number') signaler(`${ici} : pas de score pour la bonne action`)
-    if (Object.values(post.scores ?? {}).some((score) => typeof score !== 'number' || Math.abs(score) > 100)) {
-      signaler(`${ici} : score hors de -100 à 100`)
-    }
     if (post.image && !post.image.startsWith('/images/')) signaler(`${ici} : image hors de /images/ (${post.image.slice(0, 60)})`)
     else if (post.image) verifierImage(ici, post.image, post.imageAlt, post.credit)
   }

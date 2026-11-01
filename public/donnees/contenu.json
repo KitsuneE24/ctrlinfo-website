@@ -170,11 +170,6 @@
         "ignore": "Pas mal, mais ce type de contenu mérite un signalement pour éviter qu'il piège d'autres personnes.",
         "report": "Parfait ! Vous reconnaissez maintenant le schéma de l'urgence artificielle."
       },
-      "scores": {
-        "share": -50,
-        "ignore": 30,
-        "report": 100
-      },
       "encouragement": "Vous reconnaissez maintenant l'urgence artificielle !",
       "warning": "Plus un contenu vous crie dessus, plus il faut ralentir et vérifier.",
       "reactionCount": 8432,
@@ -221,11 +216,6 @@
         "share": "Vous avez partagé le contenu d'un expert non vérifiable. Pensez à toujours chercher les publications d'un expert avant de lui faire confiance.",
         "ignore": "Mieux vaut ne pas partager, mais ce type de faux expert mérite d'être signalé.",
         "report": "Vous identifiez maintenant les faux experts. Un expert légitime peut toujours être vérifié dans des sources indépendantes."
-      },
-      "scores": {
-        "share": -50,
-        "ignore": 30,
-        "report": 100
       },
       "encouragement": "Vous savez maintenant identifier les faux experts !",
       "warning": "Un vrai expert a des publications académiques vérifiables et une affiliation réelle.",
@@ -274,11 +264,6 @@
         "ignore": "Bon réflexe. Signaler ce type de contenu le retire de la circulation.",
         "report": "Vous reconnaissez maintenant l'appel à la peur. Bien joué !"
       },
-      "scores": {
-        "share": -50,
-        "ignore": 30,
-        "report": 100
-      },
       "encouragement": "Vous reconnaissez maintenant l'appel à la peur !",
       "warning": "Plus un contenu vous fait peur, plus il faut vérifier avant de partager.",
       "reactionCount": 11234,
@@ -325,11 +310,6 @@
         "share": "Vous avez partagé une fausse corrélation. Rappelez-vous : deux choses liées ne signifient pas que l'une cause l'autre.",
         "ignore": "Bon instinct, mais un signalement aurait protégé les autres.",
         "report": "Bravo ! Vous identifiez maintenant les fausses corrélations."
-      },
-      "scores": {
-        "share": -50,
-        "ignore": 30,
-        "report": 100
       },
       "encouragement": "Vous détectez maintenant les fausses corrélations !",
       "warning": "Corrélation ≠ causalité. Cherchez toujours le mécanisme qui expliquerait le lien.",
@@ -378,11 +358,6 @@
         "ignore": "Bon instinct. Un signalement aurait été plus efficace.",
         "report": "Vous identifiez maintenant le cherry picking ! Les méta-analyses sont vos alliées."
       },
-      "scores": {
-        "share": -50,
-        "ignore": 30,
-        "report": 100
-      },
       "encouragement": "Vous détectez maintenant le cherry picking !",
       "warning": "Cherchez des méta-analyses pour avoir une image complète des données.",
       "reactionCount": 6543,
@@ -429,11 +404,6 @@
         "share": "Vous avez partagé un contenu parce qu'il confirmait ce que vous pensiez. Essayez de chercher des sources qui challengent vos idées.",
         "ignore": "Bon réflexe. Signaler ce type de contenu manipulatoire aide davantage.",
         "report": "Vous identifiez maintenant le biais de confirmation. Bien joué !"
-      },
-      "scores": {
-        "share": -50,
-        "ignore": 30,
-        "report": 100
       },
       "encouragement": "Vous identifiez maintenant le biais de confirmation !",
       "warning": "Méfiez-vous des contenus qui confirment toujours ce que vous pensez déjà.",
@@ -482,11 +452,6 @@
         "ignore": "Bon réflexe. Dans le doute, ne pas partager est souvent la meilleure décision.",
         "report": "Bien ! Vous identifiez la décontextualisation. La vérification d'image inversée est votre outil principal."
       },
-      "scores": {
-        "share": -50,
-        "ignore": 100,
-        "report": 30
-      },
       "encouragement": "Vous identifiez la décontextualisation !",
       "warning": "La recherche d'image inversée est votre outil principal contre la décontextualisation.",
       "reactionCount": 23456,
@@ -534,11 +499,6 @@
         "ignore": "Mieux vaut ne pas partager, mais signaler aurait protégé plus de personnes.",
         "report": "Vous savez maintenant comment identifier les faux experts. Bien joué !"
       },
-      "scores": {
-        "share": -50,
-        "ignore": 30,
-        "report": 100
-      },
       "encouragement": "Vous savez maintenant reconnaître les faux experts !",
       "warning": "Vérifiez toujours un expert sur Google Scholar ou le site de son institution.",
       "reactionCount": 4321,
@@ -585,11 +545,6 @@
         "share": "Vous avez partagé une manipulation statistique. Des vrais chiffres peuvent construire une fausse image selon comment ils sont présentés.",
         "ignore": "Bon instinct. Signaler ce type de manipulation statistique aurait été encore mieux.",
         "report": "Excellent ! La manipulation statistique est sophistiquée car elle utilise de vrais chiffres. Vous la détectez maintenant."
-      },
-      "scores": {
-        "share": -50,
-        "ignore": 30,
-        "report": 100
       },
       "encouragement": "Vous détectez maintenant la manipulation statistique !",
       "warning": "Des vrais chiffres peuvent construire une image fausse selon comment ils sont présentés.",
@@ -678,11 +633,6 @@
         "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
       },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
@@ -775,11 +725,6 @@
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
       },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -868,11 +813,6 @@
         "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
       },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
@@ -971,11 +911,6 @@
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
       },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -1073,11 +1008,6 @@
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
       },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le CLEMI",
@@ -1166,11 +1096,6 @@
         "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
       },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
@@ -1269,11 +1194,6 @@
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
       },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -1370,11 +1290,6 @@
         "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
       },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
@@ -1473,11 +1388,6 @@
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
       },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le réseau de chercheurs COMPACT",
@@ -1560,11 +1470,6 @@
         "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
       },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
@@ -1654,11 +1559,6 @@
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
       },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -1734,11 +1634,6 @@
         "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
       },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
@@ -1822,11 +1717,6 @@
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
       },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -1909,11 +1799,6 @@
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
       },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "amf-france.org",
@@ -1990,11 +1875,6 @@
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
       },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "meteo.nc",
@@ -2070,11 +1950,6 @@
         "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
       },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
@@ -2157,11 +2032,6 @@
         "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
         "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
         "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
-      "scores": {
-        "share": -80,
-        "ignore": 10,
-        "report": 100
       },
       "lienInfo": {
         "titre": "La vraie info",

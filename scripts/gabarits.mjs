@@ -985,5 +985,3 @@ export const CONSEQUENCES_VRAI = {
   report: 'Aucune fake news ici : l’info était vraie. La signaler ne protège personne.',
 }
 
-export const SCORES_FAUX = { share: -80, ignore: 0, report: 100 }
-export const SCORES_VRAI = { share: 100, ignore: 0, report: -40 }

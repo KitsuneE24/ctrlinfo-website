@@ -29,7 +29,7 @@ describe('progression', () => {
       'ctrl-info:progression': JSON.stringify({
         pseudo: 'A‮B'.padEnd(80, 'x'),
         avatar: '../../etc',
-        fil: { niveau: 1e9, decisions: 5, justes: 99, points: 'beaucoup', vus: [1, 'ok'], biais: { __proto__: { total: 1 } } },
+        fil: { niveau: 1e9, decisions: 5, justes: 99, vus: [1, 'ok'], biais: { __proto__: { total: 1 } } },
       }),
     })
     const { etatProgression } = await import('../../src/state/progression')
@@ -39,19 +39,18 @@ describe('progression', () => {
     expect(etat.avatar).toBeNull()
     expect(etat.fil.niveau).toBe(999)
     expect(etat.fil.justes).toBe(5)
-    expect(etat.fil.points).toBe(0)
     expect(etat.fil.vus).toEqual(['ok'])
   })
 
   it('enregistre une décision et la retrouve au rechargement', async () => {
     const memoire = navigateur()
     const { noterDecision } = await import('../../src/state/progression')
-    noterDecision({ slug: 'post-1', biais: 'Faux expert', juste: true, points: 500 })
+    noterDecision({ slug: 'post-1', biais: 'Faux expert', juste: true })
     vi.resetModules()
     navigateur(Object.fromEntries(memoire))
     const { etatProgression } = await import('../../src/state/progression')
     const fil = etatProgression().fil
-    expect(fil).toMatchObject({ decisions: 1, justes: 1, points: 100, vus: ['post-1'] })
+    expect(fil).toMatchObject({ decisions: 1, justes: 1, vus: ['post-1'] })
     expect(fil.biais['Faux expert']).toEqual({ total: 1, justes: 1 })
   })
 
@@ -61,7 +60,7 @@ describe('progression', () => {
     noterDecision({ slug: 'deja-vu', biais: 'x', juste: false })
     expect(remplacer({ fil: { decisions: 1, justes: 2 } })).toBe(false)
     expect(remplacer({ fil: { niveau: 50, decisions: 3 } })).toBe(false)
-    expect(remplacer({ pseudo: 'Kenji', fil: { niveau: 2, decisions: 4, justes: 3, points: 200 } })).toBe(true)
+    expect(remplacer({ pseudo: 'Kenji', fil: { niveau: 2, decisions: 4, justes: 3 } })).toBe(true)
     expect(etatProgression().pseudo).toBe('Kenji')
     expect(etatProgression().fil.vus).toEqual(['deja-vu'])
     expect(exportable().fil.vus).toBeUndefined()

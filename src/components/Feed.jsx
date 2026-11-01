@@ -174,7 +174,6 @@ export default function Feed({ onSwitch, onRegles, paused = false }) {
         slug: currentPost.slug,
         biais: currentPost.biais,
         juste: type === currentPost.correctAction,
-        points: currentPost.scores?.[type] ?? 0,
       })
     }
 

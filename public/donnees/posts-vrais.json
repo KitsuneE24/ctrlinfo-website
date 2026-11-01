@@ -84,11 +84,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "L’article complet",
       "nom": "Commission nationale de l’informatique et des libertés",
@@ -180,11 +175,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "L’article complet",
@@ -278,11 +268,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "L’article complet",
       "nom": "Commission nationale de l’informatique et des libertés",
@@ -375,11 +360,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "L’article complet",
       "nom": "Commission nationale de l’informatique et des libertés",
@@ -466,11 +446,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -559,11 +534,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -661,11 +631,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -754,11 +719,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le ministère de la Culture",
@@ -845,11 +805,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -938,11 +893,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "L’IEOM",
@@ -1023,11 +973,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -1116,11 +1061,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le gouvernement de la Nouvelle-Calédonie",
@@ -1207,11 +1147,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -1300,11 +1235,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -1396,11 +1326,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -1490,11 +1415,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le ministère de la Transition écologique",
@@ -1580,11 +1500,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "L’article complet",
@@ -1672,11 +1587,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "L’article complet",
       "nom": "Commission nationale de l’informatique et des libertés",
@@ -1751,11 +1661,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -1852,11 +1757,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -1937,11 +1837,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -2033,11 +1928,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le ministère de la Mer",
@@ -2118,11 +2008,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -2214,11 +2099,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "La Direction de l’enseignement de la Nouvelle-Calédonie",
@@ -2293,11 +2173,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -2379,11 +2254,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -2481,11 +2351,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "L’IEOM",
@@ -2573,11 +2438,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -2674,11 +2534,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "L’UNESCO",
@@ -2774,11 +2629,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "L’Ifremer",
@@ -2862,11 +2712,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le gouvernement de la Nouvelle-Calédonie",
@@ -2948,11 +2793,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -3033,11 +2873,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -3135,11 +2970,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -3234,11 +3064,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -3335,11 +3160,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -3426,11 +3246,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -3527,11 +3342,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le gouvernement de la Nouvelle-Calédonie",
@@ -3618,11 +3428,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -3713,11 +3518,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "L’IEOM",
@@ -3806,11 +3606,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -3901,11 +3696,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -4003,11 +3793,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "La Direction de l’enseignement de la Nouvelle-Calédonie",
@@ -4090,11 +3875,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -4191,11 +3971,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "L’IEOM",
@@ -4282,11 +4057,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -4375,11 +4145,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le parc naturel de la mer de Corail",
@@ -4467,11 +4232,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -4552,11 +4312,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -4646,11 +4401,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -4738,11 +4488,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -4833,11 +4578,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le gouvernement de la Nouvelle-Calédonie",
@@ -4924,11 +4664,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -5025,11 +4760,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -5104,11 +4834,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -5205,11 +4930,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -5296,11 +5016,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -5389,11 +5104,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "L’Institut royal météorologique de Belgique",
@@ -5477,11 +5187,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -5562,11 +5267,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -5654,11 +5354,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -5756,11 +5451,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "L’IEOM",
@@ -5849,11 +5539,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le gouvernement de la Nouvelle-Calédonie",
@@ -5929,11 +5614,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -6023,11 +5703,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -6124,11 +5799,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -6218,11 +5888,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -6304,11 +5969,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -6383,11 +6043,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -6485,11 +6140,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le ministère de la Mer",
@@ -6578,11 +6228,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -6669,11 +6314,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -6771,11 +6411,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "La Direction de l’enseignement de la Nouvelle-Calédonie",
@@ -6871,11 +6506,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Le gouvernement de la Nouvelle-Calédonie",
@@ -6950,11 +6580,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -7036,11 +6661,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -7129,11 +6749,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "L’IEOM",
@@ -7216,11 +6831,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",
@@ -7317,11 +6927,6 @@
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
     },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
-    },
     "lienInfo": {
       "titre": "La source de cette info",
       "nom": "Endemia",
@@ -7416,11 +7021,6 @@
       "share": "Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.",
       "ignore": "Aucun impact : l’info était vraie, aucune fake news n’a circulé.",
       "report": "Aucune fake news ici : l’info était vraie. La signaler ne protège personne."
-    },
-    "scores": {
-      "share": 100,
-      "ignore": 0,
-      "report": -40
     },
     "lienInfo": {
       "titre": "La source de cette info",

@@ -1,4 +1,4 @@
-export const REACTIONS_THEME = {
+const REACTIONS_THEME = {
   mer: [
     'Le lagon, on ne s’en lasse pas 🐠',
     'Mon fils va adorer, il est fan de tout ce qui vit dans l’eau.',

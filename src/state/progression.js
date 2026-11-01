@@ -199,7 +199,7 @@ export function exportable(conversationsEnLigne = []) {
   return { version: VERSION, pseudo: etat.pseudo, avatar: etat.avatar, fil, conversations }
 }
 
-export const POINTS_MAX = 100
+const POINTS_MAX = 100
 
 export function incoherence(recu) {
   const fil = recu?.fil

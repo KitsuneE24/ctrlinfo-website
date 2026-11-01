@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { lienWeb } from '../lib/lienWeb'
 
-// Photo libre d'un post. Le crédit n'apparaît qu'à la correction : dans le fil, il trahirait la réponse.
+// Photo libre d'un post ; crédit affiché à la correction seulement.
 export default function ImagePost({ post, className = '', avecCredit = true }) {
   const [cassee, setCassee] = useState(null)
   if (!post.image || post.image === cassee) return null

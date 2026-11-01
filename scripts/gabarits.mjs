@@ -742,11 +742,11 @@ const sigle = (nom) => /^[A-ZÉ]{2,}$/.test(nom)
 const articleDe = (s) => s.article ?? (sigle(s.nom) ? 'l’' : '')
 const DE = { 'le ': 'du ', 'la ': 'de la ', 'l’': 'de l’' }
 const majuscule = (texte) => texte.charAt(0).toUpperCase() + texte.slice(1)
-export const laSource = (s) => `${articleDe(s)}${s.nom}`
+const laSource = (s) => `${articleDe(s)}${s.nom}`
 export const LaSource = (s) => majuscule(laSource(s))
 export const surLeSite = (s) =>
   `sur le site ${DE[articleDe(s)] ?? (/^[aeiouyéèêàâîôû]/i.test(s.nom) ? 'd’' : 'de ')}${s.nom}`
-export const dapres = (s) => `D’après ${laSource(s)}`
+const dapres = (s) => `D’après ${laSource(s)}`
 
 export const PERSONNES = [
   ['Mélissa R.', '#791561', '@melissa.r', 'parent'], ['Teva', '#14663f', '@teva.nc', 'ado'],

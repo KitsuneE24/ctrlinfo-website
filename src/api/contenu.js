@@ -13,7 +13,6 @@ export const getRemediations = depuis((c) => c.remediations)
 export const getNiveaux = depuis((c) => c.niveaux)
 export const getConversations = depuis((c) => c.conversations)
 export const getChapitres = depuis((c) => c.chapitres)
-// Crédits photos dans la correction de chaque post seulement, jamais ici.
 export const getMentionsLegales = depuis((c) => c.mentionsLegales ?? [])
 
 export const getDailyTip = depuis((c) => {

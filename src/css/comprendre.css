@@ -783,7 +783,6 @@
     font-weight: 700;
   }
 
-  /* Sur fond coloré, le blanc en gras se lit mal : pas de gras. */
   .conseil strong,
   .chemise strong {
     font-weight: inherit;

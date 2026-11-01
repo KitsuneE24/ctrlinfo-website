@@ -80,7 +80,7 @@ const REPLIQUES = [
       'Les outils pour vérifier une image servent plus souvent qu’on ne croit. Garde-les sous la main.',
       'Un doute sur une info ? Un site de vérification a peut-être déjà fait le travail.',
       'Lire une fiche, c’est deux minutes. Rattraper un partage, c’est plus long.',
-      'Tu peux trier les ressources par thème, juste au-dessus.',
+      'Tu cherches un thème ? Tape-le juste au-dessus.',
     ],
   ],
   [

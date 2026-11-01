@@ -1,4 +1,4 @@
-export const melanger = (tableau) => {
+const melanger = (tableau) => {
   const copie = [...tableau]
   for (let i = copie.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -8,7 +8,7 @@ export const melanger = (tableau) => {
 }
 
 // Sujet d’un post : le fait ou l’événement dont il parle, vrai ou faux.
-export const sujetDe = (post) => post.fait ?? post.scenario?.replace(/^fait-/, '') ?? post.slug
+const sujetDe = (post) => post.fait ?? post.scenario?.replace(/^fait-/, '') ?? post.slug
 
 function varier(disponibles, taille) {
   const choisis = []

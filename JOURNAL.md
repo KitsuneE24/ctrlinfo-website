@@ -20,12 +20,18 @@ Le détail de chaque modification reste dans git : `git log --oneline`, ou
 `git log -p -- <fichier>` pour un fichier. **Ne jamais y écrire de secret**
 (mot de passe, adresse réelle de l'admin, accès FTP).
 
+## Novembre 2026
+
+| Date | Changement |
+| --- | --- |
+| 01/11 | Ménage : données jamais affichées retirées (`ressources`, `categoriesRessources`, `learnMoreTips`, `sourceUrl`, `learnMoreUrl`, `etapes`, `aideUrl`, bloc `admin` de `config.json`), code mort et commentaires superflus retirés ; points retirés (calculés mais jamais affichés) ; code de l'admin absent du build quand elle n'est pas construite ; règle de l'adresse de l'admin partagée entre build et audit ; curseur de taille du texte rond ; SPEC : noms dans le code, protection de `main`, branches |
+
 ## Octobre 2026
 
 | Date | Changement |
 | --- | --- |
 | 31/10 | Ressources : parties lettrées avec intercalaire épinglé, sommaire, pièces A1, A2…, fil rouge limité à la partie, source commune citée une fois ; verdict compact sur mobile (boutons toujours visibles, lien sur une ligne, « Voir les indices ») |
-| 31/10 | Fil : défilement retiré, retour du bouton « Continuer » ; bouton « Ignorer » parmi les choix (règles mises à jour) ; verdict plus compact sur ordinateur |
+| 31/10 | Fil : post suivant par le bouton « Continuer » ; bouton « Ignorer » parmi les choix (règles mises à jour) ; verdict plus compact sur ordinateur |
 | 31/10 | Ressources : « Le réflexe » devient « Repérer une fake news », deux dossiers ajoutés (manipulation de l'opinion, outils) ; chaque pièce et chaque brève a sa source (guide du ministère des Armées, CLEMI, MIT, COMPACT, études) ; chiffre « 59 % » et brève des spaghettis retirés faute de source première |
 | 31/10 | Correction d'un événement inventé : lien vers une page fiable qui explique le procédé, plus de lien vers un outil |
 | 31/10 | Messages : chaque réponse dit si l'arnaque s'arrête, continue ou si les dégâts sont limités ; c'est un proche qui est déjà tombé dans le piège (déroulé cohérent) ; lien de la source en fin de conversation |

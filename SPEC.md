@@ -1,6 +1,6 @@
 # CTRL INFO — Spécification
 
-> Seule documentation du projet. Mise à jour : 31/10/2026.
+> Seule documentation du projet. Mise à jour : 01/11/2026.
 > À modifier à chaque changement notable. L'historique est dans [JOURNAL.md](JOURNAL.md).
 
 ## 1. Le projet
@@ -139,8 +139,11 @@ Où se trouve chaque partie dans le code :
 | `src/routes.js` | toutes les adresses |
 | `src/screens/` | un fichier par écran |
 | `src/components/` | coque (en-tête, onglets), jeux, compagnon |
-| `src/state/` | contenu, progression, contenu fabriqué |
+| `src/api/contenu.js` | ce que chaque écran lit du contenu |
+| `src/state/` | contenu, progression, contenu fabriqué, réglages gardés |
 | `src/lib/` | tirage, niveaux, code de sauvegarde, fabrication |
+| `src/components/ui/` | briques communes (page, chargement, bannière) |
+| `src/data/icones.js` | icônes utilisables dans le contenu |
 | `src/css/jetons.css` | seule source des couleurs et polices |
 | `src/admin/` | formulaire d'administration |
 | `public/donnees/` | le contenu (JSON) |
@@ -150,6 +153,13 @@ Où se trouve chaque partie dans le code :
 | `scripts/gabarits-conversations.mjs` | contacts et déroulés des Messages |
 | `scripts/fabrique.mjs` | assemble un post, une conversation, un post d'entraînement |
 | `scripts/` (autres) | génération, vérification, audit, images |
+
+`gabarits.mjs`, `arnaques.mjs`, `gabarits-conversations.mjs`, `commentaires.mjs`
+et `fabrique.mjs` servent aussi au site (« Continuer à jouer ») : les modifier
+change le site et demande un déploiement.
+
+**Noms dans le code** : le Fil s'appelle `feed` / `Feed`, les Messages `chat` /
+`conversations` / `Chat…`, les Ressources `resources` / `Learn…` / `comprendre`.
 | `tests/unitaires/` | code de sauvegarde, tirage, stockage, générateur, contenu |
 | `tests/e2e/` | chaque écran, les parcours, le clavier, l'accessibilité |
 | `config.json` | réglages de la génération |
@@ -187,12 +197,14 @@ Où se trouve chaque partie dans le code :
 | `contenu.json` → `scenarios` | événements inventés et anodins, avec leur `lieu` (« à La Foa ») |
 | `contenu.json` → `conversations` | sujets de discussion (générés) |
 | `contenu.json` → `remediations` | posts d'entraînement, un par procédé (complétés seuls s'il en manque) |
-| `contenu.json` → `chapitres`, `ressources`, `stories`, `astuces` | fiches, sites utiles, brèves |
+| `contenu.json` → `chapitres`, `stories`, `astuces` | dossiers des Ressources, sites où vérifier (stories), brèves |
 | `contenu.json` → `jeux`, `niveaux`, `avatars`, `mentionsLegales` | règles, tutoriels, avatars, mentions |
 | `config.json` → `generation` | posts par niveau (16), sujets par contact (6), renouvellement, médias sous licence, sujets écartés |
 
 **Modifier un texte** : copier une entrée existante dans le JSON (attention aux
 virgules), ou passer par l'administration. Puis `npm run verifier` et `npm test`.
+Un fait ou un événement modifié ne change pas les posts déjà générés : relancer
+`npm run generer -- --refaire`.
 
 **Ajouter un fait, pas à pas** (c'est le seul moyen de vraiment renouveler le jeu)
 1. Trouver le fait sur une **source première** : gouv.nc, ISEE, Endemia,
@@ -293,8 +305,8 @@ fichier, un message ou un ticket.
 
 ## 7. Administration
 
-Formulaire d'édition du contenu en ligne. **Sans besoin d'édition, supprimer le
-dossier d'administration de `dist/`.**
+Formulaire d'édition du contenu en ligne. Sans adresse choisie, le build ne
+contient ni le formulaire ni son code.
 
 - Apache + PHP uniquement. **Netlify n'exécute pas de PHP** : le build Netlify
   retire l'admin. Sur Netlify, modifier le contenu dans GitHub (fichier JSON →
@@ -397,6 +409,9 @@ qui régresse fait échouer les contrôles.
 
 **Suivi**
 - Dépôt au nom du commanditaire, double authentification, peu de collaborateurs.
+- Branche `main` protégée (*Settings → Branches*) : PR obligatoire et
+  « Contrôles » au vert avant fusion. C'est elle qui protège le contenu publié.
+- Netlify (*Deploy Previews*) : aucune prévisualisation des PR venant d'un fork.
 - Chaque mois : *Actions* sans croix rouge, alertes Dependabot lues,
   `journal.log` sans anomalie.
 - Départ d'une personne : retirer son compte (`htpasswd -D`), changer les accès
@@ -452,6 +467,7 @@ Pour une personne qui arrive sans contexte, dans l'ordre :
 4. Ouvrir `scripts/gabarits.mjs` et `scripts/arnaques.mjs` : tout le texte des
    posts générés y est, procédé par procédé.
 5. Faire une petite modification, relancer les tests, ajouter une ligne au
-   JOURNAL, commiter avec un message `[Sujet] Ce qui change`.
+   JOURNAL, commiter sur `dev` avec un message `[Sujet] Ce qui change`, puis
+   fusionner `dev` dans `main` par une PR (c'est `main` qui est publié).
 
 Le dépôt frère `ctrlinfo-app` (ancienne API) n'est plus utilisé : l'archiver.

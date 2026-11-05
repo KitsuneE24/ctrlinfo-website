@@ -62,10 +62,27 @@
     filter: drop-shadow(0 0 1px color-mix(in srgb, var(--blanc) 70%, transparent));
   }
 
+  .app-header__name {
+    font-family: var(--font-enquete);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    color: var(--magenta);
+    -webkit-text-stroke: 2px var(--blanc);
+    paint-order: stroke fill;
+  }
+
   @media (min-width: 900px) {
     .app-header__logo {
       width: 78px;
       height: 78px;
+    }
+
+    .app-header__name {
+      font-size: 26px;
+      letter-spacing: 4px;
     }
   }
 

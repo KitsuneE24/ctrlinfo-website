@@ -334,6 +334,16 @@
     }
   }
 
+  @media (max-width: 767px) {
+    .modal:has(.cadre-cagou) {
+      padding: 8px;
+    }
+
+    .cadre-cagou {
+      --s: 0.24;
+    }
+  }
+
   .cadre-cagou__panneau {
     --ink: var(--papier-encre);
     --ink-muted: var(--papier-encre);

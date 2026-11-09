@@ -16,7 +16,11 @@
     z-index: 50;
     flex-shrink: 0;
     padding-top: var(--sa-top);
-    background: var(--encre);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--violet-bandeau) 40%, var(--encre)),
+      var(--encre)
+    );
     border-bottom: 1px solid var(--filet-1);
   }
 
@@ -36,7 +40,9 @@
     }
 
     .app-header__inner {
-      padding: 0 24px;
+      max-width: var(--content-wide);
+      margin-inline: auto;
+      padding: 0 40px;
     }
   }
 
@@ -203,6 +209,14 @@
     padding-inline: 6px;
   }
 
+  @media (max-width: 359px) {
+    .tab-bar__button:first-child,
+    .tab-bar__button:last-child {
+      min-width: 48px;
+      padding-inline: 2px;
+    }
+  }
+
   .tab-bar__button {
     position: relative;
     display: flex;
@@ -211,7 +225,7 @@
     min-height: 48px;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 5px;
     color: var(--ink-faint);
     /* Taille fixe : cinq onglets doivent tenir sur un téléphone. */
@@ -264,8 +278,7 @@
   }
 
   .tab-bar__icone .avatar-joueur {
-    margin-top: -12px;
-    border-width: 2px;
+    border-width: 1.5px;
   }
 
   .tab-bar__icone .avatar-joueur__image {

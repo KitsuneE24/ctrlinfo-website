@@ -74,11 +74,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « placement miracle ».",
     "warning": "Le procédé employé ici s'appelle « placement miracle ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Se protéger de cette arnaque",
       "nom": "amf-france.org",
@@ -161,11 +156,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fausse cagnotte ».",
     "warning": "Le procédé employé ici s'appelle « fausse cagnotte ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Se protéger de cette arnaque",
       "nom": "cybermalveillance.gouv.fr",
@@ -237,11 +227,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
     "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Le gouvernement de la Nouvelle-Calédonie",
@@ -319,11 +304,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
     "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -408,11 +388,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « manipulation statistique ».",
     "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -499,11 +474,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « décontextualisation ».",
     "warning": "Le procédé employé ici s'appelle « décontextualisation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -596,11 +566,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « appel à la peur ».",
     "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -693,11 +658,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « vérité par répétition ».",
     "warning": "Le procédé employé ici s'appelle « vérité par répétition ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "l’étude de Fazio et al., 2015",
@@ -784,11 +744,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fausse corrélation ».",
     "warning": "Le procédé employé ici s'appelle « fausse corrélation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "la Fondation La main à la pâte",
@@ -869,11 +824,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
     "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -960,11 +910,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « effet de halo ».",
     "warning": "Le procédé employé ici s'appelle « effet de halo ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -1042,11 +987,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « certitude ajoutée ».",
     "warning": "Le procédé employé ici s'appelle « certitude ajoutée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -1138,11 +1078,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « faux expert ».",
     "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -1220,11 +1155,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « cherry picking ».",
     "warning": "Le procédé employé ici s'appelle « cherry picking ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le réseau de chercheurs COMPACT",
@@ -1316,11 +1246,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « autorité inventée ».",
     "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -1406,11 +1331,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fabriqué pour le clic ».",
     "warning": "Le procédé employé ici s'appelle « fabriqué pour le clic ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -1482,11 +1402,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « faux concours ».",
     "warning": "Le procédé employé ici s'appelle « faux concours ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Se protéger de cette arnaque",
       "nom": "cybermalveillance.gouv.fr",
@@ -1569,11 +1484,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « offre trop belle ».",
     "warning": "Le procédé employé ici s'appelle « offre trop belle ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Se protéger de cette arnaque",
       "nom": "cybermalveillance.gouv.fr",
@@ -1651,11 +1561,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
     "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Endemia",
@@ -1733,11 +1638,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « discours complotiste ».",
     "warning": "Le procédé employé ici s'appelle « discours complotiste ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le réseau de chercheurs COMPACT",
@@ -1830,11 +1730,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « satire prise au sérieux ».",
     "warning": "Le procédé employé ici s'appelle « satire prise au sérieux ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le CLEMI",
@@ -1915,11 +1810,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « manipulation statistique ».",
     "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -2012,11 +1902,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
     "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -2109,11 +1994,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « décontextualisation ».",
     "warning": "Le procédé employé ici s'appelle « décontextualisation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -2199,11 +2079,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fausse corrélation ».",
     "warning": "Le procédé employé ici s'appelle « fausse corrélation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "la Fondation La main à la pâte",
@@ -2289,11 +2164,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « appel à la peur ».",
     "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -2385,11 +2255,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
     "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "La province Sud",
@@ -2472,11 +2337,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « certitude ajoutée ».",
     "warning": "Le procédé employé ici s'appelle « certitude ajoutée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Le ministère de la Transition écologique",
@@ -2559,11 +2419,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « vérité par répétition ».",
     "warning": "Le procédé employé ici s'appelle « vérité par répétition ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "l’étude de Fazio et al., 2015",
@@ -2641,11 +2496,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « faux expert ».",
     "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -2737,11 +2587,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « cherry picking ».",
     "warning": "Le procédé employé ici s'appelle « cherry picking ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le réseau de chercheurs COMPACT",
@@ -2825,11 +2670,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « effet de halo ».",
     "warning": "Le procédé employé ici s'appelle « effet de halo ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -2913,11 +2753,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fausse alerte ».",
     "warning": "Le procédé employé ici s'appelle « fausse alerte ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Se protéger de cette arnaque",
       "nom": "meteo.nc",
@@ -2988,11 +2823,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « hameçonnage ».",
     "warning": "Le procédé employé ici s'appelle « hameçonnage ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Se protéger de cette arnaque",
       "nom": "cybermalveillance.gouv.fr",
@@ -3084,11 +2914,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
     "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Endemia",
@@ -3174,11 +2999,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
     "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Le gouvernement de la Nouvelle-Calédonie",
@@ -3270,11 +3090,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « information recyclée ».",
     "warning": "Le procédé employé ici s'appelle « information recyclée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -3366,11 +3181,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « voix ou vidéo truquée ».",
     "warning": "Le procédé employé ici s'appelle « voix ou vidéo truquée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -3462,11 +3272,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « discours complotiste ».",
     "warning": "Le procédé employé ici s'appelle « discours complotiste ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le réseau de chercheurs COMPACT",
@@ -3544,11 +3349,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « détail modifié ».",
     "warning": "Le procédé employé ici s'appelle « détail modifié ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -3634,11 +3434,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « satire prise au sérieux ».",
     "warning": "Le procédé employé ici s'appelle « satire prise au sérieux ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le CLEMI",
@@ -3718,11 +3513,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « certitude ajoutée ».",
     "warning": "Le procédé employé ici s'appelle « certitude ajoutée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Endemia",
@@ -3813,11 +3603,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
     "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Le gouvernement de la Nouvelle-Calédonie",
@@ -3900,11 +3685,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
     "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -3996,11 +3776,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « cherry picking ».",
     "warning": "Le procédé employé ici s'appelle « cherry picking ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le réseau de chercheurs COMPACT",
@@ -4092,11 +3867,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « décontextualisation ».",
     "warning": "Le procédé employé ici s'appelle « décontextualisation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -4188,11 +3958,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « autorité inventée ».",
     "warning": "Le procédé employé ici s'appelle « autorité inventée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -4276,11 +4041,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « faux expert ».",
     "warning": "Le procédé employé ici s'appelle « faux expert ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -4352,11 +4112,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « compte piraté ».",
     "warning": "Le procédé employé ici s'appelle « compte piraté ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Se protéger de cette arnaque",
       "nom": "cybermalveillance.gouv.fr",
@@ -4427,11 +4182,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « placement miracle ».",
     "warning": "Le procédé employé ici s'appelle « placement miracle ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Se protéger de cette arnaque",
       "nom": "amf-france.org",
@@ -4509,11 +4259,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
     "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Le ministère de la Culture",
@@ -4585,11 +4330,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
     "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Endemia",
@@ -4681,11 +4421,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « discours complotiste ».",
     "warning": "Le procédé employé ici s'appelle « discours complotiste ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le réseau de chercheurs COMPACT",
@@ -4778,11 +4513,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « voix ou vidéo truquée ».",
     "warning": "Le procédé employé ici s'appelle « voix ou vidéo truquée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -4867,11 +4597,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « satire prise au sérieux ».",
     "warning": "Le procédé employé ici s'appelle « satire prise au sérieux ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le CLEMI",
@@ -4963,11 +4688,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « information recyclée ».",
     "warning": "Le procédé employé ici s'appelle « information recyclée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -5059,11 +4779,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « détail modifié ».",
     "warning": "Le procédé employé ici s'appelle « détail modifié ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -5141,11 +4856,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
     "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -5237,11 +4947,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « urgence artificielle ».",
     "warning": "Le procédé employé ici s'appelle « urgence artificielle ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -5333,11 +5038,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fabriqué pour le clic ».",
     "warning": "Le procédé employé ici s'appelle « fabriqué pour le clic ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -5429,11 +5129,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « décontextualisation ».",
     "warning": "Le procédé employé ici s'appelle « décontextualisation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -5517,11 +5212,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fausse corrélation ».",
     "warning": "Le procédé employé ici s'appelle « fausse corrélation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "la Fondation La main à la pâte",
@@ -5613,11 +5303,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « vérité par répétition ».",
     "warning": "Le procédé employé ici s'appelle « vérité par répétition ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "l’étude de Fazio et al., 2015",
@@ -5695,11 +5380,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « appel à la peur ».",
     "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -5777,11 +5457,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fausse cagnotte ».",
     "warning": "Le procédé employé ici s'appelle « fausse cagnotte ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Se protéger de cette arnaque",
       "nom": "cybermalveillance.gouv.fr",
@@ -5852,11 +5527,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « faux concours ».",
     "warning": "Le procédé employé ici s'appelle « faux concours ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Se protéger de cette arnaque",
       "nom": "cybermalveillance.gouv.fr",
@@ -5948,11 +5618,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
     "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Endemia",
@@ -6030,11 +5695,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « fait déformé ».",
     "warning": "Le procédé employé ici s'appelle « fait déformé ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "La vraie info",
       "nom": "Endemia",
@@ -6126,11 +5786,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « voix ou vidéo truquée ».",
     "warning": "Le procédé employé ici s'appelle « voix ou vidéo truquée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -6222,11 +5877,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « information recyclée ».",
     "warning": "Le procédé employé ici s'appelle « information recyclée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -6318,11 +5968,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « discours complotiste ».",
     "warning": "Le procédé employé ici s'appelle « discours complotiste ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le réseau de chercheurs COMPACT",
@@ -6400,11 +6045,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « détail modifié ».",
     "warning": "Le procédé employé ici s'appelle « détail modifié ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -6488,11 +6128,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « satire prise au sérieux ».",
     "warning": "Le procédé employé ici s'appelle « satire prise au sérieux ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le CLEMI",
@@ -6584,11 +6219,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « appel à la peur ».",
     "warning": "Le procédé employé ici s'appelle « appel à la peur ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -6680,11 +6310,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « vérité par répétition ».",
     "warning": "Le procédé employé ici s'appelle « vérité par répétition ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "l’étude de Fazio et al., 2015",
@@ -6776,11 +6401,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « décontextualisation ».",
     "warning": "Le procédé employé ici s'appelle « décontextualisation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -6872,11 +6492,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « biais de confirmation ».",
     "warning": "Le procédé employé ici s'appelle « biais de confirmation ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -6960,11 +6575,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « effet de halo ».",
     "warning": "Le procédé employé ici s'appelle « effet de halo ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -7050,11 +6660,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « certitude ajoutée ».",
     "warning": "Le procédé employé ici s'appelle « certitude ajoutée ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",
@@ -7138,11 +6743,6 @@
     ],
     "encouragement": "Bien vu : vous avez reconnu le procédé « manipulation statistique ».",
     "warning": "Le procédé employé ici s'appelle « manipulation statistique ». Il fonctionne d'autant mieux qu'on est pressé.",
-    "consequences": {
-      "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-      "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-      "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-    },
     "lienInfo": {
       "titre": "Ce procédé expliqué",
       "nom": "le ministère des Armées",

@@ -2,8 +2,6 @@
 import {
   AVIS_VRAI,
   CATEGORIES,
-  CONSEQUENCES_FAUX,
-  CONSEQUENCES_VRAI,
   CORRECTIONS_FAIT,
   HABILLAGES,
   HABILLAGE_MEDIA,
@@ -198,7 +196,6 @@ export function fabriquerVrai(fait, niveau, { maintenant = new Date().toISOStrin
     }),
     encouragement: 'Bon réflexe : une information sourcée, qu’on peut vérifier, se partage.',
     warning: 'Attention : cette information était vraie, et sa source se vérifie en une recherche.',
-    consequences: CONSEQUENCES_VRAI,
     lienInfo: { titre: 'La source de cette info', nom: LaSource(fait.source), url: fait.source.url },
   }
 }
@@ -246,7 +243,6 @@ export function fabriquerArticle(article, niveau, { maintenant = new Date().toIS
     }),
     encouragement: 'Bon réflexe : un média identifiable, un auteur nommé, une date et un lien.',
     warning: 'Attention : cet article venait d’un média identifiable, signé et daté.',
-    consequences: CONSEQUENCES_VRAI,
     lienInfo: { titre: 'L’article complet', nom: a.editeur, url: article.url },
   }
 }
@@ -385,7 +381,6 @@ export function fabriquerFaux(base, categorie, niveau, { maintenant = new Date()
     }),
     encouragement: `Bien vu : vous avez reconnu le procédé « ${categorie.biais.toLowerCase()} ».`,
     warning: `Le procédé employé ici s'appelle « ${categorie.biais.toLowerCase()} ». Il fonctionne d'autant mieux qu'on est pressé.`,
-    consequences: CONSEQUENCES_FAUX,
     lienInfo: fait
       ? { titre: 'La vraie info', nom: LaSource(fait.source), url: fait.source.url }
       : arnaque && categorie.aide

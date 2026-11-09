@@ -22,7 +22,7 @@ export default function AvatarPicker({ avatars = [], choisi, onChoisi }) {
   if (avatars.length === 0) return null
 
   function poser(avatar) {
-    noterAvatar(choisi === avatar.id ? null : avatar.id)
+    noterAvatar(avatar.id)
     onChoisi?.()
   }
 

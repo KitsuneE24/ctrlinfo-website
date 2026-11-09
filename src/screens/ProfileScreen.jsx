@@ -148,7 +148,7 @@ export default function ProfileScreen() {
           {galerie && (
             <AvatarPicker
               avatars={avatars ?? []}
-              choisi={etat.avatar}
+              choisi={avatar?.id}
               onChoisi={() => setGalerie(false)}
             />
           )}

@@ -165,11 +165,6 @@
           "explication": "« DIFFUSEZ IMMÉDIATEMENT » : on vous demande d'agir, pas de comprendre. Plus un contenu vous presse, plus il faut ralentir."
         }
       ],
-      "consequences": {
-        "share": "Vous avez encore partagé sous la pression de l'urgence. Prenez le temps de respirer avant d'agir sur un contenu qui vous crie dessus.",
-        "ignore": "Pas mal, mais ce type de contenu mérite un signalement pour éviter qu'il piège d'autres personnes.",
-        "report": "Parfait ! Vous reconnaissez maintenant le schéma de l'urgence artificielle."
-      },
       "encouragement": "Vous reconnaissez maintenant l'urgence artificielle !",
       "warning": "Plus un contenu vous crie dessus, plus il faut ralentir et vérifier.",
       "reactionCount": 8432,
@@ -212,11 +207,6 @@
           "explication": "Un blog personnel ne passe par aucune relecture. Cherchez l'auteur ailleurs : université, revue, institution."
         }
       ],
-      "consequences": {
-        "share": "Vous avez partagé le contenu d'un expert non vérifiable. Pensez à toujours chercher les publications d'un expert avant de lui faire confiance.",
-        "ignore": "Mieux vaut ne pas partager, mais ce type de faux expert mérite d'être signalé.",
-        "report": "Vous identifiez maintenant les faux experts. Un expert légitime peut toujours être vérifié dans des sources indépendantes."
-      },
       "encouragement": "Vous savez maintenant identifier les faux experts !",
       "warning": "Un vrai expert a des publications académiques vérifiables et une affiliation réelle.",
       "reactionCount": 5621,
@@ -259,11 +249,6 @@
           "explication": "Les guillemets trahissent : l'auteur lui-même ne garantit pas que ces experts existent."
         }
       ],
-      "consequences": {
-        "share": "La peur vous a eu(e) encore. Plus un contenu vous fait peur, plus il faut vérifier avant de partager.",
-        "ignore": "Bon réflexe. Signaler ce type de contenu le retire de la circulation.",
-        "report": "Vous reconnaissez maintenant l'appel à la peur. Bien joué !"
-      },
       "encouragement": "Vous reconnaissez maintenant l'appel à la peur !",
       "warning": "Plus un contenu vous fait peur, plus il faut vérifier avant de partager.",
       "reactionCount": 11234,
@@ -306,11 +291,6 @@
           "explication": "Cherchez ce qui pourrait expliquer les deux à la fois. Ici, la richesse : elle explique le chocolat et le bonheur déclaré."
         }
       ],
-      "consequences": {
-        "share": "Vous avez partagé une fausse corrélation. Rappelez-vous : deux choses liées ne signifient pas que l'une cause l'autre.",
-        "ignore": "Bon instinct, mais un signalement aurait protégé les autres.",
-        "report": "Bravo ! Vous identifiez maintenant les fausses corrélations."
-      },
       "encouragement": "Vous détectez maintenant les fausses corrélations !",
       "warning": "Corrélation ≠ causalité. Cherchez toujours le mécanisme qui expliquerait le lien.",
       "reactionCount": 9876,
@@ -353,11 +333,6 @@
           "explication": "Une méta-analyse rassemble toutes les études d'un sujet. C'est elle qu'il faut chercher, pas la plus favorable."
         }
       ],
-      "consequences": {
-        "share": "Vous avez partagé une information basée sur des données sélectionnées. Cherchez toujours des méta-analyses pour une image complète.",
-        "ignore": "Bon instinct. Un signalement aurait été plus efficace.",
-        "report": "Vous identifiez maintenant le cherry picking ! Les méta-analyses sont vos alliées."
-      },
       "encouragement": "Vous détectez maintenant le cherry picking !",
       "warning": "Cherchez des méta-analyses pour avoir une image complète des données.",
       "reactionCount": 6543,
@@ -400,11 +375,6 @@
           "explication": "Cherchez l'argument inverse. S'il n'existe nulle part dans l'article, ce n'est pas une information, c'est un miroir."
         }
       ],
-      "consequences": {
-        "share": "Vous avez partagé un contenu parce qu'il confirmait ce que vous pensiez. Essayez de chercher des sources qui challengent vos idées.",
-        "ignore": "Bon réflexe. Signaler ce type de contenu manipulatoire aide davantage.",
-        "report": "Vous identifiez maintenant le biais de confirmation. Bien joué !"
-      },
       "encouragement": "Vous identifiez maintenant le biais de confirmation !",
       "warning": "Méfiez-vous des contenus qui confirment toujours ce que vous pensez déjà.",
       "reactionCount": 7654,
@@ -447,11 +417,6 @@
           "explication": "Clic droit sur l'image, « rechercher cette image » : vous verrez sa première parution, sa date et son lieu."
         }
       ],
-      "consequences": {
-        "share": "Vous avez partagé une décontextualisation. Pensez à faire une recherche d'image inversée avant de partager des images choquantes.",
-        "ignore": "Bon réflexe. Dans le doute, ne pas partager est souvent la meilleure décision.",
-        "report": "Bien ! Vous identifiez la décontextualisation. La vérification d'image inversée est votre outil principal."
-      },
       "encouragement": "Vous identifiez la décontextualisation !",
       "warning": "La recherche d'image inversée est votre outil principal contre la décontextualisation.",
       "reactionCount": 23456,
@@ -494,11 +459,6 @@
           "explication": "Tapez son nom dans Google Scholar. Un chercheur qui publie y apparaît ; les autres, non."
         }
       ],
-      "consequences": {
-        "share": "Vous avez relayé l'opinion d'un expert non vérifiable. Expertise = vérifiable dans des sources indépendantes.",
-        "ignore": "Mieux vaut ne pas partager, mais signaler aurait protégé plus de personnes.",
-        "report": "Vous savez maintenant comment identifier les faux experts. Bien joué !"
-      },
       "encouragement": "Vous savez maintenant reconnaître les faux experts !",
       "warning": "Vérifiez toujours un expert sur Google Scholar ou le site de son institution.",
       "reactionCount": 4321,
@@ -541,11 +501,6 @@
           "explication": "Un chiffre exact peut soutenir une conclusion fausse. Demandez toujours : comparé à quoi, sur quelle période ?"
         }
       ],
-      "consequences": {
-        "share": "Vous avez partagé une manipulation statistique. Des vrais chiffres peuvent construire une fausse image selon comment ils sont présentés.",
-        "ignore": "Bon instinct. Signaler ce type de manipulation statistique aurait été encore mieux.",
-        "report": "Excellent ! La manipulation statistique est sophistiquée car elle utilise de vrais chiffres. Vous la détectez maintenant."
-      },
       "encouragement": "Vous détectez maintenant la manipulation statistique !",
       "warning": "Des vrais chiffres peuvent construire une image fausse selon comment ils sont présentés.",
       "reactionCount": 8765,
@@ -629,11 +584,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « certitude ajoutée ».",
       "warning": "Encore raté : relisez les indices, « certitude ajoutée » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -720,11 +670,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « information recyclée ».",
       "warning": "Encore raté : relisez les indices, « information recyclée » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -809,11 +754,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « détail modifié ».",
       "warning": "Encore raté : relisez les indices, « détail modifié » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -906,11 +846,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « fabriqué pour le clic ».",
       "warning": "Encore raté : relisez les indices, « fabriqué pour le clic » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -1003,11 +938,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « satire prise au sérieux ».",
       "warning": "Encore raté : relisez les indices, « satire prise au sérieux » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le CLEMI",
@@ -1092,11 +1022,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « voix ou vidéo truquée ».",
       "warning": "Encore raté : relisez les indices, « voix ou vidéo truquée » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -1189,11 +1114,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « effet de halo ».",
       "warning": "Encore raté : relisez les indices, « effet de halo » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le ministère des Armées",
@@ -1286,11 +1206,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « vérité par répétition ».",
       "warning": "Encore raté : relisez les indices, « vérité par répétition » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "l’étude de Fazio et al., 2015",
@@ -1383,11 +1298,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « discours complotiste ».",
       "warning": "Encore raté : relisez les indices, « discours complotiste » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Ce procédé expliqué",
         "nom": "le réseau de chercheurs COMPACT",
@@ -1466,11 +1376,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « faux concours ».",
       "warning": "Encore raté : relisez les indices, « faux concours » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -1554,11 +1459,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « fausse cagnotte ».",
       "warning": "Encore raté : relisez les indices, « fausse cagnotte » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -1630,11 +1530,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « hameçonnage ».",
       "warning": "Encore raté : relisez les indices, « hameçonnage » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -1712,11 +1607,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « offre trop belle ».",
       "warning": "Encore raté : relisez les indices, « offre trop belle » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -1794,11 +1684,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « placement miracle ».",
       "warning": "Encore raté : relisez les indices, « placement miracle » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "amf-france.org",
@@ -1870,11 +1755,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « fausse alerte ».",
       "warning": "Encore raté : relisez les indices, « fausse alerte » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "meteo.nc",
@@ -1946,11 +1826,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « compte piraté ».",
       "warning": "Encore raté : relisez les indices, « compte piraté » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "Se protéger de cette arnaque",
         "nom": "cybermalveillance.gouv.fr",
@@ -2028,11 +1903,6 @@
       ],
       "encouragement": "Bien vu : vous reconnaissez maintenant « fait déformé ».",
       "warning": "Encore raté : relisez les indices, « fait déformé » revient souvent.",
-      "consequences": {
-        "share": "Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.",
-        "ignore": "Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.",
-        "report": "Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez."
-      },
       "lienInfo": {
         "titre": "La vraie info",
         "nom": "L’UNESCO",

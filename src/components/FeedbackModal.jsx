@@ -2,11 +2,8 @@ import { useEffect, useState } from 'react'
 import {
   ArrowRight,
   ChevronLeft,
-  CircleCheck,
   ExternalLink,
   ScanSearch,
-  ShieldCheck,
-  TriangleAlert,
 } from 'lucide-react'
 import CadreCagou from './CadreCagou'
 import PostAnnotated, { ListeIndices } from './PostAnnotated'
@@ -87,20 +84,7 @@ function Tampon({ biais }) {
   return <span className="tampon">{biais}</span>
 }
 
-function Consequence({ post, action }) {
-  const texte = post.consequences?.[action]
-  if (!texte) return null
-  const alerte = post.isFake && action !== 'report'
-  const Icone = alerte ? TriangleAlert : post.isFake ? ShieldCheck : CircleCheck
-  return (
-    <p className={`verdict-cagou__consequence verdict-cagou__consequence--${alerte ? 'alerte' : 'calme'}`}>
-      <Icone size={18} strokeWidth={2.2} aria-hidden="true" />
-      {texte}
-    </p>
-  )
-}
-
-function Verdict({ post, action, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
+function Verdict({ post, isCorrect, aQuoiMontrer, onDismiss, onDetail }) {
   const voirIndices = aQuoiMontrer && !isCorrect
   const biais = post.biais && !post.biais.startsWith('Aucun') ? post.biais : null
 
@@ -131,7 +115,6 @@ function Verdict({ post, action, isCorrect, aQuoiMontrer, onDismiss, onDetail })
             {isCorrect ? 'Bien vu.' : 'À revoir.'}
           </h2>
           <p className="modal__text">{isCorrect ? post.encouragement : post.warning}</p>
-          <Consequence post={post} action={action} />
           <LienInfo post={post} compact />
 
           <div className="verdict-cagou__actions">
@@ -273,7 +256,6 @@ export default function FeedbackModal({
   ) : (
     <Verdict
       post={post}
-      action={action}
       isCorrect={isCorrect}
       aQuoiMontrer={aQuoiMontrer}
       onDismiss={onDismiss}

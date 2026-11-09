@@ -972,16 +972,3 @@ export const SOURCES_PROCEDES = {
   'Discours complotiste': COMPACT,
   'Cherry picking': COMPACT,
 }
-
-export const CONSEQUENCES_FAUX = {
-  share: 'Attention : en le partageant, vous le montrez à vos proches. D’autres personnes peuvent y croire.',
-  ignore: 'Il continue de circuler et d’autres peuvent y croire. Aidez votre prochain : signalez les fake news que vous voyez.',
-  report: 'Merci : en signalant, vous évitez que d’autres y croient. Faites-le chaque fois que vous en voyez.',
-}
-
-export const CONSEQUENCES_VRAI = {
-  share: 'Aucun impact négatif : l’info était vraie, vous n’avez rien fait circuler de faux.',
-  ignore: 'Aucun impact : l’info était vraie, aucune fake news n’a circulé.',
-  report: 'Aucune fake news ici : l’info était vraie. La signaler ne protège personne.',
-}
-

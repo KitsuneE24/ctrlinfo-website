@@ -164,42 +164,9 @@
       line-height: 1.4;
     }
 
-    .verdict-cagou__consequence {
-      padding: 8px 10px;
-      font-size: calc(13.5px * var(--echelle-texte, 1));
-    }
-
     .verdict-cagou__procede {
       font-size: calc(13px * var(--echelle-texte, 1));
     }
-  }
-
-  .verdict-cagou__consequence {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin: 0;
-    padding: 10px 12px;
-    border-left: 4px solid currentColor;
-    border-radius: 4px;
-    font-size: calc(14.5px * var(--echelle-texte, 1));
-    font-weight: 600;
-    line-height: 1.4;
-  }
-
-  .verdict-cagou__consequence > svg {
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .verdict-cagou__consequence--alerte {
-    background: color-mix(in srgb, var(--faux) 10%, var(--blanc));
-    color: var(--faux);
-  }
-
-  .verdict-cagou__consequence--calme {
-    background: color-mix(in srgb, var(--juste) 10%, var(--blanc));
-    color: color-mix(in srgb, var(--juste) 80%, #000);
   }
 
   @media (min-width: 768px) {

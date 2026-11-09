@@ -55,9 +55,7 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 - Boutons « J'aime » / « Partager » (= partager), « Ignorer » et « Signaler ».
   Laisser filer le chrono revient à ignorer. Ignorer n'est jamais la bonne
   réponse : un vrai se partage, un faux se signale.
-- Le verdict dit la conséquence du geste : rien de faux n'a circulé (vrai),
-  d'autres peuvent y croire (fake news partagée ou ignorée), merci d'avoir
-  signalé. On passe au post suivant avec le bouton « Continuer ».
+- On passe au post suivant avec le bouton « Continuer ».
 - Trois sortes de faux, dans chaque niveau :
   - **les pièges des Ressources** : urgence, autorité inventée, peur, faux
     expert, chiffre sans base, fausse corrélation, photo prise ailleurs, post

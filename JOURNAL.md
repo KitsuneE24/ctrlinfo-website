@@ -24,6 +24,7 @@ Le détail de chaque modification reste dans git : `git log --oneline`, ou
 
 | Date | Changement |
 | --- | --- |
+| 10/11 | Verdict sans bandeau de conséquence (il cachait le fond), textes `consequences` retirés des données et du générateur ; Profil : un avatar toujours sélectionné et entouré, bloc avatar + pseudo en verre dépoli ; Ressources : dossiers 02 et 03 aux couleurs de la charte (plus d'orange ni de vert) ; en-tête centré sur la largeur du contenu, léger dégradé violet ; mobile : avatar de la barre du bas à la taille des icônes, icônes alignées, brève « Le saviez-vous ? » plus large |
 | 01/11 | Ménage : données jamais affichées retirées (`ressources`, `categoriesRessources`, `learnMoreTips`, `sourceUrl`, `learnMoreUrl`, `etapes`, `aideUrl`, bloc `admin` de `config.json`), code mort et commentaires superflus retirés ; points retirés (calculés mais jamais affichés) ; code de l'admin absent du build quand elle n'est pas construite ; règle de l'adresse de l'admin partagée entre build et audit ; curseur de taille du texte rond ; SPEC : noms dans le code, protection de `main`, branches |
 
 ## Octobre 2026

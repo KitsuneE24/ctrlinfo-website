@@ -41,7 +41,7 @@ Messages et lit des fiches pour apprendre à vérifier une info.
 | `/fil` | Fil d'actualité | le jeu principal |
 | `/conversations` | Messages | un fil par contact, le joueur choisit ses réponses |
 | `/ressources` | Ressources | 10 dossiers sourcés, dont « Repérer une fake news », « Désinformer pour manipuler l'opinion » et « Les outils pour vérifier » |
-| `/profil` | Profil | statistiques, avatar, code de sauvegarde, compagnon |
+| `/profil` | Profil | statistiques, avatar (toujours un choisi, le premier par défaut), code de sauvegarde, compagnon |
 | `/mentions-legales` | Mentions légales | éditeur, hébergeur, données, accessibilité, propriété |
 
 **Fil d'actualité**
@@ -247,6 +247,10 @@ de guillemets imbriqués) et le générateur lui crée son post d'entraînement.
   numérotées A1, A2… et le fil rouge ne relie que les pièces d'une même
   partie. Si toutes les pièces d'une partie ont la même source, elle est citée
   une fois, en fin de partie.
+- **Couleur d'un dossier** (`couleur`) : seulement celles de la charte
+  (violet `#5c1a9e`, mauve `#8a4fbe`, magenta `#791561`, bleus `#1800ad` et
+  `#0d0080`), jamais d'orange ni de vert ; deux dossiers qui se suivent pas de la
+  même couleur.
 - Photos : avec `alt` et crédit, affiché sous la photo dans la correction
   seulement : **jamais dans le fil ni dans les mentions légales** (celles-ci
   disent seulement que les crédits sont dans la correction). `npm run verifier` refuse une photo sans crédit.

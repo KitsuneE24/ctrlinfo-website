@@ -11745,7 +11745,7 @@
     {
       "id": "manipulation",
       "icone": "Megaphone",
-      "couleur": "#9a3412",
+      "couleur": "#0d0080",
       "onglet": "Manipuler l’opinion",
       "titre": "Désinformer pour manipuler l’opinion",
       "resume": "Une fausse info n’est pas toujours une erreur. Désinformer, c’est tromper exprès, pour influencer ce que les gens pensent et ce qu’ils font.",
@@ -11942,7 +11942,7 @@
     {
       "id": "outils",
       "icone": "ScanSearch",
-      "couleur": "#14663f",
+      "couleur": "#8a4fbe",
       "onglet": "Les outils",
       "titre": "Les outils pour vérifier",
       "resume": "Où vérifier une info, une image ou un site, et où signaler une arnaque : des outils gratuits, à garder sous la main.",
